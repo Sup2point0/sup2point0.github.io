@@ -1,0 +1,185 @@
+/* internal */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+/* high-level */
+html {
+  --font-body: 'Abel', 'Segoe UI', system-ui, sans-serif;
+  --font-head: 'Montserrat', 'Segoe UI Semibold', 'Segoe UI', system-ui, sans-serif;
+
+  background-color: #000;
+}
+
+body {
+  font-family: var(--font-head);
+  color: #fff;
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: 1.5em;
+}
+
+h1 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 4.5em;
+}
+h2 {
+  font-family: var(--font-head);
+  font-weight: 550;
+  font-size: 2.5em;
+}
+h3 {
+  font-family: var(--font-head);
+  font-weight: 500;
+  font-size: 2.0em;
+}
+
+/* section */
+.back {
+  background-image: url('.assets/cortex-violet.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(10px) brightness(69%);
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  font-family: var(--font-head);
+}
+.sup {
+  height: 30em;
+  display: flex;
+  justify-content: center;
+}
+.icons {
+  width: 100%;
+  height: 8em;
+  display: flex;
+  justify-content: center;
+}
+
+.explore {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.row {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.link-box {
+  border-radius: 2em;
+  background-color: rgba(0, 0, 0, 0.69);
+  background-color: color-mix(in srgb, var(--blue-deep) 42%, transparent);
+  width: 30em;
+  height: 12em;
+  margin: 1em;
+  padding: 1% 1em;
+  color: #fff;
+  transition: 0.27s;
+}
+.link-box:hover {
+  background-color: color-mix(in srgb, var(--blue-deep) 40%, transparent);
+  outline: 1em solid #ffffff99;
+}
+
+.footer {
+  background-color: #00000069;
+  padding: 1em;
+  text-align: center;
+  color: var(--grey-nova);
+}
+
+/* property */
+::selection {
+  color: #fff;
+  background-color: var(--pink-nova);
+}
+
+a {
+  text-decoration: none;
+  color: var(--blue-cresc);
+  transition: color 0.1s linear;
+}
+a:hover {
+  color: var(--blue-elec);
+}
+a:visited {
+  color: var(--lilac-cresc);
+}
+a:visited:hover {
+  color: var(--lilac-nova);
+}
+
+.highlight {
+  color: var(--teal-lightning);
+}
+
+.anim {
+  animation-fill-mode: backwards;
+}
+.anim.pop {
+  animation-name: anim-pop;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+}
+@keyframes anim-pop {
+  0% {
+    opacity: 0;
+    transform: scale(2, 2);
+  }
+}
+
+.delay {
+  animation-delay: calc(var(--delay) * 1s);
+}
+
+/* specific */
+#portal {
+  z-index: 1;
+  animation: 0.42s ease-out anim-spin-portal;
+}
+@keyframes anim-spin-portal {
+  0% {
+    transform: rotate(360deg), scale(2, 2);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+#sup {
+  position: absolute;
+  top: 269px;
+  z-index: 2;
+}
+
+#aptitudes h3 a {color: var(--yellow-solar)}
+#qualities h3 a {color: var(--blue-nova)}
+#loves h3 a {color: var(--pink-elec)}
+#creations h3 a {color: var(--teal-elec)}
+#languages h3 a {color: var(--purp-nova)}
+#software h3 a {color: var(--blue-elec)}
+#achievements h3 a {color: var(--aqua-acc)}
+#hopes-and-dreams h3 a {color: var(--mellow-cresc)}

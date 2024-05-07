@@ -1,4 +1,10 @@
+html {
+  margin: 0;
+}
+
 .core {
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,6 +12,7 @@
 }
 
 .core p {
+  font-family: 'Abel', 'Segoe UI', system-ui, sans-serif;
   font-size: 1.69rem;
   color: white;
 }

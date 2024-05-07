@@ -1,0 +1,22 @@
+.core {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.core p {
+  font-size: 1.69rem;
+  color: white;
+}
+
+.core a {
+  text-decoration: none;
+  color: var(--teal-elec);
+}
+.core a:hover {
+  color: var(--pink-elec);
+}
+.core a:active {
+  color: var(--purp-nova);
+}

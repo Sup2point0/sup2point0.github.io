@@ -1,18 +1,14 @@
-/* internal */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
-
-/* high-level */
+/* CORE */
 html {
   --font-body: 'Abel', 'Segoe UI', system-ui, sans-serif;
   --font-head: 'Montserrat', 'Segoe UI Semibold', 'Segoe UI', system-ui, sans-serif;
 
-  background-color: var(--blue-night);
+  background-color: var(--blue-night, black);
 }
 
 body {
   font-family: var(--font-head);
-  color: #fff;
+  color: white;
 }
 
 p {

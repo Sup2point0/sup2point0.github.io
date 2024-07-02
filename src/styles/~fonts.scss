@@ -1,3 +1,11 @@
+@mixin font-head {
+  font-family: 'Shadows Into Light', system-ui, sans-serif;
+}
+
+@mixin font-body {
+  font-family: 'Shadows Into Light', system-ui, sans-serif;
+}
+
 @mixin font-fun {
   font-family: 'Shadows Into Light', system-ui, sans-serif;
 }

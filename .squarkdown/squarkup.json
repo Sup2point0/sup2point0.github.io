@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Sup2point0/stranger-quarkdown/main/squarkdown/resources/repo-config-schema.json",
+  
+  "repo": "Sup#2.0",
+  "source": "#content",
+  "dest": "src/routes",
+  "exclude": [
+    "stranger-quarkdown/",
+    "README"
+  ]
+}

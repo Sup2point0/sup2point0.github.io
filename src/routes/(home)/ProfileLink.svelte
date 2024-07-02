@@ -1,7 +1,8 @@
 <script lang="ts">
 
 export let id: string;
-export let text: string;
+export let title: string;
+export let desc: string;
 export let pict: string;
 export let link: string;
 
@@ -10,18 +11,20 @@ export let link: string;
 
 <div class="profile-link">
   <a target="_blank" href={link}>
-    <img {id} alt={text} src={pict}>
+    <img {id} alt={title} src={pict}>
   </a>
 
   <div class="dropdown">
-    <p> {text} </p>
+    <p class="title"> {title} </p>
+    <p class="desc"> {desc} </p>
   </div>
 </div>
 
 
 <style lang="scss">
 
-a {
+  
+  a {
   width: 100%;
   height: 100%;
   text-decoration: none;
@@ -32,20 +35,33 @@ img {
   height: 36px;
 }
 
+.profile-link {
+  margin: 0 0.5rem;
+}
+
 .dropdown {
+  position: absolute;
   display: none;
   background-color: $col-overlay;
 
+  @include trans-ease-out;
+
   .profile-link:where(:hover, :focus, :focus-within) & {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
-  p {
+  p.title {
+    @include font-tech;
+    font-size: 100%;
+  }
+
+  p.desc {
     @include font-tech;
     font-size: 80%;
+    color: $grey-nova;
   }
 }
 

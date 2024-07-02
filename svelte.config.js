@@ -32,6 +32,7 @@ const config = {
           @use './src/styles/~nova' as *;
           @use './src/styles/~variables' as *;
           @use './src/styles/~fonts' as *;
+          @use './src/styles/~anim' as *;
         `,
       }
     })

@@ -33,13 +33,17 @@ import ProfileLinks from "./ProfileLinks.svelte";
 #profile {
   max-width: 100vw;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: black;
+}
 
-  #sup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+#sup {
+  padding: 1rem 0 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   #purple-portal {
     width: 20vw;

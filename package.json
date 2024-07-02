@@ -4,8 +4,10 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview"
+    "devx": "npm run prep && vite dev",
+		"build": "npm run prep && vite build",
+		"preview": "vite preview",
+    "prep": "ruby stranger-quarkdown/squarkup"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^3.0.1",

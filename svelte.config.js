@@ -21,11 +21,6 @@ const config = {
       "#modules": "./src/modules/",
     },
     prerender: {
-      entries: [
-        "*",
-        "/issues",
-        "/issues/1",
-      ],
       handleHttpError: "warn",
     },
 	},
@@ -34,10 +29,10 @@ const config = {
     sveltePreprocess({
       scss: {
         prependData: `
-          @import './src/styles/nova';
-          @import './src/styles/variables';
-          @import './src/styles/fonts';
-          `,
+          @use './src/styles/~nova' as *;
+          @use './src/styles/~variables' as *;
+          @use './src/styles/~fonts' as *;
+        `,
       }
     })
   ]

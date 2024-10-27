@@ -4,13 +4,14 @@ import { base } from "$app/paths";
 import { browser } from "$app/environment";
 
 export let text: string;
-export let intern: string;
+export let link: string | undefined = undefined;
+export let intern: string | undefined = undefined;
 
 </script>
 
 
 <a class="part nav-link"
-  href="{base}/{intern}"
+  href={link || `${base}/${intern}`}
   class:active={browser && window?.location.href == `${base}/${intern}`}
 >
   {text}

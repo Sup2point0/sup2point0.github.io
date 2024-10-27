@@ -16,6 +16,7 @@ export let year: string = "";
   href="{base}/music/{shard}"
 >
   <img alt={name} title={name}
+    width="200px" height="200px"
     src="music/covers/{shard}/{shard}.png"
   />
 

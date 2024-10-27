@@ -1,6 +1,8 @@
 <!-- @component Track -->
 <script lang="ts">
 
+import Tags from "#parts/music/tags.svelte";
+
 import { base } from "$app/paths";
 
 export let preview: boolean = false;
@@ -23,7 +25,7 @@ export let file: string;
     <h4> {name} </h4>
     {#if year}
       <p> {year} </p>
-    </if}
+    {/if}
 
     <Tags {tags} />
   </div>
@@ -41,10 +43,11 @@ export let file: string;
   margin: 0.5rem 0;
   padding: 1rem 1.5rem;
   display: flex;
-  flex-direction: right;
+  flex-direction: row;
   justify-content: start;
   align-items: start;
   flex-wrap: wrap;
+  gap: 1rem;
   background-color: $col-card;
 
   transition: all 0.2s ease-out;
@@ -60,14 +63,15 @@ export let file: string;
 
 
 img {
-  width: 100%;
+  height: 100%;
   max-height: 20vh;
   aspect-ratio: 1;
 }
 
 h4 {
+  margin-bottom: 1em;
   @include font-flavour;
-  font-size: 110%;
+  font-size: 150%;
   color: white;
 }
 

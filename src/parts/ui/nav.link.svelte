@@ -23,6 +23,7 @@ export let intern: string | undefined = undefined;
 .part {
   min-width: 2rem;
   padding: 0.5em 1em;
+  position: relative;
   display: inline-block;
 
   @include font-ui;
@@ -32,13 +33,28 @@ export let intern: string | undefined = undefined;
 
   transition: background-color 0.2s ease-out;
 
-  &.hover {
-    color: $col-prot;
-    background-color: $col-card;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $col-prot;
+
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.16s ease-out;
   }
 
-  &:hover, &.active {
-    color: red;
+  &:hover, &:focus {
+    color: $col-prot;
+    background-color: $col-card;
+
+    &:after {
+      transform: scaleX(1);
+      transform-origin: center;
+    }
   }
 }
 

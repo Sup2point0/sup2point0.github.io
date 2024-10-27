@@ -13,7 +13,7 @@ export let year: string = "";
 
 <a class="part album-block"
   class:preview
-  href="{base}/music/{shard}"
+  href="{base}/sup/music/{shard}"
 >
   <img alt={name} title={name}
     width="200px" height="200px"
@@ -43,7 +43,7 @@ export let year: string = "";
     display: block;
   }
 
-  :not(.preview) {
+  &:not(.preview) {
     &:hover, &:focus {
       background-color: $col-card-hover;
 

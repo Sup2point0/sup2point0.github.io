@@ -30,9 +30,10 @@ export let tags: string[] = [];
 }
 
 .tag {
-  padding: 0.25em 0.5em;
+  padding: 0.2em 0.8em 0.4em;
   @include font-ui;
-  border-radius: 0.5em;
+  background-color: $col-prot;
+  border-radius: 0.8em;
 }
 
 </style>

@@ -23,10 +23,16 @@ const DAW = {
 
 .part {
   width: 100%;
+  margin-bottom: 2rem;
   padding: 1rem;
+  text-align: center;
   background-color: $col-card;
 }
 
+
+h4 {
+  @include font-flavour;
+}
 
 p.daw {
   text-align: right;

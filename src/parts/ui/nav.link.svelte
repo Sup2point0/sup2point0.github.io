@@ -21,7 +21,7 @@ export let intern: string | undefined = undefined;
 <style lang="scss">
 
 .part {
-  margin: 0 0.5rem;
+  min-width: 2rem;
   padding: 0.5em 1em;
   display: inline-block;
 

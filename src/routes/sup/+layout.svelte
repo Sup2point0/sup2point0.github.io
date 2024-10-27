@@ -1,13 +1,39 @@
 <script>
 
-import Nav from "#parts/ui/nav.svelte";
+import "#styles/essence.scss";
 
-import Background from "#parts/ui/back.svelte";
+import Nav from "#parts/ui/nav.svelte";
+import Back from "#parts/ui/back.svelte";
 
 </script>
 
 
-<Background style="scarlet" />
-<Nav />
+<Back style="scarlet" />
 
-<slot> Uh, something went wrong! </slot>
+<div id="page">
+  <Nav />
+
+  <main>
+    <slot> Uh, something went wrong! </slot>
+  </main>
+</div>
+
+
+<style lang="scss">
+
+#page {
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-color: $col-prot black;
+}
+
+main {
+  width: 100%;
+  max-width: max(80vw, 800px);
+}
+
+</style>

@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from "@sveltejs/adapter-static";
 import sveltePreprocess from "svelte-preprocess";
 
 
@@ -7,7 +7,7 @@ const config = {
 		adapter: adapter({
       pages: "build",
       assets: "build",
-      fallback: "error.html",
+      fallback: "404.html",
       precompress: false,
       strict: true,
     }),
@@ -18,7 +18,7 @@ const config = {
       "#src": "./src/",
       "#parts": "./src/parts/",
       "#styles": "./src/styles/",
-      "#modules": "./src/modules/",
+      "#scripts": "./src/scripts/",
     },
     prerender: {
       handleHttpError: "warn",
@@ -29,12 +29,9 @@ const config = {
     sveltePreprocess({
       scss: {
         prependData: `
-          @use './src/styles/~nova' as *;
-          @use './src/styles/~variables' as *;
-          @use './src/styles/~fonts' as *;
-          @use './src/styles/~anim' as *;
-        `,
-      }
+          @use './src/styles/globals.scss' as *;
+        `
+      },
     })
   ]
 };

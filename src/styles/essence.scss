@@ -1,4 +1,4 @@
-@use "#styles/~nova" as *;
+@use './src/styles/globals' as *;
 
 
 * {
@@ -9,4 +9,8 @@
 
 :root {
   font-size: 100%;
+}
+
+html {
+  background-color: black;
 }

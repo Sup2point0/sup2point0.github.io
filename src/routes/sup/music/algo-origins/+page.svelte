@@ -2,13 +2,14 @@
 
 import AlbumInfo from "#parts/music/album-info.svelte";
 import Track from "#parts/music/track-block.svelte";
+import Tags from "#parts/music/tags.svelte";
 
 </script>
 
 
 <AlbumInfo daw="gb">
   <h1> Algorhythm Origins </h1>
-  <Tags tags={["electronic", "rhythm"]}
+  <Tags tags={["electronic", "rhythm"]} />
 </AlbumInfo>
 
 <Track

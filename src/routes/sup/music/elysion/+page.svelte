@@ -2,6 +2,7 @@
 
 import AlbumInfo from "#parts/music/album-info.svelte";
 import Track from "#parts/music/track-block.svelte";
+import Tags from "#parts/music/tags.svelte";
 
 </script>
 

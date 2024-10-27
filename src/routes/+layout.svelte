@@ -6,7 +6,9 @@ import "#styles/essence.scss";
 
 
 <div id="page">
-  <slot> Uh, something has gone really, really wrong! </slot>
+  <main>
+    <slot> Uh, something has gone really, really wrong! </slot>
+  </main>
 </div>
 
 
@@ -16,6 +18,11 @@ import "#styles/essence.scss";
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+main {
+  width: 100%;
+  max-width: max(80vw, 800px);
 }
 
 </style>

@@ -5,6 +5,4 @@ import "#styles/essence.scss";
 </script>
 
 
-<slot>
-  <p> Uh, something went wrong! </p>
-</slot>
+<slot> Uh, something has gone really, really wrong! </slot>

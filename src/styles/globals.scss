@@ -1,0 +1,7 @@
+$col-prot: oklch(#ff0090);
+
+
+@mixin font-ui {
+  font-family: "Abel", "Segoe UI", system-ui, sans-serif;
+  font-size: 100%;
+}

@@ -1,6 +1,7 @@
 <script>
 
 import "#styles/essence.scss";
+import "#styles/page.scss";
 
 import Nav from "#parts/ui/nav.svelte";
 import Back from "#parts/ui/back.svelte";
@@ -22,6 +23,7 @@ import Back from "#parts/ui/back.svelte";
 <style lang="scss">
 
 #page {
+  min-height: 100vh;
   max-height: 100vh;
   display: flex;
   flex-direction: column;

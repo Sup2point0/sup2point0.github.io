@@ -47,6 +47,10 @@ export let intern: string | undefined = undefined;
     transition: transform 0.16s ease-out;
   }
 
+  &.active {
+    color: $col-prot;
+  }
+
   &:hover, &:focus {
     color: $col-prot;
     background-color: $col-card;

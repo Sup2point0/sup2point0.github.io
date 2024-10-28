@@ -7,10 +7,8 @@ $col-card-hover: rgb(black, 80%);
 
 @mixin font-ui {
   font-family: 'Abel', 'Segoe UI', system-ui, sans-serif;
-  font-size: 100%;
 }
 
 @mixin font-flavour {
   font-family: 'Overpass', 'Segoe UI', system-ui, sans-serif;
-  font-size: 100%;
 }

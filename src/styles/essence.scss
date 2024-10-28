@@ -8,7 +8,6 @@
 }
 
 :root {
-  font-size: 100%;
   color: white;
 }
 
@@ -16,4 +15,15 @@ html {
   background-color: black;
   overflow-x: hidden;
   overflow-y: hidden;
+}
+
+
+::selection {
+  color: white !important;
+  background-color: $col-prot !important;
+}
+
+
+.word {
+  font-size: 2rem;
 }

@@ -1,4 +1,4 @@
-<!-- @component Background -->
+<!-- @component Back -->
 <script lang="ts">
 
 export let style: "violet" | "scarlet" = "scarlet";
@@ -7,6 +7,7 @@ export let style: "violet" | "scarlet" = "scarlet";
 
 
 <img class="part back"
+  alt="cortex-{style}"
   src="/ui/cortex-{style}-vert.jpg"
 />
 

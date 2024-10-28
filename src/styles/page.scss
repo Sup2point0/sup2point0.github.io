@@ -1,0 +1,8 @@
+@use './src/styles/globals' as *;
+
+
+h2 {
+  margin: 0 0.5em 0.25em;
+  @include font-flavour;
+  font-size: 3rem;
+}

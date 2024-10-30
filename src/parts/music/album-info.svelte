@@ -30,7 +30,7 @@ const DAW = {
 }
 
 
-h4 {
+:global(h2) {
   @include font-flavour;
 }
 

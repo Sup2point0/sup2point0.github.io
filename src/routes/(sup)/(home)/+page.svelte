@@ -3,7 +3,7 @@
 import Nav from "#parts/ui/nav.svelte";
 import Words from "#parts/words.svelte";
 
-import Profile from "./Profile.svelte";
+import Profile from "../Profile.svelte";
 
 </script>
 

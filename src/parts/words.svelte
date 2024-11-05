@@ -30,6 +30,7 @@ const worded = words.entries().map(data => (
 span {
   @include font-ui;
   color: rgb(white, 80%);
+  font-size: 2rem;
   opacity: 25%;
 
   transition: color 0.2s ease-out, opacity 0.2s ease-out;

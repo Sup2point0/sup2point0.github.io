@@ -18,12 +18,12 @@ import Profile from "./Profile.svelte";
 
   <Nav />
 
-  <section class="left">
+  <section class="left anim">
     <h2> You could call me a </h2>
     <div class="words">
       <Words words={[
-        "Python", "C#", "Ruby",
-        "HTML", "CSS", "SCSS", "JavaScript", "TypeScript",
+        "nerd", "creator", "artist", "dreamer", "ambivert", "jack-of-all-knives",
+        "programmer", "developer", "musician", "gamer", "mathematician", "chemist", "logician"
       ]} />
     </div>
   </section>
@@ -34,7 +34,7 @@ import Profile from "./Profile.svelte";
   
 main {
   width: 100%;
-  max-width: max(90vw, 800px);
+  max-width: max(80vw, 800px);
   flex-grow: 1;
   display: flex;
   flex-direction: column;

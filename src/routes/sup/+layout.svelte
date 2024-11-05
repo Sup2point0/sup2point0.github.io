@@ -30,6 +30,7 @@ import Footer from "#parts/ui/footer.svelte";
   max-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: stretch;
   align-items: center;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -39,6 +40,7 @@ import Footer from "#parts/ui/footer.svelte";
 main {
   width: 100%;
   max-width: max(80vw, 800px);
+  flex-grow: 1;
 }
 
 </style>

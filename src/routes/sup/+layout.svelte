@@ -3,8 +3,9 @@
 import "#styles/essence.scss";
 import "#styles/page.scss";
 
-import Nav from "#parts/ui/nav.svelte";
 import Back from "#parts/ui/back.svelte";
+import Nav from "#parts/ui/nav.svelte";
+import Footer from "#parts/ui/footer.svelte";
 
 </script>
 
@@ -17,6 +18,8 @@ import Back from "#parts/ui/back.svelte";
   <main>
     <slot> Uh, something went wrong! </slot>
   </main>
+
+  <Footer />
 </div>
 
 

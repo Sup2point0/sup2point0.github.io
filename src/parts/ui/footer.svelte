@@ -2,7 +2,13 @@
 
 <footer>
   <p> crafted with ❤️ by Sup#2.0 </p>
+  
+  <p> &middot; </p>
+
   <p> built with <a target="_blank" href="https://svelte.dev">Svelte 5</a> + <a target="_blank" href="https://svelte.dev/docs/kit/introduction">SvelteKit</a> </p>
+  
+  <p> &middot; </p>
+  
   <p> hosted on <a target="_blank" href="https://pages.github.com/">GitHub Pages</a> </p>
 </footer>
 
@@ -24,6 +30,7 @@ footer {
 
 p {
   @include font-flavour;
+  color: rgb(white, 50%);
 }
 
 </style>

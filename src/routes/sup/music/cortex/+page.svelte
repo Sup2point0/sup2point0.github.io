@@ -9,7 +9,7 @@ import Tags from "#parts/music/tags.svelte";
 
 <AlbumInfo daw="gb">
   <h1> Cortex </h1>
-  <Tags tags={["electronic", "rhythm", "techy"]}
+  <Tags tags={["electronic", "rhythm", "techy"]} />
 </AlbumInfo>
 
 <Track

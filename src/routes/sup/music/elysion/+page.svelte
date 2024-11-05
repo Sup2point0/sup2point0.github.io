@@ -9,7 +9,7 @@ import Tags from "#parts/music/tags.svelte";
 
 <AlbumInfo daw="gb">
   <h1> ELYSION </h1>
-  <Tags tags={["electronic", "rhythm", "experimental"]}
+  <Tags tags={["electronic", "rhythm", "experimental"]} />
 </AlbumInfo>
 
 <Track

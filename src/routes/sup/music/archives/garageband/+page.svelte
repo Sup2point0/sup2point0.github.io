@@ -9,7 +9,7 @@ import Tags from "#parts/music/tags.svelte";
 
 <AlbumInfo daw="gb">
   <h1> GarageBand Archives </h1>
-  <Tags tags={["electronic"]}
+  <Tags tags={["electronic"]} />
 </AlbumInfo>
 
 <Track

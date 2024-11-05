@@ -9,7 +9,7 @@ import Tags from "#parts/music/tags.svelte";
 
 <AlbumInfo daw="gb">
   <h1> Algorhythm Vision </h1>
-  <Tags tags={["electronic", "rhythm"]}
+  <Tags tags={["electronic", "rhythm"]} />
 </AlbumInfo>
 
 <Track

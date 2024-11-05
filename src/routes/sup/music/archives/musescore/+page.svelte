@@ -9,7 +9,7 @@ import Tags from "#parts/music/tags.svelte";
 
 <AlbumInfo daw="ms">
   <h1> MuseScore Archives </h1>
-  <Tags tags={["orchestral", "film"]}
+  <Tags tags={["orchestral", "film"]} />
 </AlbumInfo>
 
 <Track

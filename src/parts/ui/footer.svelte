@@ -19,7 +19,7 @@
 
 
 footer {
-  margin: 1rem;
+  margin: 2rem;
   padding: 0.5em;
   display: flex;
   flex-direction: row;

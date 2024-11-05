@@ -61,12 +61,12 @@ export let year: string = "";
 
 img {
   max-width: 25vw;
-  aspect-raio: 1;
+  aspect-ratio: 1;
   transition: transform 0.12s ease-out;
 }
 
 h4 {
-  @include font-flavour;
+  @include font-ui;
   font-size: 110%;
   color: white;
 }

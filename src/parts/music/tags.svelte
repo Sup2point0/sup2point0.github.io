@@ -6,7 +6,7 @@ export let tags: string[] = [];
 </script>
 
 
-<div class="part tags">
+<div class="tags">
   {#each tags as tag}
     <span class="tag"> {tag} </span>
   {/each}
@@ -15,7 +15,7 @@ export let tags: string[] = [];
 
 <style lang="scss">
 
-.part {
+.tags {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -23,10 +23,6 @@ export let tags: string[] = [];
   align-items: start;
   flex-wrap: wrap;
   gap: 0.5rem;
-
-  &:hover {
-
-  }
 }
 
 .tag {
@@ -34,6 +30,12 @@ export let tags: string[] = [];
   @include font-ui;
   background-color: $col-prot;
   border-radius: 0.8em;
+
+  transition: background-color 0.16s ease-out;
+
+  &:hover {
+    background-color: #ee0080;
+  }
 }
 
 </style>

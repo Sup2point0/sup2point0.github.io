@@ -72,7 +72,7 @@ img {
 
 h4 {
   margin-bottom: 1em;
-  @include font-flavour;
+  @include font-ui;
   font-size: 150%;
   color: white;
 }

@@ -28,7 +28,7 @@ const worded = words.entries().map(data => (
 <style lang="scss">
 
 span {
-  @include font-flavour;
+  @include font-ui;
   color: rgb(white, 80%);
   opacity: 25%;
 

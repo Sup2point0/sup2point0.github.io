@@ -36,7 +36,7 @@ import NavLink from "#parts/ui/nav.link.svelte";
 <style lang="scss">
 
 nav {
-  width: 100vw;
+  width: 100%;
   margin: 1rem auto;
   display: flex;
   flex-direction: row;

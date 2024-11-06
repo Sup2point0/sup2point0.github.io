@@ -18,6 +18,7 @@ export let file: string;
 
 <div class="part track-block"
   class:preview
+  class:fav
 >
   <img alt={name} title={name}
     src="/music/covers/{album}/{shard}.png"
@@ -33,7 +34,7 @@ export let file: string;
   </div>
 
   {#if file}
-    <audio src="music/tracks/{album}/{file}" />
+    <audio src="music/tracks/{album}/{file}"></audio>
   {/if}
 </div>
 

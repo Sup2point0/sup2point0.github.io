@@ -20,6 +20,12 @@ import { base } from "$app/paths";
   <div id="bio">
     <p> An avid portal with way too much in their neural cortex. </p>
   </div>
+
+  <section id="intro">
+    <p> sup, I’m Sup o/ </p>
+    <br>
+    <p> Capturing the essence of me in a short bio is a hopelessly nontrivial NP-hard problem, so I’ll leave you to explore ^v^ </p>
+  </section>
 </div>
 
 
@@ -29,13 +35,13 @@ import { base } from "$app/paths";
   margin-bottom: 1rem;
 }
 
-#sup {
+section#sup {
   margin-bottom: -3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  #purple-portal {
+  img#purple-portal {
     width: max(400px, 20vw);
 
     animation-name: spinny;
@@ -49,7 +55,7 @@ import { base } from "$app/paths";
     }
   }
 
-  #sup2point0 {
+  img#sup2point0 {
     width: 42vw;
     position: relative;
     top: -5rem;
@@ -62,9 +68,16 @@ import { base } from "$app/paths";
   }
 }
 
-#bio {
+div#bio {
   @include font-flavour;
   text-align: center;
+}
+
+section#intro {
+  padding: 1rem;
+  @include font-ui;
+  background-color: $col-card;
+  border-radius: 1rem;
 }
   
 </style>

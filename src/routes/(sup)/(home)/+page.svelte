@@ -1,9 +1,10 @@
 <script>
 
 import Nav from "#parts/ui/nav.svelte";
-import Words from "#parts/words.svelte";
+import Footer from "#parts/ui/footer.svelte";
 
-import Profile from "../Profile.svelte";
+import Profile from "./profile.core.svelte";
+import ProfileWords from "./profile.words.svelte";
 
 </script>
 
@@ -11,22 +12,13 @@ import Profile from "../Profile.svelte";
 <main>
   <Profile />
 
-  <section id="intro">
-    <p> sup, I’m Sup o/ </p>
-    <p> Capturing the essence of me in a short bio is a hopelessly nontrivial NP-hard problem, so I’ll leave you to explore ^v^ </p>
-  </section>
-
   <Nav />
 
-  <section class="left anim">
-    <h2> You could call me a </h2>
-    <div class="words">
-      <Words words={[
-        "nerd", "creator", "artist", "dreamer", "ambivert", "jack-of-all-knives",
-        "programmer", "developer", "musician", "gamer", "mathematician", "chemist", "logician"
-      ]} />
-    </div>
-  </section>
+  <ProfileWords />
+
+  <div style:padding="2rem"></div>
+
+  <Footer />
 </main>
 
 
@@ -39,15 +31,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-
-.words {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  flex-wrap: wrap;
-  gap: 1rem;
 }
 
 </style>

@@ -19,7 +19,7 @@ import Footer from "#parts/ui/footer.svelte";
 
 main {
   width: 100%;
-  max-width: max(80vw, 800px);
+  max-width: 80vw;
   flex-grow: 1;
 }
 

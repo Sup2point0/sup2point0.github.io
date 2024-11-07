@@ -19,7 +19,7 @@
 
 
 footer {
-  margin: 2rem;
+  margin: 4rem 0;
   padding: 0.5em;
   display: flex;
   flex-direction: row;
@@ -30,6 +30,7 @@ footer {
 
 p {
   @include font-flavour;
+  font-size: 125%;
   color: rgb(white, 50%);
 }
 

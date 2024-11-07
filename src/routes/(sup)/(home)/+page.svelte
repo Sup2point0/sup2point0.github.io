@@ -26,7 +26,7 @@ import ProfileWords from "./profile.words.svelte";
   
 main {
   width: 100%;
-  max-width: max(80vw, 800px);
+  max-width: 80vw;
   flex-grow: 1;
   display: flex;
   flex-direction: column;

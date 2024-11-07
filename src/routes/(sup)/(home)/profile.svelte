@@ -69,7 +69,9 @@ section#sup {
 }
 
 div#bio {
+  margin-bottom: 2rem;
   @include font-flavour;
+  font-size: 150%;
   text-align: center;
 }
 

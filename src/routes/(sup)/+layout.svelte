@@ -1,7 +1,6 @@
 <script>
 
 import "#styles/essence.scss";
-import "#styles/page.scss";
 
 import Back from "#parts/ui/back.svelte";
 

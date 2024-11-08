@@ -2,6 +2,8 @@
  * Exports the `search_data` reactive object for storing search data.
  */
 
+import type { Project } from "./projects";
+
 
 export class SearchData
 {
@@ -22,6 +24,12 @@ export class SearchData
     null |
     "svelte" | "svelte-kit" | "unity"
   = $state(null);
+
+
+  apply(projects: Project[]): Project[]
+  {
+    return projects;
+  }
 }
 
 

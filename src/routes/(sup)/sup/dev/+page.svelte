@@ -53,9 +53,6 @@ import Words from "#parts/words.svelte";
 
 section {
   margin-bottom: 4rem;
-
-  &.left { text-align: left; }
-  &.right { text-align: right; }
 }
 
 .words {

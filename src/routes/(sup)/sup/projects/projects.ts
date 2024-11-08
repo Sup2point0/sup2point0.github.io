@@ -1,5 +1,15 @@
-export const projects = [
+export interface Project
+{
+  title: string;
+  rank: number;
+  desc: string;
+  link?: string;
+  tags: string[];
+  flags?: string[];
+}
 
+
+export const projects: Project[] = [
   { "title": "Assort",
     "rank": 1,
     "desc": "An assortment of all my creations. Like a personal wiki!",

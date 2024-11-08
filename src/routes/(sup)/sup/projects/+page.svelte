@@ -1,16 +1,11 @@
 <script lang="ts">
 
-import Synopsis from "#parts/synopsis.svelte";
 import ContentCard from "#parts/content-card.svelte";
-
-import { base } from "$app/paths";
 
 </script>
 
 
-<Synopsis>
-  <p> I’ve created way too many projects to list all of them in one place – but here’s a selection of my favourites for you to explore ^v^ </p>
-</Synopsis>
+<p> I’ve created way too many projects to list all of them in one place – but here’s a selection of my favourites for you to explore ^v^ </p>
 
 
 <ContentCard title="Assort"
@@ -51,9 +46,5 @@ import { base } from "$app/paths";
 
 
 <style lang="scss">
-
-h3 {
-
-}
 
 </style>

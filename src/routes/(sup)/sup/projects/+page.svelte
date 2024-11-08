@@ -1,48 +1,31 @@
 <script lang="ts">
 
+import { projects } from "./projects";
+import { search_data } from "./search-data.svelte.ts";
+
 import ContentCard from "#parts/content-card.svelte";
+import Search from "./search.projects.svelte";
+
+import { base } from "$app/paths";
+
+
+let filtered = $derived(search_data.apply(projects));
 
 </script>
 
 
 <p> I’ve created way too many projects to list all of them in one place – but here’s a selection of my favourites for you to explore ^v^ </p>
 
+<Search />
 
-<ContentCard title="Assort"
-  icon=""
-  link="https://sup2point0.github.io/Assort"
->
-  <p class="caption">
-    An assortment of all my creations!
-  </p>
-</ContentCard>
-
-<ContentCard title="Antarctica"
-  icon=""
-  link="https://sup2point0.github.io/Antarctica"
->
-  <p class="caption">
-    A fictional reimagining of the coolest place on Earth.
-  </p>
-</ContentCard>
-
-<ContentCard title="supcode"
-  icon=""
-  link="https://sup2point0.github.io/supcode"
->
-  <p class="caption">
-    A syntactically delicious conceptual programming language!
-  </p>
-</ContentCard>
-
-<ContentCard title="Victory!"
-  icon=""
-  link="https://sup2point0.github.io/Victory"
->
-  <p class="caption">
-    A card game inspired by <em>Yu-Gi-Oh!</em>
-  </p>
-</ContentCard>
+{#each filtered ?? [] as project}
+ <ContentCard
+   title={project.title}
+   pict="{base}/projects/{project.cover}.png"
+ >
+   {project.desc}
+ </ContentCard>
+{/each}
 
 
 <style lang="scss">

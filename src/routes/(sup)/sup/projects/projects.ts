@@ -3,18 +3,21 @@ export const projects = [
   { "title": "Assort",
     "rank": 1,
     "desc": "An assortment of all my creations. Like a personal wiki!",
+    "link": "https://sup2point0.github.io/Assort",
     "tags": ["Markdown", "Svelte", "SvelteKit"],
     "flags": ["personal, dev"]
   },
   { "title": "supcode",
     "rank": 2,
-    "desc": "A conceptual programming language with flavourful syntax",
+    "desc": "A syntactically delicious conceptual programming language!",
+    "link": "https://sup2point0.github.io/supcode",
     "tags": ["Markdown", "supcode"],
     "flags": ["personal"]
   },
   { "title": "Antarctica",
     "rank": 2,
     "desc": "A fictional reimaging of the coolest place on Earth.",
+    "link": "https://sup2point0.github.io/Antarctica",
     "tags": ["Markdown"],
     "flags": ["personal"]
   },
@@ -80,7 +83,7 @@ export const projects = [
   },
   { "title": "Ignis",
     "rank": -2,
-    "desc": "A series of projects relating to Yu-Gi-Oh",
+    "desc": "A series of projects relating to <em>Yu-Gi-Oh</em>",
     "tags": ["Python", "Keras"],
     "flags": ["dev, depr"]
   },

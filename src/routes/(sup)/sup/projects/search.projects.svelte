@@ -2,7 +2,7 @@
 
 <script lang="ts">
 
-import { search_data } from "./search.projects";
+import { search_data } from "./search-data.svelte.ts";
 
 </script>
 

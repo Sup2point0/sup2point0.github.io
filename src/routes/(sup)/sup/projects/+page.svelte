@@ -19,12 +19,12 @@ let filtered = $derived(search_data.apply(projects));
 <Search />
 
 {#each filtered ?? [] as project}
- <ContentCard
-   title={project.title}
-   pict="{base}/projects/{project.cover}.png"
- >
-   {project.desc}
- </ContentCard>
+  <ContentCard
+    title={project.title}
+    body={project.desc}
+    pict="{base}/projects/{project.cover}"
+    extern={project.link}
+  />
 {/each}
 
 

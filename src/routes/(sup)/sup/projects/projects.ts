@@ -4,6 +4,7 @@ export interface Project
   rank: number;
   desc: string;
   link?: string;
+  cover?: string;
   tags: string[];
   flags?: string[];
 }
@@ -14,6 +15,7 @@ export const projects: Project[] = [
     "rank": 1,
     "desc": "An assortment of all my creations. Like a personal wiki!",
     "link": "https://sup2point0.github.io/Assort",
+    "cover": "assort.png",
     "tags": ["Markdown", "Svelte", "SvelteKit"],
     "flags": ["personal, dev"]
   },

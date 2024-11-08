@@ -92,7 +92,7 @@ export const projects = [
   },
   { "title": "Quarkdown",
     "rank": -3,
-    "desc": "An automated content deployment framework for exporting "Markdown" files in repositories to GitHub Pages",
+    "desc": "An automated content deployment framework for exporting Markdown files in repositories to GitHub Pages",
     "tags": ["Python"],
     "flags": ["dev, depr"]
   },

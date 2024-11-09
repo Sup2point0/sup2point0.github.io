@@ -60,7 +60,6 @@ export let flags: string[] = [];
   &:hover {
     background: $col-card-hover;
     box-shadow: 0 0 10px $col-prot;
-    // box-shadow: 0 0 10px color-mix(in oklch, $col-prot, transparent 60%);
 
     span.material-symbols-rounded {
       color: $col-prot;
@@ -68,8 +67,10 @@ export let flags: string[] = [];
   }
 
   &.dev:hover {
-    box-shadow: 0 0 10px $col-deut;
-    // box-shadow: 0 0 10px color-mix(in oklch, $col-deut, transparent 60%);
+    box-shadow: 0 0 12px $col-deut;
+  }
+  &.depr:hover {
+    box-shadow: 0 0 12px $col-trit;
   }
 }
 

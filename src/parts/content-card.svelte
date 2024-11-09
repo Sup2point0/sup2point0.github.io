@@ -30,6 +30,12 @@ export let side: "left" | "right" = "left";
       <h3> {title} </h3>
       <p> {@html body} </p>
     </div>
+
+    {#if extern || link}
+      <span class="material-symbols-rounded">
+        open_in_new
+      </span>
+    {/if}
   </div>
 </a>
 
@@ -56,12 +62,14 @@ export let side: "left" | "right" = "left";
 
 .content-inner {
   display: flex;
+  flex-direction: row;
 }
 
 img.project-icon {
   min-width: 100px;
   max-width: 20vw;
   aspect-ratio: 1;
+  margin: 0 1rem;
 }
 
 .content-text {

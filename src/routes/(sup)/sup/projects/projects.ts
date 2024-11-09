@@ -100,12 +100,16 @@ export const projects: Project[] = [
   { "title": "Ignis",
     "rank": -2,
     "desc": "A series of projects relating to <em>Yu-Gi-Oh</em>",
+    "link": "https://github.com/Sup2point0/ignis",
+    "cover": "ai.jpg",
     "tags": ["Python", "Keras"],
     "flags": ["dev, depr"]
   },
   { "title": "PENGUIN",
     "rank": -1,
-    "desc": "",
+    "desc": "Playful & Energetic New General Utility & Information Network Bot, the masbot ADE of Antarctica.",
+    "link": "https://github.com/Sup2point0/PENGUIN",
+    "cover": "penguin.png",
     "tags": ["Python", "Nextcord"],
     "flags": ["dev, depr"]
   },

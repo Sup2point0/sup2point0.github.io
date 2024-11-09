@@ -15,7 +15,7 @@ export const projects: Project[] = [
     "rank": 1,
     "desc": "An assortment of all my creations. Like a personal wiki!",
     "link": "https://sup2point0.github.io/Assort",
-    "cover": "assort.png",
+    "cover": "assort.svg",
     "tags": ["Markdown", "Svelte", "SvelteKit"],
     "flags": ["personal, dev"]
   },
@@ -30,6 +30,7 @@ export const projects: Project[] = [
     "rank": 2,
     "desc": "A fictional reimaging of the coolest place on Earth.",
     "link": "https://sup2point0.github.io/Antarctica",
+    "cover": "antarctica.png",
     "tags": ["Markdown"],
     "flags": ["personal"]
   },
@@ -48,6 +49,7 @@ export const projects: Project[] = [
   { "title": "Avidity",
     "rank": 2,
     "desc": "A web-based music player for personal use",
+    "link": "https://sup2point0.github.io/avidity",
     "tags": ["Svelte", "SvelteKit"],
     "flags": ["dev, active"]
   },
@@ -60,6 +62,7 @@ export const projects: Project[] = [
   { "title": "pyco:bytes",
     "rank": 2,
     "desc": "A weekly newsletter on Python tips and tricks",
+    "link": "https://sup2point0.github.io/pycobytes",
     "tags": ["Markdown", "Svelte", "SvelteKit"],
     "flags": ["dev"]
   },
@@ -72,6 +75,7 @@ export const projects: Project[] = [
   { "title": "WeightedList",
     "rank": 3,
     "desc": "A specialised list for weighted randomisation, implemented in every language as I know. I now use it as an exercise when learning new ones!",
+    "link": "https://github.com/Sup2point0/weighted-list",
     "tags": ["Python", "C#", "JavaScript", "Ruby"],
     "flags": ["dev"]
   },

@@ -8,17 +8,17 @@ export let pict: string | undefined = undefined;
 export let link: string | undefined = undefined;
   export let intern: string | undefined = undefined;
   export let extern: string | undefined = undefined;
-export let side: "left" | "right" = "left";
+export let flags: string[] = [];
 
 </script>
 
 
-<a class="content-card {side}"
+<a class="content-card {flags.join(" ")}"
   target={extern ? "_blank" : "_self"}
   href={extern ?? link ?? `${base}/${intern}`}
 >
   <div class="content-inner"
-    style:flex-direction={side == "right" ? "row-reverse" : "row"}
+    style:flex-direction={flags.includes("right") ? "row-reverse" : "row"}
   >
     {#if pict}
       <img class="project-icon"
@@ -30,13 +30,13 @@ export let side: "left" | "right" = "left";
       <h3> {title} </h3>
       <p> {@html body} </p>
     </div>
-
-    {#if extern || link}
-      <span class="material-symbols-rounded">
-        open_in_new
-      </span>
-    {/if}
   </div>
+  
+  {#if extern || link}
+    <span class="material-symbols-rounded">
+      open_in_new
+    </span>
+  {/if}
 </a>
 
 
@@ -45,29 +45,44 @@ export let side: "left" | "right" = "left";
 .content-card {
   margin: 1rem 0;
   padding: 1rem;
-  display: block;
+  display: flex;
   color: white;
   text-decoration: none;
-  background: $col-card;
+  background-color: $col-card;
   border-radius: 1rem;
 
   transition: all 0.2s ease-out;
 
-  &:hover {
-    background: $col-card-hover;
+  &.depr {
+    opacity: 50%;
   }
 
-  &:active {}
+  &:hover {
+    background: $col-card-hover;
+    box-shadow: 0 0 10px $col-prot;
+    // box-shadow: 0 0 10px color-mix(in oklch, $col-prot, transparent 60%);
+
+    span.material-symbols-rounded {
+      color: $col-prot;
+    }
+  }
+
+  &.dev:hover {
+    box-shadow: 0 0 10px $col-deut;
+    // box-shadow: 0 0 10px color-mix(in oklch, $col-deut, transparent 60%);
+  }
 }
 
 .content-inner {
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
 }
 
 img.project-icon {
   min-width: 100px;
-  max-width: 20vw;
+  width: 100%;
+  max-width: 15vh;
   aspect-ratio: 1;
   margin: 0 1rem;
 }
@@ -75,6 +90,10 @@ img.project-icon {
 .content-text {
   padding: 0 1rem;
   flex-grow: 1;
+}
+
+span.material-symbols-rounded {
+  transition: color 0.2s ease-out;
 }
 
 

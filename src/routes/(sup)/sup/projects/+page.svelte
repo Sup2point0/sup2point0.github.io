@@ -24,6 +24,7 @@ let filtered = $derived(search_data.apply(projects));
     body={project.desc}
     pict="{base}/projects/{project.cover}"
     extern={project.link}
+    flags={project.flags}
   />
 {/each}
 

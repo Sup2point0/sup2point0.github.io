@@ -32,7 +32,9 @@ span {
   color: rgb(white, 80%);
   opacity: 25%;
 
-  transition: color 0.2s ease-out, opacity 0.2s ease-out;
+  transition: color 0.2s ease-out,
+              opacity 0.2s ease-out,
+              transform 0.42s cubic-bezier(0.19, 1, 0.22, 1);
   animation-name: ephemeral-shimmer;
   animation-duration: 7s;
   animation-iteration-count: infinite;
@@ -41,6 +43,7 @@ span {
   &:hover {
     color: $col-prot;
     opacity: 100%;
+    transform: scale(1.04);
   }
 }
 

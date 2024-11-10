@@ -1,6 +1,5 @@
 <script lang="ts">
 
-import { base } from "$app/paths";
 import { browser } from "$app/environment";
 
 export let text: string;
@@ -11,8 +10,8 @@ export let intern: string | undefined = undefined;
 
 
 <a class="part nav-link"
-  href={link || `${base}/${intern}`}
-  class:active={browser && window?.location.href == `${base}/${intern}`}
+  href={link || `${intern}`}
+  class:active={browser && window?.location.href == `${intern}`}
 >
   {text}
 </a>

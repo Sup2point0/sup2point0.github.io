@@ -1,8 +1,6 @@
 <!-- @component Album -->
 <script lang="ts">
 
-import { base } from "$app/paths";
-
 export let preview: boolean = false;
 export let shard: string;
 export let name: string;
@@ -13,7 +11,7 @@ export let year: string = "";
 
 <a class="part album-block"
   class:preview
-  href="{base}/sup/music/{shard}"
+  href="sup/music/{shard}"
 >
   <img alt={name} title={name}
     width="200px" height="200px"

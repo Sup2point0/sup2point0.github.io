@@ -1,7 +1,5 @@
 <script lang="ts">
 
-import { base } from "$app/paths";
-
 export let title: string = "";
 export let body: string = "";
 export let pict: string | undefined = undefined;
@@ -15,7 +13,7 @@ export let flags: string[] = [];
 
 <a class="content-card {flags.join(" ")}"
   target={extern ? "_blank" : "_self"}
-  href={extern ?? link ?? `${base}/${intern}`}
+  href={extern ?? link ?? `${intern}`}
 >
   <div class="content-inner"
     style:flex-direction={flags.includes("right") ? "row-reverse" : "row"}

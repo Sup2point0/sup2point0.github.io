@@ -1,19 +1,13 @@
 <!-- @component Profile -->
 
-<script>
-
-import { base } from "$app/paths";
-
-</script>
-
 
 <div class="profile">
   <section id="sup">
     <img id="purple-portal" alt="purple portal"
-      src="{base}/purple-portal.png"
+      src="purple-portal.png"
     >
     <img id="sup2point0" alt="Sup#2.0"
-      src="{base}/sup2point0.png"
+      src="sup2point0.png"
     >
   </section>
 

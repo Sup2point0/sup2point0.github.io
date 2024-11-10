@@ -2,8 +2,6 @@
 
 import Words from "#parts/words.svelte";
 
-import { base } from "$app/paths";
-
 </script>
 
 
@@ -46,7 +44,7 @@ import { base } from "$app/paths";
 
   <section class="card">
     <p>
-      I’ll delve deeper into all my interests over in <a href="{base}/sup/loves">loves</a>. If you’re looking for software development stuff, slide over to <a href="{base}/sup/dev">dev</a> or check out my <a href="{base}/sup/projects">projects</a>. Check out my <a href="{base}/sup/music">music</a> too!
+      I’ll delve deeper into all my interests over in <a href="sup/loves">loves</a>. If you’re looking for software development stuff, slide over to <a href="sup/dev">dev</a> or check out my <a href="sup/projects">projects</a>. Check out my <a href="sup/music">music</a> too!
     </p>
   </section>
 

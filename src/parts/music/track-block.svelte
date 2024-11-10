@@ -3,8 +3,6 @@
 
 import Tags from "#parts/music/tags.svelte";
 
-import { base } from "$app/paths";
-
 export let preview: boolean = false;
 export let fav: boolean = false;
 export let shard: string;

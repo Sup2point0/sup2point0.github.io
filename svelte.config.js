@@ -11,9 +11,6 @@ const config = {
       precompress: false,
       strict: true,
     }),
-    paths: {
-      base: "",
-    },
     alias: {
       "#src": "./src/",
       "#parts": "./src/parts/",

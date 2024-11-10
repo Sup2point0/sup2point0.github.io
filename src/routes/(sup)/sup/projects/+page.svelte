@@ -6,8 +6,6 @@ import { search_data } from "./search-data.svelte.ts";
 import ContentCard from "#parts/content-card.svelte";
 import Search from "./search.projects.svelte";
 
-import { base } from "$app/paths";
-
 
 let filtered = $derived(search_data.apply(projects));
 
@@ -22,7 +20,7 @@ let filtered = $derived(search_data.apply(projects));
   <ContentCard
     title={project.title}
     body={project.desc}
-    pict="{base}/projects/{project.cover}"
+    pict="projects/{project.cover}"
     extern={project.link}
     flags={project.flags}
   />

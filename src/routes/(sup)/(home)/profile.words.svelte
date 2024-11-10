@@ -54,7 +54,7 @@ section {
   margin-bottom: 4rem;
 }
 
-h2, h3 {
+h3 {
   margin-bottom: 0.5em;
   @include font-flavour;
   font-weight: normal;

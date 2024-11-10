@@ -20,9 +20,30 @@
 @use './src/styles/links' as *;
 
 
+section {
+  margin-bottom: 4rem;
+
+  &.card {
+    @include card;
+  }
+}
+
 #trivia {
+  h2 {
+    margin-bottom: 0.5em;
+    @include font-flavour;
+    font-weight: normal;
+    font-size: 250%;
+  }
+
   ul {
+    max-width: 50vw;
     list-style-type: none;
+    text-align: left;
+  }
+
+  li {
+    margin: 1em 0;
   }
 }
 

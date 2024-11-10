@@ -20,6 +20,12 @@ html {
 }
 
 
+code {
+  font-family: 'Fira Mono', 'Roboto Mono', 'Consolas', monospace;
+  color: #c7c7ff;
+}
+
+
 ::selection {
   color: white !important;
   background-color: $col-prot !important;

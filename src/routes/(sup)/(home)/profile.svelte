@@ -70,10 +70,7 @@ div#bio {
 }
 
 section#intro {
-  padding: 1rem;
-  @include font-ui;
-  background-color: $col-card;
-  border-radius: 1rem;
+  @include card;
 }
   
 </style>

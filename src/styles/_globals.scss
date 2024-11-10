@@ -15,3 +15,10 @@ $col-card-hover: rgb(black, 40%);
 @mixin font-flavour {
   font-family: 'Nanum Pen Script', 'Segoe UI', system-ui, sans-serif;
 }
+
+
+@mixin card {
+  padding: 1.5em;
+  background-color: $col-card;
+  border-radius: 1rem;
+}

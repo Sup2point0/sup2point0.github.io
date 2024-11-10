@@ -5,6 +5,11 @@ import Album from "#parts/music/album-block.svelte";
 </script>
 
 
+<svelte:head>
+  <title> music · Sup#2.0 </title>
+  <meta name="description" content="All the music I produce!" />
+</svelte:head>
+
 <div class="collection">
   <Album
     shard="singles"

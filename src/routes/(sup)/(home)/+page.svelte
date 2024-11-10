@@ -9,6 +9,11 @@ import ProfileWords from "./profile.words.svelte";
 </script>
 
 
+<svelte:head>
+  <title> Sup#2.0 </title>
+  <meta name="description" content="An avid portal with way too much in their neural cortex." />
+</svelte:head>
+
 <main>
   <Profile />
 

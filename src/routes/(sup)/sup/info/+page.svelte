@@ -1,3 +1,8 @@
+<svelte:head>
+  <title> info · Sup#2.0 </title>
+  <meta name="description" content="All about me!" />
+</svelte:head>
+
 <table>
   <tbody>
     <tr>

@@ -5,6 +5,11 @@ import Words from "#parts/words.svelte";
 </script>
 
 
+<svelte:head>
+  <title> dev · Sup#2.0 </title>
+  <meta name="description" content="My adventures in software development!" />
+</svelte:head>
+
 <div class="axis">
   <section class="left">
     <h2> I code in </h2>

@@ -5,6 +5,7 @@ import Footer from "#parts/ui/footer.svelte";
 
 import Profile from "./profile.svelte";
 import ProfileWords from "./profile.words.svelte";
+import ProfileBlocks from "./profile.blocks.svelte";
 
 </script>
 
@@ -16,12 +17,10 @@ import ProfileWords from "./profile.words.svelte";
 
 <main>
   <Profile />
-
   <Nav />
 
   <ProfileWords />
-
-  <div style:padding="2rem"></div>
+  <ProfileBlocks />
 
   <Footer />
 </main>

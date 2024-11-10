@@ -1,13 +1,14 @@
-<script>
+<script lang="ts">
 
 import "#styles/essence.scss";
 
 import Back from "#parts/ui/back.svelte";
 
+
 </script>
 
 
-<Back style="scarlet" />
+<Back col="scarlet" />
 
 <div id="page">
   <slot> Uh, something went wrong! </slot>

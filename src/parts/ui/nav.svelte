@@ -38,6 +38,7 @@ import NavLink from "#parts/ui/nav.link.svelte";
 nav {
   width: 100%;
   margin: 1rem auto;
+  padding-bottom: 1.5rem;
   display: flex;
   flex-direction: row;
   justify-content: center;

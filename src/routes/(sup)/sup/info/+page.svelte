@@ -31,14 +31,12 @@
   </tbody>
 </table>
 
-<p style:text-align="center"> thank you for stalking me, it’s been my pleasure ^v^ </p>
+<div class="block">
+  <p> thank you for stalking me, it’s been my pleasure ^v^ </p>
+</div>
 
 
 <style lang="scss">
-
-* {
-  // border: 1px solid lightskyblue;
-}
 
 table {
 
@@ -50,7 +48,33 @@ tr {
 
 th {
   padding: 0.5em 2rem 0.5em 0.5em;
+  @include font-ui;
+  font-weight: normal;
   color: rgb(white, 60%);
+}
+
+.block {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    padding: 0.5em 1em;
+    @include font-flavour;
+    font-size: 120%;
+    color: $col-deut;
+    text-align: center;
+    background-color: $col-card;
+    border-radius: 1em;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      cursor: default;
+      background-color: $col-card-hover;
+      transform: scale(1.04);
+    }
+  }
 }
 
 </style>

@@ -8,7 +8,7 @@ import NavLink from "#parts/ui/nav.link.svelte";
 <nav>
   <NavLink
     text="info"
-    intern="sup/info"
+    intern="/sup/info"
   />
   <NavLink
     text="sup"
@@ -16,19 +16,19 @@ import NavLink from "#parts/ui/nav.link.svelte";
   />
   <NavLink
     text="loves"
-    intern="sup/loves"
+    intern="/sup/loves"
   />
   <NavLink
     text="music"
-    intern="sup/music"
+    intern="/sup/music"
   />
   <NavLink
     text="projects"
-    intern="sup/projects"
+    intern="/sup/projects"
   />
   <NavLink
     text="dev"
-    intern="sup/dev"
+    intern="/sup/dev"
   />
 </nav>
 

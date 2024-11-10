@@ -6,12 +6,15 @@ export let text: string;
 export let link: string | undefined = undefined;
 export let intern: string | undefined = undefined;
 
+
+$: active = (browser && window?.location.href == `${intern}`);
+
 </script>
 
 
 <a class="part nav-link"
   href={link || `${intern}`}
-  class:active={browser && window?.location.href == `${intern}`}
+  class:active
 >
   {text}
 </a>

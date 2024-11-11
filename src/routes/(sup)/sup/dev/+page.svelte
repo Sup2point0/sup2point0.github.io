@@ -58,32 +58,6 @@ import Words from "#parts/words.svelte";
 
 <style lang="scss">
 
-.axis {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  gap: 4rem;
-}
-
-section {
-  width: min(80%, 800px);
-}
-
-h2 {
-  margin-bottom: 0.5em;
-  padding: 0 2rem;
-  @include font-flavour;
-  font-size: 200%;
-}
-
-.words {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  font-size: 150%;
-}
+@use './src/styles/_words' as *;
 
 </style>

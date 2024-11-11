@@ -37,13 +37,18 @@ import NavLink from "#parts/ui/nav.link.svelte";
 
 nav {
   width: 100%;
-  margin: 1rem auto;
-  padding-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  background: transparent;
+  backdrop-filter: blur(16px) brightness(0.9);
 }
 
 </style>

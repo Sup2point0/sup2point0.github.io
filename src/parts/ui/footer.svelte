@@ -19,13 +19,14 @@
 
 
 footer {
-  margin: 4rem 0;
+  margin: 4rem;
   padding: 0.5em;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1em;;
+  gap: 1em;
 }
 
 p {

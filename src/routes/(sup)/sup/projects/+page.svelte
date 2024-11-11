@@ -27,7 +27,7 @@ let filtered = $derived(search_data.apply(projects));
   <ContentCard
     title={project.title}
     body={project.desc}
-    pict="projects/{project.cover}"
+    pict="/projects/{project.cover}"
     extern={project.link}
     flags={project.flags}
   />

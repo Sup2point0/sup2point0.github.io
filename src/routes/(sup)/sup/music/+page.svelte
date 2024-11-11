@@ -12,73 +12,73 @@ import Album from "#parts/music/album-block.svelte";
 
 <div class="collection">
   <Album
-    shard="archives/singles"
     name="Singles"
     year="2023 – present"
+    intern="singles"
     cover="singles/sunset.png"
   />
   <Album
-    shard="archives/garageband"
     name="GarageBand Archives"
     year="2024 and earlier"
+    intern="archives/garageband"
     cover="garageband-archives.jpg"
   />
   <Album
-    shard="musescore"
     name="MuseScore Archives"
     year="2023 and earlier"
+    intern="archives/musescore"
     cover="musescore-archives.png"
   />
 </div>
 
 <div class="collection">
   <Album
-    shard="algo-origins"
     name="Algorhythm Origins"
     year="2023 – present"
+    intern="algo-origins"
     cover="algo-origins/night.png"
   />
   <Album
-    shard="algo-roots"
     name="Algorhythm Roots"
     year="2024 – present"
+    intern="algo-roots"
     cover="algo-roots/rejuvenate.png"
   />
   <Album
-    shard="algo-vision"
     name="Algorhythm Vision"
     year="2024 – future"
+    intern="algo-vision"
     cover="algo-vision/another-dawn.png"
   />
   <Album
-    shard="elysion"
     name="ELYSION"
     year="2023 – present"
+    intern="elysion"
     cover="elysion/ceruleus.png"
   />
   <Album
-    shard="cortex"
     name="Cortex"
     year="2024 – present"
+    intern="cortex"
     cover="cortex/voxel.png"
   />
   <Album
     preview={true}
-    shard="fidelity"
     name="Fidelity"
     year="future"
+    intern="fidelity"
   />
   <Album
     preview={true}
-    shard="stranded"
     name="Stranded"
     year="future"
+    intern="stranded"
   />
   <Album
     preview={true}
-    shard="Integral"
     name="Integral"
     year="2024 – present"
+    intern="Integral"
   />
 </div>
 

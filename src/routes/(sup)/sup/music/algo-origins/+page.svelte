@@ -9,6 +9,7 @@ import Tags from "#parts/music/tags.svelte";
 
 <AlbumInfo daw="gb">
   <h1> Algorhythm Origins </h1>
+  <p> Soundtracks created for my rhythm game <em>Algorhythm</em> </p>
   <Tags tags={["electronic", "rhythm"]} />
 </AlbumInfo>
 

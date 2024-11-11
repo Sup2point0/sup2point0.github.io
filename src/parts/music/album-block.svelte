@@ -2,9 +2,9 @@
 <script lang="ts">
 
 export let preview: boolean = false;
-export let shard: string;
 export let name: string;
 export let year: string = "";
+export let intern: string;
 export let cover: string | undefined = undefined;
 
 </script>
@@ -12,7 +12,7 @@ export let cover: string | undefined = undefined;
 
 <a class="album-block"
   class:preview
-  href="/sup/music/{shard}"
+  href="/sup/music/{intern}"
 >
   <img alt={name} title={name}
     width="200px" height="200px"

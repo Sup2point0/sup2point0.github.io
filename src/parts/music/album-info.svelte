@@ -30,10 +30,6 @@ const DAW = {
 }
 
 
-:global(h2) {
-  @include font-flavour;
-}
-
 p.daw {
   text-align: right;
 }

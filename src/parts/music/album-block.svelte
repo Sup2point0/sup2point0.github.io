@@ -5,17 +5,18 @@ export let preview: boolean = false;
 export let shard: string;
 export let name: string;
 export let year: string = "";
+export let cover: string | undefined = undefined;
 
 </script>
 
 
-<a class="part album-block"
+<a class="album-block"
   class:preview
-  href="sup/music/{shard}"
+  href="/sup/music/{shard}"
 >
   <img alt={name} title={name}
     width="200px" height="200px"
-    src="music/covers/{shard}/{shard}.png"
+    src="/music/covers/{cover ?? "placeholder.png"}"
   />
 
   <h4> {name} </h4>
@@ -25,11 +26,12 @@ export let year: string = "";
 
 <style lang="scss">
 
-.part {
-  padding: 1rem;
+.album-block {
+  padding: 1.25rem;
   display: block;
   text-decoration: none;
   background-color: $col-card;
+  border-radius: 1rem;
 
   transition: all 0.2s ease-out;
 
@@ -44,9 +46,13 @@ export let year: string = "";
   &:not(.preview) {
     &:hover, &:focus {
       background-color: $col-card-hover;
+      box-shadow: 0 0 10px $col-prot;
 
       img {
-        transform: scale(1.08);
+        transform: scale(1.05);
+      }
+      h4 {
+        color: $col-prot;
       }
     }
 
@@ -60,13 +66,16 @@ export let year: string = "";
 img {
   max-width: 25vw;
   aspect-ratio: 1;
-  transition: transform 0.12s ease-out;
+  transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 h4 {
+  margin-top: 1em;
   @include font-ui;
+  font-weight: normal;
   font-size: 110%;
   color: white;
+  transition: color 0.2s ease-out;
 }
 
 p {

@@ -12,19 +12,22 @@ import Album from "#parts/music/album-block.svelte";
 
 <div class="collection">
   <Album
-    shard="singles"
+    shard="archives/singles"
     name="Singles"
-    year=""
+    year="2023 – present"
+    cover="singles/sunset.png"
   />
   <Album
     shard="archives/garageband"
     name="GarageBand Archives"
     year="2024 and earlier"
+    cover="garageband-archives.jpg"
   />
   <Album
-    shard="archives/musescore"
+    shard="musescore"
     name="MuseScore Archives"
     year="2023 and earlier"
+    cover="musescore-archives.png"
   />
 </div>
 
@@ -33,26 +36,31 @@ import Album from "#parts/music/album-block.svelte";
     shard="algo-origins"
     name="Algorhythm Origins"
     year="2023 – present"
+    cover="algo-origins/night.png"
   />
   <Album
     shard="algo-roots"
     name="Algorhythm Roots"
     year="2024 – present"
+    cover="algo-roots/rejuvenate.png"
   />
   <Album
     shard="algo-vision"
     name="Algorhythm Vision"
     year="2024 – future"
+    cover="algo-vision/another-dawn.png"
   />
   <Album
     shard="elysion"
     name="ELYSION"
     year="2023 – present"
+    cover="elysion/ceruleus.png"
   />
   <Album
     shard="cortex"
     name="Cortex"
     year="2024 – present"
+    cover="cortex/voxel.png"
   />
   <Album
     preview={true}
@@ -79,11 +87,11 @@ import Album from "#parts/music/album-block.svelte";
 
 .collection {
   width: 100%;
-  margin: 1rem 0;
+  margin-bottom: 4rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 </style>

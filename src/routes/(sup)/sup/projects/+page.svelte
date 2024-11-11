@@ -17,7 +17,9 @@ let filtered = $derived(search_data.apply(projects));
   <meta name="description" content="All my projects!" />
 </svelte:head>
 
-<p> I’ve created way too many projects to list all of them in one place – but here’s a selection of my favourites for you to explore ^v^ </p>
+<div class="card">
+  <p> I’ve created way too many projects to list all of them in one place – but here’s a selection of my favourites for you to explore ^v^ </p>
+</div>
 
 <Search />
 
@@ -33,5 +35,9 @@ let filtered = $derived(search_data.apply(projects));
 
 
 <style lang="scss">
+
+.card {
+  @include card;
+}
 
 </style>

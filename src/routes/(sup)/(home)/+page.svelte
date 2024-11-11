@@ -13,6 +13,11 @@ import ProfileBlocks from "./profile.blocks.svelte";
 <svelte:head>
   <title> Sup#2.0 </title>
   <meta name="description" content="An avid portal with way too much in their neural cortex." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sup#2.0" />
+  <meta property="og:description" content="An avid portal with way too much in their neural cortex." />
+  <meta property="og:image" content="/purple-portal.png" />
 </svelte:head>
 
 <main>

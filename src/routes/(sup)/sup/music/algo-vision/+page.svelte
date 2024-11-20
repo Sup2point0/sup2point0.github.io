@@ -9,6 +9,8 @@ import Tags from "#parts/music/tags.svelte";
 
 <AlbumInfo daw="gb">
   <h1> Algorhythm Vision </h1>
+  <p> New soundtracks created for the revival of my rhythm game <em>Algorhythm</em>.
+
   <Tags tags={["electronic", "rhythm"]} />
 </AlbumInfo>
 
@@ -22,26 +24,25 @@ import Tags from "#parts/music/tags.svelte";
   file="another-dawn.m4a"
 />
 <Track
-  preview={true}
   shard="reminiscence"
   name="Reminiscence"
   tags={["muted", "mood"]}
   album="algo-vision"
-  file=""
+  file="reminiscence.m4a"
 />
 <Track
+  preview={true}
   shard="daybreak"
   name="Daybreak"
   tags={["vibrant"]}
   album="algo-vision"
-  file=""
+  file="daybreak.m4a"
 />
 <Track
   preview={true}
   feat={true}
-  shard="rise"
-  name="Rise"
-  tags={["vocal", "melodramatic"]}
+  shard="midnight"
+  name="Midnight"
   album="algo-vision"
-  file=""
+  file="midnight.m4a"
 />

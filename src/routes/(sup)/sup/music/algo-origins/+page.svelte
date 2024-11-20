@@ -9,7 +9,8 @@ import Tags from "#parts/music/tags.svelte";
 
 <AlbumInfo daw="gb">
   <h1> Algorhythm Origins </h1>
-  <p> Soundtracks created for my rhythm game <em>Algorhythm</em> </p>
+  <p> Soundtracks created for my rhythm game <em>Algorhythm</em>! </p>
+
   <Tags tags={["electronic", "rhythm"]} />
 </AlbumInfo>
 
@@ -28,11 +29,12 @@ import Tags from "#parts/music/tags.svelte";
   file="day.m4a"
 />
 <Track
-  shard="tomorrow"
-  name="Tomorrow"
-  tags={["vibrant"]}
+  preview={true}
+  shard="yesterday"
+  name="Yesterday"
+  tags={[]}
   album="algo-origins"
-  file="tomorrow.m4a"
+  file="yesterday.m4a"
 />
 <Track
   feat={true}
@@ -41,6 +43,13 @@ import Tags from "#parts/music/tags.svelte";
   tags={["vibrant"]}
   album="algo-origins"
   file="night.m4a"
+/>
+<Track
+  shard="tomorrow"
+  name="Tomorrow"
+  tags={["jubilant"]}
+  album="algo-origins"
+  file="tomorrow.m4a"
 />
 <Track
   preview={true}

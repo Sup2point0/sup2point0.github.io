@@ -4,6 +4,7 @@
 export let preview: boolean = false;
 export let name: string;
 export let year: string = "";
+export let tracks: number | undefined = undefined;
 export let intern: string;
 export let cover: string | undefined = undefined;
 
@@ -19,14 +20,24 @@ export let cover: string | undefined = undefined;
     src="/music/covers/{cover ?? "placeholder.png"}"
   />
 
-  <h4> {name} </h4>
-  <p> {year} </p>
+  <div class="info">
+    <div>
+      <h4> {name} </h4>
+      <p> {year} </p>
+    </div>
+    
+    {#if tracks}
+      <div>
+        <p> {tracks} </p>
+      </div>
+    {/if}
+  </div>
 </a>
 
 
 <style lang="scss">
 
-.album-block {
+a.album-block {
   padding: 1.25rem;
   display: block;
   text-decoration: none;
@@ -60,6 +71,13 @@ export let cover: string | undefined = undefined;
       outline: 2px solid $col-prot;
     }
   }
+}
+
+.info {
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
 }
 
 

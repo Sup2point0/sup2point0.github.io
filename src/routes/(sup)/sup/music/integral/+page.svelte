@@ -9,7 +9,9 @@ import Tags from "#parts/music/tags.svelte";
 
 <AlbumInfo daw="gb">
   <h1> Integral </h1>
-  <Tags tags={["electronic", "tech"]} />
+  <p> Soundtracks for nontrivial mathematical shenanigans. </p>
+
+  <Tags tags={["electronic", "techy"]} />
 </AlbumInfo>
 
 <Track
@@ -17,17 +19,9 @@ import Tags from "#parts/music/tags.svelte";
   feat={true}
   shard="audacious-antiderivative"
   name="Audacious Antiderivative"
-  tags={["electronic", "rhythm", "time signature shenanigans"]}
+  tags={["electronic", "polymeter"]}
   album="integral"
-  file=""
-/>
-<Track
-  preview={true}
-  shard="luminous-conjecture"
-  name="Luminous Conjecture"
-  tags={[]}
-  album="integral"
-  file=""
+  file="audacious-antiderivative.m4a"
 />
 <Track
   preview={true}
@@ -39,8 +33,24 @@ import Tags from "#parts/music/tags.svelte";
 />
 <Track
   preview={true}
+  shard="isomorphic-surjection"
+  name="Isomorphic Surjection"
+  tags={[]}
+  album="integral"
+  file=""
+/>
+<Track
+  preview={true}
   shard="subzero-abstraction"
   name="Subzero Abstraction"
+  tags={[]}
+  album="integral"
+  file=""
+/>
+<Track
+  preview={true}
+  shard="luminous-conjecture"
+  name="Luminous Conjecture"
   tags={[]}
   album="integral"
   file=""

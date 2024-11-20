@@ -5,7 +5,6 @@ A block containing title and description of an album.
 
 <script lang="ts">
 
-export let title: string = ""
 export let daw: "fl" | "gb" | "ms" | "ms-4" = "gb";
 
 const DAW = {
@@ -18,11 +17,8 @@ const DAW = {
 </script>
 
 
-<div class="part album-info">
-  <h1> {title} </h1>
-  <p>
-    <slot> ... </slot>
-  </p>
+<div class="album-info">
+  <slot> ... </slot>
 
   <p class="daw"> Made in {DAW} </p>
 </div>
@@ -30,25 +26,25 @@ const DAW = {
 
 <style lang="scss">
 
-.part {
+.album-info {
   width: 100%;
   margin-bottom: 2rem;
   padding: 1rem;
   text-align: center;
   background-color: $col-card;
-}
 
 
-h1 {
-  @include font-ui;
-}
-
-p {
-  @include font-ui;
-
-  &.daw {
-    @include font-flavour;
-    text-align: right;
+  :global(h1) {
+    @include font-ui;
+  }
+  
+  :global(p) {
+    @include font-ui;
+  
+    &.daw {
+      @include font-flavour;
+      text-align: right;
+    }
   }
 }
 

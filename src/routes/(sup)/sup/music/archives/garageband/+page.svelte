@@ -9,6 +9,8 @@ import Tags from "#parts/music/tags.svelte";
 
 <AlbumInfo daw="gb">
   <h1> GarageBand Archives </h1>
+  <p> Miscellaneous and ancient creations in GarageBand. </p>
+
   <Tags tags={["electronic"]} />
 </AlbumInfo>
 
@@ -29,7 +31,6 @@ import Tags from "#parts/music/tags.svelte";
   file="canon-in-d-remix.m4a"
 />
 <Track
-  preview={true}
   shard="rush"
   name="Rush"
   year="2019"

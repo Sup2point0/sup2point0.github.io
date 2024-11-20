@@ -9,23 +9,34 @@ import Tags from "#parts/music/tags.svelte";
 
 <AlbumInfo daw="gb">
   <h1> Cortex </h1>
+  <p> Techy! </p>
+
   <Tags tags={["electronic", "rhythm", "techy"]} />
 </AlbumInfo>
 
 <Track
   preview={true}
-  shard="erhythm-pure"
-  name="eRhythm PURE"
+  shard="purity"
+  name="puri:ty"
   tags={["neurofunk"]}
   album="cortex"
-  file=""
+  file="purity.m4a"
 />
 <Track
+  feat={true}
   shard="voxel"
   name="Voxel"
-  tags={["electronic", "rhythm", "complextro", "arcade"]}
+  tags={["electronic", "complextro", "arcade"]}
   album="cortex"
   file="voxel.m4a"
+/>
+<Track
+  preview={true}
+  shard="pseudorandom"
+  name="pseudorandom"
+  tags={["electronic", "random"]}
+  album="cortex"
+  file="pseudorandom.m4a"
 />
 <Track
   preview={true}
@@ -33,5 +44,5 @@ import Tags from "#parts/music/tags.svelte";
   name="Dactyl"
   tags={["electronic"]}
   album="cortex"
-  file=""
+  file="dactyl.m4a"
 />

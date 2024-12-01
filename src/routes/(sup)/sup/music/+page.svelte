@@ -40,7 +40,7 @@ import Album from "#parts/music/album-block.svelte";
     year="2024 – future"
     tracks={4}
     intern="algo-vision"
-    cover="algo-vision/another-dawn.png"
+    cover="algo-vision/reminiscence.png"
   />
   <Album
     name="ELYSION"

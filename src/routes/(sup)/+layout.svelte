@@ -2,20 +2,41 @@
 
 import "#styles/essence.scss";
 
-import Back from "#parts/ui/back.svelte";
+import Back from "#parts/core/back.svelte";
 
+
+let { children } = $props();
+
+let root: HTMLElement | undefined = $state();
 
 </script>
 
 
-<Back col="scarlet" />
 
-<div id="page">
-  <slot> Uh, something went wrong! </slot>
+<div id="parallax-container"
+  bind:this={root}
+>
+  <Back {root} col="scarlet" />
+
+  <div id="page">
+    {#if children}
+      {@render children()}
+    {:else}
+      <p class="error"> Uh, something went wrong! </p>
+    {/if}
+  </div>
 </div>
 
 
 <style lang="scss">
+
+#parallax-container {
+  perspective: 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-color: $col-prot black;
+  scrollbar-width: thin;
+}
 
 #page {
   min-height: 100vh;
@@ -24,8 +45,8 @@ import Back from "#parts/ui/back.svelte";
   flex-direction: column;
   justify-content: stretch;
   align-items: center;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  // overflow-x: hidden;
+  // overflow-y: scroll;
   scrollbar-color: $col-prot black;
 }
 

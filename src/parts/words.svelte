@@ -11,20 +11,22 @@ export let shuffle: boolean = false;
 
 const dur = 7;
 
-const worded = check_shuffle(words).entries().map(data => (
+const shuffled = check_shuffle(words);
+
+const worded = Array.isArray(shuffled) ? shuffled.entries().map(data => (
   {
     word: data[1],
     delay: data[0] * Math.round(Math.random() * dur*20 - dur*10) % dur,
   }
-));
+)) : ["ERROR"];
 
 
-function check_shuffle(words: string[]): string[]
+function check_shuffle(source: string[]): string[]
 {
   if (shuffle) {
-    return words.sort(() => Math.random() - 0.5);
+    return source.sort(() => Math.random() - 0.5);
   } else {
-    return words;
+    return source;
   }
 }
 

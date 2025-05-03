@@ -18,6 +18,8 @@ import ProfileBlocks from "./profile.blocks.svelte";
   <meta property="og:title" content="Sup#2.0" />
   <meta property="og:description" content="An avid portal with way too much in their neural cortex." />
   <meta property="og:image" content="/purple-portal.png" />
+
+  <meta name="google-site-verification" content="ua2bFDon6yUD7LDNbH4IBTAo6cVfiPAZaWkoMfhhBAc" />
 </svelte:head>
 
 <main>

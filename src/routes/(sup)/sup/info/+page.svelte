@@ -1,53 +1,29 @@
 <script lang="ts">
+
+import sample from "@stdlib/random-sample";
   
 import { facts_pinned, facts } from "./facts";
 import type { Fact } from "./facts";
 
-import FactCard from "#parts/ui/card.fact.svelte";
 import Block from "#parts/ui/block.svelte";
-  
-import { onMount } from "svelte";
+import Clicky from "#parts/ui/clicky.svelte";
+import FactCard from "#parts/ui/card.fact.svelte";
 
 
-let facts_display: Fact[] = $state([]);
-let apex = $state(20);
+const facts_shuffled = sample(facts, { replace: false });
+let limit = $state(12);
 
-let load_button: HTMLElement;
-
-/** Load more facts to be displayed. Returns `false` if all facts have been used, otherwise returns `true`. */
-function load_facts()
-{
-  if (apex == facts.length) {
-    return false;
-  }
-
-  apex += 4;
-  if (apex > facts.length) {
-    apex = facts.length;
-    return false;
-  }
-
-  return true;
-}
-
-onMount(() => {
-  let facts_shuffled = facts.sort(() => Math.random() - 0.5);
-  facts_display = facts_pinned.concat(facts_shuffled);
-
-  if ("IntersectionObserver" in window) {
-    load_button.style.visibility = "none";
-  } else {
-    let loader = new IntersectionObserver(load_facts, {
-      root: load_button,
-    });
-  }
-});
+let facts_display: Fact[] = $derived(
+  facts_pinned.concat(
+    facts_shuffled.slice(0, limit)
+  )
+);
 
 </script>
 
 
 <svelte:head>
-  <title> info · Sup#2.0 </title>
+  <title> Info · Sup#2.0 </title>
   <meta name="description" content="All about me!" />
 </svelte:head>
 
@@ -92,21 +68,12 @@ onMount(() => {
     {/each}
   </div>
 
-  <button id="load-more"
-    onclick={load_facts}
-    bind:this={load_button}
-  >
-    LOAD MORE
-  </button>
+  <Clicky text="LOAD MORE" action={() => { limit += 6; }} />
 </section>
 
 <Block>
   <p id="note"> thank you for stalking me, it’s been my pleasure ^v^ </p>
 </Block>
-
-<div class="block">
-  <p> thank you for stalking me, it’s been my pleasure ^v^ </p>
-</div>
 
 
 <style lang="scss">
@@ -133,11 +100,11 @@ section.facts {
   align-items: center;
 
   .fact-cards {
+    padding-bottom: 2rem;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     gap: 1rem;
-    // padding: 2rem;
   }
 }
 
@@ -146,28 +113,6 @@ section.facts {
   font-size: 120%;
   color: $col-deut;
   text-align: center;
-}
-
-.block {
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  p {
-    padding: 0.5em 1em;
-    @include font-flavour;
-    text-align: center;
-    background-color: $col-card;
-    border-radius: 1em;
-    transition: all 0.2s ease-out;
-
-    &:hover {
-      cursor: default;
-      background-color: $col-card-hover;
-      transform: scale(1.04);
-    }
-  }
 }
 
 </style>

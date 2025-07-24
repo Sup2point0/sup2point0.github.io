@@ -1,0 +1,96 @@
+<!-- @component Clicky
+
+A button.
+-->
+
+<script lang="ts">
+
+import { base } from "$app/paths";
+
+interface Props {
+  text?: string;
+  intern?: string;
+  action?: () => void;
+  children?: any;
+}
+
+let { text, intern, action, children }: Props = $props();
+
+</script>
+
+
+{#snippet content()}
+  {#if children}
+    {@render children()}
+  {:else}
+    {@html text}
+  {/if}
+{/snippet}
+
+
+{#if intern}
+  <a class="clicky"
+    href="{base}/{intern}"
+  >
+    {@render content()}
+  </a>
+
+{:else}
+  <button class="clicky"
+    onclick={action}
+  >
+    {@render content()}
+  </button>
+
+{/if}
+
+
+<style lang="scss">
+
+@use 'sass:color';
+
+.clicky {
+  $border-width: 4px;
+  padding: 0.5em 1.5em 0.5em calc(2em - $border-width);
+  position: relative;
+
+  @include font-ui;
+  color: $col-prot;
+  font-size: 100%;
+  text-decoration: none;
+  background: none;
+  border: none;
+  @include trans;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: $col-card;
+    backdrop-filter: blur(16px);
+    border-left: $border-width solid $col-prot;
+    transform: skew(-12deg);
+    @include trans;
+  }
+}
+
+.clicky:hover {
+  color: white;
+
+  &::before {
+    background: $col-card-hover;
+  }
+}
+
+.clicky:active {
+  &::before {
+    background: $col-prot;
+  }
+}
+
+</style>

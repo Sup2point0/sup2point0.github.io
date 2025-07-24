@@ -52,7 +52,6 @@ button {
   max-width: 30vw;
   padding: 1em 1.5em;
   position: relative;
-  // background: $col-card;
   background: none;
   border: none;
   @include trans;
@@ -67,19 +66,14 @@ button {
     left: 0;
     z-index: -1;
     background: $col-card;
+    backdrop-filter: blur(16px);
     transform: skew(-12deg);
     @include trans;
   }
 }
-button.live {
-  &:hover, &:active {
-    &::before {
-      background: $col-card-hover;
-      transform: skew(-8deg);
-    }
-  }
 
-  &:focus-visible:not(:active) {
+button.live {
+  &:hover, &:active, &:focus-visible {
     outline: none;
 
     &::before {
@@ -88,7 +82,14 @@ button.live {
       @include focus-glow;
     }
   }
+
+  &:hover, &:active {
+    &::before {
+      transform: skew(-8deg);
+    }
+  }
 }
+
 button.open {
   padding: 1em 2em;
 

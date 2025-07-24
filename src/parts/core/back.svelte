@@ -44,7 +44,7 @@ onMount(() => {
 <img id="back"
   alt="cortex-{col}"
   src="/ui/cortex-{col}-vert.jpg"
-  style:filter="blur({8 - (scroll_frac**8) * 6}px) brightness({0.88 - scroll_frac * 0.0})"
+  style:filter="blur({7 - (scroll_frac**8) * 6}px) brightness({0.88 - scroll_frac * 0.0})"
   bind:this={back}
 />
   <!-- style:top="{Math.round(scroll_frac * (window_height - back_height))}px" -->

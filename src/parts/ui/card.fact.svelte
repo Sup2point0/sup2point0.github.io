@@ -1,0 +1,138 @@
+<!-- @component FactCard
+
+A card which reveals more text when clicked.
+-->
+
+<script lang="ts">
+
+import { scale, slide } from "svelte/transition";
+import { expoOut } from "svelte/easing";
+
+interface Props {
+  text: string;
+  desc?: string | string[];
+  anim?: boolean;
+}
+
+let { text, desc, anim = false }: Props = $props();
+
+
+let open = $state(false);
+
+</script>
+
+
+<button class="card fact"
+  transition:scale={{ duration: anim ? 200 : 0 }}
+  class:live={desc !== undefined}
+  class:open
+  onclick={() => { open = !open; }}
+>
+  <p> {@html text} </p>
+
+  {#if desc && open}
+    <div class="desc"
+      transition:slide={{ duration: 400, easing: expoOut }}
+    >
+
+      {#if Array.isArray(desc)}
+        {#each desc as block}
+          <p> {@html block} </p>
+        {/each}
+      {:else}
+        <p> {@html desc} </p>
+      {/if}
+
+    </div>
+  {/if}
+</button>
+
+
+<style lang="scss">
+
+button {
+  max-width: 30vw;
+  padding: 1em 1.5em;
+  position: relative;
+  // background: $col-card;
+  background: none;
+  border: none;
+  @include trans;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: $col-card;
+    transform: skew(-12deg);
+    @include trans;
+  }
+}
+button.live {
+  &:hover, &:active {
+    &::before {
+      background: $col-card-hover;
+      transform: skew(-8deg);
+    }
+  }
+
+  &:focus:not(:active) {
+    outline: none;
+
+    &::before {
+      background: $col-card-hover;
+      border-radius: 0.6em;
+      @include focus-glow;
+    }
+  }
+}
+button.open {
+  padding: 1em 2em;
+
+  &::before {
+    transform: skew(-8deg);
+  }
+
+  &:hover, &:active, &:focus {
+    .desc p {
+      color: rgb(white, 70%);
+    }
+  }
+}
+
+
+p {
+  @include font-ui;
+  font-size: 125%;
+  line-height: 150%;
+  text-align: left;
+}
+
+button p {
+  color: white;
+}
+
+.desc {
+  padding-top: 0.5em;
+
+  p {
+    font-size: 100%;
+    font-weight: 300;
+    color: rgb(white, 50%);
+    @include trans;
+  }
+}
+
+:global(button.card.fact p a) {
+  @include link;
+}
+:global(button.card.fact .highlight) {
+  color: $col-acc;
+}
+
+</style>

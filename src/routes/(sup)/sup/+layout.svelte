@@ -1,7 +1,7 @@
 <script>
 
-import Nav from "#parts/ui/nav.svelte";
-import Footer from "#parts/ui/footer.svelte";
+import Nav from "#parts/core/nav.svelte";
+import Footer from "#parts/core/footer.svelte";
 
 </script>
 

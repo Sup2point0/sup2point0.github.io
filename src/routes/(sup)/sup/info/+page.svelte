@@ -1,3 +1,51 @@
+<script lang="ts">
+  
+import { facts_pinned, facts } from "./facts";
+import type { Fact } from "./facts";
+
+import FactCard from "#parts/ui/card.fact.svelte";
+import Block from "#parts/ui/block.svelte";
+  
+import { onMount } from "svelte";
+
+
+let facts_display: Fact[] = $state([]);
+let apex = $state(20);
+
+let load_button: HTMLElement;
+
+/** Load more facts to be displayed. Returns `false` if all facts have been used, otherwise returns `true`. */
+function load_facts()
+{
+  if (apex == facts.length) {
+    return false;
+  }
+
+  apex += 4;
+  if (apex > facts.length) {
+    apex = facts.length;
+    return false;
+  }
+
+  return true;
+}
+
+onMount(() => {
+  let facts_shuffled = facts.sort(() => Math.random() - 0.5);
+  facts_display = facts_pinned.concat(facts_shuffled);
+
+  if ("IntersectionObserver" in window) {
+    load_button.style.visibility = "none";
+  } else {
+    let loader = new IntersectionObserver(load_facts, {
+      root: load_button,
+    });
+  }
+});
+
+</script>
+
+
 <svelte:head>
   <title> info · Sup#2.0 </title>
   <meta name="description" content="All about me!" />
@@ -36,6 +84,26 @@
   </tbody>
 </table>
 
+
+<section class="facts">
+  <div class="fact-cards">
+    {#each facts_display as quirk}
+      <FactCard {...quirk} anim={true} />
+    {/each}
+  </div>
+
+  <button id="load-more"
+    onclick={load_facts}
+    bind:this={load_button}
+  >
+    LOAD MORE
+  </button>
+</section>
+
+<Block>
+  <p id="note"> thank you for stalking me, it’s been my pleasure ^v^ </p>
+</Block>
+
 <div class="block">
   <p> thank you for stalking me, it’s been my pleasure ^v^ </p>
 </div>
@@ -58,6 +126,27 @@ th {
   color: rgb(white, 60%);
 }
 
+section.facts {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  .fact-cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+  }
+}
+
+#note {
+  @include font-flavour;
+  font-size: 120%;
+  color: $col-deut;
+  text-align: center;
+}
+
 .block {
   margin-top: 4rem;
   display: flex;
@@ -67,8 +156,6 @@ th {
   p {
     padding: 0.5em 1em;
     @include font-flavour;
-    font-size: 120%;
-    color: $col-deut;
     text-align: center;
     background-color: $col-card;
     border-radius: 1em;

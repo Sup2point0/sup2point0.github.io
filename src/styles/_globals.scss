@@ -1,11 +1,13 @@
 $col-prot: #ff0090;
 $col-deut: #40f190;
-$col-trit: #4090f1;
+$col-trit: #40e0ff;
+$col-acc: #c7c7ff;
 
 $col-text: white;
 $col-text-deut: rgb(white, 60%);
+
 $col-card: rgb(black, 20%);
-$col-card-hover: rgb(black, 40%);
+$col-card-hover: rgb(black, 50%);
 
 
 @mixin font-ui {
@@ -21,4 +23,14 @@ $col-card-hover: rgb(black, 40%);
   padding: 1.5em;
   background-color: $col-card;
   border-radius: 1rem;
+}
+
+@mixin focus-glow {
+  outline: none;
+  box-shadow: 0 0 12px $col-prot;
+}
+
+
+@mixin trans {
+  transition: all 0.1s ease-out;
 }

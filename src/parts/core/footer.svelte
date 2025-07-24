@@ -15,9 +15,6 @@
 
 <style lang="scss">
 
-@use './src/styles/links' as *;
-
-
 footer {
   margin: 4rem;
   padding: 0.5em;
@@ -33,6 +30,10 @@ p {
   @include font-flavour;
   font-size: 125%;
   color: rgb(white, 50%);
+
+  a {
+    @include link;
+  }
 }
 
 </style>

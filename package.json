@@ -1,9 +1,10 @@
 {
 	"name": "sup2point0.github.io",
-	"version": "3.0",
+	"version": "4.0",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
+      "devx": "vite dev --open",
 		"build": "vite build",
 		"preview": "vite preview"
 	},

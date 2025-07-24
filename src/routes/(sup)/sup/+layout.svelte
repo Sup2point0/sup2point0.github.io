@@ -3,24 +3,17 @@
 import Nav from "#parts/core/nav.svelte";
 import Footer from "#parts/core/footer.svelte";
 
+let { children } = $props();
+
 </script>
 
 
 <Nav />
 
-<main>
-  <slot> Uh, something went wrong! </slot>
-</main>
+{#if children}
+  {@render children()}
+{:else}
+  <p class="error"> Uh, something went wrong! </p>
+{/if}
 
 <Footer />
-
-
-<style lang="scss">
-
-main {
-  width: 100%;
-  max-width: 80vw;
-  flex-grow: 1;
-}
-
-</style>

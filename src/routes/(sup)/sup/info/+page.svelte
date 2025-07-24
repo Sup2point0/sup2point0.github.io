@@ -88,7 +88,7 @@ onMount(() => {
 <section class="facts">
   <div class="fact-cards">
     {#each facts_display as quirk}
-      <FactCard {...quirk} anim={true} />
+      <FactCard {...quirk} />
     {/each}
   </div>
 
@@ -127,6 +127,7 @@ th {
 }
 
 section.facts {
+  padding: 2rem;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -136,7 +137,7 @@ section.facts {
     flex-flow: row wrap;
     justify-content: center;
     gap: 1rem;
-    padding: 2rem;
+    // padding: 2rem;
   }
 }
 

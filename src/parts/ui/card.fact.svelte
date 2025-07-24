@@ -5,16 +5,15 @@ A card which reveals more text when clicked.
 
 <script lang="ts">
 
-import { scale, slide } from "svelte/transition";
+import { slide } from "svelte/transition";
 import { expoOut } from "svelte/easing";
 
 interface Props {
   text: string;
   desc?: string | string[];
-  anim?: boolean;
 }
 
-let { text, desc, anim = false }: Props = $props();
+let { text, desc }: Props = $props();
 
 
 let open = $state(false);
@@ -23,7 +22,6 @@ let open = $state(false);
 
 
 <button class="card fact"
-  transition:scale={{ duration: anim ? 200 : 0 }}
   class:live={desc !== undefined}
   class:open
   onclick={() => { open = !open; }}
@@ -81,7 +79,7 @@ button.live {
     }
   }
 
-  &:focus:not(:active) {
+  &:focus-visible:not(:active) {
     outline: none;
 
     &::before {
@@ -98,7 +96,7 @@ button.open {
     transform: skew(-8deg);
   }
 
-  &:hover, &:active, &:focus {
+  &:hover, &:active, &:focus-visible {
     .desc p {
       color: rgb(white, 70%);
     }

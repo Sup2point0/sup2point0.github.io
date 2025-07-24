@@ -31,6 +31,8 @@ let root: HTMLElement | undefined = $state();
 <style lang="scss">
 
 #parallax-container {
+  min-height: 100vh;
+  max-height: 100vh;
   perspective: 1px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -39,15 +41,10 @@ let root: HTMLElement | undefined = $state();
 }
 
 #page {
-  min-height: 100vh;
-  max-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
   justify-content: stretch;
   align-items: center;
-  // overflow-x: hidden;
-  // overflow-y: scroll;
-  scrollbar-color: $col-prot black;
 }
 
 </style>

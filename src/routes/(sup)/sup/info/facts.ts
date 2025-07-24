@@ -23,7 +23,7 @@ export const facts: Fact[] = [
     desc: `For specific series, the ${a("Legend trilogy by Marie Lu", "https://wikipedia.org/wiki/Legend_(Lu_novel)")}, ${a("Power of Five by Anthony Horowitz", "https://wikipedia.org/wiki/The_Power_of_Five")}, and ${a("Red Queen by Victoria Aveyard", "https://wikipedia.org/wiki/Red_Queen_(novel)")}.`,
   }, {
     text: `My record typing speed is just over ${h("150 WPM")}.`,
-    desc: `I tend to float at more around 130, and when I’m actually typing content it’s more like 80~120 WPM. Also, typing lowercase words != typing code.`,
+    desc: `I tend to float at more around ${h("130")}, and when I’m actually typing content it’s more like ${h("80~120")} WPM. Also, typing lowercase words != typing code.`,
   }, {
     text: `I love light mode.`,
     desc: `Yes, I use Discord and reddit in light mode. Programming is the one place where I don’t, though. Can’t code in light mode.`,
@@ -34,14 +34,14 @@ export const facts: Fact[] = [
     text: `I play piano (shocker!)`,
     desc: `Nothing more restoring than an hour-long improvisation session.`,
   }, {
-    text: `I’ve created ${h("800+")} custom ${a(i("Yu-Gi-Oh!"), "https://yugipedia.com/wiki/Yugipedia")} cards.`,
-    desc: `By the latest census. Could be more. Also doesn’t include planned cards that haven’t been formally created yet :P`,
+    text: `I’ve created ${h("1000+")} custom ${a(i("Yu-Gi-Oh!"), "https://yugipedia.com/wiki/Yugipedia")} cards.`,
+    desc: `By the latest census. Probably more if you’re reading this. Also doesn’t include planned cards that haven’t been formally created yet :P`,
   }, {
     text: `I’m writing a novel of lore for my custom ${i("Yu-Gi-Oh")} cards.`,
     desc: `It’s called ${i("The Stranded Saga")}. You can check it out ${a("in Assort", "https://sup2point0.github.io/Assort/yugioh/lore/stranded-saga/the-stranded-saga")}, altho it’s far from finished.`,
   }, {
-    text: `I’ve created ${h("200+")} integrals.`,
-    desc: `As in, written my own integration problems. Yeah, I’m down so bad for maths. You can see them ${a("on Integrity", "https://sup2point0.github.io/integrity/questions/integrals")}.`,
+    text: `I’ve created ${h("300+")} integrals.`,
+    desc: `As in, written my own integration questions. Yeah, I’m down so bad for maths. You can see them ${a("on Integrity", "https://sup2point0.github.io/integrity/questions/integrals")}.`,
   }, {
     text: `I like creating lists.`,
     desc: `Inexplicable pleasure.`,
@@ -67,13 +67,13 @@ export const facts: Fact[] = [
     text: `I collect cool words.`,
     desc: `${i("pseudopseudohypoparathyroidism")} is always a hilarious one. ${i("floccinaucinihilipilification")} is fun to type. ${i("methylenedioxymethamphetamine")} is a fire chemical substance (ignoring the fact it’s a class A drug). You can see my full list ${a("in Assort")}.`,
   }, {
-    text: `I play ${a("Phigros", "https://google.com/search?q=phigros")} one-handed.`,
-    desc: `It’s a rhythm game. It looks ${a("like this", "https://youtube.com/watch?v=QTEHsYsBLLU")}. If you play Phigros too, my one-handed ability is generally ~97% acc on most IN 14 charts, and I FC-d Xenolith IN 14 one-handed. Can probably Phi some IN 13 charts.`,
+    text: `I play ${a("Phigros", "https://youtube.com/playlist?list=PLYWIouv-DSkCklDueGcBea6epdSR1aHEx")} one-handed.`,
+    desc: `It’s a rhythm game. It looks ${a("like this", "https://youtube.com/watch?v=QTEHsYsBLLU")}. If you play Phigros too, my one-handed ability is generally 96~98% acc on most IN 14 charts, and I FC-d Xenolith IN 14 one-handed. Can probably φ some IN 13 charts.`,
   }, {
     text: `I love ${a("Desmos", "https://www.desmos.com/calculator")}.`,
-    desc: `Desmos is the world’s greatest calculator. You can code in Desmos. (I’m serious.) You can find out more ${a("in Assort")}.`,
+    desc: `Desmos is the world’s greatest calculator. You can code in Desmos. You can make games in Desmos. (I’m serious.) You can find out more ${a("on Integrity", "https://sup2point0.github.io/integrity/desmos/gamedev")}.`,
   }, {
-    text: `I used to be so into Scratch.`,
+    text: `I used to be so into ${a("Scratch", "https://scratch.mit.edu")}.`,
     desc: `Actually my childhood. My mind dreamt up ideas for games faster than I could ever have hoped to make them. Fun times.`,
   }, {
     text: `I’m a ${a("Bo Burnham", "https://wikipedia.org/wiki/Bo_Burnham")} fan.`,
@@ -86,16 +86,16 @@ export const facts: Fact[] = [
     desc: `Might have been to do with the video I’d watched that night where I was first introduced to the $W$ function. Also, the equation in question was $x^2 e^x = 1$, and you solve it by square rooting both sides, scaling and applying the $W$ function.`,
   }, {
     text: `I came up with the final integral for my school’s Integration Bee final in a dream.`,
-    desc: `I will show it here once said Integration Bee has actually happened :P`,
+    desc: `The integral’s ${a("on Integrity", "https://sup2point0.github.io/integrity/question/integrals?shard=s24cu-dx1")}`,
   }, {
     text: `I’m making a shooter game in Desmos.`,
     desc: `It’s a remake of the mobile game ${a("Ball Blast")}. You can check out a preview ${a("on YouTube", "https://youtube.com/watch?v=KX0i13fPqLo")}.`,
   }, {
     text: `I’ve written a research paper on the origins of my username (Sup#2.0).`,
-    desc: `I’ll have you know it’s fully cited and currently sitting at around 3000 words. No, it’s not published, and yes, it is a very serious project. You can read it ${a("in Assort")}.`,
+    desc: `I’ll have you know it’s fully cited and currently sitting at around 3000 words. No, it’s not published, and yes, it is a very serious project. You can read it ${a("in Assort", "https://github.com/Sup2point0/Assort/blob/origin/~writing/origins.md")}.`,
   }, {
-    text: `I used to have a YouTube channel with 127,000 views.`,
-    desc: `A little over 200 subscribers, hehe. Unfortunately, the account got terminated for copyright violations(?). Welp, what can we can do but ${a("start from scratch")}.`,
+    text: `I used to have a YouTube channel with ${h("127,000")} views.`,
+    desc: `A little over 200 subscribers, hehe. Unfortunately, the account got terminated for copyright violations(?). Welp, what can we can do but ${a("start from scratch", "https://youtube.com/@SuppetySup")}.`,
   }, {
     text: `My record for solving the ${a("3x3x3 Rubik’s Cube", "https://wikipedia.org/wiki/Rubik%27s_Cube")} is ${h("18.34")} seconds.`,
     desc: `Timed by my friend on the school playground when I was 11. Can’t do it that quick anymore, ofc 0.o`,
@@ -108,15 +108,15 @@ export const facts: Fact[] = [
   }, {
     text: `I watched nearly every YouTuber in ${a("Hermitcraft Season 7", "https://hermitcraft.com/")}.`,
     desc: [
-      `*Just for a few days, maybe 1 or 2 weeks. This was during ${a("CoViD-19")} lockdown, and ${a("Decked Out")} was out, and I had loads of time on my hands (somehow), and I wanted to see everyone’s runs.`,
-      `Alongside my regular ${a("Mumbo")} and ${a("Grian")}, I distinctly remember watching ${a("Impulse")} and ${a("Tango")} for a good chunk of the season, ${a("Scar")} and ${a("iskall")} too, as well as ${a("Wels")}, ${a("joehills")} and even ${a("Xisuma")} for a few episodes. The one-offs included ${a("False")} and ${a("Zedaph")}.`,
+      `*Just for a few days, maybe 1 or 2 weeks. This was during ${a("CoViD-19", "https://wikipedia.org/wiki/COVID-19")} lockdown, and ${a("Decked Out")} was out, and I had loads of time on my hands (somehow), and I wanted to see everyone’s runs.`,
+      `Alongside my regular ${a("Mumbo", "https://youtube.com/@ThatMumboJumbo")} and ${a("Grian", "https://youtube.com/@Grian")}, I distinctly remember watching ${a("Impulse")} and ${a("Tango")} for a good chunk of the season, ${a("Scar")} and ${a("iskall")} too, as well as ${a("Wels")}, ${a("joehills")} and even ${a("Xisuma")} for a few episodes. The one-offs included ${a("False")} and ${a("Zedaph")}.`,
     ],
   }, {
     text: `I binge-watched the entirety of ${a("Mumbo", "https://youtube.com/@ThatMumboJumbo")}’s ${a("Hermitcraft Season 6", "https://youtube.com/playlist?list=PLFm1tTY1NA4fcZddqsijPEignAza8nF74")}.`,
     desc: `The exact dates are lost to me now, but I think I started around autumn 2019, and I must’ve finished a good while before the end of 2020. I’ll say it took me a couple months in total to finish the 160 episodes or whatever.`,
   }, {
     text: `I visited and toured ${h("8")} colleges at ${a("Cambridge University open day", "https://undergraduate.study.cam.ac.uk/events/cambridge-open-days")}.`,
-    desc: `Churchill, Fitzwilliam, Robinson, Claire, Lucy Cavendish, Queens, Downing. Plus a Computer Science department introduction presentation. I still don’t know how I did it. My legs were ${i("dead")}.`,
+    desc: `Churchill, Fitzwilliam, Robinson, Claire, Lucy Cavendish, Queens, Downing (in that order). Plus a Computer Science department introduction presentation. I still don’t know how I did it. My legs were ${i("dead")}.`,
   }, {
     text: `I think the most beautiful part of a human is the eyes.`,
     desc: `Fingers and hair come in close second. It’s hard to pick.`,

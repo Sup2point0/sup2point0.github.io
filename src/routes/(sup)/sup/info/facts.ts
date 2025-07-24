@@ -3,6 +3,9 @@ import { i, h, a } from "#scripts/utils";
 
 export interface Fact
 {
+  /** Unique identifier for the fact. */
+  idx: number;
+
   text: string;
 
   /** Text shown when the fact box is expanded. */
@@ -12,6 +15,7 @@ export interface Fact
 
 export const facts_pinned: Fact[] = [
   {
+    idx: 0,
     text: `My favourite colour is <span style="color: #ff0090">${i("electric pink")}</span>.`,
     desc: `This is just my own name for the colour. It’s part of the ${a("supcode Nova", "https://github.com/Sup2point0/supcode/tree/sup/resources/Nova")} colour palette.`,
   },
@@ -130,4 +134,7 @@ export const facts: Fact[] = [
     text: `If you keep scrolling, you might get to the end.`,
     desc: `Trust.`,
   }
-];
+].map((fact, idx) => {
+  fact.idx = idx + facts_pinned.length;
+  return fact as Fact;
+});

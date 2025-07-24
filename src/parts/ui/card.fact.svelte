@@ -5,7 +5,7 @@ A card which reveals more text when clicked.
 
 <script lang="ts">
 
-import { slide } from "svelte/transition";
+import { slide, scale } from "svelte/transition";
 import { expoOut } from "svelte/easing";
 
 interface Props {
@@ -24,6 +24,7 @@ let open = $state(false);
 <button class="card fact"
   class:live={desc !== undefined}
   class:open
+  transition:scale={{ duration: 600, easing: expoOut }}
   onclick={() => { open = !open; }}
 >
   <p> {@html text} </p>

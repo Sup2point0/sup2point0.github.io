@@ -9,15 +9,21 @@ import Block from "#parts/ui/block.svelte";
 import Clicky from "#parts/ui/clicky.svelte";
 import FactCard from "#parts/ui/card.fact.svelte";
 
+import { untrack } from "svelte";
+
 
 const facts_shuffled = sample(facts, { replace: false });
 let limit = $state(12);
 
-let facts_display: Fact[] = $derived(
-  facts_pinned.concat(
-    facts_shuffled.slice(0, limit)
-  )
-);
+let facts_display: Fact[] = $state([]);
+
+$effect(() => {
+  limit;
+
+  untrack(() => {
+    facts_display = facts_pinned.concat(facts_shuffled.slice(0, limit))
+  });
+});
 
 </script>
 
@@ -63,7 +69,7 @@ let facts_display: Fact[] = $derived(
 
 <section class="facts">
   <div class="fact-cards">
-    {#each facts_display as quirk}
+    {#each facts_display as quirk (quirk.idx)}
       <FactCard {...quirk} />
     {/each}
   </div>

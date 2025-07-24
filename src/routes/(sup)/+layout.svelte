@@ -4,10 +4,24 @@ import "#styles/essence.scss";
 
 import Back from "#parts/core/back.svelte";
 
+import { onNavigate } from "$app/navigation";
+
 
 let { children } = $props();
 
 let root: HTMLElement | undefined = $state();
+
+
+onNavigate(navigation => {
+	if (!document.startViewTransition) return;
+
+	return new Promise(resolve => {
+		document.startViewTransition(async () => {
+			resolve();
+			await navigation.complete;
+		});
+	});
+});
 
 </script>
 

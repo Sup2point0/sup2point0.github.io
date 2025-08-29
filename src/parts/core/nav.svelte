@@ -6,12 +6,12 @@ import NavLink from "#parts/core/nav.link.svelte";
 
 
 <nav>
-  <NavLink text="INFO" intern="/sup/info" />
+  <NavLink text="INFO" intern="sup/info" />
   <NavLink text="SUP" link="https://sup2point0.github.io" />
-  <NavLink text="LOVES" intern="/sup/loves" />
-  <NavLink text="MUSIC" intern="/sup/music" />
-  <NavLink text="PROJECTS" intern="/sup/projects" />
-  <NavLink text="DEV" intern="/sup/dev" />
+  <NavLink text="LOVES" intern="sup/loves" />
+  <NavLink text="MUSIC" intern="sup/music" />
+  <NavLink text="PROJECTS" intern="sup/projects" />
+  <NavLink text="DEV" intern="sup/dev" />
 </nav>
 
 

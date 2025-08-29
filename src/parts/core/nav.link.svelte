@@ -1,6 +1,7 @@
 <script lang="ts">
 
 import { base } from "$app/paths";
+import { page } from "$app/state";
 import { browser } from "$app/environment";
 
 
@@ -12,11 +13,17 @@ interface Props {
 
 let { text, link, intern }: Props = $props();
 
+
+let active = $derived(
+  browser && page.url && intern &&
+  window?.location.pathname.includes(intern)
+);
+
 </script>
 
 
 <a class="nav-link"
-  class:active={browser && window?.location.pathname === intern}
+  class:active
   href={link || `${base}/${intern}`}
 >
   {text}
@@ -48,8 +55,8 @@ a.nav-link {
     top: 0;
     left: 0;
     z-index: -1;
-    background: transparent;
-    transform: skew(-12deg);
+    background: transparent;;
+    transform: skew($shear-factor);
     transition: #{trans()};
   }
 
@@ -81,7 +88,7 @@ a.nav-link {
     }
 
     &:after {
-      transform: scaleX(1);
+      transform: scaleX(69%);
       transform-origin: center;
     }
   }

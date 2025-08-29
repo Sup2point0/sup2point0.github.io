@@ -29,7 +29,7 @@ export const facts: Fact[] = [
     text: `My record typing speed is just over ${h("150 WPM")}.`,
     desc: `I tend to float at more around ${h("130")}, and when I’m actually typing content it’s more like ${h("80~120")} WPM. Also, typing lowercase words != typing code.`,
   }, {
-    text: `I can type one-handed at ${h("80 WPM")}`,
+    text: `I can type one-handed at ${h("80 WPM")}.`,
     desc: `On iPad. I often need to hold my iPad with my left hand, and then type with my right, so I started typing one-handed. It’s very fun. Feels like playing Phigros.`
   }, {
     text: `I love light mode.`,
@@ -108,7 +108,7 @@ export const facts: Fact[] = [
     text: `I’m making a shooter game in Desmos.`,
     desc: `It’s a remake of the mobile game ${a("Ball Blast")}. You can check out a preview ${a("on YouTube", "https://youtube.com/watch?v=KX0i13fPqLo")}.`,
   }, {
-    text: `I’ve written a research paper on the origins of my username (Sup#2.0).`,
+    text: `I’ve written a research paper on the origins of my username (${h("Sup#2.0")}).`,
     desc: `I’ll have you know it’s fully cited and currently sitting at around 3000 words. No, it’s not published, and yes, it is a very serious project. You can read it ${a("in Assort", "https://github.com/Sup2point0/Assort/blob/origin/~writing/origins.md")}.`,
   }, {
     text: `I used to have a YouTube channel with ${h("127,000")} views.`,

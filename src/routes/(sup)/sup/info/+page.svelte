@@ -35,7 +35,7 @@ $effect(() => {
 
 
 <svelte:head>
-  <title> Info · Sup#2.0 </title>
+  <title> Info × Sup#2.0 </title>
   <meta name="description" content="All about Sup#2.0!" />
 </svelte:head>
 

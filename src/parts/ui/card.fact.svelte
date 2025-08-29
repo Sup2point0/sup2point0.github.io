@@ -85,6 +85,7 @@ button.live {
   }
 
   &:hover, &:active {
+    cursor: pointer;
     &::before {
       transform: skew(-8deg);
     }

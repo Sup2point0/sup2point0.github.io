@@ -51,10 +51,11 @@ let { text, intern, action, children }: Props = $props();
 
 .clicky {
   $border-width: 4px;
+  
   padding: 0.5em 1.5em 0.5em calc(2em - $border-width);
   position: relative;
 
-  @include font-ui;
+  @include font-head;
   color: $col-prot;
   font-size: 100%;
   text-decoration: none;
@@ -66,13 +67,14 @@ let { text, intern, action, children }: Props = $props();
     content: '';
     width: 100%;
     height: 100%;
+    padding: 0;
     display: block;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
     background: $col-card;
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);;
     border-left: $border-width solid $col-prot;
     transform: skew(-12deg);
     @include trans;
@@ -80,16 +82,24 @@ let { text, intern, action, children }: Props = $props();
 }
 
 .clicky:hover {
-  color: white;
+  cursor: pointer;
+  color: $col-deut;
 
   &::before {
+    $hover-expansion: 0.4em;
+
+    padding: 0 $hover-expansion;
+    left: -$hover-expansion;
     background: $col-card-hover;
+    border-color: $col-deut;
   }
 }
 
 .clicky:active {
+  color: $col-trit;
+
   &::before {
-    background: $col-prot;
+    border-color: $col-trit;
   }
 }
 

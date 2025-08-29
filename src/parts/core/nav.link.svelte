@@ -36,7 +36,7 @@ a.nav-link {
   font-size: 150%;
   text-decoration: none;
   background: none;
-  @include trans;
+  transition: #{trans()};
 
   &::before {
     content: '';
@@ -50,7 +50,7 @@ a.nav-link {
     z-index: -1;
     background: transparent;
     transform: skew(-12deg);
-    @include trans;
+    transition: #{trans()};
   }
 
   &::after {

@@ -8,8 +8,10 @@ import type { Fact } from "./facts";
 import Block from "#parts/ui/block.svelte";
 import Clicky from "#parts/ui/clicky.svelte";
 import FactCard from "#parts/ui/card.fact.svelte";
+import PurplePortal from "#parts/special/portal.svelte";
 
 import { untrack } from "svelte";
+import { base } from "$app/paths";
 
 
 const facts_shuffled = sample(facts, { replace: false });
@@ -30,41 +32,64 @@ $effect(() => {
 
 <svelte:head>
   <title> Info · Sup#2.0 </title>
-  <meta name="description" content="All about me!" />
+  <meta name="description" content="All about Sup#2.0!" />
 </svelte:head>
 
 <table>
   <tbody>
-    <tr>
-      <th> username </th>
-      <td> Sup#2.0 / Sup2.0 / Sup2point0 </td>
-    </tr>
-    <tr>
-      <th> pronouns </th>
-      <td> he / him </td>
-    </tr>
-    <tr>
-      <th> locale </th>
-      <td> Antarctica </td>
-    </tr>
-    <tr>
-      <th> timezone </th>
-      <td> UTC </td>
-    </tr>
-    <tr>
-      <th> language </th>
-      <td> English (British) / Chinese (Mandarin) </td>
-    </tr>
-    <tr>
-      <th> cake day </th>
-      <td> September </td>
-    </tr>
-    <tr>
-      <th> generation </th>
-      <td> Z </td>
-    </tr>
+    
   </tbody>
 </table>
+
+
+<section class="profile">
+  <PurplePortal />
+
+  <table><tbody>
+    <tr>
+      <th> USERNAME </th>
+      <td>
+        <span>Sup#2.0</span>
+        <span class="sep">/</span>
+        <span>Sup2.0</span>
+        <span class="sep">/</span>
+        <span>Sup2point0</span>
+      </td>
+    </tr>
+    <tr>
+      <th> PRONOUNS </th>
+      <td>
+        <span>he</span>
+        <span class="sep">/</span>
+        <span>him</span>
+      </td>
+    </tr>
+    <tr>
+      <th> LOCALE </th>
+      <td> <span>Antarctica</span> </td>
+    </tr>
+    <tr>
+      <th> TIMEZONE </th>
+      <td> <span>UTC</span> </td>
+    </tr>
+    <tr>
+      <th> LANGUAGES </th>
+      <td>
+        <span>English (British)</span>
+        <span class="sep">/</span>
+        <span>Chinese (Mandarin)</span>
+      </td>
+    </tr>
+    <tr>
+      <th> CAKE DAY </th>
+      <td> <span>September</span> </td>
+    </tr>
+    <tr>
+      <th> GENERATION </th>
+      <td> <span>Gen Z</span> </td>
+    </tr>
+  </tbody></table>
+</section>
 
 
 <section class="facts">
@@ -74,7 +99,9 @@ $effect(() => {
     {/each}
   </div>
 
-  <Clicky text="LOAD MORE" action={() => { limit += 6; }} />
+  {#if limit < facts_shuffled.length}
+    <Clicky text="LOAD MORE" action={() => { limit += 6; }} />
+  {/if}
 </section>
 
 <Block>
@@ -84,22 +111,54 @@ $effect(() => {
 
 <style lang="scss">
 
-table {
+section.profile {
+  padding: 2rem;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 
-}
+  table {
+    $space-col: 2em;
+    $space-row: 0.8em;
 
-tr {
-  text-align: left;
-}
+    height: max-content;
+    padding: 1rem 12rem 1rem 8rem;
+    position: relative;
+    z-index: -1;
+    @include shear-card;
+    transform: translateX(-7rem);
 
-th {
-  padding: 0.5em 2rem 0.5em 0.5em;
-  @include font-ui;
-  font-weight: normal;
-  color: rgb(white, 60%);
+    tr {
+      text-align: left;
+    }
+
+    th {
+      padding: 0 $space-col 0 0;
+      @include font-head;
+      font-weight: normal;
+      color: $col-text-deut;
+    }
+
+    td {
+      padding: 0;
+      @include font-flavour;
+      transform: scale(150%) translateY(0.2em);
+      transform-origin: left;
+
+      span { transition: #{trans()}; }
+      span:hover { color: $col-deut; }
+      span.sep { color: $col-text-deut; }
+    }
+
+    th, td {
+      padding-top: $space-row / 2;
+      padding-bottom: $space-row / 2;
+    }
+  }
 }
 
 section.facts {
+  max-width: 100rem;
   padding: 2rem;
   display: flex;
   flex-flow: column;

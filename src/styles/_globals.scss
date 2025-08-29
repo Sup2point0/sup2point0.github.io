@@ -1,3 +1,4 @@
+// COLOURS
 $col-prot: #ff0090;
 $col-deut: #40f190;
 $col-trit: #40e0ff;
@@ -9,31 +10,5 @@ $col-text-deut: rgb(white, 60%);
 $col-card: rgb(black, 20%);
 $col-card-hover: rgb(black, 50%);
 
-
-@mixin font-head {
-  font-family: 'Anta', 'Agency FB', 'Segoe UI', system-ui, sans-serif;
-}
-
-@mixin font-ui {
-  font-family: 'Overpass', 'Segoe UI', system-ui, sans-serif;
-}
-
-@mixin font-flavour {
-  font-family: 'Nanum Pen Script', 'Nanum Pen', 'Segoe UI', system-ui, sans-serif;
-}
-
-
-@mixin card {
-  padding: 1.5em;
-  background-color: $col-card;
-  border-radius: 1rem;
-}
-
-@mixin focus-glow {
-  outline: none;
-  box-shadow: 0 0 12px $col-prot;
-}
-
-@mixin trans {
-  transition: all 0.1s ease-out;
-}
+// CONSTANTS
+$shear-factor: -12deg;

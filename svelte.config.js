@@ -26,8 +26,9 @@ const config = {
     sveltePreprocess({
       scss: {
         prependData: `
-          @use './src/styles/_globals.scss' as *;
-          @use './src/styles/_links.scss' as *;
+          @use './src/styles/globals' as *;
+          @use './src/styles/mixins' as *;
+          @use './src/styles/fonts' as *;
         `
       },
     })

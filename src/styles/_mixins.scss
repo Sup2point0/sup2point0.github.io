@@ -1,4 +1,5 @@
 @use './globals' as *;
+@use './fonts' as *;
 
 
 @mixin link {
@@ -38,4 +39,36 @@
       background-color: $col-trit;
     }
   }
+}
+
+@mixin card {
+    background: $col-card;
+    backdrop-filter: blur(16px);
+}
+
+@mixin shear-card {
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    @include card;
+    transform: skew($shear-factor);
+    transition: trans();
+  }
+}
+
+
+@mixin focus-glow {
+  outline: none;
+  box-shadow: 0 0 12px $col-prot;
+}
+
+@function trans()
+{
+  @return "all 0.1s ease-out";
 }

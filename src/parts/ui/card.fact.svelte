@@ -55,7 +55,7 @@ button {
   position: relative;
   background: none;
   border: none;
-  @include trans;
+  transition: #{trans()};
 
   &::before {
     content: '';
@@ -69,7 +69,7 @@ button {
     background: $col-card;
     backdrop-filter: blur(16px);
     transform: skew(-12deg);
-    @include trans;
+    transition: #{trans()};
   }
 }
 
@@ -125,7 +125,7 @@ button p {
     font-size: 100%;
     font-weight: 300;
     color: rgb(white, 50%);
-    @include trans;
+    transition: #{trans()};
   }
 }
 

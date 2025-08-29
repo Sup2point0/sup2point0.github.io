@@ -61,7 +61,7 @@ let { text, intern, action, children }: Props = $props();
   text-decoration: none;
   background: none;
   border: none;
-  @include trans;
+  transition: #{trans()};
 
   &::before {
     content: '';
@@ -77,7 +77,7 @@ let { text, intern, action, children }: Props = $props();
     backdrop-filter: blur(16px);;
     border-left: $border-width solid $col-prot;
     transform: skew(-12deg);
-    @include trans;
+    transition: #{trans()};
   }
 }
 

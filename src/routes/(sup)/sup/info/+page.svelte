@@ -113,23 +113,25 @@ $effect(() => {
 <section class="frequerys">
   <h2> FREQUERYS </h2>
 
-  {#each frequerys as { q: question, a: answer }}
-    <div>
-      <h3> {@html question} </h3>
-      {#if Array.isArray(answer)}
-        {#each answer as block}
-          <p> {@html block} </p>
-        {/each}
-      {:else}
-        <p> {@html answer} </p>
-      {/if}
-    </div>
-  {/each}
+  <div class="frequery-cards">
+    {#each frequerys as { q: question, a: answer }}
+      <div>
+        <h3> {@html question} </h3>
+        {#if Array.isArray(answer)}
+          {#each answer as block}
+            <p> {@html block} </p>
+          {/each}
+        {:else}
+          <p> {@html answer} </p>
+        {/if}
+      </div>
+    {/each}
+  </div>
 </section>
 
-<Block>
-  <p id="note"> thank you for stalking me, it’s been my pleasure ^v^ </p>
-</Block>
+<div class="note">
+  <p> thank you for stalking me, it’s been my pleasure ^v^ </p>
+</div>
 
 
 <style lang="scss">
@@ -147,6 +149,7 @@ section {
 }
 
 section.profile {
+  margin: 0;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -193,8 +196,9 @@ section.profile {
 
 section.facts {
   padding: 2rem;
+  margin-top: 0;
   display: flex;
-  flex-flow: column;
+  flex-flow: column nowrap;
   align-items: center;
 
   .fact-cards {
@@ -210,26 +214,32 @@ section.frequerys {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  gap: 1rem;
 
-  div {
-    width: max(42em, 69%);
-    padding: 1em 2em;
-    @include shear-card;
+  .frequery-cards {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1rem;
 
-    h3 {
-      padding-bottom: 0.25em;
-      @include font-flavour;
-      font-size: 150%;
-      color: $col-trit;
-      font-weight: normal;
-    }
+    div {
+      width: max(42em, 69%);
+      padding: 1em 2em;
+      @include shear-card;
 
-    p {
-      margin: 0.5em 0;
-      @include font-ui;
-      font-size: 90%;
-      line-height: 150%;
+      h3 {
+        padding-bottom: 0.25em;
+        @include font-flavour;
+        font-size: 150%;
+        color: $col-trit;
+        font-weight: normal;
+      }
+
+      p {
+        margin: 0.5em 0;
+        @include font-ui;
+        font-size: 90%;
+        line-height: 150%;
+      }
     }
   }
 }
@@ -238,11 +248,14 @@ section.frequerys {
   @include link;
 }
 
-#note {
+.note {
+  margin-top: 3rem;
+  padding: 0.5em 1em;
   @include font-flavour;
   font-size: 120%;
   color: $col-deut;
   text-align: center;
+  @include shear-card;
 }
 
 </style>

@@ -6,12 +6,12 @@ import NavLink from "#parts/core/nav.link.svelte";
 
 
 <nav>
-  <NavLink text="info" intern="/sup/info" />
-  <NavLink text="sup" link="https://sup2point0.github.io" />
-  <NavLink text="loves" intern="/sup/loves" />
-  <NavLink text="music" intern="/sup/music" />
-  <NavLink text="projects" intern="/sup/projects" />
-  <NavLink text="dev" intern="/sup/dev" />
+  <NavLink text="INFO" intern="/sup/info" />
+  <NavLink text="SUP" link="https://sup2point0.github.io" />
+  <NavLink text="LOVES" intern="/sup/loves" />
+  <NavLink text="MUSIC" intern="/sup/music" />
+  <NavLink text="PROJECTS" intern="/sup/projects" />
+  <NavLink text="DEV" intern="/sup/dev" />
 </nav>
 
 
@@ -28,9 +28,8 @@ nav {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  backdrop-filter: blur(16px) brightness(0.9);
+  background: rgb(white, 4%);
+  backdrop-filter: blur(12px) brightness(0.9);
 }
 
 </style>

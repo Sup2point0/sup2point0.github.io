@@ -1,20 +1,23 @@
 <script lang="ts">
 
+import { base } from "$app/paths";
 import { browser } from "$app/environment";
 
-export let text: string;
-export let link: string | undefined = undefined;
-export let intern: string | undefined = undefined;
 
+interface Props {
+  text: string;
+  link?: string;
+  intern?: string;
+}
 
-$: active = (browser && window?.location.href == `${intern}`);
+let { text, link, intern }: Props = $props();
 
 </script>
 
 
-<a class="part nav-link"
-  href={link || `${intern}`}
-  class:active
+<a class="nav-link"
+  class:active={browser && window?.location.pathname === intern}
+  href={link || `${base}/${intern}`}
 >
   {text}
 </a>
@@ -22,27 +25,42 @@ $: active = (browser && window?.location.href == `${intern}`);
 
 <style lang="scss">
 
-.part {
+a.nav-link {
   min-width: 2rem;
-  padding: 0.5em 1em;
+  padding: 0.2em 0.5em 0;
   position: relative;
   display: inline-block;
 
-  @include font-ui;
+  @include font-flavour;
   color: white;
+  font-size: 150%;
   text-decoration: none;
-  background-color: transparent;
+  background: none;
+  @include trans;
 
-  transition: background-color 0.2s ease-out;
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: transparent;
+    transform: skew(-12deg);
+    @include trans;
+  }
 
-  &:after {
+  &::after {
     content: '';
     position: absolute;
     bottom: -1px;
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: $col-prot;
+    background: $col-deut;
 
     transform: scaleX(0);
     transform-origin: center;
@@ -53,13 +71,26 @@ $: active = (browser && window?.location.href == `${intern}`);
     color: $col-prot;
   }
 
-  &:hover, &:focus {
-    color: $col-prot;
-    background-color: $col-card;
+  &:hover, &:focus, &:focus-visible {
+    color: $col-deut;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+
+    &::before {
+      background: $col-card-hover;
+    }
 
     &:after {
       transform: scaleX(1);
       transform-origin: center;
+    }
+  }
+
+  &:active {
+    color: $col-trit;
+
+    &::after {
+      background: $col-trit;
     }
   }
 }

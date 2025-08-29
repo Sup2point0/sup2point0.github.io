@@ -47,6 +47,8 @@
 }
 
 @mixin shear-card {
+  position: relative;
+  
   &::before {
     content: '';
     width: 100%;

@@ -4,6 +4,8 @@ import sample from "@stdlib/random-sample";
   
 import { facts_pinned, facts } from "./facts";
 import type { Fact } from "./facts";
+import { frequerys } from "./faq";
+import type { Question } from "./faq";
 
 import Block from "#parts/ui/block.svelte";
 import Clicky from "#parts/ui/clicky.svelte";
@@ -11,7 +13,6 @@ import FactCard from "#parts/ui/card.fact.svelte";
 import PurplePortal from "#parts/special/portal.svelte";
 
 import { untrack } from "svelte";
-import { base } from "$app/paths";
 
 
 const facts_shuffled = sample(facts, { replace: false });
@@ -19,11 +20,14 @@ let limit = $state(12);
 
 let facts_display: Fact[] = $state([]);
 
+let frequerys_display: Question[] = $state([]);
+
+
 $effect(() => {
   limit;
 
   untrack(() => {
-    facts_display = facts_pinned.concat(facts_shuffled.slice(0, limit))
+    facts_display = facts_pinned.concat(facts_shuffled.slice(0, limit));
   });
 });
 
@@ -93,6 +97,8 @@ $effect(() => {
 
 
 <section class="facts">
+  <h2> TIDBITS </h2>
+
   <div class="fact-cards">
     {#each facts_display as quirk (quirk.idx)}
       <FactCard {...quirk} />
@@ -104,6 +110,23 @@ $effect(() => {
   {/if}
 </section>
 
+<section class="frequerys">
+  <h2> FREQUERYS </h2>
+
+  {#each frequerys as { q: question, a: answer }}
+    <div>
+      <h3> {@html question} </h3>
+      {#if Array.isArray(answer)}
+        {#each answer as block}
+          <p> {@html block} </p>
+        {/each}
+      {:else}
+        <p> {@html answer} </p>
+      {/if}
+    </div>
+  {/each}
+</section>
+
 <Block>
   <p id="note"> thank you for stalking me, it’s been my pleasure ^v^ </p>
 </Block>
@@ -111,8 +134,19 @@ $effect(() => {
 
 <style lang="scss">
 
+section {
+  max-width: 100rem;
+  margin: 1rem 0;
+
+  h2 {
+    margin-bottom: 1em;
+    @include font-head;
+    font-weight: normal;
+    font-size: 200%;
+  }
+}
+
 section.profile {
-  padding: 2rem;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -151,14 +185,13 @@ section.profile {
     }
 
     th, td {
-      padding-top: $space-row / 2;
-      padding-bottom: $space-row / 2;
+      padding-top: calc($space-row / 2);
+      padding-bottom: calc($space-row / 2);
     }
   }
 }
 
 section.facts {
-  max-width: 100rem;
   padding: 2rem;
   display: flex;
   flex-flow: column;
@@ -171,6 +204,38 @@ section.facts {
     justify-content: center;
     gap: 1rem;
   }
+}
+
+section.frequerys {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 1rem;
+
+  div {
+    width: max(42em, 69%);
+    padding: 1em 2em;
+    @include shear-card;
+
+    h3 {
+      padding-bottom: 0.25em;
+      @include font-flavour;
+      font-size: 150%;
+      color: $col-trit;
+      font-weight: normal;
+    }
+
+    p {
+      margin: 0.5em 0;
+      @include font-ui;
+      font-size: 90%;
+      line-height: 150%;
+    }
+  }
+}
+
+:global(section.frequerys p a) {
+  @include link;
 }
 
 #note {

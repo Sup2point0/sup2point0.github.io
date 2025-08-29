@@ -53,6 +53,7 @@ button {
   max-width: 30vw;
   padding: 1em 1.5em;
   position: relative;
+  font-size: 100%;
   background: none;
   border: none;
   transition: #{trans()};
@@ -109,7 +110,6 @@ button.open {
 
 p {
   @include font-ui;
-  font-size: 125%;
   line-height: 150%;
   text-align: left;
 }
@@ -122,7 +122,7 @@ button p {
   padding-top: 0.5em;
 
   p {
-    font-size: 100%;
+    font-size: 80%;
     font-weight: 300;
     color: rgb(white, 50%);
     transition: #{trans()};

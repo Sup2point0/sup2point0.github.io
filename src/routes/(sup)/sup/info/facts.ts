@@ -29,6 +29,9 @@ export const facts: Fact[] = [
     text: `My record typing speed is just over ${h("150 WPM")}.`,
     desc: `I tend to float at more around ${h("130")}, and when I’m actually typing content it’s more like ${h("80~120")} WPM. Also, typing lowercase words != typing code.`,
   }, {
+    text: `I can type one-handed at ${h("80 WPM")}`,
+    desc: `On iPad. I often need to hold my iPad with my left hand, and then type with my right, so I started typing one-handed. It’s very fun. Feels like playing Phigros.`
+  }, {
     text: `I love light mode.`,
     desc: `Yes, I use Discord and reddit in light mode. Programming is the one place where I don’t, though. Can’t code in light mode.`,
   }, {
@@ -46,6 +49,11 @@ export const facts: Fact[] = [
   }, {
     text: `I’ve created ${h("300+")} integrals.`,
     desc: `As in, written my own integration questions. Yeah, I’m down so bad for maths. You can see them ${a("on Integrity", "https://sup2point0.github.io/integrity/questions/integrals")}.`,
+  },
+  
+  {
+    text: `I can vibe to almost any genre of music.`,
+    desc: `Find out more over in ${a("music", "music")}`,
   }, {
     text: `I like creating lists.`,
     desc: `Inexplicable pleasure.`,
@@ -53,7 +61,7 @@ export const facts: Fact[] = [
     text: `I like naming things.`,
     desc: `This includes projects, games, items and upgrades, characters, places, Yu-Gi-Oh cards, conceptual technological products, organic chemical nomenclature, and more. I’m not joking, there’s just something so satisfying about naming things.`,
   }, {
-    text: `I draw organic chemical structures for fun.`,
+    text: `I drew organic chemical structures for fun.`,
     desc: `It’s like art. I’ve drawn so many hexagons that I can freehand a 120° angle to near perfection. See ${a("kenzokinetics in Assort")} for a digital version equivalent.`,
   }, {
     text: `I like doing really complicated algebraic manipulation (sometimes).`,
@@ -86,6 +94,11 @@ export const facts: Fact[] = [
     text: `I love romance.`,
     desc: `No comment.`,
   }, {
+    text: `I have crazy dreams.`,
+    desc: `No kidding, they’re like, proper multi-arc epics and sagas with character development and all. Actually just free downside-free entertainment. idky they come, but they do. It makes sleeping quite fun.`
+  },
+  
+  {
     text: `I once solved an equation using the ${a("Lambert W function", "https://wikipedia.org/wiki/Lambert_W_function")} in my dreams.`,
     desc: `Might have been to do with the video I’d watched that night where I was first introduced to the $W$ function. Also, the equation in question was $x^2 e^x = 1$, and you solve it by square rooting both sides, scaling and applying the $W$ function.`,
   }, {
@@ -122,11 +135,11 @@ export const facts: Fact[] = [
     text: `I visited and toured ${h("8")} colleges at ${a("Cambridge University open day", "https://undergraduate.study.cam.ac.uk/events/cambridge-open-days")}.`,
     desc: `Churchill, Fitzwilliam, Robinson, Claire, Lucy Cavendish, Queens, Downing (in that order). Plus a Computer Science department introduction presentation. I still don’t know how I did it. My legs were ${i("dead")}.`,
   }, {
-    text: `I think the most beautiful part of a human is the eyes.`,
-    desc: `Fingers and hair come in close second. It’s hard to pick.`,
+    text: `I think the most beautiful part of a human are eyes.`,
+    desc: `Fingers and hair come in close second. It’s hard to pick. (this sounds sus vrej)`,
   }, {
     text: `My name is a meme.`,
-    desc: `I refuse to elaborate. *leaves*`,
+    desc: `Shall I elaborate?`,
   }, {
     text: `These tidbits are randomly shuffled.`,
     desc: `Or are they?`,

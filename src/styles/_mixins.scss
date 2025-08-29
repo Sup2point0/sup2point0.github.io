@@ -42,8 +42,8 @@
 }
 
 @mixin card {
-    background: $col-card;
-    backdrop-filter: blur(16px);
+  background: $col-card;
+  backdrop-filter: blur(16px);
 }
 
 @mixin shear-card {
@@ -60,7 +60,7 @@
     z-index: -1;
     @include card;
     transform: skew($shear-factor);
-    transition: trans();
+    transition: #{trans()};
   }
 }
 

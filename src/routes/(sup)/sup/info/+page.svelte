@@ -5,9 +5,7 @@ import sample from "@stdlib/random-sample";
 import { facts_pinned, facts } from "./facts";
 import type { Fact } from "./facts";
 import { frequerys } from "./faq";
-import type { Question } from "./faq";
 
-import Block from "#parts/ui/block.svelte";
 import Clicky from "#parts/ui/clicky.svelte";
 import FactCard from "#parts/ui/card.fact.svelte";
 import PurplePortal from "#parts/special/portal.svelte";
@@ -19,8 +17,6 @@ const facts_shuffled = sample(facts, { replace: false });
 let limit = $state(12);
 
 let facts_display: Fact[] = $state([]);
-
-let frequerys_display: Question[] = $state([]);
 
 
 $effect(() => {

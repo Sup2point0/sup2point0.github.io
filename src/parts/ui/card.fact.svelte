@@ -57,21 +57,7 @@ button {
   background: none;
   border: none;
   transition: #{trans()};
-
-  &::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background: $col-card;
-    backdrop-filter: blur(16px);
-    transform: skew(-12deg);
-    transition: #{trans()};
-  }
+  @include shear-card;
 }
 
 button.live {
@@ -88,7 +74,7 @@ button.live {
   &:hover, &:active {
     cursor: pointer;
     &::before {
-      transform: skew(-8deg);
+      transform: skew(calc($shear-factor * 2 / 3));
     }
   }
 }
@@ -97,7 +83,7 @@ button.open {
   padding: 1em 2em;
 
   &::before {
-    transform: skew(-8deg);
+    transform: skew(calc($shear-factor * 2 / 3));
   }
 
   &:hover, &:active, &:focus-visible {

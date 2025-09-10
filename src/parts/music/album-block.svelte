@@ -21,7 +21,7 @@ let { name, year, tracks, intern, cover, preview = false }: Props = $props();
 
 <a class="album-card"
   class:preview
-  href="/sup/music/{intern}"
+  href="/sup/music/create/albums/{intern}"
 >
   <div class="upper">
     {#if tracks}

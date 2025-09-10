@@ -61,8 +61,7 @@ a.nav-link {
   }
 }
 
-a.nav-link.active {
-  pointer-events: none;
+a.nav-link.active:not(:hover, :focus-visible, :active) {
   color: $col-text;
 }
 

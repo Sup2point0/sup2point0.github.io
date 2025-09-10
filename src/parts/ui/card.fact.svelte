@@ -56,21 +56,13 @@ button {
   font-size: 100%;
   background: none;
   border: none;
+  @include shear-card($interactive: true, $glow: true);
   transition: #{trans()};
-  @include shear-card;
 }
 
 button.live {
-  &:hover, &:active, &:focus-visible {
-    cursor: pointer;
+  &:hover, &:focus-visible, &:active {
     outline: none;
-
-    &::before {
-      background: $col-card-hover;
-      border-radius: 0.6em;
-      transform: skew(calc($shear-factor * 2 / 3));
-      @include focus-glow;
-    }
   }
 }
 

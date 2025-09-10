@@ -1,105 +1,141 @@
-<!-- @component Album -->
+<!-- @component AlbumCard
+
+A card for an album with its cover, name and other info.
+-->
+
 <script lang="ts">
 
-export let preview: boolean = false;
-export let name: string;
-export let year: string = "";
-export let tracks: number | undefined = undefined;
-export let intern: string;
-export let cover: string | undefined = undefined;
+interface Props {
+  name: string;
+  year?: string;
+  tracks?: number;
+  intern: string;
+  cover?: string;
+  preview?: boolean;
+}
+
+let { name, year, tracks, intern, cover, preview = false }: Props = $props();
 
 </script>
 
 
-<a class="album-block"
+<a class="album-card"
   class:preview
   href="/sup/music/{intern}"
 >
-  <img alt={name} title={name}
-    width="200px" height="200px"
-    src="/music/covers/{cover ?? "placeholder.png"}"
-  />
-
-  <div class="info">
-    <div>
-      <h4> {name} </h4>
-      <p> {year} </p>
-    </div>
-    
+  <div class="upper">
     {#if tracks}
-      <div>
-        <p> {tracks} </p>
-      </div>
+      <p class="track-count"> {tracks} </p>
     {/if}
+
+    <div class="img-container">
+      <img alt={name} title={name}
+        width="200px" height="200px"
+        src="/music/covers/{cover ?? "placeholder.png"}"
+      />
+        
+      <h3> {name} </h3>
+    </div>
+  </div>
+
+  <div class="lower">
+    <p class="date"> {year} </p>
   </div>
 </a>
 
 
 <style lang="scss">
 
-a.album-block {
-  padding: 1.25rem;
+a.album-card {
+  padding: 1rem 2.5rem;
   display: block;
   text-decoration: none;
-  background-color: $col-card;
-  border-radius: 1rem;
 
-  transition: all 0.2s ease-out;
-
-  &.preview {
-    opacity: 50%;
-  }
+  @include shear-card($interactive: true, $glow: true);
+  transition: #{trans()};
 
   * {
     display: block;
   }
 
-  &:not(.preview) {
-    &:hover, &:focus {
-      background-color: $col-card-hover;
-      box-shadow: 0 0 10px $col-prot;
+  &:hover, &:focus-visible {
+    &::before {
+      border-radius: 0.6em;
+      @include focus-glow;
+    }
+
+    .img-container {
+      transform: scale(105%);
 
       img {
-        transform: scale(1.05);
+        filter: brightness(96%);
       }
-      h4 {
-        color: $col-prot;
+
+      h3 {
+        opacity: 1;
       }
     }
 
-    &:focus {
-      outline: 2px solid $col-prot;
+    p.track-count {
+      color: $col-prot;
     }
   }
 }
 
-.info {
-  display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: start;
+a.album-card.preview {
+  pointer-events: none;
+  opacity: 50%;
 }
 
 
-img {
-  max-width: 25vw;
-  aspect-ratio: 1;
-  transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+.upper {
+  position: relative;
+
+  p.track-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    @include font-head;
+    font-size: 200%;
+    color: $col-text;
+    transform: translateX(1.2em) translateY(-0.25em);
+    transition: #{trans()};
+  }
+
+  .img-container {
+    transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+    img {
+      max-width: 25vw;
+      aspect-ratio: 1;
+    }
+
+    h3 {
+      width: 100%;
+      padding: 2em 0 0.5em 0.75em;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      @include font-ui;
+      font-weight: normal;
+      font-size: 110%;
+      color: white;
+      background: linear-gradient(to bottom in oklch, transparent, rgb(black, 90%) 90%);
+      opacity: 0;
+      transition: #{trans()}, opacity 0.25s ease-out;
+    }
+  }
 }
 
-h4 {
-  margin-top: 1em;
-  @include font-ui;
-  font-weight: normal;
-  font-size: 110%;
-  color: white;
-  transition: color 0.2s ease-out;
-}
 
-p {
-  @include font-ui;
+p.date {
+  padding-top: 0.8em;
+  @include font-head;
   font-size: 90%;
   color: $col-text-deut;
+  text-align: center;
 }
 
 </style>

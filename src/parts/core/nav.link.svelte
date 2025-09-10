@@ -62,6 +62,7 @@ a.nav-link {
 }
 
 a.nav-link.active {
+  pointer-events: none;
   color: $col-text;
 }
 

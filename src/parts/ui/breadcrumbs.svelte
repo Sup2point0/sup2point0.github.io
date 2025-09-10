@@ -37,7 +37,7 @@ let { levels }: Props = $props();
 <style lang="scss">
 
 nav {
-  padding: 1rem;
+  padding: 1rem 0 2rem;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -45,6 +45,7 @@ nav {
 }
 
 .text {
+  padding: 0.2em 0.5em 0;
   @include font-flavour;
   font-size: 125%;
 }
@@ -57,7 +58,6 @@ nav {
 }
 
 a {
-  padding: 0.2em 0.5em 0;
   @include link($lesser: true);
   @include shear-card($interactive: true);
   transition: #{trans()};

@@ -1,14 +1,14 @@
 <script>
 
-import Album from "#parts/music/album-block.svelte";
+import AlbumCard from "#parts/music/album-block.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 
 </script>
 
 
 <svelte:head>
-  <title> music · Sup#2.0 </title>
-  <meta name="description" content="All the music I produce!" />
+  <title> Albums × Music × Sup#2.0 </title>
+  <meta name="description" content="All the albums of music I’m working on!" />
 </svelte:head>
 
 
@@ -18,107 +18,120 @@ import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
   { text: "albums" },
 ]} />
 
-<div class="collection">
-  <Album
-    name="Singles"
-    year="2023 – present"
-    tracks={1}
-    intern="singles"
-    cover="singles/sunset.png"
-  />
-</div>
+<div class="container">
+  <section>
+    <AlbumCard
+      name="Singles"
+      tracks={2}
+      intern="singles"
+      cover="sunset.png"
+    />
+  </section>
 
-<div class="collection">
-  <Album
-    name="Algorhythm Origins"
-    year="2023 – present"
-    tracks={8}
-    intern="algo-origins"
-    cover="algo-origins/night.png"
-  />
-  <Album
-    name="Algorhythm Roots"
-    year="2024 – present"
-    tracks={4}
-    intern="algo-roots"
-    cover="algo-roots/rejuvenate.png"
-  />
-  <Album
-    name="Algorhythm Vision"
-    year="2024 – future"
-    tracks={4}
-    intern="algo-vision"
-    cover="algo-vision/reminiscence.png"
-  />
-  <Album
-    name="ELYSION"
-    year="2023 – present"
-    tracks={7}
-    intern="elysion"
-    cover="elysion/ceruleus.png"
-  />
-  <Album
-    name="Cortex"
-    year="2024 – present"
-    tracks={8}
-    intern="cortex"
-    cover="cortex/voxel.png"
-  />
-  <Album
-    preview={true}
-    name="Integral"
-    year="2024 – present"
-    intern="integral"
-  />
-  <Album
-    preview={true}
-    name="Affinity"
-    tracks={9}
-    year="2024 – present"
-    intern="affinity"
-  />
-  <Album
-    preview={true}
-    name="Fidelity"
-    tracks={7}
-    year="future"
-    intern="fidelity"
-  />
-  <Album
-    preview={true}
-    name="Stranded"
-    tracks={6}
-    year="future"
-    intern="stranded"
-  />
-</div>
+  <section>
+    <AlbumCard
+      name="Algorhythm Origins"
+      year="2023 – PRESENT"
+      tracks={7}
+      intern="algo-origins"
+      cover="origins.night.png"
+    />
+    <AlbumCard
+      name="Algorhythm Roots"
+      year="2024 – PRESENT"
+      tracks={5}
+      intern="algo-roots"
+      cover="placeholder.png"
+    />
+    <AlbumCard
+      name="Algorhythm Vision"
+      year="2024 – PRESENT"
+      tracks={5}
+      intern="algo-vision"
+      cover="vision.another-dawn.png"
+    />
+    <AlbumCard
+      name="ELYSION"
+      year="2023 – PRESENT"
+      tracks={7}
+      intern="elysion"
+      cover="elysion.ceruleus.png"
+    />
+    <AlbumCard
+      name="Cortex"
+      year="2024 – PRESENT"
+      tracks={8}
+      intern="cortex"
+      cover="cortex.voxel.png"
+    />
+    <AlbumCard
+      preview={true}
+      name="Integral"
+      year="2024 – PRESENT"
+      tracks={8}
+      intern="integral"
+      cover="placeholder.png"
+    />
+    <AlbumCard
+      preview={true}
+      name="Affinity"
+      tracks={9}
+      year="FUTURE"
+      intern="affinity"
+      cover="placeholder.png"
+    />
+    <AlbumCard
+      preview={true}
+      name="Fidelity"
+      tracks={7}
+      year="FUTURE"
+      intern="fidelity"
+      cover="placeholder.png"
+    />
+    <AlbumCard
+      name="Stranded"
+      tracks={7}
+      year="2025 – PRESENT"
+      intern="stranded"
+      cover="placeholder.png"
+    />
+  </section>
 
-<div class="collection">
-  <Album
-    name="GarageBand Archives"
-    year="2024 and earlier"
-    tracks={4}
-    intern="archives/garageband"
-    cover="garageband-archives.jpg"
-  />
-  <Album
-    name="MuseScore Archives"
-    year="2023 and earlier"
-    tracks={3}
-    intern="archives/musescore"
-    cover="musescore-archives.png"
-  />
+  <section>
+    <AlbumCard
+      name="GarageBand Archives"
+      year="2024 and earlier"
+      tracks={4}
+      intern="archives/garageband"
+      cover="garageband.jpg"
+    />
+    <AlbumCard
+      name="MuseScore Archives"
+      year="2023 and earlier"
+      tracks={3}
+      intern="archives/musescore"
+      cover="musescore.png"
+    />
+  </section>
 </div>
 
 
 <style lang="scss">
 
-.collection {
-  width: 100%;
-  margin-bottom: 4rem;
+.container {
+  width: 80%;
+  max-width: 100rem;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 4rem;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   gap: 1rem;
 }
 

@@ -1,7 +1,7 @@
 <!-- @component Footer -->
 
 <footer>
-  <p> crafted with ❤️ by Sup#2.0 </p>
+  <p> crafted with <span>❤️</span> by Sup#2.0 </p>
   
   <p> &middot; </p>
 
@@ -29,7 +29,11 @@ footer {
 p {
   @include font-flavour;
   font-size: 125%;
-  color: rgb(white, 50%);
+  color: $col-text-deut;
+
+  span {
+    color: $col-text;
+  }
 
   a {
     @include link;

@@ -1,6 +1,7 @@
 <script>
 
 import Album from "#parts/music/album-block.svelte";
+import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 
 </script>
 
@@ -9,6 +10,13 @@ import Album from "#parts/music/album-block.svelte";
   <title> music · Sup#2.0 </title>
   <meta name="description" content="All the music I produce!" />
 </svelte:head>
+
+
+<Breadcrumbs levels={[
+  { text: "music", intern: "sup/music" },
+  { text: "create", intern: "sup/music/create" },
+  { text: "albums" },
+]} />
 
 <div class="collection">
   <Album

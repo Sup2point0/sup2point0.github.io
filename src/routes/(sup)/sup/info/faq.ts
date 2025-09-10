@@ -42,7 +42,7 @@ export const frequerys: Question[] = [
   },
   {
     q: `can we be friends?`,
-      a: `I ${i("love")} meeting and chatting with new people. Whether you want to analyse Camellia’s ridiculous full flavour soundtracks, want to challenge me with a delicious integral, or just want to ruminate over the heartbreaking character arcs of [Arcane], [feel free to hit me up on Disc] ^v^`,
+      a: `I ${i("love")} meeting and chatting with new people. Whether you want to analyse ${a("Camellia’s ridiculous full flavour soundtracks", "https://youtube.com/playlist?list=PLaN19gIKi5Zp2sK5jeaHgJ823ANa4NcB4")}, want to challenge me with a delicious integral, or just want to ruminate over the heartbreaking character arcs of ${a("Arcane", "https://netflix.com/gb/title/81435684")}, ${a("feel free to hit me up on Disc", "https://discord.com/users/752972078579449888")} ^v^`,
   },
   {
     q: `what’s up with this website?`,

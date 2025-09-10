@@ -62,19 +62,14 @@ button {
 
 button.live {
   &:hover, &:active, &:focus-visible {
+    cursor: pointer;
     outline: none;
 
     &::before {
       background: $col-card-hover;
       border-radius: 0.6em;
-      @include focus-glow;
-    }
-  }
-
-  &:hover, &:active {
-    cursor: pointer;
-    &::before {
       transform: skew(calc($shear-factor * 2 / 3));
+      @include focus-glow;
     }
   }
 }

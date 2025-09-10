@@ -36,7 +36,7 @@ a.nav-link {
   min-width: 2rem;
   padding: 0.2em 0.5em 0;
 
-  @include font-flavour;
+  @include font-fun;
   color: white;
   font-size: 150%;
   text-decoration: none;

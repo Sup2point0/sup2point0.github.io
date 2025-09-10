@@ -31,7 +31,7 @@ let { name, year, tracks, intern, cover, preview = false }: Props = $props();
     <div class="img-container">
       <img alt={name} title={name}
         width="200px" height="200px"
-        src="/music/covers/{cover ?? "placeholder.png"}"
+        src="/music/covers/{cover ?? 'placeholder.png'}"
       />
         
       <h3> {name} </h3>
@@ -84,7 +84,7 @@ a.album-card {
 
 a.album-card.preview {
   pointer-events: none;
-  opacity: 50%;
+  opacity: 25%;
 }
 
 
@@ -96,7 +96,7 @@ a.album-card.preview {
     top: 0;
     right: 0;
 
-    @include font-head;
+    @include font-tech;
     font-size: 200%;
     color: $col-text;
     transform: translateX(1.2em) translateY(-0.25em);
@@ -132,7 +132,7 @@ a.album-card.preview {
 
 p.date {
   padding-top: 0.8em;
-  @include font-head;
+  @include font-tech;
   font-size: 90%;
   color: $col-text-deut;
   text-align: center;

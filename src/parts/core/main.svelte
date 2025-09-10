@@ -1,0 +1,37 @@
+<!-- @component Main
+
+A width-restricting container.
+-->
+
+<script lang="ts">
+
+interface Props {
+  gap?: string;
+  children?: any;
+}
+
+let { gap = "1rem", children } = $props();
+
+</script>
+
+
+<main style:gap>
+  {#if children}
+    {@render children()}
+  {:else}
+    <p class="error"> Uh, something went wrong! </p>
+  {/if}
+</main>
+
+
+<style lang="scss">
+
+main {
+  max-width: 100rem;
+  padding: 0 4rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+</style>

@@ -138,7 +138,7 @@ section {
 
   h2 {
     margin-bottom: 1em;
-    @include font-head;
+    @include font-tech;
     font-weight: normal;
     font-size: 200%;
   }
@@ -167,14 +167,14 @@ section.profile {
 
     th {
       padding: 0 $space-col 0 0;
-      @include font-head;
+      @include font-tech;
       font-weight: normal;
       color: $col-text-deut;
     }
 
     td {
       padding: 0;
-      @include font-flavour;
+      @include font-fun;
       transform: scale(150%) translateY(0.2em);
       transform-origin: left;
 
@@ -224,7 +224,7 @@ section.frequerys {
 
       h3 {
         padding-bottom: 0.25em;
-        @include font-flavour;
+        @include font-fun;
         font-size: 150%;
         color: $col-trit;
         font-weight: normal;
@@ -247,7 +247,7 @@ section.frequerys {
 .note {
   margin-top: 3rem;
   padding: 0.5em 1em;
-  @include font-flavour;
+  @include font-fun;
   font-size: 120%;
   color: $col-deut;
   text-align: center;

@@ -1,20 +1,6 @@
-import type { Shard, Daw } from "#scripts/types";
-
-
-export interface AlbumData {
-  shard: Shard;
-  name: string;
-  year?: string;
-
-  daw?: Daw | Daw[];
-  cover?: string;
-  is_preview?: boolean;
-
-  tracks: Shard[];
-  genres?: string[];
-
-  desc?: string | string[];
-}
+import { i } from "#scripts/utils";
+import { Daw } from "#scripts/types";
+import type { AlbumData } from "#scripts/types";
 
 
 export const albums: {
@@ -38,14 +24,66 @@ export const albums: {
       year: "2023 – PRESENT",
       cover: "origins.night.png",
       tracks: [
-        "dawn",
-        "day",
-        "night",
-        "tomorrow",
-        "dusk",
-        "time",
-        "twilight",
+        {
+          shard: "dawn",
+          name: "Dawn",
+          genres: ["electronic", "muted", "chill"],
+          audio: "dawn.m4a",
+          cover: "origins.dawn.png",
+        },
+        {
+          shard: "day",
+          name: "Day",
+          genres: ["electronic", "vibrant"],
+          audio: "day.m4a",
+          cover: "origins.day.png",
+        },
+        {
+          feat: true,
+          shard: "night",
+          name: "Night",
+          genres: ["electronic", "vibrant"],
+          audio: "night.m4a",
+          cover: "origins.night.png",
+        },
+        {
+          shard: "yesterday",
+          name: "Yesterday",
+          genres: [],
+          audio: "yesterday.m4a",
+          is_preview: true,
+        },
+        {
+          shard: "tomorrow",
+          name: "Tomorrow",
+          genres: ["electronic", "jubilant"],
+          audio: "tomorrow.m4a",
+          cover: "origins.tomorrow.png",
+        },
+        {
+          shard: "dusk",
+          name: "Dusk",
+          genres: [],
+          audio: "",
+          is_preview: true,
+        },
+        {
+          feat: true,
+          shard: "time",
+          name: "Time",
+          genres: [],
+          audio: "",
+          is_preview: true,
+        },
+        {
+          shard: "twilight",
+          name: "Twilight",
+          genres: [],
+          audio: "twilight.m4a",
+          is_preview: true,
+        },
       ],
+      desc: `Soundtracks created for my rhythm game ${i("Algorhythm")}"!`,
     },
     {
       shard: "algo-roots",
@@ -95,7 +133,12 @@ export const albums: {
       cover: "cortex.voxel.png",
       tracks: [
         "purity",
-        "voxel",
+        {
+          shard: "voxel",
+          name: "Voxel",
+          audio: "cortex.voxel.m4a",
+          cover: "cortex.voxel",
+        },
         "pseudorandom",
         "dactyl",
         "mem-brain",
@@ -172,6 +215,7 @@ export const albums: {
       name: "GarageBand Archives",
       year: "2024 and earlier",
       shard: "archives/garageband",
+      daw: Daw.GarageBand,
       cover: "garageband.jpg",
       tracks: [
         "let-you-down",
@@ -184,6 +228,7 @@ export const albums: {
       name: "MuseScore Archives",
       year: "2023 and earlier",
       shard: "archives/musescore",
+      daw: Daw.MuseScore,
       cover: "musescore.png",
       tracks: [
         "wingless-butterfly",
@@ -193,3 +238,5 @@ export const albums: {
     },
   ],
 };
+
+export const albums_list: AlbumData[] = albums.pinned.concat(albums.gen1, albums.archives);

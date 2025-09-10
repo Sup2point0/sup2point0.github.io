@@ -1,9 +1,11 @@
 <script lang="ts">
 
-import AlbumCard from "#parts/music/album-block.svelte";
+import Main from "#parts/core/main.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
+import AlbumCard from "#parts/music/card.album.svelte";
 
-import { albums, type AlbumData } from "./albums";
+import { albums } from "#src/routes/(sup)/sup/music/music";
+import type { AlbumData } from "#scripts/types";
 
 </script>
 
@@ -34,26 +36,26 @@ import { albums, type AlbumData } from "./albums";
   { text: "albums" },
 ]} />
 
-<div class="container">
-  <section>
-    {@render album_cards(albums.pinned)}
-  </section>
+<Main>
+  <div class="container">
+    <section>
+      {@render album_cards(albums.pinned)}
+    </section>
 
-  <section>
-    {@render album_cards(albums.gen1)}
-  </section>
+    <section>
+      {@render album_cards(albums.gen1)}
+    </section>
 
-  <section>
-    {@render album_cards(albums.archives)}
-  </section>
-</div>
+    <section>
+      {@render album_cards(albums.archives)}
+    </section>
+  </div>
+</Main>
 
 
 <style lang="scss">
 
 .container {
-  width: 80%;
-  max-width: 100rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;

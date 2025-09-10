@@ -46,12 +46,12 @@ nav {
 
 .text {
   padding: 0.2em 0.5em 0;
-  @include font-flavour;
+  @include font-fun;
   font-size: 125%;
 }
 
 .separator {
-  @include font-flavour;
+  @include font-fun;
   color: $col-text-deut;
   font-size: 125%;
   // transform: skew(10deg) scaleX(60%);

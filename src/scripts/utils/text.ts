@@ -1,7 +1,7 @@
 /** Italicise text. */
 export function i(text: string): string
 {
-  return `<i>${text}</i>`;
+  return `<em>${text}</em>`;
 }
 
 /** Highlight text. */

@@ -55,7 +55,7 @@ let { text, intern, action, children }: Props = $props();
   padding: 0.5em 1.5em 0.5em calc(2em - $border-width);
   position: relative;
 
-  @include font-head;
+  @include font-tech;
   color: $col-prot;
   font-size: 100%;
   text-decoration: none;

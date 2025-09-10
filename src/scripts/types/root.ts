@@ -1,4 +1,9 @@
 /** A unique identifier for any entity. */
 export type Shard = string;
 
-export type Daw = "fl" | "gb" | "ms";
+
+export enum Daw {
+  FL,
+  GarageBand,
+  MuseScore,
+}

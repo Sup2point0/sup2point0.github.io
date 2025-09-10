@@ -27,7 +27,7 @@ footer {
 }
 
 p {
-  @include font-flavour;
+  @include font-fun;
   font-size: 125%;
   color: $col-text-deut;
 

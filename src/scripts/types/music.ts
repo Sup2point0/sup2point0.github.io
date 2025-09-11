@@ -11,6 +11,7 @@ export interface TrackData {
   
   audio?: string;
   cover?: string;
+  album?: string;
 
   genres?: string[];
   vibes?: string[];

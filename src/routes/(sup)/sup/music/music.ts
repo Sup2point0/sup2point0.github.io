@@ -650,6 +650,11 @@ export const albums_list: AlbumData[] = albums.pinned.concat(albums.gen1, albums
 
 export const tracks_list: TrackData[] = Object.values(albums).flatMap(
   collection => collection.flatMap(
-    album => album.tracks
+    album => album.tracks.map(
+      track => {
+        track.album = album.shard;
+        return track;
+      }
+    )
   )
 );

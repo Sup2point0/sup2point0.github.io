@@ -150,7 +150,7 @@ export const albums: {
           shard: "rush-reloaded",
           name: "Rush Reloaded",
           audio: "rush-reloaded.m4a",
-          cover: undefined,
+          cover: "roots.rush-reloaded.png",
           genres: ["rhythm", "arcade"],
           vibes: ["intense"],
         },

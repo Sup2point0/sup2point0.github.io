@@ -10,13 +10,13 @@ import type { AlbumData } from "#scripts/types";
 </script>
 
 
-{#snippet album_cards(albums: AlbumData[])}
+{#snippet album_cards(albums: AlbumData[], collection?: string)}
   {#each albums as album}
     <AlbumCard
       name={album.name}
-      year={album.year}
+      date={album.date}
       tracks={album.tracks?.length}
-      intern={album.shard}
+      intern={(collection ?? "") + album.shard}
       cover={album.cover}
       preview={album.is_preview}
     />
@@ -47,7 +47,7 @@ import type { AlbumData } from "#scripts/types";
     </section>
 
     <section>
-      {@render album_cards(albums.archives)}
+      {@render album_cards(albums.archives, "archives/")}
     </section>
   </div>
 </Main>

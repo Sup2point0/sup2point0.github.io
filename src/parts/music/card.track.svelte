@@ -18,6 +18,7 @@ let { track }: Props = $props();
 
 <button class="track-card"
   class:preview={track.is_preview}
+  class:shrink={track.name.length > 16}
 >
   <div class="img-container">
     <img alt={track.name} title={track.name}
@@ -96,6 +97,7 @@ img {
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: start;
+  gap: 1rem;
 }
 
 .upper {
@@ -106,6 +108,10 @@ img {
     font-weight: normal;
     color: $col-text;
     text-align: start;
+
+    button.shrink & {
+      font-size: 200%;
+    }
   }
 
   ul.genres {

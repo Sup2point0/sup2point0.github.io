@@ -7,14 +7,14 @@ A card for an album with its cover, name and other info.
 
 interface Props {
   name: string;
-  year?: string;
+  date?: string;
   tracks?: number;
   intern: string;
   cover?: string;
   preview?: boolean;
 }
 
-let { name, year, tracks, intern, cover, preview = false }: Props = $props();
+let { name, date, tracks, intern, cover, preview = false }: Props = $props();
 
 </script>
 
@@ -39,7 +39,7 @@ let { name, year, tracks, intern, cover, preview = false }: Props = $props();
   </div>
 
   <div class="lower">
-    <p class="date"> {year} </p>
+    <p class="date"> {date} </p>
   </div>
 </a>
 

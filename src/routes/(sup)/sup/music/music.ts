@@ -35,7 +35,7 @@ export const albums: {
     {
       shard: "algo-origins",
       name: "Algorhythm Origins",
-      year: "2023 – PRESENT",
+      date: "2023 – PRESENT",
       cover: "origins.night.png",
       daw: Daw.GarageBand,
       desc: `Soundtracks created for my rhythm game ${i("Algorhythm")}"!`,
@@ -112,7 +112,7 @@ export const albums: {
     {
       shard: "algo-roots",
       name: "Algorhythm Roots",
-      year: "2024 – PRESENT",
+      date: "2024 – PRESENT",
       cover: undefined,
       daw: Daw.GarageBand,
       desc: `More soundtracks created for my rhythm game ${i("Algorhythm")}!`,
@@ -165,7 +165,7 @@ export const albums: {
     {
       shard: "algo-vision",
       name: "Algorhythm Vision",
-      year: "2024 – PRESENT",
+      date: "2024 – PRESENT",
       cover: "vision.another-dawn.png",
       daw: Daw.GarageBand,
       desc: `New soundtracks created for the revival of my rhythm game ${i("Algorhythm")}.`,
@@ -218,7 +218,7 @@ export const albums: {
     {
       shard: "elysion",
       name: "ELYSION",
-      year: "2023 – PRESENT",
+      date: "2023 – PRESENT",
       cover: "elysion.ceruleus.png",
       daw: Daw.GarageBand,
       desc: `Experimental soundtracks in a variety of genres.`,
@@ -288,7 +288,7 @@ export const albums: {
     {
       shard: "cortex",
       name: "Cortex",
-      year: "2024 – PRESENT",
+      date: "2024 – PRESENT",
       cover: "cortex.voxel.png",
       daw: Daw.GarageBand,
       desc: `Techy!`,
@@ -367,7 +367,7 @@ export const albums: {
     {
       shard: "integral",
       name: "Integral",
-      year: "2024 – PRESENT",
+      date: "2024 – PRESENT",
       daw: Daw.GarageBand,
       desc: "Soundtracks for nontrivial mathematical shenanigans.",
       tracks: [
@@ -433,7 +433,7 @@ export const albums: {
     },
     {
       name: "Affinity",
-      year: "FUTURE",
+      date: "FUTURE",
       shard: "affinity",
       is_preview: true,
       tracks: [
@@ -450,7 +450,7 @@ export const albums: {
     },
     {
       name: "Fidelity",
-      year: "FUTURE",
+      date: "FUTURE",
       shard: "fidelity",
       is_preview: true,
       tracks: [
@@ -465,7 +465,7 @@ export const albums: {
     },
     {
       name: "Stranded",
-      year: "2025 – PRESENT",
+      date: "2025 – PRESENT",
       shard: "stranded",
       tracks: [
         "stranded",
@@ -481,27 +481,79 @@ export const albums: {
   archives: [
     {
       name: "GarageBand Archives",
-      year: "2024 and earlier",
-      shard: "archives/garageband",
-      daw: Daw.GarageBand,
+      date: "2024 – EARLIER",
+      shard: "garageband",
       cover: "garageband.jpg",
+      daw: Daw.GarageBand,
+      desc: `Miscellaneous and ancient creations in GarageBand.`,
       tracks: [
-        "let-you-down",
-        "canon-in-d-remix",
-        "rush",
-        "base-memories",
+        {
+          shard: "let-you-down",
+          name: "Let You Down",
+          date: "2024 SPRING",
+          audio: "let-you-down.m4a",
+          vibes: ["chill", "jokes"],
+        },
+        {
+          shard: "canon-in-d-remix",
+          name: "Canon in D (remix)",
+          date: "2019",
+          audio: "canon-in-d-remix.m4a",
+          genres: ["orchestral", "electronic"],
+        },
+        {
+          shard: "rush",
+          name: "Rush",
+          date: "2019",
+          audio: "rush.m4a",
+          genres: ["bass"],
+          vibes: ["experimental"],
+        },
+        {
+          feat: true,
+          shard: "base-memories",
+          name: "Base Memories",
+          date: "2019",
+          audio: "base-memories.m4a",
+          genres: ["bass"],
+          vibes: ["muted", "experimental"],
+        },
       ],
     },
     {
       name: "MuseScore Archives",
-      year: "2023 and earlier",
-      shard: "archives/musescore",
-      daw: Daw.MuseScore,
+      date: "2023 – EARLIER",
+      shard: "musescore",
       cover: "musescore.png",
+      daw: Daw.MuseScore,
+      desc: `Piano and orchestral compositions from MuseScore`,
       tracks: [
-        "wingless-butterfly",
-        "bubble-iris",
-        "insenza",
+        {
+          shard: "wingless-butterfly",
+          name: "The Wingless Fire-Wielding Butterfly Who Waged War Upon the Forest",
+          date: "2023 WINTER",
+          audio: "wingless-butterfly.mp3",
+          genres: ["piano"],
+          vibes: ["jokes"],
+        },
+        {
+          shard: "bubble-iris",
+          name: "Bubble Iris",
+          date: "2023",
+          audio: "bubble-iris.mp3",
+          cover: "bubble-iris.jpg",
+          genres: ["orchestral", "cinematic"],
+          vibes: ["underwater"],
+        },
+        {
+          shard: "insenza",
+          name: "Insenza",
+          date: "2022 – 2023",
+          audio: "insenza.mp3",
+          cover: "insenza.jpg",
+          genres: ["orchestral"],
+          vibes: ["sinister"],
+        },
       ],
     },
   ],

@@ -15,7 +15,7 @@ let album: AlbumData = $derived(page.data as AlbumData);
 
 
 <svelte:head>
-  <title> {album.name} × Music × Sup#2.0 </title>
+  <title> {album.name} × Archives × Music × Sup#2.0 </title>
 </svelte:head>
 
 
@@ -23,6 +23,7 @@ let album: AlbumData = $derived(page.data as AlbumData);
   { text: "music", intern: "sup/music" },
   { text: "create", intern: "sup/music/create" },
   { text: "albums", intern: "sup/music/create/albums" },
+  { text: "archives", intern: "sup/music/create/albums/archives" },
   { text: album.name }
 ]} />
 

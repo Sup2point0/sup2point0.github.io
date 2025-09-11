@@ -7,6 +7,7 @@ export interface TrackData {
 
   shard: Shard;
   name: string;
+  date?: string;
   
   audio?: string;
   cover?: string;
@@ -22,10 +23,10 @@ export interface TrackData {
 export interface AlbumData {
   shard: Shard;
   name: string;
-  year?: string;
+  date?: string;
 
-  daw?: Daw | Daw[];
   cover?: string;
+  daw?: Daw | Daw[];
 
   desc?: string | string[];
   is_preview?: boolean;

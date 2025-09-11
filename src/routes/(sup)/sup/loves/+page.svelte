@@ -108,7 +108,6 @@ import Words from "#parts/words.svelte";
 
 <style lang="scss">
 
-@use './src/styles/_links' as *;
 @use './src/styles/_words' as *;
 
 .card {

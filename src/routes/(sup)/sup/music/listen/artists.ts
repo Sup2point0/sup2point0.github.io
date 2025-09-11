@@ -28,7 +28,7 @@ export const artists: {
       discovered: "Phigros",
     },
   ],
-  favourites: [
+  "absolute favourites": [
     {
       shard: "camellia",
       name: "かめりあ",
@@ -287,17 +287,6 @@ export const artists: {
       discovered: "YouTube reccs",
     },
     {
-      shard: "tanger",
-      name: "Tanger",
-      date: "2024",
-      icon: "tanger.jpg",
-      genres: ["electronic"],
-      track: {
-        name: "", link: undefined,
-      },
-      discovered: "YouTube reccs",
-    },
-    {
       shard: "bo-burnham",
       name: "Bo Burnham",
       date: "2021",
@@ -307,6 +296,19 @@ export const artists: {
         { name: "Are You Happy", link: undefined },
         { name: "The Chicken", link: undefined },
       ],
+      discovered: "YouTube reccs",
+    },
+  ],
+  "love them, but don’t listen much": [
+    {
+      shard: "tanger",
+      name: "Tanger",
+      date: "2024",
+      icon: "tanger.jpg",
+      genres: ["electronic"],
+      track: {
+        name: "", link: undefined,
+      },
       discovered: "YouTube reccs",
     },
     {
@@ -401,7 +403,7 @@ export const artists: {
       discovered: "Alan Walker",
     },
   ],
-  ost: [
+  "franchise soundtracks": [
     {
       name: "Arcane",
       date: "2025",

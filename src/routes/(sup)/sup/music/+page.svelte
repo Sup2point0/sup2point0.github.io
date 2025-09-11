@@ -6,10 +6,10 @@ import LinkCard from "#parts/ui/card.link.svelte";
 
 
 <div class="cards">
-  <LinkCard intern="sup/music/listen" text="Music I Listen To">
+  <LinkCard link="/sup/music/listen" text="Music I Listen To">
   </LinkCard>
 
-  <LinkCard intern="sup/music/create" text="Music I Make">
+  <LinkCard link="/sup/music/create" text="Music I Make">
   </LinkCard>
 </div>
 

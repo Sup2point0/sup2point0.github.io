@@ -5,22 +5,19 @@ A card that links to another page.
 
 <script lang="ts">
 
-import { base } from "$app/paths";
-
-
 interface Props {
-  intern: string;
+  link: string;
   text?: string;
   children?: any;
 }
 
-let { intern, text, children }: Props = $props();
+let { link, text, children }: Props = $props();
 
 </script>
 
 
 <a class="card"
-  href="{base}/{intern}"
+  href={link}
 >
   {#if text}
     <h3> {@html text.toUpperCase()} </h3>

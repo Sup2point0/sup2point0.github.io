@@ -1,22 +1,20 @@
 <script lang="ts">
 
-import { base } from "$app/paths";
 import { page } from "$app/state";
 import { browser } from "$app/environment";
 
 
 interface Props {
   text: string;
-  link?: string;
-  intern?: string;
+  link: string;
 }
 
-let { text, link, intern }: Props = $props();
+let { text, link }: Props = $props();
 
 
 let active = $derived(
-  browser && page.url && intern &&
-  window?.location.pathname.includes(intern)
+  browser && page.url &&
+  window?.location.pathname.includes(link)
 );
 
 </script>
@@ -24,7 +22,7 @@ let active = $derived(
 
 <a class="nav-link"
   class:active
-  href={link || `${base}/${intern}`}
+  href={link}
 >
   {text}
 </a>

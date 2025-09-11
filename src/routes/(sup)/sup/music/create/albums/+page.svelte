@@ -4,7 +4,7 @@ import Main from "#parts/core/main.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import AlbumCard from "#parts/music/card.album.svelte";
 
-import { albums } from "#src/routes/(sup)/sup/music/music";
+import { albums } from "../create";
 
 </script>
 

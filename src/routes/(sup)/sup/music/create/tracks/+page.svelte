@@ -5,7 +5,7 @@ import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
 import TrackCard from "#parts/music/card.track.svelte";
 
-import { tracks_list } from "#src/routes/(sup)/sup/music/music";
+import { tracks_list } from "../create";
 import { TrackSearchFilter } from "./filter.svelte";
 
 

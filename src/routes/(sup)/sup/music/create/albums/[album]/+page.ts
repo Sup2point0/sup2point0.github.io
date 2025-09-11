@@ -1,4 +1,4 @@
-import { albums_list } from "#src/routes/(sup)/sup/music/music";
+import { albums_list } from "../../create";
 import type { AlbumData } from "#scripts/types";
 
 

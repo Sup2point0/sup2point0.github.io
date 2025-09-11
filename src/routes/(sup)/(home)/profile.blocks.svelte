@@ -17,9 +17,6 @@
 
 <style lang="scss">
 
-@use './src/styles/links' as *;
-
-
 section {
   margin-bottom: 4rem;
 
@@ -31,7 +28,7 @@ section {
 #trivia {
   h2 {
     margin-bottom: 0.5em;
-    @include font-flavour;
+    @include font-fun;
     font-weight: normal;
     font-size: 250%;
   }

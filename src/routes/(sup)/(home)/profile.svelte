@@ -64,7 +64,7 @@ section#sup {
 
 div#bio {
   margin-bottom: 2rem;
-  @include font-flavour;
+  @include font-fun;
   font-size: 150%;
   text-align: center;
 }

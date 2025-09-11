@@ -115,7 +115,7 @@ import Words from "#parts/words.svelte";
   @include card;
 
   p {
-    @include font-flavour;
+    @include font-fun;
     font-size: 120%;
     color: $col-deut;
   }

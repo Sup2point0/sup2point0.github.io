@@ -115,7 +115,7 @@ export const albums: {
       shard: "algo-roots",
       name: "Algorhythm Roots",
       date: "2024 – PRESENT",
-      cover: undefined,
+      cover: "roots.rush-reloaded.png",
       daw: Daw.GarageBand,
       desc: `More soundtracks created for my rhythm game ${i("Algorhythm")}!`,
       tracks: [
@@ -225,7 +225,7 @@ export const albums: {
       shard: "elysion",
       name: "ELYSION",
       date: "2023 – PRESENT",
-      cover: "elysion.ceruleus.png",
+      cover: "elysion.png",
       daw: Daw.GarageBand,
       desc: `Experimental soundtracks in a variety of genres.`,
       tracks: [
@@ -297,7 +297,7 @@ export const albums: {
       shard: "cortex",
       name: "Cortex",
       date: "2024 – PRESENT",
-      cover: "cortex.voxel.png",
+      cover: "cortex.png",
       daw: Daw.GarageBand,
       desc: `Techy!`,
       tracks: [

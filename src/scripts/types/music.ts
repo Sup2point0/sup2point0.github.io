@@ -36,3 +36,13 @@ export interface AlbumData {
 
   tracks: TrackData[];
 }
+
+
+export interface ArtistData {
+  name: string;
+  date?: string;
+
+  track?: string | string[];
+  genres?: string[];
+  discovered?: string;
+}

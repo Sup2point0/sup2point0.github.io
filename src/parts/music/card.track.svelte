@@ -34,14 +34,20 @@ let { track }: Props = $props();
         {#each track.genres ?? [] as genre}
           <li class="genre">{genre}</li>
         {/each}
+
+        {#each track.vibes ?? [] as vibe}
+          <li class="vibe">{vibe}</li>
+        {/each}
       </ul>
     </div>
 
     <div class="lower">
-      <audio controls
-        src="/music/tracks/{track.audio}"
-        preload="none"
-      ></audio>
+      {#if track.audio}
+        <audio controls
+          src="/music/tracks/{track.audio}"
+          preload="none"
+        ></audio>
+      {/if}
     </div>
   </div>
 </button>
@@ -64,13 +70,25 @@ button {
   background: none;
   border: none;
   @include shear-card($interactive: true);
+
+  &:hover img {
+    box-shadow: 0 0 42px rgb(white, 20%);
+    animation-name: shine;
+    animation-duration: 0.8s;
+    // animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);  // ease-in-exp
+  }
 }
 
 button.preview {
   pointer-events: none;
-  opacity: 40%;
+  opacity: 25%;
 }
 
+
+img {
+  box-shadow: 0 0 0px transparent;
+  transition: box-shadow 0.4s ease-out;
+}
 
 .info {
   flex-grow: 1;
@@ -97,19 +115,27 @@ button.preview {
     gap: 0.5em;
     list-style-type: none;
 
-    li.genre {
+    li {
       padding: 0 0.5em;
       @include font-fun;
       font-size: 175%;
       color: $col-text;
       @include shear-card();
+      transition: #{trans()};
 
-      &::before {
-        background: color.change($col-trit, $alpha: 0.6);
+      &:hover {
+        padding: 0 0.8em;
+        color: black;
+      
+        &::before {
+          background: white;
+        }
       }
+    }
 
-      &:hover { color: black; }
-      &:hover::before { background: white; }
+    li:not(:hover) {
+      &.genre::before { background: color.change($col-trit, $alpha: 0.69); }
+      &.vibe::before { background: color.change($col-deut, $alpha: 0.69); }
     }
   }
 }
@@ -118,6 +144,13 @@ button.preview {
   audio {
     padding-bottom: 0.5rem;
   }
+}
+
+
+@keyframes shine {
+  0%   { filter: brightness(100%); }
+  50%  { filter: brightness(108%); }
+  100% { filter: brightness(100%); }
 }
 
 </style>

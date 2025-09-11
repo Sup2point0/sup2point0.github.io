@@ -8,10 +8,11 @@ export interface TrackData {
   shard: Shard;
   name: string;
   
-  audio: string;
+  audio?: string;
   cover?: string;
 
   genres?: string[];
+  vibes?: string[];
 
   desc?: string | string[];
   is_preview?: boolean;
@@ -26,8 +27,8 @@ export interface AlbumData {
   daw?: Daw | Daw[];
   cover?: string;
 
-  tracks: TrackData[];
-
   desc?: string | string[];
   is_preview?: boolean;
+
+  tracks: TrackData[];
 }

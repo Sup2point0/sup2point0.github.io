@@ -405,62 +405,80 @@ export const artists: {
   ],
   "franchise soundtracks": [
     {
+      shard: "arcane",
       name: "Arcane",
       date: "2025",
+      icon: "arcane.jpg",
       track: {
         name: "What Could Have Been", link: undefined,
       },
     },
     {
+      shard: "ultraman",
       name: "Ultraman",
       date: "2018",
+      icon: "ultraman.jpg",
       track: [
         { name: "Ultraman Mebius", link: undefined },
         { name: "Ultraman Zero", link: undefined },
       ],
     },
     {
+      shard: "master-duel",
       name: "Master Duel",
       date: "2023",
+      icon: "master-duel.jpg",
     },
     {
+      shard: "yu-gi-oh",
       name: "Yu-Gi-Oh!",
       date: "2022",
+      icon: "yu-gi-oh.jpg",
       track: [
         { name: "Calling", link: undefined },
         { name: "BRAVING", link: undefined },
       ],
     },
     {
+      shard: "air-attack",
       name: "AirAttack",
       date: "2020",
+      icon: "air-attack.jpg",
       track: [
         { name: "Dark Sands", link: undefined },
         { name: "Operation Red Sea – Land", link: undefined },
       ],
     },
     {
+      shard: "tiny-defense",
       name: "Tiny Defense",
       date: "2020",
+      icon: "tiny-defense.webp",
       track: [
         { name: "Mission Stage", link: undefined },
         { name: "Underwater", link: undefined },
       ],
     },
     {
+      shard: "pvz",
       name: "Plants vs. Zombies",
       date: "2020",
+      icon: "pvz.webp",
       track: {
         name: "Zombie On Your Lawn", link: undefined,
       },
     },
     {
+      shard: "dune",
       name: "Dune",
       date: "2022",
+      icon: "dune.jpg",
     },
     {
+      shard: "mlp",
       name: "My Little Pony",
       date: "2023",
+      icon: "mlp.jpg",
       track: [
         { name: "Friendship Games", link: undefined },
         { name: "Legend You Were Meant To Be", link: undefined },
@@ -469,30 +487,36 @@ export const artists: {
   ],
   beatbox: [
     {
+      shard: "wing",
       name: "WING",
       date: "2025",
+      icon: "wing.jpg",
+      genres: ["beatbox"],
       track: {
         name: "Dopamine (DnB remix)", link: undefined,
       },
-      genres: ["beatbox"],
       discovered: "YouTube",
     },
     {
+      shard: "kaji",
       name: "KAJI",
       date: "2025",
+      icon: "kaji.jpg",
+      genres: ["beatbox", "hardcore", "techno"],
       track: {
         name: "Bass Factory", link: undefined,
       },
-      genres: ["beatbox", "hardcore", "techno"],
       discovered: "Grand Beatbox Battle vs WING",
     },
     {
+      shard: "improver",
       name: "Improver",
       date: "2025",
+      icon: "improver.jpg",
+      genres: ["beatbox", "drum & bass"],
       track: {
         name: "Feel the Future", link: undefined,
       },
-      genres: ["beatbox", "drum & bass"],
       discovered: "Grand Beatbox Battle vs WING",
     },
   ],
@@ -525,49 +549,61 @@ export const artists: {
   ],
   labels: [
     {
+      shard: "firefly-music",
       name: "Firefly Music",
       date: "2025",
+      icon: "firefly-music.jpg",
       genres: ["electronic"],
       discovered: "PIKASONIC",
     },
     {
+      shard: "ncs",
       name: "NoCopyrightSounds",
       date: "2017",
+      icon: "ncs.jpg",
       genres: ["electronic"],
       discovered: "iXPLODE",
     },
     {
+      shard: "nomia-tunes",
       name: "NomiaTunes",
+      icon: "nomia-tunes.jpg",
       genres: ["electronic"],
       discovered: "Elektronomia",
     },
   ],
   isolates: [
     {
+      shard: "giga",
       name: "Giga",
       date: "2024",
+      icon: "giga.jpg",
+      genres: ["trap", "vocaloid"],
       track: {
         name: "Beyond the Way", link: undefined,
       },
-      genres: ["trap", "vocaloid"],
       discovered: "YouTube reccs",
     },
     {
+      shard: "deco-27",
       name: "DECO*27",
       date: "2024",
+      icon: "deco-27.jpg",
+      genres: ["vocaloid"],
       track: {
         name: "Rabbit Hole", link: undefined,
       },
-      genres: ["vocaloid"],
       discovered: "YouTube reccs",
     },
     {
+      shard: "lupus-nocte",
       name: "Lupus Nocte",
       date: "2021",
+      icon: "lupus-nocte.jpg",
+      genres: ["electronic"],
       track: {
         name: "Howling", link: undefined,
       },
-      genres: ["electronic"],
       discovered: "GoodTimesWithScar",
     },
     {

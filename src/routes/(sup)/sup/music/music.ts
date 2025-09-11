@@ -662,6 +662,7 @@ function auto_assign_albums(album_data: object)
     for (let album of collection) {
       for (let track of album.tracks) {
         track.album = album;
+        track._socre_ = 0;
       }
     }
   }

@@ -19,7 +19,7 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
 
     super.apply(out, track => Math.max(
       partial_ratio(this.query, track.name),
-      track.album ? partial_ratio(this.query, track.album.name) : 0,
+      partial_ratio(this.query, track.album.name),
     ));
 
     return out;

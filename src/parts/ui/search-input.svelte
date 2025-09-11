@@ -26,7 +26,6 @@ let { query = $bindable() }: Props = $props();
 
 .input-container {
   width: 32rem;
-  padding: 0.5rem 1rem 0.45rem;
   @include shear-card();
   transition: #{trans()};
 
@@ -34,7 +33,7 @@ let { query = $bindable() }: Props = $props();
     background: rgb(white, 25%);
   }
 
-  &:hover {
+  &:hover, &:has(input:focus) {
     width: 33rem;
 
     &::before {
@@ -45,6 +44,7 @@ let { query = $bindable() }: Props = $props();
 
 input {
   width: 100%;
+  padding: 0.5rem 1rem 0.45rem;
 
   appearance: none;
   @include font-fun;

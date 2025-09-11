@@ -11,7 +11,7 @@ export interface TrackData {
   
   audio?: string;
   cover?: string;
-  album?: AlbumData;
+  album: AlbumData;
 
   genres?: string[];
   vibes?: string[];
@@ -19,7 +19,7 @@ export interface TrackData {
   desc?: string | string[];
   is_preview?: boolean;
 
-  _score?: number;
+  _score_: number;
 }
 
 

@@ -19,6 +19,7 @@ let { track }: Props = $props();
 <button class="track block"
   class:preview={track.is_preview}
   class:shrink={track.name.length > 16}
+  id={track.shard}
 >
   <div class="img-container">
     <img alt={track.name} title={track.name}

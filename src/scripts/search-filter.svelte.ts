@@ -1,5 +1,5 @@
 interface Searchable {
-  score: number;
+  _score_: number;
 }
 
 
@@ -18,10 +18,10 @@ export class SearchFilter<Type extends Searchable>
     if (this.query === "") return;
 
     for (let each of source) {
-      each.score = scorer(each);
+      each._score_ = scorer(each);
     }
 
-    source.sort((prot, deut) => deut.score - prot.score);
+    source.sort((prot, deut) => deut._score_ - prot._score_);
 
     if (this.reverse) {
       source.reverse();

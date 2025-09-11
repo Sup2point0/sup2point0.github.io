@@ -18,7 +18,7 @@ let { track }: Props = $props();
 
 <a class="track card"
   class:preview={track.is_preview}
-  href="/sup/music/create/albums/{track.album.shard}"
+  href="/sup/music/create/albums/{track.album.shard}#{track.shard}"
 >
   <div class="img-container">
     <img alt={track.name} title={track.name}

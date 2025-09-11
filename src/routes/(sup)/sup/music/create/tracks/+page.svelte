@@ -29,7 +29,7 @@ let displayed_tracks = $derived(filters.apply(tracks_list));
 ]} />
 
 <Main>
-  <SearchFilters bind:query={filters.query} />
+  <SearchFilters bind:filters />
 
   <div class="browse">
     {#each displayed_tracks as track (track.shard)}

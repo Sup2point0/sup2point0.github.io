@@ -19,7 +19,9 @@ let { intern, text, children }: Props = $props();
 </script>
 
 
-<a href="{base}/{intern}">
+<a class="card"
+  href="{base}/{intern}"
+>
   {#if text}
     <h3> {@html text.toUpperCase()} </h3>
   {/if}
@@ -32,9 +34,13 @@ let { intern, text, children }: Props = $props();
 
 a {
   min-width: 12em;
-  min-height: 8em;
+  min-height: 6em;
   aspect-ratio: 3 / 2;
-  padding: 1rem;
+  padding: 0 3rem 1rem 1rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: end;
+
   @include shear-card;
   color: $col-text;
   text-decoration: none;
@@ -50,7 +56,8 @@ a {
 }
 
 h3 {
-  @include font-tech;
+  @include font-fun;
+  font-size: 200%;
   font-weight: normal;
 }
 

@@ -7,17 +7,21 @@ A search bar input and dropdown filters for searching content.
 
 import SearchInput from "#parts/ui/search-input.svelte";
 
+import { SearchFilter } from "#scripts/search-filter.svelte";
+
+
 interface Props {
-  query: string;
+  /* @ts-ignore */
+  filters: SearchFilter;
 }
 
-let { query = $bindable() }: Props = $props();
+let { filters = $bindable() }: Props = $props();
 
 </script>
 
 
 <search>
-  <SearchInput bind:query />
+  <SearchInput bind:query={filters.query} />
 </search>
 
 

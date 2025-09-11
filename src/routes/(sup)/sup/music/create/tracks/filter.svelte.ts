@@ -1,10 +1,11 @@
+import { partial_ratio } from "fuzzball";
+
+import { SearchFilter } from "#scripts/search-filter.svelte.ts";
 import type { TrackData } from "#scripts/types";
 
 
-export class TrackSearchFilter
+export class TrackSearchFilter extends SearchFilter<TrackData>
 {
-  query: string = $state("");
-
   include_previews: boolean = $state(false);
 
 
@@ -13,8 +14,13 @@ export class TrackSearchFilter
     let out = [...tracks];
 
     if (!this.include_previews) {      
-      out = out.filter(track => track.is_preview !== true);
+      out = out.filter(track => track.is_preview !== true && track.cover);
     }
+
+    super.apply(out, track => Math.max(
+      partial_ratio(this.query, track.name),
+      track.album ? partial_ratio(this.query, track.album.name) : 0,
+    ));
 
     return out;
   }

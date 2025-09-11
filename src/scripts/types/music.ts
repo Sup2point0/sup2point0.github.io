@@ -11,13 +11,15 @@ export interface TrackData {
   
   audio?: string;
   cover?: string;
-  album?: string;
+  album?: AlbumData;
 
   genres?: string[];
   vibes?: string[];
 
   desc?: string | string[];
   is_preview?: boolean;
+
+  _score?: number;
 }
 
 

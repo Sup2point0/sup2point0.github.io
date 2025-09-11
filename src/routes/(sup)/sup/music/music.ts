@@ -3,9 +3,10 @@ import { Daw } from "#scripts/types";
 import type { AlbumData, TrackData } from "#scripts/types";
 
 
+/* @ts-ignore */
 export const albums: {
   [series: string]: AlbumData[]
-} = {
+} = auto_assign_albums({
   pinned: [
     {
       shard: "singles",
@@ -644,17 +645,26 @@ export const albums: {
       ],
     },
   ],
-};
+});
 
-export const albums_list: AlbumData[] = albums.pinned.concat(albums.gen1, albums.archives);
+export const albums_list: AlbumData[] = Object.values(albums).flatMap(collection => collection);
 
 export const tracks_list: TrackData[] = Object.values(albums).flatMap(
   collection => collection.flatMap(
-    album => album.tracks.map(
-      track => {
-        track.album = album.shard;
-        return track;
-      }
-    )
+    album => album.tracks
   )
 );
+
+
+function auto_assign_albums(album_data: object)
+{
+  for (let collection of Object.values(album_data)) {
+    for (let album of collection) {
+      for (let track of album.tracks) {
+        track.album = album;
+      }
+    }
+  }
+
+  return album_data;
+}

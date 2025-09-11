@@ -2,6 +2,7 @@
 
 import Main from "#parts/core/main.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
+import SearchFilters from "#parts/ui/search-filters.svelte";
 import TrackCard from "#parts/music/card.track.svelte";
 
 import { tracks_list } from "#src/routes/(sup)/sup/music/music";
@@ -28,10 +29,10 @@ let displayed_tracks = $derived(filters.apply(tracks_list));
 ]} />
 
 <Main>
-  <search></search>
+  <SearchFilters bind:query={filters.query} />
 
   <div class="browse">
-    {#each displayed_tracks as track}
+    {#each displayed_tracks as track (track.shard)}
       <TrackCard {track} />
     {/each}
   </div>

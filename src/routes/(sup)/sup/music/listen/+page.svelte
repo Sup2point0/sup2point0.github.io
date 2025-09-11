@@ -8,12 +8,12 @@ import LinkCard from "#parts/ui/card.link.svelte";
 
 <Breadcrumbs levels={[
   { text: "music", intern: "sup/music" },
-  { text: "create" },
+  { text: "listen" },
 ]} />
 
 <div class="cards">
-  <LinkCard link="/sup/music/create/tracks" text="Tracks" />
-  <LinkCard link="/sup/music/create/albums" text="Albums" />
+  <LinkCard link="/sup/music/listen/tracks" text="Tracks" />
+  <LinkCard link="/sup/music/listen/artists" text="Artists" />
 </div>
 
 

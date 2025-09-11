@@ -1,4 +1,3 @@
-
 import type { Shard, Daw } from "./index";
 
 
@@ -39,10 +38,20 @@ export interface AlbumData {
 
 
 export interface ArtistData {
+  shard: string;
   name: string;
-  date?: string;
 
-  track?: string | string[];
-  genres?: string[];
+  date?: string;
   discovered?: string;
+
+  icon: string;
+  
+  genres?: string[];
+  track?: ExternalTrackData | ExternalTrackData[];
+}
+
+
+interface ExternalTrackData {
+  name: string;
+  link?: string;
 }

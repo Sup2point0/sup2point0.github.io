@@ -2,7 +2,7 @@
 
 import Main from "#parts/core/main.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
-import TrackCard from "#src/parts/music/card.track.svelte";
+import TrackBlock from "#parts/music/block.track.svelte";
   
 import type { AlbumData } from "#scripts/types";
 
@@ -34,7 +34,7 @@ let album: AlbumData = $derived(page.data as AlbumData);
 
   <section class="tracks">
     {#each album.tracks as track}
-      <TrackCard {track} />
+      <TrackBlock {track} />
     {/each}
   </section>
 </Main>

@@ -5,48 +5,46 @@ A card for an album with its cover, name and other info.
 
 <script lang="ts">
 
+import type { AlbumData } from "#scripts/types";
+
 interface Props {
-  name: string;
-  date?: string;
-  tracks?: number;
-  intern: string;
-  cover?: string;
-  preview?: boolean;
+  album: AlbumData;
+  collection?: string;
 }
 
-let { name, date, tracks, intern, cover, preview = false }: Props = $props();
+let { album, collection }: Props = $props();
 
 </script>
 
 
-<a class="album-card"
-  class:preview
-  href="/sup/music/create/albums/{intern}"
+<a class="album card"
+  class:preview={album.is_preview}
+  href="/sup/music/create/albums/{collection ?? ''}{album.shard}"
 >
   <div class="upper">
-    {#if tracks}
-      <p class="track-count"> {tracks} </p>
+    {#if album.tracks}
+      <p class="track-count"> {album.tracks.length} </p>
     {/if}
 
     <div class="img-container">
-      <img alt={name} title={name}
+      <img alt={album.name} title={album.name}
         width="200px" height="200px"
-        src="/music/covers/{cover ?? 'placeholder.png'}"
+        src="/music/covers/{album.cover ?? 'placeholder.png'}"
       />
         
-      <h3> {name} </h3>
+      <h3> {album.name} </h3>
     </div>
   </div>
 
   <div class="lower">
-    <p class="date"> {date} </p>
+    <p class="date"> {album.date} </p>
   </div>
 </a>
 
 
 <style lang="scss">
 
-a.album-card {
+a.card.album {
   padding: 1rem 2.5rem;
   display: block;
   text-decoration: none;
@@ -82,7 +80,7 @@ a.album-card {
   }
 }
 
-a.album-card.preview {
+a.card.album.preview {
   pointer-events: none;
   opacity: 25%;
 }

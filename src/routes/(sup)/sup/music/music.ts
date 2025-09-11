@@ -1,6 +1,6 @@
 import { i } from "#scripts/utils";
 import { Daw } from "#scripts/types";
-import type { AlbumData } from "#scripts/types";
+import type { AlbumData, TrackData } from "#scripts/types";
 
 
 export const albums: {
@@ -647,3 +647,9 @@ export const albums: {
 };
 
 export const albums_list: AlbumData[] = albums.pinned.concat(albums.gen1, albums.archives);
+
+export const tracks_list: TrackData[] = Object.values(albums).flatMap(
+  collection => collection.flatMap(
+    album => album.tracks
+  )
+);

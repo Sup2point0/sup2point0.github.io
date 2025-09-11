@@ -5,23 +5,8 @@ import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import AlbumCard from "#parts/music/card.album.svelte";
 
 import { albums } from "#src/routes/(sup)/sup/music/music";
-import type { AlbumData } from "#scripts/types";
 
 </script>
-
-
-{#snippet album_cards(albums: AlbumData[], collection?: string)}
-  {#each albums as album}
-    <AlbumCard
-      name={album.name}
-      date={album.date}
-      tracks={album.tracks?.length}
-      intern={(collection ?? "") + album.shard}
-      cover={album.cover}
-      preview={album.is_preview}
-    />
-  {/each}
-{/snippet}
 
 
 <svelte:head>
@@ -36,31 +21,28 @@ import type { AlbumData } from "#scripts/types";
   { text: "albums" },
 ]} />
 
-<Main>
-  <div class="container">
-    <section>
-      {@render album_cards(albums.pinned)}
-    </section>
+<Main gap="4rem">
+  <section>
+    {#each albums.pinned as album}
+      <AlbumCard {album} />
+    {/each}
+  </section>
 
-    <section>
-      {@render album_cards(albums.gen1)}
-    </section>
+  <section>
+    {#each albums.gen1 as album}
+      <AlbumCard {album} />
+    {/each}
+  </section>
 
-    <section>
-      {@render album_cards(albums.archives, "archives/")}
-    </section>
-  </div>
+  <section>
+    {#each albums.archives as album}
+      <AlbumCard {album} collection="archives/" />
+    {/each}
+  </section>
 </Main>
 
 
 <style lang="scss">
-
-.container {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: 4rem;
-}
 
 section {
   width: 100%;

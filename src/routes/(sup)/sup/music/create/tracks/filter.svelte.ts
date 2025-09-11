@@ -14,7 +14,7 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
     let out = [...tracks];
 
     if (!this.include_previews) {      
-      out = out.filter(track => track.is_preview !== true && track.cover);
+      out = out.filter(track => track.is_preview !== true);
     }
 
     super.apply(out, track => Math.max(

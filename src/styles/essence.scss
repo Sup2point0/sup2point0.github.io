@@ -24,16 +24,10 @@ html {
 
 code {
   font-family: 'Fira Mono', 'Roboto Mono', 'Consolas', monospace;
-  color: #c7c7ff;
 }
 
 
 ::selection {
   color: white !important;
-  background-color: $col-prot !important;
+  background: $col-prot !important;
 }
-
-
-.centre { text-align: center; }
-.left { text-align: left; }
-.right { text-align: right; }

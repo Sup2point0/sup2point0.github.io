@@ -17,6 +17,7 @@ let { track }: Props = $props();
 
 
 <a class="track card"
+  class:feat={track.feat}
   class:preview={track.is_preview}
   href="/sup/music/create/albums/{track.album.shard}#{track.shard}"
 >
@@ -33,6 +34,9 @@ let { track }: Props = $props();
 
 <style lang="scss">
 
+@use 'sass:color';
+
+
 a.card.track {
   padding: 1rem 2rem;
   display: block;
@@ -40,10 +44,6 @@ a.card.track {
 
   @include shear-card($interactive: true, $glow: true);
   transition: #{trans()};
-
-  * {
-    display: block;
-  }
 
   &:hover, &:focus-visible {
     &::before {
@@ -62,10 +62,12 @@ a.card.track {
         opacity: 1;
       }
     }
+  }
+}
 
-    p.track-count {
-      color: $col-prot;
-    }
+a.card.track.feat {
+  img {
+    box-shadow: 0 12px 64px color.change($col-trit, $alpha: 0.25);
   }
 }
 
@@ -76,16 +78,13 @@ a.card.track.preview {
 
 
 .img-container {
+  height: 200px;
   transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
-
-  img {
-    max-width: 25vw;
-    aspect-ratio: 1;
-  }
 
   h3 {
     width: 100%;
     padding: 2em 0 0.5em 0.75em;
+    margin: 0;
     position: absolute;
     left: 0;
     bottom: 0;

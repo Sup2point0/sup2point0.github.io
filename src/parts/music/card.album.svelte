@@ -52,10 +52,6 @@ a.card.album {
   @include shear-card($interactive: true, $glow: true);
   transition: #{trans()};
 
-  * {
-    display: block;
-  }
-
   &:hover, &:focus-visible {
     &::before {
       border-radius: 0.6em;
@@ -102,16 +98,13 @@ a.card.album.preview {
   }
 
   .img-container {
+    height: 200px;
     transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
-
-    img {
-      max-width: 25vw;
-      aspect-ratio: 1;
-    }
 
     h3 {
       width: 100%;
       padding: 2em 0 0.5em 0.75em;
+      margin: 0;
       position: absolute;
       left: 0;
       bottom: 0;

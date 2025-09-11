@@ -17,6 +17,7 @@ let { track }: Props = $props();
 
 
 <button class="track block"
+  class:feat={track.feat}
   class:preview={track.is_preview}
   class:shrink={track.name.length > 16}
   id={track.shard}
@@ -78,6 +79,12 @@ button.block.track {
     animation-name: shine;
     animation-duration: 0.8s;
     // animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);  // ease-in-exp
+  }
+}
+
+button.block.track.feat {
+  img {
+    box-shadow: 0 12px 64px color.change($col-trit, $alpha: 0.25);
   }
 }
 

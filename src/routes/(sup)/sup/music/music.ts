@@ -22,6 +22,7 @@ export const albums: {
           vibes: ["chillout"],
         },
         {
+          feat: true,
           shard: "sunrise",
           name: "Sunrise",
           audio: "sunrise.m4a",
@@ -145,6 +146,7 @@ export const albums: {
           is_preview: true,
         },
         {
+          feat: true,
           shard: "rush-reloaded",
           name: "Rush Reloaded",
           audio: "rush-reloaded.m4a",
@@ -153,6 +155,7 @@ export const albums: {
           vibes: ["intense"],
         },
         {
+          feat: true,
           shard: "rise",
           name: "Rise",
           audio: undefined,
@@ -172,6 +175,7 @@ export const albums: {
       desc: `New soundtracks created for the revival of my rhythm game ${i("Algorhythm")}.`,
       tracks: [
         {
+          feat: true,
           shard: "another-dawn",
           name: "Another Dawn",
           audio: "another-dawn.m4a",
@@ -206,6 +210,7 @@ export const albums: {
           vibes: ["muted"],
         },
         {
+          feat: true,
           shard: "midnight",
           name: "Midnight",
           audio: undefined,
@@ -225,6 +230,7 @@ export const albums: {
       desc: `Experimental soundtracks in a variety of genres.`,
       tracks: [
         {
+          feat: true,
           shard: "aphenia",
           name: "Aphenia",
           audio: "aphenia.m4a",
@@ -276,6 +282,7 @@ export const albums: {
           vibes: ["vibrant"],
         },
         {
+          feat: true,
           shard: "scars",
           name: "Scars",
           audio: undefined,
@@ -304,6 +311,7 @@ export const albums: {
           is_preview: true,
         },
         {
+          feat: true,
           shard: "voxel",
           name: "Voxel",
           audio: "voxel.m4a",
@@ -355,6 +363,7 @@ export const albums: {
           vibes: [],
         },
         {
+          feat: true,
           shard: "the-algorithm",
           name: "The Algorithm",
           audio: undefined,
@@ -373,6 +382,7 @@ export const albums: {
       desc: "Soundtracks for nontrivial mathematical shenanigans.",
       tracks: [
         {
+          feat: true,
           shard: "audacious-antiderivative",
           name: "Audacious Antiderivative",
           audio: undefined,
@@ -424,6 +434,7 @@ export const albums: {
           is_preview: true,
         },
         {
+          feat: true,
           shard: "infinitesimal-ignition",
           name: "Infinitesimal Ignition",
           audio: undefined,
@@ -617,6 +628,7 @@ export const albums: {
       desc: `Piano and orchestral compositions from MuseScore`,
       tracks: [
         {
+          feat: true,
           shard: "wingless-butterfly",
           name: "The Wingless Fire-Wielding Butterfly Who Waged War Upon the Forest",
           date: "2023 WINTER",

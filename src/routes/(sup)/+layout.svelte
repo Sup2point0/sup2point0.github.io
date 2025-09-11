@@ -19,6 +19,7 @@ onNavigate(navigation => {
 		document.startViewTransition(async () => {
 			resolve();
 			await navigation.complete;
+      root?.scrollTo(0, 0);
 		});
 	});
 });

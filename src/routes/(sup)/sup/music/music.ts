@@ -437,15 +437,51 @@ export const albums: {
       shard: "affinity",
       is_preview: true,
       tracks: [
-        "solitude",
-        "pinpricks",
-        "forest-foliage",
-        "close-to-earth",
-        "midnight-marauder",
-        "night-dweller",
-        "droplets",
-        "blinded-by-water",
-        "cloudjumper",
+        {
+          shard: "solitude",
+          name: "solitude",
+          is_preview: true,
+        },
+        {
+          shard: "pinpricks",
+          name: "pinpricks",
+          is_preview: true,
+        },
+        {
+          shard: "forest-foliage",
+          name: "forest-foliage",
+          is_preview: true,
+        },
+        {
+          shard: "close-to-earth",
+          name: "close-to-earth",
+          is_preview: true,
+        },
+        {
+          shard: "midnight-marauder",
+          name: "midnight-marauder",
+          is_preview: true,
+        },
+        {
+          shard: "night-dweller",
+          name: "night-dweller",
+          is_preview: true,
+        },
+        {
+          shard: "droplets",
+          name: "droplets",
+          is_preview: true,
+        },
+        {
+          shard: "blinded-by-water",
+          name: "blinded-by-water",
+          is_preview: true,
+        },
+        {
+          shard: "cloudjumper",
+          name: "cloudjumper",
+          is_preview: true,
+        },
       ],
     },
     {
@@ -454,13 +490,41 @@ export const albums: {
       shard: "fidelity",
       is_preview: true,
       tracks: [
-        "our-time",
-        "a-place-far-away",
-        "whisper",
-        "lost-in-your-eyes",
-        "intrepid",
-        "a-time-long-ago",
-        "our-story",
+        {
+          shard: "our-time",
+          name: "our-time",
+          is_preview: true,
+        },
+        {
+          shard: "a-place-far-away",
+          name: "a-place-far-away",
+          is_preview: true,
+        },
+        {
+          shard: "whisper",
+          name: "whisper",
+          is_preview: true,
+        },
+        {
+          shard: "lost-in-your-eyes",
+          name: "lost-in-your-eyes",
+          is_preview: true,
+        },
+        {
+          shard: "intrepid",
+          name: "intrepid",
+          is_preview: true,
+        },
+        {
+          shard: "a-time-long-ago",
+          name: "a-time-long-ago",
+          is_preview: true,
+        },
+        {
+          shard: "our-story",
+          name: "our-story",
+          is_preview: true,
+        },
       ],
     },
     {
@@ -468,13 +532,36 @@ export const albums: {
       date: "2025 – PRESENT",
       shard: "stranded",
       tracks: [
-        "stranded",
-        "catastropical",
-        "a-journey-across-time",
-        "ever-shining",
-        "requital",
-        "facts_pinned",
-        "walkers",
+        {
+          shard: "stranded",
+          name: "Stranded",
+          is_preview: true,
+        },
+        {
+          shard: "catastropical",
+          name: "Catastropical",
+          is_preview: true,
+        },
+        {
+          shard: "a-journey-across-time",
+          name: "A Journey Across Time",
+          is_preview: true,
+        },
+        {
+          shard: "ever-shining",
+          name: "Ever Shining",
+          is_preview: true,
+        },
+        {
+          shard: "requital",
+          name: "Requital",
+          is_preview: true,
+        },
+        {
+          shard: "walkers",
+          name: "Walkers",
+          is_preview: true,
+        },
       ],
     },
   ],

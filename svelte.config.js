@@ -22,6 +22,11 @@ const config = {
     },
     prerender: {
       handleHttpError: "warn",
+      entries: [
+        "/",
+        "/assort",
+        "/sup",
+      ],
     },
 	},
 

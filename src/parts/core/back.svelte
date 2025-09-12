@@ -3,29 +3,55 @@
 The parallax background picture.
 -->
 
-<script lang="ts">
+<script>
 
 import { browser } from "$app/environment";
+import { onMount } from "svelte";
+import { fade } from "svelte/transition";
+import { expoInOut } from "svelte/easing";
 
 
-interface Props {
-  pict: string;
-}
+const backs = [
+  {
+    file: "cortex.scarlet.jpg",
+    blur: { init: 4, end: 2 },
+    brightness: { init: 88, end: 100 },
+  },
+  {
+    file: "cortex.violet.jpg",
+    blur: { init: 3, end: 1 },
+    brightness: { init: 92, end: 100 },
+  },
+  {
+    file: "geometric.cyber.jpg",
+    blur: { init: 8, end: 4 },
+    brightness: { init: 40, end: 60 },
+  },
+];
 
-let { pict }: Props = $props();
 
+let pict = $state(null);
 
-$effect(() => { console.log(window.innerHeight) });
+onMount(() => {
+  pict = backs[Math.floor(Math.random() * backs.length)];
+});
 
 </script>
 
 
-<img id="back"
-  alt=""
-  height="2560px"
-  src="/ui/{pict}"
-  style:--window-height="{browser ? window?.innerHeight : 0}px"
-/>
+{#if pict}
+  <img id="back"
+    alt=""
+    height="2560px"
+    src="/ui/{pict.file}"
+    transition:fade={{ duration: 2000, easing: expoInOut }}
+    style:--window-height="{browser ? window?.innerHeight : 640}px"
+    style:--blur-init="{pict.blur.init ?? 4}px"
+    style:--blur-end="{pict.blur.end ?? 4}px"
+    style:--brightness-init="{pict.brightness.init ?? 88}%"
+    style:--brightness-end="{pict.brightness.end ?? 100}%"
+  />
+{/if}
 
 
 <style lang="scss">
@@ -52,17 +78,17 @@ $effect(() => { console.log(window.innerHeight) });
   }
   to {
     transform:
-      translateY(calc(var(--window-height, 0px) - 2560px))
+      translateY(calc(var(--window-height) - 2560px))
       scale(125%);
   }
 }
 
 @keyframes parallax-filter {
   from {
-    filter: blur(4px) brightness(88%);
+    filter: blur(var(--blur-init)) brightness(var(--brightness-init));
   }
   to {
-    filter: blur(2px) brightness(100%);
+    filter: blur(var(--blur-end)) brightness(var(--brightness-end));
   }
 }
 

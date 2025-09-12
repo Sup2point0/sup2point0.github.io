@@ -31,7 +31,7 @@ onNavigate(navigation => {
 <div id="parallax-container"
   bind:this={root}
 >
-  <Back pict="cortex-scarlet-invert.jpg" />
+  <Back />
 
   <div id="page">
     {#if children}

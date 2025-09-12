@@ -30,14 +30,18 @@ let { artist }: Props = $props();
       <div class="favourites">
         {#if Array.isArray(artist.track)}
           {#each artist.track as track}
-            <a class="favourite" href={track.link}>
-              {track.name}
-            </a>
+            <div class="favourite">
+              <a href={track.link} rel="external">
+                {track.name}
+              </a>
+            </div>
           {/each}
         {:else}
-          <a class="favourite" href={artist.track.link}>
-            {artist.track.name}
-          </a>
+          <div class="favourite">
+            <a href={artist.track.link}>
+              {artist.track.name}
+            </a>
+          </div>
         {/if}
       </div>
     {/if}
@@ -105,6 +109,7 @@ button.block.artist {
   img {
     border-radius: 50%;
     box-shadow: 0 8px 16px rgb(black, 40%);
+    transition: #{trans()};
   }
 
   .favourites {
@@ -117,27 +122,67 @@ button.block.artist {
     flex-flow: row wrap;
     gap: 0.5rem;
     transform: translateY(1rem) scale(120%);
-    opacity: 0;
-    transition: opacity 0.2s ease-out, transform 0s 0.5s;
+    transition: transform 0s 0.5s;
   }
 
-  a.favourite {
-    padding: 0.5em 1em;
-    @include font-ui;
-    color: $col-text;
-    text-decoration: none;
+  .favourite {
+    $border-width: 4px;
+
+    padding: 0.5em 1em 0.3em calc(2em - $border-width);
     white-space: nowrap;
-    @include shear-card();
+    @include shear-card($interactive: true);
 
     &::before {
-      background: $col-prot;
+      border-left: $border-width solid $col-prot;
+      opacity: 0;
+      transition: #{trans()}, opacity 0.2s ease-out;
+    }
+
+    a {
+      @include font-ui;
+      font-size: 120%;
+      color: $col-prot;
+      text-decoration: none;
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
     }
   }
 
   &:hover .favourites {
     transform: translateY(1rem) scale(100%);
-    opacity: 1;
-    transition: opacity 0.5s ease-out, transform 1s cubic-bezier(0.19, 1, 0.22, 1);  // ease-out-exp
+    transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);  // ease-out-exp
+
+    .favourite {
+      &::before {
+        opacity: 1;
+        transition: #{trans()}, opacity 0.5s ease-out;
+      }
+
+      a {
+        opacity: 1;
+        transition: opacity 0.5s ease-out;
+      }
+    }
+  }
+
+  .favourite:hover {
+    &::before {
+      $hover-expansion: 0.4em;
+
+      padding: 0 $hover-expansion;
+      left: -$hover-expansion;
+      border-color: $col-deut;
+    }
+
+    a {
+      color: $col-deut;
+    }
+  }
+
+  .favourite:active {
+    a {
+      color: $col-trit;
+    }
   }
 }
 
@@ -206,6 +251,7 @@ button.block.artist {
       transition: #{trans()};
 
       &:hover {
+        cursor: auto;
         padding: 0 0.8em;
         color: black;
       

@@ -61,8 +61,7 @@ let { text, intern, action, children }: Props = $props();
   text-decoration: none;
   background: none;
   border: none;
-  transition: #{trans()};
-  @include shear-card;
+  @include shear-card($interactive: true);
 
   &::before {
     border-left: $border-width solid $col-prot;
@@ -78,7 +77,6 @@ let { text, intern, action, children }: Props = $props();
 
     padding: 0 $hover-expansion;
     left: -$hover-expansion;
-    background: $col-card-hover;
     border-color: $col-deut;
   }
 }

@@ -12,8 +12,8 @@ import LinkCard from "#parts/ui/card.link.svelte";
 ]} />
 
 <div class="cards">
-  <LinkCard link="/sup/music/listen/tracks" text="Tracks" />
-  <LinkCard link="/sup/music/listen/artists" text="Artists" />
+  <LinkCard link="/sup/music/listen/tracks" text="tracks I listen to" />
+  <LinkCard link="/sup/music/listen/artists" text="artists I listen to" />
 </div>
 
 

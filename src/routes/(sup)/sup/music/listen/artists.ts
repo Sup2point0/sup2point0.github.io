@@ -1,4 +1,5 @@
-import type { ArtistData } from "#scripts/types"
+import { a, h } from "#scripts/utils";
+import type { ArtistData } from "#scripts/types";
 
 
 export const artists: {
@@ -25,7 +26,7 @@ export const artists: {
       track: {
         name: "Final Showdown", link: undefined
       },
-      discovered: "Chiru-san",
+      discovered: "collab with Chiru-san",
     },
     {
       shard: "stessie",
@@ -63,14 +64,14 @@ export const artists: {
       track: {
         name: "Banana Breeze", link: undefined
       },
-      discovered: "Scratch",
+      discovered: "some random Scratch project",
     },
     {
       shard: "pikasonic",
       name: "PIKASONIC",
       date: "2024",
       icon: "pikasonic.jpg",
-      genres: ["electronic", "future bass", "J-core"],
+      genres: ["electronic", "future bass", "j-core"],
       track: {
         name: "New Start", link: undefined
       },
@@ -145,7 +146,7 @@ export const artists: {
       track: {
         name: "Mend Your Ways", link: undefined
       },
-      genres: ["J-core", "bass"],
+      genres: ["j-core", "bass"],
       discovered: "YouTube Music reccs",
     },
     {
@@ -153,7 +154,7 @@ export const artists: {
       name: "茶鸣拾贰律",
       date: "2023",
       icon: "tea-12.jpg",
-      genres: ["C-pop", "rhythm"],
+      genres: ["c-pop", "rhythm"],
       track: [
         { name: "青芽", link: undefined },
         { name: "Feast 远东之宴", link: undefined },
@@ -165,7 +166,7 @@ export const artists: {
       name: "Johannes Bornlöf",
       date: "2020",
       icon: "johannes-bornlof.jpg",
-      genres: ["cinematic", "orchestral"],
+      genres: ["cinematic", "orchestral", "heroic"],
       track: {
         name: "Only the Brave", link: undefined
       },
@@ -258,11 +259,11 @@ export const artists: {
       name: "YOASOBI",
       date: "2023",
       icon: "yoasobi.webp",
-      genres: ["J-pop", "anime"],
+      genres: ["j-pop", "anime"],
       track: {
         name: "Tabun", link: undefined
       },
-      discovered: "anime",
+      discovered: `${h("Oshi no Ko")} anime`,
     },
     {
       shard: "street",
@@ -331,7 +332,7 @@ export const artists: {
       track: {
         name: "Teenage Color", link: undefined
       },
-      discovered: "Grian",
+      discovered: "Grian’s timelapse background music",
     },
     {
       shard: "jiang-mi-tiao",
@@ -427,7 +428,7 @@ export const artists: {
       name: "heiakim",
       date: "2024",
       icon: "heiakim.webp",
-      genres: ["J-pop"],
+      genres: ["j-pop"],
       track: {
         name: "nana", link: undefined
       },
@@ -442,7 +443,7 @@ export const artists: {
       track: {
         name: undefined, link: undefined
       },
-      discovered: "YouTube reccs",
+      discovered: "YouTube interview",
     },
     {
       shard: "feurrm-films",
@@ -462,6 +463,7 @@ export const artists: {
       name: "Arcane",
       date: "2025",
       icon: "arcane.jpg",
+      genres: ["alternative pop", "punk", "emotional", "cinematic"],
       track: {
         name: "What Could Have Been", link: undefined
       },
@@ -475,36 +477,44 @@ export const artists: {
       name: "Ultraman",
       date: "2018",
       icon: "ultraman.jpg",
+      genres: ["ultraman", "anime", "heroic"],
       track: [
         { name: "Ultraman Mebius", link: undefined },
         { name: "Ultraman Zero", link: undefined },
       ],
+      discovered: "childhood",
     },
     {
       shard: "master-duel",
       name: "Master Duel",
       date: "2023",
       icon: "master-duel.jpg",
+      genres: ["cinematic", "orchestral"],
+      discovered: String.raw`¯\_(ツ)_/¯`,
     },
     {
       shard: "yu-gi-oh",
       name: "Yu-Gi-Oh!",
       date: "2022",
       icon: "yu-gi-oh.jpg",
+      genres: ["anime", "j-pop"],
       track: [
         { name: "Calling", link: undefined },
         { name: "BRAVING", link: undefined },
       ],
+      discovered: "childhood",
     },
     {
       shard: "air-attack",
       name: "AirAttack",
       date: "2020",
       icon: "air-attack.jpg",
+      genres: ["war", "cinematic", "heroic"],
       track: [
         { name: "Dark Sands", link: undefined },
         { name: "Operation Red Sea – Land", link: undefined },
       ],
+      discovered: "childhood",
     },
     {
       shard: "tiny-defense",
@@ -515,27 +525,33 @@ export const artists: {
         { name: "Mission Stage", link: undefined },
         { name: "Underwater", link: undefined },
       ],
+      discovered: "childhood",
     },
     {
       shard: "pvz",
       name: "Plants vs. Zombies",
       date: "2020",
       icon: "pvz.webp",
+      genres: ["game"],
       track: {
         name: "Zombie On Your Lawn", link: undefined
       },
+      discovered: "childhood",
     },
     {
       shard: "dune",
       name: "Dune",
       date: "2022",
       icon: "dune.jpg",
+      genres: ["cinematic"],
+      discovered: "literally searched up “major films in 2021” while in my film-watching arc",
     },
     {
       shard: "boonie-bears",
       name: "熊出没",
       date: "child",
       icon: undefined,
+      genres: ["c-pop"],
       track: {
         name: "你从未离去", link: undefined
       },
@@ -549,10 +565,12 @@ export const artists: {
       name: "My Little Pony",
       date: "2023",
       icon: "mlp.jpg",
+      genres: ["alternative pop", "electronic"],
       track: [
         { name: "Friendship Games", link: undefined },
         { name: "Legend You Were Meant To Be", link: undefined },
       ],
+      discovered: "childhood",
     },
   ],
   classics: [
@@ -580,7 +598,7 @@ export const artists: {
       links: {
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkDwSbC-HHmA7UaQvpkr-Aqr",
       },
-      discovered: "friend",
+      discovered: "introduced by friend",
     },
     {
       shard: "jim-yosef",
@@ -654,20 +672,25 @@ export const artists: {
       discovered: "some Ultraman video on YouTube",
     },
     {
+      shard: "taylor-swift",
       name: "Taylor Swift",
+      icon: undefined,
+      genres: ["pop"],
       track: {
         name: "Anti-hero", link: undefined
       },
-      genres: ["pop"],
+      discovered: "childhood",
     },
     {
+      shard: "owl-city",
       name: "Owl City",
       date: "2022",
+      icon: undefined,
+      genres: ["pop"],
       track: {
         name: "Fireflies", link: undefined
       },
-      genres: ["pop"],
-      discovered: "nostalgia",
+      discovered: "childhood nostalgia",
     },
   ],
   labels: [
@@ -677,7 +700,7 @@ export const artists: {
       date: "2025",
       icon: "firefly-music.jpg",
       genres: ["electronic"],
-      discovered: "PIKASONIC",
+      discovered: "PIKASONIC - New Start in YouTube reccs",
     },
     {
       shard: "ncs",
@@ -685,7 +708,7 @@ export const artists: {
       date: "2017",
       icon: "ncs.jpg",
       genres: ["electronic"],
-      discovered: "iXPLODE",
+      discovered: "iXPLODE’s video background music",
     },
     {
       shard: "nomia-tunes",
@@ -705,7 +728,7 @@ export const artists: {
       track: {
         name: "Beyond the Way", link: undefined
       },
-      discovered: "YouTube reccs",
+      discovered: `${h("Beyond the Way")} in YouTube reccs`,
     },
     {
       shard: "deco-27",
@@ -716,7 +739,7 @@ export const artists: {
       track: {
         name: "Rabbit Hole", link: undefined
       },
-      discovered: "YouTube reccs",
+      discovered: `${h("Rabbit Hole")} in YouTube reccs`,
     },
     {
       shard: "lupus-nocte",
@@ -727,18 +750,18 @@ export const artists: {
       track: {
         name: "Howling", link: undefined
       },
-      discovered: "GoodTimesWithScar",
+      discovered: `${a("GoodTimesWithScar", "https://www.youtube.com/@GoodTimesWithScar")}’s timelapse background music`,
     },
     {
       shard: "eason-chan",
       name: "Eason Chan",
       date: "2023",
       icon: undefined,
-      genres: ["C-pop"],
+      genres: ["c-pop"],
       track: {
         name: "孤勇者", link: undefined
       },
-      discovered: "friend",
+      discovered: "played by a friend",
     },
     {
       shard: "tf-boys",
@@ -748,7 +771,7 @@ export const artists: {
       track: {
         name: "少年修炼手册", link: undefined
       },
-      genres: ["C-pop"],
+      genres: ["c-pop"],
       discovered: "childhood",
     },
   ],

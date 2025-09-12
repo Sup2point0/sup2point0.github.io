@@ -60,7 +60,7 @@ let { artist }: Props = $props();
 
     <div class="inner">
       <p class="discovered">
-        {artist.discovered}
+        {@html artist.discovered}
       </p>
 
       {#if artist.links}
@@ -256,6 +256,7 @@ button.block.artist {
     @include font-fun;
     font-size: 150%;
     color: $col-text;
+    text-align: left;
   }
 
   img {
@@ -279,6 +280,13 @@ button.block.artist {
       opacity: 1;
     }
   }
+}
+
+:global(button.block.artist p.discovered a) {
+  @include link;
+}
+:global(button.block.artist p.discovered .highlight) {
+  color: $col-acc;
 }
 
 .lower {

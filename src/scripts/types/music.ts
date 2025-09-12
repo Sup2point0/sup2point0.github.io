@@ -48,6 +48,9 @@ export interface ArtistData {
   
   genres?: string[];
   track?: ExternalTrackData | ExternalTrackData[];
+  links?: {
+    [platform: string]: string;
+  };
 }
 
 

@@ -31,7 +31,7 @@ let { artist }: Props = $props();
         {#if Array.isArray(artist.track)}
           {#each artist.track as track}
             <div class="favourite">
-              <a href={track.link} rel="external">
+              <a target="_blank" href={track.link} rel="external">
                 {track.name}
               </a>
             </div>
@@ -62,6 +62,16 @@ let { artist }: Props = $props();
       <p class="discovered">
         {artist.discovered}
       </p>
+
+      {#if artist.links}
+        <div class="links">
+          {#each Object.entries(artist.links) as [platform, link]}
+            <a target="_blank" href={link} rel="external">
+              <img alt={platform} src="/ui/icons/{platform}.svg" />
+            </a>
+          {/each}
+        </div>
+      {/if}
     </div>
 
     <div class="lower">
@@ -93,11 +103,8 @@ button.block.artist {
   border: none;
   @include shear-card($interactive: true);
 
-  &:hover img {
-    box-shadow: 0 0 42px rgb(white, 20%);
-    animation-name: shine;
-    animation-duration: 0.8s;
-    // animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);  // ease-in-exp
+  &:hover {
+    cursor: auto;
   }
 }
 
@@ -110,6 +117,13 @@ button.block.artist {
     border-radius: 50%;
     box-shadow: 0 8px 16px rgb(black, 40%);
     transition: #{trans()};
+
+    button.block.artist:hover & {
+      box-shadow: 0 0 42px rgb(white, 20%);
+      animation-name: shine;
+      animation-duration: 0.8s;
+      // animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);  // ease-in-exp
+    }
   }
 
   .favourites {
@@ -233,11 +247,37 @@ button.block.artist {
 
 .inner {
   flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 
   p.discovered {
     @include font-fun;
     font-size: 150%;
     color: $col-text;
+  }
+
+  img {
+    max-height: 1.5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    opacity: 0;
+    transition: #{trans()}, opacity 0.3s;
+
+    &:hover {
+      box-shadow: 0 0 16px black;
+      transform: scale(120%);
+    }
+
+    &:active {
+      transform: scale(115%);
+      filter: brightness(75%);
+    }
+    
+    button.block.artist:hover & {
+      opacity: 1;
+    }
   }
 }
 

@@ -49,6 +49,9 @@ export const artists: {
       track: {
         name: "Dance With Silence", link: undefined
       },
+      links: {
+        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkCLPwaevGf-8oKXSE4syPAT",
+      },
       discovered: "Phigros",
     },
     {
@@ -91,11 +94,14 @@ export const artists: {
       name: "A-39",
       date: "2023",
       icon: "a-39.jpg",
+      genres: ["colour bass", "hardcore", "vocaloid"],
       track: [
         { name: "WATER", link: undefined },
         { name: "夜", link: undefined },
       ],
-      genres: ["colour bass", "hardcore", "vocaloid"],
+      links: {
+        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7",
+      },
       discovered: "Phigros",
     },
     {
@@ -198,6 +204,9 @@ export const artists: {
       track: {
         name: "Stellarity", link: undefined
       },
+      links: {
+        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkCb_zXiyswxJzn6CktpzY2w",
+      },
       discovered: "YouTube reccs",
     },
     {
@@ -227,6 +236,9 @@ export const artists: {
       genres: ["electronic"],
       track: {
         name: "when you realize the music of the future is just distorting a guitar", link: undefined
+      },
+      links: {
+        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkAzGVoAAvsJe9Ank9cyqk-G",
       },
       discovered: "YouTube reccs",
     },
@@ -271,6 +283,9 @@ export const artists: {
       genres: ["artcore", "gothic hardcore", "rhythm"],
       track: {
         name: "Ignotus", link: undefined
+      },
+      links: {
+        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkB918DxkTo33KMb1aITaB_9",
       },
       discovered: "Arcaea",
     },
@@ -351,6 +366,9 @@ export const artists: {
         { name: "Are You Happy", link: undefined },
         { name: "The Chicken", link: undefined },
       ],
+      links: {
+        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkDG5k4_HrYF4VSNWWPsD5Nw",
+      },
       discovered: "YouTube reccs",
     },
   ],
@@ -363,6 +381,9 @@ export const artists: {
       genres: ["beatbox"],
       track: {
         name: "Dopamine (DnB remix)", link: undefined
+      },
+      links: {
+        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkCC0pprSmxOqXkVTigfkUQ-",
       },
       discovered: "YouTube",
     },
@@ -444,6 +465,10 @@ export const artists: {
       track: {
         name: "What Could Have Been", link: undefined
       },
+      links: {
+        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkCdH3RpudnBc9RplsrUqQ_n",
+      },
+      discovered: "reddit, probably",
     },
     {
       shard: "ultraman",
@@ -507,6 +532,19 @@ export const artists: {
       icon: "dune.jpg",
     },
     {
+      shard: "boonie-bears",
+      name: "熊出没",
+      date: "child",
+      icon: undefined,
+      track: {
+        name: "你从未离去", link: undefined
+      },
+      links: {
+        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkDNtgU2E_Clta_JZlmCU-do",
+      },
+      discovered: "childhood",
+    },
+    {
       shard: "mlp",
       name: "My Little Pony",
       date: "2023",
@@ -538,6 +576,9 @@ export const artists: {
       genres: ["electronic", "house"],
       track: {
         name: "Different World", link: undefined
+      },
+      links: {
+        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkDwSbC-HHmA7UaQvpkr-Aqr",
       },
       discovered: "friend",
     },
@@ -599,12 +640,17 @@ export const artists: {
   ],
   pop: [
     {
+      shard: "avril-lavigne",
       name: "Avril Lavigne",
       date: "2017",
+      icon: undefined,
+      genres: ["rock", "pop"],
       track: {
         name: "When You’re Gone", link: undefined
       },
-      genres: ["rock", "pop"],
+      links: {
+        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkDo8xDD039YebXy0ONQyPOA",
+      },
       discovered: "some Ultraman video on YouTube",
     },
     {

@@ -115,7 +115,7 @@ button.block.artist {
   .favourites {
     width: max-content;
     position: absolute;
-    left: 0;
+    left: -10%;
     bottom: 0;
     z-index: 10;
     display: flex;
@@ -133,6 +133,7 @@ button.block.artist {
     @include shear-card($interactive: true);
 
     &::before {
+      background: rgb(white, 8%);
       border-left: $border-width solid $col-prot;
       opacity: 0;
       transition: #{trans()}, opacity 0.2s ease-out;
@@ -140,7 +141,7 @@ button.block.artist {
 
     a {
       @include font-ui;
-      font-size: 120%;
+      font-size: 125%;
       color: $col-prot;
       text-decoration: none;
       opacity: 0;
@@ -171,6 +172,7 @@ button.block.artist {
 
       padding: 0 $hover-expansion;
       left: -$hover-expansion;
+      background: rgb(white, 16%);
       border-color: $col-deut;
     }
 
@@ -180,6 +182,11 @@ button.block.artist {
   }
 
   .favourite:active {
+    &::before {
+      background: rgb(grey, 16%);
+      border-color: $col-trit;
+    }
+
     a {
       color: $col-trit;
     }

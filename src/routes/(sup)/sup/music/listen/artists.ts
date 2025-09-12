@@ -264,6 +264,17 @@ export const artists: {
       discovered: "Arcaea",
     },
     {
+      shard: "ak-q",
+      name: "ak+q",
+      date: "2025",
+      icon: "ak-q.jpg",
+      genres: ["artcore", "gothic hardcore", "rhythm"],
+      track: {
+        name: "Ignotus", link: undefined
+      },
+      discovered: "Arcaea",
+    },
+    {
       shard: "noah",
       name: "Noah",
       date: "2024",
@@ -271,6 +282,28 @@ export const artists: {
       genres: ["cinematic", "rhythm"],
       track: {
         name: "Revolt From The Abyss", link: undefined
+      },
+      discovered: "Phigros",
+    },
+    {
+      shard: "akira-complex",
+      name: "Akira Complex",
+      date: "2025",
+      icon: "akira-complex.jpg",
+      genres: ["artcore", "rhythm"],
+      track: {
+        name: "Ether Strike", link: undefined
+      },
+      discovered: "CHUNITHM",
+    },
+    {
+      shard: "lime",
+      name: "Lime",
+      date: "2024",
+      icon: "lime.jpg",
+      genres: ["electronic", "rhythm"],
+      track: {
+        name: "Final Step!", link: undefined
       },
       discovered: "Phigros",
     },

@@ -50,7 +50,7 @@ export const artists: {
         name: "Dance With Silence", link: undefined
       },
       links: {
-        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkCLPwaevGf-8oKXSE4syPAT",
+        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCLPwaevGf-8oKXSE4syPAT",
       },
       discovered: "Phigros",
     },
@@ -100,7 +100,7 @@ export const artists: {
         { name: "夜", link: undefined },
       ],
       links: {
-        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7",
+        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7",
       },
       discovered: "Phigros",
     },
@@ -205,7 +205,7 @@ export const artists: {
         name: "Stellarity", link: undefined
       },
       links: {
-        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkCb_zXiyswxJzn6CktpzY2w",
+        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCb_zXiyswxJzn6CktpzY2w",
       },
       discovered: "YouTube reccs",
     },
@@ -238,7 +238,7 @@ export const artists: {
         name: "when you realize the music of the future is just distorting a guitar", link: undefined
       },
       links: {
-        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkAzGVoAAvsJe9Ank9cyqk-G",
+        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkAzGVoAAvsJe9Ank9cyqk-G",
       },
       discovered: "YouTube reccs",
     },
@@ -285,7 +285,7 @@ export const artists: {
         name: "Ignotus", link: undefined
       },
       links: {
-        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkB918DxkTo33KMb1aITaB_9",
+        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkB918DxkTo33KMb1aITaB_9",
       },
       discovered: "Arcaea",
     },
@@ -367,7 +367,7 @@ export const artists: {
         { name: "The Chicken", link: undefined },
       ],
       links: {
-        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkDG5k4_HrYF4VSNWWPsD5Nw",
+        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkDG5k4_HrYF4VSNWWPsD5Nw",
       },
       discovered: "YouTube reccs",
     },
@@ -383,7 +383,7 @@ export const artists: {
         name: "Dopamine (DnB remix)", link: undefined
       },
       links: {
-        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkCC0pprSmxOqXkVTigfkUQ-",
+        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCC0pprSmxOqXkVTigfkUQ-",
       },
       discovered: "YouTube",
     },
@@ -466,7 +466,7 @@ export const artists: {
         name: "What Could Have Been", link: undefined
       },
       links: {
-        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkCdH3RpudnBc9RplsrUqQ_n",
+        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCdH3RpudnBc9RplsrUqQ_n",
       },
       discovered: "reddit, probably",
     },
@@ -540,7 +540,7 @@ export const artists: {
         name: "你从未离去", link: undefined
       },
       links: {
-        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkDNtgU2E_Clta_JZlmCU-do",
+        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkDNtgU2E_Clta_JZlmCU-do",
       },
       discovered: "childhood",
     },
@@ -578,7 +578,7 @@ export const artists: {
         name: "Different World", link: undefined
       },
       links: {
-        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkDwSbC-HHmA7UaQvpkr-Aqr",
+        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkDwSbC-HHmA7UaQvpkr-Aqr",
       },
       discovered: "friend",
     },
@@ -649,7 +649,7 @@ export const artists: {
         name: "When You’re Gone", link: undefined
       },
       links: {
-        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkDo8xDD039YebXy0ONQyPOA",
+        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkDo8xDD039YebXy0ONQyPOA",
       },
       discovered: "some Ultraman video on YouTube",
     },

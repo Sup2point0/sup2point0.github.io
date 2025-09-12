@@ -31,7 +31,7 @@ onNavigate(navigation => {
 <div id="parallax-container"
   bind:this={root}
 >
-  <Back {root} col="scarlet" />
+  <Back pict="cortex-scarlet-invert.jpg" />
 
   <div id="page">
     {#if children}
@@ -48,9 +48,11 @@ onNavigate(navigation => {
 #parallax-container {
   min-height: 100vh;
   max-height: 100vh;
-  perspective: 1px;
+  // perspective: 1px;
   overflow-x: hidden;
   overflow-y: auto;
+  scroll-timeline-name: --parallax;
+  scroll-timeline-axis: y;
   scrollbar-color: $col-prot black;
   scrollbar-width: thin;
 }

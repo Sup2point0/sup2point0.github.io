@@ -1,53 +1,31 @@
-<!-- @component Back -->
+<!-- @component Back
+ 
+The parallax background picture.
+-->
+
 <script lang="ts">
 
-import { onMount } from "svelte";
 import { browser } from "$app/environment";
 
 
 interface Props {
-  root: HTMLElement;
-  col: "violet" | "scarlet";
+  pict: string;
 }
 
-let { root, col = "scarlet" } = $props();
+let { pict }: Props = $props();
 
 
-let back: HTMLElement | undefined = $state();
-
-let window_height = $derived(browser ? window.innerHeight : undefined);
-let page_height = $derived(root?.scrollHeight);
-let back_height;
-
-let scroll_frac: number = $state(0);
-
-
-onMount(() => {
-  if (browser) {
-    back_height = back?.scrollHeight;
-
-    root?.addEventListener("scroll", () => {
-      let scroll = root.scrollTop;
-
-      if (scroll && page_height && window_height) {
-        scroll_frac = scroll / (page_height - window_height);
-        console.log(scroll_frac);
-      }
-    })
-  }
-})
-
+$effect(() => { console.log(window.innerHeight) });
 
 </script>
 
 
 <img id="back"
-  alt="cortex-{col}"
-  src="/ui/cortex-{col}-vert.jpg"
-  style:filter="blur({7 - (scroll_frac**8) * 6}px) brightness({0.88 - scroll_frac * 0.0})"
-  bind:this={back}
+  alt=""
+  height="2560px"
+  src="/ui/{pict}"
+  style:--window-height="{browser ? window?.innerHeight : 0}px"
 />
-  <!-- style:top="{Math.round(scroll_frac * (window_height - back_height))}px" -->
 
 
 <style lang="scss">
@@ -58,9 +36,34 @@ onMount(() => {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
-  filter: blur(4px) brightness(0.88);
-  transform: scale(2.5) translateZ(-1px);
+  z-index: -2;
+  
+  transform: scale(105%);
+  filter: blur(4px) brightness(88%);
+  animation: parallax-transform linear, parallax-filter cubic-bezier(0.95, 0.05, 0.795, 0.035);  // ease-in-exp
+  animation-timeline: --parallax;
+}
+
+@keyframes parallax-transform {
+  from {
+    transform:
+      translateY(0)
+      scale(105%);
+  }
+  to {
+    transform:
+      translateY(calc(var(--window-height, 0px) - 2560px))
+      scale(125%);
+  }
+}
+
+@keyframes parallax-filter {
+  from {
+    filter: blur(4px) brightness(88%);
+  }
+  to {
+    filter: blur(2px) brightness(100%);
+  }
 }
 
 </style>

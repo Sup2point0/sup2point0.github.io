@@ -55,7 +55,7 @@ onMount(() => {
 {#if pict}
   <img id="back"
     alt=""
-    src="/ui/{pict.file}"
+    src="/ui/back/{pict.file}"
     transition:fade={{ duration: 2000, easing: expoInOut }}
     style:--scale-init="{pict.scale?.init ?? 105}%"
     style:--scale-end="{pict.scale?.end ?? 125}%"

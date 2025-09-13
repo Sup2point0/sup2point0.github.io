@@ -25,13 +25,6 @@
 html {
   background-color: black;
   overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-body {
-  min-height: 100vh;
-  max-height: 100vh;
-  overflow-x: hidden;
   overflow-y: auto;
   scroll-timeline-name: --parallax;
   scroll-timeline-axis: y;

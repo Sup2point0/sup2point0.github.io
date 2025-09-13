@@ -9,8 +9,6 @@ import { onNavigate } from "$app/navigation";
 
 let { children } = $props();
 
-let root: HTMLElement | undefined = $state();
-
 
 onNavigate(navigation => {
 	if (!document.startViewTransition) return;
@@ -19,15 +17,12 @@ onNavigate(navigation => {
 		document.startViewTransition(async () => {
 			resolve();
 			await navigation.complete;
-      root?.scrollTo(0, 0);
+      window?.scrollTo(0, 0);
 		});
 	});
 });
 
 </script>
-
-
-<svelte:body bind:this={root} />
 
 
 <Back />
@@ -43,20 +38,9 @@ onNavigate(navigation => {
 
 <style lang="scss">
 
-#parallax-container {
-  // perspective: 1px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  scroll-timeline-name: --parallax;
-  scroll-timeline-axis: y;
-  scrollbar-color: $col-prot black;
-  scrollbar-width: thin;
-}
-
 #page {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: stretch;
   align-items: center;
 }
 

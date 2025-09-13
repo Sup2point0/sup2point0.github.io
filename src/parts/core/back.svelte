@@ -12,12 +12,13 @@ import { expoInOut } from "svelte/easing";
 
 
 interface InterpData {
-  init: number;
-  end: number;
+  init?: number;
+  end?: number;
 }
 
 interface PictData {
   file: string;
+  scale?: InterpData;
   blur?: InterpData;
   brightness?: InterpData;
 }
@@ -31,11 +32,12 @@ const backs: PictData[] = [
   {
     file: "cortex.violet.jpg",
     blur: { init: 3, end: 1 },
-    brightness: { init: 92, end: 100 },
+    brightness: { init: 94, end: 100 },
   },
   {
     file: "geometric.cyber.jpg",
-    blur: { init: 8, end: 4 },
+    scale: { init: 160, end: 110 },
+    blur: { init: 10, end: 4 },
     brightness: { init: 40, end: 60 },
   },
 ];
@@ -55,6 +57,8 @@ onMount(() => {
     alt=""
     src="/ui/{pict.file}"
     transition:fade={{ duration: 2000, easing: expoInOut }}
+    style:--scale-init="{pict.scale?.init ?? 105}%"
+    style:--scale-end="{pict.scale?.end ?? 125}%"
     style:--blur-init="{pict.blur?.init ?? 4}px"
     style:--blur-end="{pict.blur?.end ?? 4}px"
     style:--brightness-init="{pict.brightness?.init ?? 88}%"
@@ -69,7 +73,7 @@ img#back {
   min-width: max(100vw, 720px);
   max-width: 100vw;
   max-height: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: -2;
@@ -84,12 +88,12 @@ img#back {
   from {
     transform:
       translateY(0)
-      scale(105%);
+      scale(var(--scale-init, 105%));
   }
   to {
     transform:
       translateY(calc(100vh - 100vw * 16 / 9))
-      scale(125%);
+      scale(var(--scale-end, 120%));
   }
 }
 

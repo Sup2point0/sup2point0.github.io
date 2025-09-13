@@ -27,8 +27,20 @@ let album: AlbumData = $derived(page.data as AlbumData);
 ]} />
 
 <Main gap="2rem">
-  <section class="info">
-    <h1> {album.name} </h1>
+  <section class="album">
+    <div class="info">
+      <h1> {album.name} </h1>
+      <p class="date"> {album.date} </p>
+
+      {#if album.desc}
+        <p class="desc"> {@html album.desc} </p>
+      {/if}
+    </div>
+    
+    <img alt={album.name} title={album.name}
+      width="240px" height="240px"
+      src="/music/covers/{album.cover ?? 'placeholder.png'}"
+    />
   </section>
 
   <section class="tracks">
@@ -41,13 +53,24 @@ let album: AlbumData = $derived(page.data as AlbumData);
 
 <style lang="scss">
 
-.info {
+.album {
   min-width: 50%;
-  padding: 1rem 3rem;
+  padding: 1rem 5rem;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 4rem;
   @include shear-card();
 
   h1 {
     @include font-fun;
+    font-weight: normal;
+    font-size: 500%;
+  }
+
+  p.date {
+    @include font-tech;
+    font-size: 150%;
+    color: $col-text-deut;
   }
 }
 

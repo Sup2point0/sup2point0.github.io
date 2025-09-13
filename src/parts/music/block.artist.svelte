@@ -67,7 +67,11 @@ let { artist }: Props = $props();
         <div class="links">
           {#each Object.entries(artist.links) as [platform, link]}
             <a target="_blank" href={link} rel="external">
-              <img alt={platform} src="/ui/icons/{platform}.svg" />
+              <img
+                alt={platform}
+                title={platform.toUpperCase()}
+                src="/ui/icons/{platform}.svg"
+              />
             </a>
           {/each}
         </div>

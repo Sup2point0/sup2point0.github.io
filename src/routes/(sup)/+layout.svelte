@@ -27,27 +27,23 @@ onNavigate(navigation => {
 </script>
 
 
+<svelte:body bind:this={root} />
 
-<div id="parallax-container"
-  bind:this={root}
->
-  <Back />
 
-  <div id="page">
-    {#if children}
-      {@render children()}
-    {:else}
-      <p class="error"> Uh, something went wrong! </p>
-    {/if}
-  </div>
+<Back />
+
+<div id="page">
+  {#if children}
+    {@render children()}
+  {:else}
+    <p class="error"> Uh, something went wrong! </p>
+  {/if}
 </div>
 
 
 <style lang="scss">
 
 #parallax-container {
-  min-height: 100vh;
-  max-height: 100vh;
   // perspective: 1px;
   overflow-x: hidden;
   overflow-y: auto;

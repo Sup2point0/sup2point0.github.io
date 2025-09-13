@@ -15,10 +15,28 @@
   color: white;
 }
 
+@media (max-width: 30rem) {
+  :root {
+    font-size: 100%;
+  }
+}
+
+
 html {
   background-color: black;
   overflow-x: hidden;
   overflow-y: hidden;
+}
+
+body {
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-timeline-name: --parallax;
+  scroll-timeline-axis: y;
+  scrollbar-color: $col-prot black;
+  scrollbar-width: thin;
 }
 
 

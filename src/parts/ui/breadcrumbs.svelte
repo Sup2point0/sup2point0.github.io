@@ -54,7 +54,6 @@ nav {
   @include font-fun;
   color: $col-text-deut;
   font-size: 125%;
-  // transform: skew(10deg) scaleX(60%);
 }
 
 a {
@@ -64,6 +63,7 @@ a {
 
   &::before {
     background: transparent;
+    backdrop-filter: none;
   }
 
   &::after {

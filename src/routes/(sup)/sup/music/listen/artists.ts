@@ -672,12 +672,8 @@ export const artists: {
       date: "2016",
       icon: "jim-yosef.png",
       genres: ["electronic", "house"],
-      track: [
-        { name: "SLASH", link: "https://youtube.com/watch?v=cGkv5RcPRuo&list=PLYWIouv-DSkAB87xm3E0Z1MttAXDTEzOr" },
-        { name: "Throwback", link: "https://youtube.com/watch?v=cXLadJlS_nA&list=PLYWIouv-DSkAB87xm3E0Z1MttAXDTEzOr" },
-      ],
-      links: {
-        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAB87xm3E0Z1MttAXDTEzOr",
+      track: {
+        name: "Linked", link: undefined
       },
       discovered: "NCS",
     },
@@ -778,6 +774,13 @@ export const artists: {
       date: "2017",
       icon: "ncs.jpg",
       genres: ["electronic"],
+      track: [
+        { name: "SLASH", link: "https://youtube.com/watch?v=cGkv5RcPRuo&list=PLYWIouv-DSkAB87xm3E0Z1MttAXDTEzOr" },
+        { name: "Throwback", link: "https://youtube.com/watch?v=cXLadJlS_nA&list=PLYWIouv-DSkAB87xm3E0Z1MttAXDTEzOr" },
+      ],
+      links: {
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAB87xm3E0Z1MttAXDTEzOr",
+      },
       discovered: "iXPLODE’s video background music",
     },
     {
@@ -840,10 +843,10 @@ export const artists: {
       shard: "eason-chan",
       name: "Eason Chan",
       date: "2023",
-      icon: undefined,
+      icon: "eason-chan.jpg",
       genres: ["c-pop"],
       track: {
-        name: "孤勇者", link: undefined
+        name: "«孤勇者»", link: undefined
       },
       discovered: "played by a friend",
     },
@@ -853,7 +856,7 @@ export const artists: {
       date: "childhood",
       icon: undefined,
       track: {
-        name: "少年修炼手册", link: undefined
+        name: "«青春修炼手册»", link: undefined
       },
       genres: ["c-pop"],
       discovered: "childhood",

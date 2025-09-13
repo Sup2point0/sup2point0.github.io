@@ -1,5 +1,6 @@
 <script lang="ts">
 
+import Cards from "#parts/core/cards.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import LinkCard from "#parts/ui/card.link.svelte";
 
@@ -11,19 +12,8 @@ import LinkCard from "#parts/ui/card.link.svelte";
   { text: "listen" },
 ]} />
 
-<div class="cards">
+<Cards>
   <LinkCard link="/sup/music/listen/tracks" text="tracks I listen to" />
   <LinkCard link="/sup/music/listen/artists" text="artists I listen to" />
   <LinkCard link="/sup/music/listen/genres" text="genres I listen to" />
-</div>
-
-
-<style lang="scss">
-
-.cards {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 1rem;
-}
-
-</style>
+</Cards>

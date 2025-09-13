@@ -95,6 +95,7 @@ let { artist }: Props = $props();
 
 
 button.block.artist {
+  flex-grow: 1;
   max-width: 32rem;
   padding: 1rem 1.5rem;
   display: flex;

@@ -1,6 +1,7 @@
 <script>
 
 import Main from "#parts/core/main.svelte";
+import Cards from "#parts/core/cards.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import ArtistBlock from "#parts/music/block.artist.svelte";
 
@@ -26,11 +27,11 @@ import { artists as artists_lists } from "../artists";
     <section>
       <h2> {collection.toUpperCase()} </h2>
 
-      <div class="artists-container">
+      <Cards>
         {#each artists as artist}
           <ArtistBlock {artist} />
         {/each}
-      </div>
+      </Cards>
     </section>
   {/each}
 </Main>
@@ -44,13 +45,6 @@ h2 {
   font-weight: normal;
   font-size: 200%;
   text-align: center;
-}
-
-.artists-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  gap: 1rem;
 }
 
 </style>

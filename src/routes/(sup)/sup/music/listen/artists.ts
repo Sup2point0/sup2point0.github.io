@@ -21,12 +21,23 @@ export const artists: {
       shard: "hookington",
       name: "Hookington",
       date: "2025 FALL",
-      icon: undefined,
+      icon: "hookington.png",
       genres: ["electronic"],
       track: {
-        name: "Final Showdown", link: undefined
+        name: "Final Showdown", link: "https://youtube.com/watch?v=UBGTDveF84o"
       },
       discovered: "collab with Chiru-san",
+    },
+    {
+      shard: "kirara-magic",
+      name: "Kirara Magic",
+      date: "2025 SUMMER",
+      icon: undefined,
+      genres: ["electronic", "chillout"],
+      track: {
+        name: "Checkmate", link: undefined
+      },
+      discovered: "Dance Cube EVO",
     },
     {
       shard: "geoxor",
@@ -44,9 +55,10 @@ export const artists: {
       date: "2023",
       icon: "camellia.png",
       genres: ["Camelliacore", "full flavour", "transcendental", "rhythm"],
-      track: {
-        name: "Dance With Silence", link: undefined
-      },
+      track: [
+        { name: "Dance With Silence", link: "https://youtube.com/watch?v=ounWMVmQs0w&list=PLYWIouv-DSkCLPwaevGf-8oKXSE4syPAT" },
+        { name: "Spin Eternally", link: "https://youtube.com/watch?v=IuRwqB9NwVQ&list=PLYWIouv-DSkCLPwaevGf-8oKXSE4syPAT" },
+      ],
       links: {
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCLPwaevGf-8oKXSE4syPAT",
       },
@@ -103,8 +115,8 @@ export const artists: {
       icon: "a-39.jpg",
       genres: ["colour bass", "hardcore", "vocaloid"],
       track: [
-        { name: "WATER", link: undefined },
-        { name: "夜", link: undefined },
+        { name: "聖夜讃歌", link: "https://youtube.com/watch?v=ZWWIxzsAz_c&list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7" },
+        { name: "WATER", link: "https://youtube.com/watch?v=h69jvhd8z4w&list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7" },
       ],
       links: {
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7",
@@ -234,7 +246,7 @@ export const artists: {
       icon: "hinkik.jpg",
       genres: ["electronic", "house"],
       track: {
-        name: "Realms", link: undefined
+        name: "Realms", link: "https://youtube.com/watch?v=Ui9GnVC-jfw"
       },
       discovered: "Phigros",
     },
@@ -245,7 +257,7 @@ export const artists: {
       icon: "chiru-san.jpg",
       genres: ["electronic", "future bass"],
       track: {
-        name: "Stellarity", link: undefined
+        name: "Rebirth", link: "https://youtube.com/watch?v=vrNnTiQe9iE&list=PLYWIouv-DSkCb_zXiyswxJzn6CktpzY2w"
       },
       links: {
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCb_zXiyswxJzn6CktpzY2w",
@@ -295,7 +307,7 @@ export const artists: {
       icon: "polyphia.jpg",
       genres: ["guitar", "transcendental"],
       track: {
-        name: "Playing God", link: undefined
+        name: "Playing God", link: "https://youtube.com/watch?v=Z5NoQg8LdDk"
       },
       discovered: "YouTube Music reccs",
     },
@@ -320,7 +332,7 @@ export const artists: {
       icon: "street.jpg",
       genres: ["neurofunk", "rhythm"],
       track: {
-        name: "Sakura Fubiki", link: undefined
+        name: "Sakura Fubiki", link: "https://youtube.com/watch?v=0keUnlH_0IY&list=PLYWIouv-DSkARFlBS9jQ-7sFT8UecZbfR"
       },
       discovered: "Arcaea",
     },
@@ -340,7 +352,7 @@ export const artists: {
       icon: "ak-q.jpg",
       genres: ["artcore", "gothic hardcore", "rhythm"],
       track: {
-        name: "Ignotus", link: undefined
+        name: "Ignotus", link: "https://youtube.com/watch?v=U7M6e1MGYl0&list=PLYWIouv-DSkB918DxkTo33KMb1aITaB_9"
       },
       links: {
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkB918DxkTo33KMb1aITaB_9",
@@ -387,7 +399,10 @@ export const artists: {
       icon: "falcon-dives.jpg",
       genres: ["disco", "electronic"],
       track: {
-        name: "Teenage Color", link: undefined
+        name: "Teenage Color", link: "https://youtube.com/watch?v=rVAG7Dni1yA&list=PLYWIouv-DSkDGRBjzSJnzGnxKnIxaA_4r"
+      },
+      links: {
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkDGRBjzSJnzGnxKnIxaA_4r",
       },
       discovered: "Grian’s timelapse background music",
     },
@@ -398,8 +413,8 @@ export const artists: {
       icon: "jiang-mi-tiao.jpg",
       genres: ["neurofunk", "rhythm"],
       track: [
-        { name: "inferior", link: undefined },
-        { name: "Shadow", link: undefined },
+        { name: "inferior", link: "https://youtube.com/watch?v=A-refzLZ7u0" },
+        { name: "Shadow", link: "https://youtube.com/watch?v=11un4aCwCrs" },
       ],
       discovered: "Phigros",
     },
@@ -410,7 +425,7 @@ export const artists: {
       icon: "virtual-riot.jpg",
       genres: ["electronic", "complextro", "dubstep"],
       track: {
-        name: "I heard you like polyrhythms", link: undefined
+        name: "I heard you like polyrhythms", link: "https://youtube.com/watch?v=SthcxWPXG_E"
       },
       discovered: "YouTube reccs",
     },
@@ -421,8 +436,8 @@ export const artists: {
       icon: "bo-burnham.webp",
       genres: ["comedy", "pop", "rap", "piano"],
       track: [
-        { name: "Are You Happy", link: undefined },
-        { name: "The Chicken", link: undefined },
+        { name: "Are You Happy", link: "https://youtube.com/watch?v=sHxtZb9VRdg&list=PLYWIouv-DSkDG5k4_HrYF4VSNWWPsD5Nw" },
+        { name: "The Chicken", link: "https://youtube.com/watch?v=NeOhV4zOxJ4&list=PLYWIouv-DSkDG5k4_HrYF4VSNWWPsD5Nw" },
       ],
       links: {
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkDG5k4_HrYF4VSNWWPsD5Nw",
@@ -438,7 +453,7 @@ export const artists: {
       icon: "wing.jpg",
       genres: ["beatbox"],
       track: {
-        name: "Dopamine (DnB remix)", link: undefined
+        name: "Dopamine (DnB remix)", link: "https://youtube.com/watch?v=GBuKYAN0RbM&list=PLYWIouv-DSkCC0pprSmxOqXkVTigfkUQ-"
       },
       links: {
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCC0pprSmxOqXkVTigfkUQ-",
@@ -487,7 +502,7 @@ export const artists: {
       icon: "heiakim.webp",
       genres: ["j-pop"],
       track: {
-        name: "nana", link: undefined
+        name: "nana", link: "https://youtube.com/watch?v=iXH6zdvhN80"
       },
       discovered: "YouTube reccs",
     },
@@ -522,7 +537,7 @@ export const artists: {
       icon: "arcane.jpg",
       genres: ["alternative pop", "punk", "emotional", "cinematic"],
       track: {
-        name: "What Could Have Been", link: undefined
+        name: "What Could Have Been", link: "https://youtube.com/watch?v=liPu1_aPH5k&list=PLYWIouv-DSkCdH3RpudnBc9RplsrUqQ_n"
       },
       links: {
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCdH3RpudnBc9RplsrUqQ_n",

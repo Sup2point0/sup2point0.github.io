@@ -3,7 +3,7 @@
 The parallax background picture.
 -->
 
-<script>
+<script lang="ts">
 
 import { browser } from "$app/environment";
 import { onMount } from "svelte";
@@ -11,7 +11,18 @@ import { fade } from "svelte/transition";
 import { expoInOut } from "svelte/easing";
 
 
-const backs = [
+interface InterpData {
+  init: number;
+  end: number;
+}
+
+interface PictData {
+  file: string;
+  blur?: InterpData;
+  brightness?: InterpData;
+}
+
+const backs: PictData[] = [
   {
     file: "cortex.scarlet.jpg",
     blur: { init: 4, end: 2 },
@@ -30,7 +41,7 @@ const backs = [
 ];
 
 
-let pict = $state(null);
+let pict: PictData | null = $state(null);
 
 onMount(() => {
   pict = backs[Math.floor(Math.random() * backs.length)];
@@ -42,22 +53,21 @@ onMount(() => {
 {#if pict}
   <img id="back"
     alt=""
-    height="2560px"
     src="/ui/{pict.file}"
     transition:fade={{ duration: 2000, easing: expoInOut }}
-    style:--window-height="{browser ? window?.innerHeight : 640}px"
-    style:--blur-init="{pict.blur.init ?? 4}px"
-    style:--blur-end="{pict.blur.end ?? 4}px"
-    style:--brightness-init="{pict.brightness.init ?? 88}%"
-    style:--brightness-end="{pict.brightness.end ?? 100}%"
+    style:--blur-init="{pict.blur?.init ?? 4}px"
+    style:--blur-end="{pict.blur?.end ?? 4}px"
+    style:--brightness-init="{pict.brightness?.init ?? 88}%"
+    style:--brightness-end="{pict.brightness?.end ?? 100}%"
   />
 {/if}
 
 
 <style lang="scss">
 
-#back {
-  max-width: 100%;
+img#back {
+  min-width: max(100vw, 720px);
+  max-width: 100vw;
   max-height: none;
   position: absolute;
   top: 0;
@@ -78,7 +88,7 @@ onMount(() => {
   }
   to {
     transform:
-      translateY(calc(var(--window-height) - 2560px))
+      translateY(calc(100vh - 100vw * 16 / 9))
       scale(125%);
   }
 }

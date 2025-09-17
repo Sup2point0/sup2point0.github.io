@@ -13,6 +13,6 @@ import LinkCard from "#parts/ui/card.link.svelte";
 ]} />
 
 <Cards>
-  <LinkCard link="/sup/music/create/tracks" text="Tracks" />
-  <LinkCard link="/sup/music/create/albums" text="Albums" />
+  <LinkCard link="/sup/music/create/tracks" text="My Tracks" />
+  <LinkCard link="/sup/music/create/albums" text="My Albums" />
 </Cards>

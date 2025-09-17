@@ -41,7 +41,7 @@ export interface ArtistData {
   shard: string;
   name: string;
 
-  date?: string;
+  date?: number | string;
   discovered?: string;
 
   icon: string;

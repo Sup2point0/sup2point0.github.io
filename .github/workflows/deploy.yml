@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths: '**.yml'
-  schedule:
+  # schedule:
     # - cron: '20 4 * * 6'
 
 jobs:

@@ -39,7 +39,7 @@ let album: AlbumData = $derived(page.data as AlbumData);
     
     <img alt={album.name} title={album.name}
       width="240px" height="240px"
-      src="/music/covers/{album.cover ?? 'placeholder.png'}"
+      src="/music/covers/{album.cover ?? 'preview.png'}"
     />
   </section>
 

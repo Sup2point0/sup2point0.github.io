@@ -26,7 +26,7 @@ export const albums: {
           shard: "sunrise",
           name: "Sunrise",
           audio: "sunrise-preview.m4a",
-          cover: undefined,
+          cover: "placeholder.png",
           genres: ["electronic"],
           vibes: ["chillout"],
         },
@@ -132,7 +132,7 @@ export const albums: {
           shard: "rejuvenate",
           name: "Rejuvenate",
           audio: "rejuvenate-preview.m4a",
-          cover: undefined,
+          cover: "placeholder.png",
           genres: ["electronic"],
           vibes: ["jubilant"],
         },
@@ -243,7 +243,7 @@ export const albums: {
           shard: "ephemerald",
           name: "Ephemerald",
           audio: undefined,
-          cover: undefined,
+          cover: "elysion.ephemerald.png",
           genres: ["artcore"],
           vibes: [],
           is_preview: true,
@@ -445,9 +445,9 @@ export const albums: {
       ],
     },
     {
+      shard: "affinity",
       name: "Affinity",
       date: "FUTURE",
-      shard: "affinity",
       is_preview: true,
       tracks: [
         {
@@ -498,9 +498,9 @@ export const albums: {
       ],
     },
     {
+      shard: "fidelity",
       name: "Fidelity",
       date: "FUTURE",
-      shard: "fidelity",
       is_preview: true,
       tracks: [
         {
@@ -541,9 +541,10 @@ export const albums: {
       ],
     },
     {
+      shard: "stranded",
       name: "Stranded",
       date: "2025 – PRESENT",
-      shard: "stranded",
+      cover: "placeholder.png",
       tracks: [
         {
           shard: "stranded",
@@ -580,9 +581,9 @@ export const albums: {
   ],
   archives: [
     {
+      shard: "garageband",
       name: "GarageBand Archives",
       date: "2024 – EARLIER",
-      shard: "garageband",
       cover: "garageband.jpg",
       daw: Daw.GarageBand,
       desc: `Miscellaneous and ancient creations in GarageBand.`,
@@ -621,9 +622,9 @@ export const albums: {
       ],
     },
     {
+      shard: "musescore",
       name: "MuseScore Archives",
       date: "2023 – EARLIER",
-      shard: "musescore",
       cover: "musescore.png",
       daw: Daw.MuseScore,
       desc: `Piano and orchestral compositions from MuseScore`,

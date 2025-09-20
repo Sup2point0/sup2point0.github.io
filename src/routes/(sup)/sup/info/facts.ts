@@ -96,6 +96,9 @@ export const facts: Fact[] = [
   }, {
     text: `I have crazy dreams.`,
     desc: `No kidding, they’re like, proper multi-arc epics and sagas with character development and all. Actually just free downside-free entertainment. idky they come, but they do. It makes sleeping quite fun.`
+  }, {
+    text: `I love Antarctica`,
+    desc: ``,
   },
   
   {
@@ -137,6 +140,11 @@ export const facts: Fact[] = [
   }, {
     text: `I think the most beautiful part of a human are eyes.`,
     desc: `Fingers and hair come in close second. It’s hard to pick. (this sounds sus vrej)`,
+  },
+  
+  {
+    text: `I like carrots.`,
+    desc: `Carrots!`,
   }, {
     text: `My name is a meme.`,
     desc: `Shall I elaborate?`,

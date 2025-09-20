@@ -4,16 +4,6 @@
   </p>
 </section>
 
-<section id="trivia" class="centre">
-  <h2> Nontrivial Trivia </h2>
-  <ul>
-    <li> I love light mode. </li>
-    <li> You’ll find me as <code>Sup2point0</code> on many platforms, since they don’t allow <code>#</code> or <code>.</code> in their usernames. </li>
-    <li> I’m infatuated with Antarctica. </li>
-    <li> oh, and btw, I like carrots! </li>
-  </ul>
-</section>
-
 
 <style lang="scss">
 

@@ -2,6 +2,7 @@
 
 import Main from "#parts/core/main.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
+import AlbumBlock from "#parts/music/block.album.svelte";
 import TrackBlock from "#parts/music/block.track.svelte";
   
 import type { AlbumData } from "#scripts/types";
@@ -28,9 +29,7 @@ let album: AlbumData = $derived(page.data as AlbumData);
 ]} />
 
 <Main gap="2rem">
-  <section class="info">
-    <h1> {album.name} </h1>
-  </section>
+  <AlbumBlock {album} />
 
   <section class="tracks">
     {#each album.tracks as track}
@@ -41,16 +40,6 @@ let album: AlbumData = $derived(page.data as AlbumData);
 
 
 <style lang="scss">
-
-.info {
-  min-width: 50%;
-  padding: 1rem 3rem;
-  @include shear-card();
-
-  h1 {
-    @include font-fun;
-  }
-}
 
 .tracks {
   display: flex;

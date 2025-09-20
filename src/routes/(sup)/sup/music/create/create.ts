@@ -40,7 +40,7 @@ export const albums: {
       date: "2023 – PRESENT",
       cover: "origins.night.png",
       daw: Daw.GarageBand,
-      desc: `Soundtracks created for my rhythm game ${i("Algorhythm")}"!`,
+      desc: `Soundtracks created for my rhythm game ${i("Algorhythm")}!`,
       tracks: [
         {
           shard: "dawn",

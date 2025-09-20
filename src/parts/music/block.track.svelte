@@ -16,7 +16,7 @@ let { track }: Props = $props();
 </script>
 
 
-<button class="track block"
+<div class="track block"
   class:feat={track.feat}
   class:preview={track.is_preview}
   class:shrink={track.name.length > 20}
@@ -53,7 +53,7 @@ let { track }: Props = $props();
       {/if}
     </div>
   </div>
-</button>
+</div>
 
 
 <style lang="scss">
@@ -61,7 +61,7 @@ let { track }: Props = $props();
 @use 'sass:color';
 
 
-button.block.track {
+.block.track {
   min-width: 40rem;
   padding: 1rem 3rem;
   display: flex;
@@ -69,9 +69,6 @@ button.block.track {
   justify-content: start;
   align-items: stretch;
   gap: 2rem;
-
-  background: none;
-  border: none;
   @include shear-card($interactive: true);
 
   &:hover img {
@@ -82,13 +79,13 @@ button.block.track {
   }
 }
 
-button.block.track.feat {
+.block.track.feat {
   img {
     box-shadow: 0 12px 64px color.change($col-trit, $alpha: 0.25);
   }
 }
 
-button.block.track.preview {
+.block.track.preview {
   pointer-events: none;
   opacity: 25%;
 }
@@ -112,13 +109,13 @@ img {
   h3 {
     padding: 0.25rem 0 0.5rem;
     @include font-ui;
-    font-size: 300%;
+    font-size: 250%;
     font-weight: normal;
     color: $col-text;
     text-align: start;
 
-    button.shrink & {
-      font-size: 200%;
+    .block.shrink & {
+      font-size: 175%;
     }
   }
 
@@ -130,9 +127,9 @@ img {
     list-style-type: none;
 
     li {
-      padding: 0 0.5em;
+      padding: 0.1em 0.5em 0;
       @include font-fun;
-      font-size: 175%;
+      font-size: 150%;
       color: $col-text;
       @include shear-card();
       transition: #{trans()};

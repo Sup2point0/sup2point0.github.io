@@ -3,7 +3,7 @@ export type Shard = string;
 
 
 export enum Daw {
-  FL,
-  GarageBand,
-  MuseScore,
+  FL = "FL Studio",
+  GarageBand = "GarageBand",
+  MuseScore = "MuseScore 3",
 }

@@ -332,7 +332,7 @@ export const albums: {
           shard: "dactyl",
           name: "Dactyl",
           audio: undefined,
-          cover: undefined,
+          cover: "cortex.dactyl.png",
           genres: [],
           vibes: [],
           is_preview: true,
@@ -681,7 +681,7 @@ function auto_assign_albums(album_data: object)
     for (let album of collection) {
       for (let track of album.tracks) {
         track.album = album;
-        track._socre_ = 0;
+        track._score_ = 0;
       }
     }
   }

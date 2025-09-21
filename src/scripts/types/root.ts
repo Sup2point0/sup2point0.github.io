@@ -2,8 +2,5 @@
 export type Shard = string;
 
 
-export enum Daw {
-  FL = "FL Studio",
-  GarageBand = "GarageBand",
-  MuseScore = "MuseScore 3",
-}
+/** A non-specific point in time. */
+export type DatePoint = "childhood" | "present";

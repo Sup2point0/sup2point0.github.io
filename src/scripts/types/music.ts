@@ -1,7 +1,15 @@
-import type { Shard, Daw } from "./index";
+import type { Shard } from "./index";
+import type { Searchable } from "#scripts/search-filter.svelte";
 
 
-export interface TrackData {
+export enum Daw {
+  FL = "FL Studio",
+  GarageBand = "GarageBand",
+  MuseScore = "MuseScore 3",
+}
+
+
+export interface TrackData extends Searchable {
   feat?: boolean;
 
   shard: Shard;

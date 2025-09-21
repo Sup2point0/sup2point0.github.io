@@ -81,7 +81,7 @@ let { artist }: Props = $props();
     <div class="lower">
       <ul class="genres">
         {#each artist.genres ?? [] as genre}
-          <li>{genre}</li>
+          <li> {genre} </li>
         {/each}
       </ul>
     </div>
@@ -234,7 +234,7 @@ button.block.artist {
     @include font-ui;
     font-size: 200%;
     font-weight: normal;
-    color: $col-deut;
+    color: $col-quat;
     text-align: start;
 
     button.shrink & {

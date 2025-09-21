@@ -1,5 +1,5 @@
-interface Searchable {
-  _score_: number;
+export interface Searchable {
+  _score_?: number;
 }
 
 

@@ -5,7 +5,7 @@ A block displaying info for a game.
 
 <script lang="ts">
 
-import type { GameData } from "#src/routes/(sup)/sup/loves/games/games";
+import { State, type GameData } from "#src/routes/(sup)/sup/loves/games/games";
 
 import { onMount } from "svelte";
 
@@ -27,7 +27,7 @@ onMount(() => {
         /* having to use this cuz using CSS on .intersected isn't working?? */
         entry.target.style = `
           transform: scale(100%);
-          opacity: 1;
+          opacity: ${game.state == State.RETIRED ? "0.5" : "1"};
         `;
       }
     }
@@ -39,7 +39,7 @@ onMount(() => {
 </script>
 
 
-<button class="game block"
+<button class="game block {game.state}"
   id={game.shard}
   bind:this={self}
 >
@@ -98,6 +98,7 @@ onMount(() => {
 
 @use 'sass:color';
 
+
 button.block.game {
   flex-grow: 1;
   max-width: 32rem;
@@ -118,6 +119,7 @@ button.block.game {
 
   &:hover {
     cursor: auto;
+    opacity: 1 !important;
 
     .inner p {
       color: $col-text;
@@ -131,6 +133,10 @@ button.block.game {
   img {
     border-radius: 50%;
     box-shadow: 0 8px 16px rgb(black, 40%);
+
+    .block.game.active & {
+      box-shadow: 0 0 32px color.change($col-trit, $alpha: 0.5);
+    }
   }
 }
 

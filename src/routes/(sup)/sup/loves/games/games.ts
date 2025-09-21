@@ -5,7 +5,7 @@ import type { Searchable } from "#scripts/search-filter.svelte.ts";
 type Genre = "rhythm" | "tower defence" | "racing" | "shmup" | "runner" | "puzzle" | "cards" | "sandbox" | "io" | "classics";
 type Platform = "mobile" | "desktop" | "arcade" | "console" | "VR";
 
-enum State {
+export enum State {
   ACTIVE = "active",
   OPPORTUNISTIC = "opportunistic",
   INTERMITTENT = "intermittent",
@@ -133,7 +133,7 @@ export const games: GameData[] = prep([
     icon: "maimai.jpg",
     genres: ["rhythm"],
     platforms: ["arcade"],
-    state: State.INFREQUENT,
+    state: State.RETIRED,
   }, {
     shard: "beat-saber",
     name: "Beat Saber",

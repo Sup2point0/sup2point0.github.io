@@ -7,9 +7,6 @@ import LinkCard from "#parts/ui/card.link.svelte";
 
 
 <Cards>
-  <LinkCard link="/sup/music/listen" text="Music I Listen To">
-  </LinkCard>
-
-  <LinkCard link="/sup/music/create" text="Music I Make">
-  </LinkCard>
+  <LinkCard link="/sup/music/listen" text="Music I Listen To" />
+  <LinkCard link="/sup/music/create" text="Music I Make" />
 </Cards>

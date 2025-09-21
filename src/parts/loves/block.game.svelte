@@ -125,6 +125,15 @@ button.block.game {
   }
 }
 
+.img-container {
+  height: 120px;
+  
+  img {
+    border-radius: 50%;
+    box-shadow: 0 8px 16px rgb(black, 40%);
+  }
+}
+
 .info {
   flex-grow: 1;
   height: 100%;

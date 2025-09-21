@@ -7,5 +7,5 @@ import LinkCard from "#parts/ui/card.link.svelte";
 
 
 <Cards>
-  <LinkCard link="/sup/loves/game" text="Games" />
+  <LinkCard link="/sup/loves/games" text="Games" />
 </Cards>

@@ -47,7 +47,6 @@ onMount(() => {
 
 .block {
   height: max-content;
-  padding: 1em 2em;
   position: relative;
 
   @include font-fun;
@@ -57,13 +56,15 @@ onMount(() => {
   @include shear-card;
 
   &.ui {
+    padding: 1em 2em;
     @include font-ui;
     font-size: 100%;
   }
 
   &.fun {
+    padding: 0.5em 2em;
     @include font-fun;
-    font-size: 120%;
+    font-size: 150%;
   }
 
   &::after {

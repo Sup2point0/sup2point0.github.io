@@ -26,6 +26,7 @@ const all_routes = [
   ],
   [
     `I hope your day’s going well. Mine usually is, if I’d had my daily dose of integration, piano and/or programming memes.`,
+    `I’m currently in the process of renovating this site, so please bear with me while some stuff remains broken or unfinished!`,
     `woah, this is a rare bio. Looks like you just expended a cut of your lifetime RNG!`,
     `how many of these do you think there are?`,
   ],

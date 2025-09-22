@@ -7,6 +7,11 @@ import Nav from "#parts/core/nav.svelte";
 import ProfileHeader from "./header.svelte";
 import ProfileBio from "./bio.svelte";
 import ProfileDirections from "./directions.svelte";
+
+import ProfileCards from "./cards.svelte";
+import ProfileLoves from "./loves.svelte";
+import ProfileShowerthought from "./showerthought.svelte";
+
 import ProfileWords from "./profile.words.svelte";
 
 </script>
@@ -39,6 +44,12 @@ import ProfileWords from "./profile.words.svelte";
     </div>
   </section>
 
+  <ProfileCards />
+  <div style:height="1rem"></div>
+  <ProfileLoves />
+  <div style:height="1rem"></div>
+  <ProfileShowerthought />
+
   <ProfileWords />
 </Main>
 
@@ -50,6 +61,7 @@ import ProfileWords from "./profile.words.svelte";
 section.upper {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   align-items: center;
   gap: 2rem;
 
@@ -57,16 +69,15 @@ section.upper {
     display: flex;
     flex-flow: column nowrap;
     gap: 2rem;
+
+    &.left {
+      flex-grow: 1;
+      min-width: max-content;
+    }
+    &.right {
+      flex-shrink: 1;
+    }
   }
-}
-
-.left {
-  flex-grow: 1;
-  min-width: max-content;
-}
-
-.right {
-  flex-shrink: 1;
 }
 
 </style>

@@ -8,10 +8,11 @@ A card that links to another page.
 interface Props {
   link: string;
   text?: string;
+  capt?: string;
   children?: any;
 }
 
-let { link, text, children }: Props = $props();
+let { link, text, capt, children }: Props = $props();
 
 </script>
 
@@ -23,6 +24,10 @@ let { link, text, children }: Props = $props();
     <h3> {@html text.toUpperCase()} </h3>
   {/if}
 
+  {#if capt}
+    <p> {@html capt} </p>
+  {/if}
+
   {@render children?.()}
 </a>
 
@@ -31,8 +36,8 @@ let { link, text, children }: Props = $props();
 
 a {
   min-width: 12em;
-  min-height: 6em;
-  aspect-ratio: 3 / 2;
+  min-height: 9em;
+  // aspect-ratio: 3 / 2;
   padding: 0 3rem 1rem 1rem;
   display: flex;
   flex-flow: column wrap;
@@ -56,6 +61,10 @@ h3 {
   @include font-fun;
   font-size: 200%;
   font-weight: normal;
+}
+
+p {
+  color: $col-text-deut;
 }
 
 </style>

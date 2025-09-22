@@ -4,17 +4,19 @@
 
 <script lang="ts">
   
-import { onMount, untrack } from "svelte";
+import { onMount } from "svelte";
 import { slide } from "svelte/transition";
 import { expoInOut } from "svelte/easing";
 
 
 interface Props {
   kind?: "ui" | "fun";
+  width?: string;
+  delay?: number;
   children?: any;
 }
 
-let { kind = "ui", children }: Props = $props();
+let { kind = "ui", width = "69%", delay = 0, children }: Props = $props();
 
 
 let active = $state(false);
@@ -28,10 +30,12 @@ onMount(() => {
 </script>
 
 
-<div class="block {kind}">
+<div class="block {kind}"
+  style:width
+>
   {#if active}
     <div class="content"
-      transition:slide={{ duration: 1000, easing: expoInOut }}
+      transition:slide={{ duration: 1000, delay, easing: expoInOut }}
     >
       {@render children()}
     </div>
@@ -42,8 +46,8 @@ onMount(() => {
 <style lang="scss">
 
 .block {
-  width: 69%;
-  padding: 1em 1.5em;
+  height: max-content;
+  padding: 1em 2em;
   position: relative;
 
   @include font-fun;

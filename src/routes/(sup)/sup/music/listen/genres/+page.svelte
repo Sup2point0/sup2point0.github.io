@@ -16,7 +16,7 @@ import { onMount } from "svelte";
 import { fade } from "svelte/transition";
 
 
-let displayed_route: string | null = $state(null);
+let displayed_route = $state("");
 
 let displayed_genres: {
   [collection: string]: GenreData[];

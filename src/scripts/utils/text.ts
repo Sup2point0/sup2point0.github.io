@@ -13,5 +13,5 @@ export function h(text: string): string
 /** Add a hyperlink to text. */
 export function a(text: string, href?: string): string
 {
-  return href ? `<a target="_blank" href="${href}">${text}</a>` : text;
+  return href ? `<a class="link" target="_blank" href="${href}">${text}</a>` : text;
 }

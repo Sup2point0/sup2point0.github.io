@@ -827,6 +827,17 @@ export const artists: {
   ],
   isolates: [
     {
+      shard: "tokyo-machine",
+      name: "Tokyo Machine",
+      date: 2022,
+      icon: undefined,
+      genres: undefined,
+      track: {
+        name: "SLASH", link: undefined,
+      },
+      discovered: "NCS",
+    },
+    {
       shard: "infected-mushroom",
       name: "Infected Mushroom",
       date: 2025,

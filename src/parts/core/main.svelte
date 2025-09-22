@@ -10,7 +10,7 @@ interface Props {
   children?: any;
 }
 
-let { gap = "1rem", children } = $props();
+let { gap = "1rem", children }: Props = $props();
 
 </script>
 

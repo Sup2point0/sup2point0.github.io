@@ -1,11 +1,13 @@
 <script>
 
-import Nav from "#parts/core/nav.svelte";
 import Footer from "#parts/core/footer.svelte";
+import Main from "#src/parts/core/main.svelte";
+import Nav from "#parts/core/nav.svelte";
 
-import Profile from "./profile.svelte";
+import ProfileHeader from "./header.svelte";
+import ProfileBio from "./bio.svelte";
+import ProfileDirections from "./directions.svelte";
 import ProfileWords from "./profile.words.svelte";
-import ProfileBlocks from "./profile.blocks.svelte";
 
 </script>
 
@@ -23,26 +25,48 @@ import ProfileBlocks from "./profile.blocks.svelte";
   <meta name="google-site-verification" content="ua2bFDon6yUD7LDNbH4IBTAo6cVfiPAZaWkoMfhhBAc" />
 </svelte:head>
 
-<main>
-  <Profile />
-  <Nav />
+
+<Main gap="2rem">
+  <section class="upper">
+    <div class="left">
+      <ProfileHeader />
+      <Nav back={false} />
+    </div>
+
+    <div class="right">
+      <ProfileBio />
+      <ProfileDirections />
+    </div>
+  </section>
 
   <ProfileWords />
-  <ProfileBlocks />
+</Main>
 
-  <Footer />
-</main>
+<Footer />
 
 
 <style lang="scss">
-  
-main {
-  width: 100%;
-  max-width: 80vw;
-  flex-grow: 1;
+
+section.upper {
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
   align-items: center;
+  gap: 2rem;
+
+  div {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+  }
+}
+
+.left {
+  flex-grow: 1;
+  min-width: max-content;
+}
+
+.right {
+  flex-shrink: 1;
 }
 
 </style>

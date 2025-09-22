@@ -33,6 +33,10 @@ html {
 }
 
 
+a.link {
+  @include link;
+}
+
 code {
   font-family: 'Fira Mono', 'Roboto Mono', 'Consolas', monospace;
 }

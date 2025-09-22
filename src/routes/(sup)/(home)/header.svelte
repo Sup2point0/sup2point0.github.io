@@ -1,8 +1,7 @@
-<!-- @component Profile -->
+<!-- @component ProfileHeader -->
 
-
-<div class="profile">
-  <section id="sup">
+<header>
+  <section class="sup">
     <img id="purple-portal" alt="purple portal"
       src="purple-portal.png"
     >
@@ -11,26 +10,21 @@
     >
   </section>
 
-  <div id="bio">
-    <p> An avid portal with way too much in their neural cortex. </p>
-  </div>
-
-  <section id="intro">
-    <p> sup, I’m Sup o/ </p>
-    <br>
-    <p> Capturing the essence of me in a short bio is a hopelessly nontrivial NP-hard problem, so I’ll leave you to explore ^v^ </p>
-  </section>
-</div>
+  <p class="capt"> An avid portal with way too much in their neural cortex. </p>
+</header>
 
 
 <style lang="scss">
 
-.profile {
-  margin-bottom: 1rem;
+header {
+  width: max-content;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
-section#sup {
-  margin-bottom: -3rem;
+section.sup {
+  margin-bottom: -4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,15 +56,10 @@ section#sup {
   }
 }
 
-div#bio {
-  margin-bottom: 2rem;
+p.capt {
   @include font-fun;
   font-size: 150%;
   text-align: center;
-}
-
-section#intro {
-  @include card;
 }
   
 </style>

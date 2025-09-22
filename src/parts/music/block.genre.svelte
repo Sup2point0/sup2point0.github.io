@@ -16,7 +16,6 @@ let { genre }: Props = $props();
 
 
 let self: HTMLElement;
-
 let anim = new AnimationData();
 
 onMount(() => {
@@ -88,20 +87,7 @@ button.block.genre {
   background: none;
   border: none;
   @include shear-card($interactive: true);
-
-  &::before {
-    transform: skew($shear-factor) scale(90%);
-    opacity: 0;
-    transition:
-      #{trans()},
-      transform 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s),
-      opacity 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
-  }
-
-  &.intersected::before {
-    transform: skew($shear-factor);
-    opacity: 1;
-  }
+  @include anim-block;
 
   &:hover {
     cursor: auto;
@@ -109,12 +95,12 @@ button.block.genre {
 }
 
 .content {
-  width: 100%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: start;
   gap: 1rem;
+  
   transform: scale(90%);
   opacity: 0;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp

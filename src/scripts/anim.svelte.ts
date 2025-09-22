@@ -25,10 +25,10 @@ export function register_animation(root: HTMLElement, anim: AnimationData): void
 }
 
 
-export function calc_delay(anim: AnimationData): string
+export function calc_delay(anim: AnimationData, scale: number = 1): string
 {
   return `calc(
-      (${anim.left}px / 100vw) * 300ms
-    + (${anim.top}px / 100vh) * 100ms
+      (${anim.left}px / 100vw) * ${300 * scale}ms
+    + (${anim.top}px / 100vh) * ${100 * scale}ms
   )`;
 }

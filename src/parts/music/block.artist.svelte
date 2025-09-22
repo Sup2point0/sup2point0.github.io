@@ -212,6 +212,7 @@ button.block.artist {
   }
 }
 
+
 .info {
   flex-grow: 1;
   height: 100%;

@@ -5,7 +5,7 @@ import Cards from "#parts/core/cards.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import ArtistBlock from "#parts/music/block.artist.svelte";
 
-import { artists as artists_lists } from "../artists";
+import { artists as artists_lists } from "./artists";
 
 </script>
 

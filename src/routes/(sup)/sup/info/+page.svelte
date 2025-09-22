@@ -1,13 +1,14 @@
 <script lang="ts">
 
 import sample from "@stdlib/random-sample";
-  
+
 import { facts_pinned, facts } from "./facts";
 import type { Fact } from "./facts";
 import { frequerys } from "./faq";
 
 import Clicky from "#parts/ui/clicky.svelte";
 import FactCard from "#parts/ui/card.fact.svelte";
+import Block from "#parts/ui/block.svelte";
 import PurplePortal from "#parts/special/portal.svelte";
 
 import { untrack } from "svelte";
@@ -125,9 +126,11 @@ $effect(() => {
   </div>
 </section>
 
-<div class="note">
-  <p> thank you for stalking me, it’s been my pleasure ^v^ </p>
-</div>
+<Block>
+  <p class="note">
+    thank you for stalking me, it’s been my pleasure ^v^
+  </p>
+</Block>
 
 
 <style lang="scss">
@@ -226,7 +229,7 @@ section.frequerys {
         padding-bottom: 0.25em;
         @include font-fun;
         font-size: 150%;
-        color: $col-trit;
+        color: $col-quat;
         font-weight: normal;
       }
 
@@ -244,14 +247,8 @@ section.frequerys {
   @include link;
 }
 
-.note {
-  margin-top: 3rem;
-  padding: 0.5em 1em;
-  @include font-fun;
-  font-size: 120%;
+p.note {
   color: $col-deut;
-  text-align: center;
-  @include shear-card;
 }
 
 </style>

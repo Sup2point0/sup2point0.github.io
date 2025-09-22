@@ -23,7 +23,7 @@ export interface TrackData extends Searchable {
   genres?: string[];
   vibes?: string[];
 
-  desc?: string | string[];
+  desc?: string;
   is_preview?: boolean;
 
   _score_: number;
@@ -38,7 +38,7 @@ export interface AlbumData {
   cover?: string;
   daw?: Daw | Daw[];
 
-  desc?: string | string[];
+  desc?: string;
   is_preview?: boolean;
 
   tracks: TrackData[];
@@ -61,8 +61,24 @@ export interface ArtistData {
   };
 }
 
-
 interface ExternalTrackData {
   name: string;
   link?: string;
+}
+
+
+export enum GenreKind {
+  GENRE = "genre",
+  VIBE = "vibe",
+}
+
+export interface GenreData {
+  fav?: boolean;
+  
+  name: string;
+  kind?: GenreKind;
+  
+  artists?: string[];
+  track?: string | string[];
+  desc?: string;
 }

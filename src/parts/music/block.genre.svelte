@@ -1,10 +1,9 @@
-<!-- @component GenreBlock
-
--->
+<!-- @component GenreBlock -->
 
 <script lang="ts">
 
-import type { GenreData } from "#src/scripts/types";
+import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
+import type { GenreData } from "#scripts/types";
 
 import { onMount } from "svelte";
 
@@ -18,35 +17,25 @@ let { genre }: Props = $props();
 
 let self: HTMLElement;
 
-let intersected = $state(false);
-let left = $state(0);
-let top = $state(0);
+let anim = new AnimationData();
 
 onMount(() => {
-  let observer = new IntersectionObserver(entries => {
-    for (let entry of entries) {
-      if (!intersected && entry.isIntersecting) {
-        intersected = true;
-        left = entry.boundingClientRect.left;
-        top = entry.boundingClientRect.top;
-      }
-    }
-  }, {
-    threshold: 0.69,
-  });
-
-  observer.observe(self);
+  if (self) {
+    register_animation(self, anim);
+  } else {
+    setTimeout(() => register_animation(self, anim), 1000);
+  }
 });
 
 </script>
 
 
-<button class="genre block"
-  class:intersected
+<button class="genre block {genre.kind}"
+  class:intersected={anim.intersected}
   class:fav={genre.fav}
   id={genre.name.toLowerCase()}
   bind:this={self}
-  style:--delay="calc(({left}px / 100vw) * 420ms + ({top}px / 100vh) * 200ms)"
+  style:--delay={calc_delay(anim)}
 >
   <div class="content">
     <div class="upper">
@@ -147,6 +136,10 @@ button.block.genre {
 
     .block.genre.fav & {
       color: $col-quat;
+    }
+
+    .block.genre.vibe & {
+      color: $col-deut;
     }
   }
 }

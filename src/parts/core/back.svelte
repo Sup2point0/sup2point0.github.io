@@ -5,7 +5,6 @@ The parallax background picture.
 
 <script lang="ts">
 
-import { browser } from "$app/environment";
 import { onMount } from "svelte";
 import { fade } from "svelte/transition";
 import { expoInOut } from "svelte/easing";

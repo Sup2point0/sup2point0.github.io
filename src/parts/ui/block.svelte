@@ -3,23 +3,38 @@
 -->
 
 <script lang="ts">
+  
+import { onMount, untrack } from "svelte";
+import { slide } from "svelte/transition";
+import { expoInOut } from "svelte/easing";
+
 
 interface Props {
   kind?: "ui" | "fun";
-  text?: string;
   children?: any;
 }
 
-let { kind = "ui", text, children }: Props = $props();
+let { kind = "ui", children }: Props = $props();
+
+
+let active = $state(false);
+
+onMount(() => {
+  setTimeout(() => {
+    active = true;
+  }, 50);
+});
 
 </script>
 
 
 <div class="block {kind}">
-  {#if children}
-    {@render children()}
-  {:else if text}
-    {@html text}
+  {#if active}
+    <div class="content"
+      transition:slide={{ duration: 1000, easing: expoInOut }}
+    >
+      {@render children()}
+    </div>
   {/if}
 </div>
 
@@ -44,7 +59,7 @@ let { kind = "ui", text, children }: Props = $props();
 
   &.fun {
     @include font-fun;
-  font-size: 120%;
+    font-size: 120%;
   }
 
   &::after {

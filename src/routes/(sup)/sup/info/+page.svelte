@@ -126,7 +126,7 @@ $effect(() => {
   </div>
 </section>
 
-<Block>
+<Block kind="fun">
   <p class="note">
     thank you for stalking me, it’s been my pleasure ^v^
   </p>

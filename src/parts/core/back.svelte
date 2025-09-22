@@ -23,6 +23,7 @@ interface PictData {
   brightness?: InterpData;
 }
 
+// TEMP until we implement WeightedList
 const backs: PictData[] = [
   {
     file: "cortex.scarlet.jpg",
@@ -30,10 +31,22 @@ const backs: PictData[] = [
     brightness: { init: 88, end: 100 },
   },
   {
+    file: "cortex.scarlet.jpg",
+    blur: { init: 4, end: 2 },
+    brightness: { init: 88, end: 100 },
+  },
+
+  {
     file: "cortex.violet.jpg",
     blur: { init: 3, end: 1 },
     brightness: { init: 94, end: 100 },
   },
+  {
+    file: "cortex.violet.jpg",
+    blur: { init: 3, end: 1 },
+    brightness: { init: 94, end: 100 },
+  },
+
   {
     file: "geometric.cyber.jpg",
     scale: { init: 160, end: 110 },

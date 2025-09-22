@@ -3,4 +3,4 @@ export type Shard = string;
 
 
 /** A non-specific point in time. */
-export type DatePoint = "childhood" | "present";
+export type DatePoint = number | string | "childhood" | "present";

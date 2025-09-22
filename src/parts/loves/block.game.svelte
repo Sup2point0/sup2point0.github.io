@@ -27,7 +27,7 @@ onMount(() => {
         /* having to use this cuz using CSS on .intersected isn't working?? */
         entry.target.style = `
           transform: scale(100%);
-          opacity: ${game.state == State.RETIRED ? "0.5" : "1"};
+          opacity: ${game.state == State.RETIRED ? "0.42" : "1"};
         `;
       }
     }
@@ -66,12 +66,12 @@ onMount(() => {
         <p class="date">
           {#if Array.isArray(game.date)}
             {#if game.date.length > 1}
-              {game.date[0].toUpperCase()} – {game.date[1].toUpperCase()}
+              {game.date[0].toString().toUpperCase()} – {game.date[1].toString().toUpperCase()}
             {:else}
-              {game.date[0].toUpperCase()}
+              {game.date[0].toString().toUpperCase()}
             {/if}
           {:else}
-            {game.date.toUpperCase()}
+            {game.date.toString().toUpperCase()}
           {/if}
         </p>
 
@@ -125,6 +125,10 @@ button.block.game {
       color: $col-text;
     }
   }
+
+  &.wishlist::before {
+    border: 1px solid rgb(white, 42%);
+  }
 }
 
 .img-container {
@@ -161,8 +165,12 @@ button.block.game {
     @include font-ui;
     font-size: 200%;
     font-weight: normal;
-    color: $col-quat;
+    color: $col-text;
     text-align: start;
+
+    .block.game.active &, .block.game.opportunistic & {
+      color: $col-quat;
+    }
   }
 
   p.love {
@@ -186,6 +194,10 @@ button.block.game {
 
     &.active {
       color: $col-deut !important;
+    }
+
+    &.opportunistic {
+      color: $col-acc !important;
     }
   }
 

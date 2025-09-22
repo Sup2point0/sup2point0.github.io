@@ -2,7 +2,7 @@ import type { DatePoint } from "#scripts/types";
 import type { Searchable } from "#scripts/search-filter.svelte.ts";
 
 
-type Genre = "rhythm" | "tower defence" | "racing" | "shmup" | "runner" | "puzzle" | "cards" | "sandbox" | "io" | "classics";
+type Genre = "rhythm" | "tower defence" | "racing" | "shmup" | "rogue" | "metroidvania" | "runner" | "puzzle" | "cards" | "sandbox" | "io" | "classics";
 type Platform = "mobile" | "desktop" | "arcade" | "console" | "VR";
 
 export enum State {
@@ -11,6 +11,7 @@ export enum State {
   INTERMITTENT = "intermittent",
   INFREQUENT = "infrequent",
   RETIRED = "retired",
+  WISHLIST = "wishlist",
 }
 
 export interface GameData extends Searchable
@@ -18,7 +19,7 @@ export interface GameData extends Searchable
   shard: string;
   name: string;
   love: 3 | 2 | 1;
-  date: string | DatePoint | (string | DatePoint)[];
+  date: DatePoint | DatePoint[];
 
   icon?: string;
 
@@ -34,15 +35,35 @@ export interface GameData extends Searchable
 
 export const games: GameData[] = prep([
   {
-    shard: "minecraft",
-    name: "Minecraft",
-    love: 2,
-    date: ["childhood", "present"],
-    icon: "minecraft.webp",
-    genres: ["sandbox", "classics"],
-    platforms: ["mobile", "console", "desktop"],
-    state: State.INFREQUENT,
+    shard: "manifold-garden",
+    name: "Manifold Garden",
+    love: 3,
+    date: undefined,
+    icon: "manifold-garden.png",
+    genres: ["sandbox?"],
+    platforms: ["desktop"],
+    state: State.WISHLIST,
   },
+  {
+    shard: "hollow-knight",
+    name: "Hollow Knight",
+    love: 2,
+    date: undefined,
+    icon: "hollow-knight.webp",
+    genres: ["metroidvania"],
+    platforms: ["desktop"],
+    state: State.WISHLIST,
+  },
+  // {
+  //   shard: "",
+  //   name: "",
+  //   love: ,
+  //   date: undefined,
+  //   icon: undefined,
+  //   genres: [""],
+  //   platforms: ["desktop"],
+  //   state: State.WISHLIST,
+  // },
   
   {
     shard: "phigros",
@@ -202,6 +223,17 @@ export const games: GameData[] = prep([
     platforms: ["mobile"],
     state: State.ACTIVE,
   },
+  
+  {
+    shard: "soul-knight",
+    name: "Soul Knight",
+    love: 3,
+    date: ["childhood", 2021],
+    icon: "soul-knight.webp",
+    genres: ["rogue"],
+    platforms: ["mobile"],
+    state: State.RETIRED,
+  },
 
   {
     shard: "asphalt-9",
@@ -215,7 +247,7 @@ export const games: GameData[] = prep([
   }, {
     shard: "asphalt-8",
     name: "Asphalt 8: Airborne",
-    love: 3,
+    love: 2,
     date: ["2017", "2019"],
     icon: "asphalt-8.webp",
     genres: ["racing", "classics"],
@@ -310,7 +342,7 @@ export const games: GameData[] = prep([
   {
     shard: "little-big-snake",
     name: "Little Big Snake",
-    love: 3,
+    love: 2,
     date: ["childhood", "present"],
     icon: "little-big-snake.png",
     genres: ["io"],
@@ -337,7 +369,7 @@ export const games: GameData[] = prep([
   }, {
     shard: "zombs-io",
     name: "zombs.io",
-    love: 3,
+    love: 2,
     genres: ["tower defence", "io"],
     platforms: ["desktop"],
     state: State.RETIRED,
@@ -350,7 +382,18 @@ export const games: GameData[] = prep([
     platforms: ["desktop"],
     state: State.RETIRED,
     date: ["childhood"],
-  }
+  },
+
+  {
+    shard: "minecraft",
+    name: "Minecraft",
+    love: 2,
+    date: ["childhood", "present"],
+    icon: "minecraft.webp",
+    genres: ["sandbox", "classics"],
+    platforms: ["mobile", "console", "desktop"],
+    state: State.INFREQUENT,
+  },
 ]);
 
 

@@ -3,8 +3,11 @@
 -->
 
 <script lang="ts">
-  
+
+import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
 import type { ArtistData } from "#scripts/types";
+
+import { onMount } from "svelte";
 
 
 interface Props {
@@ -13,78 +16,97 @@ interface Props {
 
 let { artist }: Props = $props();
 
+
+let self: HTMLElement;
+let anim = new AnimationData();
+
+onMount(() => {
+  if (self) {
+    register_animation(self, anim);
+  } else {
+    setTimeout(() => register_animation(self, anim), 1000);
+  }
+});
+
 </script>
 
 
 <button class="artist block"
+  class:intersected={anim.intersected}
   class:shrink={artist.name.length > 12}
   id={artist.shard}
+  bind:this={self}
+  style:--delay={calc_delay(anim)}
 >
-  <div class="img-container">
-    <img alt={artist.name} title={artist.name}
-      width="120px" height="120px"
-      src="/music/icons/{artist.icon ?? 'purple-portal.png'}"
-    />
+  <div class="content">
 
-    {#if artist.track}
-      <div class="favourites">
-        {#if Array.isArray(artist.track)}
-          {#each artist.track as track}
-            <div class="favourite">
-              <a target="_blank" href={track.link} rel="external">
-                {track.name}
-              </a>
-            </div>
-          {/each}
-        {:else}
+<div class="img-container">
+  <img alt={artist.name} title={artist.name}
+    width="120px" height="120px"
+    src="/music/icons/{artist.icon ?? 'purple-portal.png'}"
+  />
+
+  {#if artist.track}
+    <div class="favourites">
+      {#if Array.isArray(artist.track)}
+        {#each artist.track as track}
           <div class="favourite">
-            <a href={artist.track.link}>
-              {artist.track.name}
+            <a target="_blank" href={track.link} rel="external">
+              {track.name}
             </a>
           </div>
-        {/if}
+        {/each}
+      {:else}
+        <div class="favourite">
+          <a href={artist.track.link}>
+            {artist.track.name}
+          </a>
+        </div>
+      {/if}
+    </div>
+  {/if}
+</div>
+
+<div class="info">
+  <div class="upper">
+    <h3> {artist.name} </h3>
+
+    {#if artist.date}
+      <p class="date">
+        {artist.date}
+      </p>
+    {/if}
+  </div>
+
+  <div class="inner">
+    <p class="discovered">
+      {@html artist.discovered}
+    </p>
+
+    {#if artist.links}
+      <div class="links">
+        {#each Object.entries(artist.links) as [platform, link]}
+          <a target="_blank" href={link} rel="external">
+            <img
+              alt={platform}
+              title={platform.toUpperCase()}
+              src="/ui/icons/{platform}.svg"
+            />
+          </a>
+        {/each}
       </div>
     {/if}
   </div>
 
-  <div class="info">
-    <div class="upper">
-      <h3> {artist.name} </h3>
+  <div class="lower">
+    <ul class="genres">
+      {#each artist.genres ?? [] as genre}
+        <li> {genre} </li>
+      {/each}
+    </ul>
+  </div>
+</div>
 
-      {#if artist.date}
-        <p class="date">
-          {artist.date}
-        </p>
-      {/if}
-    </div>
-
-    <div class="inner">
-      <p class="discovered">
-        {@html artist.discovered}
-      </p>
-
-      {#if artist.links}
-        <div class="links">
-          {#each Object.entries(artist.links) as [platform, link]}
-            <a target="_blank" href={link} rel="external">
-              <img
-                alt={platform}
-                title={platform.toUpperCase()}
-                src="/ui/icons/{platform}.svg"
-              />
-            </a>
-          {/each}
-        </div>
-      {/if}
-    </div>
-
-    <div class="lower">
-      <ul class="genres">
-        {#each artist.genres ?? [] as genre}
-          <li> {genre} </li>
-        {/each}
-      </ul>
-    </div>
   </div>
 </button>
 
@@ -98,18 +120,30 @@ button.block.artist {
   flex-grow: 1;
   max-width: 32rem;
   padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  @include shear-card($interactive: true);
+  @include anim-block;
+
+  &:hover {
+    cursor: auto;
+  }
+}
+
+.content {
   display: flex;
   flex-flow: row nowrap;
   justify-content: start;
   align-items: center;
   gap: 2rem;
+  
+  transform: scale(90%);
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
 
-  background: none;
-  border: none;
-  @include shear-card($interactive: true);
-
-  &:hover {
-    cursor: auto;
+  button.block.artist.intersected & {
+    transform: none;
+    opacity: 1;
   }
 }
 

@@ -1,16 +1,23 @@
 <!-- @component ProfileHeader -->
 
+<script>
+
+import ProfileLinks from "./links.svelte";
+
+</script>
+
+
 <header>
   <section class="sup">
-    <img id="purple-portal" alt="purple portal"
-      src="purple-portal.png"
-    >
-    <img id="sup2point0" alt="Sup#2.0"
-      src="sup2point0.png"
-    >
+    <div class="portal-container">
+      <img id="purple-portal" alt="purple portal" src="purple-portal.png" />
+      <ProfileLinks />
+    </div>
+
+    <img id="sup2point0" alt="Sup#2.0" src="sup2point0.png" >
   </section>
 
-  <p class="capt"> An avid portal with way too much in their neural cortex. </p>
+  <p> An avid portal with way too much in their neural cortex. </p>
 </header>
 
 
@@ -28,6 +35,11 @@ section.sup {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+
+.portal-container {
+  position: relative;
 
   img#purple-portal {
     width: max(400px, 20vw);
@@ -42,21 +54,21 @@ section.sup {
       100% { transform: rotate(360deg); }
     }
   }
+}
 
-  img#sup2point0 {
-    width: 42vw;
-    position: relative;
-    top: -5rem;
+img#sup2point0 {
+  width: 42vw;
+  position: relative;
+  top: -5rem;
+  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);  // ease-out-exp
 
-    transition: transform 0.42s cubic-bezier(0.19, 1, 0.22, 1);
-
-    &:hover {
-      transform: scale(1.04);
-    }
+  &:hover {
+    transform: scale(103%);
   }
 }
 
-p.capt {
+
+p {
   @include font-fun;
   font-size: 150%;
   text-align: center;

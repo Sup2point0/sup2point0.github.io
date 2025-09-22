@@ -41,6 +41,9 @@ export const facts: Fact[] = [
     text: `I play piano (shocker!)`,
     desc: `Nothing more restoring than an hour-long improvisation session.`,
   }, {
+    text: `I play drums!`,
+    desc: `Yeup, piano and drums. Literally the perfect combo for music production, innit B)`,
+  }, {
     text: `I’ve created ${h("1000+")} custom ${a(i("Yu-Gi-Oh!"), "https://yugipedia.com/wiki/Yugipedia")} cards.`,
     desc: `By the latest census. Probably more if you’re reading this. Also doesn’t include planned cards that haven’t been formally created yet :P`,
   }, {
@@ -76,6 +79,9 @@ export const facts: Fact[] = [
     text: `I love fonts.`,
     desc: `Or more accurately, ${i("typefaces")}, or more broadly, typography. Yum, yum, yum.`,
   }, {
+    text: `I love understanding the etymology of words.`,
+    desc: `I can also (mostly) read IPA. (I need more regular practice, tbh)`,
+  }, {
     text: `I collect cool words.`,
     desc: `${i("pseudopseudohypoparathyroidism")} is always a hilarious one. ${i("floccinaucinihilipilification")} is fun to type. ${i("methylenedioxymethamphetamine")} is a fire chemical substance (ignoring the fact it’s a class A drug). You can see my full list ${a("in Assort")}.`,
   }, {
@@ -84,6 +90,9 @@ export const facts: Fact[] = [
   }, {
     text: `I love ${a("Desmos", "https://www.desmos.com/calculator")}.`,
     desc: `Desmos is the world’s greatest calculator. You can code in Desmos. You can make games in Desmos. (I’m serious.) You can find out more ${a("on Integrity", "https://sup2point0.github.io/integrity/desmos/gamedev")}.`,
+  }, {
+    text: `I solve ${i("skyscrapers")} puzzles.`,
+    desc: `They’re similar to sudoku, I have a website, ${a(i("Skyscraping"), "https://sup2point0.github.io/skyscraping")}, where I write guides on solving skyscrapers.`,
   }, {
     text: `I used to be so into ${a("Scratch", "https://scratch.mit.edu")}.`,
     desc: `Actually my childhood. My mind dreamt up ideas for games faster than I could ever have hoped to make them. Fun times.`,

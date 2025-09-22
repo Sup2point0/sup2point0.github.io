@@ -13,7 +13,7 @@ import ProfileLoves from "./loves.svelte";
 import ProfileShowerthought from "./showerthought.svelte";
 import ProfileFooter from "./footer.svelte";
 
-import ProfileWords from "./profile.words.svelte";
+import ProfileWords from "./words.svelte";
 
 </script>
 

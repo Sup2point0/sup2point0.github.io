@@ -54,14 +54,34 @@ onMount(() => {
     </div>
 
     <div class="lower">
-      {#each genre.artists ?? [] as artist}
-        <!-- TODO find a better way to access shard -->
-        <a href="artists#{artist.toLowerCase()}">
-          {artist}
-        </a>
+      {#if genre.artists}
+        <div class="artists">
+          <h4> ARTISTS </h4>
 
-        <span class="separator"> × </span>
-      {/each}
+          {#each genre.artists as artist}
+            <!-- TODO find a better way to access shard -->
+            <a href="artists#{artist.toLowerCase()}">
+              {artist}
+            </a>
+
+            <span class="separator"> × </span>
+          {/each}
+        </div>
+      {/if}
+
+      {#if genre.tracks}
+        <div class="tracks">
+          <h4> TRACK{genre.tracks.length > 1 ? "S" : ""} </h4>
+
+          {#each genre.tracks as track}
+            <p class="track">
+              {track}
+            </p>
+
+            <span class="separator"> × </span>
+          {/each}
+        </div>
+      {/if}
     </div>
   </div>
 </button>
@@ -122,17 +142,19 @@ button.block.genre {
     @include font-fun;
     font-size: 250%;
     font-weight: normal;
-    color: $col-text;
+    color: $col-trit;
     text-align: start;
+
+    .block.genre.fav & {
+      color: $col-quat;
+    }
   }
 }
 
 
 .lower {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: start;
-  align-items: center;
+  flex-flow: column nowrap;
   gap: 0.5rem;
 
   a {
@@ -149,6 +171,13 @@ button.block.genre {
     }
   }
 
+  p {
+    @include font-ui;
+    font-size: 125%;
+    color: $col-text;
+    line-height: 150%;
+  }
+
   span.separator {
     padding-bottom: 0.1em;
     @include font-fun;
@@ -158,6 +187,23 @@ button.block.genre {
     &:last-child {
       display: none;
     }
+  }
+}
+
+.artists, .tracks {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  align-items: center;
+  gap: 0.5rem;
+
+  h4 {
+    padding-bottom: 0.25em;
+    padding-right: 1em;
+    @include font-tech;
+    font-weight: normal;
+    font-size: 90%;
+    color: $col-text-deut;
   }
 }
 

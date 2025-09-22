@@ -8,12 +8,12 @@ export const genres: {
     {
       name: "200step",
       artists: ["かめりあ"],
-      track: ["путь льда", "TERA I/O", "Tojita Sekai"],
+      tracks: ["путь льда", "TERA I/O", "Tojita Sekai"],
     },
     {
       name: "anime",
       artists: ["YOASOBI", "Ultraman", "Yu-Gi-Oh!"],
-      track: ["IDOL", "Suzume"],
+      tracks: ["IDOL", "Suzume"],
     },
     {
       name: "arcade",
@@ -22,12 +22,12 @@ export const genres: {
     {
       name: "artcore",
       artists: ["tn-shi", "ak+q", "Laur"],
-      track: ["PRAGMATISM -RESURRECTION-"],
+      tracks: ["PRAGMATISM -RESURRECTION-"],
     },
     {
       name: "beatbox",
       artists: ["WING", "KAJI", "Improver"],
-      track: ["Bass Factory"],
+      tracks: ["Bass Factory"],
     },
     {
       name: "C-pop",
@@ -37,13 +37,13 @@ export const genres: {
       fav: true,
       name: "Camelliacore",
       artists: ["かめりあ"],
-      track: ["Spin Eternally"],
+      tracks: ["Spin Eternally"],
     },
     {
       name: "chillout",
       kind: GenreKind.VIBE,
       artists: ["Vexento", "puru"],
-      track: ["Home", "Filament"],
+      tracks: ["Home", "Filament"],
     },
     {
       name: "cinematic",
@@ -60,12 +60,12 @@ export const genres: {
     {
       name: "downtempo",
       artists: ["Vexento", "puru", "heiakim"],
-      track: ["Banana Breeze"],
+      tracks: ["Banana Breeze"],
     },
     {
       name: "drum & bass",
       artists: ["Hinkik", "かめりあ", "PIKASONIC"],
-      track: ["Realms"],
+      tracks: ["Realms"],
     },
     {
       name: "dubstep",
@@ -82,7 +82,7 @@ export const genres: {
     {
       name: "electronic",
       artists: ["literally every single damn artist I listen to"],
-      track: ["literally every single damn track I listen to"],
+      tracks: ["literally every single damn track I listen to"],
     },
     {
       name: "film",
@@ -92,7 +92,7 @@ export const genres: {
       fav: true,
       name: "full flavour",
       artists: ["かめりあ"],
-      track: ["ΩΩPARTS"],
+      tracks: ["ΩΩPARTS"],
     },
     {
       name: "future bass",
@@ -101,7 +101,7 @@ export const genres: {
     {
       name: "gothic hardcore / renaissance hardcore",
       artists: [""],
-      track: ["Rrhar’il"],
+      tracks: ["Rrhar’il"],
     },
     {
       name: "kawaii future bass",
@@ -114,7 +114,7 @@ export const genres: {
     {
       name: "glitch hop",
       artists: ["Hinkik", "Xomu"],
-      track: ["Invincible"],
+      tracks: ["Invincible"],
     },
     {
       name: "hardcore",
@@ -131,7 +131,7 @@ export const genres: {
     {
       name: "house",
       artists: ["Elektronomia", "Alan Walker", "Hinkik"],
-      track: ["United"],
+      tracks: ["United"],
     },
     {
       name: "J-core / J-pop",
@@ -140,12 +140,12 @@ export const genres: {
     {
       name: "music",
       artists: ["Frums", "Street"],
-      track: ["XNOR XNOR XNOR"],
+      tracks: ["XNOR XNOR XNOR"],
     },
     {
       name: "neurofunk",
       artists: ["Silentroom", "かめりあ", "Street"],
-      track: ["Nhelv"],
+      tracks: ["Nhelv"],
     },
     {
       name: "orchestral",
@@ -166,33 +166,33 @@ export const genres: {
     {
       name: "rock",
       artists: ["Avril Lavigne"],
-      track: ["Stacie’s Mom"],
+      tracks: ["Stacie’s Mom"],
     },
     {
       name: "speedcore",
       artists: ["かめりあ"],
-      track: ["Ashed Wings"],
+      tracks: ["Ashed Wings"],
     },
     {
       name: "transcendental",
       artists: ["かめりあ", "Polyphia", "tn-shi"],
-      track: ["Synthesis."],
+      tracks: ["Synthesis."],
     },
     {
       name: "trap",
       artists: ["puru"],
-      track: ["SLASH"],
+      tracks: ["SLASH"],
     },
     {
       name: "vocaloid",
       artists: ["A39"],
-      track: ["Proof Geometric Construction Can Solve All Love Affairs"],
+      tracks: ["Proof Geometric Construction Can Solve All Love Affairs"],
     },
   ],
   ambivalent: [
     {
       name: "acid jazz",
-      track: ["Sweden (acid jazz remix)"],
+      tracks: ["Sweden (acid jazz remix)"],
     },
     {
       name: "botanica",
@@ -237,14 +237,14 @@ export const genres: {
     {
       name: "music",
       artists: ["LeaF"],
-      track: ["Aleph-0"],
+      tracks: ["Aleph-0"],
     },
     {
       name: "orchestral hardstyle",
     },
     {
       name: "phonk",
-      track: ["IDOL (phonk / drill remix)"],
+      tracks: ["IDOL (phonk / drill remix)"],
     },
     {
       name: "psystyle",

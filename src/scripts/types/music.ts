@@ -79,6 +79,6 @@ export interface GenreData {
   kind?: GenreKind;
   
   artists?: string[];
-  track?: string | string[];
+  tracks?: string | string[];
   desc?: string;
 }

@@ -398,7 +398,7 @@ export const artists: {
       track: {
         name: "PRAGMATISM -RESURRECTION-", link: undefined
       },
-      discovered: "Phigros / Arcaea"
+      discovered: "Phigros / Arcaea",
     },
     {
       shard: "lime",
@@ -408,6 +408,17 @@ export const artists: {
       genres: ["electronic", "rhythm"],
       track: {
         name: "Final Step!", link: undefined
+      },
+      discovered: "Phigros",
+    },
+    {
+      shard: "se-u-ra",
+      name: "Se-U-Ra",
+      date: 2024,
+      icon: undefined,
+      genres: ["artcore", "rhythm"],
+      track: {
+        name: "Ark Six", link: undefined
       },
       discovered: "Phigros",
     },
@@ -515,6 +526,17 @@ export const artists: {
       discovered: "YouTube reccs",
     },
     {
+      shard: "sakuzyo",
+      name: "Sakuzyo",
+      date: 2023,
+      icon: undefined,
+      genres: ["electronic"],
+      track: {
+        name: "Distorted Fate", link: undefined
+      },
+      discovered: "Phigros",
+    },
+    {
       shard: "heiakim",
       name: "heiakim",
       date: 2024,
@@ -525,6 +547,17 @@ export const artists: {
       },
       discovered: "YouTube reccs",
     },
+    {
+      shard: "psyqui",
+      name: "PSYQUI",
+      date: 2025,
+      icon: undefined,
+      genres: ["electronic", "j-core"],
+      track: {
+        name: "Mend Your Ways", link: undefined
+      },
+      discovered: "Such – Mend Your Ways",
+    }
     {
       shard: "tanger",
       name: "Tanger",

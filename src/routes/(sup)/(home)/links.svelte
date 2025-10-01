@@ -29,9 +29,9 @@ import ProfileLink from "./link.profile.svelte";
   />
   <ProfileLink
     title="YouTube"
-    desc="@SuppetySup"
+    desc="@VengeanceVanguard"
     pict="youtube.svg"
-    link="https://youtube.com/@suppetysup"
+    link="https://youtube.com/@VengeanceVanguard"
     transform="translateX(-15rem) translateY(3rem)"
   />
 </div>

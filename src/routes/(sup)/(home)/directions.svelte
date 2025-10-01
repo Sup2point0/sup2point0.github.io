@@ -16,7 +16,7 @@ onMount(() => {
 });
 
 const routes = [
-  `If you’re an employer and want to see my software development skills and experience, head over to ${a("dev", "sup/dev")}. If you’re a fellow nerd, I’m sure you’ll have no problem exploring for yourself. If you’re a stalker, you can start doxxing me through ${a("info", "sup/info")}, track my life on ${a("YouTube", "https://youtube.com/@SuppetySup")}, then you can follow me on ${a("GitHub", "https://github.com/Sup2point0")}.`,
+  `If you’re an employer and want to see my software development skills and experience, head over to ${a("dev", "sup/dev")} (under development). If you’re a fellow nerd, I’m sure you’ll have no problem exploring for yourself. If you’re a stalker, you can start doxxing me through ${a("info", "sup/info")}, track my life on ${a("YouTube", "https://youtube.com/@SuppetySup")}, then you can follow me on ${a("GitHub", "https://github.com/Sup2point0")}.`,
 ];
 
 </script>

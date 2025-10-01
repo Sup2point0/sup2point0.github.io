@@ -17,7 +17,16 @@ import ProfileLinks from "./links.svelte";
     <img id="sup2point0" alt="Sup#2.0" src="sup2point0.png" >
   </section>
 
-  <p> An avid portal with way too much in their neural cortex. </p>
+  <p>
+    <span class="shown"> An avid portal with way too much in their neural cortex. </span>
+    <span class="hidden">
+      nerd
+      <span class="separator"> × </span> creator
+      <span class="separator"> × </span> artist
+      <span class="separator"> × </span> developer
+      <span class="separator"> × </span> jack-of-all-knives
+    </span>
+  </p>
 </header>
 
 
@@ -69,9 +78,43 @@ img#sup2point0 {
 
 
 p {
+  position: relative;
   @include font-fun;
   font-size: 150%;
   text-align: center;
+
+  span {
+    transition: #{trans()};
+  }
+  span.shown {
+    transition-delay: 0.1s;
+  }
+  span.hidden {
+    position: absolute;
+    top: 0;
+    right: 0;
+    white-space: nowrap;
+    opacity: 0;
+    transition-delay: 0s;
+  }
+
+  span.separator {
+    padding: 0 0.2em;
+    @include font-fun;
+    color: $col-text-deut;
+    font-size: 80%;
+  }
+}
+
+header:hover {
+  span.shown {
+    opacity: 0;
+    transition-delay: 0s;
+  }
+  span.hidden {
+    opacity: 1;
+    transition-delay: 0.1s;
+  }
 }
   
 </style>

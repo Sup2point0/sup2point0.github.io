@@ -557,7 +557,7 @@ export const artists: {
         name: "Mend Your Ways", link: undefined
       },
       discovered: "Such – Mend Your Ways",
-    }
+    },
     {
       shard: "tanger",
       name: "Tanger",

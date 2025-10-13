@@ -51,7 +51,7 @@ import ProfileWords from "./words.svelte";
   <div style:height="1rem"></div>
   <ProfileShowerthought />
 
-  <ProfileWords />
+  <!-- <ProfileWords /> -->
 
   <ProfileFooter />
 </Main>

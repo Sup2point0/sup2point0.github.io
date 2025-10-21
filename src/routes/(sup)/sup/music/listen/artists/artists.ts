@@ -13,7 +13,7 @@ export const artists: {
       icon: "kanro.jpg",
       genres: ["electronic", "dubstep"],
       track: {
-        name: "Amethyst", link: undefined
+        name: "Amethyst", link: "https://youtube.com/watch?v=-__-oI8xWJk"
       },
       discovered: "YouTube reccs",
     },
@@ -51,7 +51,7 @@ export const artists: {
   "absolute favourites": [
     {
       shard: "camellia",
-      name: "かめりあ",
+      name: "Camellia / かめりあ",
       date: 2023,
       icon: "camellia.png",
       genres: ["Camelliacore", "full flavour", "200step", "transcendental", "rhythm"],
@@ -93,36 +93,21 @@ export const artists: {
       discovered: "YouTube reccs",
     },
     {
-      shard: "tn-shi",
-      name: "tn-shi",
-      date: 2024,
-      icon: "tn-shi.jpg",
-      genres: ["artcore", "transcendental", "arcade"],
+      shard: "stessie",
+      name: "Stessie",
+      date: 2025,
+      icon: "stessie.jpg",
+      genres: ["electronic", "chill"],
       track: {
-        name: "Synthesis.", link: "https://youtube.com/watch?v=dOP7G5J755s&list=PLYWIouv-DSkARK0RHQXJnm2-webMrXzQ4"
+        name: "What If", link: "https://youtube.com/watch?v=4c-PohhHgWI&list=PLYWIouv-DSkAlt2TuUBsjZgKF17agTDx4"
       },
       links: {
-        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkARK0RHQXJnm2-webMrXzQ4",
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAlt2TuUBsjZgKF17agTDx4",
       },
-      discovered: "YouTube reccs",
+      discovered: "Firefly Music",
     },
   ],
   regulars: [
-    {
-      shard: "a-39",
-      name: "A-39",
-      date: 2023,
-      icon: "a-39.jpg",
-      genres: ["colour bass", "hardcore", "vocaloid"],
-      track: [
-        { name: "聖夜讃歌", link: "https://youtube.com/watch?v=ZWWIxzsAz_c&list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7" },
-        { name: "WATER", link: "https://youtube.com/watch?v=h69jvhd8z4w&list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7" },
-      ],
-      links: {
-        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7",
-      },
-      discovered: "Phigros",
-    },
     {
       shard: "puru",
       name: "puru",
@@ -138,18 +123,33 @@ export const artists: {
       discovered: "Arcaea",
     },
     {
-      shard: "stessie",
-      name: "Stessie",
-      date: 2025,
-      icon: "stessie.jpg",
-      genres: ["electronic", "chill"],
+      shard: "tn-shi",
+      name: "tn-shi",
+      date: 2024,
+      icon: "tn-shi.jpg",
+      genres: ["artcore", "transcendental", "arcade"],
       track: {
-        name: "What If", link: "https://youtube.com/watch?v=4c-PohhHgWI&list=PLYWIouv-DSkAlt2TuUBsjZgKF17agTDx4"
+        name: "Synthesis.", link: "https://youtube.com/watch?v=dOP7G5J755s&list=PLYWIouv-DSkARK0RHQXJnm2-webMrXzQ4"
       },
       links: {
-        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAlt2TuUBsjZgKF17agTDx4",
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkARK0RHQXJnm2-webMrXzQ4",
       },
-      discovered: "Firefly Music",
+      discovered: "YouTube reccs",
+    },
+    {
+      shard: "a-39",
+      name: "A-39",
+      date: 2023,
+      icon: "a-39.jpg",
+      genres: ["colour bass", "hardcore", "vocaloid"],
+      track: [
+        { name: "聖夜讃歌", link: "https://youtube.com/watch?v=ZWWIxzsAz_c&list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7" },
+        { name: "WATER", link: "https://youtube.com/watch?v=h69jvhd8z4w&list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7" },
+      ],
+      links: {
+        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7",
+      },
+      discovered: "Phigros",
     },
     {
       shard: "myukke",
@@ -711,8 +711,8 @@ export const artists: {
       icon: "elektronomia.webp",
       genres: ["EDM", "house"],
       track: [
-        { name: "United", link: undefined },
-        { name: "Ibiza", link: undefined },
+        { name: "United", link: "https://youtube.com/watch?v=EgXcda1SzxU" },
+        { name: "Ibiza", link: "https://youtube.com/watch?v=ru4Ttt22cuQ" },
       ],
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkBvAA5lNPvGwnqvKbvPiohq",

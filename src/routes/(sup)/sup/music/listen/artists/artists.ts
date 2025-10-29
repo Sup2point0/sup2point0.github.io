@@ -7,6 +7,17 @@ export const artists: {
 } = {
   "newly discovered": [
     {
+      shard: "nhato",
+      name: "Nhato",
+      date: "2025 FALL",
+      icon: undefined,
+      genres: ["electronic", "trance"],
+      track: {
+        name: "Radiance", link: "https://youtube.com/watch?v=7o1S3o_VNII"
+      },
+      discovered: "Phigros",
+    },
+    {
       shard: "kanro",
       name: "Kanro",
       date: "2025 FALL",
@@ -39,14 +50,6 @@ export const artists: {
       },
       discovered: "Dance Cube EVO",
     },
-    {
-      shard: "geoxor",
-      name: "Geoxor",
-      date: 2025,
-      icon: "geoxor.jpg",
-      genres: ["electronic"],
-      discovered: "YouTube Music reccs",
-    }
   ],
   "absolute favourites": [
     {

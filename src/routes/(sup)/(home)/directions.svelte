@@ -22,7 +22,7 @@ const routes = [
 </script>
 
 
-<Block width="max(42vw, 20em)" delay={500}>
+<Block width="clamp(20em, 42vw, 42em)" delay={500}>
   {#if displayed_route}
     {@html displayed_route}
   {/if}

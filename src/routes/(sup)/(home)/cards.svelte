@@ -93,4 +93,12 @@ h2 {
   gap: 1rem;
 }
 
+@media only screen and (max-width: $width-shrink) {
+  .cards {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+  }
+}
+
 </style>

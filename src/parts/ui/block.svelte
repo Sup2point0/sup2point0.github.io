@@ -31,7 +31,9 @@ onMount(() => {
 
 
 <div class="block {kind}"
+  class:active
   style:width
+  style:--delay="{delay}ms"
 >
   {#if active}
     <div class="content"
@@ -74,6 +76,12 @@ onMount(() => {
     bottom: 0;
     left: 50%;
     border-bottom: 1px solid $col-deut;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 1s cubic-bezier(1, 0, 0, 1);  // ease-in-out exp
+    transition-delay: calc(var(--delay, 0) + 500ms);
+  }
+
+  &.active::after {
     transform: translateX(-50%);
   }
 }

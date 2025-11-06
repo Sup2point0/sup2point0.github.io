@@ -35,7 +35,7 @@ const all_routes = [
 </script>
 
 
-<Block width="max(42vw, 20em)">
+<Block width="clamp(20em, 42vw, 42em)">
   sup, I’m Sup o/
 
   <div style:height="0.69em"></div>

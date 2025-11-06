@@ -219,7 +219,7 @@ export const games: GameData[] = prep([
     icon: "bloons-pop.png",
     genres: ["puzzle"],
     platforms: ["mobile"],
-    state: State.INFREQUENT,
+    state: State.INTERMITTENT,
   }, {
     shard: "bloons-supermonkey-2",
     name: "Bloons Supermonkey 2",

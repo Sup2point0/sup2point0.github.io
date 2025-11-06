@@ -48,7 +48,7 @@ import ProfileFooter from "./footer.svelte";
   <ProfileLoves />
   <div style:height="1rem"></div>
   <ProfileShowerthought />
-
+  <div style:height="1rem"></div>
   <ProfileFooter />
 </Main>
 

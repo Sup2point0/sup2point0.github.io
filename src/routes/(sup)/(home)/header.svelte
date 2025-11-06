@@ -51,8 +51,7 @@ section.sup {
   position: relative;
 
   img#purple-portal {
-    width: max(400px, 20vw);
-
+    width: 400px;
     animation-name: spinny;
     animation-duration: 42s;
     animation-iteration-count: infinite;
@@ -66,7 +65,7 @@ section.sup {
 }
 
 img#sup2point0 {
-  width: 42vw;
+  width: 600px;
   position: relative;
   top: -5rem;
   transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);  // ease-out-exp

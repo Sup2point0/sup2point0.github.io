@@ -1,6 +1,6 @@
-@use './src/styles/globals' as *;
-@use './src/styles/mixins' as *;
-@use './src/styles/fonts' as *;
+@use './globals' as *;
+@use './mixins' as *;
+@use './fonts' as *;
 
 
 * {
@@ -45,4 +45,11 @@ code {
 ::selection {
   color: white !important;
   background: $col-prot !important;
+}
+
+
+.centre {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }

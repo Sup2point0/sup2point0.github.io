@@ -27,12 +27,12 @@ const backs: PictData[] = [
   {
     file: "cortex.scarlet.jpg",
     blur: { init: 4, end: 2 },
-    brightness: { init: 88, end: 100 },
+    brightness: { init: 80, end: 100 },
   },
   {
     file: "cortex.scarlet.jpg",
     blur: { init: 4, end: 2 },
-    brightness: { init: 88, end: 100 },
+    brightness: { init: 80, end: 100 },
   },
 
   {

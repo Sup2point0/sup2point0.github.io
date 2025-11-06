@@ -13,8 +13,6 @@ import ProfileLoves from "./loves.svelte";
 import ProfileShowerthought from "./showerthought.svelte";
 import ProfileFooter from "./footer.svelte";
 
-import ProfileWords from "./words.svelte";
-
 </script>
 
 
@@ -51,8 +49,6 @@ import ProfileWords from "./words.svelte";
   <div style:height="1rem"></div>
   <ProfileShowerthought />
 
-  <!-- <ProfileWords /> -->
-
   <ProfileFooter />
 </Main>
 
@@ -76,6 +72,9 @@ section.upper {
     &.left {
       flex-grow: 1;
       min-width: max-content;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
     }
     &.right {
       flex-shrink: 1;

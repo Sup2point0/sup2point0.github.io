@@ -27,7 +27,7 @@ let { gap = "1rem", children }: Props = $props();
 <style lang="scss">
 
 main {
-  max-width: 100rem;
+  max-width: min(100vw, 100rem);
   padding: 0 4rem;
   display: flex;
   flex-flow: column nowrap;

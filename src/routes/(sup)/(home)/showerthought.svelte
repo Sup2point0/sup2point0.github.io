@@ -2,6 +2,8 @@
 
 <script>
   
+import { pick_daily } from "#scripts/utils";
+
 import Block from "#parts/ui/block.svelte";
   
 import { onMount } from "svelte";
@@ -9,8 +11,8 @@ import { onMount } from "svelte";
 
 let displayed_showerthought = $state("");
 
-onMount(() => {
-  displayed_showerthought = showerthoughts[Math.floor(Math.random() * showerthoughts.length)];
+onMount(async () => {
+  displayed_showerthought = await pick_daily(showerthoughts);
 });
 
 const showerthoughts = [
@@ -26,6 +28,7 @@ const showerthoughts = [
   `don’t mind me, just being productively unproductive`,
   `suffering from life deprivation`,
   `high on clutch catalyst`,
+  `sleep is so good.`,
 ];
 
 </script>

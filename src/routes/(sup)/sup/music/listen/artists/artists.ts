@@ -7,10 +7,18 @@ export const artists: {
 } = {
   "newly discovered": [
     {
+      shard: "steradlye",
+      name: "Steradlye",
+      date: "2025 FALL",
+      icon: "steradlye.jpg",
+      genres: ["electronic", "dubstep"],
+      discovered: "YouTube Music reccs",
+    },
+    {
       shard: "nhato",
       name: "Nhato",
       date: "2025 FALL",
-      icon: undefined,
+      icon: "nhato.jpg",
       genres: ["electronic", "trance"],
       track: {
         name: "Radiance", link: "https://youtube.com/watch?v=7o1S3o_VNII"
@@ -268,6 +276,17 @@ export const artists: {
       discovered: "YouTube reccs",
     },
     {
+      shard: "m-ue",
+      name: "M-UE",
+      date: 2025,
+      icon: undefined,
+      genres: ["rhythm", "oriental"],
+      track: {
+        name: "明鏡烈火", link: "https://youtube.com/watch?v=o1yU4OyF-dU"
+      },
+      discovered: "Phigros"
+    },
+    {
       shard: "reku",
       name: "Reku Mochizuki",
       date: 2025,
@@ -287,6 +306,17 @@ export const artists: {
       date: 2025,
       icon: "rhyx.jpg",
       genres: ["hi-tech"],
+      discovered: "YouTube reccs",
+    },
+    {
+      shard: "paper-skies",
+      name: "Paper Skies",
+      date: 2024,
+      icon: "paper-skies.jpg",
+      genres: ["electronic", "dubstep"],
+      track: {
+        name: "Freefalling", link: undefined
+      },
       discovered: "YouTube reccs",
     },
     {
@@ -418,26 +448,12 @@ export const artists: {
       shard: "se-u-ra",
       name: "Se-U-Ra",
       date: 2024,
-      icon: undefined,
+      icon: "se-u-ra.jpg",
       genres: ["artcore", "rhythm"],
       track: {
         name: "Ark Six", link: undefined
       },
       discovered: "Phigros",
-    },
-    {
-      shard: "falcon-dives",
-      name: "Falcon Dives",
-      date: 2022,
-      icon: "falcon-dives.jpg",
-      genres: ["disco", "electronic"],
-      track: {
-        name: "Teenage Color", link: "https://youtube.com/watch?v=rVAG7Dni1yA&list=PLYWIouv-DSkDGRBjzSJnzGnxKnIxaA_4r"
-      },
-      links: {
-        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkDGRBjzSJnzGnxKnIxaA_4r",
-      },
-      discovered: "Grian’s timelapse background music",
     },
     {
       shard: "jiang-mi-tiao",
@@ -518,6 +534,20 @@ export const artists: {
   ],
   "love them, but don’t listen much": [
     {
+      shard: "falcon-dives",
+      name: "Falcon Dives",
+      date: 2022,
+      icon: "falcon-dives.jpg",
+      genres: ["disco", "electronic"],
+      track: {
+        name: "Teenage Color", link: "https://youtube.com/watch?v=rVAG7Dni1yA&list=PLYWIouv-DSkDGRBjzSJnzGnxKnIxaA_4r"
+      },
+      links: {
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkDGRBjzSJnzGnxKnIxaA_4r",
+      },
+      discovered: "Grian’s timelapse background music",
+    },
+    {
       shard: "azali",
       name: "AZALI",
       date: 2024,
@@ -532,7 +562,7 @@ export const artists: {
       shard: "sakuzyo",
       name: "Sakuzyo",
       date: 2023,
-      icon: undefined,
+      icon: "sakuzyo.jpg",
       genres: ["electronic"],
       track: {
         name: "Distorted Fate", link: undefined
@@ -554,7 +584,7 @@ export const artists: {
       shard: "psyqui",
       name: "PSYQUI",
       date: 2025,
-      icon: undefined,
+      icon: "psyqui.jpg",
       genres: ["electronic", "j-core"],
       track: {
         name: "Mend Your Ways", link: undefined
@@ -797,7 +827,7 @@ export const artists: {
       shard: "avril-lavigne",
       name: "Avril Lavigne",
       date: 2017,
-      icon: undefined,
+      icon: "avril-lavigne.jpg",
       genres: ["rock", "pop"],
       track: {
         name: "When You’re Gone", link: undefined
@@ -821,7 +851,7 @@ export const artists: {
       shard: "owl-city",
       name: "Owl City",
       date: 2022,
-      icon: undefined,
+      icon: "owl-city.jpg",
       genres: ["pop"],
       track: {
         name: "Fireflies", link: undefined
@@ -866,7 +896,7 @@ export const artists: {
       shard: "tokyo-machine",
       name: "Tokyo Machine",
       date: 2022,
-      icon: undefined,
+      icon: "tokyo-machine.jpg",
       genres: undefined,
       track: {
         name: "SLASH", link: undefined,
@@ -935,9 +965,9 @@ export const artists: {
       shard: "tf-boys",
       name: "TFBOYS",
       date: "childhood",
-      icon: undefined,
+      icon: "tf-boys.jpeg",
       track: {
-        name: "«青春修炼手册»", link: undefined
+        name: "« 青春修炼手册 »", link: undefined
       },
       genres: ["c-pop"],
       discovered: "childhood",

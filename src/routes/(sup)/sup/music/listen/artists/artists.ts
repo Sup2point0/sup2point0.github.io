@@ -2,7 +2,7 @@ import { a, h } from "#scripts/utils";
 import type { ArtistData } from "#scripts/types";
 
 
-export const artists: {
+export const artists_data: {
   [collection: string]: ArtistData[];
 } = {
   "newly discovered": [

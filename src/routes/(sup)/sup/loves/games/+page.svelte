@@ -6,7 +6,7 @@ import SearchFilters from "#parts/ui/search-filters.svelte";
 import GameBlock from "#parts/loves/block.game.svelte";
 
 import { games } from "./games";
-import { GameSearchFilter } from "./filter.svelte";
+import { GameSearchFilter } from "./filter.svelte.ts";
 
 
 let filters = new GameSearchFilter();
@@ -18,7 +18,7 @@ let displayed_games = $derived(filters.apply(games));
 
 <svelte:head>
   <title> Games × Loves × Sup#2.0 </title>
-  <meta name="description" content="All the games I currently play or have played!" />
+  <meta name="description" content="All the games I currently play, have played, and would like to play!" />
 </svelte:head>
 
 

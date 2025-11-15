@@ -1,5 +1,8 @@
-<script>
+<script lang="ts">
 
+import type { TrackData } from "#scripts/types";
+
+import Cards from "#parts/core/cards.svelte";
 import Main from "#parts/core/main.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
@@ -9,9 +12,10 @@ import { tracks_list } from "../create";
 import { TrackSearchFilter } from "./filter.svelte";
 
 
+// svelte-ignore non_reactive_update
 let filters = new TrackSearchFilter();
 
-let displayed_tracks = $derived(filters.apply(tracks_list));
+let displayed_tracks: TrackData[] = $derived(filters.apply(tracks_list));
 
 </script>
 
@@ -31,21 +35,14 @@ let displayed_tracks = $derived(filters.apply(tracks_list));
 <Main>
   <SearchFilters bind:filters />
 
-  <div class="browse">
+  <Cards>
     {#each displayed_tracks as track (track.shard)}
       <TrackCard {track} />
     {/each}
-  </div>
+  </Cards>
 </Main>
 
 
 <style lang="scss">
-
-.browse {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  gap: 1rem;
-}
 
 </style>

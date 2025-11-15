@@ -4,9 +4,9 @@ import type { AlbumData, TrackData } from "#scripts/types";
 
 
 /* @ts-ignore */
-export const albums: {
+export const albums_data: {
   [series: string]: AlbumData[]
-} = auto_assign_albums({
+} = assign_albums({
   pinned: [
     {
       shard: "singles",
@@ -440,6 +440,7 @@ export const albums: {
           name: "Infinitesimal Ignition",
           audio: undefined,
           cover: undefined,
+          genres: ["bass"],
           is_preview: true,
         },
       ],
@@ -670,16 +671,16 @@ export const albums: {
   ],
 });
 
-export const albums_list: AlbumData[] = Object.values(albums).flatMap(collection => collection);
+export const albums_list: AlbumData[] = Object.values(albums_data).flatMap(collection => collection);
 
-export const tracks_list: TrackData[] = Object.values(albums).flatMap(
+export const tracks_list: TrackData[] = Object.values(albums_data).flatMap(
   collection => collection.flatMap(
     album => album.tracks
   )
 );
 
 
-function auto_assign_albums(album_data: object)
+function assign_albums(album_data: object)
 {
   for (let collection of Object.values(album_data)) {
     for (let album of collection) {

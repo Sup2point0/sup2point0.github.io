@@ -11,17 +11,15 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
 
   apply(tracks: TrackData[]): TrackData[]
   {
-    let out = [...tracks];
-
     if (!this.include_previews) {      
-      out = out.filter(track => track.is_preview !== true);
+      tracks = tracks.filter(track => track.is_preview !== true);
     }
 
-    super.apply(out, track => Math.max(
-      partial_ratio(this.query, track.name),
-      partial_ratio(this.query, track.album.name),
-    ));
-
-    return out;
+    return super.sort(tracks,
+      track => Math.max(
+        partial_ratio(this.query, track.name),
+        partial_ratio(this.query, track.album.name),
+      )
+    );
   }
 }

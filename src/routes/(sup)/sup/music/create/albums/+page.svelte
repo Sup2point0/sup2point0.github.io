@@ -4,7 +4,7 @@ import Main from "#parts/core/main.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import AlbumCard from "#parts/music/card.album.svelte";
 
-import { albums } from "../create";
+import { albums_data } from "../create";
 
 </script>
 
@@ -23,19 +23,19 @@ import { albums } from "../create";
 
 <Main gap="4rem">
   <section>
-    {#each albums.pinned as album}
+    {#each albums_data.pinned as album}
       <AlbumCard {album} />
     {/each}
   </section>
 
   <section>
-    {#each albums.gen1 as album}
+    {#each albums_data.gen1 as album}
       <AlbumCard {album} />
     {/each}
   </section>
 
   <section>
-    {#each albums.archives as album}
+    {#each albums_data.archives as album}
       <AlbumCard {album} collection="archives/" />
     {/each}
   </section>

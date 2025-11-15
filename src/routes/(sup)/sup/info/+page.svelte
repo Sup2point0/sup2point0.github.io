@@ -1,20 +1,20 @@
 <script lang="ts">
 
-import sample from "@stdlib/random-sample";
-
-import { facts_pinned, facts } from "./facts";
-import type { Fact } from "./facts";
-import { frequerys } from "./faq";
+import { shuffle } from "#scripts/utils";
 
 import Clicky from "#parts/ui/clicky.svelte";
 import FactCard from "#parts/ui/card.fact.svelte";
 import Block from "#parts/ui/block.svelte";
 import PurplePortal from "#parts/special/portal.svelte";
 
+import { facts_pinned, facts } from "./facts";
+import type { Fact } from "./facts";
+import { frequerys } from "./faq";
+
 import { untrack } from "svelte";
 
 
-const facts_shuffled = sample(facts, { replace: false });
+const facts_shuffled = shuffle(facts);
 let limit = $state(12);
 
 let facts_display: Fact[] = $state([]);

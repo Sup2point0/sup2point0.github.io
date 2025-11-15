@@ -1,10 +1,12 @@
-import type { Groups } from "#scripts/types";
+import type { Shard, Groups } from "#scripts/types";
 
 
 export type FilterResults<Entity> = Entity[] | [string, Entity[]][];
 
 
 export interface Searchable {
+  shard?: Shard;
+  collection?: string;
   _score_?: number;
 }
 

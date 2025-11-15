@@ -11,7 +11,10 @@ export class FilmSearchFilter extends SearchFilter<FilmData>
   apply(films: FilmData[]): FilterResults<FilmData>
   {
     let out: FilterResults<FilmData> = super.sort(films,
-      film => partial_ratio(this.query, film.name)
+      film => Math.max(
+        partial_ratio(this.query, film.name),
+        film.collection ? partial_ratio(this.query, film.collection) : 0,
+      )
     );
 
     if (this.group_by) {

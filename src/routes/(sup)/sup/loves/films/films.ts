@@ -1,26 +1,10 @@
 import type { Groups, DatePoint } from "#scripts/types";
-import type { Searchable } from "#scripts/search-filter.svelte";
+import type { MediaData, Genre, Theme } from "#scripts/types/media";
 
 
-type Genre = "action" | "adventure" | "comedy" | "drama" | "dystopian" | "epic" | "fantasy" | "sci-fi" | "space opera" | "superhero";
-type Theme = "grit" | "mythology" | "space";
-
-
-export interface FilmData extends Searchable
+export interface FilmData extends MediaData
 {
-  shard?: string;
-  name: string;
   date: DatePoint | DatePoint[];
-
-  cover?: string;
-
-  genres?: Genre[];
-  themes?: Theme[];
-
-  desc?: string | string[];
-
-  collection?: string;
-  _score_?: number;
 }
 
 

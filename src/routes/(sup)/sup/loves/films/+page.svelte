@@ -8,7 +8,7 @@ import Main from "#parts/core/main.svelte";
 import Block from "#parts/ui/block.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
-import FilmBlock from "#parts/loves/block.film.svelte";
+import MediaBlock from "#parts/loves/block.media.svelte";
 
 import { films_data, films_list, type FilmData } from "./films";
 import { FilmSearchFilter } from "./filter.svelte.ts";
@@ -68,7 +68,7 @@ const routes = [
 
         <Cards>
           {#each films as film}
-            <FilmBlock {film} />
+            <MediaBlock kind="film" media={film} />
           {/each}
         </Cards>
       </section>
@@ -83,7 +83,7 @@ const routes = [
 
         <Cards>
           {#each films as film}
-            <FilmBlock {film} />
+            <MediaBlock kind="film" media={film} />
           {/each}
         </Cards>
       </section>
@@ -94,7 +94,7 @@ const routes = [
 
     <Cards>
       {#each displayed as film (film.shard)}
-        <FilmBlock {film} />
+        <MediaBlock kind="film" media={film} />
       {/each}
     </Cards>
 

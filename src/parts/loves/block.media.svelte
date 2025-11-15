@@ -1,23 +1,24 @@
-<!-- @component FilmBlock
+<!-- @component MediaBlock
 
-A block displaying info for a film.
+A block displaying info for a media, series, anime, show, etc.
 -->
 
 <script lang="ts">
 
 import { display_date } from "#scripts/utils";
+import type { MediaData } from "#scripts/types";
 
 import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
-import type { FilmData } from "#src/routes/(sup)/sup/loves/films/films";
 
 import { onMount } from "svelte";
 
 
 interface Props {
-  film: FilmData;
+  kind: "film" | "series" | "anime";
+  media: MediaData;
 }
 
-let { film }: Props = $props();
+let { kind, media }: Props = $props();
 
 
 let self: HTMLElement;
@@ -34,36 +35,36 @@ onMount(() => {
 </script>
 
 
-<button class="film block"
+<button class="media {kind} block"
   class:intersected={anim.intersected}
-  id={film.shard}
+  id={media.shard}
   bind:this={self}
   style:--delay={calc_delay(anim, 0.2)}
 >
   <div class="content">
-    <img alt={film.name} title={film.name}
+    <img alt={media.name} title={media.name}
       height="200px"
-      src={film.cover ? `/films/covers/${film.cover}` : "/purple-portal.png"}
+      src={media.cover ? `/${kind}/covers/${media.cover}` : "/purple-portal.png"}
     />
 
     <div class="info">
       <div class="upper">
-        <h3> {film.name} </h3>
+        <h3> {media.name} </h3>
 
-        {#if film.date}
+        {#if media.date}
           <p class="date">
-            {display_date(film.date)}
+            {display_date(media.date)}
           </p>
         {/if}
       </div>
 
       <div class="lower">
         <ul class="tags">
-          {#each film.genres ?? [] as genre}
+          {#each media.genres ?? [] as genre}
             <li class="genre"> {genre} </li>
           {/each}
           
-          {#each film.themes ?? [] as theme}
+          {#each media.themes ?? [] as theme}
             <li class="theme"> {theme} </li>
           {/each}
         </ul>
@@ -78,7 +79,7 @@ onMount(() => {
 @use 'sass:color';
 
 
-button.block.film {
+button.block.media {
   flex-grow: 1;
   max-width: 36rem;
   padding: 1rem 2.5rem;
@@ -112,7 +113,7 @@ button.block.film {
   opacity: 0;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
 
-  button.block.film.intersected & {
+  button.block.media.intersected & {
     transform: none;
     opacity: 1;
   }
@@ -150,7 +151,7 @@ img {
     color: $col-text;
     text-align: start;
 
-    .block.film.active &, .block.film.opportunistic & {
+    .block.media.active &, .block.media.opportunistic & {
       color: $col-quat;
     }
   }

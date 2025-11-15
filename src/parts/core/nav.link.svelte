@@ -7,9 +7,10 @@ import { browser } from "$app/environment";
 interface Props {
   text: string;
   link: string;
+  dead?: boolean;
 }
 
-let { text, link }: Props = $props();
+let { text, link, dead = false }: Props = $props();
 
 
 let active = $derived(
@@ -22,6 +23,7 @@ let active = $derived(
 
 <a class="nav-link"
   class:active
+  class:dead
   href={link}
 >
   {text}
@@ -61,6 +63,11 @@ a.nav-link {
 
 a.nav-link.active:not(:hover, :focus-visible, :active) {
   color: $col-text;
+}
+
+a.nav-link.dead {
+  pointer-events: none;
+  opacity: 25%;
 }
 
 </style>

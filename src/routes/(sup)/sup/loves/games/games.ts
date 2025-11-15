@@ -33,7 +33,7 @@ export interface GameData extends Searchable
 }
 
 
-export const games: GameData[] = prep([
+export const games_list: GameData[] = prep([
   {
     shard: "manifold-garden",
     name: "Manifold Garden",

@@ -9,12 +9,10 @@ export class GameSearchFilter extends SearchFilter<GameData>
 {
   apply(games: GameData[]): GameData[]
   {
-    let out = [...games];
-    
-        super.apply(out, game => Math.max(
-          partial_ratio(this.query, game.name),
-        ));
-
-    return out;
+    return super.sort(games,
+      game => Math.max(
+        partial_ratio(this.query, game.name),
+      )
+    );
   }
 }

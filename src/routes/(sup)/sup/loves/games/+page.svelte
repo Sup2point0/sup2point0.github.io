@@ -1,17 +1,19 @@
 <script lang="ts">
 
+import Cards from "#parts/core/cards.svelte";
 import Main from "#parts/core/main.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
-import SearchFilters from "#parts/ui/search-filters.svelte";
 import GameBlock from "#parts/loves/block.game.svelte";
+import SearchFilters from "#parts/ui/search-filters.svelte";
 
-import { games } from "./games";
+import { games_list } from "./games";
 import { GameSearchFilter } from "./filter.svelte.ts";
 
 
+// svelte-ignore non_reactive_update
 let filters = new GameSearchFilter();
 
-let displayed_games = $derived(filters.apply(games));
+let displayed_games = $derived(filters.apply(games_list));
 
 </script>
 
@@ -30,22 +32,15 @@ let displayed_games = $derived(filters.apply(games));
 <Main>
   <SearchFilters bind:filters />
 
-  <div class="browse">
+  <Cards>
     {#each displayed_games as game (game.shard)}
       <GameBlock {game} />
     {/each}
-  </div>
+  </Cards>
 </Main>
 
 
 
 <style lang="scss">
-
-.browse {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  gap: 1rem;
-}
 
 </style>

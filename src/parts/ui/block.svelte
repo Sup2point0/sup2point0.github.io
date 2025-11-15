@@ -1,5 +1,6 @@
 <!-- @component Block
 
+A generic block containing any content. Animates in when the content to display is provided.
 -->
 
 <script lang="ts">
@@ -83,6 +84,10 @@ onMount(() => {
 
   &.active::after {
     transform: translateX(-50%);
+  }
+
+  :global(p) {
+    padding: 0.5em 0;
   }
 }
 

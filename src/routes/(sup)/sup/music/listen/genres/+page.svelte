@@ -1,7 +1,6 @@
 <script lang="ts">
 
-import sample from "@stdlib/random-sample";
-
+import { pick_random, shuffle } from "#scripts/utils";
 import type { GenreData } from "#scripts/types";
 
 import Main from "#parts/core/main.svelte";
@@ -10,7 +9,7 @@ import Block from "#parts/ui/block.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import GenreBlock from "#parts/music/block.genre.svelte";
 
-import { genres as genres_map } from "./genres";
+import { genres_data } from "./genres";
 
 import { onMount } from "svelte";
 import { fade } from "svelte/transition";
@@ -23,10 +22,10 @@ let displayed_genres: {
 } = $state({});
 
 onMount(() => {
-  displayed_route = routes[Math.floor(Math.random() * routes.length)];
+  displayed_route = pick_random(routes);
 
-  for (let [collection, genres] of Object.entries(genres_map)) {
-    displayed_genres[collection] = sample(genres, { replace: false });
+  for (let [collection, genres] of Object.entries(genres_data)) {
+    displayed_genres[collection] = shuffle(genres);
   }
 });
 
@@ -58,10 +57,9 @@ const routes = [
   <Block>
     {#if displayed_route}
       I’m not kidding when I say I vibe to almost all kinds of music. Grouping these would be a nightmare, so here’s a massive list for your perusal (shuffled for flavour!).
-
       <div style:height="0.69em"></div>
 
-      {displayed_route}
+      {@html displayed_route}
     {/if}
   </Block>
 

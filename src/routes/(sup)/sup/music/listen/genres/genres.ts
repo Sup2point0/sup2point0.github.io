@@ -1,7 +1,7 @@
 import { GenreKind, type GenreData } from "#scripts/types";
 
 
-export const genres: {
+export const genres_data: {
   [collection: string]: GenreData[]
 } = {
   favourites: [

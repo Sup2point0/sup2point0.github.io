@@ -1,3 +1,20 @@
+import sample from "@stdlib/random-sample";
+
+
+/** Return a uniformly randomly selected item from `options`. */
+export function pick_random<Item>(options: Item[]): Item
+{
+  return options[Math.floor(Math.random() * options.length)];
+}
+
+
+/** Return a shuffled copy of `source`. */
+export function shuffle<Item>(source: Item[]): Item[]
+{
+  return sample(source, { replace: false });
+}
+
+
 // FIXME this isn't quite THAT uniform... =/
 
 /** Deterministically pick a random item from `source`, based on the current date, with uniform probability of picking each item. */

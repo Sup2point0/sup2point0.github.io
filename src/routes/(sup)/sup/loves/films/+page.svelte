@@ -1,9 +1,11 @@
 <script lang="ts">
 
+import { pick_random } from "#scripts/utils";
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
 import Cards from "#parts/core/cards.svelte";
 import Main from "#parts/core/main.svelte";
+import Block from "#parts/ui/block.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
 import FilmBlock from "#parts/loves/block.film.svelte";
@@ -11,11 +13,26 @@ import FilmBlock from "#parts/loves/block.film.svelte";
 import { films_data, films_list, type FilmData } from "./films";
 import { FilmSearchFilter } from "./filter.svelte.ts";
 
+import { onMount } from "svelte";
+
 
 // svelte-ignore non_reactive_update
 let filters = new FilmSearchFilter();
 
-let displayed_films: FilterResults<FilmData> = $derived(filters.apply(films_list))
+let displayed_films: FilterResults<FilmData> = $derived(filters.apply(films_list));
+
+let displayed_route = $state("");
+
+onMount(() => {
+  displayed_route = pick_random(routes);
+});
+
+
+const routes = [
+  `btw, please treat this as more of a tier list than ranking. It’s impossible to pick if I like a movie more than another :v`,
+  
+  `This isn’t quite a list of every film I’ve watched, but if I enjoyed it, it’ll be on here. If you’re reading this, I’m probably still searching for films I’ve watched but forgotten to put here =)`,
+];
 
 </script>
 
@@ -32,6 +49,16 @@ let displayed_films: FilterResults<FilmData> = $derived(filters.apply(films_list
 ]} />
 
 <Main gap="4rem">
+  <Block>
+    {#if displayed_route}
+      <p> I <em>lovvve</em> watching films. I went on a whole film-watching arc in 2022–2023 where I’d watch a film every couple of nights, just cuz I’d been so deprived of them so far in life. It made me really come to love cinema. </p>
+      
+      <p> That being said, after experiencing a cinema properly after CoViD-19 died down, I really could not go back to watching films on a tiny phone screen or crappy plane screen. </p>
+
+      <p> {@html displayed_route} </p>
+    {/if}
+  </Block>
+
   <SearchFilters bind:filters />
 
   {#if filters.query === ""}

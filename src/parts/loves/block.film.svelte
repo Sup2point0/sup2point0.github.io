@@ -43,7 +43,7 @@ onMount(() => {
   <div class="content">
     <img alt={film.name} title={film.name}
       height="200px"
-      src={film.cover ? `/films/covers/${film.cover}` : "/films/covers/dune-part-2.jpg"}
+      src={film.cover ? `/films/covers/${film.cover}` : "/purple-portal.png"}
     />
 
     <div class="info">

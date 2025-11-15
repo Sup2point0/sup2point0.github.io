@@ -1,5 +1,5 @@
 import type { Groups, DatePoint } from "#scripts/types";
-import type { MediaData, Genre, Theme } from "#scripts/types/media";
+import type { MediaData } from "#scripts/types/media";
 
 
 export interface FilmData extends MediaData

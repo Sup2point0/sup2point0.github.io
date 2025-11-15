@@ -11,6 +11,7 @@ export type Genre =
   | "dystopian"
   | "epic"
   | "fantasy"
+  | "mystery"
   | "romance"
   | "sci-fi"
   | "slice of life"

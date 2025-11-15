@@ -44,7 +44,7 @@ onMount(() => {
   <div class="content">
     <img alt={media.name} title={media.name}
       height="200px"
-      src={media.cover ? `/${kind}/covers/${media.cover}` : "/purple-portal.png"}
+      src={media.cover ? `/covers/${kind}/${media.cover}` : "/purple-portal.png"}
     />
 
     <div class="info">

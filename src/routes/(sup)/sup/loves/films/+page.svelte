@@ -82,7 +82,7 @@ const routes = [
         <h2> {collection.toUpperCase()} </h2>
 
         <Cards>
-          {#each films as film}
+          {#each films as film (film.shard)}
             <MediaBlock kind="film" media={film} />
           {/each}
         </Cards>

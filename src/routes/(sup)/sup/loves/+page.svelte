@@ -10,4 +10,5 @@ import LinkCard from "#parts/ui/card.link.svelte";
   <LinkCard link="/sup/loves/games" text="Games" />
   <LinkCard link="/sup/loves/films" text="Films" />
   <LinkCard link="/sup/loves/series" text="Series" />
+  <LinkCard link="/sup/loves/anime" text="Anime" />
 </Cards>

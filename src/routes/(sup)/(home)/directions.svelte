@@ -2,7 +2,7 @@
 
 <script>
 
-import { a, i } from "#scripts/utils";
+import { a } from "#scripts/utils";
 
 import Block from "#parts/ui/block.svelte";
 
@@ -16,7 +16,7 @@ onMount(() => {
 });
 
 const routes = [
-  `If you’re an employer and want to see my software development skills and experience, head over to my GitHUb ${a("dev", "https://github.com/Sup2point0")} (the dev sections of this site are under renovation!). If you’re a fellow nerd, I’m sure you’ll have no problem exploring for yourself. If you’re a stalker, you can start doxxing me through ${a("info", "sup/info")}, track my life on ${a("YouTube", "https://youtube.com/@SuppetySup")}, then you can follow me on ${a("GitHub", "https://github.com/Sup2point0")}.`,
+  `If you’re an employer and want to see my software development skills and experience, head over to my ${a("GitHub", "https://github.com/Sup2point0")} (the SWE bits of this site are under renovation!). If you’re a fellow nerd, I’m sure you’ll have no problem exploring for yourself. If you’re a stalker, you can start doxxing me through ${a("info", "sup/info")}, track my life on ${a("YouTube", "https://youtube.com/@SuppetySup")}, then you can follow me on ${a("GitHub", "https://github.com/Sup2point0")}.`,
 ];
 
 </script>

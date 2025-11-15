@@ -20,7 +20,8 @@ onMount(() => {
 
 const all_routes = [
   [
-    `encapsulating the essence of who I am in a short bio is hopelessly nontrivial, so to simulate the superposition of multiple isotopes of this introduction, you can view alternative renditions by clicking [RECONSTRUCT].`,
+    // TODO
+    // `encapsulating the essence of who I am in a short bio is hopelessly nontrivial, so to simulate the superposition of multiple isotopes of this introduction, you can view alternative renditions by clicking [RECONSTRUCT].`,
     `I’m a creator, developer, musician, and nerd. I love reading, writing, worldbuilding and words. I dream of maths and chemistry after dark, but computer science is the one that’s stolen my heart.`,
     `thanks for stopping by. I’m just another dreamer making cool stuff. You can explore some of what I do here, or pop over to my personal wiki, ${a(i("Assort"), "https://sup2point0.github.io/Assort")}. Enjoy!`,
   ],

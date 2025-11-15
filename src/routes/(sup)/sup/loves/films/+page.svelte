@@ -1,11 +1,12 @@
 <script lang="ts">
 
-import type { Groups } from "#scripts/types";
+import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
 import Cards from "#parts/core/cards.svelte";
 import Main from "#parts/core/main.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
+import FilmBlock from "#parts/loves/block.film.svelte";
 
 import { films_data, films_list, type FilmData } from "./films";
 import { FilmSearchFilter } from "./filter.svelte.ts";
@@ -14,7 +15,7 @@ import { FilmSearchFilter } from "./filter.svelte.ts";
 // svelte-ignore non_reactive_update
 let filters = new FilmSearchFilter();
 
-let displayed_films: FilmData[] | Groups<FilmData> = $derived(filters.apply(films_list))
+let displayed_films: FilterResults<FilmData> = $derived(filters.apply(films_list))
 
 </script>
 
@@ -30,7 +31,7 @@ let displayed_films: FilmData[] | Groups<FilmData> = $derived(filters.apply(film
   { text: "films" },
 ]} />
 
-<Main>
+<Main gap="4rem">
   <SearchFilters bind:filters />
 
   {#if filters.query === ""}
@@ -40,32 +41,33 @@ let displayed_films: FilmData[] | Groups<FilmData> = $derived(filters.apply(film
 
         <Cards>
           {#each films as film}
-            <p> {film.name} </p>
-            <!-- <FilmBlock /> -->
+            <FilmBlock {film} />
           {/each}
         </Cards>
       </section>
     {/each}
 
   {:else if filters.group_by !== null}
-    {#each displayed_films as [collection, films]}
+    {@const displayed = displayed_films as [string, FilmData[]][]}
+
+    {#each displayed as [collection, films]}
       <section>
         <h2> {collection.toUpperCase()} </h2>
 
         <Cards>
           {#each films as film}
-            <p> {film.name} </p>
-            <!-- <FilmBlock {film} /> -->
+            <FilmBlock {film} />
           {/each}
         </Cards>
       </section>
     {/each}
 
   {:else}
+    {@const displayed = displayed_films as FilmData[]}
+
     <Cards>
-      {#each displayed_films as film (film.shard)}
-        <p> {film.name} </p>
-        <!-- <FilmBlock {film} /> -->
+      {#each displayed as film (film.shard)}
+        <FilmBlock {film} />
       {/each}
     </Cards>
 

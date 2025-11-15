@@ -212,10 +212,13 @@ export const films_data: Groups<FilmData> = {
 
 export const films_list: FilmData[] = (
   () => {
-    for (let [collection, films] of Object.entries(films_data)) {
-      for (let film of films) {
+    for (let [i, [collection, films]] of Object.entries(films_data).entries()) {
+      for (let [j, film] of films.entries()) {
         film.collection = collection;
         film._score_ = 0;
+        if (film.shard === undefined) {
+          film.shard = `${i.toString()}-${j.toString()}`;
+        }
       }
     }
 

@@ -1,6 +1,9 @@
 import type { Groups } from "#scripts/types";
 
 
+export type FilterResults<Entity> = Entity[] | [string, Entity[]][];
+
+
 export interface Searchable {
   _score_?: number;
 }
@@ -55,11 +58,15 @@ export class SearchFilter<Entity extends Searchable>
   group(
     source: Entity[],
     grouper: (entity: Entity) => string,
-    sorter: (group: string) => number,
+    sorter?: (group: string) => number,
   ): [string, Entity[]][]
   {
     let groups = Object.groupBy(source, grouper) as Groups<Entity>;
-    let out = Object.entries(groups).sort(([group, entities]) => sorter(group));
+    let out = Object.entries(groups);
+    
+    if (sorter) {
+      out.sort(([group, entities]) => sorter(group));
+    }
 
     if (this.reverse_group) {
       out.reverse();

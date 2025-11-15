@@ -2,10 +2,13 @@ name: 'deploy'
 
 on:
   workflow_dispatch:
+
   push:
-    paths: '**.yml'
-  # schedule:
-    # - cron: '20 4 * * 6'
+    paths:
+      - '**.yml'
+  
+  schedule:
+    - cron: '20 4 4,20 * *'
 
 jobs:
   build:

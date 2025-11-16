@@ -48,6 +48,9 @@ export interface ProjectData extends Searchable
 
   icon?: string;
   link?: string;
+  links?: {
+    [link: string]: string;
+  };
 
   tech: Tech[];
   tags: string[];
@@ -86,6 +89,20 @@ export const projects_data: Groups<ProjectData> = {
       tech: [Lang.py, Tool.pygame],
       tags: ["dev", "depr"]
     },
+  ],
+  [ProjectState.MAINTAINING]: [
+    {
+      name: "Integrity",
+      love: 3,
+      icon: "",
+      links: {
+        github: "https://github.com/Sup2point0/integrity",
+        site: "https://sup2point0.github.io/integrity",
+      },
+      tech: [Lang.svelte, Lang.ts, Lang.scss, Lang.rb, Lang.katex],
+      tags: ["dev"],
+      desc: `All my hand-crafted maths questions, game develpoment in Desmos, and more`,
+    }
   ],
   [ProjectState.HIATUS]: [
     {

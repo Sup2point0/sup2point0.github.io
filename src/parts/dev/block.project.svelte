@@ -82,10 +82,6 @@ onMount(() => {
           {#each project.tech ?? [] as tech}
             <li class="tech"> {tech} </li>
           {/each}
-          
-          {#each project.tags ?? [] as tag}
-            <li class="tag"> {tag} </li>
-          {/each}
         </ul>
       </div>
     </div>
@@ -230,7 +226,6 @@ img {
 
     li:not(:hover) {
       &.tech::before { background: color.change($col-trit, $alpha: 0.69); }
-      &.tag::before { background: color.change($col-deut, $alpha: 0.69); }
     }
   }
 }

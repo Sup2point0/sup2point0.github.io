@@ -1,7 +1,7 @@
 <!-- @component Footer -->
 
 <footer>
-  <p> crafted with <span>❤️</span> by Sup#2.0 </p>
+  <p> crafted with <span>❤️</span> by <a target="_blank" href="https://github.com/Sup2point0">Sup#2.0</a> </p>
   
   <p> &middot; </p>
 
@@ -9,7 +9,7 @@
   
   <p> &middot; </p>
   
-  <p> hosted on <a target="_blank" href="https://pages.github.com/">GitHub Pages</a> </p>
+  <p> hosted on <a target="_blank" href="https://github.com/Sup2point0/sup2point0.github.io">GitHub Pages</a> </p>
 </footer>
 
 

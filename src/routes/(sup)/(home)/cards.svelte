@@ -1,22 +1,25 @@
 <!-- @component ProfileCards -->
 
-<script>
+<script lang="ts">
 
+import { pick_random } from "#scripts/utils";
+import type { Keyed } from "#scripts/types";
+
+import Cards from "#parts/core/cards.svelte";
 import LinkCard from "#parts/ui/card.link.svelte";
 
 import { onMount } from "svelte";
-import { fade, slide } from "svelte/transition";
-import { expoInOut } from "svelte/easing";
+import { fade } from "svelte/transition";
 
 
 let displayed_title = $state("");
-let displayed_routes = {};
+let displayed_routes: Keyed<string> = {};
 
 onMount(() => {
-  displayed_title = title_routes[Math.floor(Math.random() * title_routes.length)];
+  displayed_title = pick_random(title_routes);
 
   for (let [section, routes] of Object.entries(content_routes)) {
-    displayed_routes[section] = routes[Math.floor(Math.random() * routes.length)];
+    displayed_routes[section] = pick_random(routes);
   }
 });
 
@@ -63,16 +66,14 @@ const content_routes = {
     {displayed_title}
   </h2>
 
-  <div class="cards"
-    transition:slide={{ duration: 1000, easing: expoInOut }}
-  >
-    <LinkCard text="games" link="sup/dev" capt={displayed_routes.games} />
-    <LinkCard text="websites" link="sup/dev" capt={displayed_routes.websites} />
-    <LinkCard text="software" link="sup/dev" capt={displayed_routes.software} />
+  <Cards>
+    <LinkCard text="games" link="sup/projects" capt={displayed_routes.games} />
+    <LinkCard text="websites" link="sup/projects" capt={displayed_routes.websites} />
+    <LinkCard text="software" link="sup/projects" capt={displayed_routes.software} />
     <LinkCard text="graphics" link="https://sup2point0.github.io/Assort/graphics" capt={displayed_routes.graphics} />
     <LinkCard text="writing" link="https://sup2point0.github.io/Assort/writing" capt={displayed_routes.writing} />
     <LinkCard text="poetry" link="https://sup2point0.github.io/Assort/poetry" capt={displayed_routes.poetry} />
-  </div>
+  </Cards>
 {/if}
 
 

@@ -22,14 +22,16 @@ let { children }: Props = $props();
 <style lang="scss">
 
 .cards {
-  display: flex;
-  flex-flow: row wrap;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 30%);
   justify-content: center;
   gap: 1rem;
 }
 
-@media (max-width: 30rem) {
+@media only screen and (max-width: $width-shrink) {
   .cards {
+    display: flex;
     flex-flow: column nowrap;
     align-items: stretch;
   }

@@ -1,6 +1,9 @@
 <script>
   
+import Cards from "#parts/core/cards.svelte";
 import Block from "#parts/ui/block.svelte";
+import LinkCard from "#parts/ui/card.link.svelte";
+
 
 import { onMount } from "svelte";
 import { fade } from "svelte/transition";
@@ -17,7 +20,6 @@ const title_routes = [
   `interests`,
   `hobbies`,
   `things I love`,
-  `heartskips`,
 ];
 
 </script>
@@ -29,8 +31,13 @@ const title_routes = [
   </h2>
 
   <Block>
-    Oh, there’s <em>WAY</em> too many to fit here. Head over to <a class="link" href="sup/loves">loves</a> ;)
+    Too many to fit here, so head over to <a class="link" href="/sup/loves">loves</a> ;)
   </Block>
+
+  <Cards>
+    <LinkCard text="music production" link="/sup/music/create" />
+    <LinkCard text="rhythm games" link="/sup/loves/games" />
+  </Cards>
 {/if}
 
 

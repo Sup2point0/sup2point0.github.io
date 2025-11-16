@@ -569,7 +569,6 @@ export const albums_data: {
           cover: "placeholder.png",
           genres: ["cinematic"],
           vibes: ["poignant"],
-          is_preview: true,
         },
         {
           shard: "ever-shining",

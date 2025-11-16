@@ -30,6 +30,13 @@ export const albums_data: {
           genres: ["electronic"],
           vibes: ["chillout"],
         },
+        {
+          shard: "gurls",
+          name: "aespa – Girls (Sup#2.0 remix)",
+          audio: "gurls-p1.m4a",
+          cover: "placeholder.png",
+          genres: ["neurofunk", "hardcore", "electronic"],
+        }
       ]
     },
   ],
@@ -331,11 +338,10 @@ export const albums_data: {
         {
           shard: "dactyl",
           name: "Dactyl",
-          audio: "dactyl-preview.m4a",
+          audio: "dactyl-p1.m4a",
           cover: "cortex.dactyl.png",
-          genres: ["rhythm", "electronic"],
+          genres: ["rhythm", "electronic", "bass"],
           vibes: ["vibrant"],
-          is_preview: true,
         },
         {
           shard: "mem-brain",
@@ -349,11 +355,10 @@ export const albums_data: {
         {
           shard: "syntax-error",
           name: "SyntaxError",
-          audio: undefined,
-          cover: undefined,
+          audio: "syntax-error-p1.m4a",
+          cover: "cortex.syntax-error.png",
           genres: ["wackcore"],
           vibes: [],
-          is_preview: true,
         },
         {
           shard: "elysion",
@@ -560,7 +565,7 @@ export const albums_data: {
         {
           shard: "a-journey-across-time",
           name: "A Journey Across Time",
-          audio: undefined,
+          audio: "a-journey-across-time-p1.m4a",
           cover: "placeholder.png",
           genres: ["cinematic"],
           vibes: ["poignant"],

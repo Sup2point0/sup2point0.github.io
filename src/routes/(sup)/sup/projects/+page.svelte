@@ -28,7 +28,7 @@ let displayed_projects: FilterResults<ProjectData> = $derived(filters.apply(proj
 
 <Main gap="4rem">
   <Block>
-    <p> THIS PAGE IS STILL UNDER RENOVATION BTW LMAO </p>
+    <p> [ Note: This page is still under renovation! ] </p>
     <p> I’ve created way too many projects to list all of them in one place – but here’s a selection of my favourites for you to explore ^v^ </p>
   </Block>
 

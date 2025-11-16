@@ -44,11 +44,13 @@ onMount(() => {
 >
   <div class="content">
 
-<img class="project-icon"
-  alt={project.name} title={project.name}
-  width="120px" height="120px"
-  src={project.icon ? `/projects/icons/${project.icon}` : "/purple-portal.png"}
-/>
+{#if project.icon}
+  <img class="project-icon"
+    alt={project.name} title={project.name}
+    width="120px" height="120px"
+    src={project.icon ? `/projects/icons/${project.icon}` : "/purple-portal.png"}
+  />
+{/if}
 
 <div class="info">
   <div class="upper">
@@ -128,6 +130,7 @@ onMount(() => {
       {/each}
     </ul>
   </div>
+</div>
 
   </div>
 </button>
@@ -177,6 +180,7 @@ onMount(() => {
 
 img.project-icon {
   max-width: 100%;
+  border-radius: 50%;
   box-shadow: 0 8px 16px rgb(black, 40%);
 }
 

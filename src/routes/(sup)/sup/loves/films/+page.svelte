@@ -68,7 +68,7 @@ const routes = [
 
         <Cards>
           {#each films as film}
-            <MediaBlock kind="film" media={film} />
+            <MediaBlock kind="films" media={film} />
           {/each}
         </Cards>
       </section>
@@ -83,7 +83,7 @@ const routes = [
 
         <Cards>
           {#each films as film (film.shard)}
-            <MediaBlock kind="film" media={film} />
+            <MediaBlock kind="films" media={film} />
           {/each}
         </Cards>
       </section>
@@ -94,7 +94,7 @@ const routes = [
 
     <Cards>
       {#each displayed as film (film.shard)}
-        <MediaBlock kind="film" media={film} />
+        <MediaBlock kind="films" media={film} />
       {/each}
     </Cards>
 

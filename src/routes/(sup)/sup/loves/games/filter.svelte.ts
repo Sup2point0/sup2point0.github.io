@@ -12,6 +12,7 @@ export class GameSearchFilter extends SearchFilter<GameData>
     return super.sort(games,
       game => Math.max(
         partial_ratio(this.query, game.name),
+        partial_ratio(this.query, game.genres.join(" ")),
       )
     );
   }

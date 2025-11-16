@@ -90,12 +90,13 @@ onMount(() => {
 @use 'sass:color';
 
 
-button.block.game {
+.block.game {
   flex-grow: 1;
   max-width: 32rem;
   padding: 1rem 1.5rem;
   background: none;
   border: none;
+  transition: #{trans()};
   @include shear-card($interactive: true);
   @include anim-block;
 
@@ -111,6 +112,10 @@ button.block.game {
   &.wishlist::before {
     border: 1px solid rgb(white, 42%);
   }
+
+  &.retired.intersected {
+    opacity: 0.5;
+  }
 }
 
 .content {
@@ -124,7 +129,7 @@ button.block.game {
   opacity: 0;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
 
-  button.block.game.intersected & {
+  .block.game.intersected & {
     transform: none;
     opacity: 1;
   }

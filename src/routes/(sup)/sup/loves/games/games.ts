@@ -2,8 +2,27 @@ import type { Searchable } from "#scripts/search-filter.svelte.ts";
 import type { DatePoint } from "#scripts/types";
 
 
-type Genre = "rhythm" | "tower defence" | "racing" | "shmup" | "rogue" | "metroidvania" | "runner" | "puzzle" | "cards" | "sandbox" | "io" | "classics";
-type Platform = "mobile" | "desktop" | "arcade" | "console" | "VR";
+type Genre =
+  "rhythm"
+| "tower defence"
+| "racing"
+| "shmup"
+| "rogue"
+| "metroidvania"
+| "runner"
+| "puzzle"
+| "cards"
+| "sandbox"
+| "io"
+| "classics"
+;
+type Platform =
+  "mobile"
+| "desktop"
+| "arcade"
+| "console"
+| "VR"
+;
 
 export enum PlayState {
   ACTIVE = "active",
@@ -19,7 +38,7 @@ export interface GameData extends Searchable
   shard: string;
   name: string;
   love: 3 | 2 | 1;
-  date: DatePoint | DatePoint[];
+  date?: DatePoint | DatePoint[];
 
   icon?: string;
 
@@ -33,6 +52,21 @@ export interface GameData extends Searchable
 }
 
 
+/* @ts-ignore 6331 */
+const template = [
+  {
+    shard: "",
+    name: "",
+    love: 0,
+    date: undefined,
+    icon: undefined,
+    genres: [""],
+    platforms: ["desktop"],
+    state: PlayState.WISHLIST,
+  },
+];
+
+
 export const games_list: GameData[] = prep([
   {
     shard: "manifold-garden",
@@ -40,7 +74,7 @@ export const games_list: GameData[] = prep([
     love: 3,
     date: undefined,
     icon: "manifold-garden.png",
-    genres: ["sandbox?"],
+    genres: ["puzzle"],
     platforms: ["desktop"],
     state: PlayState.WISHLIST,
   },
@@ -54,16 +88,6 @@ export const games_list: GameData[] = prep([
     platforms: ["desktop"],
     state: PlayState.WISHLIST,
   },
-  // {
-  //   shard: "",
-  //   name: "",
-  //   love: ,
-  //   date: undefined,
-  //   icon: undefined,
-  //   genres: [""],
-  //   platforms: ["desktop"],
-  //   state: PlayState.WISHLIST,
-  // },
   
   {
     shard: "phigros",
@@ -82,15 +106,6 @@ export const games_list: GameData[] = prep([
     icon: "chunithm.png",
     genres: ["rhythm"],
     platforms: ["arcade"],
-    state: PlayState.OPPORTUNISTIC,
-  }, {
-    shard: "paradigm-reboot",
-    name: "Paradigm: Reboot",
-    love: 3,
-    date: ["summer 2025", "present"],
-    icon: "paradigm-reboot.png",
-    genres: ["rhythm"],
-    platforms: ["mobile"],
     state: PlayState.ACTIVE,
   }, {
     shard: "arcaea",
@@ -111,6 +126,15 @@ export const games_list: GameData[] = prep([
     platforms: ["desktop"],
     state: PlayState.ACTIVE,
   }, {
+    shard: "paradigm-reboot",
+    name: "Paradigm: Reboot",
+    love: 2,
+    date: ["summer 2025", "present"],
+    icon: "paradigm-reboot.png",
+    genres: ["rhythm"],
+    platforms: ["mobile"],
+    state: PlayState.ACTIVE,
+  }, {
     shard: "dance-cube-evo",
     name: "DanceCube EVO",
     love: 2,
@@ -122,7 +146,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard: "vivid-stasis",
     name: "vivid/stasis",
-    love: 2,
+    love: 1,
     date: ["fall 2024", "present"],
     icon: "vivid-stasis.jpg",
     genres: ["rhythm"],
@@ -133,7 +157,7 @@ export const games_list: GameData[] = prep([
     name: "Rizline",
     love: 1,
     date: ["fall 2025", "present"],
-    icon: undefined,
+    icon: "rizline.webp",
     genres: ["rhythm"],
     platforms: ["mobile"],
     state: PlayState.INFREQUENT,
@@ -142,7 +166,7 @@ export const games_list: GameData[] = prep([
     name: "シノビスラッシュ",
     love: 1,
     date: ["fall 2025", "present"],
-    icon: undefined,
+    icon: "shinobi-slash.webp",
     genres: ["rhythm"],
     platforms: ["mobile"],
     state: PlayState.INTERMITTENT,
@@ -151,7 +175,7 @@ export const games_list: GameData[] = prep([
     name: "RYCEAM",
     love: 1,
     date: ["fall 2025", "present"],
-    icon: undefined,
+    icon: "ryceam.webp",
     genres: ["rhythm"],
     platforms: ["mobile"],
     state: PlayState.INFREQUENT,
@@ -294,7 +318,8 @@ export const games_list: GameData[] = prep([
   }, {
     shard: "minion-rush",
     name: "Minion Rush",
-    love: 2,
+    love: 1,
+    icon: "minion-rush.webp",
     genres: ["runner", "classics"],
     platforms: ["mobile"],
     state: PlayState.RETIRED,
@@ -302,6 +327,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard: "temple-run-2",
     name: "Temple Run 2",
+    icon: "temple-run-2.jpg",
     love: 1,
     genres: ["runner"],
     platforms: ["mobile"],
@@ -310,7 +336,8 @@ export const games_list: GameData[] = prep([
   }, {
     shard: "temple-run",
     name: "Temple Run",
-    love: 2,
+    love: 1,
+    icon: "temple-run.jpg",
     genres: ["runner", "classics"],
     platforms: ["mobile"],
     state: PlayState.RETIRED,
@@ -397,6 +424,7 @@ export const games_list: GameData[] = prep([
     shard: "zombs-io",
     name: "zombs.io",
     love: 2,
+    icon: "zombs-io.jpg",
     genres: ["tower defence", "io"],
     platforms: ["desktop"],
     state: PlayState.RETIRED,

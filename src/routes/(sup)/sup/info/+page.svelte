@@ -178,7 +178,7 @@ section.profile {
     td {
       padding: 0;
       @include font-fun;
-      transform: scale(150%) translateY(0.2em);
+      transform: scale(150%) translateY(0.1em);
       transform-origin: left;
 
       span { transition: #{trans()}; }

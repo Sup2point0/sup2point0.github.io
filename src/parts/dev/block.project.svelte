@@ -1,12 +1,11 @@
-<!-- @component GameBlock
+<!-- @component ProjectBlock
 
-A block displaying info for a game.
 -->
 
 <script lang="ts">
 
 import { display_date } from "#scripts/utils";
-import { type GameData } from "#routes/(sup)/sup/loves/games/games";
+import type { ProjectData } from "#routes/(sup)/sup/projects/projects";
 
 import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
 
@@ -14,10 +13,10 @@ import { onMount } from "svelte";
 
 
 interface Props {
-  game: GameData;
+  project: ProjectData;
 }
 
-let { game }: Props = $props();
+let { project }: Props = $props();
 
 
 let self: HTMLElement;
@@ -34,55 +33,64 @@ onMount(() => {
 </script>
 
 
-<button class="game block {game.state}"
+<a class="project block"
   class:intersected={anim.intersected}
-  id={game.shard}
+  class:shrink={project.name.length > 20}
+  id={project.shard}
   bind:this={self}
+  target={"_blank"}
+  href={project.link}
   style:--delay={calc_delay(anim, 0.2)}
 >
   <div class="content">
-    <div class="img-container">
-      <img alt={game.name} title={game.name}
-        width="120px" height="120px"
-        src={game.icon ? `/games/icons/${game.icon}` : "/purple-portal.png"}
-      />
-    </div>
+    <img alt={project.name} title={project.name}
+      width="120px" height="120px"
+      src={project.icon ? `/projects/icons/${project.icon}` : "/purple-portal.png"}
+    />
 
     <div class="info">
       <div class="upper">
-        <h3> {game.name} </h3>
+        <h3> {project.name} </h3>
 
         <p class="love">
-          {#each { length: game.love } as _}
+          {#each { length: project.love } as _}
             ❤️‍🔥
           {/each}
         </p>
       </div>
 
-      <div class="inner">
-        {#if game.date}
+      <div class="capt">
+        {#if project.date}
           <p class="date">
-            {display_date(game.date)}
+            {display_date(project.date)}
           </p>
-
-          <span class="separator"> × </span>
         {/if}
 
-        <p class="state {game.state}">
-          {game.state.toUpperCase()}
+        <p class="state {project.state}">
+          {project.state!.toUpperCase()}
         </p>
       </div>
 
+      <div class="inner">
+        {#if project.desc}
+          {@html project.desc}
+        {/if}
+      </div>
+
       <div class="lower">
-        <ul class="genres">
-          {#each game.genres ?? [] as genre}
-            <li> {genre} </li>
+        <ul class="tags">
+          {#each project.tech ?? [] as tech}
+            <li class="tech"> {tech} </li>
+          {/each}
+          
+          {#each project.tags ?? [] as tag}
+            <li class="tag"> {tag} </li>
           {/each}
         </ul>
       </div>
     </div>
   </div>
-</button>
+</a>
 
 
 <style lang="scss">
@@ -90,10 +98,13 @@ onMount(() => {
 @use 'sass:color';
 
 
-button.block.game {
+a.block.project {
   flex-grow: 1;
-  max-width: 32rem;
-  padding: 1rem 1.5rem;
+  max-width: 36rem;
+  padding: 1rem 2.5rem;
+  font-size: 80%;
+  color: unset;
+  text-decoration: none;
   background: none;
   border: none;
   @include shear-card($interactive: true);
@@ -106,10 +117,6 @@ button.block.game {
     .inner p {
       color: $col-text;
     }
-  }
-
-  &.wishlist::before {
-    border: 1px solid rgb(white, 42%);
   }
 }
 
@@ -124,24 +131,16 @@ button.block.game {
   opacity: 0;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
 
-  button.block.game.intersected & {
+  a.block.project.intersected & {
     transform: none;
     opacity: 1;
   }
 }
 
 
-.img-container {
-  height: 120px;
-  
-  img {
-    border-radius: 50%;
-    box-shadow: 0 8px 16px rgb(black, 40%);
-
-    .block.game.active & {
-      box-shadow: 0 0 32px color.change($col-trit, $alpha: 0.5);
-    }
-  }
+img {
+  max-width: 100%;
+  box-shadow: 0 8px 16px rgb(black, 40%);
 }
 
 .info {
@@ -158,8 +157,9 @@ button.block.game {
 .upper {
   width: 100%;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-between;
+  align-items: end;
   gap: 0.5rem;
 
   h3 {
@@ -169,8 +169,8 @@ button.block.game {
     color: $col-text;
     text-align: start;
 
-    .block.game.active &, .block.game.opportunistic & {
-      color: $col-quat;
+    .block.shrink & {
+      font-size: 175%;
     }
   }
 
@@ -180,7 +180,7 @@ button.block.game {
   }
 }
 
-.inner {
+.capt {
   flex-grow: 1;
   width: 100%;
   display: flex;
@@ -192,14 +192,6 @@ button.block.game {
     font-size: 100%;
     color: $col-text-deut;
     transition: #{trans()};
-
-    &.active {
-      color: $col-deut !important;
-    }
-
-    &.opportunistic {
-      color: $col-acc !important;
-    }
   }
 
   span.separator {
@@ -210,7 +202,7 @@ button.block.game {
 }
 
 .lower {
-  ul.genres {
+  ul.tags {
     display: flex;
     flex-flow: row wrap;
     justify-content: start;
@@ -225,10 +217,6 @@ button.block.game {
       @include shear-card();
       transition: #{trans()};
 
-      &::before {
-        background: color.change($col-trit, $alpha: 0.69);
-      }
-
       &:hover {
         cursor: auto;
         padding: 0 0.8em;
@@ -238,6 +226,11 @@ button.block.game {
           background: white;
         }
       }
+    }
+
+    li:not(:hover) {
+      &.tech::before { background: color.change($col-trit, $alpha: 0.69); }
+      &.tag::before { background: color.change($col-deut, $alpha: 0.69); }
     }
   }
 }

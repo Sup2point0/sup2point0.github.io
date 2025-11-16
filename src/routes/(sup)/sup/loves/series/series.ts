@@ -1,5 +1,5 @@
-import type { Groups } from "#scripts/types";
 import type { MediaData } from "#scripts/types/media";
+import type { Groups } from "#scripts/types";
 
 
 export interface SeriesData extends MediaData {}

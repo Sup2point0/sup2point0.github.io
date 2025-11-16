@@ -1,6 +1,6 @@
 import { i } from "#scripts/utils";
-import type { Groups, DatePoint } from "#scripts/types";
 import type { MediaData } from "#scripts/types/media";
+import type { Groups, DatePoint } from "#scripts/types";
 
 
 export interface AnimeData extends MediaData

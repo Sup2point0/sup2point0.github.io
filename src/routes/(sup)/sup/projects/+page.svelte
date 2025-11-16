@@ -5,7 +5,6 @@ import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 import Cards from "#parts/core/cards.svelte";
 import Main from "#parts/core/main.svelte";
 import Block from "#parts/ui/block.svelte";
-import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
 import ProjectBlock from "#parts/dev/block.project.svelte";
 
@@ -26,12 +25,10 @@ let displayed_projects: FilterResults<ProjectData> = $derived(filters.apply(proj
   <meta name="description" content="All my software development, creative and personal projects!" />
 </svelte:head>
 
-<Breadcrumbs levels={[
-  { text: "projects" },
-]} />
 
 <Main gap="4rem">
   <Block>
+    <p> THIS PAGE IS STILL UNDER RENOVATION BTW LMAO </p>
     <p> I’ve created way too many projects to list all of them in one place – but here’s a selection of my favourites for you to explore ^v^ </p>
   </Block>
 

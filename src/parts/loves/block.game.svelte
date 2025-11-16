@@ -186,6 +186,7 @@ button.block.game {
   display: flex;
   flex-flow: row wrap;
   gap: 0.5rem;
+  @include separator;
 
   p {
     @include font-tech;
@@ -200,12 +201,6 @@ button.block.game {
     &.opportunistic {
       color: $col-acc !important;
     }
-  }
-
-  span.separator {
-    @include font-fun;
-    color: $col-text-deut;
-    font-size: 125%;
   }
 }
 

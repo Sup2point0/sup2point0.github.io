@@ -105,7 +105,16 @@
 }
 
 
+@mixin separator {
+  span.separator {
+    @include font-fun;
+    color: $col-text-deut;
+    font-size: 125%;
+  }
+}
+
+
 @function trans()
 {
-  @return "all 0.12s ease-out";
+  @return 'all 0.12s ease-out';
 }

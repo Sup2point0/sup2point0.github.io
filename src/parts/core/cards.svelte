@@ -6,15 +6,16 @@ A flex container for cards.
 <script lang="ts">
 
 interface Props {
+  force_grid?: boolean;
   children: any;
 }
 
-let { children }: Props = $props();
+let { force_grid = false, children }: Props = $props();
 
 </script>
 
 
-<div class="cards">
+<div class="cards" class:grid={force_grid}>
   {@render children()}
 </div>
 
@@ -23,10 +24,15 @@ let { children }: Props = $props();
 
 .cards {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 30%);
+  display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   gap: 1rem;
+
+  &.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30%);
+  }
 }
 
 @media only screen and (max-width: $width-shrink) {

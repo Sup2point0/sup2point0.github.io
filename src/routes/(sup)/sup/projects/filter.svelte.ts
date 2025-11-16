@@ -13,6 +13,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
       project => Math.max(
         partial_ratio(this.query, project.name),
         partial_ratio(this.query, project.tech.join(" ")),
+        partial_ratio(this.query, project.desc),
       )
     );
   }

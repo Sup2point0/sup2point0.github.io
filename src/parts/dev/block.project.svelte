@@ -33,7 +33,7 @@ onMount(() => {
 </script>
 
 
-<a class="project block"
+<button class="project block"
   class:intersected={anim.intersected}
   class:shrink={project.name.length > 20}
   id={project.shard}
@@ -43,50 +43,94 @@ onMount(() => {
   style:--delay={calc_delay(anim, 0.2)}
 >
   <div class="content">
-    <img alt={project.name} title={project.name}
-      width="120px" height="120px"
-      src={project.icon ? `/projects/icons/${project.icon}` : "/purple-portal.png"}
-    />
 
-    <div class="info">
-      <div class="upper">
-        <h3> {project.name} </h3>
+<img class="project-icon"
+  alt={project.name} title={project.name}
+  width="120px" height="120px"
+  src={project.icon ? `/projects/icons/${project.icon}` : "/purple-portal.png"}
+/>
 
-        <p class="love">
-          {#each { length: project.love } as _}
-            ❤️‍🔥
-          {/each}
-        </p>
-      </div>
+<div class="info">
+  <div class="upper">
+    <div class="title">
+      <h3> {project.name} </h3>
 
-      <div class="capt">
-        {#if project.date}
-          <p class="date">
-            {display_date(project.date)}
-          </p>
-        {/if}
+      {#if project.love}
+        <p class="love"> {#each { length: project.love } as _} ❤️‍🔥 {/each} </p>
+      {/if}
+    </div>
 
-        <p class="state {project.state}">
-          {project.state!.toUpperCase()}
-        </p>
-      </div>
-
-      <div class="inner">
-        {#if project.desc}
-          {@html project.desc}
-        {/if}
-      </div>
-
-      <div class="lower">
-        <ul class="tags">
-          {#each project.tech ?? [] as tech}
-            <li class="tech"> {tech} </li>
-          {/each}
-        </ul>
-      </div>
+    <div class="ext-links">
+      {#each Object.entries(project.links ?? {}) as [platform, link]}
+        <a class="project-link" target="_blank" href={link}>
+          {#if platform === "github"}
+            <img class="ext-link" alt="git" title="GitHub" height="25px" src="/ui/icons/github.svg" />
+          {:else if platform === "site"}
+            <img class="ext-link" alt="site" title="Site" height="30px" src="/ui/icons/open-external.svg" />
+          {/if}
+        </a>
+      {/each}
     </div>
   </div>
-</a>
+
+  <div class="inner">
+    {#if project.date}
+      <p class="date"> {display_date(project.date)} </p>
+      <span class="separator"> × </span>
+    {/if}
+    
+    {#if Array.isArray(project.state)}
+      {#each project.state.entries() as [i, state]}
+        {#if i > 0} <span class="separator"> × </span> {/if}
+        <p class="state {state}"> {state.toUpperCase()} </p>
+      {/each}
+    {:else}
+      <p class="state {project.state}"> {project.state.toUpperCase()} </p>
+    {/if}
+  </div>
+
+  <div class="body">
+    {#if Array.isArray(project.desc)}
+      {#each project.desc as block}
+        <p> {@html block} </p>
+      {/each}
+    {:else if project.desc}
+      <p> {@html project.desc} </p>
+    {/if}
+  </div>
+
+  <div class="inner">
+    {#if Array.isArray(project.kind)}
+      {#each project.kind.entries() as [i, kind]}
+        {#if i > 0} <span class="separator"> × </span> {/if}
+        <p class="kind {kind}"> {kind.toUpperCase()} </p>
+      {/each}
+    {:else}
+      <p class="kind {project.kind}"> {project.kind.toUpperCase()} </p>
+    {/if}
+
+    <span class="separator"> × </span>
+
+    {#if Array.isArray(project.flavour)}
+      {#each project.flavour.entries() as [i, flavour]}
+        {#if i > 0} <span class="separator"> × </span> {/if}
+        <p class="flavour {flavour}"> {flavour.toUpperCase()} </p>
+      {/each}
+    {:else}
+      <p class="flavour {project.flavour}"> {project.flavour.toUpperCase()} </p>
+    {/if}
+  </div>
+
+  <div class="lower">
+    <ul class="tags">
+      {#each project.tech ?? [] as tech}
+        <li class="tech"> {tech} </li>
+      {/each}
+    </ul>
+  </div>
+
+  </div>
+</button>
 
 
 <style lang="scss">
@@ -94,13 +138,10 @@ onMount(() => {
 @use 'sass:color';
 
 
-a.block.project {
+.block.project {
   flex-grow: 1;
   max-width: 36rem;
-  padding: 1rem 2.5rem;
-  font-size: 80%;
-  color: unset;
-  text-decoration: none;
+  padding: 1rem 1rem 1rem 2.5rem;
   background: none;
   border: none;
   @include shear-card($interactive: true);
@@ -127,14 +168,14 @@ a.block.project {
   opacity: 0;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
 
-  a.block.project.intersected & {
+  button.block.project.intersected & {
     transform: none;
     opacity: 1;
   }
 }
 
 
-img {
+img.project-icon {
   max-width: 100%;
   box-shadow: 0 8px 16px rgb(black, 40%);
 }
@@ -155,7 +196,7 @@ img {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
   gap: 0.5rem;
 
   h3 {
@@ -174,30 +215,61 @@ img {
     min-width: max-content;
     font-size: 150%;
   }
+
+  > div {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .ext-links {
+    img.ext-link {
+      max-height: 100%;
+      aspect-ratio: 1;
+      transition: #{trans()};
+
+      &:hover {
+        transform: scale(110%);
+      }
+    }
+  }
 }
 
-.capt {
+.inner {
   flex-grow: 1;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
+  align-items: center;
   gap: 0.5rem;
+  @include separator;
 
   p {
     @include font-tech;
     font-size: 100%;
     color: $col-text-deut;
     transition: #{trans()};
-  }
 
-  span.separator {
-    @include font-fun;
-    color: $col-text-deut;
-    font-size: 125%;
+    &.developing {
+      color: $col-deut !important;
+    }
+  }
+}
+
+.body {
+  padding: 0.5rem 0;
+
+  p {
+    @include font-ui;
+    color: $col-text;
+    text-align: left;
   }
 }
 
 .lower {
+  padding-top: 0.1rem;
+
   ul.tags {
     display: flex;
     flex-flow: row wrap;
@@ -206,16 +278,16 @@ img {
     list-style-type: none;
 
     li {
-      padding: 0 0.5em;
-      @include font-fun;
-      font-size: 150%;
+      padding: 0.15em 0.5em 0;
+      @include font-ui;
+      font-size: 110%;
       color: $col-text;
       @include shear-card();
       transition: #{trans()};
 
       &:hover {
         cursor: auto;
-        padding: 0 0.8em;
+        padding: 0.15em 0.8em 0;
         color: black;
       
         &::before {
@@ -225,8 +297,15 @@ img {
     }
 
     li:not(:hover) {
-      &.tech::before { background: color.change($col-trit, $alpha: 0.69); }
+      &.tech::before { background: color.change($col-prot, $alpha: 0.8); }
     }
+  }
+}
+
+
+@media (min-width: $width-expand) {
+  .block.project {
+    max-width: 42rem;
   }
 }
 

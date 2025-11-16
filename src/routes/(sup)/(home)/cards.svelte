@@ -66,7 +66,7 @@ const content_routes = {
     {displayed_title}
   </h2>
 
-  <Cards>
+  <Cards force_grid={true}>
     <LinkCard text="games" link="sup/projects" capt={displayed_routes.games} />
     <LinkCard text="websites" link="sup/projects" capt={displayed_routes.websites} />
     <LinkCard text="software" link="sup/projects" capt={displayed_routes.software} />

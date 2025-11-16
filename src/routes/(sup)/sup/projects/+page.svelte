@@ -77,6 +77,10 @@ let displayed_projects: FilterResults<ProjectData> = $derived(filters.apply(proj
 
 <style lang="scss">
 
+section {
+  width: 100%;
+}
+
 h2 {
   margin-bottom: 2rem;
   @include font-tech;

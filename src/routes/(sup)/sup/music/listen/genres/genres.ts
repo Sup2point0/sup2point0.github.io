@@ -30,6 +30,12 @@ export const genres_data: {
       tracks: ["Bass Factory"],
     },
     {
+      name: "bop",
+      kind: GenreKind.VIBE,
+      artists: ["Stessie", "Kirara Magic"],
+      tracks: ["Checkmate"],
+    },
+    {
       name: "C-pop",
       artists: ["茶鸣拾贰律"],
     },
@@ -139,7 +145,7 @@ export const genres_data: {
     },
     {
       name: "music",
-      artists: ["Frums", "Street"],
+      artists: ["Frums", "Street", "かめりあ"],
       tracks: ["XNOR XNOR XNOR"],
     },
     {
@@ -150,6 +156,10 @@ export const genres_data: {
     {
       name: "orchestral",
       artists: ["Johannes Bornlöf", "Gavin Luke"],
+    },
+    {
+      name: "oriental",
+      artists: ["M-UE", "Xomu", "茶鸣拾贰律"],
     },
     {
       name: "piano",
@@ -166,7 +176,7 @@ export const genres_data: {
     {
       name: "rock",
       artists: ["Avril Lavigne"],
-      tracks: ["Stacie’s Mom"],
+      tracks: ["Stacie’s Mom", "sk8er boi"],
     },
     {
       name: "speedcore",
@@ -176,7 +186,7 @@ export const genres_data: {
     {
       name: "transcendental",
       artists: ["かめりあ", "Polyphia", "tn-shi"],
-      tracks: ["Synthesis."],
+      tracks: ["Synthesis.", "Playing God"],
     },
     {
       name: "trap",
@@ -199,6 +209,7 @@ export const genres_data: {
     },
     {
       name: "breakcore",
+      artists: ["Frums"],
     },
     {
       name: "denpa",
@@ -233,6 +244,8 @@ export const genres_data: {
     },
     {
       name: "k-pop",
+      artists: ["KATSEYE", "BLACKPINK"],
+      tracks: ["Debut"],
     },
     {
       name: "music",
@@ -252,6 +265,8 @@ export const genres_data: {
     },
     {
       name: "rap",
+      artists: ["Bo Burnham"],
+      tracks: ["Venom"],
     },
     {
       name: "schranz",

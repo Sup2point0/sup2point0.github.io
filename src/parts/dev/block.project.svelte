@@ -4,7 +4,7 @@
 
 <script lang="ts">
 
-import { display_date } from "#scripts/utils";
+import { shardify, display_date } from "#scripts/utils";
 import type { ProjectData } from "#routes/(sup)/sup/projects/projects";
 
 import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
@@ -126,7 +126,8 @@ onMount(() => {
   <div class="lower">
     <ul class="tags">
       {#each project.tech ?? [] as tech}
-        <li class="tech"> {tech} </li>
+        {@const t = console.log(shardify(tech))}
+        <li class="tech {shardify(tech)}"> {tech} </li>
       {/each}
     </ul>
   </div>
@@ -180,8 +181,6 @@ onMount(() => {
 
 img.project-icon {
   max-width: 100%;
-  // border-radius: 50%;
-  // box-shadow: 0 8px 16px rgb(black, 40%);
 }
 
 .info {
@@ -191,7 +190,7 @@ img.project-icon {
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: start;
-  gap: 0.5rem;
+  gap: 0.25rem;
 }
 
 
@@ -262,7 +261,7 @@ img.project-icon {
 }
 
 .body {
-  padding: 0.5rem 0;
+  padding-bottom: 0.5rem;
 
   p {
     @include font-ui;
@@ -301,7 +300,16 @@ img.project-icon {
     }
 
     li:not(:hover) {
-      &.tech::before { background: color.change($col-prot, $alpha: 0.8); }
+      &.tech::before { background: color.change(#4090f1, $alpha: 0.69); }
+      &.unity::before { background: color.change(#40f190, $alpha: 0.6); }
+      &.python::before { background: color.change(#0064f1, $alpha: 0.8); }
+      &.c-::before { background: color.change(#ff0090, $alpha: 0.8); }
+      &.ruby::before { background: color.change(#ff1000, $alpha: 0.8); }
+      &.haskell::before { background: color.change(#9090f1, $alpha: 0.69); }
+      &.rust::before { background: color.change(#f160f1, $alpha: 0.69); }
+      &.svelte-kit::before { background: color.change(#ff7020, $alpha: 0.8); }
+      &.javascript::before { background: color.change(#ffc720, $alpha: 0.69); }
+      &.javascript-typescript::before { background: color.change(#ffc720, $alpha: 0.69); }
     }
   }
 }

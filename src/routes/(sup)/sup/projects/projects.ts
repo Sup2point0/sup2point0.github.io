@@ -465,7 +465,7 @@ export const projects_data: Groups<ProjectData> = {
         Lang.PYTHON,
       ],
       state: State.ARCHIVED,
-      desc: `An automated content deployment framework for exporting Markdown files in repositories to GitHub Pages. The predecessor to ${i("Squarkdown")}`,
+      desc: `An automated content deployment framework for exporting Markdown files in repositories to GitHub Pages. The predecessor to ${i("Squarkdown")}.`,
     },
     {
       shard: "vapour",
@@ -487,7 +487,7 @@ export const projects_data: Groups<ProjectData> = {
       flavour: [Flavour.DEV, Flavour.ACADEMIC],
       kind: Kind.APPLICATION,
       tech: [
-        Lang.CSHARP, Lang.JSON,
+        Tool.UNITY, Lang.CSHARP, Lang.JSON,
       ],
       state: State.ARCHIVED,
       links: {

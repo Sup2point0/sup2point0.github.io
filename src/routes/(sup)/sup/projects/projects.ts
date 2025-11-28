@@ -360,6 +360,20 @@ export const projects_data: Groups<ProjectData> = {
       desc: `An applicative brainf*** parser/evaluator`,
     },
     {
+      shard: "sorting-hat",
+      name: "sorting-hat",
+      flavour: Flavour.DEV,
+      kind: Kind.PROGRAM,
+      tech: [
+        Lang.CSHARP, Lang.HASKELL, Lang.RUST,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/sorting-hat",
+      },
+      desc: `Sorting algorithms implemented in languages I’m learning`,
+    },
+    {
       shard: "youtube-playlist-shuffler",
       name: "YouTube Playlist Shuffler",
       date: 2025,
@@ -452,6 +466,20 @@ export const projects_data: Groups<ProjectData> = {
       ],
       state: State.ARCHIVED,
       desc: `An automated content deployment framework for exporting Markdown files in repositories to GitHub Pages. The predecessor to ${i("Squarkdown")}`,
+    },
+    {
+      shard: "vapour",
+      name: "Vapour",
+      flavour: Flavour.DEV,
+      kind: Kind.PROGRAM,
+      tech: [
+        Lang.CSHARP,
+      ],
+      state: State.ARCHIVED,
+      links: {
+        github: "https://github.com/Sup2point0/vapour",
+      },
+      desc: `Rendering images with random walks`,
     },
     {
       name: "REAX",

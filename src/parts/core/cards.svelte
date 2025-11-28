@@ -35,7 +35,7 @@ let { force_grid = false, children }: Props = $props();
   }
 }
 
-@media only screen and (max-width: $width-shrink) {
+@media (max-width: $width-shrink) {
   .cards {
     display: flex;
     flex-flow: column nowrap;

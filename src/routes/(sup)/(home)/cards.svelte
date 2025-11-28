@@ -86,20 +86,4 @@ h2 {
   text-transform: uppercase;
 }
 
-.cards {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 30%);
-  justify-content: center;
-  gap: 1rem;
-}
-
-@media only screen and (max-width: $width-shrink) {
-  .cards {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: stretch;
-  }
-}
-
 </style>

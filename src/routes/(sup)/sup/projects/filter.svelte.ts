@@ -14,7 +14,8 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
         partial_ratio(this.query, project.name),
         partial_ratio(this.query, project.tech.join(" ")),
         project.desc ? partial_ratio(this.query, project.desc) : 0,
-        project.tags ? partial_ratio(this.query, project.tags) : 0,
+        project.tech ? partial_ratio(this.query, project.tech.join(" ")) : 0,
+        project.tags ? partial_ratio(this.query, project.tags.join(" ")) : 0,
       )
     );
   }

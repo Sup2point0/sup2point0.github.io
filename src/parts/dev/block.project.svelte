@@ -180,8 +180,8 @@ onMount(() => {
 
 img.project-icon {
   max-width: 100%;
-  border-radius: 50%;
-  box-shadow: 0 8px 16px rgb(black, 40%);
+  // border-radius: 50%;
+  // box-shadow: 0 8px 16px rgb(black, 40%);
 }
 
 .info {

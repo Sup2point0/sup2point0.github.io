@@ -39,8 +39,8 @@ export enum Flavour {
 
 export enum Kind {
   GENERAL = "general",
-  WEBSITE = "website", GAME = "game", APPLICATION = "application", FRAMEWORK = "framework", TOOL = "tool", PROGRAM = "program",
-  LANGUAGE = "language", WORLD = "worldbuilding", WIKI = "wiki", GRAPHIC = "graphic design",
+  WEBSITE = "website", GAME = "game", APPLICATION = "application", FRAMEWORK = "framework", TOOL = "tool", PROGRAM = "program", WIKI = "wiki",
+  LANGUAGE = "language", WORLD = "worldbuilding", WRITING = "writing", GRAPHIC = "graphic design",
 }
 
 export enum State {
@@ -102,7 +102,7 @@ export const projects_data: Groups<ProjectData> = {
       love: 3,
       icon: "assort.svg",
       flavour: [Flavour.PERSONAL, Flavour.DEV],
-      kind: ["wiki", Kind.WEBSITE],
+      kind: [Kind.WIKI, Kind.WEBSITE],
       tech: [
         Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.HTML, Lang.JSON, Lang.MARKDOWN,
       ],
@@ -129,7 +129,7 @@ export const projects_data: Groups<ProjectData> = {
     },
     {
       name: "Avidity",
-      love: 2,
+      love: 1,
       icon: undefined,
       flavour: Flavour.DEV,
       kind: [Kind.APPLICATION, Kind.WEBSITE],
@@ -146,7 +146,7 @@ export const projects_data: Groups<ProjectData> = {
     },
     {
       name: "Stranger Quarkdown",
-      love: 2,
+      love: 1,
       icon: "squarkdown.png",
       flavour: Flavour.DEV,
       kind: Kind.FRAMEWORK,
@@ -162,19 +162,37 @@ export const projects_data: Groups<ProjectData> = {
       desc: `An automated content deployment framework for SvelteKit`,
     },
     {
-      name: "WeightedList",
+      shard: "weighted-list",
+      name: "weighted-list",
       love: 2,
       icon: undefined,
       flavour: Flavour.DEV,
       kind: Kind.FRAMEWORK,
       tech: [
-        Lang.PYTHON, Lang.CSHARP, Lang.TYPESCRIPT, Lang.RUBY, Lang.HASKELL, Lang.RUST,
+        Lang.PYTHON, Lang.CSHARP, Lang.TYPESCRIPT, Lang.HASKELL, Lang.RUST, // LANG.RUBY
       ],
       state: [State.DEVELOPING, State.MAINTAINING],
       links: {
         github: "https://github.com/Sup2point0/weighted-list",
       },
       desc: `A specialised list for weighted randomisation, implemented in every language as I know. I now use it as an exercise when learning new ones!`,
+    },
+    {
+      shard: "lattix",
+      name: "lattix",
+      love: 2,
+      icon: "lattix.svg",
+      flavour: Flavour.DEV,
+      kind: [Kind.WEBSITE, Kind.APPLICATION],
+      tech: [
+        Lang.SVELTE, Lang.TYPESCRIPT,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/lattix",
+        site: "https://sup2point0.github.io/lattix",
+      },
+      desc: `More beautiful puzzle solving`,
     },
     {
       name: "Algorhythm",
@@ -221,10 +239,10 @@ export const projects_data: Groups<ProjectData> = {
   "Creations": [
     {
       name: "pyco:bytes",
-      love: 2,
+      love: 1,
       icon: "pycobytes.png",
       flavour: Flavour.DEV,
-      kind: Kind.WEBSITE,
+      kind: [Kind.WEBSITE, Kind.WRITING],
       tech: [
         Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.HTML, Lang.PYTHON, Lang.MARKDOWN
       ],
@@ -237,7 +255,7 @@ export const projects_data: Groups<ProjectData> = {
     },
     {
       name: "Victory",
-      flavour: Flavour.PERSONAL,
+      flavour: [Flavour.PERSONAL, Flavour.DEV],
       kind: [Kind.GAME, Kind.WORLD],
       tech: [
         Lang.SVELTE, Lang.MARKDOWN
@@ -245,8 +263,102 @@ export const projects_data: Groups<ProjectData> = {
       state: State.HIATUS,
       desc: `A custom card game for me and my sister to play, inspired by ${i("Yu-Gi-Oh!")}`,
     },
+    {
+      shard: "buccaneer-game",
+      name: "Buccaneer Game",
+      love: 1,
+      icon: "buccaneer-game.svg",
+      flavour: [Flavour.PERSONAL, Flavour.DEV],
+      kind: Kind.GENERAL,
+      tech: [
+        Lang.SVELTE, Lang.TYPESCRIPT,
+      ],
+      state: State.HIATUS,
+      links: {
+        github: "https://github.com/Sup2point0/buccaneer-game",
+        site: "https://sup2point0.github.io/buccaneer-game",
+      },
+      desc: `Mathematical piracy and chaotic fun`,
+    },
+  ],
+  "Websites": [
+    {
+      shard: "lucidity",
+      name: "Lucidity",
+      love: 1,
+      flavour: Flavour.DEV,
+      kind: Kind.WEBSITE,
+      tech: [
+        Lang.SVELTE,
+      ],
+      state: State.MAINTAINING,
+      links: {
+        github: "https://github.com/Sup2point0/lucidity",
+        site: "https://sup2point0.github.io/lucidity",
+      },
+      desc: `A quick and simple tool for applying blur and other CSS effects to images straight from the clipboard`,
+    },
+    {
+      shard: "skyscraping",
+      name: "Skyscraping",
+      love: 1,
+      icon: "skyscraping.svg",
+      flavour: [Flavour.DEV, Flavour.PERSONAL],
+      kind: [Kind.WEBSITE, Kind.WIKI],
+      tech: [
+        Lang.SVELTE,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/skyscraping",
+        site: "https://sup2point0.github.io/skyscraping"
+      },
+      desc: `An adventurer’s archive of techniques and tricks for solving Skyscrapers puzzles`,
+    },
   ],
   "Miscellaneous": [
+    {
+      shard: "shardify",
+      name: "shardify",
+      flavour: Flavour.DEV,
+      kind: Kind.TOOL,
+      tech: [
+        Lang.RUST,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/shardify",
+      },
+      desc: `Lightweight Rust-powered CLI to convert arbitrary strings to normalised kebab-case identifiers`,
+    },
+    {
+      shard: "archividian",
+      name: "archividian",
+      flavour: Flavour.DEV,
+      kind: Kind.TOOL,
+      tech: [
+        Lang.RUST,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/archividian",
+      },
+      desc: `Archiving file system metadata for Git while avoiding tracking large files`,
+    },
+    {
+      shard: "brainflop",
+      name: "brainflop",
+      flavour: Flavour.DEV,
+      kind: Kind.PROGRAM,
+      tech: [
+        Lang.HASKELL,
+      ],
+      state: State.INDETERMINATE,
+      links: {
+        github: "https://github.com/Sup2point0/brainflop",
+      },
+      desc: `An applicative brainf*** parser/evaluator`,
+    },
     {
       shard: "youtube-playlist-shuffler",
       name: "YouTube Playlist Shuffler",
@@ -290,7 +402,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       name: "The Monkeyopolis Times",
       love: 3,
-      icon: undefined,
+      icon: "monkeyopolis-times.png",
       flavour: Flavour.PERSONAL,
       kind: Kind.GRAPHIC,
       tech: [

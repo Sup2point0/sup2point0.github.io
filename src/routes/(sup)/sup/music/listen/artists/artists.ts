@@ -7,6 +7,17 @@ export const artists_data: {
 } = {
   "newly discovered": [
     {
+      shard: "ludicin",
+      name: "Ludicin",
+      date: "2025 WINTER",
+      icon: "lucidin.jpg",
+      genres: ["rhythm", "full flavour"],
+      track: {
+        name: "Lost Requiem", link: "https://youtube.com/watch?v=QdiqIo963PE"
+      },
+      discovered: "YouTube Music reccs",
+    },
+    {
       shard: "steradlye",
       name: "Steradlye",
       date: "2025 FALL",

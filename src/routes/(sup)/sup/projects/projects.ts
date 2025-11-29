@@ -318,6 +318,20 @@ export const projects_data: Groups<ProjectData> = {
   ],
   "Miscellaneous": [
     {
+      shard: "vscode-supcode-visuals",
+      name: "supcode Visuals for VSCode",
+      flavour: Flavour.DEV,
+      kind: Kind.APPLICATION,
+      tech: [
+        Lang.TYPESCRIPT,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/vscode-supcode-visuals",
+      },
+      desc: `Visual Studio Code extension for supcode-flavoured editor customisations`,
+    },
+    {
       shard: "shardify",
       name: "shardify",
       flavour: Flavour.DEV,

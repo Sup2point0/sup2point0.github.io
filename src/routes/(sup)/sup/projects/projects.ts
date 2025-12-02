@@ -125,7 +125,7 @@ export const projects_data: Groups<ProjectData> = {
         github: "https://github.com/Sup2point0/integrity",
         site: "https://sup2point0.github.io/integrity",
       },
-      desc: `All my hand-crafted maths questions, game develpoment in Desmos, and more!`,
+      desc: `All my hand-crafted maths questions, game development in Desmos, and more!`,
     },
     {
       name: "Avidity",
@@ -261,6 +261,9 @@ export const projects_data: Groups<ProjectData> = {
         Lang.SVELTE, Lang.MARKDOWN
       ],
       state: State.HIATUS,
+      links: {
+        github: "https://github.com/Sup2point0/Victory"
+      },
       desc: `A custom card game for me and my sister to play, inspired by ${i("Yu-Gi-Oh!")}`,
     },
     {
@@ -388,6 +391,20 @@ export const projects_data: Groups<ProjectData> = {
       desc: `Sorting algorithms implemented in languages I’m learning`,
     },
     {
+      shard: "hastkell",
+      name: "hASTkell",
+      flavour: Flavour.DEV,
+      kind: Kind.FRAMEWORK,
+      tech: [
+        Lang.HASKELL,
+      ],
+      state: State.INDETERMINATE,
+      links: {
+        github: "https://github.com/Sup2point0/hASTkell",
+      },
+      desc: `Building abstract syntax trees for parsing and computing mathematical expressions`,
+    },
+    {
       shard: "youtube-playlist-shuffler",
       name: "YouTube Playlist Shuffler",
       date: 2025,
@@ -462,7 +479,7 @@ export const projects_data: Groups<ProjectData> = {
       flavour: Flavour.DEV,
       kind: [Kind.GENERAL, Kind.PROGRAM],
       tech: [
-        Lang.PYTHON, Tool.KERAS,
+        Lang.PYTHON, Lang.SQL, Tool.KERAS, Tool.NEXTCORD
       ],
       state: State.ARCHIVED,
       links: {
@@ -487,7 +504,7 @@ export const projects_data: Groups<ProjectData> = {
       flavour: Flavour.DEV,
       kind: Kind.PROGRAM,
       tech: [
-        Lang.CSHARP,
+        Lang.CSHARP, "OpenGL",
       ],
       state: State.ARCHIVED,
       links: {

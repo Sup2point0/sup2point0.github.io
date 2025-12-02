@@ -155,6 +155,10 @@ onMount(() => {
     cursor: auto;
     opacity: 1 !important;
 
+    img.project-icon {
+      transform: scale(110%);
+    }
+
     .inner p {
       color: $col-text;
     }
@@ -181,6 +185,7 @@ onMount(() => {
 
 img.project-icon {
   max-width: 100%;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
 }
 
 .info {

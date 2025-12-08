@@ -80,6 +80,7 @@ const template: ProjectData = [
   shard: "",
   name: "",
   love: 0,
+  date: undefined,
   icon: undefined,
   flavour: Flavour.DEV,
   kind: Kind.GENERAL,
@@ -100,6 +101,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       name: "Assort",
       love: 3,
+      date: [2021, "present"],
       icon: "assort.svg",
       flavour: [Flavour.PERSONAL, Flavour.DEV],
       kind: [Kind.WIKI, Kind.WEBSITE],
@@ -116,6 +118,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       name: "Integrity",
       love: 3,
+      date: [2024, "present"],
       icon: "integrity.svg",
       flavour: [Flavour.DEV, Flavour.ACADEMIC],
       kind: Kind.WEBSITE,
@@ -131,6 +134,7 @@ export const projects_data: Groups<ProjectData> = {
       name: "Avidity",
       love: 1,
       icon: undefined,
+      date: [2024, "present"],
       flavour: Flavour.DEV,
       kind: [Kind.APPLICATION, Kind.WEBSITE],
       tech: [
@@ -147,6 +151,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       name: "Stranger Quarkdown",
       love: 1,
+      date: ["July 2024", "present"],
       icon: "squarkdown.png",
       flavour: Flavour.DEV,
       kind: Kind.FRAMEWORK,
@@ -165,6 +170,7 @@ export const projects_data: Groups<ProjectData> = {
       shard: "weighted-list",
       name: "weighted-list",
       love: 2,
+      date: ["May 2022", "present"],
       icon: undefined,
       flavour: Flavour.DEV,
       kind: Kind.FRAMEWORK,
@@ -181,6 +187,7 @@ export const projects_data: Groups<ProjectData> = {
       shard: "lattix",
       name: "lattix",
       love: 2,
+      date: ["April 2025", "present"],
       icon: "lattix.svg",
       flavour: Flavour.DEV,
       kind: [Kind.WEBSITE, Kind.APPLICATION],
@@ -197,6 +204,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       name: "Algorhythm",
       love: 3,
+      date: ["summer 2023", "present"],
       flavour: [Flavour.DEV, Flavour.PERSONAL],
       kind: Kind.GAME,
       tech: [
@@ -223,6 +231,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       name: "Antarctica",
       love: 3,
+      date: [2021, "present"],
       icon: "antarctica.png",
       flavour: Flavour.PERSONAL,
       kind: Kind.WIKI,
@@ -240,6 +249,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       name: "pyco:bytes",
       love: 1,
+      date: [2024, 2025],
       icon: "pycobytes.png",
       flavour: Flavour.DEV,
       kind: [Kind.WEBSITE, Kind.WRITING],
@@ -255,6 +265,7 @@ export const projects_data: Groups<ProjectData> = {
     },
     {
       name: "Victory",
+      date: [2020, "present"],
       flavour: [Flavour.PERSONAL, Flavour.DEV],
       kind: [Kind.GAME, Kind.WORLD],
       tech: [
@@ -270,13 +281,14 @@ export const projects_data: Groups<ProjectData> = {
       shard: "buccaneer-game",
       name: "Buccaneer Game",
       love: 1,
+      date: [2022, "present"],
       icon: "buccaneer-game.svg",
       flavour: [Flavour.PERSONAL, Flavour.DEV],
       kind: Kind.GENERAL,
       tech: [
         Lang.SVELTE, Lang.TYPESCRIPT,
       ],
-      state: State.HIATUS,
+      state: State.MAINTAINING,
       links: {
         github: "https://github.com/Sup2point0/buccaneer-game",
         site: "https://sup2point0.github.io/buccaneer-game",
@@ -289,6 +301,7 @@ export const projects_data: Groups<ProjectData> = {
       shard: "lucidity",
       name: "Lucidity",
       love: 1,
+      date: ["September 2025", "present"],
       flavour: Flavour.DEV,
       kind: Kind.WEBSITE,
       tech: [
@@ -305,6 +318,7 @@ export const projects_data: Groups<ProjectData> = {
       shard: "skyscraping",
       name: "Skyscraping",
       love: 1,
+      date: ["May 2025", "present"],
       icon: "skyscraping.svg",
       flavour: [Flavour.DEV, Flavour.PERSONAL],
       kind: [Kind.WEBSITE, Kind.WIKI],
@@ -323,6 +337,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       shard: "vscode-supcode-visuals",
       name: "supcode Visuals for VSCode",
+      date: ["winter 2025", "present"],
       flavour: Flavour.DEV,
       kind: Kind.APPLICATION,
       tech: [
@@ -337,6 +352,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       shard: "shardify",
       name: "shardify",
+      date: ["fall 2025", "present"],
       flavour: Flavour.DEV,
       kind: Kind.TOOL,
       tech: [
@@ -351,6 +367,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       shard: "archividian",
       name: "archividian",
+      date: ["fall 2025", "present"],
       flavour: Flavour.DEV,
       kind: Kind.TOOL,
       tech: [
@@ -365,6 +382,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       shard: "brainflop",
       name: "brainflop",
+      date: ["fall 2025", "present"],
       flavour: Flavour.DEV,
       kind: Kind.PROGRAM,
       tech: [
@@ -379,6 +397,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       shard: "sorting-hat",
       name: "sorting-hat",
+      date: [2024, "present"],
       flavour: Flavour.DEV,
       kind: Kind.PROGRAM,
       tech: [
@@ -393,6 +412,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       shard: "hastkell",
       name: "hASTkell",
+      date: ["fall 2025", "present"],
       flavour: Flavour.DEV,
       kind: Kind.FRAMEWORK,
       tech: [
@@ -419,6 +439,7 @@ export const projects_data: Groups<ProjectData> = {
     },
     {
       name: "suptools",
+      date: 2022,
       flavour: Flavour.DEV,
       kind: Kind.FRAMEWORK,
       tech: [Lang.PYTHON],
@@ -447,6 +468,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       name: "The Monkeyopolis Times",
       love: 3,
+      date: [2021, 2022],
       icon: "monkeyopolis-times.png",
       flavour: Flavour.PERSONAL,
       kind: Kind.GRAPHIC,
@@ -459,6 +481,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       name: "PENGUIN",
       love: 3,
+      date: [2021, 2022],
       icon: "penguin.png",
       flavour: [Flavour.DEV, Flavour.PERSONAL],
       kind: [Kind.PROGRAM, Kind.APPLICATION],

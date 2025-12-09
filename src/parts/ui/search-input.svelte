@@ -25,7 +25,7 @@ let { query = $bindable() }: Props = $props();
 <style lang="scss">
 
 .input-container {
-  width: 32rem;
+  width: min(32rem, 69vw);
   @include shear-card();
   transition: #{trans()};
 

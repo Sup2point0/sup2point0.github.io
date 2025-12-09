@@ -68,9 +68,13 @@ let open = $state(false);
     </div>
   
   {:else}
-    <div class="filters">
+    <div class="filters" transition:slide={{ duration: 1000, easing: expoInOut }}>
       <div class="toggles">
+        <span> SHOWING </span>
 
+        {#each filters.get_previews() as [category, option]}
+          <SearchToggle {filters} {category} {option} />
+        {/each}
       </div>
     </div>
   
@@ -135,7 +139,15 @@ search {
 .toggles {
   display: flex;
   flex-flow: row wrap;
+  align-items: center;
   gap: 0.25rem;
+
+  span {
+    padding-right: 1em;
+    @include font-tech;
+    color: $col-text-deut;
+    font-weight: normal;
+  }
 }
 
 </style>

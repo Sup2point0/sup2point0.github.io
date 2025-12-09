@@ -39,8 +39,8 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
   {
     return [
       ...this.if_selected("tech"),
-      ...this.if_selected("flavour"),
-      ...get_enabled(this.kind).map(opt => ["kind", opt]),
+      ...get_enabled(this.flavour).map(opt => ["flavour", opt]),
+      ...this.if_selected("kind"),
       ...this.if_selected("state"),
     ] as [string, string][];
   }

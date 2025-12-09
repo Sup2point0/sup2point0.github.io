@@ -46,7 +46,7 @@ let open = $state(false);
           <tr>
             <th> {property.toUpperCase()} </th>
             <td>
-              <Toggles {property} bind:options={filters[property]} />
+              <Toggles {filters} {property} bind:options={filters[property]} />
             </td>
           </tr>
         {/each}

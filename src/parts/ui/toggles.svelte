@@ -6,18 +6,22 @@ A collection of search filter toggles.
 <script lang="ts">
 
 import { shardify } from "#scripts/utils";
+import type { SearchFilter } from "#scripts/search-filter.svelte.ts";
 
 
 interface Props {
+  filters: SearchFilter<any>;
   property: string;
   options: Record<string, boolean>;
 }
 
-let { property, options = $bindable() }: Props = $props();
+let { filters, property, options = $bindable() }: Props = $props();
 
 
 function toggle(option: string, current_state: boolean)
 {
+  filters.is_dirty = true;
+  
   if (Object.values(options).every(s => s)) {
     for (let opt in options) {
       options[opt] = false;

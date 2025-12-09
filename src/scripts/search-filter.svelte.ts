@@ -15,6 +15,7 @@ export interface Searchable {
 
 export class SearchFilter<Entity extends Searchable>
 {
+  is_dirty: boolean = $state(false);
   query: string = $state("");
 
   sort_by: string = $state("default");

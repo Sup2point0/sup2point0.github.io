@@ -34,7 +34,7 @@ let displayed_projects: FilterResults<ProjectData> = $derived(filters.apply(proj
 
   <SearchFilters bind:filters />
 
-  {#if filters.query === ""}
+  {#if filters.query === "" && !filters.is_dirty}
     {#each Object.entries(projects_data) as [collection, projects]}
       <section>
         <h2> {collection.toUpperCase()} </h2>

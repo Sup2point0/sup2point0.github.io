@@ -34,14 +34,13 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
   apply(projects: ProjectData[]): ProjectData[]
   {
     console.log("=== APPLYING ===");
-    console.log("this.tech =", $state.snapshot(this.tech));
     
     let out = projects.filter(
       proj => {
         proj._score_ = 0;
 
         for (let [prop, states] of Object.entries(this.get_toggles())) {
-          if (Object.values(states).every(s => s)) {
+          if (Object.values(states).every(s => s) || Object.values(states).every(s => !s)) {
             continue;
           }
 
@@ -63,8 +62,8 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
             }
           }
 
-          console.log("prop =", prop, "hits =", hit, "score =", proj._score_);
-          if (hit && proj._score_ === 0) {
+          // console.log("prop =", prop, "hits =", hit, "score =", proj._score_);
+          if (!hit) {
             return false;
           }
         }

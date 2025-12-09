@@ -69,7 +69,6 @@ let open = $state(false);
 <style lang="scss">
 
 search {
-  padding: 0 0 2rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -109,7 +108,7 @@ search {
     max-width: min(80vw, 60rem);
 
     th, td {
-      padding: 0.4rem 0;
+      padding: 0.8rem 0;
     }
 
     th {

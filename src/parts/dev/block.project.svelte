@@ -255,6 +255,9 @@ img.project-icon {
       @include font-tech;
       font-size: 100%;
       color: $col-text-deut;
+
+      &.developing  { color: $col-deut !important; }
+      &.maintaining { color: $col-trit !important; }
     }
 
     @mixin transition($delay: false) {

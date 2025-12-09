@@ -86,15 +86,30 @@ export class SearchFilter<Entity extends Searchable>
    */
   group(
     source: Entity[],
-    grouper: (entity: Entity) => string,
-    sorter?: (group: string) => number,
+    options: {
+      grouper: (entity: Entity) => string,
+      entity_scorer?: (entity: Entity) => number,
+      group_scorer?: (group: string, entities: Entity[]) => number,
+    },
   ): [string, Entity[]][]
   {
+    let { grouper, entity_scorer, group_scorer } = options;
+
     let groups = Object.groupBy(source, grouper) as Groups<Entity>;
     let out = Object.entries(groups);
+
+    // TODO: reverse?
+    if (entity_scorer) {
+      out = out.map(
+        ([group, entity]) => [group, entity.toSorted(
+          (e1, e2) => entity_scorer(e2) - entity_scorer(e1)
+        )],
+        this
+      );
+    }
     
-    if (sorter) {
-      out.sort(([group1, _], [group2, __]) => sorter(group1) - sorter(group2));
+    if (group_scorer) {
+      out.sort(([g1, e1], [g2, e2]) => group_scorer(g2, e2) - group_scorer(g1, e1));
     }
 
     if (this.reverse_group) {

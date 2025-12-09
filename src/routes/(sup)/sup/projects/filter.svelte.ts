@@ -71,6 +71,31 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
     ];
   }
 
+  project_scorer(proj: ProjectData): number
+  {
+    return Math.max(
+      partial_ratio(this.query, proj.name),
+      partial_ratio(this.query, proj.tech.join(" ")),
+      proj.desc ? partial_ratio(this.query, proj.desc) : 0,
+      proj.tech ? partial_ratio(this.query, proj.tech.join(" ")) : 0,
+      proj.tags ? partial_ratio(this.query, proj.tags.join(" ")) : 0,
+    );
+  }
+
+  group_scorer(group: string, projects: ProjectData[]): number
+  {
+    if (this.query) {
+      return (
+        projects
+        .map(proj => proj._score_ ?? 0)
+        .reduce((acc, n) => acc + n, 0)
+      );
+    }
+    else {
+      return projects.length;
+    }
+  }
+
 
   apply(projects: ProjectData[]): FilterResults<ProjectData>
   {    
@@ -80,7 +105,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
       out = this.#group_and_sort(out);
     }
     else if (this.query) {
-      out = this.#sort(out);
+      out = super.sort(out, this.project_scorer);
     }
 
     return out;
@@ -134,23 +159,13 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
 
   #group_and_sort(projects: ProjectData[]): [string, ProjectData[]][]
   {
-    return super.group(
-      projects,
-      proj => proj[this.group_by],
-      group => 1,
-    );
-  }
-
-  #sort(projects: ProjectData[]): ProjectData[]
-  {
-    return super.sort(projects,
-      proj => Math.max(
-        partial_ratio(this.query, proj.name),
-        partial_ratio(this.query, proj.tech.join(" ")),
-        proj.desc ? partial_ratio(this.query, proj.desc) : 0,
-        proj.tech ? partial_ratio(this.query, proj.tech.join(" ")) : 0,
-        proj.tags ? partial_ratio(this.query, proj.tags.join(" ")) : 0,
-      )
-    );
+    return super.group(projects, {
+      grouper: proj => {
+        let value = proj[this.group_by];
+        return Array.isArray(value) ? value[0] : value;
+      },
+      entity_scorer: this.project_scorer.bind(this),
+      group_scorer: this.group_scorer.bind(this),
+    });
   }
 }

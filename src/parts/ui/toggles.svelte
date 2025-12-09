@@ -9,22 +9,23 @@ import { shardify } from "#scripts/utils";
 
 
 interface Props {
+  property: string;
   options: Record<string, boolean>;
 }
 
-let { options = $bindable() }: Props = $props();
+let { property, options = $bindable() }: Props = $props();
 
 
 function toggle(option: string, current_state: boolean)
 {
-  if (Object.values(options).some(state => !state)) {
-    options[option] = !current_state;
-  }
-  else {
+  if (Object.values(options).every(s => s)) {
     for (let opt in options) {
       options[opt] = false;
     }
     options[option] = true;
+  }
+  else {
+    options[option] = !current_state;
   }
 }
 
@@ -34,7 +35,7 @@ function toggle(option: string, current_state: boolean)
 <div class="toggles">
   {#each Object.entries(options) as [option, state]}
     <button
-      class="toggle {shardify(option)}"
+      class="toggle {property} {shardify(option)}"
       class:active={state}
       onclick={() => toggle(option, state)}
     >
@@ -68,8 +69,9 @@ button {
     padding-right: 0.8em;
     color: $col-quat;
 
+    &.tech       { color: #4090f1; }
     &.supcode    { color: #40f190; }
-    &.python     { color: #4090f1; }
+    &.python     { color: #0064f1; }
     &.c-         { color: #ff0090; }
     &.ruby       { color: #ff1000; }
     &.haskell    { color: #9090f1; }

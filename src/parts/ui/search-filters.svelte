@@ -36,17 +36,17 @@ let open = $state(false);
   </div>
 
   {#if open}
-    {@const toggles = Object.keys(filters.toggles)}
+    {@const toggles = filters.get_toggles()}
 
     <div class="filters"
       transition:slide={{ duration: 1000, easing: expoInOut }}
     >
       <table><tbody>
-        {#each toggles as property}
+        {#each Object.keys(toggles) as property}
           <tr>
             <th> {property.toUpperCase()} </th>
             <td>
-              <Toggles bind:options={filters.toggles[property]} />
+              <Toggles {property} bind:options={filters[property]} />
             </td>
           </tr>
         {/each}

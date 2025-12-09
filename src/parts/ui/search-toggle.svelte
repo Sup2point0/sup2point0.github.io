@@ -1,28 +1,30 @@
-<!-- @component Toggles
+<!-- @component SearchToggle
  
-A collection of search filter toggles.
+A single toggle in search filters for enabling/disabling a particular search tag.
 -->
 
 <script lang="ts">
 
-import { shardify } from "#scripts/utils";
+import { all, any, shardify } from "#scripts/utils";
 import type { SearchFilter } from "#scripts/search-filter.svelte.ts";
 
 
 interface Props {
   filters: SearchFilter<any>;
-  property: string;
-  options: Record<string, boolean>;
+  category: string;
+  option: string;
 }
 
-let { filters, property, options = $bindable() }: Props = $props();
+let { filters, category, option }: Props = $props();
 
+
+let options = $derived(filters[category]);
 
 function toggle(option: string, current_state: boolean)
 {
   filters.is_dirty = true;
-  
-  if (Object.values(options).every(s => s)) {
+
+  if (all(options)) {
     for (let opt in options) {
       options[opt] = false;
     }
@@ -30,32 +32,27 @@ function toggle(option: string, current_state: boolean)
   }
   else {
     options[option] = !current_state;
+    if (!any(options)) {
+      for (let opt in options) {
+        options[opt] = true;
+      }
+    }
   }
 }
 
 </script>
 
 
-<div class="toggles">
-  {#each Object.entries(options) as [option, state]}
-    <button
-      class="toggle {property} {shardify(option)}"
-      class:active={state}
-      onclick={() => toggle(option, state)}
-    >
-      {option}
-    </button>
-  {/each}
-</div>
+<button
+  class="toggle {category} {shardify(option)}"
+  class:active={options[option]}
+  onclick={() => toggle(option, options[option])}
+>
+  {option}
+</button>
 
 
 <style lang="scss">
-
-.toggles {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 0.25rem;
-}
 
 button {
   padding: 0.15em 0.5em 0;

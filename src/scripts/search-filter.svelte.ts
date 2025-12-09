@@ -24,10 +24,17 @@ export class SearchFilter<Entity extends Searchable>
   group_by: string | null = $state(null);
   reverse_group: boolean = $state(false);
 
+  [prop: string]: any;
+
 
   get_toggles(): Record<string, Record<string, boolean>>
   {
     return {};
+  }
+
+  get_previews(): [string, string][]
+  {
+    return [];
   }
 
   /**

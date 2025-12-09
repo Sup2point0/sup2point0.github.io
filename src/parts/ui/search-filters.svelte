@@ -6,7 +6,7 @@ A search bar input and dropdown filters for searching content.
 <script lang="ts">
 
 import SearchInput from "#parts/ui/search-input.svelte";
-import Toggles from "#parts/ui/toggles.svelte";
+import SearchToggle from "#parts/ui/search-toggle.svelte";
 
 import { SearchFilter } from "#scripts/search-filter.svelte";
 
@@ -42,11 +42,15 @@ let open = $state(false);
       transition:slide={{ duration: 1000, easing: expoInOut }}
     >
       <table><tbody>
-        {#each Object.keys(toggles) as property}
+        {#each Object.entries(toggles) as [category, options]}
           <tr>
-            <th> {property.toUpperCase()} </th>
+            <th> {category.toUpperCase()} </th>
             <td>
-              <Toggles {filters} {property} bind:options={filters[property]} />
+              <div class="toggles">
+                {#each Object.keys(options) as option}
+                  <SearchToggle {filters} {category} {option} />
+                {/each}
+              </div>
             </td>
           </tr>
         {/each}
@@ -62,6 +66,14 @@ let open = $state(false);
         </tr>
       </tbody></table>
     </div>
+  
+  {:else}
+    <div class="filters">
+      <div class="toggles">
+
+      </div>
+    </div>
+  
   {/if}
 </search>
 
@@ -118,6 +130,12 @@ search {
       text-align: right;
     }
   }
+}
+
+.toggles {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.25rem;
 }
 
 </style>

@@ -1,6 +1,7 @@
 import { partial_ratio } from "fuzzball";
 
 import { SearchFilter } from "#scripts/search-filter.svelte";
+import { any, all, get_enabled } from "#scripts/utils";
 
 import { Lang, Tool, Flavour, Kind, State } from "./projects";
 import type { ProjectData } from "./projects";
@@ -21,6 +22,9 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
   kind    = $state(init_states(Kind));
   state   = $state(init_states(State));
 
+  [prop: string]: Record<string, boolean> | any;
+  
+
   get_toggles(): Record<string, Record<string, boolean>>
   {
     return {
@@ -31,16 +35,33 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
     };
   }
 
-  apply(projects: ProjectData[]): ProjectData[]
+  get_previews(): [string, string][]
   {
-    console.log("=== APPLYING ===");
-    
+    return [
+      ...this.if_selected("tech"),
+      ...this.if_selected("flavour"),
+      ...get_enabled(this.kind).map(opt => ["kind", opt]),
+      ...this.if_selected("state"),
+    ] as [string, string][];
+  }
+
+  private if_selected(prop: string): [string, string][]
+  {
+    /* @ts-ignore */
+    let enabled: string[]           = !all(this[prop]) ? get_enabled(this[prop]) : [];
+    let out:     [string, string][] = enabled.map(opt => [prop, opt]);
+
+    return out;
+  }
+
+  apply(projects: ProjectData[]): ProjectData[]
+  {    
     let out = projects.filter(
       proj => {
         proj._score_ = 0;
 
         for (let [prop, states] of Object.entries(this.get_toggles())) {
-          if (Object.values(states).every(s => s) || Object.values(states).every(s => !s)) {
+          if (all(states) || !any(states)) {
             continue;
           }
 
@@ -62,13 +83,10 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
             }
           }
 
-          // console.log("prop =", prop, "hits =", hit, "score =", proj._score_);
           if (!hit) {
             return false;
           }
         }
-
-        console.log(`${proj.name} --- ${proj._score_}`);
         return (proj._score_ > 0);
       }
     );

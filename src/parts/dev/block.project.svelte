@@ -73,20 +73,44 @@ onMount(() => {
     </div>
   </div>
 
-  <div class="inner">
-    {#if project.date}
-      <p class="date"> {display_date(project.date)} </p>
+  <div class="capt">
+    <div class="inner init">
+      {#if project.date}
+        <p class="date"> {display_date(project.date)} </p>
+        <span class="separator"> × </span>
+      {/if}
+      
+      {#if Array.isArray(project.state)}
+        {#each project.state.entries() as [i, state]}
+          {#if i > 0} <span class="separator"> × </span> {/if}
+          <p class="state {state}"> {state.toUpperCase()} </p>
+        {/each}
+      {:else}
+        <p class="state {project.state}"> {project.state.toUpperCase()} </p>
+      {/if}
+    </div>
+
+    <div class="inner alt">
+      {#if Array.isArray(project.kind)}
+        {#each project.kind.entries() as [i, kind]}
+          {#if i > 0} <span class="separator"> × </span> {/if}
+          <p class="kind {kind}"> {kind.toUpperCase()} </p>
+        {/each}
+      {:else}
+        <p class="kind {project.kind}"> {project.kind.toUpperCase()} </p>
+      {/if}
+
       <span class="separator"> × </span>
-    {/if}
-    
-    {#if Array.isArray(project.state)}
-      {#each project.state.entries() as [i, state]}
-        {#if i > 0} <span class="separator"> × </span> {/if}
-        <p class="state {state}"> {state.toUpperCase()} </p>
-      {/each}
-    {:else}
-      <p class="state {project.state}"> {project.state.toUpperCase()} </p>
-    {/if}
+
+      {#if Array.isArray(project.flavour)}
+        {#each project.flavour.entries() as [i, flavour]}
+          {#if i > 0} <span class="separator"> × </span> {/if}
+          <p class="flavour {flavour}"> {flavour.toUpperCase()} </p>
+        {/each}
+      {:else}
+        <p class="flavour {project.flavour}"> {project.flavour.toUpperCase()} </p>
+      {/if}
+    </div>
   </div>
 
   <div class="body">
@@ -96,28 +120,6 @@ onMount(() => {
       {/each}
     {:else if project.desc}
       <p> {@html project.desc} </p>
-    {/if}
-  </div>
-
-  <div class="inner">
-    {#if Array.isArray(project.kind)}
-      {#each project.kind.entries() as [i, kind]}
-        {#if i > 0} <span class="separator"> × </span> {/if}
-        <p class="kind {kind}"> {kind.toUpperCase()} </p>
-      {/each}
-    {:else}
-      <p class="kind {project.kind}"> {project.kind.toUpperCase()} </p>
-    {/if}
-
-    <span class="separator"> × </span>
-
-    {#if Array.isArray(project.flavour)}
-      {#each project.flavour.entries() as [i, flavour]}
-        {#if i > 0} <span class="separator"> × </span> {/if}
-        <p class="flavour {flavour}"> {flavour.toUpperCase()} </p>
-      {/each}
-    {:else}
-      <p class="flavour {project.flavour}"> {project.flavour.toUpperCase()} </p>
     {/if}
   </div>
 
@@ -154,10 +156,6 @@ onMount(() => {
 
     img.project-icon {
       transform: scale(110%);
-    }
-
-    .inner p {
-      color: $col-text;
     }
   }
 }
@@ -241,23 +239,54 @@ img.project-icon {
   }
 }
 
-.inner {
+.capt {
   flex-grow: 1;
   width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  gap: 0.5rem;
-  @include separator;
+  height: max-content;
+  position: relative;
 
-  p {
-    @include font-tech;
-    font-size: 100%;
-    color: $col-text-deut;
-    transition: #{trans()};
+  .inner {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 0.5rem;
+    @include separator;
 
-    &.developing {
-      color: $col-deut !important;
+    p {
+      @include font-tech;
+      font-size: 100%;
+      color: $col-text-deut;
+    }
+
+    @mixin transition($delay: false) {
+      transition: all 0.2s ease-out;
+      @if $delay {
+        transition-delay: $delay;
+      }
+    }
+
+    &.init {
+      opacity: 1;
+      @include transition($delay: true);
+
+      .block.project:where(:hover, :focus) & {
+        opacity: 0;
+        @include transition;
+      }
+    }
+
+    &.alt {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      @include transition;
+
+      .block.project:where(:hover, :focus) & {
+        opacity: 1;
+        @include transition($delay: true);
+      }
     }
   }
 }

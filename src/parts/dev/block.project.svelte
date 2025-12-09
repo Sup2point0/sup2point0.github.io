@@ -1,6 +1,4 @@
-<!-- @component ProjectBlock
-
--->
+<!-- @component ProjectBlock -->
 
 <script lang="ts">
 

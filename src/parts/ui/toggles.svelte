@@ -5,6 +5,9 @@ A collection of search filter toggles.
 
 <script lang="ts">
 
+import { shardify } from "#scripts/utils";
+
+
 interface Props {
   options: Record<string, boolean>;
 }
@@ -31,6 +34,7 @@ function toggle(option: string, current_state: boolean)
 <div class="toggles">
   {#each Object.entries(options) as [option, state]}
     <button
+      class="toggle {shardify(option)}"
       class:active={state}
       onclick={() => toggle(option, state)}
     >
@@ -42,9 +46,6 @@ function toggle(option: string, current_state: boolean)
 
 <style lang="scss">
 
-@use 'sass:color';
-
-
 .toggles {
   display: flex;
   flex-flow: row wrap;
@@ -55,7 +56,7 @@ button {
   padding: 0.15em 0.5em 0;
   @include font-fun;
   color: $col-text-deut;
-  font-size: 110%;
+  font-size: 120%;
   background: none;
   border: none;
   outline: none;
@@ -67,18 +68,24 @@ button {
     padding-right: 0.8em;
     color: $col-quat;
 
-    &::before {
-      // background: color.change($col-prot, $alpha: 0.69);
-    }
+    &.supcode    { color: #40f190; }
+    &.python     { color: #4090f1; }
+    &.c-         { color: #ff0090; }
+    &.ruby       { color: #ff1000; }
+    &.haskell    { color: #9090f1; }
+    &.rust       { color: #f160f1; }
+    &.svelte-kit { color: #ff7020; }
+    &.javascript { color: #ffc720; }
+    &.javascript-typescript { color: #ffc720; }
   }
 
   &:hover {
     cursor: pointer;
-    color: $col-deut;
+    color: $col-text !important;
   }
 
   &:active {
-    color: $col-trit;
+    color: $col-trit !important;
     transform: scale(96%);
   }
 }

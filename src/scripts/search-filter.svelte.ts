@@ -15,16 +15,16 @@ export interface Searchable {
 
 export class SearchFilter<Entity extends Searchable>
 {
-  is_dirty: boolean = $state(false);
-  query: string = $state("");
+  dirtiness: number = $state(0);
+  query:     string = $state("");
 
-  group_by: string = $state("default");
+  group_by:      string  = $state("default");
   reverse_group: boolean = $state(false);
 
-  filter_by: Record<string, boolean> = $state({});
+  filter_by:     Record<string, boolean> = $state({});
 
-  sort_by: string = $state("default");
-  reverse_sort: boolean = $state(false);
+  sort_by:       string  = $state("default");
+  reverse_sort:  boolean = $state(false);
 
   [prop: string]: any;
 

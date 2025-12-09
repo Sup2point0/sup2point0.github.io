@@ -21,18 +21,20 @@ let { filters, category, option, resetting = true }: Props = $props();
 
 let options = $derived(filters[category]);
 let active = $derived(options[option]);
+let dirty_polarity = 1;
 
 function toggle(option: string, current_state: boolean)
 {
-  filters.is_dirty = true;
-
   if (!resetting) {
     options[option] = !current_state;
+    filters.dirtiness += dirty_polarity;
+    dirty_polarity *= -1;
   }
   else {
     if (all(options)) {
       for (let opt in options) {
         options[opt] = false;
+        filters.dirtiness++;
       }
 
       options[option] = true;
@@ -43,6 +45,7 @@ function toggle(option: string, current_state: boolean)
       if (!any(options)) {
         for (let opt in options) {
           options[opt] = true;
+          filters.dirtiness--;
         }
       }
     }

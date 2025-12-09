@@ -38,8 +38,6 @@ onMount(() => {
   class:shrink={project.name.length > 20}
   id={project.shard}
   bind:this={self}
-  target={"_blank"}
-  href={project.link}
   style:--delay={calc_delay(anim, 0.2)}
 >
   <div class="content">
@@ -126,7 +124,6 @@ onMount(() => {
   <div class="lower">
     <ul class="tags">
       {#each project.tech ?? [] as tech}
-        {@const t = console.log(shardify(tech))}
         <li class="tech {shardify(tech)}"> {tech} </li>
       {/each}
     </ul>

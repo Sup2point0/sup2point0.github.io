@@ -2,11 +2,29 @@ import { partial_ratio } from "fuzzball";
 
 import { SearchFilter } from "#scripts/search-filter.svelte";
 
+import { Lang, Tool, Flavour, Kind, State } from "./projects";
 import type { ProjectData } from "./projects";
 
 
 export class ProjectSearchFilter extends SearchFilter<ProjectData>
 {
+  toggles = $state({
+    language: {
+      ...Object.fromEntries(
+        [...Object.values(Lang), ...Object.values(Tool)].map(lang => [lang, true])
+      )
+    },
+    flavour: {
+      ...Object.fromEntries(Object.values(Flavour).map(flavour => [flavour, true]))
+    },
+    kind: {
+      ...Object.fromEntries(Object.values(Kind).map(kind => [kind, true]))
+    },
+    state: {
+      ...Object.fromEntries(Object.values(State).map(state => [state, true]))
+    },
+  });
+
   apply(projects: ProjectData[]): ProjectData[]
   {
     return super.sort(projects,

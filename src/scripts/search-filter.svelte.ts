@@ -21,6 +21,8 @@ export class SearchFilter<Entity extends Searchable>
   group_by: string | null = $state(null);
   reverse_group: boolean = $state(false);
 
+  toggles: Record<string, Record<string, boolean>> = $state({});
+
 
   /**
    * Sort a list of entities (out-of-place).

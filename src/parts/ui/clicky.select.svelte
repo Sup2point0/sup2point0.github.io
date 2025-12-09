@@ -6,25 +6,19 @@ A button that selects a single option from a list of available options when clic
 <script lang="ts">
 
 interface Props {
-  source?: string | null;
-  key: string | null;
+  text: string;
+  active: boolean;
   disabled?: boolean;
+  onclick: () => void;
 }
 
-let { source = $bindable(), key, disabled = false }: Props = $props();
-
-
-let active = $derived(source === key);
+let { text, active, disabled = false, onclick }: Props = $props();
 
 </script>
 
 
-<button class:active {disabled}
-  onclick={() => {
-    source = key;
-  }}
->
-  {key?.toUpperCase() ?? "DEFAULT"}
+<button class:active {disabled} {onclick}>
+  {text}
 </button>
 
 

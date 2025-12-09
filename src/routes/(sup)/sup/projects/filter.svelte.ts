@@ -1,6 +1,6 @@
 import { partial_ratio } from "fuzzball";
 
-import { SearchFilter } from "#scripts/search-filter.svelte";
+import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
 import { any, all, get_enabled } from "#scripts/utils";
 
 import { Lang, Tool, Flavour, Kind, State } from "./projects";
@@ -72,8 +72,22 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
   }
 
 
-  apply(projects: ProjectData[]): ProjectData[]
+  apply(projects: ProjectData[]): FilterResults<ProjectData>
   {    
+    let out: FilterResults<ProjectData> = this.#filter(projects);
+    
+    if (this.group_by !== "default") {
+      out = this.#group_and_sort(out);
+    }
+    else if (this.query) {
+      out = this.#sort(out);
+    }
+
+    return out;
+  }
+
+  #filter(projects: ProjectData[]): ProjectData[]
+  {
     let out = projects.filter(
       proj => {
         proj._score_ = 0;
@@ -115,18 +129,28 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
       out = projects;
     }
 
-    if (this.query) {
-      out = super.sort(out,
-        proj => Math.max(
-          partial_ratio(this.query, proj.name),
-          partial_ratio(this.query, proj.tech.join(" ")),
-          proj.desc ? partial_ratio(this.query, proj.desc) : 0,
-          proj.tech ? partial_ratio(this.query, proj.tech.join(" ")) : 0,
-          proj.tags ? partial_ratio(this.query, proj.tags.join(" ")) : 0,
-        )
-      );
-    }
-
     return out;
+  }
+
+  #group_and_sort(projects: ProjectData[]): [string, ProjectData[]][]
+  {
+    return super.group(
+      projects,
+      proj => proj[this.group_by],
+      group => 1,
+    );
+  }
+
+  #sort(projects: ProjectData[]): ProjectData[]
+  {
+    return super.sort(projects,
+      proj => Math.max(
+        partial_ratio(this.query, proj.name),
+        partial_ratio(this.query, proj.tech.join(" ")),
+        proj.desc ? partial_ratio(this.query, proj.desc) : 0,
+        proj.tech ? partial_ratio(this.query, proj.tech.join(" ")) : 0,
+        proj.tags ? partial_ratio(this.query, proj.tags.join(" ")) : 0,
+      )
+    );
   }
 }

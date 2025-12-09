@@ -55,9 +55,23 @@ let open = $state(false);
           <td> <div class="toggles">
             {#each filters.groups as group}
               <ClickySelect
-                bind:source={filters.group_by}
-                key={group}
+                text={group.toUpperCase()}
+                active={filters.group_by === group}
                 disabled={filters.sort_by !== "default" && filters.sort_by === group}
+                onclick={() => {
+                  if (group === "default") {
+                    if (filters.group_by !== "default") {
+                      filters.group_by = "default";
+                      filters.dirtiness--;
+                    }
+                  }
+                  else {
+                    if (filters.group_by === "default") {
+                      filters.dirtiness++;
+                    }
+                    filters.group_by = group;
+                  }
+                }}
               />
             {/each}
           </div> </td>
@@ -75,9 +89,23 @@ let open = $state(false);
           <td> <div class="toggles">
             {#each filters.sorts as sort}
               <ClickySelect
-                bind:source={filters.sort_by}
-                key={sort}
+                text={sort.toUpperCase()}
+                active={filters.sort_by === sort}
                 disabled={filters.group_by !== "default" && filters.group_by === sort}
+                onclick={() => {
+                  if (sort === "default") {
+                    if (filters.sort_by !== "default") {
+                      filters.sort_by = "default";
+                      filters.dirtiness--;
+                    }
+                  }
+                  else {
+                    if (filters.sort_by === "default") {
+                      filters.dirtiness++;
+                    }
+                    filters.sort_by = sort;
+                  }
+                }}
               />
             {/each}
           </div> </td>

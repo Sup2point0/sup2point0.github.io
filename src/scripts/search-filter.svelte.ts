@@ -94,7 +94,7 @@ export class SearchFilter<Entity extends Searchable>
     let out = Object.entries(groups);
     
     if (sorter) {
-      out.sort(([group, entities]) => sorter(group));
+      out.sort(([group1, _], [group2, __]) => sorter(group1) - sorter(group2));
     }
 
     if (this.reverse_group) {

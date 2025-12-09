@@ -7,6 +7,7 @@ A search bar input and dropdown filters for searching content.
 
 import SearchInput from "#parts/ui/search-input.svelte";
 import SearchToggle from "#parts/ui/search-toggle.svelte";
+import ClickySelect from "#parts/ui/clicky.select.svelte";
 
 import { SearchFilter } from "#scripts/search-filter.svelte";
 
@@ -36,33 +37,50 @@ let open = $state(false);
   </div>
 
   {#if open}
-    {@const toggles = filters.get_toggles()}
-
     <div class="filters"
       transition:slide={{ duration: 1000, easing: expoInOut }}
     >
       <table><tbody>
-        {#each Object.entries(toggles) as [category, options]}
-          <tr>
-            <th> {category.toUpperCase()} </th>
-            <td>
-              <div class="toggles">
-                {#each Object.keys(options) as option}
-                  <SearchToggle {filters} {category} {option} />
-                {/each}
-              </div>
-            </td>
+        {#each Object.entries(filters.toggles) as [category, options]}
+          <tr> <th> {category?.toUpperCase()} </th>
+            <td> <div class="toggles">
+              {#each Object.keys(options) as option}
+                <SearchToggle {filters} {category} {option} />
+              {/each}
+            </div> </td>
           </tr>
         {/each}
 
-        <tr>
-          <th> GROUP BY </th>
-          <td></td>
+        <tr> <th> GROUP BY </th>
+          <td> <div class="toggles">
+            {#each filters.groups as group}
+              <ClickySelect
+                bind:source={filters.group_by}
+                key={group}
+                disabled={filters.sort_by !== "default" && filters.sort_by === group}
+              />
+            {/each}
+          </div> </td>
         </tr>
 
-        <tr>
-          <th> SORT BY </th>
-          <td></td>
+        <tr> <th> FILTER BY </th>
+          <td> <div class="toggles">
+            {#each Object.keys(filters.filter_by) as option}
+              <SearchToggle {filters} category="filter_by" {option} resetting={false} />
+            {/each}
+          </div> </td>
+        </tr>
+
+        <tr> <th> SORT BY </th>
+          <td> <div class="toggles">
+            {#each filters.sorts as sort}
+              <ClickySelect
+                bind:source={filters.sort_by}
+                key={sort}
+                disabled={filters.group_by !== "default" && filters.group_by === sort}
+              />
+            {/each}
+          </div> </td>
         </tr>
       </tbody></table>
     </div>
@@ -72,7 +90,7 @@ let open = $state(false);
       <div class="toggles">
         <span> SHOWING </span>
 
-        {#each filters.get_previews() as [category, option]}
+        {#each filters.previews as [category, option]}
           <SearchToggle {filters} {category} {option} />
         {/each}
       </div>
@@ -132,6 +150,7 @@ search {
       @include font-tech;
       font-weight: normal;
       text-align: right;
+      white-space: nowrap;
     }
   }
 }

@@ -13,9 +13,10 @@ interface Props {
   filters: SearchFilter<any>;
   category: string;
   option: string;
+  resetting?: boolean;
 }
 
-let { filters, category, option }: Props = $props();
+let { filters, category, option, resetting = true }: Props = $props();
 
 
 let options = $derived(filters[category]);
@@ -25,17 +26,24 @@ function toggle(option: string, current_state: boolean)
 {
   filters.is_dirty = true;
 
-  if (all(options)) {
-    for (let opt in options) {
-      options[opt] = false;
-    }
-    options[option] = true;
+  if (!resetting) {
+    options[option] = !current_state;
   }
   else {
-    options[option] = !current_state;
-    if (!any(options)) {
+    if (all(options)) {
       for (let opt in options) {
-        options[opt] = true;
+        options[opt] = false;
+      }
+
+      options[option] = true;
+    }
+    else {
+      options[option] = !current_state;
+
+      if (!any(options)) {
+        for (let opt in options) {
+          options[opt] = true;
+        }
       }
     }
   }
@@ -49,7 +57,7 @@ function toggle(option: string, current_state: boolean)
   class:active
   onclick={() => toggle(option, active)}
 >
-  {option}
+  {option?.toUpperCase()}
 </button>
 
 
@@ -66,6 +74,12 @@ button {
   @include shear-card();
   opacity: 0.8;
   transition: #{trans()};
+
+  &.active, &:hover, &:focus-visible, &:active {
+    &::before {
+      background: $col-card-hover;
+    }
+  }
 
   &.active {
     padding-left: 0.6em;
@@ -89,20 +103,12 @@ button {
     cursor: pointer;
     color: $col-text !important;
     opacity: 1;
-
-    &::before {
-      background: $col-card-hover;
-    }
   }
 
   &:active {
     color: $col-trit !important;
     transform: scale(96%);
     opacity: 1;
-
-    &::before {
-      background: $col-card-hover;
-    }
   }
 }
 

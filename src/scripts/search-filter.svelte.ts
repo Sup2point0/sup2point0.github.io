@@ -18,26 +18,37 @@ export class SearchFilter<Entity extends Searchable>
   is_dirty: boolean = $state(false);
   query: string = $state("");
 
+  group_by: string = $state("default");
+  reverse_group: boolean = $state(false);
+
+  filter_by: Record<string, boolean> = $state({});
+
   sort_by: string = $state("default");
   reverse_sort: boolean = $state(false);
-
-  group_by: string | null = $state(null);
-  reverse_group: boolean = $state(false);
 
   [prop: string]: any;
 
 
-  get_toggles(): Record<string, Record<string, boolean>>
-  {
-    return {};
-  }
-
-  get_previews(): [string, string][]
+  get previews(): [string, string][]
   {
     return [];
   }
 
-  
+  get toggles(): Record<string, Record<string, boolean>>
+  {
+    return {};
+  }
+
+  get sorts(): string[]
+  {
+    return [
+      "default",
+      "date",
+      "name",
+    ];
+  }
+
+
   /**
    * Sort a list of entities (out-of-place).
    * @param source List of entities.

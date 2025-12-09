@@ -3,7 +3,6 @@
 <script lang="ts">
 
 import { pick_random } from "#scripts/utils";
-import type { Keyed } from "#scripts/types";
 
 import Cards from "#parts/core/cards.svelte";
 import LinkCard from "#parts/ui/card.link.svelte";
@@ -13,7 +12,7 @@ import { fade } from "svelte/transition";
 
 
 let displayed_title = $state("");
-let displayed_routes: Keyed<string> = {};
+let displayed_routes: Record<string, string> = {};
 
 onMount(() => {
   displayed_title = pick_random(title_routes);

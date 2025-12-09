@@ -46,7 +46,7 @@ let displayed_projects: FilterResults<ProjectData> = $derived(filters.apply(proj
       </section>
     {/each}
 
-  {:else if filters.group_by !== null}
+  {:else if filters.group_by !== "default"}
     {@const displayed = displayed_projects as [string, ProjectData[]][]}
 
     {#each displayed as [collection, projects]}

@@ -17,6 +17,11 @@ function init_states(states: object): Record<string, boolean>
 
 export class ProjectSearchFilter extends SearchFilter<ProjectData>
 {
+  filter_by = $state({
+    "on github": false,
+    "has site": false,
+  });
+
   tech    = $state({ ...init_states(Lang), ...init_states(Tool) })
   flavour = $state(init_states(Flavour));
   kind    = $state(init_states(Kind));
@@ -25,17 +30,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
   [prop: string]: Record<string, boolean> | any;
   
 
-  get_toggles(): Record<string, Record<string, boolean>>
-  {
-    return {
-      tech: this.tech,
-      flavour: this.flavour,
-      kind: this.kind,
-      state: this.state,
-    };
-  }
-
-  get_previews(): [string, string][]
+  get previews(): [string, string][]
   {
     return [
       ...this.if_selected("tech"),
@@ -54,17 +49,39 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
     return out;
   }
 
-  
+  get toggles(): Record<string, Record<string, boolean>>
+  {
+    return {
+      tech: this.tech,
+      flavour: this.flavour,
+      kind: this.kind,
+      state: this.state,
+    };
+  }
+
+  get groups(): string[]
+  {
+    return [
+      "default",
+      "date",
+      "tech",
+      "flavour",
+      "kind",
+      "state",
+    ];
+  }
+
+
   apply(projects: ProjectData[]): ProjectData[]
   {    
     let out = projects.filter(
       proj => {
         proj._score_ = 0;
 
-        for (let [prop, states] of Object.entries(this.get_toggles())) {
-          if (all(states) || !any(states)) {
-            continue;
-          }
+        // if (this.filter_by["on github"] && !proj.links?.github) return false;
+
+        for (let [prop, states] of Object.entries(this.toggles)) {
+          if (all(states) || !any(states)) continue;
 
           let hit = false;
 
@@ -84,15 +101,14 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
             }
           }
 
-          if (!hit) {
-            return false;
-          }
+          if (!hit) return false;
         }
+
         return (proj._score_ > 0);
       }
     );
 
-    if (out.length === 0) {
+    if (out.length === 0 && this.query) {
       out = projects;
     }
 

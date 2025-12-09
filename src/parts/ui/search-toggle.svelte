@@ -19,6 +19,7 @@ let { filters, category, option }: Props = $props();
 
 
 let options = $derived(filters[category]);
+let active = $derived(options[option]);
 
 function toggle(option: string, current_state: boolean)
 {
@@ -45,8 +46,8 @@ function toggle(option: string, current_state: boolean)
 
 <button
   class="toggle {category} {shardify(option)}"
-  class:active={options[option]}
-  onclick={() => toggle(option, options[option])}
+  class:active
+  onclick={() => toggle(option, active)}
 >
   {option}
 </button>
@@ -55,7 +56,7 @@ function toggle(option: string, current_state: boolean)
 <style lang="scss">
 
 button {
-  padding: 0.15em 0.5em 0;
+  padding: 0.15em 0.4em 0;
   @include font-fun;
   color: $col-text-deut;
   font-size: 120%;
@@ -63,12 +64,14 @@ button {
   border: none;
   outline: none;
   @include shear-card();
+  opacity: 0.8;
   transition: #{trans()};
 
   &.active {
-    padding-left: 0.8em;
-    padding-right: 0.8em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
     color: $col-quat;
+    opacity: 1;
 
     &.tech       { color: #4090f1; }
     &.supcode    { color: #40f190; }
@@ -85,11 +88,21 @@ button {
   &:hover {
     cursor: pointer;
     color: $col-text !important;
+    opacity: 1;
+
+    &::before {
+      background: $col-card-hover;
+    }
   }
 
   &:active {
     color: $col-trit !important;
     transform: scale(96%);
+    opacity: 1;
+
+    &::before {
+      background: $col-card-hover;
+    }
   }
 }
 

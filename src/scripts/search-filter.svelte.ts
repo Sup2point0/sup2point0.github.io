@@ -37,6 +37,7 @@ export class SearchFilter<Entity extends Searchable>
     return [];
   }
 
+  
   /**
    * Sort a list of entities (out-of-place).
    * @param source List of entities.

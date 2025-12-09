@@ -54,6 +54,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
     return out;
   }
 
+  
   apply(projects: ProjectData[]): ProjectData[]
   {    
     let out = projects.filter(

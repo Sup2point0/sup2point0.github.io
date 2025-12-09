@@ -28,8 +28,7 @@ let displayed_projects: FilterResults<ProjectData> = $derived(filters.apply(proj
 
 <Main gap="4rem">
   <Block>
-    <p> [ Note: This page is still under renovation! ] </p>
-    <p> I’ve created way too many projects to list all of them in one place – but here’s a selection of my favourites for you to explore ^v^ </p>
+    <p> Here are the projects I’ve worked on over the years! ^v^ </p>
   </Block>
 
   <SearchFilters bind:filters />

@@ -113,7 +113,7 @@ search {
     }
 
     th {
-      padding-right: 1rem;
+      padding-right: 2rem;
       @include font-tech;
       font-weight: normal;
       text-align: right;

@@ -292,7 +292,8 @@ img.project-icon {
 
       &:hover {
         cursor: auto;
-        padding: 0.15em 0.8em 0;
+        padding-left: 0.8em;
+        padding-right: 0.8em;
         color: black;
       
         &::before {

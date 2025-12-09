@@ -11,6 +11,20 @@ interface Props {
 
 let { options = $bindable() }: Props = $props();
 
+
+function toggle(option: string, current_state: boolean)
+{
+  if (Object.values(options).some(state => !state)) {
+    options[option] = !current_state;
+  }
+  else {
+    for (let opt in options) {
+      options[opt] = false;
+    }
+    options[option] = true;
+  }
+}
+
 </script>
 
 
@@ -18,7 +32,7 @@ let { options = $bindable() }: Props = $props();
   {#each Object.entries(options) as [option, state]}
     <button
       class:active={state}
-      onclick={() => { options[option] = !state }}
+      onclick={() => toggle(option, state)}
     >
       {option}
     </button>
@@ -49,16 +63,23 @@ button {
   transition: #{trans()};
 
   &.active {
-    color: $col-text;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    color: $col-quat;
 
     &::before {
-      background: color.change($col-trit, $alpha: 0.42);
+      // background: color.change($col-prot, $alpha: 0.69);
     }
   }
 
   &:hover {
     cursor: pointer;
-    color: black;
+    color: $col-deut;
+  }
+
+  &:active {
+    color: $col-trit;
+    transform: scale(96%);
   }
 }
 

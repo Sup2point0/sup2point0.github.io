@@ -61,46 +61,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
 
   get groups(): string[]
   {
-    return [
-      "default",
-      "date",
-      "tech",
-      "flavour",
-      "kind",
-      "state",
-    ];
-  }
-
-  project_scorer(proj: ProjectData): number
-  {
-    switch (this.sort_by) {
-      case "date":
-        if (Array.isArray(proj.date)) {
-          return Math.min(...datepoint_to_date(proj.date) as number[]);
-        }
-        return datepoint_to_date(proj.date) as number;
-
-      default:
-        return Math.max(
-          partial_ratio(this.query, proj.name),
-          partial_ratio(this.query, proj.tech.join(" ")),
-          proj.desc ? partial_ratio(this.query, proj.desc) : 0,
-          proj.tech ? partial_ratio(this.query, proj.tech.join(" ")) : 0,
-          proj.tags ? partial_ratio(this.query, proj.tags.join(" ")) : 0,
-        );
-    }
-  }
-
-  group_scorer(group: string, projects: ProjectData[]): number
-  {
-    if (this.query) {
-      return (
-        projects
-        .map(proj => proj._score_ ?? 0)
-        .reduce((acc, n) => acc + n, 0)
-      );
-    }
-    return projects.length;
+    return ["default", "date", "tech", "flavour", "kind", "state"];
   }
 
 
@@ -166,20 +127,88 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
 
   #sort(projects: ProjectData[]): ProjectData[]
   {
-    return super.sort(projects, {
-      scorer: this.project_scorer.bind(this),
-    });
+    switch (this.sort_by) {
+      case "date":
+        return super.sort(projects, {
+          scorer: proj => {
+            if (Array.isArray(proj.date)) {
+              return Math.min(...datepoint_to_date(proj.date) as number[]);
+            }
+            return datepoint_to_date(proj.date) as number;
+          }
+        });
+
+      default:
+        return super.sort(projects, {
+          /* @ts-ignore */
+          scorer: (proj => Math.max(
+            partial_ratio(this.query, proj.name),
+            partial_ratio(this.query, proj.tech.join(" ")),
+            proj.desc ? partial_ratio(this.query, proj.desc) : 0,
+            proj.tech ? partial_ratio(this.query, proj.tech.join(" ")) : 0,
+            proj.tags ? partial_ratio(this.query, proj.tags.join(" ")) : 0,
+          )).bind(this),
+        });
+    }
+  }
+
+  #sort_groups<Key extends PropertyKey>(
+    groups: [Key, ProjectData[]][],
+  ): [Key, ProjectData[]][]
+  {
+    if (this.group_by === "date") {
+      return groups.toSorted(
+        ([g1, e1], [g2, e2]) => (g2 as number) - (g1 as number)
+      );
+    }
+
+    // if (this.dirtiness > 1) {
+      return groups.toSorted(
+        ([group, projects]) => {
+          if (this.query) {
+            return (
+              projects
+              .map(proj => proj._score_ ?? 0)
+              .reduce((acc, n) => acc + n, 0)
+            );
+          }
+          return projects.length;
+        }
+      );
+    // }
+    
+    // if (Object.keys(this.toggles).includes(this.group_by)) {
+    //   return groups.toSorted(
+    //     ([group, projects]) 
+    //   );
+    // }
   }
 
   #group_and_sort(projects: ProjectData[]): [string, ProjectData[]][]
   {
+    let grouper;
+
+    switch (this.group_by) {
+      case "date":
+        /* @ts-ignore */
+        grouper = proj => {
+          let value = datepoint_to_date(proj.date);
+          return Array.isArray(value) ? Math.min(...value.map(Math.floor)) : Math.floor(value);
+        }
+        break;
+
+      default:
+        /* @ts-ignore */
+        grouper = proj => {
+          let value = proj[this.group_by];
+          return Array.isArray(value) ? value[0] : value;
+        };
+    }
+
     return super.group(projects, {
-      grouper: proj => {
-        let value = proj[this.group_by];
-        return Array.isArray(value) ? value[0] : value;
-      },
-      entity_scorer: this.project_scorer.bind(this),
-      group_scorer: this.group_scorer.bind(this),
+      grouper: grouper.bind(this),
+      entity_sorter: this.#sort.bind(this),
+      group_sorter: this.#sort_groups.bind(this),
     });
   }
 }

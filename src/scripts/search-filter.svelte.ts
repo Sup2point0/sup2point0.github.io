@@ -3,6 +3,8 @@ import type { Shard, Groups } from "#scripts/types";
 
 export type FilterResults<Entity> = Entity[] | [string, Entity[]][];
 
+type Sorter<Entity> = (entities: Entity[]) => Entity[];
+
 
 export interface Searchable {
   shard?: Shard;
@@ -73,13 +75,10 @@ export class SearchFilter<Entity extends Searchable>
       for (let each of out) {
         each._score_ = scorer(each);
       }
-
       out.sort((prot, deut) => (deut._score_ ?? 0) - (prot._score_ ?? 0));
     }
 
-    if (this.reverse_sort) {
-      out.reverse();
-    }
+    if (this.reverse_sort) out.reverse();
 
     return out;
   }
@@ -91,48 +90,35 @@ export class SearchFilter<Entity extends Searchable>
    * @param sorter Function applied to each group name to assign it a score used for sorting groups.
    * @returns List of groups of entities.
    */
-  group(
+  group<Key extends PropertyKey>(
     source: Entity[],
     options: {
-      grouper: (entity: Entity) => string,
-      entity_comparer?: ((e1: Entity, e2: Entity) => number),
-      entity_scorer?: ((entity: Entity) => number),
-      group_scorer?: ((group: string, entities: Entity[]) => number),
+      grouper: (entity: Entity) => Key,
+      entity_sorter?: Sorter<Entity>,
+      group_sorter?: Sorter<[Key, Entity[]]>,
     },
-  ): [string, Entity[]][]
+  ): [Key, Entity[]][]
   {
-    let { grouper, entity_comparer, entity_scorer, group_scorer } = options;
+    let { grouper, entity_sorter, group_sorter } = options;
 
     let groups = Object.groupBy(source, grouper) as Groups<Entity>;
-    let out = Object.entries(groups);
+    let out    = Object.entries(groups)          as [Key, Entity[]][];
 
-    if (entity_comparer) {
+    if (entity_sorter) {
       out = out.map(
-        ([group, entities]) => [group, entities.toSorted(
-          (e1, e2) =>
-            entity_comparer(e1, e2)
-            * (this.reverse_sort ? -1 : 1)
-        )]
-      );
-    }
-    else if (entity_scorer) {
-      out = out.map(
-        ([group, entities]) => [group, entities.toSorted(
-          (e1, e2) =>
-            (entity_scorer(e2) - entity_scorer(e1))
-            * (this.reverse_group ? -1 : 1)
-        )],
-        this
+        ([group, entities]) => [
+          group,
+          (() => {
+            let sorted = entity_sorter(entities);
+            if (this.reverse_sort) sorted.reverse();
+            return sorted;
+          })()
+        ]
       );
     }
     
-    if (group_scorer) {
-      out.sort(([g1, e1], [g2, e2]) => group_scorer(g2, e2) - group_scorer(g1, e1));
-    }
-
-    if (this.reverse_group) {
-      out.reverse();
-    }
+    if (group_sorter) out = group_sorter(out);
+    if (this.reverse_group) out.reverse();
 
     return out;
   }

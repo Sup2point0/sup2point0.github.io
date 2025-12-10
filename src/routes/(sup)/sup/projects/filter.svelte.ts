@@ -1,7 +1,7 @@
 import { partial_ratio } from "fuzzball";
 
 import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
-import { any, all, get_enabled } from "#scripts/utils";
+import { any, all, get_enabled, datepoint_to_date } from "#scripts/utils";
 
 import { Lang, Tool, Flavour, Kind, State } from "./projects";
 import type { ProjectData } from "./projects";
@@ -73,13 +73,22 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
 
   project_scorer(proj: ProjectData): number
   {
-    return Math.max(
-      partial_ratio(this.query, proj.name),
-      partial_ratio(this.query, proj.tech.join(" ")),
-      proj.desc ? partial_ratio(this.query, proj.desc) : 0,
-      proj.tech ? partial_ratio(this.query, proj.tech.join(" ")) : 0,
-      proj.tags ? partial_ratio(this.query, proj.tags.join(" ")) : 0,
-    );
+    switch (this.sort_by) {
+      case "date":
+        if (Array.isArray(proj.date)) {
+          return Math.min(...datepoint_to_date(proj.date) as number[]);
+        }
+        return datepoint_to_date(proj.date) as number;
+
+      default:
+        return Math.max(
+          partial_ratio(this.query, proj.name),
+          partial_ratio(this.query, proj.tech.join(" ")),
+          proj.desc ? partial_ratio(this.query, proj.desc) : 0,
+          proj.tech ? partial_ratio(this.query, proj.tech.join(" ")) : 0,
+          proj.tags ? partial_ratio(this.query, proj.tags.join(" ")) : 0,
+        );
+    }
   }
 
   group_scorer(group: string, projects: ProjectData[]): number
@@ -91,9 +100,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
         .reduce((acc, n) => acc + n, 0)
       );
     }
-    else {
-      return projects.length;
-    }
+    return projects.length;
   }
 
 
@@ -104,8 +111,8 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
     if (this.group_by !== "default") {
       out = this.#group_and_sort(out);
     }
-    else if (this.query) {
-      out = super.sort(out, this.project_scorer);
+    else if (this.sort_by !== "default" || this.query) {      
+      out = this.#sort(out);
     }
 
     return out;
@@ -155,6 +162,13 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
     }
 
     return out;
+  }
+
+  #sort(projects: ProjectData[]): ProjectData[]
+  {
+    return super.sort(projects, {
+      scorer: this.project_scorer.bind(this),
+    });
   }
 
   #group_and_sort(projects: ProjectData[]): [string, ProjectData[]][]

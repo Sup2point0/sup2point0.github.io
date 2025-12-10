@@ -91,7 +91,7 @@ button {
     opacity: 1;
 
     &.tech       { color: #4090f1; }
-    &.supcode    { color: #40f190; }
+    &.supcode    { color: #fff; }
     &.python     { color: #0064f1; }
     &.c-         { color: #ff0090; }
     &.ruby       { color: #ff1000; }
@@ -100,6 +100,7 @@ button {
     &.svelte-kit { color: #ff7020; }
     &.javascript { color: #ffc720; }
     &.javascript-typescript { color: #ffc720; }
+    &.unity      { color: #40f190; }
   }
 
   &:hover {

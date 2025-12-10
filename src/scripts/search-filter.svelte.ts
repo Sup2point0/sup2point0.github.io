@@ -57,18 +57,25 @@ export class SearchFilter<Entity extends Searchable>
    */
   sort(
     source: Entity[],
-    scorer: (entity: Entity) => number,
+    options: {
+      comparer?: (e1: Entity, e2: Entity) => number,
+      scorer?: (entity: Entity) => number,
+    }
   ): Entity[]
   {
-    if (this.query === "") return source;
-
     let out = [...source];
+    let { comparer, scorer } = options;
 
-    for (let each of out) {
-      each._score_ = scorer(each);
+    if (comparer) {
+      out.sort(comparer);
     }
+    else if (scorer) {
+      for (let each of out) {
+        each._score_ = scorer(each);
+      }
 
-    out.sort((prot, deut) => (deut._score_ ?? 0) - (prot._score_ ?? 0));
+      out.sort((prot, deut) => (deut._score_ ?? 0) - (prot._score_ ?? 0));
+    }
 
     if (this.reverse_sort) {
       out.reverse();
@@ -88,21 +95,32 @@ export class SearchFilter<Entity extends Searchable>
     source: Entity[],
     options: {
       grouper: (entity: Entity) => string,
-      entity_scorer?: (entity: Entity) => number,
-      group_scorer?: (group: string, entities: Entity[]) => number,
+      entity_comparer?: ((e1: Entity, e2: Entity) => number),
+      entity_scorer?: ((entity: Entity) => number),
+      group_scorer?: ((group: string, entities: Entity[]) => number),
     },
   ): [string, Entity[]][]
   {
-    let { grouper, entity_scorer, group_scorer } = options;
+    let { grouper, entity_comparer, entity_scorer, group_scorer } = options;
 
     let groups = Object.groupBy(source, grouper) as Groups<Entity>;
     let out = Object.entries(groups);
 
-    // TODO: reverse?
-    if (entity_scorer) {
+    if (entity_comparer) {
       out = out.map(
-        ([group, entity]) => [group, entity.toSorted(
-          (e1, e2) => entity_scorer(e2) - entity_scorer(e1)
+        ([group, entities]) => [group, entities.toSorted(
+          (e1, e2) =>
+            entity_comparer(e1, e2)
+            * (this.reverse_sort ? -1 : 1)
+        )]
+      );
+    }
+    else if (entity_scorer) {
+      out = out.map(
+        ([group, entities]) => [group, entities.toSorted(
+          (e1, e2) =>
+            (entity_scorer(e2) - entity_scorer(e1))
+            * (this.reverse_group ? -1 : 1)
         )],
         this
       );

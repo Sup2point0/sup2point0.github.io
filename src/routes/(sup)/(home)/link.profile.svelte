@@ -65,7 +65,8 @@ a.profile-link {
 }
 
 :global(img#purple-portal:hover ~ .root),
-:global(.container:has(a.profile-link:hover) ~ .container)
+:global(.container:has(a.profile-link:hover) ~ .container),
+:global(.container:has(~ .container a.profile-link:hover))
 {
   a.profile-link::before, .info {
     opacity: 1;

@@ -57,7 +57,6 @@ let open = $state(false);
               <ClickySelect
                 text={group.toUpperCase()}
                 active={filters.group_by === group}
-                disabled={filters.sort_by !== "default" && filters.sort_by === group}
                 onclick={() => {
                   if (group === "default") {
                     if (filters.group_by !== "default") {
@@ -91,7 +90,6 @@ let open = $state(false);
               <ClickySelect
                 text={sort.toUpperCase()}
                 active={filters.sort_by === sort}
-                disabled={filters.group_by !== "default" && filters.group_by === sort}
                 onclick={() => {
                   if (sort === "default") {
                     if (filters.sort_by !== "default") {

@@ -156,13 +156,13 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
     groups: [Key, ProjectData[]][],
   ): [Key, ProjectData[]][]
   {
-    if (this.group_by === "date") {
+    if (this.sort_by === "date") {
       return groups.toSorted(
         ([g1, e1], [g2, e2]) => (g2 as number) - (g1 as number)
       );
     }
 
-    // if (this.dirtiness > 1) {
+    if (this.dirtiness > 1) {
       return groups.toSorted(
         ([group, projects]) => {
           if (this.query) {
@@ -175,13 +175,23 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
           return projects.length;
         }
       );
-    // }
+    }
     
-    // if (Object.keys(this.toggles).includes(this.group_by)) {
-    //   return groups.toSorted(
-    //     ([group, projects]) 
-    //   );
-    // }
+    let toggles = Object.keys(this.toggles);
+    if (toggles.includes(this.group_by)) {
+      return groups.toSorted(
+        ([g1, e1], [g2, e2]) => {
+          let prot = Object.keys(this[this.group_by]).indexOf(g1 as string);
+          let deut = Object.keys(this[this.group_by]).indexOf(g2 as string);
+
+          if (prot === -1 && deut !== -1) return 1;
+          if (prot !== -1 && deut === -1) return -1;
+          return prot - deut;
+        }
+      );
+    }
+
+    return groups;
   }
 
   #group_and_sort(projects: ProjectData[]): [string, ProjectData[]][]

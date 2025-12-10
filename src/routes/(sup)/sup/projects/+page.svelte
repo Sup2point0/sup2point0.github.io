@@ -31,7 +31,7 @@ let displayed_projects: FilterResults<ProjectData> = $derived(filters.apply(proj
     <p> Here are the projects I’ve worked on over the years! ^v^ </p>
   </Block>
 
-  <SearchFilters bind:filters />
+  <SearchFilters bind:filters result_count={displayed_projects.length} />
 
   {#if filters.query === "" && filters.dirtiness === 0}
     {#each Object.entries(projects_data) as [collection, projects]}

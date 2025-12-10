@@ -17,9 +17,10 @@ import { expoInOut } from "svelte/easing";
 
 interface Props {
   filters: SearchFilter<any>;
+  result_count?: number;
 }
 
-let { filters = $bindable() }: Props = $props();
+let { filters = $bindable(), result_count }: Props = $props();
 
 
 let open = $state(false);
@@ -114,7 +115,13 @@ let open = $state(false);
   {:else}
     <div class="filters" transition:slide={{ duration: 1000, easing: expoInOut }}>
       <div class="toggles">
-        <span> SHOWING </span>
+        <span>          
+          {#if result_count}
+            <span>{result_count} RESULTS</span> FROM
+          {:else}
+            SHOWING
+          {/if}
+        </span>
 
         {#each filters.previews as [category, option]}
           <SearchToggle {filters} {category} {option} />
@@ -188,10 +195,18 @@ search {
   gap: 0.25rem;
 
   span {
-    padding-right: 1em;
     @include font-tech;
-    color: $col-text-deut;
     font-weight: normal;
+
+    &:has(span) {
+      padding-right: 1em;
+      color: $col-text-deut;
+      font-size: 90%;
+    }
+
+    > span {
+      color: $col-text;
+    }
   }
 }
 

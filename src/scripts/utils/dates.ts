@@ -12,25 +12,39 @@ export function datepoint_to_date(date: DatePoint | DatePoint[] | undefined): nu
   }
 
   if (typeof date === "string") {
-    let [season, year] = date.split(" ");
+    let [spec, year] = date.split(" ");
 
-    if (season === "childhood") {
+    if (spec === "childhood") {
       return 0;
     }
-    if (season === "present") {
+    if (spec === "present") {
       return 3000;
     }
 
     let prec: number;
-    switch (season) {
-      case "winter": prec = 8; break;
-      case "fall":   prec = 6; break;
-      case "summer": prec = 4; break;
-      case "spring": prec = 2; break;
-      default:       prec = 0; break;
+    switch (spec.toLowerCase()) {
+      case "winter":    prec = 90; break;
+      case "december":  prec = 80; break;
+      case "november":  prec = 75; break;
+      case "october":   prec = 70; break;
+      case "fall":      prec = 65; break;
+      case "september": prec = 60; break;
+
+      case "summer":    prec = 50; break;
+      case "august":    prec = 45; break;
+      case "july":      prec = 40; break;
+      case "june":      prec = 35; break;
+
+      case "may":       prec = 30; break;
+      case "spring":    prec = 25; break;
+      case "april":     prec = 20; break;
+      case "march":     prec = 15; break;
+      case "february":  prec = 10; break;
+      case "january":   prec = 5; break;
+      default:          prec = 0; break;
     }
 
-    return Number(year) + prec / 10;
+    return Number(year) + prec / 100;
   }
 
   return date

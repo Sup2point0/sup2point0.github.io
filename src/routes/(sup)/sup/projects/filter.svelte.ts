@@ -178,6 +178,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
     }
     
     let toggles = Object.keys(this.toggles);
+    
     if (toggles.includes(this.group_by)) {
       return groups.toSorted(
         ([g1, e1], [g2, e2]) => {

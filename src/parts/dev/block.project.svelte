@@ -333,13 +333,13 @@ img.project-icon {
     }
 
     li:not(:hover) {
-      &.tech::before { background: color.change(#4090f1, $alpha: 0.69); }
-      &.unity::before { background: color.change(#40f190, $alpha: 0.6); }
-      &.python::before { background: color.change(#0064f1, $alpha: 0.8); }
-      &.c-::before { background: color.change(#ff0090, $alpha: 0.8); }
-      &.ruby::before { background: color.change(#ff1000, $alpha: 0.8); }
-      &.haskell::before { background: color.change(#9090f1, $alpha: 0.69); }
-      &.rust::before { background: color.change(#f160f1, $alpha: 0.69); }
+      &.tech::before       { background: color.change(#a9b0b8, $alpha: 0.3); }
+      &.unity::before      { background: color.change(#40f190, $alpha: 0.6); }
+      &.python::before     { background: color.change(#0064f1, $alpha: 0.8); }
+      &.c-::before         { background: color.change(#ff0090, $alpha: 0.8); }
+      &.ruby::before       { background: color.change(#ff1000, $alpha: 0.8); }
+      &.haskell::before    { background: color.change(#9090f1, $alpha: 0.69); }
+      &.rust::before       { background: color.change(#f160f1, $alpha: 0.69); }
       &.svelte-kit::before { background: color.change(#ff7020, $alpha: 0.8); }
       &.javascript::before { background: color.change(#ffc720, $alpha: 0.69); }
       &.javascript-typescript::before { background: color.change(#ffc720, $alpha: 0.69); }

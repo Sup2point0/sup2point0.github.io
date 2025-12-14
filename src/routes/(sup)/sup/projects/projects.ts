@@ -547,7 +547,7 @@ export const projects_data: Groups<ProjectData> = {
       flavour: Flavour.DEV,
       kind: Kind.FRAMEWORK,
       tech: [
-        Lang.PYTHON,
+        Lang.PYTHON, Lang.HTML,
       ],
       state: State.ARCHIVED,
       desc: `An automated content deployment framework for exporting Markdown files in repositories to GitHub Pages. The predecessor to ${i("Squarkdown")}.`,

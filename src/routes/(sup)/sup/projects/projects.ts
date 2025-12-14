@@ -440,6 +440,22 @@ export const projects_data: Groups<ProjectData> = {
       desc: `Building abstract syntax trees for parsing and computing mathematical expressions`,
     },
     {
+      shard: "adrenaline",
+      name: "Adrenaline",
+      date: "summer 2025",
+      icon: undefined,
+      flavour: Flavour.DEV,
+      kind: Kind.GAME,
+      tech: [
+        Tool.UNITY, Lang.CSHARP,
+      ],
+      state: State.ARCHIVED,
+      links: {
+        github: "https://github.com/Sup2point0/Adrenaline",
+      },
+      desc: `A simple 2D polygon shooter game`,
+    },
+    {
       shard: "youtube-playlist-shuffler",
       name: "YouTube Playlist Shuffler",
       date: 2025,

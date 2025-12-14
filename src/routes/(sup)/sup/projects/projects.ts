@@ -27,6 +27,7 @@ export enum Tool {
   NEXTCORD = "Nextcord",
   PYGAME = "pygame",
   KERAS = "keras",
+  OPENGL = "OpenGL",
 };
 
 export type Tech = Lang | Tool;
@@ -131,22 +132,37 @@ export const projects_data: Groups<ProjectData> = {
       desc: `All my hand-crafted maths questions, game development in Desmos, and more!`,
     },
     {
-      name: "Avidity",
+      name: "Avidity (Unity)",
       love: 1,
       icon: undefined,
-      date: [2024, "present"],
+      date: ["summer 2025", "present"],
       flavour: Flavour.DEV,
-      kind: [Kind.APPLICATION, Kind.WEBSITE],
+      kind: Kind.APPLICATION,
       tech: [
-        Lang.SVELTE, Tool.UNITY,
+        Tool.UNITY, Lang.CSHARP,
       ],
       state: State.DEVELOPING,
       links: {
-        github: "https://github.com/Sup2point0/avidity-web",
-        // github: "https://github.com/Sup2point0/Avidity-unity",
-        site: "https://sup2point0.github.io/avidity",
+        github: "https://github.com/Sup2point0/Avidity-unity",
       },
-      desc: `A music player for personal use! Web-based prototype, now re-developing in Unity.`,
+      desc: `A music player for personal use!`,
+    },
+    {
+      shard: "weighted-list",
+      name: "weighted-list",
+      love: 2,
+      date: ["May 2022", "present"],
+      icon: undefined,
+      flavour: Flavour.DEV,
+      kind: Kind.FRAMEWORK,
+      tech: [
+        Lang.PYTHON, Lang.CSHARP, Lang.TYPESCRIPT, Lang.HASKELL, Lang.RUST, // LANG.RUBY
+      ],
+      state: [State.DEVELOPING, State.MAINTAINING],
+      links: {
+        github: "https://github.com/Sup2point0/weighted-list",
+      },
+      desc: `A specialised list for weighted randomisation, implemented in every language as I know. I now use it as an exercise when learning new ones!`,
     },
     {
       name: "Stranger Quarkdown",
@@ -165,23 +181,6 @@ export const projects_data: Groups<ProjectData> = {
       },
       tags: ["squark", "squarkdown"],
       desc: `An automated content deployment framework for SvelteKit`,
-    },
-    {
-      shard: "weighted-list",
-      name: "weighted-list",
-      love: 2,
-      date: ["May 2022", "present"],
-      icon: undefined,
-      flavour: Flavour.DEV,
-      kind: Kind.FRAMEWORK,
-      tech: [
-        Lang.PYTHON, Lang.CSHARP, Lang.TYPESCRIPT, Lang.HASKELL, Lang.RUST, // LANG.RUBY
-      ],
-      state: [State.DEVELOPING, State.MAINTAINING],
-      links: {
-        github: "https://github.com/Sup2point0/weighted-list",
-      },
-      desc: `A specialised list for weighted randomisation, implemented in every language as I know. I now use it as an exercise when learning new ones!`,
     },
     {
       shard: "lattix",
@@ -228,6 +227,8 @@ export const projects_data: Groups<ProjectData> = {
       },
       desc: `A syntactically delicious conceptual programming language!`,
     },
+  ],
+  "Creations": [
     {
       name: "Antarctica",
       love: 3,
@@ -244,29 +245,10 @@ export const projects_data: Groups<ProjectData> = {
       },
       desc: `A fictional reimagining of the coolest place on Earth.`,
     },
-  ],
-  "Creations": [
-    {
-      name: "pyco:bytes",
-      love: 1,
-      date: [2024, 2025],
-      icon: "pycobytes.png",
-      flavour: Flavour.DEV,
-      kind: [Kind.WEBSITE, Kind.WRITING],
-      tech: [
-        Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.HTML, Lang.PYTHON, Lang.MARKDOWN
-      ],
-      state: State.ARCHIVED,
-      links: {
-        github: "https://github.com/Sup2point0/pycobytes",
-        site: "https://sup2point0.github.io/pycobytes",
-      },
-      desc: `A weekly newsletter on Python tips and tricks`,
-    },
     {
       name: "Victory",
       date: [2020, "present"],
-      flavour: [Flavour.PERSONAL, Flavour.DEV],
+      flavour: Flavour.PERSONAL,
       kind: [Kind.GAME, Kind.WORLD],
       tech: [
         Lang.SVELTE, Lang.MARKDOWN
@@ -332,8 +314,41 @@ export const projects_data: Groups<ProjectData> = {
       },
       desc: `An adventurer’s archive of techniques and tricks for solving Skyscrapers puzzles`,
     },
+    {
+      name: "pyco:bytes",
+      love: 1,
+      date: [2024, 2025],
+      icon: "pycobytes.png",
+      flavour: Flavour.DEV,
+      kind: [Kind.WEBSITE, Kind.WRITING],
+      tech: [
+        Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.HTML, Lang.PYTHON, Lang.MARKDOWN
+      ],
+      state: State.ARCHIVED,
+      links: {
+        github: "https://github.com/Sup2point0/pycobytes",
+        site: "https://sup2point0.github.io/pycobytes",
+      },
+      desc: `A weekly newsletter on Python tips and tricks`,
+    },
   ],
   "Miscellaneous": [
+    {
+      shard: "fractually-awesome",
+      name: "fractually-awesome",
+      date: "December 2025",
+      icon: undefined,
+      flavour: Flavour.DEV,
+      kind: Kind.APPLICATION,
+      tech: [
+        Lang.RUST,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/fractually-awesome",
+      },
+      desc: `Zooming in on the Mandelbrot set and other fractals`,
+    },
     {
       shard: "vscode-supcode-visuals",
       name: "supcode Visuals for VSCode",
@@ -438,19 +453,8 @@ export const projects_data: Groups<ProjectData> = {
       desc: `A script for shuffling a YouTube playlist through the Google API`,
     },
     {
-      name: "suptools",
-      date: 2022,
-      flavour: Flavour.DEV,
-      kind: Kind.FRAMEWORK,
-      tech: [Lang.PYTHON],
-      state: State.MAINTAINING,
-      links: {
-        github: "https://github.com/Sup2point0/suptools",
-      },
-      desc: `Utilities for general use throughout Python projects`,
-    },
-    {
       name: "Vividity",
+      date: "July 2024",
       love: 0,
       flavour: Flavour.DEV,
       kind: Kind.TOOL,
@@ -463,36 +467,90 @@ export const projects_data: Groups<ProjectData> = {
       },
       desc: `Provides colour palettes for use in other projects`,
     },
+    {
+      shard: "nocturne",
+      name: "Nocturne",
+      date: "February 2024",
+      icon: undefined,
+      flavour: Flavour.DEV,
+      kind: Kind.GENERAL,
+      tech: [
+        Lang.CSHARP,
+      ],
+      state: State.INDETERMINATE,
+      links: {
+        github: "https://github.com/Sup2point0/Nocturne",
+      },
+      desc: `A collection of standalone C# projects made for fun, including a Mandelbrot set renderer and quaternion calculator`,
+    },
+    {
+      name: "suptools",
+      date: 2022,
+      flavour: Flavour.DEV,
+      kind: Kind.FRAMEWORK,
+      tech: [Lang.PYTHON],
+      state: State.INDETERMINATE,
+      links: {
+        github: "https://github.com/Sup2point0/suptools",
+      },
+      desc: `Utilities for general use throughout Python projects`,
+    },
   ],
   "Archives": [
     {
-      name: "The Monkeyopolis Times",
-      love: 3,
-      date: [2021, 2022],
-      icon: "monkeyopolis-times.png",
-      flavour: Flavour.PERSONAL,
-      kind: Kind.GRAPHIC,
+      name: "Avidity (Svelte)",
+      icon: undefined,
+      date: [2024, 2025],
+      flavour: Flavour.DEV,
+      kind: [Kind.APPLICATION, Kind.WEBSITE],
       tech: [
-        "Google Slides",
-      ],
-      state: State.ARCHIVED,
-      desc: `A fan-made Bloons TD 6 newspaper`,
-    },
-    {
-      name: "PENGUIN",
-      love: 3,
-      date: [2021, 2022],
-      icon: "penguin.png",
-      flavour: [Flavour.DEV, Flavour.PERSONAL],
-      kind: [Kind.PROGRAM, Kind.APPLICATION],
-      tech: [
-        Lang.PYTHON, Tool.NEXTCORD,
+        Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS
       ],
       state: State.ARCHIVED,
       links: {
-        github: "https://github.com/Sup2point0/PENGUIN",
+        github: "https://github.com/Sup2point0/avidity-web",
+        site: "https://sup2point0.github.io/avidity",
       },
-      desc: `Playful & Energetic New General Utility & Information Network Bot, the masbot ADE of Antarctica.`,
+      desc: `Web-based prototype of Avidity, now re-developing in Unity.`,
+    },
+    {
+      name: "REAX",
+      date: 2024,
+      flavour: [Flavour.DEV, Flavour.ACADEMIC],
+      kind: Kind.APPLICATION,
+      tech: [
+        Tool.UNITY, Lang.CSHARP, Lang.JSON,
+      ],
+      state: State.ARCHIVED,
+      links: {
+        github: "https://github.com/Sup2point0/REAX",
+      },
+      desc: `A probabilistic particle simulator for modelling chemical reactions`,
+    },
+    {
+      shard: "vapour",
+      name: "Vapour",
+      flavour: Flavour.DEV,
+      kind: Kind.PROGRAM,
+      tech: [
+        Lang.CSHARP, Tool.OPENGL,
+      ],
+      state: State.ARCHIVED,
+      links: {
+        github: "https://github.com/Sup2point0/vapour",
+      },
+      desc: `Rendering images with random walks`,
+    },
+    {
+      name: "Quarkdown",
+      date: 2024,
+      flavour: Flavour.DEV,
+      kind: Kind.FRAMEWORK,
+      tech: [
+        Lang.PYTHON,
+      ],
+      state: State.ARCHIVED,
+      desc: `An automated content deployment framework for exporting Markdown files in repositories to GitHub Pages. The predecessor to ${i("Squarkdown")}.`,
     },
     {
       name: "Ignis",
@@ -511,43 +569,33 @@ export const projects_data: Groups<ProjectData> = {
       desc: `A series of projects relating to <em>Yu-Gi-Oh</em>`,  // TODO
     },
     {
-      name: "Quarkdown",
-      date: 2024,
-      flavour: Flavour.DEV,
-      kind: Kind.FRAMEWORK,
+      name: "PENGUIN",
+      love: 3,
+      date: [2021, 2022],
+      icon: "penguin.png",
+      flavour: [Flavour.DEV, Flavour.PERSONAL],
+      kind: [Kind.PROGRAM, Kind.APPLICATION],
       tech: [
-        Lang.PYTHON,
-      ],
-      state: State.ARCHIVED,
-      desc: `An automated content deployment framework for exporting Markdown files in repositories to GitHub Pages. The predecessor to ${i("Squarkdown")}.`,
-    },
-    {
-      shard: "vapour",
-      name: "Vapour",
-      flavour: Flavour.DEV,
-      kind: Kind.PROGRAM,
-      tech: [
-        Lang.CSHARP, "OpenGL",
+        Lang.PYTHON, Tool.NEXTCORD,
       ],
       state: State.ARCHIVED,
       links: {
-        github: "https://github.com/Sup2point0/vapour",
+        github: "https://github.com/Sup2point0/PENGUIN",
       },
-      desc: `Rendering images with random walks`,
+      desc: `Playful & Energetic New General Utility & Information Network Bot, the masbot ADE of Antarctica.`,
     },
     {
-      name: "REAX",
-      date: 2024,
-      flavour: [Flavour.DEV, Flavour.ACADEMIC],
-      kind: Kind.APPLICATION,
+      name: "The Monkeyopolis Times",
+      love: 3,
+      date: [2021, 2022],
+      icon: "monkeyopolis-times.png",
+      flavour: Flavour.PERSONAL,
+      kind: Kind.GRAPHIC,
       tech: [
-        Tool.UNITY, Lang.CSHARP, Lang.JSON,
+        "Google Slides",
       ],
       state: State.ARCHIVED,
-      links: {
-        github: "https://github.com/Sup2point0/REAX",
-      },
-      desc: `A probabilistic particle simulator for modelling chemical reactions`,
+      desc: `A fan-made Bloons TD 6 newspaper`,
     },
   ],
 };

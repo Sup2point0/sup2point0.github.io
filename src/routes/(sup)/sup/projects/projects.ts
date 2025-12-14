@@ -107,7 +107,7 @@ export const projects_data: Groups<ProjectData> = {
       flavour: [Flavour.PERSONAL, Flavour.DEV],
       kind: [Kind.WIKI, Kind.WEBSITE],
       tech: [
-        Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.HTML, Lang.JSON, Lang.MARKDOWN,
+        Lang.MARKDOWN, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.HTML, Lang.JSON,
       ],
       state: State.ETERNAL,
       links: {

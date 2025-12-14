@@ -117,7 +117,7 @@ let open = $state(false);
       <div class="toggles">
         <span>          
           {#if result_count}
-            <span>{result_count} RESULTS</span> FROM
+            <span>{result_count} RESULTS</span>&ensp;FROM
           {:else}
             SHOWING
           {/if}

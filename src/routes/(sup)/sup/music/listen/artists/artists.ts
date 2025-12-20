@@ -9,9 +9,9 @@ export const artists_data: {
     {
       shard: "ludicin",
       name: "Ludicin",
-      date: "2025 WINTER",
+      date: "late 2025",
       icon: "lucidin.jpg",
-      genres: ["rhythm", "full flavour"],
+      genres: ["rhythm", "full flavour", "orchestral"],
       track: {
         name: "Lost Requiem", link: "https://youtube.com/watch?v=QdiqIo963PE"
       },
@@ -20,15 +20,15 @@ export const artists_data: {
     {
       shard: "steradlye",
       name: "Steradlye",
-      date: "2025 FALL",
+      date: "fall 2025",
       icon: "steradlye.jpg",
-      genres: ["electronic", "dubstep"],
+      genres: ["electronic", "dubstep", "future bass"],
       discovered: "YouTube Music reccs",
     },
     {
       shard: "kanro",
       name: "Kanro",
-      date: "2025 FALL",
+      date: "fall 2025",
       icon: "kanro.jpg",
       genres: ["electronic", "dubstep"],
       track: {
@@ -39,7 +39,7 @@ export const artists_data: {
     {
       shard: "hookington",
       name: "Hookington",
-      date: "2025 FALL",
+      date: "fall 2025",
       icon: "hookington.png",
       genres: ["electronic"],
       track: {
@@ -63,7 +63,7 @@ export const artists_data: {
     {
       shard: "camellia",
       name: "Camellia / かめりあ",
-      date: 2023,
+      date: "late 2023",
       icon: "camellia.png",
       genres: ["Camelliacore", "full flavour", "200step", "transcendental", "rhythm"],
       track: [
@@ -78,7 +78,7 @@ export const artists_data: {
     {
       shard: "vexento",
       name: "Vexento",
-      date: 2018,
+      date: "summer 2019",
       icon: "vexento.jpg",
       genres: ["electronic", "chill", "downtempo"],
       track: {
@@ -101,12 +101,12 @@ export const artists_data: {
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkDro0y_y55ojMZ6u3m6RKzJ",
       },
-      discovered: "YouTube reccs",
+      discovered: `${h("New Start")} in YouTube reccs",
     },
     {
       shard: "stessie",
       name: "Stessie",
-      date: 2025,
+      date: "spring 2025",
       icon: "stessie.jpg",
       genres: ["electronic", "chill"],
       track: {
@@ -122,7 +122,7 @@ export const artists_data: {
     {
       shard: "puru",
       name: "puru",
-      date: 2024,
+      date: "summer 2024",
       icon: "puru.jpg",
       genres: ["rhythm", "chill", "trap"],
       track: {
@@ -138,7 +138,7 @@ export const artists_data: {
       name: "tn-shi",
       date: 2024,
       icon: "tn-shi.jpg",
-      genres: ["artcore", "transcendental", "arcade"],
+      genres: ["future core", "transcendental", "arcade"],
       track: {
         name: "Synthesis.", link: "https://youtube.com/watch?v=dOP7G5J755s&list=PLYWIouv-DSkARK0RHQXJnm2-webMrXzQ4"
       },
@@ -150,7 +150,7 @@ export const artists_data: {
     {
       shard: "a-39",
       name: "A-39",
-      date: 2023,
+      date: "summer 2023",
       icon: "a-39.jpg",
       genres: ["colour bass", "hardcore", "vocaloid"],
       track: [
@@ -165,7 +165,7 @@ export const artists_data: {
     {
       shard: "myukke",
       name: "MYUKKE.",
-      date: 2023,
+      date: "summer 2023",
       icon: "myukke.jpg",
       genres: ["rhythm", "arcade"],
       track: {
@@ -179,7 +179,7 @@ export const artists_data: {
     {
       shard: "silentroom",
       name: "Silentroom",
-      date: 2023,
+      date: "spring 2024",
       icon: "silentroom.jpg",
       genres: ["arcade", "neurofunk", "rhythm"],
       track: [
@@ -205,7 +205,7 @@ export const artists_data: {
     {
       shard: "tea-12",
       name: "茶鸣拾贰律",
-      date: 2023,
+      date: "summer 2023",
       icon: "tea-12.jpg",
       genres: ["c-pop", "rhythm"],
       track: [
@@ -220,7 +220,7 @@ export const artists_data: {
     {
       shard: "johannes-bornlof",
       name: "Johannes Bornlöf",
-      date: 2020,
+      date: "spring 2020",
       icon: "johannes-bornlof.jpg",
       genres: ["cinematic", "orchestral", "heroic"],
       track: {
@@ -308,7 +308,7 @@ export const artists_data: {
     {
       shard: "such",
       name: "Such",
-      date: 2024,
+      date: "early 2025",
       icon: "such.jpg",
       genres: ["j-core", "bass"],
       track: {
@@ -322,7 +322,7 @@ export const artists_data: {
     {
       shard: "s9ryne",
       name: "s9ryne",
-      date: 2023,
+      date: "summer 2023",
       icon: "s9ryne.jpg",
       genres: ["electronic", "dubstep"],
       discovered: "Phigros",
@@ -366,7 +366,7 @@ export const artists_data: {
     {
       shard: "polyphia",
       name: "Polyphia",
-      date: 2025,
+      date: "spring 2025",
       icon: "polyphia.jpg",
       genres: ["guitar", "transcendental"],
       track: {
@@ -377,7 +377,7 @@ export const artists_data: {
     {
       shard: "yoasobi",
       name: "YOASOBI",
-      date: 2023,
+      date: "summer 2023",
       icon: "yoasobi.webp",
       genres: ["j-pop", "anime"],
       track: {
@@ -422,7 +422,7 @@ export const artists_data: {
     {
       shard: "ak-q",
       name: "ak+q",
-      date: 2025,
+      date: "summer 2025",
       icon: "ak-q.jpg",
       genres: ["artcore", "gothic hardcore", "rhythm"],
       track: {
@@ -436,7 +436,7 @@ export const artists_data: {
     {
       shard: "akira-complex",
       name: "Akira Complex",
-      date: 2025,
+      date: "summer 2025",
       icon: "akira-complex.jpg",
       genres: ["artcore", "rhythm"],
       track: {
@@ -480,7 +480,7 @@ export const artists_data: {
     {
       shard: "jiang-mi-tiao",
       name: "姜米條",
-      date: 2023,
+      date: "summer 2023",
       icon: "jiang-mi-tiao.jpg",
       genres: ["neurofunk", "rhythm"],
       track: [
@@ -520,7 +520,7 @@ export const artists_data: {
     {
       shard: "wing",
       name: "WING",
-      date: 2025,
+      date: "spring 2025",
       icon: "wing.jpg",
       genres: ["beatbox"],
       track: {
@@ -640,7 +640,7 @@ export const artists_data: {
     {
       shard: "arcane",
       name: "Arcane",
-      date: 2025,
+      date: "spring 2025",
       icon: "arcane.jpg",
       genres: ["alternative pop", "punk", "emotional", "cinematic"],
       track: {
@@ -654,7 +654,7 @@ export const artists_data: {
     {
       shard: "ultraman",
       name: "Ultraman",
-      date: 2018,
+      date: "childhood",
       icon: "ultraman.jpg",
       genres: ["ultraman", "anime", "heroic"],
       track: [
@@ -669,7 +669,7 @@ export const artists_data: {
     {
       shard: "master-duel",
       name: "Master Duel",
-      date: 2023,
+      date: 2022,
       icon: "master-duel.jpg",
       genres: ["cinematic", "orchestral"],
       discovered: String.raw`¯\_(ツ)_/¯`,
@@ -731,7 +731,7 @@ export const artists_data: {
     {
       shard: "boonie-bears",
       name: "熊出没",
-      date: "child",
+      date: "childhood",
       icon: "boonie-bears.jpg",
       genres: ["c-pop"],
       track: {
@@ -893,7 +893,7 @@ export const artists_data: {
     {
       shard: "ncs",
       name: "NoCopyrightSounds",
-      date: 2017,
+      date: 2016,
       icon: "ncs.jpg",
       genres: ["electronic"],
       track: [

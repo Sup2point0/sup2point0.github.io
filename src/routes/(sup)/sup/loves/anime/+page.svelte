@@ -32,12 +32,12 @@ let displayed_animes: FilterResults<AnimeData> = $derived(filters.apply(animes_l
 ]} />
 
 <Main gap="4rem">
-  <SearchFilters bind:filters />
+  <SearchFilters bind:filters result_count={displayed_animes.length} />
 
-  {#if filters.query === ""}
+  {#if filters.query === "" && filters.dirtiness === 0}
     {#each Object.entries(animes_data) as [collection, series]}
       <section>
-        <h2> {collection.toUpperCase()} </h2>
+        <h2> {collection?.toUpperCase()} </h2>
 
         <Cards>
           {#each series as anime}
@@ -47,12 +47,12 @@ let displayed_animes: FilterResults<AnimeData> = $derived(filters.apply(animes_l
       </section>
     {/each}
 
-  {:else if filters.group_by !== null}
+  {:else if filters.group_by !== "default"}
     {@const displayed = displayed_animes as [string, AnimeData[]][]}
 
     {#each displayed as [collection, series]}
       <section>
-        <h2> {collection.toUpperCase()} </h2>
+        <h2> {collection?.toUpperCase()} </h2>
 
         <Cards>
           {#each series as anime (anime.shard)}

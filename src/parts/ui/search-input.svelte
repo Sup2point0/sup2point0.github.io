@@ -11,13 +11,27 @@ interface Props {
 
 let { query = $bindable() }: Props = $props();
 
+
+let self: HTMLInputElement;
+
 </script>
+
+
+<svelte:window onkeydown={e => {
+  if (e.key === "f") {
+    if (e.ctrlKey || document.activeElement !== self) {
+      e.preventDefault();
+      self.focus();
+    }
+  }
+}} />
 
 
 <div class="input-container">
   <input type="search"
     bind:value={query}
     placeholder="search"
+    bind:this={self}
   />
 </div>
 

@@ -1,4 +1,3 @@
-import { SearchFilter } from "#scripts/search-filter.svelte";
 import { MediaSearchFilter } from "../filter.media.svelte";
 import type { States } from "#scripts/types";
 

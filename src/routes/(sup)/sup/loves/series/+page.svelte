@@ -37,7 +37,7 @@ let displayed_series: FilterResults<SeriesData> = $derived(filters.apply(series_
   {#if filters.query === ""}
     {#each Object.entries(series_data) as [collection, series]}
       <section>
-        <h2> {collection.toUpperCase()} </h2>
+        <h2> {collection?.toUpperCase()} </h2>
 
         <Cards>
           {#each series as series}
@@ -47,12 +47,12 @@ let displayed_series: FilterResults<SeriesData> = $derived(filters.apply(series_
       </section>
     {/each}
 
-  {:else if filters.group_by !== null}
+  {:else if filters.group_by !== "default"}
     {@const displayed = displayed_series as [string, SeriesData[]][]}
 
     {#each displayed as [collection, series]}
       <section>
-        <h2> {collection.toUpperCase()} </h2>
+        <h2> {collection?.toUpperCase()} </h2>
 
         <Cards>
           {#each series as series (series.shard)}

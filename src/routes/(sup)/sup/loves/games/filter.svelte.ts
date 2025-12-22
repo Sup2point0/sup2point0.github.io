@@ -9,11 +9,11 @@ export class GameSearchFilter extends SearchFilter<GameData>
 {
   apply(games: GameData[]): GameData[]
   {
-    return super.sort(games,
-      game => Math.max(
+    return super.sort(games, {
+      scorer: game => Math.max(
         partial_ratio(this.query, game.name),
         partial_ratio(this.query, game.genres.join(" ")),
       )
-    );
+    });
   }
 }

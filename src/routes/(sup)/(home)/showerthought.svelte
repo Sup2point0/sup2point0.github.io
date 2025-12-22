@@ -21,6 +21,7 @@ const showerthoughts = [
   `suffering builds character.`,
   `everything will be fine.`,
   `sup sup’s sups sup sup’s sup sup sup sup’s sup sups`,
+  `If a capacitive capacitor could capacitate capacitance, how much capacitance could a capacitative capacitor capacitate if it capacitatively capacitated capacitance?`,
 
   `life is one huge logistical issue`,
   `“ice lolly” and “popsicle” are just “icicle” and “lollipop” intersected.`,

@@ -73,7 +73,7 @@ onMount(() => {
 
     {#if artist.date}
       <p class="date">
-        {artist.date}
+        {artist.date.toString().toUpperCase()}
       </p>
     {/if}
   </div>

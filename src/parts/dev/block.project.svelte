@@ -350,7 +350,7 @@ img.project-icon {
 
 @media (min-width: $width-expand) {
   .block.project {
-    max-width: 42rem;
+    max-width: 40rem;
   }
 }
 

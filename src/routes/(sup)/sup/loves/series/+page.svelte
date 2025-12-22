@@ -32,7 +32,7 @@ let displayed_series: FilterResults<SeriesData> = $derived(filters.apply(series_
 ]} />
 
 <Main gap="4rem">
-  <SearchFilters bind:filters />
+  <SearchFilters bind:filters result_count={displayed_series.length} />
 
   {#if filters.query === "" && filters.dirtiness === 0}
     {#each Object.entries(series_data) as [collection, series]}

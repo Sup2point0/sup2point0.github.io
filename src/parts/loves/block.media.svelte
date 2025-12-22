@@ -7,7 +7,6 @@ A block displaying info for a media, series, anime, show, etc.
 
 import { display_date } from "#scripts/utils";
 import type { MediaData } from "#scripts/types";
-import type { FilmData } from "#src/routes/(sup)/sup/loves/films/films";
 
 import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
 
@@ -15,7 +14,7 @@ import { onMount } from "svelte";
 
 
 interface Props {
-  kind: "film" | "series" | "anime" | "book" | "book-series";
+  kind: "films" | "series" | "anime" | "book" | "book-series";
   media: MediaData;
 }
 

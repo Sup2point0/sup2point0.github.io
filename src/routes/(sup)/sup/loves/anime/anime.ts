@@ -1,12 +1,9 @@
 import { i } from "#scripts/utils";
 import type { MediaData } from "#scripts/types/media";
-import type { Groups, DatePoint } from "#scripts/types";
+import type { Groups } from "#scripts/types";
 
 
-export interface AnimeData extends MediaData
-{
-  date: DatePoint | DatePoint[],
-}
+export interface AnimeData extends MediaData {}
 
 
 export const animes_data: Groups<AnimeData> = {

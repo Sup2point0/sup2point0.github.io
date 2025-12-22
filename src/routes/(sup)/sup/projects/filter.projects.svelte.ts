@@ -2,32 +2,20 @@ import { partial_ratio } from "fuzzball";
 
 import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
 import { any, all, get_enabled, datepoint_to_date } from "#scripts/utils";
+import type { States } from "#scripts/types";
 
 import { Lang, Tool, Flavour, Kind, State } from "./projects";
 import type { ProjectData } from "./projects";
 
 
-function init_states(states: object): Record<string, boolean>
-{
-  return {
-    ...Object.fromEntries(Object.values(states).map(s => [s, true]))
-  };
-}
-
-
 export class ProjectSearchFilter extends SearchFilter<ProjectData>
 {
-  filter_by = $state({
-    "on github": false,
-    "has site": false,
-  });
+  tech    = $state({ ...SearchFilter.init_states(Lang), ...SearchFilter.init_states(Tool) })
+  flavour = $state(SearchFilter.init_states(Flavour));
+  kind    = $state(SearchFilter.init_states(Kind));
+  state   = $state(SearchFilter.init_states(State));
 
-  tech    = $state({ ...init_states(Lang), ...init_states(Tool) })
-  flavour = $state(init_states(Flavour));
-  kind    = $state(init_states(Kind));
-  state   = $state(init_states(State));
-
-  [prop: string]: Record<string, boolean> | any;
+  [prop: string]: States | any;
   
 
   get previews(): [string, string][]
@@ -49,7 +37,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
     return out;
   }
 
-  get toggles(): Record<string, Record<string, boolean>>
+  get toggles(): Record<string, States>
   {
     return {
       tech: this.tech,
@@ -58,6 +46,11 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
       state: this.state,
     };
   }
+  
+  filter_by = $state({
+    "on github": false,
+    "has site": false,
+  });
 
   get groups(): string[]
   {
@@ -129,21 +122,13 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
   {
     switch (this.sort_by) {
       case "date":
-        return super.sort(projects, {
-          scorer: proj => {
-            if (Array.isArray(proj.date)) {
-              return Math.min(...datepoint_to_date(proj.date) as number[]);
-            }
-            return datepoint_to_date(proj.date) as number;
-          }
-        });
+        return super.sort_date(projects);
 
       default:
         return super.sort(projects, {
           /* @ts-ignore */
           scorer: (proj => Math.max(
             partial_ratio(this.query, proj.name),
-            partial_ratio(this.query, proj.tech.join(" ")),
             proj.desc ? partial_ratio(this.query, proj.desc) : 0,
             proj.tech ? partial_ratio(this.query, proj.tech.join(" ")) : 0,
             proj.tags ? partial_ratio(this.query, proj.tags.join(" ")) : 0,

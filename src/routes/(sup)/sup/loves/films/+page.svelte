@@ -11,13 +11,13 @@ import SearchFilters from "#parts/ui/search-filters.svelte";
 import MediaBlock from "#parts/loves/block.media.svelte";
 
 import { films_data, films_list, type FilmData } from "./films";
-import { FilmSearchFilter } from "./filter.svelte.ts";
+import { MediaSearchFilter } from "../filter.media.svelte.ts";
 
 import { onMount } from "svelte";
 
 
 // svelte-ignore non_reactive_update
-let filters = new FilmSearchFilter();
+let filters = new MediaSearchFilter();
 
 let displayed_films: FilterResults<FilmData> = $derived(filters.apply(films_list));
 
@@ -59,12 +59,12 @@ const routes = [
     {/if}
   </Block>
 
-  <SearchFilters bind:filters />
+  <SearchFilters bind:filters result_count={displayed_films.length} />
 
-  {#if filters.query === ""}
+  {#if filters.query === "" && filters.dirtiness === 0}
     {#each Object.entries(films_data) as [collection, films]}
       <section>
-        <h2> {collection.toUpperCase()} </h2>
+        <h2> {collection?.toUpperCase()} </h2>
 
         <Cards>
           {#each films as film}
@@ -74,12 +74,12 @@ const routes = [
       </section>
     {/each}
 
-  {:else if filters.group_by !== null}
+  {:else if filters.group_by !== "default"}
     {@const displayed = displayed_films as [string, FilmData[]][]}
 
     {#each displayed as [collection, films]}
       <section>
-        <h2> {collection.toUpperCase()} </h2>
+        <h2> {collection?.toUpperCase()} </h2>
 
         <Cards>
           {#each films as film (film.shard)}

@@ -42,19 +42,27 @@ let open = $state(false);
       transition:slide={{ duration: 1000, easing: expoInOut }}
     >
       <table><tbody>
-        {#each Object.entries(filters.toggles) as [category, options]}
+        {#each Object.entries(filters.toggles ?? []) as [category, options]}
           <tr> <th> {category?.toUpperCase()} </th>
             <td> <div class="toggles">
-              {#each Object.keys(options) as option}
+              {#each Object.keys(options ?? {}) as option}
                 <SearchToggle {filters} {category} {option} />
               {/each}
             </div> </td>
           </tr>
         {/each}
 
+        <tr> <th> FILTER BY </th>
+          <td> <div class="toggles">
+            {#each Object.keys(filters.filter_by ?? {}) as option}
+              <SearchToggle {filters} category="filter_by" {option} resetting={false} />
+            {/each}
+          </div> </td>
+        </tr>
+
         <tr> <th> GROUP BY </th>
           <td> <div class="toggles">
-            {#each filters.groups as group}
+            {#each filters.groups ?? ["default"] as group}
               <ClickySelect
                 text={group.toUpperCase()}
                 active={filters.group_by === group}
@@ -73,14 +81,6 @@ let open = $state(false);
                   }
                 }}
               />
-            {/each}
-          </div> </td>
-        </tr>
-
-        <tr> <th> FILTER BY </th>
-          <td> <div class="toggles">
-            {#each Object.keys(filters.filter_by) as option}
-              <SearchToggle {filters} category="filter_by" {option} resetting={false} />
             {/each}
           </div> </td>
         </tr>
@@ -112,7 +112,7 @@ let open = $state(false);
       </tbody></table>
     </div>
   
-  {:else}
+  {:else if Object.keys(filters.previews).length > 0}
     <div class="filters" transition:slide={{ duration: 1000, easing: expoInOut }}>
       <div class="toggles">
         <span>          

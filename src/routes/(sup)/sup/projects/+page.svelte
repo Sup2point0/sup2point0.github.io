@@ -9,7 +9,7 @@ import SearchFilters from "#parts/ui/search-filters.svelte";
 import ProjectBlock from "#parts/dev/block.project.svelte";
 
 import { projects_data, projects_list, type ProjectData } from "./projects";
-import { ProjectSearchFilter } from "./filter.svelte.ts";
+import { ProjectSearchFilter } from "./filter.projects.svelte.ts";
 
 
 // svelte-ignore non_reactive_update
@@ -36,7 +36,7 @@ let displayed_projects: FilterResults<ProjectData> = $derived(filters.apply(proj
   {#if filters.query === "" && filters.dirtiness === 0}
     {#each Object.entries(projects_data) as [collection, projects]}
       <section>
-        <h2> {collection.toUpperCase()} </h2>
+        <h2> {collection?.toUpperCase()} </h2>
 
         <Cards>
           {#each projects as project}
@@ -51,7 +51,7 @@ let displayed_projects: FilterResults<ProjectData> = $derived(filters.apply(proj
 
     {#each displayed as [collection, projects]}
       <section>
-        <h2> {collection.toUpperCase()} </h2>
+        <h2> {collection?.toUpperCase()} </h2>
 
         <Cards>
           {#each projects as project (project.shard)}

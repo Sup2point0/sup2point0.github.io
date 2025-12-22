@@ -1,11 +1,8 @@
-import type { MediaData } from "#scripts/types/media";
-import type { Groups, DatePoint } from "#scripts/types";
+import { type MediaData, Genre, Theme } from "#scripts/types/media";
+import type { Groups } from "#scripts/types";
 
 
-export interface FilmData extends MediaData
-{
-  date: DatePoint | DatePoint[];
-}
+export interface FilmData extends MediaData {}
 
 
 export const films_data: Groups<FilmData> = {
@@ -18,70 +15,70 @@ export const films_data: Groups<FilmData> = {
       name: "Doctor Strange",
       date: 2016,
       cover: "doctor-strange.jpg",
-      genres: ["superhero", "fantasy", "action"],
+      genres: [Genre.SUPERHERO, Genre.FANTASY, Genre.ACTION],
     }, {
       name: "Dune: Part One",
       date: 2021,
       cover: "dune-part-1.jpg",
-      genres: ["space opera", "epic"],
+      genres: [Genre.SPACE_OPERA, Genre.EPIC],
     }, {
       name: "Dune: Part Two",
       date: 2024,
       cover: "dune-part-2.jpg",
-      genres: ["space opera", "epic"],
+      genres: [Genre.SPACE_OPERA, Genre.EPIC],
     }, {
       name: "Fantastic Beasts and Where To Find Them",
       date: 2016,
       cover: "fantastic-beasts.jpg",
-      genres: ["fantasy"],
+      genres: [Genre.FANTASY],
     }, {
       name: "How To Train Your Dragon: The Hidden World",
       date: 2019,
       cover: "the-hidden-world.jpg",
-      genres: ["fantasy"],
+      genres: [Genre.FANTASY],
     }, {
       name: "Interstellar",
       date: 2014,
       cover: "interstellar.jpg",
-      genres: ["sci-fi", "epic"],
-      themes: ["space"],
+      genres: [Genre.SCI_FI, Genre.EPIC],
+      themes: [Theme.SPACE],
     }, {
       name: "Love & Monsters",
       date: 2020,
       cover: "love-and-monsters.jpg",
-      genres: ["adventure"],
+      genres: [Genre.ADVENTURE],
     }, {
       name: "Ready Player One",
       date: 2018,
       cover: "ready-player-one.jpg",
-      genres: ["action", "adventure", "dystopian"],
+      genres: [Genre.ACTION, Genre.ADVENTURE, Genre.DYSTOPIAN],
     }, {
       name: "Rogue One: A Star Wars Story",
       date: 2016,
       cover: "rogue-one.jpg",
-      genres: ["space opera"],
-      themes: ["grit"],
+      genres: [Genre.SPACE_OPERA],
+      themes: [Theme.GRIT],
     }, {
       name: "Spider-Man: Homecoming",
       date: 2017,
       cover: "spider-man-homecoming.jpg",
-      genres: ["superhero", "action"],
+      genres: [Genre.SUPERHERO, Genre.ACTION],
     }, {
       name: "Spider-Man: Into the Spider-Verse",
       date: 2018,
       cover: "into-the-spider-verse.jpg",
-      genres: ["superhero", "action"],
+      genres: [Genre.SUPERHERO, Genre.ACTION],
     }, {
       name: "The Wild Robot",
       date: 2024,
       cover: "the-wild-robot.jpg",
-      genres: ["adventure"],
+      genres: [Genre.ADVENTURE],
     }, {
       name: "哪吒",
       date: 2019,
       cover: "ne-zha-1.jpg",
-      genres: ["adventure", "comedy"],
-      themes: ["mythology"],
+      genres: [Genre.ADVENTURE, Genre.COMEDY],
+      themes: [Theme.MYTHOLOGY],
     },
   ],
   "Peak Cinema": [
@@ -137,7 +134,7 @@ export const films_data: Groups<FilmData> = {
       name: "抓娃娃",
       date: 2024,
       cover: undefined,
-      genres: ["comedy"],
+      genres: [Genre.COMEDY],
       desc: "Successor",
     },
   ],
@@ -178,7 +175,7 @@ export const films_data: Groups<FilmData> = {
       name: "Uncharted",
       date: 2022,
       cover: undefined,
-      genres: ["adventure", "comedy"],
+      genres: [Genre.ADVENTURE, Genre.COMEDY],
     }, {
       name: "Venom",
       date: 2018,
@@ -198,7 +195,7 @@ export const films_data: Groups<FilmData> = {
       name: "Avatar",
       date: 2009,
       cover: undefined,
-      genres: ["sci-fi", "epic", "action"],
+      genres: [Genre.SCI_FI, Genre.EPIC, Genre.ACTION],
     }, {
       name: "Back to the Future",
       date: 1985,
@@ -219,7 +216,7 @@ export const films_data: Groups<FilmData> = {
       name: "Life of Pi",
       date: 2012,
       cover: undefined,
-      genres: ["adventure", "drama"],
+      genres: [Genre.ADVENTURE, Genre.DRAMA],
     }, {
       name: "The Truman Show",
       date: 1998,

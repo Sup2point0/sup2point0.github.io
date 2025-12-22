@@ -1,4 +1,4 @@
-import { FilmSearchFilter } from "../films/filter.svelte";
+import { FilmSearchFilter } from "../films/filter.film.svelte";
 
 
 export class AnimeSearchFilter extends FilmSearchFilter

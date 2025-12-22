@@ -1,4 +1,5 @@
-import type { Shard, Groups } from "#scripts/types";
+import { datepoint_to_date } from "#scripts/utils";
+import type { Shard, Groups, States } from "#scripts/types";
 
 
 export type FilterResults<Entity> = Entity[] | [string, Entity[]][];
@@ -23,7 +24,7 @@ export class SearchFilter<Entity extends Searchable>
   group_by:      string  = $state("default");
   reverse_group: boolean = $state(false);
 
-  filter_by:     Record<string, boolean> = $state({});
+  filter_by:     States = $state({});
 
   sort_by:       string  = $state("default");
   reverse_sort:  boolean = $state(false);
@@ -36,7 +37,7 @@ export class SearchFilter<Entity extends Searchable>
     return [];
   }
 
-  get toggles(): Record<string, Record<string, boolean>>
+  get toggles(): Record<string, States>
   {
     return {};
   }
@@ -48,6 +49,14 @@ export class SearchFilter<Entity extends Searchable>
       "date",
       "name",
     ];
+  }
+
+
+  static init_states(states: object): States
+  {
+    return {
+      ...Object.fromEntries(Object.values(states).map(s => [s, true]))
+    };
   }
 
 
@@ -82,6 +91,19 @@ export class SearchFilter<Entity extends Searchable>
 
     return out;
   }
+
+  sort_date(source: Entity[]): Entity[]
+  {
+    return this.sort(source, {
+      scorer: each => {
+        if (Array.isArray(each.date)) {
+          return Math.min(...datepoint_to_date(each.date) as number[]);
+        }
+        return datepoint_to_date(each.date) as number;
+      }
+    })
+  }
+
 
   /**
    * Group a list of entities.

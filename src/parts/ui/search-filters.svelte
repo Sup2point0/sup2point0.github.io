@@ -52,13 +52,15 @@ let open = $state(false);
           </tr>
         {/each}
 
-        <tr> <th> FILTER BY </th>
-          <td> <div class="toggles">
-            {#each Object.keys(filters.filter_by ?? {}) as option}
-              <SearchToggle {filters} category="filter_by" {option} resetting={false} />
-            {/each}
-          </div> </td>
-        </tr>
+        {#if Object.keys(filters.filter_by ?? {}).length > 0}
+          <tr> <th> FILTER BY </th>
+            <td> <div class="toggles">
+              {#each Object.keys(filters.filter_by) as option}
+                <SearchToggle {filters} category="filter_by" {option} resetting={false} />
+              {/each}
+            </div> </td>
+          </tr>
+        {/if}
 
         <tr> <th> GROUP BY </th>
           <td> <div class="toggles">

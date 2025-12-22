@@ -13,7 +13,7 @@ export enum Genre {
   PUZZLE = "puzzle",
   CARDS = "cards",
   SANDBOX = "sandbox",
-  IO = ".io",
+  IO = ".io games",
   CLASSICS  = "classics",
 }
 
@@ -38,7 +38,7 @@ export interface GameData extends Searchable
 {
   shard:  string;
   name:   string;
-  love:   3 | 2 | 1;
+  love:   3 | 2 | 1 | null;
   date?: DatePoint | DatePoint[];
 
   icon?: string;
@@ -71,7 +71,7 @@ export const games_list: GameData[] = prep([
   {
     shard:  "manifold-garden",
     name:   "Manifold Garden",
-    love:   3,
+    love:   2,
     date:   undefined,
     icon:   "manifold-garden.png",
     genres: [Genre.PUZZLE],
@@ -81,7 +81,7 @@ export const games_list: GameData[] = prep([
   {
     shard:  "hollow-knight",
     name:   "Hollow Knight",
-    love:   2,
+    love:   null,
     date:   undefined,
     icon:   "hollow-knight.webp",
     genres: [Genre.METROIDVANIA],
@@ -91,7 +91,7 @@ export const games_list: GameData[] = prep([
   {
     shard:  "hades",
     name:   "Hades",
-    love:   2,
+    love:   1,
     date:   undefined,
     icon:   "hades.png",
       _style: "no-crop",
@@ -112,16 +112,16 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "chunithm",
     name:   "CHUNITHM",
-    love:   3,
+    love:   2,
     date:   ["summer 2024", "present"],
     icon:   "chunithm.png",
     genres: [Genre.RHYTHM],
     platforms: [Platform.ARCADE],
-    state:  PlayState.ACTIVE,
+    state:  PlayState.INTERMITTENT,
   }, {
     shard:  "arcaea",
     name:   "Arcaea",
-    love:   3,
+    love:   2,
     date:   ["summer 2024", "present"],
     icon:   "arcaea.webp",
     genres: [Genre.RHYTHM],
@@ -130,16 +130,16 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "milthm",
     name:   "Milthm",
-    love:   3,
+    love:   2,
     date:   ["fall 2024", "present"],
     icon:   "milthm.png",
     genres: [Genre.RHYTHM],
-    platforms: [Platform.DESKTOP],
+    platforms: [Platform.MOBILE, Platform.DESKTOP],
     state:  PlayState.ACTIVE,
   }, {
     shard:  "paradigm-reboot",
     name:   "Paradigm: Reboot",
-    love:   2,
+    love:   1,
     date:   ["summer 2025", "present"],
     icon:   "paradigm-reboot.png",
     genres: [Genre.RHYTHM],
@@ -166,7 +166,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "rizline",
     name:   "Rizline",
-    love:   1,
+    love:   null,
     date:   ["fall 2025", "present"],
     icon:   "rizline.webp",
     genres: [Genre.RHYTHM],
@@ -175,7 +175,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "shinobi-slash",
     name:   "シノビスラッシュ",
-    love:   1,
+    love:   null,
     date:   ["fall 2025", "present"],
     icon:   "shinobi-slash.webp",
     genres: [Genre.RHYTHM],
@@ -184,7 +184,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "ryceam",
     name:   "RYCEAM",
-    love:   1,
+    love:   null,
     date:   ["fall 2025", "present"],
     icon:   "ryceam.webp",
     genres: [Genre.RHYTHM],
@@ -193,7 +193,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "deemo-2",
     name:   "DEEMO II",
-    love:   1,
+    love:   null,
     date:   ["summer 2024", "present"],
     icon:   "deemo-2.png",
     genres: [Genre.RHYTHM],
@@ -202,7 +202,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "rhythm-plus",
     name:   "Rhythm+",
-    love:   1,
+    love:   null,
     date:   ["fall 2023", "summer 2023"],
     icon:   "rhythm-plus.png",
       _style: "no-crop",
@@ -212,7 +212,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "maimai",
     name:   "maimai",
-    love:   1,
+    love:   null,
     date:   ["summer 2023", "present"],
     icon:   "maimai.jpg",
     genres: [Genre.RHYTHM],
@@ -221,7 +221,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "beat-saber",
     name:   "Beat Saber",
-    love:   2,
+    love:   null,
     date:   ["2024", "present"],
     icon:   "beat-saber.jpg",
     genres: [Genre.RHYTHM],
@@ -230,7 +230,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "osu",
     name:   "osu!",
-    love:   1,
+    love:   null,
     date:   ["summer 2023", "present"],
     icon:   "osu.png",
     genres: [Genre.RHYTHM, Genre.CLASSICS],
@@ -268,7 +268,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "bloons-td5",
     name:   "Bloons TD 5",
-    love:   3,
+    love:   2,
     date:   ["childhood"],
     icon:   "bloons-td5.png",
     genres: [Genre.TOWER_DEFENCE, Genre.CLASSICS],
@@ -284,13 +284,13 @@ export const games_list: GameData[] = prep([
     icon:   "master-duel.webp",
     genres: [Genre.CARDS],
     platforms: [Platform.MOBILE],
-    state:  PlayState.ACTIVE,
+    state:  PlayState.INTERMITTENT,
   },
   
   {
     shard:  "soul-knight",
     name:   "Soul Knight",
-    love:   3,
+    love:   2,
     date:   ["childhood", 2021],
     icon:   "soul-knight.webp",
     genres: [Genre.ROGUE],
@@ -301,7 +301,7 @@ export const games_list: GameData[] = prep([
   {
     shard:  "asphalt-9",
     name:   "Asphalt 9: Legends",
-    love:   3,
+    love:   2,
     date:   ["2019", "2021"],
     icon:   "asphalt-9.webp",
     genres: [Genre.RACING],
@@ -310,7 +310,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "asphalt-8",
     name:   "Asphalt 8: Airborne",
-    love:   2,
+    love:   1,
     date:   ["2017", "2019"],
     icon:   "asphalt-8.webp",
     genres: [Genre.RACING, Genre.CLASSICS],
@@ -340,7 +340,7 @@ export const games_list: GameData[] = prep([
     shard:  "temple-run-2",
     name:   "Temple Run 2",
     icon:   "temple-run-2.jpg",
-    love:   1,
+    love:   null,
     genres: [Genre.RUNNER],
     platforms: [Platform.MOBILE],
     state:  PlayState.RETIRED,
@@ -348,7 +348,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "temple-run",
     name:   "Temple Run",
-    love:   1,
+    love:   null,
     icon:   "temple-run.jpg",
     genres: [Genre.RUNNER, Genre.CLASSICS],
     platforms: [Platform.MOBILE],
@@ -359,7 +359,7 @@ export const games_list: GameData[] = prep([
   {
     shard:  "air-attack-2",
     name:   "AirAttack 2",
-    love:   2,
+    love:   1,
     date:   ["summer 2020"],
     icon:   "air-attack-2.webp",
     genres: [Genre.SHMUP],
@@ -426,7 +426,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "arras-io",
     name:   "arras.io",
-    love:   2,
+    love:   1,
     date:   ["childhood", "present"],
     icon:   "arras-io.png",
     genres: [Genre.SHMUP, Genre.IO],
@@ -435,7 +435,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "zombs-io",
     name:   "zombs.io",
-    love:   2,
+    love:   1,
     icon:   "zombs-io.jpg",
     genres: [Genre.TOWER_DEFENCE, Genre.IO],
     platforms: [Platform.DESKTOP],
@@ -444,7 +444,7 @@ export const games_list: GameData[] = prep([
   }, {
     shard:  "fightz-io",
     name:   "fightz.io",
-    love:   1,
+    love:   null,
     genres: [Genre.IO],
     platforms: [Platform.DESKTOP],
     state:  PlayState.RETIRED,
@@ -454,7 +454,7 @@ export const games_list: GameData[] = prep([
   {
     shard:  "minecraft",
     name:   "Minecraft",
-    love:   2,
+    love:   null,
     date:   ["childhood", "present"],
     icon:   "minecraft.webp",
     genres: [Genre.SANDBOX, Genre.CLASSICS],

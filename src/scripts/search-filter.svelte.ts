@@ -32,23 +32,16 @@ export class SearchFilter<Entity extends Searchable>
   [prop: string]: any;
 
 
-  get previews(): [string, string][]
-  {
+  get previews(): [string, string][] {
     return [];
   }
 
-  get toggles(): Record<string, States>
-  {
+  get toggles(): Record<string, States> {
     return {};
   }
 
-  get sorts(): string[]
-  {
-    return [
-      "default",
-      "date",
-      "name",
-    ];
+  get sorts(): string[] {
+    return ["default", "date", "name"];
   }
 
 
@@ -167,6 +160,9 @@ export class SearchFilter<Entity extends Searchable>
 
   /**
    * Group a list of entities.
+   * 
+   * For `grouper` and `group_sorter`, a default implementation is used if they are not provided. If `entity_sorter` is not provided, entities in each group will be in an arbitrary order.
+   * 
    * @param source List of entities to group.
    * @param grouper Grouper function applied to each entity to assign it a group.
    * @param entity_sorter Sorter function applied to each group to sort the entities inside it.
@@ -176,21 +172,23 @@ export class SearchFilter<Entity extends Searchable>
   group<Key extends PropertyKey>(
     source: Entity[],
     options: {
-      grouper: (entity: Entity) => Key,
+      grouper?: (entity: Entity) => Key,
       entity_sorter?: Sorter<Entity>,
       group_sorter?: Sorter<[Key, Entity[]]>,
     },
   ): [Key, Entity[]][]
   {
     let {
-      grouper,
+      grouper = this.default_group.bind(this),
       entity_sorter,
-      group_sorter = this.sort_groups.bind(this),
+      group_sorter = this.default_group_sort.bind(this),
     } = options;
 
     let groups = Object.groupBy(source, grouper) as Groups<Entity>;
     let out    = Object.entries(groups)          as [Key, Entity[]][];
 
+    console.log("out =", out);
+    
     if (entity_sorter) {
       out = out.map(
         ([group, entities]) => [
@@ -210,7 +208,13 @@ export class SearchFilter<Entity extends Searchable>
     return out;
   }
 
-  sort_groups<Key extends PropertyKey>(
+  default_group(entity: Entity): string
+  {
+    let value = entity[this.group_by];
+    return Array.isArray(value) ? value[0] : value;
+  }
+
+  default_group_sort<Key extends PropertyKey>(
       groups: [Key, Entity[]][],
     ): [Key, Entity[]][]
     {

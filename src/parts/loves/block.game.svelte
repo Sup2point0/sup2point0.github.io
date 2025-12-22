@@ -52,11 +52,13 @@ onMount(() => {
       <div class="upper">
         <h3> {game.name} </h3>
 
-        <p class="love">
-          {#each { length: game.love } as _}
-            ❤️‍🔥
-          {/each}
-        </p>
+        {#if game.love}
+          <p class="love">
+            {#each { length: game.love } as _}
+              ❤️‍🔥
+            {/each}
+          </p>
+        {/if}
       </div>
 
       <div class="inner">
@@ -202,13 +204,9 @@ onMount(() => {
     color: $col-text-deut;
     transition: #{trans()};
 
-    &.active {
-      color: $col-deut !important;
-    }
-
-    &.opportunistic {
-      color: $col-acc !important;
-    }
+    &.wishlist      { color: #f190f1 !important; }
+    &.active        { color: #40f190 !important; }
+    &.opportunistic { color: #c7c7ff !important; }
   }
 }
 

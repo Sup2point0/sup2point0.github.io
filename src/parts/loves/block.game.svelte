@@ -34,7 +34,7 @@ onMount(() => {
 </script>
 
 
-<button class="game block {game.state}"
+<button class="game block {game.state} {game._style}"
   class:intersected={anim.intersected}
   id={game.shard}
   bind:this={self}
@@ -140,8 +140,11 @@ onMount(() => {
   height: 120px;
   
   img {
-    border-radius: 50%;
     box-shadow: 0 8px 16px rgb(black, 40%);
+    
+    .block.game:not(.no-crop) & {
+      border-radius: 50%;
+    }
 
     .block.game.active & {
       box-shadow: 0 0 32px color.change($col-trit, $alpha: 0.5);

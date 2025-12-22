@@ -22,7 +22,7 @@ export class MediaSearchFilter extends SearchFilter<MediaData>
 
   get groups(): string[]
   {
-    return ["default", "date", "genre"];
+    return ["default", "date", "genres"];
   }
 
 
@@ -31,7 +31,7 @@ export class MediaSearchFilter extends SearchFilter<MediaData>
     let out: FilterResults<MediaData> = this.#filter(media);
 
     if (this.group_by !== "default") {
-      out = out;  // TODO:
+      out = this.#group_and_sort(out);
     }
     else if (this.sort_by !== "default" || this.query) {
       out = this.#sort(out);
@@ -90,15 +90,18 @@ export class MediaSearchFilter extends SearchFilter<MediaData>
         return super.sort_date(media);
       
       default:
-        return super.sort(media, {
-          /* @ts-ignore */
-          scorer: (each => Math.max(
-            partial_ratio(this.query, each.name),
-            each.collection ? partial_ratio(this.query, each.collection) : 0,
-            each.genres ? partial_ratio(this.query, each.genres.join(" ")) : 0,
-            each.themes ? partial_ratio(this.query, each.themes.join(" ")) : 0,
-          )).bind(this),
-        })
+        if (this.query) {
+          return super.sort(media, {
+            /* @ts-ignore */
+            scorer: (each => Math.max(
+              partial_ratio(this.query, each.name),
+              each.collection ? partial_ratio(this.query, each.collection) : 0,
+              each.genres ? partial_ratio(this.query, each.genres.join(" ")) : 0,
+              each.themes ? partial_ratio(this.query, each.themes.join(" ")) : 0,
+            )).bind(this),
+          })
+        }
+        return shuffle(media);
     }
   }
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 
-import { pick_random } from "#scripts/utils";
+import { pick_random, shuffle } from "#scripts/utils";
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
 import Cards from "#parts/core/cards.svelte";
@@ -67,7 +67,7 @@ const routes = [
         <h2> {collection?.toUpperCase()} </h2>
 
         <Cards>
-          {#each films as film}
+          {#each shuffle(films) as film}
             <MediaBlock kind="films" media={film} />
           {/each}
         </Cards>

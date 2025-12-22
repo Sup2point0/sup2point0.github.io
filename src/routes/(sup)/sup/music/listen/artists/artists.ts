@@ -50,7 +50,7 @@ export const artists_data: {
     {
       shard: "kirara-magic",
       name: "Kirara Magic",
-      date: "2025 SUMMER",
+      date: "summer 2025",
       icon: "kirara-magic.jpg",
       genres: ["electronic", "chillout"],
       track: {
@@ -101,7 +101,7 @@ export const artists_data: {
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkDro0y_y55ojMZ6u3m6RKzJ",
       },
-      discovered: `${h("New Start")} in YouTube reccs",
+      discovered: `${h("New Start")} in YouTube reccs`,
     },
     {
       shard: "stessie",
@@ -194,7 +194,7 @@ export const artists_data: {
     {
       shard: "nhato",
       name: "Nhato",
-      date: "2025 FALL",
+      date: "fall 2025",
       icon: "nhato.jpg",
       genres: ["electronic", "trance"],
       track: {

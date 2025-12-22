@@ -174,7 +174,7 @@ export const projects_data: Groups<ProjectData> = {
       tech: [
         Lang.RUBY,
       ],
-      state: [State.DEVELOPING, State.MAINTAINING],
+      state: [State.MAINTAINING, State.DEVELOPING],
       links: {
         github: "https://github.com/Sup2point0/stranger-quarkdown",
         site: "https://sup2point0.github.io/stranger-quarkdown/docs"
@@ -193,7 +193,7 @@ export const projects_data: Groups<ProjectData> = {
       tech: [
         Lang.SVELTE, Lang.TYPESCRIPT,
       ],
-      state: State.DEVELOPING,
+      state: State.INDETERMINATE,
       links: {
         github: "https://github.com/Sup2point0/lattix",
         site: "https://sup2point0.github.io/lattix",
@@ -270,7 +270,7 @@ export const projects_data: Groups<ProjectData> = {
       tech: [
         Lang.SVELTE, Lang.TYPESCRIPT,
       ],
-      state: State.MAINTAINING,
+      state: State.HIATUS,
       links: {
         github: "https://github.com/Sup2point0/buccaneer-game",
         site: "https://sup2point0.github.io/buccaneer-game",
@@ -352,7 +352,7 @@ export const projects_data: Groups<ProjectData> = {
     {
       shard: "vscode-supcode-visuals",
       name: "supcode Visuals for VSCode",
-      date: ["winter 2025", "present"],
+      date: ["late 2025", "present"],
       flavour: Flavour.DEV,
       kind: Kind.APPLICATION,
       tech: [
@@ -524,7 +524,7 @@ export const projects_data: Groups<ProjectData> = {
       ],
       state: State.ARCHIVED,
       links: {
-        github: "https://github.com/Sup2point0/avidity-web",
+        github: "https://github.com/Sup2point0/avidity-svelte",
         site: "https://sup2point0.github.io/avidity",
       },
       desc: `Web-based prototype of Avidity, now re-developing in Unity.`,

@@ -90,8 +90,8 @@ button {
     color: $col-quat;
     opacity: 1;
 
-    &.tech       { color: #4090f1; }
-    &.supcode    { color: #fff; }
+    &.tech       { color: #40e0ff; }
+    // &.supcode    { color: white; }
     &.python     { color: #0064f1; }
     &.c-         { color: #ff0090; }
     &.ruby       { color: #ff1000; }
@@ -101,6 +101,9 @@ button {
     &.javascript { color: #ffc720; }
     &.javascript-typescript { color: #ffc720; }
     &.unity      { color: #40f190; }
+
+    &.developing  { color: #40f190; }
+    &.maintaining { color: #40e0ff; }
   }
 
   &:hover {

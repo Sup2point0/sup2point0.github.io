@@ -123,7 +123,10 @@ export const projects_data: Groups<ProjectData> = {
       icon: "integrity.svg",
       flavour: [Flavour.DEV, Flavour.ACADEMIC],
       kind: Kind.WEBSITE,
-      tech: [Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.RUBY, Lang.KATEX, Lang.JSON, Lang.MARKDOWN],
+      tech: [
+        Lang.RUBY, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
+        Lang.KATEX, Lang.JSON, Lang.MARKDOWN,
+      ],
       state: [State.DEVELOPING, State.MAINTAINING],
       links: {
         github: "https://github.com/Sup2point0/integrity",
@@ -172,7 +175,7 @@ export const projects_data: Groups<ProjectData> = {
       flavour: Flavour.DEV,
       kind: Kind.FRAMEWORK,
       tech: [
-        Lang.RUBY,
+        Lang.RUBY, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
       ],
       state: [State.MAINTAINING, State.DEVELOPING],
       links: {

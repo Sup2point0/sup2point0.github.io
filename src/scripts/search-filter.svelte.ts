@@ -1,4 +1,4 @@
-import { datepoint_to_date } from "#scripts/utils";
+import { sum, datepoint_to_date } from "#scripts/utils";
 import type { Shard, Groups, States } from "#scripts/types";
 
 
@@ -121,7 +121,11 @@ export class SearchFilter<Entity extends Searchable>
     },
   ): [Key, Entity[]][]
   {
-    let { grouper, entity_sorter, group_sorter } = options;
+    let {
+      grouper,
+      entity_sorter,
+      group_sorter = this.sort_groups.bind(this),
+    } = options;
 
     let groups = Object.groupBy(source, grouper) as Groups<Entity>;
     let out    = Object.entries(groups)          as [Key, Entity[]][];
@@ -144,4 +148,45 @@ export class SearchFilter<Entity extends Searchable>
 
     return out;
   }
+
+  sort_groups<Key extends PropertyKey>(
+      groups: [Key, Entity[]][],
+    ): [Key, Entity[]][]
+    {
+      if (this.group_by === "date" && this.sort_by === "date") {
+        return groups.toSorted(
+          ([g1, e1], [g2, e2]) => (g2 as number) - (g1 as number)
+        );
+      }
+  
+      if (this.dirtiness > 1) {
+        return groups.toSorted(
+          ([group, media]) => {
+            if (this.query) {
+              return sum(
+                media.map(each => each._score_ ?? 0)
+              );
+            }
+            return media.length;
+          }
+        );
+      }
+  
+      let toggles = Object.keys(this.toggles);
+  
+      if (toggles.includes(this.group_by)) {
+        return groups.toSorted(
+          ([g1, e1], [g2, e2]) => {
+            let prot = Object.keys(this[this.group_by]).indexOf(g1 as string);
+            let deut = Object.keys(this[this.group_by]).indexOf(g2 as string);
+  
+            if (prot === -1 && deut !== -1) return 1;
+            if (prot !== -1 && deut === -1) return -1;
+            return prot - deut;
+          }
+        )
+      }
+  
+      return groups;
+    }
 }

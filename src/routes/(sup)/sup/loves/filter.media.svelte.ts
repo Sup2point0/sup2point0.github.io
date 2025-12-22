@@ -105,47 +105,6 @@ export class MediaSearchFilter extends SearchFilter<MediaData>
     }
   }
 
-  #sort_groups<Key extends PropertyKey>(
-    groups: [Key, MediaData[]][],
-  ): [Key, MediaData[]][]
-  {
-    if (this.sort_by === "date") {
-      return groups.toSorted(
-        ([g1, e1], [g2, e2]) => (g2 as number) - (g1 as number)
-      );
-    }
-
-    if (this.dirtiness > 1) {
-      return groups.toSorted(
-        ([group, media]) => {
-          if (this.query) {
-            return sum(
-              media.map(each => each._score_ ?? 0)
-            );
-          }
-          return media.length;
-        }
-      );
-    }
-
-    let toggles = Object.keys(this.toggles);
-
-    if (toggles.includes(this.group_by)) {
-      return groups.toSorted(
-        ([g1, e1], [g2, e2]) => {
-          let prot = Object.keys(this[this.group_by]).indexOf(g1 as string);
-          let deut = Object.keys(this[this.group_by]).indexOf(g2 as string);
-
-          if (prot === -1 && deut !== -1) return 1;
-          if (prot !== -1 && deut === -1) return -1;
-          return prot - deut;
-        }
-      )
-    }
-
-    return groups;
-  }
-
   #group_and_sort(media: MediaData[]): [string, MediaData[]][]
   {
     let grouper;
@@ -162,7 +121,6 @@ export class MediaSearchFilter extends SearchFilter<MediaData>
     return super.group(media, {
       grouper: grouper.bind(this),
       entity_sorter: this.#sort.bind(this),
-      group_sorter: this.#sort_groups.bind(this),
     })
   }
 }

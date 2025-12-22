@@ -25,7 +25,10 @@ export enum Theme {
   COMING_OF_AGE = "coming of age",
   ESPORTS       = "esports",
   GRIT          = "grit",
+  MAGIC         = "magic",
   MYTHOLOGY     = "mythology",
+  OCCULT        = "occult",
+  SOCIETY       = "society",
   SPACE         = "space",
   TRAGEDY       = "tragedy",
 }

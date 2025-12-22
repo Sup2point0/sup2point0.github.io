@@ -4,7 +4,7 @@ import type { States } from "#scripts/types";
 import { Franchise, Flags, type FilmData } from "./films";
 
 
-export class FilmSearchFilter extends MediaSearchFilter
+export class FilmSearchFilter extends MediaSearchFilter<FilmData>
 {
   franchises = $state(MediaSearchFilter.init_states(Franchise));
 
@@ -27,7 +27,7 @@ export class FilmSearchFilter extends MediaSearchFilter
     return super.filter(films,
       film => {
         for (let [flag, state] of Object.entries(this.filter_by)) {
-          if (state && !film.flags?.includes(flag)) return true;
+          if (state && !film.flags?.includes(flag as Flags)) return true;
         }
         return false;
       }

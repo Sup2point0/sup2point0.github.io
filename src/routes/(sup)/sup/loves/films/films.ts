@@ -1,4 +1,4 @@
-import { type MediaData, Genre, Theme } from "#scripts/types/media";
+import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
 

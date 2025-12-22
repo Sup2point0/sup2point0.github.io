@@ -15,7 +15,7 @@ import { onMount } from "svelte";
 
 
 interface Props {
-  kind: "films" | "series" | "anime";
+  kind: "film" | "series" | "anime" | "book" | "book-series";
   media: MediaData;
 }
 

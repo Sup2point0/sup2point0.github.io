@@ -27,4 +27,9 @@ import LinkCard from "#parts/ui/card.link.svelte";
     text="Anime"
     capt="wish I could watch more"
   />
+  <LinkCard
+    link="/sup/loves/book-series"
+    text="Book Series"
+    capt="losing my soul in fictional worlds"
+  />
 </Cards>

@@ -6,46 +6,44 @@ import { Genre, Theme } from "#scripts/types";
 import type { MediaData, States } from "#scripts/types";
 
 
-export class MediaSearchFilter extends SearchFilter<MediaData>
+export class MediaSearchFilter<Media extends MediaData> extends SearchFilter<Media>
 {
   genres = $state(SearchFilter.init_states(Genre));
   themes = $state(SearchFilter.init_states(Theme));
 
 
-  get toggles(): Record<string, States>
-  {
+  get toggles(): Record<string, States> {
     return {
       genres: this.genres,
       themes: this.themes,
     };
   }
 
-  get groups(): string[]
-  {
-    return ["default", "date", "genres"];
+  get groups(): string[] {
+    return ["default", "date", "genres", "themes"];
   }
 
 
-  apply(media: MediaData[]): FilterResults<MediaData>
+  apply(media: Media[]): FilterResults<Media>
   {
-    let out: FilterResults<MediaData> = this.filter_media(media);
+    let out: FilterResults<Media> = this.filter_media(media);
 
     if (this.group_by !== "default") {
       out = this.#group_and_sort(out);
     }
     else if (this.sort_by !== "default" || this.query) {
-      out = this.#sort(out);
+      out = this.sort_media(out);
     }
 
     return out;
   }
 
-  protected filter_media(media: MediaData[]): MediaData[]
+  protected filter_media(media: Media[]): Media[]
   {
     return super.filter(media);
   }
 
-  #sort(media: MediaData[]): MediaData[]
+  protected sort_media(media: Media[]): Media[]
   {
     switch (this.sort_by) {
       case "date": return super.sort_date(media);
@@ -67,7 +65,7 @@ export class MediaSearchFilter extends SearchFilter<MediaData>
     }
   }
 
-  #group_and_sort(media: MediaData[]): [string, MediaData[]][]
+  #group_and_sort(media: Media[]): [string, Media[]][]
   {
     let grouper;
 
@@ -82,7 +80,7 @@ export class MediaSearchFilter extends SearchFilter<MediaData>
 
     return super.group(media, {
       grouper: grouper.bind(this),
-      entity_sorter: this.#sort.bind(this),
+      entity_sorter: this.sort_media.bind(this),
     })
   }
 }

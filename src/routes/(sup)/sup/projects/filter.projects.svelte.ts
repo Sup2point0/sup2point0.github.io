@@ -1,7 +1,7 @@
 import { partial_ratio } from "fuzzball";
 
 import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
-import { any, all, get_enabled, datepoint_to_date } from "#scripts/utils";
+import { any, all, sum, get_enabled, datepoint_to_date } from "#scripts/utils";
 import type { States } from "#scripts/types";
 
 import { Lang, Tool, Flavour, Kind, State } from "./projects";
@@ -46,7 +46,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
       state: this.state,
     };
   }
-  
+
   filter_by = $state({
     "on github": false,
     "has site": false,
@@ -151,10 +151,8 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
       return groups.toSorted(
         ([group, projects]) => {
           if (this.query) {
-            return (
-              projects
-              .map(proj => proj._score_ ?? 0)
-              .reduce((acc, n) => acc + n, 0)
+            return sum(
+              projects.map(proj => proj._score_ ?? 0)
             );
           }
           return projects.length;

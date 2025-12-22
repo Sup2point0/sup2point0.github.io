@@ -25,6 +25,11 @@ export function all<Type>(
   }
 }
 
+export function sum(iterable: number[]): number
+{
+  return iterable.reduce((acc, n) => acc + n, 0);
+}
+
 export function get_enabled(
   object: States,
 ): string[]

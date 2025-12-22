@@ -7,7 +7,7 @@ import GameBlock from "#parts/loves/block.game.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
 
 import { games_list } from "./games";
-import { GameSearchFilter } from "./filter.svelte.ts";
+import { GameSearchFilter } from "./filter.games.svelte.ts";
 
 
 // svelte-ignore non_reactive_update

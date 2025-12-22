@@ -21,7 +21,7 @@ export const animes_data: Groups<AnimeData> = {
       desc: `${i("Oshi no Ko")} (seasons 1–2)`,
     },
   ],
-  "Yu-Gi-Oh!": [
+  "Yu-Gi-Oh": [
     {
       name: "Yu-Gi-Oh! ARC-V",
       date: [2014, 2017],

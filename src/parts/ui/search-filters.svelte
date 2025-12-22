@@ -112,20 +112,27 @@ let open = $state(false);
       </tbody></table>
     </div>
   
-  {:else if Object.keys(filters.previews).length > 0}
+  {:else}
     <div class="filters" transition:slide={{ duration: 1000, easing: expoInOut }}>
       <div class="toggles">
-        <span>          
-          {#if result_count}
-            <span>{result_count} RESULTS</span>&ensp;FROM
-          {:else}
-            SHOWING
-          {/if}
-        </span>
+        {#if filters.previews.length > 0}
+          <span>
+            {#if result_count}
+              <span>{result_count} RESULT{result_count > 1 ? "S" : ""}</span>&ensp;FROM
+            {:else}
+              SHOWING
+            {/if}
+          </span>
 
-        {#each filters.previews as [category, option]}
-          <SearchToggle {filters} {category} {option} />
-        {/each}
+          {#each filters.previews as [category, option]}
+            <SearchToggle {filters} {category} {option} />
+          {/each}
+        
+        {:else if result_count}
+          <span>
+            SHOWING <span>{result_count} RESULT{result_count > 1 ? "S" : ""}</span>
+          </span>
+        {/if}
       </div>
     </div>
   

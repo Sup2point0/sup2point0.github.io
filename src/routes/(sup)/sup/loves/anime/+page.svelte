@@ -9,7 +9,7 @@ import SearchFilters from "#parts/ui/search-filters.svelte";
 import MediaBlock from "#parts/loves/block.media.svelte";
 
 import { animes_data, animes_list, type AnimeData } from "./anime";
-import { AnimeSearchFilter } from "./filter.svelte.ts";
+import { AnimeSearchFilter } from "./filter.anime.svelte.ts";
 
 
 // svelte-ignore non_reactive_update

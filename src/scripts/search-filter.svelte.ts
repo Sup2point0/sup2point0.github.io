@@ -1,4 +1,4 @@
-import { sum, datepoint_to_date } from "#scripts/utils";
+import { all, any, sum, datepoint_to_date } from "#scripts/utils";
 import type { Shard, Groups, States } from "#scripts/types";
 
 
@@ -61,8 +61,61 @@ export class SearchFilter<Entity extends Searchable>
 
 
   /**
+   * Filter a list of entities (out-of-place).
+   */
+  filter(
+    source: Entity[],
+    exclude_if?: (entity: Entity) => boolean,
+  ): Entity[]
+  {
+    let out = source.filter(
+      each => {
+        each._score_ = 0;
+        let filtered = false;
+
+        if (exclude_if?.(each)) return false;
+
+        for (let [prop, states] of Object.entries(this.toggles)) {
+          if (all(states) || !any(states)) continue;
+
+          let hit = false;
+
+          for (let [toggle, state] of Object.entries(states)) {
+            if (state) {
+              if (Array.isArray(each[prop])) {
+                let matches = each[prop].filter(p => p === toggle).length;
+                if (matches > 0) {
+                  hit = true;
+                  each._score_ += matches ** 2;
+                }
+              }
+              else if (each[prop] === toggle) {
+                hit = true;
+                each._score_++;
+              }
+            }
+          }
+
+          if (!hit) return false;
+          filtered = true;
+        }
+
+        return (each._score_ > 0 || !filtered);
+      }
+    );
+
+    if (out.length === 0 && this.query) {
+      out = source;
+    }
+
+    return out;
+  }
+
+
+  /**
    * Sort a list of entities (out-of-place).
    * @param source List of entities.
+   * @param comparer Function applied to pairs of entities to determine their order relative to each other.
    * @param scorer Function applied to each entity to assign it a score used for sorting.
    * @returns Sorted list of entities.
    */
@@ -116,7 +169,8 @@ export class SearchFilter<Entity extends Searchable>
    * Group a list of entities.
    * @param source List of entities to group.
    * @param grouper Grouper function applied to each entity to assign it a group.
-   * @param sorter Function applied to each group name to assign it a score used for sorting groups.
+   * @param entity_sorter Sorter function applied to each group to sort the entities inside it.
+   * @param group_sorter Function applied to each group name to assign it a score used for sorting groups.
    * @returns List of groups of entities.
    */
   group<Key extends PropertyKey>(

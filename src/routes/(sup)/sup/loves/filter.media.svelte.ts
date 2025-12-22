@@ -1,7 +1,7 @@
 import { partial_ratio } from "fuzzball";
 
 import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
-import { any, all, shuffle } from "#scripts/utils";
+import { shuffle } from "#scripts/utils";
 import { Genre, Theme } from "#scripts/types";
 import type { MediaData, States } from "#scripts/types";
 
@@ -28,7 +28,7 @@ export class MediaSearchFilter extends SearchFilter<MediaData>
 
   apply(media: MediaData[]): FilterResults<MediaData>
   {
-    let out: FilterResults<MediaData> = this.#filter(media);
+    let out: FilterResults<MediaData> = this.filter_media(media);
 
     if (this.group_by !== "default") {
       out = this.#group_and_sort(out);
@@ -40,47 +40,9 @@ export class MediaSearchFilter extends SearchFilter<MediaData>
     return out;
   }
 
-  #filter(media: MediaData[]): MediaData[]
+  protected filter_media(media: MediaData[]): MediaData[]
   {
-    let out = media.filter(
-      each => {
-        each._score_ = 0;
-        let filtered = false;
-
-        for (let [prop, states] of Object.entries(this.toggles)) {
-          if (all(states) || !any(states)) continue;
-
-          let hit = false;
-
-          for (let [toggle, state] of Object.entries(states)) {
-            if (state) {
-              if (Array.isArray(each[prop])) {
-                let matches = each[prop].filter(p => p === toggle).length;
-                if (matches > 0) {
-                  hit = true;
-                  each._score_ += matches ** 2;
-                }
-              }
-              else if (each[prop] === toggle) {
-                hit = true;
-                each._score_++;
-              }
-            }
-          }
-
-          if (!hit) return false;
-          filtered = true;
-        }
-
-        return (each._score_ > 0 || !filtered);
-      }
-    );
-
-    if (out.length === 0 && this.query) {
-      out = media;
-    }
-
-    return out;
+    return super.filter(media);
   }
 
   #sort(media: MediaData[]): MediaData[]

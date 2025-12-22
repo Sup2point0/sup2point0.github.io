@@ -34,7 +34,6 @@ export const films_data: Groups<FilmData> = {
       name:   "Alita: Battle Angel",
       date:   2019,
       cover:  "alita-battle-angel.jpg",
-      flags:  [Flags.ANIMATED],
     }, {
       name:   "Doctor Strange",
       date:   2016,
@@ -172,7 +171,7 @@ export const films_data: Groups<FilmData> = {
       name:   "The Maze Runner",
       date:   2014,
       cover:  undefined,
-      flags:  [Flags.BOOK, Flags.FIRST, Flags.SEQUEL],
+      flags:  [Flags.BOOK, Flags.FIRST, Flags.SERIES],
     }, {
       name:   "流浪地球II",
       date:   2023,
@@ -186,10 +185,11 @@ export const films_data: Groups<FilmData> = {
       themes: [Theme.GRIT],
       flags:  [Flags.CHINESE],
     }, {
-      name:   "哪吒2",
+      name:   "哪吒 2",
       date:   2025,
       cover:  undefined,
       genres: [Genre.ADVENTURE, Genre.COMEDY],
+      themes: [Theme.MYTHOLOGY],
       flags:  [Flags.ANIMATED, Flags.CHINESE, Flags.SEQUEL, Flags.SERIES],
     }, {
       name:   "抓娃娃",

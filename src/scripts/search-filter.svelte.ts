@@ -52,10 +52,10 @@ export class SearchFilter<Entity extends Searchable>
   }
 
 
-  static init_states(states: object): States
+  static init_states(states: object, state?: boolean): States
   {
     return {
-      ...Object.fromEntries(Object.values(states).map(s => [s, true]))
+      ...Object.fromEntries(Object.values(states).map(s => [s, state ?? true]))
     };
   }
 

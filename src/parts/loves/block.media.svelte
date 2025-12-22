@@ -7,6 +7,7 @@ A block displaying info for a media, series, anime, show, etc.
 
 import { display_date } from "#scripts/utils";
 import type { MediaData } from "#scripts/types";
+import type { FilmData } from "#src/routes/(sup)/sup/loves/films/films";
 
 import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
 
@@ -69,6 +70,23 @@ onMount(() => {
           {/each}
         </ul>
       </div>
+
+      {#if kind == "films"}
+        <div class="extra">
+          {#if media.franchise}
+            <p class="franchise {media.franchise}"> {media.franchise.toUpperCase()} </p>
+          {/if}
+
+          <!-- {#if media.franchise && media.flags?.length > 0}
+            <span class="separator"> × </span>
+          {/if}
+
+          {#each (media as FilmData).flags?.entries() as [i, flag]}
+            {#if i > 0} <span class="separator"> × </span> {/if}
+            <p class="flag {flag}"> {flag.toUpperCase()} </p>
+          {/each} -->
+        </div>
+      {/if}
     </div>
   </div>
 </button>
@@ -92,7 +110,7 @@ button.block.media {
     cursor: auto;
     opacity: 1 !important;
 
-    .inner p {
+    .extra p {
       color: $col-text;
     }
   }
@@ -195,6 +213,22 @@ img {
       &.genre::before { background: color.change($col-trit, $alpha: 0.69); }
       &.theme::before { background: color.change($col-deut, $alpha: 0.69); }
     }
+  }
+}
+
+.extra {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 0.5rem;
+  @include separator;
+
+  p {
+    @include font-tech;
+    font-size: 100%;
+    color: $col-text-deut;
   }
 }
 

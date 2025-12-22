@@ -11,6 +11,7 @@ export enum Genre {
   DYSTOPIAN     = "dystopian",
   EPIC          = "epic",
   FANTASY       = "fantasy",
+  FAIRYTALE     = "fairytale",
   HISTORY       = "history",
   MYSTERY       = "mystery",
   ROMANCE       = "romance",
@@ -18,7 +19,6 @@ export enum Genre {
   SLICE_OF_LIFE = "slice of life",
   SPACE_OPERA   = "space opera",
   SUPERHERO     = "superhero",
-  TRAGEDY       = "tragedy",
 }
 
 export enum Theme {
@@ -27,6 +27,7 @@ export enum Theme {
   GRIT          = "grit",
   MYTHOLOGY     = "mythology",
   SPACE         = "space",
+  TRAGEDY       = "tragedy",
 }
 
 

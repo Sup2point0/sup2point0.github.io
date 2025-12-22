@@ -1,5 +1,5 @@
 import { i } from "#scripts/utils";
-import type { MediaData } from "#scripts/types/media";
+import { Genre, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
 
@@ -12,12 +12,12 @@ export const animes_data: Groups<AnimeData> = {
       name: "Suzume no Tojimari",
       date: 2022,
       cover: "suzume.jpg",
-      genres: ["fantasy", "adventure"],
+      genres: [Genre.FANTASY, Genre.ADVENTURE],
     }, {
       name: "【推しの子】",
       date: [2023, 2024],
       cover: "oshi-no-ko.webp",
-      genres: ["drama", "mystery", "romance"],
+      genres: [Genre.DRAMA, Genre.MYSTERY, Genre.ROMANCE],
       desc: `${i("Oshi no Ko")} (seasons 1–2)`,
     },
   ],
@@ -32,10 +32,12 @@ export const animes_data: Groups<AnimeData> = {
       cover: "ygo-vrains.jpg",
     }, {
       name: "Yu-Gi-Oh! Battle City",
-      date: [2001, 2002]
+      date: [2001, 2002],
+      cover: "ygo-battle-city.webp",
     }, {
       name: "Yu-Gi-Oh! ZEXAL",
       date: [2011, 2014],
+      cover: "ygo-zexal.webp",
     },
   ],
   "Pokémon": [
@@ -43,12 +45,12 @@ export const animes_data: Groups<AnimeData> = {
       name: "Pokémon: XY",
       date: [2014, 2015],
       cover: "pokemon-xy.jpg",
-      genres: ["adventure", "slice of life", "fantasy"],
+      genres: [Genre.ADVENTURE, Genre.SLICE_OF_LIFE, Genre.FANTASY],
     }, {
       name: "Pokémon: XYZ",
       date: [2015, 2016],
       cover: "pokemon-xyz.jpg",
-      genres: ["adventure", "slice of life", "fantasy"],
+      genres: [Genre.ADVENTURE, Genre.SLICE_OF_LIFE, Genre.FANTASY],
     },
   ],
   "Guilty Pleasures": [
@@ -56,7 +58,7 @@ export const animes_data: Groups<AnimeData> = {
       name: "Kanojo, Okarishimasu",
       date: [2020, 2023],
       cover: "kano-kari.webp",
-      genres: ["romance", "slice of life"],
+      genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE],
       desc: `${i("Rent-a-Girlfriend")} (seasons 1–3)`,
     }, {
       name: "Yosuga no Sora",

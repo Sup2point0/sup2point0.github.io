@@ -121,8 +121,8 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
   #sort(projects: ProjectData[]): ProjectData[]
   {
     switch (this.sort_by) {
-      case "date":
-        return super.sort_date(projects);
+      case "date": return super.sort_date(projects);
+      case "name": return super.sort_name(projects);
 
       default:
         return super.sort(projects, {

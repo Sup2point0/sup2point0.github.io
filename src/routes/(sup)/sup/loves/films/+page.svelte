@@ -11,13 +11,13 @@ import SearchFilters from "#parts/ui/search-filters.svelte";
 import MediaBlock from "#parts/loves/block.media.svelte";
 
 import { films_data, films_list, type FilmData } from "./films";
-import { MediaSearchFilter } from "../filter.media.svelte.ts";
+import { FilmSearchFilter } from "./filter.films.svelte.ts";
 
 import { onMount } from "svelte";
 
 
 // svelte-ignore non_reactive_update
-let filters = new MediaSearchFilter();
+let filters = new FilmSearchFilter();
 
 let displayed_films: FilterResults<FilmData> = $derived(filters.apply(films_list));
 

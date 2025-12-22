@@ -104,6 +104,13 @@ export class SearchFilter<Entity extends Searchable>
     })
   }
 
+  sort_name(source: Entity[]): Entity[]
+  {
+    return this.sort(source, {
+      comparer: (prot, deut) => prot.name.localeCompare(deut.name),
+    });
+  }
+
 
   /**
    * Group a list of entities.
@@ -153,7 +160,7 @@ export class SearchFilter<Entity extends Searchable>
       groups: [Key, Entity[]][],
     ): [Key, Entity[]][]
     {
-      if (this.group_by === "date" && this.sort_by === "date") {
+      if (this.group_by === "date" && (this.sort_by === "date" || this.sort_by === "default")) {
         return groups.toSorted(
           ([g1, e1], [g2, e2]) => (g2 as number) - (g1 as number)
         );

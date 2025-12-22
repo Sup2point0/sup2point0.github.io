@@ -1,5 +1,5 @@
-import { FilmSearchFilter } from "../films/filter.film.svelte";
+import { MediaSearchFilter } from "../filter.media.svelte";
 
 
-export class SeriesSearchFilter extends FilmSearchFilter
+export class SeriesSearchFilter extends MediaSearchFilter
 {}

@@ -1,7 +1,7 @@
 import { partial_ratio } from "fuzzball";
 
 import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
-import { any, all, sum, shuffle } from "#scripts/utils";
+import { any, all, shuffle } from "#scripts/utils";
 import { Genre, Theme } from "#scripts/types";
 import type { MediaData, States } from "#scripts/types";
 
@@ -86,8 +86,8 @@ export class MediaSearchFilter extends SearchFilter<MediaData>
   #sort(media: MediaData[]): MediaData[]
   {
     switch (this.sort_by) {
-      case "date":
-        return super.sort_date(media);
+      case "date": return super.sort_date(media);
+      case "name": return super.sort_name(media);
       
       default:
         if (this.query) {

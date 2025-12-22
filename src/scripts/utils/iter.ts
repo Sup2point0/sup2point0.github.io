@@ -1,3 +1,6 @@
+import type { States } from "#scripts/types";
+
+
 export function any<Type>(
   iterable: Type[] | Record<any, boolean>,
 ): boolean
@@ -23,7 +26,7 @@ export function all<Type>(
 }
 
 export function get_enabled(
-  object: Record<string, boolean>,
+  object: States,
 ): string[]
 {
   return (

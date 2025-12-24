@@ -2,13 +2,6 @@ import type { Searchable } from "#scripts/search-filter.svelte";
 import type { Shard } from "./index";
 
 
-export enum Daw {
-  FL = "FL Studio",
-  GarageBand = "GarageBand",
-  MuseScore = "MuseScore 3",
-}
-
-
 export interface TrackData extends Searchable {
   feat?: boolean;
 
@@ -54,7 +47,7 @@ export interface ArtistData {
 
   icon: string;
   
-  genres?: string[];
+  genres?: Genre[];
   track?: ExternalTrackData | ExternalTrackData[];
   links?: {
     [platform: string]: string;
@@ -69,7 +62,7 @@ interface ExternalTrackData {
 
 export enum GenreKind {
   GENRE = "genre",
-  VIBE = "vibe",
+  VIBE  = "vibe",
 }
 
 export interface GenreData {
@@ -81,4 +74,57 @@ export interface GenreData {
   artists?: string[];
   tracks?: string | string[];
   desc?: string;
+}
+
+
+export enum Genre {
+  STEP200      = "200step",
+  ALT_POP      = "alternative pop",
+  ANIME        = "anime",
+  ARCADE       = "arcade",
+  ARTCORE      = "artcore",
+  BASS         = "bass",
+  BEATBOX      = "beatbox",
+  BREAKCORE    = "breakcore",
+  CAMELLIACORE = "Camelliacore",
+  CINEMATIC    = "cinematic",
+  COLOUR_BASS  = "colour bass",
+  COMPLEXTRO   = "complextro",
+  CPOP         = "c-pop",
+  DRUM_N_BASS  = "drum & bass",
+  DUBSTEP      = "dubstep",
+  EDM          = "EDM",
+  ELECTRONIC   = "electronic",
+  FULL_FLAVOUR = "full flavour",
+  FUTURE_BASS  = "future bass",
+  FUTURE_CORE  = "future core",
+  GAME         = "game",
+  GOTHIC_HARDCORE = "gothic hardcore",
+  GUITAR       = "guitar",
+  HARDCORE     = "hardcore",
+  HITECH       = "hi-tech",
+  HOUSE        = "house",
+  JCORE        = "j-core",
+  JPOP         = "k-pop",
+  KPOP         = "k-pop",
+  MUSIC        = "music",
+  NEUROFUNK    = "neurofunk",
+  ORCHESTRAL   = "orchestral",
+  ORIENTAL     = "oriental",
+  PIANO        = "piano",
+  POP          = "pop",
+  RAP          = "rap",
+  RHYTHM       = "rhythm",
+  ROCK         = "rock",
+  TECHNO       = "techno",
+  TRANCE       = "trance",
+  TRANSCENDENTAL = "transcendental",
+  TRAP         = "trap",
+  VOCALOID     = "vocaloid",
+}
+
+export enum Daw {
+  FL         = "FL Studio",
+  GarageBand = "GarageBand",
+  MuseScore  = "MuseScore 3",
 }

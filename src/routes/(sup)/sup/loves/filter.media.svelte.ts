@@ -2,8 +2,8 @@ import { partial_ratio } from "fuzzball";
 
 import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
 import { shuffle } from "#scripts/utils";
-import { Genre, Theme } from "#scripts/types";
-import type { MediaData, States } from "#scripts/types";
+import { Genre, Theme, type MediaData } from "#scripts/types/media";
+import type { States } from "#scripts/types";
 
 
 export class MediaSearchFilter<Media extends MediaData> extends SearchFilter<Media>

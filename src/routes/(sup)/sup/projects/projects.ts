@@ -40,7 +40,7 @@ export enum Flavour {
 
 export enum Kind {
   GENERAL = "general",
-  WEBSITE = "website", GAME = "game", APPLICATION = "application", FRAMEWORK = "framework", TOOL = "tool", PROGRAM = "program", WIKI = "wiki",
+  WEBSITE = "website", GAME = "game", APPLICATION = "application", FRAMEWORK = "framework", TOOL = "tool", PROGRAM = "program", EXTENSION = "extension", WIKI = "wiki",
   LANGUAGE = "language", WORLD = "worldbuilding", WRITING = "writing", GRAPHIC = "graphic design",
 }
 
@@ -335,11 +335,28 @@ export const projects_data: Groups<ProjectData> = {
       desc: `A weekly newsletter on Python tips and tricks`,
     },
   ],
-  "Miscellaneous": [
+  "Current": [
+    {
+      shard: "dbxt",
+      name: "duelingbook-extractor",
+      love: 0,
+      date: ["December 2025", "present"],
+      icon: undefined,
+      flavour: Flavour.DEV,
+      kind: Kind.TOOL,
+      tech: [
+        Lang.RUST,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/duelingbook-extractor",
+      },
+      desc: `Extracting custom cards data from DuelingBook for conversions to other data formats`,
+    },
     {
       shard: "fractually-awesome",
       name: "fractually-awesome",
-      date: "December 2025",
+      date: ["December 2025", "present"],
       icon: undefined,
       flavour: Flavour.DEV,
       kind: Kind.APPLICATION,
@@ -357,7 +374,7 @@ export const projects_data: Groups<ProjectData> = {
       name: "supcode Visuals for VSCode",
       date: ["late 2025", "present"],
       flavour: Flavour.DEV,
-      kind: Kind.APPLICATION,
+      kind: Kind.EXTENSION,
       tech: [
         Lang.TYPESCRIPT,
       ],
@@ -397,6 +414,8 @@ export const projects_data: Groups<ProjectData> = {
       },
       desc: `Archiving file system metadata for Git while avoiding tracking large files`,
     },
+  ],
+  "Miscellaneous": [
     {
       shard: "brainflop",
       name: "brainflop",

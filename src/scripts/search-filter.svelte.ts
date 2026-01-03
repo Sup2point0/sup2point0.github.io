@@ -186,8 +186,6 @@ export class SearchFilter<Entity extends Searchable>
 
     let groups = Object.groupBy(source, grouper) as Groups<Entity>;
     let out    = Object.entries(groups)          as [Key, Entity[]][];
-
-    console.log("out =", out);
     
     if (entity_sorter) {
       out = out.map(

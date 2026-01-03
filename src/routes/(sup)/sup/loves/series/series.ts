@@ -90,7 +90,7 @@ export const series_data: Groups<SeriesData> = {
       date:   2019,
       desc:   `A Little Reunion`,
       genres: [Genre.DRAMA, Genre.SLICE_OF_LIFE],
-      themes: [Theme.COMING_OF_AGE, "高考 (gaokao)"],
+      themes: [Theme.COMING_OF_AGE, "高考 (gaokao)" as Theme],
     },
   ],
 };
@@ -102,7 +102,7 @@ export const series_list: SeriesData[] = (
         each.collection = collection;
         each._score_ = 0;
         if (each.shard === undefined) {
-          each.shard = `${i.toString()}-${j.toString()}`;
+          each.shard = `${i}-${j}`;
         }
       }
     }

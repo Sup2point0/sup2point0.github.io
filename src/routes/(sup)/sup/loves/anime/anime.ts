@@ -64,7 +64,7 @@ export const animes_data: Groups<AnimeData> = {
       name: "Yosuga no Sora",
       date: 2010,
       cover: "yosuga-no-sora.jpg",
-      genres: ["??"],
+      genres: ["??" as Genre],
     },
   ],
 };
@@ -76,7 +76,7 @@ export const animes_list: AnimeData[] = (
         anime.collection = collection;
         anime._score_ = 0;
         if (anime.shard === undefined) {
-          anime.shard = `${i.toString()}-${j.toString()}`;
+          anime.shard = `${i}-${j}`;
         }
       }
     }

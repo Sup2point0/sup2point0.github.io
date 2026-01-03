@@ -6,14 +6,14 @@ import { Franchise, Flags, type FilmData } from "./films";
 
 export class FilmSearchFilter extends MediaSearchFilter<FilmData>
 {
-  franchises = $state(MediaSearchFilter.init_states(Franchise));
+  franchise = $state(MediaSearchFilter.init_states(Franchise));
 
 
   get toggles(): Record<string, States>
   {
     return {
       ...super.toggles,
-      franchises: this.franchises,
+      franchise: this.franchise,
     }
   }
 

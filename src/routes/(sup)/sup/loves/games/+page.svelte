@@ -1,19 +1,22 @@
 <script lang="ts">
 
+import { pick_random, shuffle } from "#scripts/utils";
+import type { FilterResults } from "#scripts/search-filter.svelte.ts";
+
 import Cards from "#parts/core/cards.svelte";
 import Main from "#parts/core/main.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
 import GameBlock from "#parts/loves/block.game.svelte";
 
-import { games_list, type GameData } from "./games";
+import { games_data, games_list, type GameData } from "./games";
 import { GameSearchFilter } from "./filter.games.svelte.ts";
 
 
 // svelte-ignore non_reactive_update
 let filters = new GameSearchFilter();
 
-let displayed_games = $derived(filters.apply(games_list));
+let displayed_games: FilterResults<GameData> = $derived(filters.apply(games_list));
 
 </script>
 
@@ -32,7 +35,20 @@ let displayed_games = $derived(filters.apply(games_list));
 <Main gap="4rem">
   <SearchFilters bind:filters result_count={displayed_games.length} />
 
-  {#if filters.group_by !== "default"}
+  {#if filters.query === "" && filters.dirtiness === 0}
+    {#each Object.entries(games_data) as [collection, games]}
+      <section>
+        <h2> {collection?.toUpperCase()} </h2>
+
+        <Cards>
+          {#each games as game}
+            <GameBlock {game} />
+          {/each}
+        </Cards>
+      </section>
+    {/each}
+
+  {:else if filters.group_by !== "default"}
     {@const displayed = displayed_games as [string, GameData[]][]}
 
     {#each displayed as [collection, games]}

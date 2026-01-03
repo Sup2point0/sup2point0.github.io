@@ -341,7 +341,7 @@ export const films_list: FilmData[] = (
         film.collection = collection;
         film._score_ = 0;
         if (film.shard === undefined) {
-          film.shard = `${i.toString()}-${j.toString()}`;
+          film.shard = `${i}-${j}`;
         }
       }
     }

@@ -135,7 +135,7 @@ export const book_series_list: BookSeriesData[] = (
         book.collection = collection;
         book._score_ = 0;
         if (book.shard === undefined) {
-          book.shard = `${i.toString()}-${j.toString()}`;
+          book.shard = `${i}-${j}`;
         }
       }
     }

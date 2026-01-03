@@ -557,7 +557,7 @@ export const projects_data: Groups<ProjectData> = {
       flavour: [Flavour.DEV, Flavour.ACADEMIC],
       kind: Kind.APPLICATION,
       tech: [
-        Tool.UNITY, Lang.CSHARP, Lang.JSON,
+        Tool.UNITY, Lang.CSHARP, Lang.PYTHON, Lang.JSON,
       ],
       state: State.ARCHIVED,
       links: {
@@ -630,7 +630,7 @@ export const projects_data: Groups<ProjectData> = {
       flavour: Flavour.PERSONAL,
       kind: Kind.GRAPHIC,
       tech: [
-        "Google Slides",
+        "Google Slides" as Tool,
       ],
       state: State.ARCHIVED,
       desc: `A fan-made Bloons TD 6 newspaper`,

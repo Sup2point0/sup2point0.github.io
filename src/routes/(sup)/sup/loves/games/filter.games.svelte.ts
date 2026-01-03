@@ -11,7 +11,7 @@ export class GameSearchFilter extends SearchFilter<GameData>
 {
   genres      = $state(SearchFilter.init_states(Genre));
   platforms   = $state(SearchFilter.init_states(Platform));
-  states      = $state(SearchFilter.init_states(PlayState));
+  state       = $state(SearchFilter.init_states(PlayState));
 
 
   get toggles(): Record<string, States>
@@ -19,7 +19,7 @@ export class GameSearchFilter extends SearchFilter<GameData>
     return {
       genres:    this.genres,
       platforms: this.platforms,
-      states:    this.states,
+      state:     this.state,
     }
   }
 

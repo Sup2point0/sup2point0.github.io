@@ -170,12 +170,12 @@ search {
     }
 
     div {
-      transform: rotate(-90deg) translateY(-3px);
-      transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);  // ease-out-exp
+      transform: rotate(90deg) translateY(-3px);
+      transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);  // ease-out-exp
     }
 
     &.open div {
-      transform: rotate(90deg) translateY(-3px);
+      transform: rotate(-90deg) translateY(-3px);
     }
 
     &:hover {

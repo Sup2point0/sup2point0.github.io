@@ -95,17 +95,17 @@ p {
   }
 
   img {
-    filter: blur(30px);
+    filter: blur(3px);
     transition: all 0.2s ease-out;
   }
 }
 
 .picts.tall {
-  .img-container { width: 3rem; }
+  .img-container { width: 3.5rem; }
 
   img {
     height: 8rem;
-    transform: translateX(-1.5rem) skew(-$shear-factor);
+    transform: translateX(-1rem) skew(-$shear-factor);
   }
 }
 

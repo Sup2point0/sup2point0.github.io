@@ -20,7 +20,7 @@ let { filters, category, option, resetting = true }: Props = $props();
 
 
 let options = $derived(filters[category]);
-let active = $derived(options[option]);
+let enabled = $derived(options[option]);
 let dirty_polarity = 1;
 
 function toggle(option: string, current_state: boolean)
@@ -57,8 +57,8 @@ function toggle(option: string, current_state: boolean)
 
 <button
   class="toggle {category} {shardify(option)}"
-  class:active
-  onclick={() => toggle(option, active)}
+  class:enabled
+  onclick={() => toggle(option, enabled)}
 >
   {option?.toUpperCase()}
 </button>
@@ -78,13 +78,13 @@ button {
   opacity: 0.8;
   transition: #{trans()};
 
-  &.active, &:hover, &:focus-visible, &:active {
+  &.enabled, &:hover, &:focus-visible, &:active {
     &::before {
       background: $col-card-hover;
     }
   }
 
-  &.active {
+  &.enabled {
     padding-left: 0.6em;
     padding-right: 0.6em;
     color: $col-quat;
@@ -102,8 +102,11 @@ button {
     &.javascript-typescript { color: #ffc720; }
     &.unity      { color: #40f190; }
 
-    &.developing  { color: #40f190; }
-    &.maintaining { color: #40e0ff; }
+    &.developing,
+    &.active        { color: #40f190; }
+    &.maintaining   { color: #40e0ff; }
+    &.opportunistic { color: #c7c7ff; }
+    &.wishlist      { color: #f190f1; }
   }
 
   &:hover {

@@ -32,8 +32,8 @@ let open = $state(false);
   <div class="row">
     <SearchInput bind:query={filters.query} />
 
-    <button class="expand" onclick={() => { open = !open; }}>
-      ×
+    <button class="expand" class:open onclick={() => { open = !open; }}>
+      <div> › </div>
     </button>
   </div>
 
@@ -167,6 +167,15 @@ search {
 
     &::before {
       background: rgb(white, 25%);
+    }
+
+    div {
+      transform: rotate(-90deg) translateY(-3px);
+      transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);  // ease-out-exp
+    }
+
+    &.open div {
+      transform: rotate(90deg) translateY(-3px);
     }
 
     &:hover {

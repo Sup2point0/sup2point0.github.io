@@ -142,10 +142,9 @@ onMount(() => {
   height: 120px;
   
   img {
-    box-shadow: 0 8px 16px rgb(black, 40%);
-    
     .block.game:not(.no-crop) & {
       border-radius: 50%;
+      box-shadow: 0 8px 16px rgb(black, 40%);
     }
 
     .block.game.active & {

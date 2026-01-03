@@ -52,31 +52,43 @@ const backs: PictData[] = [
     blur: { init: 10, end: 4 },
     brightness: { init: 40, end: 60 },
   },
+
+  {
+    file: "manifold-4.png",
+    scale: { end: 110 },
+    blur: { init: 12, end: 2 },
+    brightness: { init: 40, end: 25 },
+  },
 ];
 
 
 let pict: PictData | null = $state(null);
 
-onMount(() => {
+
+onMount(pick_backdrop);
+
+function pick_backdrop()
+{
   pict = backs[Math.floor(Math.random() * backs.length)];
-});
+  setTimeout(pick_backdrop, 2 * 60 * 1000);
+}
 
 </script>
 
 
-{#if pict}
+{#key pict}
   <img id="back"
     alt=""
-    src="/ui/back/{pict.file}"
-    transition:fade={{ duration: 2000, easing: expoInOut }}
-    style:--scale-init="{pict.scale?.init ?? 105}%"
-    style:--scale-end="{pict.scale?.end ?? 125}%"
-    style:--blur-init="{pict.blur?.init ?? 4}px"
-    style:--blur-end="{pict.blur?.end ?? 4}px"
-    style:--brightness-init="{pict.brightness?.init ?? 88}%"
-    style:--brightness-end="{pict.brightness?.end ?? 100}%"
+    src={pict ? `/ui/back/${pict?.file}` : undefined}
+    transition:fade={{ duration: 2500, easing: expoInOut }}
+    style:--scale-init="{pict?.scale?.init ?? 105}%"
+    style:--scale-end="{pict?.scale?.end ?? 125}%"
+    style:--blur-init="{pict?.blur?.init ?? 4}px"
+    style:--blur-end="{pict?.blur?.end ?? 4}px"
+    style:--brightness-init="{pict?.brightness?.init ?? 88}%"
+    style:--brightness-end="{pict?.brightness?.end ?? 100}%"
   />
-{/if}
+{/key}
 
 
 <style lang="scss">

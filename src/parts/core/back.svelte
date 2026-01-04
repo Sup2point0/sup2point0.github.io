@@ -5,73 +5,39 @@ The parallax background picture.
 
 <script lang="ts">
 
+import { backs, type PictData } from "./backs";
+
 import { onMount } from "svelte";
 import { fade } from "svelte/transition";
 import { expoInOut } from "svelte/easing";
-
-
-interface InterpData {
-  init?: number;
-  end?: number;
-}
-
-interface PictData {
-  file: string;
-  scale?: InterpData;
-  blur?: InterpData;
-  brightness?: InterpData;
-}
-
-// TEMP until we implement WeightedList
-const backs: PictData[] = [
-  {
-    file: "cortex.scarlet.jpg",
-    blur: { init: 4, end: 2 },
-    brightness: { init: 80, end: 100 },
-  },
-  {
-    file: "cortex.scarlet.jpg",
-    blur: { init: 4, end: 2 },
-    brightness: { init: 80, end: 100 },
-  },
-
-  {
-    file: "cortex.violet.jpg",
-    blur: { init: 3, end: 1 },
-    brightness: { init: 94, end: 100 },
-  },
-  {
-    file: "cortex.violet.jpg",
-    blur: { init: 3, end: 1 },
-    brightness: { init: 94, end: 100 },
-  },
-
-  {
-    file: "geometric.cyber.jpg",
-    scale: { init: 160, end: 110 },
-    blur: { init: 10, end: 4 },
-    brightness: { init: 40, end: 60 },
-  },
-
-  {
-    file: "manifold-4.png",
-    scale: { end: 110 },
-    blur: { init: 12, end: 2 },
-    brightness: { init: 40, end: 25 },
-  },
-];
+import { onNavigate } from "$app/navigation";
 
 
 let pict: PictData | null = $state(null);
+let timeout: number = 0;
 
-
-onMount(pick_backdrop);
 
 function pick_backdrop()
 {
   pict = backs[Math.floor(Math.random() * backs.length)];
-  setTimeout(pick_backdrop, 2 * 60 * 1000);
+  if (timeout) clearTimeout(timeout);
+  timeout = setTimeout(pick_backdrop, 2 * 60 * 1000);
 }
+
+
+onMount(pick_backdrop);
+
+onNavigate(nav => {
+  let from = nav.from?.url.pathname.split("/", 4);
+  let to   = nav.to?.url.pathname.split("/", 4);
+
+  if (
+    from?.at(2) !== (to?.at(2) ?? 2)
+    || from?.at(3) !== (to?.at(3) ?? 3)
+  ) {
+    pick_backdrop();
+  }
+});
 
 </script>
 

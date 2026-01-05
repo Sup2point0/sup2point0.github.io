@@ -5,6 +5,8 @@ A card that links to another page.
 
 <script lang="ts">
 
+import { shuffle } from "#scripts/utils";
+
 import { base } from "$app/paths";
 
 
@@ -13,11 +15,12 @@ interface Props {
   text?: string;
   capt?: string;
   picts?: string[];
-  aspect?: "tall" | "square";
+    fixed?: boolean;
+    aspect?: "tall" | "square";
   children?: any;
 }
 
-let { link, text, capt, picts, aspect = "tall", children }: Props = $props();
+let { link, text, capt, picts, fixed = false, aspect = "tall", children }: Props = $props();
 
 </script>
 
@@ -27,7 +30,7 @@ let { link, text, capt, picts, aspect = "tall", children }: Props = $props();
 >
   {#if picts}
     <div class="picts {aspect}">
-      {#each picts as pict, i}
+      {#each (fixed ? picts : shuffle(picts)) as pict}
         <div class="img-container">
           <img alt="" src="{base}/{pict}" />
         </div>
@@ -95,7 +98,7 @@ p {
   }
 
   img {
-    filter: blur(3px);
+    filter: blur(4px);
     transition: all 0.2s ease-out;
   }
 }

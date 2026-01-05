@@ -12,10 +12,11 @@ import LinkCard from "#parts/ui/card.link.svelte";
     text="Games"
     capt="rhythm games, tower defence"
     picts={[
-      "games/icons/phigros.webp",
-      "games/icons/manifold-garden.png",
-      "games/icons/bloons-td6.png",
-      "games/icons/master-duel.webp",
+      "icons/games/phigros.webp",
+      "icons/games/manifold-garden.png",
+      "icons/games/bloons-td6.png",
+      "icons/games/master-duel.webp",
+      "icons/games/diep-io.webp",
     ]}
     aspect="square"
   />
@@ -28,6 +29,7 @@ import LinkCard from "#parts/ui/card.link.svelte";
       "covers/films/wild-robot.jpg",
       "covers/films/rogue-one.jpg",
       "covers/films/spider-man-homecoming.jpg",
+      "covers/films/ne-zha-1.jpg",
     ]}
   />
   <LinkCard

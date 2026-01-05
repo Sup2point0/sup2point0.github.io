@@ -41,9 +41,17 @@ import ProfileLink from "./link.profile.svelte";
 }
 
 .anim-container {
+  $anim:      42s linear infinite spinny;
+  $anim-slow: 60s linear infinite reverse spinny;
+
   width: 400px;
   height: 400px;
-  animation: 37s linear infinite spinny;
+  animation: $anim, $anim-slow paused;
+  animation-composition: add;
+
+  &:hover {
+    animation: $anim, $anim-slow;
+  }
 
   @keyframes spinny {
     from { transform: rotate(0); }

@@ -42,6 +42,15 @@ let { title, desc, pict, link, idx, entities }: Props = $props();
 $img-size: 2rem;
 $orbit-radius: 160px;
 
+$anim:      42s linear infinite reverse spinny;
+$anim-slow: 60s linear infinite spinny;
+
+@keyframes spinny {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(1turn); }
+}
+
+
 .container {
   position: absolute;
   left: 50%;
@@ -55,13 +64,8 @@ $orbit-radius: 160px;
 .profile-link {
   position: relative;
   width: $img-size;
-  animation: 37s linear infinite spinny;
-  animation-direction: reverse;
-
-  @keyframes spinny {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(1turn); }
-  }
+  animation: $anim, $anim-slow paused;
+  animation-composition: add;
 }
 
 img {
@@ -103,8 +107,9 @@ a.info {
     padding-left: 4.2rem;
     padding-right: 1.2rem;
 
-    .content  { opacity: 1; }
-    &::before { opacity: 1; }
+    .content, &::before {
+      opacity: 1;
+    }
   }
 
   h3 {
@@ -112,19 +117,23 @@ a.info {
     font-weight: normal;
     font-size: 150%;
     line-height: 100%;
-    color: $col-deut;
+    color: $col-quat;
   }
 
   p {
     @include font-ui;
     font-size: 75%;
-    color: $col-text;
+    color: $col-text-deut;
   }
 }
 
 :global(.anim-container:hover),
 :global(.container:has(a.info:hover) ~ .container)
 {
+  .profile-link {
+    animation: $anim, $anim-slow;
+  }
+  
   a.info .content, a.info::before {
     opacity: 1;
   }

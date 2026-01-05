@@ -44,7 +44,7 @@ onMount(() => {
     <div class="img-container">
       <img alt={game.name} title={game.name}
         width="120px" height="120px"
-        src={game.icon ? `/games/icons/${game.icon}` : "/purple-portal.png"}
+        src={game.icon ? `/icons/games/${game.icon}` : "/purple-portal.png"}
       />
     </div>
 

@@ -67,7 +67,6 @@ section.upper {
   div {
     display: flex;
     flex-flow: column nowrap;
-    gap: 2rem;
 
     &.left {
       flex-grow: 1;
@@ -78,6 +77,7 @@ section.upper {
     }
     &.right {
       flex-shrink: 1;
+      gap: 2rem;
     }
   }
 }

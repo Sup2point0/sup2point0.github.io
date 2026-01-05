@@ -40,7 +40,7 @@ header {
 }
 
 section.sup {
-  margin-bottom: -4rem;
+  margin-bottom: -6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,6 +75,7 @@ img#sup2point0 {
 
 p {
   position: relative;
+  padding: 2rem 0;
   @include font-fun;
   font-size: 150%;
   text-align: center;
@@ -87,7 +88,7 @@ p {
   }
   span.hidden {
     position: absolute;
-    top: 0;
+    top: 2rem;
     right: 0;
     white-space: nowrap;
     opacity: 0;
@@ -102,7 +103,8 @@ p {
   }
 }
 
-header:hover {
+header:has(img#sup2point0:hover),
+p:hover {
   span.shown {
     opacity: 0;
     transition-delay: 0s;

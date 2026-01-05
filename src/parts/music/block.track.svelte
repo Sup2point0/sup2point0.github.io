@@ -47,7 +47,7 @@ let { track }: Props = $props();
     <div class="lower">
       {#if track.audio}
         <audio controls
-          src="/music/tracks/{track.audio}"
+          src="/audio/{track.audio}"
           preload="none"
         ></audio>
       {/if}

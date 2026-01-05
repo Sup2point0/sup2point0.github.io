@@ -62,9 +62,9 @@ onMount(() => {
       {#each Object.entries(project.links ?? {}) as [platform, link]}
         <a class="project-link" target="_blank" href={link}>
           {#if platform === "github"}
-            <img class="ext-link" alt="git" title="GitHub" height="25px" src="/ui/icons/github.svg" />
+            <img class="ext-link" alt="git" title="GitHub" height="25px" src="/icons/socials/github.svg" />
           {:else if platform === "site"}
-            <img class="ext-link" alt="site" title="Site" height="30px" src="/ui/icons/open-external.svg" />
+            <img class="ext-link" alt="site" title="Site" height="30px" src="/icons/ui/open-external.svg" />
           {/if}
         </a>
       {/each}

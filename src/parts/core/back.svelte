@@ -45,7 +45,7 @@ onNavigate(nav => {
 {#key pict}
   <img id="back"
     alt=""
-    src={pict ? `/ui/back/${pict?.file}` : undefined}
+    src={pict ? `/back/${pict?.file}` : undefined}
     transition:fade={{ duration: 2500, easing: expoInOut }}
     style:--scale-init="{pict?.scale?.init ?? 105}%"
     style:--scale-end="{pict?.scale?.end ?? 125}%"
@@ -70,7 +70,10 @@ img#back {
   
   transform: scale(105%);
   filter: blur(4px) brightness(88%);
-  animation: parallax-transform linear, parallax-filter cubic-bezier(0.95, 0.05, 0.795, 0.035);  // ease-in-exp
+  animation:
+    parallax-transform linear,
+    parallax-filter cubic-bezier(0.95, 0.05, 0.795, 0.035)  // ease-in-exp
+  ;
   animation-timeline: --parallax;
 }
 

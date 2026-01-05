@@ -22,7 +22,7 @@ let { title, desc, pict, link, transform }: Props = $props();
 >
   <a class="profile-link" target="_blank" href={link}>
     <div class="img-container">
-      <img alt={title} src="ui/icons/{pict}" />
+      <img alt={title} src="icons/socials/{pict}" />
     </div>
 
     <div class="info">

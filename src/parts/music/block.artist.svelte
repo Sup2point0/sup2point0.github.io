@@ -43,7 +43,7 @@ onMount(() => {
 <div class="img-container">
   <img alt={artist.name} title={artist.name}
     width="120px" height="120px"
-    src="/music/icons/{artist.icon ?? 'purple-portal.png'}"
+    src="/icons/artists/{artist.icon ?? 'purple-portal.png'}"
   />
 
   {#if artist.track}

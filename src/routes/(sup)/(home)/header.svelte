@@ -10,7 +10,7 @@ import ProfileLinks from "./links.svelte";
 <header>
   <section class="sup">
     <div class="portal-container">
-      <img id="purple-portal" alt="purple portal" src="purple-portal.png" />
+      <img id="purple-portal" alt="purple-portal" src="purple-portal.png" />
       <ProfileLinks />
     </div>
 
@@ -52,10 +52,7 @@ section.sup {
 
   img#purple-portal {
     width: 400px;
-    animation-name: spinny;
-    animation-duration: 42s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    animation: 69s linear infinite spinny;
 
     @keyframes spinny {
       0% { transform: rotate(0deg); }

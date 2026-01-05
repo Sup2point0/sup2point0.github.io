@@ -55,7 +55,6 @@ let { link, text, capt, picts, fixed = false, aspect = "tall", children }: Props
 a.card {
   min-width: 12em;
   min-height: 9em;
-  // aspect-ratio: 3 / 2;
   padding: 0 3rem 1rem 1rem;
   display: flex;
   flex-flow: column wrap;
@@ -95,11 +94,16 @@ p {
   .img-container {
     overflow: hidden;
     transform: skew($shear-factor);
+    transition: #{trans()};
+
+    a.card:where(:hover, :focus-visible, :active) & {
+      transform: skew(calc($shear-factor * 2 / 3));
+    }
   }
 
   img {
     filter: blur(4px);
-    transition: all 0.2s ease-out;
+    transition: #{trans()}, filter 0.25s ease-out;
   }
 }
 
@@ -109,6 +113,10 @@ p {
   img {
     height: 8rem;
     transform: translateX(-1rem) skew(-$shear-factor);
+
+    a.card:where(:hover, :focus-visible, :active) & {
+      transform: skew(calc($shear-factor * -2 / 3)) translateX(-1rem);
+    }
   }
 }
 
@@ -118,6 +126,10 @@ p {
   img {
     height: 5rem;
     transform: translateX(-0.5rem) skew(-$shear-factor);
+    
+    a.card:where(:hover, :focus-visible, :active) & {
+      transform: skew(calc($shear-factor * -2 / 3)) translateX(-0.5rem);
+    }
   }
 }
 

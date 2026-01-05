@@ -1,6 +1,5 @@
 <script lang="ts">
 
-import { pick_random, shuffle } from "#scripts/utils";
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
 import Cards from "#parts/core/cards.svelte";

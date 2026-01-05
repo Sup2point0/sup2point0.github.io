@@ -44,7 +44,7 @@ onMount(() => {
   <img class="project-icon"
     alt={project.name} title={project.name}
     width="120px" height="120px"
-    src={project.icon ? `/projects/icons/${project.icon}` : "/purple-portal.png"}
+    src={project.icon ? `/icons/projects/${project.icon}` : "/purple-portal.png"}
   />
 {/if}
 

@@ -4,7 +4,8 @@
   
 import { pick_daily } from "#scripts/utils";
 
-import Block from "#parts/ui/block.svelte";
+import Block  from "#parts/ui/block.svelte";
+import Header from "#parts/ui/header.svelte";
   
 import { onMount } from "svelte";
 
@@ -37,21 +38,9 @@ const showerthoughts = [
 
 
 {#if displayed_showerthought}
-  <h2> Today’s Showerthought </h2>
+  <Header> Today’s Showerthought </Header>
 
   <Block kind="fun">
     {@html displayed_showerthought}
   </Block>
 {/if}
-
-
-<style lang="scss">
-
-h2 {
-  @include font-tech;
-  font-weight: normal;
-  font-size: 200%;
-  text-transform: uppercase;
-}
-  
-</style>

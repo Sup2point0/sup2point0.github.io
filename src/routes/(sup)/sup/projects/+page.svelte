@@ -2,11 +2,12 @@
 
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
-import Cards from "#parts/core/cards.svelte";
-import Main from "#parts/core/main.svelte";
-import Block from "#parts/ui/block.svelte";
+import Cards         from "#parts/core/cards.svelte";
+import Main          from "#parts/core/main.svelte";
+import Block         from "#parts/ui/block.svelte";
+import Header        from "#parts/ui/header.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
-import ProjectBlock from "#parts/dev/block.project.svelte";
+import ProjectBlock  from "#parts/dev/block.project.svelte";
 
 import { projects_data, projects_list, type ProjectData } from "./projects";
 import { ProjectSearchFilter } from "./filter.projects.svelte.ts";
@@ -36,7 +37,7 @@ let displayed_projects: FilterResults<ProjectData> = $derived(filters.apply(proj
   {#if filters.query === "" && filters.dirtiness === 0}
     {#each Object.entries(projects_data) as [collection, projects]}
       <section>
-        <h2> {collection?.toUpperCase()} </h2>
+        <Header> {collection?.toUpperCase()} </Header>
 
         <Cards>
           {#each projects as project}
@@ -51,7 +52,7 @@ let displayed_projects: FilterResults<ProjectData> = $derived(filters.apply(proj
 
     {#each displayed as [collection, projects]}
       <section>
-        <h2> {collection?.toUpperCase()} </h2>
+        <Header> {collection?.toUpperCase()} </Header>
 
         <Cards>
           {#each projects as project (project.shard)}
@@ -72,20 +73,3 @@ let displayed_projects: FilterResults<ProjectData> = $derived(filters.apply(proj
 
   {/if}
 </Main>
-
-
-<style lang="scss">
-
-section {
-  width: 100%;
-}
-
-h2 {
-  margin-bottom: 2rem;
-  @include font-tech;
-  font-weight: normal;
-  font-size: 200%;
-  text-align: center;
-}
-
-</style>

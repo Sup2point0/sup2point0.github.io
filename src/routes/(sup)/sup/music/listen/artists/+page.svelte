@@ -1,8 +1,9 @@
 <script>
 
-import Main from "#parts/core/main.svelte";
-import Cards from "#parts/core/cards.svelte";
+import Main        from "#parts/core/main.svelte";
+import Cards       from "#parts/core/cards.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
+import Header      from "#parts/ui/header.svelte";
 import ArtistBlock from "#parts/music/block.artist.svelte";
 
 import { artists_data } from "./artists";
@@ -25,7 +26,7 @@ import { artists_data } from "./artists";
 <Main>
   {#each Object.entries(artists_data) as [collection, artists]}
     <section>
-      <h2> {collection.toUpperCase()} </h2>
+      <Header> {collection.toUpperCase()} </Header>
 
       <Cards>
         {#each artists as artist}
@@ -35,16 +36,3 @@ import { artists_data } from "./artists";
     </section>
   {/each}
 </Main>
-
-
-<style lang="scss">
-
-h2 {
-  margin-bottom: 2rem;
-  @include font-tech;
-  font-weight: normal;
-  font-size: 200%;
-  text-align: center;
-}
-
-</style>

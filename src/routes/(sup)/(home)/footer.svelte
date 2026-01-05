@@ -2,7 +2,8 @@
 
 <script>
   
-import Block from "#parts/ui/block.svelte"
+import Block  from "#parts/ui/block.svelte";
+import Header from "#parts/ui/header.svelte";
 
 import { onMount } from "svelte";
 
@@ -22,7 +23,7 @@ const title_routes = [
 
 
 {#if displayed_title}
-  <h2> {displayed_title} </h2>
+  <Header> {displayed_title} </Header>
 
   <Block kind="fun">
     woah, you’ve reached the end!
@@ -30,15 +31,3 @@ const title_routes = [
     fun fact: this site has loads of easter eggs ;)
   </Block>
 {/if}
-
-
-<style lang="scss">
-  
-h2 {
-  @include font-tech;
-  font-weight: normal;
-  font-size: 200%;
-  text-transform: uppercase;
-}
-
-</style>

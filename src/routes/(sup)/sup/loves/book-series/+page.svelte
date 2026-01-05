@@ -2,11 +2,12 @@
 
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
-import Cards from "#parts/core/cards.svelte";
-import Main from "#parts/core/main.svelte";
-import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
+import Cards         from "#parts/core/cards.svelte";
+import Main          from "#parts/core/main.svelte";
+import Breadcrumbs   from "#parts/ui/breadcrumbs.svelte";
+import Header        from "#parts/ui/header.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
-import MediaBlock from "#parts/loves/block.media.svelte";
+import MediaBlock    from "#parts/loves/block.media.svelte";
 
 import { book_series_data, book_series_list, type BookSeriesData } from "./book-series";
 import { BookSeriesSearchFilter } from "./filter.book-series.svelte.ts";
@@ -39,7 +40,7 @@ let displayed_series: FilterResults<BookSeriesData> = $derived(
   {#if filters.query === "" && filters.dirtiness === 0}
     {#each Object.entries(book_series_data) as [collection, series]}
       <section>
-        <h2> {collection?.toUpperCase()} </h2>
+        <Header> {collection?.toUpperCase()} </Header>
 
         <Cards>
           {#each series as anime}
@@ -54,7 +55,7 @@ let displayed_series: FilterResults<BookSeriesData> = $derived(
 
     {#each displayed as [collection, series]}
       <section>
-        <h2> {collection?.toUpperCase()} </h2>
+        <Header> {collection?.toUpperCase()} </Header>
 
         <Cards>
           {#each series as anime (anime.shard)}
@@ -75,16 +76,3 @@ let displayed_series: FilterResults<BookSeriesData> = $derived(
 
   {/if}
 </Main>
-
-
-<style lang="scss">
-
-h2 {
-  margin-bottom: 2rem;
-  @include font-tech;
-  font-weight: normal;
-  font-size: 200%;
-  text-align: center;
-}
-
-</style>

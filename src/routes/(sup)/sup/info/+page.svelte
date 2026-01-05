@@ -2,9 +2,10 @@
 
 import { shuffle } from "#scripts/utils";
 
-import Clicky from "#parts/ui/clicky.svelte";
+import Clicky   from "#parts/ui/clicky.svelte";
 import FactCard from "#parts/ui/card.fact.svelte";
-import Block from "#parts/ui/block.svelte";
+import Block    from "#parts/ui/block.svelte";
+import Header   from "#parts/ui/header.svelte";
 import PurplePortal from "#parts/special/portal.svelte";
 
 import { facts_pinned, facts } from "./facts";
@@ -94,7 +95,7 @@ $effect(() => {
 
 
 <section class="facts">
-  <h2> TIDBITS </h2>
+  <Header> TIDBITS </Header>
 
   <div class="fact-cards">
     {#each facts_display as quirk (quirk.idx)}
@@ -108,7 +109,7 @@ $effect(() => {
 </section>
 
 <section class="frequerys">
-  <h2> FREQUERYS </h2>
+  <Header> FREQUERYS </Header>
 
   <div class="frequery-cards">
     {#each frequerys as { q: question, a: answer }}
@@ -138,13 +139,6 @@ $effect(() => {
 section {
   max-width: 100rem;
   margin: 1rem 0;
-
-  h2 {
-    margin-bottom: 1em;
-    @include font-tech;
-    font-weight: normal;
-    font-size: 200%;
-  }
 }
 
 section.profile {

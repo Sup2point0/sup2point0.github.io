@@ -3,12 +3,13 @@
 import { pick_random, shuffle } from "#scripts/utils";
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
-import Cards from "#parts/core/cards.svelte";
-import Main from "#parts/core/main.svelte";
-import Block from "#parts/ui/block.svelte";
-import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
+import Cards         from "#parts/core/cards.svelte";
+import Main          from "#parts/core/main.svelte";
+import Block         from "#parts/ui/block.svelte";
+import Breadcrumbs   from "#parts/ui/breadcrumbs.svelte";
+import Header        from "#parts/ui/header.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
-import MediaBlock from "#parts/loves/block.media.svelte";
+import MediaBlock    from "#parts/loves/block.media.svelte";
 
 import { films_data, films_list, type FilmData } from "./films";
 import { FilmSearchFilter } from "./filter.films.svelte.ts";
@@ -64,7 +65,7 @@ const routes = [
   {#if filters.query === "" && filters.dirtiness === 0}
     {#each Object.entries(films_data) as [collection, films]}
       <section>
-        <h2> {collection?.toUpperCase()} </h2>
+        <Header> {collection?.toUpperCase()} </Header>
 
         <Cards>
           {#each shuffle(films) as film}
@@ -79,7 +80,7 @@ const routes = [
 
     {#each displayed as [collection, films]}
       <section>
-        <h2> {collection?.toUpperCase()} </h2>
+        <Header> {collection?.toUpperCase()} </Header>
 
         <Cards>
           {#each films as film (film.shard)}
@@ -100,16 +101,3 @@ const routes = [
 
   {/if}
 </Main>
-
-
-<style lang="scss">
-
-h2 {
-  margin-bottom: 2rem;
-  @include font-tech;
-  font-weight: normal;
-  font-size: 200%;
-  text-align: center;
-}
-
-</style>

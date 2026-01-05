@@ -27,12 +27,12 @@ const routes = [
 
 <svelte:head>
   <title> Loves × Sup#2.0 </title>
-  <meta name="description" content="All the things I love" />
+  <meta name="description" content="All the music I listen to and create." />
 </svelte:head>
 
 
 <Breadcrumbs levels={[
-  { text: "loves" },
+  { text: "music" },
 ]} />
 
 <Main>

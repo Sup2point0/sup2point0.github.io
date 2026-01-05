@@ -2,11 +2,12 @@
 
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
-import Cards from "#parts/core/cards.svelte";
-import Main from "#parts/core/main.svelte";
-import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
+import Cards         from "#parts/core/cards.svelte";
+import Main          from "#parts/core/main.svelte";
+import Breadcrumbs   from "#parts/ui/breadcrumbs.svelte";
+import Header        from "#parts/ui/header.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
-import GameBlock from "#parts/loves/block.game.svelte";
+import GameBlock     from "#parts/loves/block.game.svelte";
 
 import { games_data, games_list, type GameData } from "./games";
 import { GameSearchFilter } from "./filter.games.svelte.ts";
@@ -37,7 +38,7 @@ let displayed_games: FilterResults<GameData> = $derived(filters.apply(games_list
   {#if filters.query === "" && filters.dirtiness === 0}
     {#each Object.entries(games_data) as [collection, games]}
       <section>
-        <h2> {collection?.toUpperCase()} </h2>
+        <Header> {collection?.toUpperCase()} </Header>
 
         <Cards>
           {#each games as game}
@@ -52,7 +53,7 @@ let displayed_games: FilterResults<GameData> = $derived(filters.apply(games_list
 
     {#each displayed as [collection, games]}
       <section>
-        <h2> {collection?.toUpperCase()} </h2>
+        <Header> {collection?.toUpperCase()} </Header>
 
         <Cards>
           {#each games as game (game.shard)}
@@ -73,17 +74,3 @@ let displayed_games: FilterResults<GameData> = $derived(filters.apply(games_list
 
   {/if}
 </Main>
-
-
-
-<style lang="scss">
-
-h2 {
-  margin-bottom: 2rem;
-  @include font-tech;
-  font-weight: normal;
-  font-size: 200%;
-  text-align: center;
-}
-
-</style>

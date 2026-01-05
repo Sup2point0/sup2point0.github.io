@@ -26,7 +26,7 @@ let displayed_projects: FilterResults<ProjectData> = $derived(filters.apply(proj
 </svelte:head>
 
 
-<Main gap="4rem">
+<Main>
   <Block>
     <p> Here are the projects I’ve worked on over the years! ^v^ </p>
   </Block>

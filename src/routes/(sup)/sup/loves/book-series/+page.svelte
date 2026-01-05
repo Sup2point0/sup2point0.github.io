@@ -33,7 +33,7 @@ let displayed_series: FilterResults<BookSeriesData> = $derived(
   { text: "book series" },
 ]} />
 
-<Main gap="4rem">
+<Main>
   <SearchFilters bind:filters result_count={displayed_series.length} />
 
   {#if filters.query === "" && filters.dirtiness === 0}

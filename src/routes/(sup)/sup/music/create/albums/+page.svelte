@@ -21,7 +21,7 @@ import { albums_data } from "../create";
   { text: "albums" },
 ]} />
 
-<Main gap="4rem">
+<Main>
   <section>
     {#each albums_data.pinned as album}
       <AlbumCard {album} />

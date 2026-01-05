@@ -32,7 +32,7 @@ let displayed_tracks: TrackData[] = $derived(filters.apply(tracks_list));
   { text: "tracks" },
 ]} />
 
-<Main gap="4rem">
+<Main>
   <SearchFilters bind:filters />
 
   <Cards>

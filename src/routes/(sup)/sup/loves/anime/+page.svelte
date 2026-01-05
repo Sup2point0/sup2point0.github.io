@@ -31,7 +31,7 @@ let displayed_animes: FilterResults<AnimeData> = $derived(filters.apply(animes_l
   { text: "anime" },
 ]} />
 
-<Main gap="4rem">
+<Main>
   <SearchFilters bind:filters result_count={displayed_animes.length} />
 
   {#if filters.query === "" && filters.dirtiness === 0}

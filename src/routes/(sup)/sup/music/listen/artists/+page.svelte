@@ -22,7 +22,7 @@ import { artists_data } from "./artists";
   { text: "artists" },
 ]} />
 
-<Main gap="4rem">
+<Main>
   {#each Object.entries(artists_data) as [collection, artists]}
     <section>
       <h2> {collection.toUpperCase()} </h2>

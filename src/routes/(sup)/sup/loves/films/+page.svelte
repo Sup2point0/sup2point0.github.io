@@ -48,7 +48,7 @@ const routes = [
   { text: "films" },
 ]} />
 
-<Main gap="4rem">
+<Main>
   <Block>
     {#if displayed_route}
       <p> I <em>lovvve</em> watching films. I went on a whole film-watching arc in 2022–2023 where I’d watch a film every couple of nights, just cuz I’d been so deprived of them so far in life. It made me really come to love cinema. </p>

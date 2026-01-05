@@ -31,7 +31,7 @@ let displayed_games: FilterResults<GameData> = $derived(filters.apply(games_list
   { text: "games" },
 ]} />
 
-<Main gap="4rem">
+<Main>
   <SearchFilters bind:filters result_count={displayed_games.length} />
 
   {#if filters.query === "" && filters.dirtiness === 0}

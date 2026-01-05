@@ -53,7 +53,7 @@ const routes = [
   { text: "genres" },
 ]} />
 
-<Main gap="4rem">
+<Main>
   <Block>
     {#if displayed_route}
       I’m not kidding when I say I vibe to almost all kinds of music. Grouping these would be a nightmare, so here’s a massive list for your perusal (shuffled for flavour!).

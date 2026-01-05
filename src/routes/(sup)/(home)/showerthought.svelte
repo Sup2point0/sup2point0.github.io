@@ -30,6 +30,7 @@ const showerthoughts = [
   `suffering from life deprivation`,
   `high on clutch catalyst`,
   `sleep is so good.`,
+  `music is love, music is life.`,
 ];
 
 </script>

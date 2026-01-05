@@ -19,20 +19,20 @@ onMount(() => {
 
 
 const routes = [
-  `The world is wonderful, and there is so much to love.`,
+  `The world is wonderful, and there is so much to love.`,  // TODO
 ];
 
 </script>
 
 
 <svelte:head>
-  <title> Loves × Sup#2.0 </title>
-  <meta name="description" content="All the things I love" />
+  <title> Music × Sup#2.0 </title>
+  <meta name="description" content="All the music I listen to and create." />
 </svelte:head>
 
 
 <Breadcrumbs levels={[
-  { text: "loves" },
+  { text: "music" },
 ]} />
 
 <Main>

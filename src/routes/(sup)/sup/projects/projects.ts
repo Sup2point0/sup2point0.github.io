@@ -1,4 +1,4 @@
-import { i } from "#scripts/utils";
+import { shardify, i } from "#scripts/utils";
 import type { Searchable } from "#scripts/search-filter.svelte";
 import type { Groups, DatePoint } from "#scripts/types";
 
@@ -604,7 +604,7 @@ export const projects_data: Groups<ProjectData> = {
       links: {
         github: "https://github.com/Sup2point0/ignis",
       },
-      desc: `A series of projects relating to <em>Yu-Gi-Oh</em>`,  // TODO
+      desc: `A series of projects relating to ${i("Yu-Gi-Oh")}`,  // TODO
     },
     {
       name: "PENGUIN",
@@ -640,15 +640,15 @@ export const projects_data: Groups<ProjectData> = {
 
 export const projects_list: ProjectData[] = (
   () => {
-    for (let [i, projects] of Object.values(projects_data).entries()) {
-      for (let [j, project] of projects.entries()) {
-        project._score_ = 0;
-        if (project.shard === undefined) {
-          project.shard = `${i}-${j}`;
-        }
+    for (let projects of Object.values(projects_data))
+    {
+      for (let project of projects)
+      {
+        project._score = 0;
+        project.shard ??= shardify(project.name);
       }
     }
 
-    return Object.values(projects_data).flatMap(s => s);
+    return Object.values(projects_data).flat();
   }
 )();

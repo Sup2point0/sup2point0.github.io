@@ -1,3 +1,4 @@
+import { shardify } from "#scripts/utils";
 import type { Searchable } from "#scripts/search-filter.svelte.ts";
 import type { DatePoint } from "#scripts/types";
 
@@ -36,7 +37,6 @@ export enum PlayState {
 
 export interface GameData extends Searchable
 {
-  shard:  string;
   name:   string;
   love:   3 | 2 | 1 | null;
   date?: DatePoint | DatePoint[];
@@ -50,7 +50,7 @@ export interface GameData extends Searchable
   state:  PlayState;
   desc?: string | string[];
 
-  _score_?: number;
+  _score?: number;
 }
 
 
@@ -488,18 +488,16 @@ export const games_data: Record<string, GameData[]> = {
 
 export const games_list: GameData[] = (
   () => {
-    for (let [i, [collection, games]] of Object.entries(games_data).entries()) {
-      for (let [j, game] of games.entries())
+    for (let [collection, games] of Object.entries(games_data))
+    {
+      for (let game of games)
       {
+        game._score = 0;
         game.collection = collection;
-        game._score_ = 0;
-
-        if (game.shard === undefined) {
-          game.shard = `${i}-${j}`;
-        }
+        game.shard ??= shardify(game.name);
       }
     }
 
-    return Object.values(games_data).flatMap(g => g);
+    return Object.values(games_data).flat();
   }
 )();

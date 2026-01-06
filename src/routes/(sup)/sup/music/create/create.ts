@@ -675,7 +675,7 @@ export const albums_data: {
   ],
 });
 
-export const albums_list: AlbumData[] = Object.values(albums_data).flatMap(collection => collection);
+export const albums_list: AlbumData[] = Object.values(albums_data).flat();
 
 export const tracks_list: TrackData[] = Object.values(albums_data).flatMap(
   collection => collection.flatMap(

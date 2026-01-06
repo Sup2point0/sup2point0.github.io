@@ -1,7 +1,7 @@
 import { MediaSearchFilter } from "../filter.media.svelte";
 import type { States } from "#scripts/types";
 
-import { Franchise, Flags, type FilmData } from "./films";
+import { Franchise, Flag, type FilmData } from "./films";
 
 
 export class FilmSearchFilter extends MediaSearchFilter<FilmData>
@@ -18,7 +18,7 @@ export class FilmSearchFilter extends MediaSearchFilter<FilmData>
   }
 
   filter_by = $state({
-    ...MediaSearchFilter.init_states(Flags, false)
+    ...MediaSearchFilter.init_states(Flag, false)
   });
   
 
@@ -27,7 +27,7 @@ export class FilmSearchFilter extends MediaSearchFilter<FilmData>
     return super.filter(films,
       film => {
         for (let [flag, state] of Object.entries(this.filter_by)) {
-          if (state && !film.flags?.includes(flag as Flags)) return true;
+          if (state && !film.flags?.includes(flag as Flag)) return true;
         }
         return false;
       }

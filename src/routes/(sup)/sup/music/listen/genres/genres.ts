@@ -293,7 +293,7 @@ export const genres_list: GenreData[] = (
       for (let genre of genres)
       {
         genre.collection = collection;
-        genre._score_ = 0;
+        genre._score = 0;
         
         if (genre.shard === undefined) {
           genre.shard = shardify(genre.name);
@@ -301,6 +301,6 @@ export const genres_list: GenreData[] = (
       }
     }
 
-    return Object.values(genres_data).flatMap(g => g);
+    return Object.values(genres_data).flat();
   }
 )();

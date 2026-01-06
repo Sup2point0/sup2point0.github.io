@@ -76,7 +76,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
   {
     let out = projects.filter(
       proj => {
-        proj._score_ = 0;
+        proj._score = 0;
         let filtered = false;
 
         if (this.filter_by["on github"] && !proj.links?.github) return false;
@@ -93,12 +93,12 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
                 let matches = proj[prop].filter(p => p === toggle).length;
                 if (matches > 0) {
                   hit = true;
-                  proj._score_ += matches ** 2;
+                  proj._score += matches ** 2;
                 }
               }
               else if (proj[prop] === toggle) {
                 hit = true;
-                proj._score_++;
+                proj._score++;
               }
             }
           }
@@ -107,7 +107,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
           filtered = true;
         }
 
-        return (proj._score_ > 0 || !filtered);
+        return (proj._score > 0 || !filtered);
       }
     );
 

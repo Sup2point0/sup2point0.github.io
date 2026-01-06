@@ -1,3 +1,4 @@
+import { shardify } from "#scripts/utils";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
@@ -97,13 +98,13 @@ export const series_data: Groups<SeriesData> = {
 
 export const series_list: SeriesData[] = (
   () => {
-    for (let [i, [collection, series]] of Object.entries(series_data).entries()) {
-      for (let [j, each] of series.entries()) {
+    for (let [collection, series] of Object.entries(series_data))
+    {
+      for (let each of series)
+      {
+        each._score = 0;
         each.collection = collection;
-        each._score_ = 0;
-        if (each.shard === undefined) {
-          each.shard = `${i}-${j}`;
-        }
+        each.shard ??= shardify(each.name);
       }
     }
 

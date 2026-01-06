@@ -10,7 +10,7 @@ type Sorter<Entity> = (entities: Entity[]) => Entity[];
 export interface Searchable {
   shard?: Shard;
   collection?: string;
-  _score_?: number;
+  _score?: number;
 
   [prop: string]: any;
 }
@@ -63,7 +63,7 @@ export class SearchFilter<Entity extends Searchable>
   {
     let out = source.filter(
       each => {
-        each._score_ = 0;
+        each._score = 0;
         let filtered = false;
 
         if (exclude_if?.(each)) return false;
@@ -79,12 +79,12 @@ export class SearchFilter<Entity extends Searchable>
                 let matches = each[prop].filter(p => p === toggle).length;
                 if (matches > 0) {
                   hit = true;
-                  each._score_ += matches ** 2;
+                  each._score += matches ** 2;
                 }
               }
               else if (each[prop] === toggle) {
                 hit = true;
-                each._score_++;
+                each._score++;
               }
             }
           }
@@ -93,7 +93,7 @@ export class SearchFilter<Entity extends Searchable>
           filtered = true;
         }
 
-        return (each._score_ > 0 || !filtered);
+        return (each._score > 0 || !filtered);
       }
     );
 
@@ -128,9 +128,9 @@ export class SearchFilter<Entity extends Searchable>
     }
     else if (scorer) {
       for (let each of out) {
-        each._score_ = scorer(each);
+        each._score = scorer(each);
       }
-      out.sort((prot, deut) => (deut._score_ ?? 0) - (prot._score_ ?? 0));
+      out.sort((prot, deut) => (deut._score ?? 0) - (prot._score ?? 0));
     }
 
     if (this.reverse_sort) out.reverse();
@@ -227,7 +227,7 @@ export class SearchFilter<Entity extends Searchable>
           ([group, media]) => {
             if (this.query) {
               return sum(
-                media.map(each => each._score_ ?? 0)
+                media.map(each => each._score ?? 0)
               );
             }
             return media.length;

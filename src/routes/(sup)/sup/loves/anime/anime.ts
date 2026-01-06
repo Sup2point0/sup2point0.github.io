@@ -1,4 +1,4 @@
-import { i } from "#scripts/utils";
+import { shardify, i } from "#scripts/utils";
 import { Genre, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
@@ -71,16 +71,16 @@ export const animes_data: Groups<AnimeData> = {
 
 export const animes_list: AnimeData[] = (
   () => {
-    for (let [i, [collection, series]] of Object.entries(animes_data).entries()) {
-      for (let [j, anime] of series.entries()) {
+    for (let [collection, series] of Object.entries(animes_data))
+    {
+      for (let anime of series)
+      {
         anime.collection = collection;
-        anime._score_ = 0;
-        if (anime.shard === undefined) {
-          anime.shard = `${i}-${j}`;
-        }
+        anime._score = 0;
+        anime.shard ??= shardify(anime.name);
       }
     }
 
-    return Object.values(animes_data).flatMap(c => c);
+    return Object.values(animes_data).flat();
   }
 )();

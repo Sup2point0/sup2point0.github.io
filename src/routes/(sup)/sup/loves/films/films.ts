@@ -1,3 +1,4 @@
+import { shardify } from "#scripts/utils";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
@@ -353,16 +354,16 @@ export const films_data: Groups<FilmData> = {
 
 export const films_list: FilmData[] = (
   () => {
-    for (let [i, [collection, films]] of Object.entries(films_data).entries()) {
-      for (let [j, film] of films.entries()) {
+    for (let [collection, films] of Object.entries(films_data))
+    {
+      for (let film of films)
+      {
+        film._score = 0;
         film.collection = collection;
-        film._score_ = 0;
-        if (film.shard === undefined) {
-          film.shard = `${i}-${j}`;
-        }
+        film.shard ??= shardify(film.name);
       }
     }
 
-    return Object.values(films_data).flatMap(c => c);
+    return Object.values(films_data).flat();
   }
 )();

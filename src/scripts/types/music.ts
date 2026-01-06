@@ -19,7 +19,7 @@ export interface TrackData extends Searchable {
   desc?: string;
   is_preview?: boolean;
 
-  _score_: number;
+  _score: number;
 }
 
 

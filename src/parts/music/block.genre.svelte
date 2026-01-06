@@ -3,6 +3,7 @@
 <script lang="ts">
 
 import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
+import { shardify } from "#scripts/utils";
 import type { GenreData } from "#scripts/types";
 
 import { onMount } from "svelte";
@@ -48,7 +49,7 @@ onMount(() => {
 
           {#each genre.artists as artist}
             <!-- TODO find a better way to access shard -->
-            <a href="artists#{artist.toLowerCase()}">
+            <a href="artists#{shardify(artist)}">
               {artist}
             </a>
 

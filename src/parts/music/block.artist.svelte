@@ -1,6 +1,4 @@
-<!-- @component ArtistBlock
-
--->
+<!-- @component ArtistBlock -->
 
 <script lang="ts">
 
@@ -101,7 +99,11 @@ onMount(() => {
   <div class="lower">
     <ul class="genres">
       {#each artist.genres ?? [] as genre}
-        <li> {genre} </li>
+        <li class="genre"> {genre} </li>
+      {/each}
+
+      {#each artist.vibes ?? [] as vibe}
+        <li class="vibe"> {vibe} </li>
       {/each}
     </ul>
   </div>
@@ -345,10 +347,6 @@ button.block.artist {
       @include shear-card();
       transition: #{trans()};
 
-      &::before {
-        background: color.change($col-trit, $alpha: 0.69);
-      }
-
       &:hover {
         cursor: auto;
         padding: 0 0.8em;
@@ -358,6 +356,11 @@ button.block.artist {
           background: white;
         }
       }
+    }
+
+    li:not(:hover) {
+      &.genre::before { background: color.change($col-trit, $alpha: 0.69); }
+      &.vibe::before { background: color.change($col-deut, $alpha: 0.69); }
     }
   }
 }

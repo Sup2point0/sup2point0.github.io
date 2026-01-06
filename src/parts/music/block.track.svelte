@@ -35,11 +35,11 @@ let { track }: Props = $props();
 
       <ul class="genres">
         {#each track.genres ?? [] as genre}
-          <li class="genre">{genre}</li>
+          <li class="genre"> {genre} </li>
         {/each}
 
         {#each track.vibes ?? [] as vibe}
-          <li class="vibe">{vibe}</li>
+          <li class="vibe"> {vibe} </li>
         {/each}
       </ul>
     </div>
@@ -73,9 +73,14 @@ let { track }: Props = $props();
 
   &:hover img {
     box-shadow: 0 0 42px rgb(white, 20%);
-    animation-name: shine;
-    animation-duration: 0.8s;
+    animation: 0.8s shine;
     // animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);  // ease-in-exp
+
+    @keyframes shine {
+      0%   { filter: brightness(100%); }
+      50%  { filter: brightness(108%); }
+      100% { filter: brightness(100%); }
+    }
   }
 }
 
@@ -155,13 +160,6 @@ img {
   audio {
     padding-bottom: 0.5rem;
   }
-}
-
-
-@keyframes shine {
-  0%   { filter: brightness(100%); }
-  50%  { filter: brightness(108%); }
-  100% { filter: brightness(100%); }
 }
 
 </style>

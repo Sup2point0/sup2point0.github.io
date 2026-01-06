@@ -90,7 +90,7 @@ onMount(() => {
             <img
               alt={platform}
               title={platform.toUpperCase()}
-              src="/ui/icons/{platform}.svg"
+              src="/icons/socials/{platform}.svg"
             />
           </a>
         {/each}

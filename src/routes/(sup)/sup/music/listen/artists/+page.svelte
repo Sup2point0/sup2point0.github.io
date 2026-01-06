@@ -1,5 +1,7 @@
 <script>
 
+import { shuffle } from "#scripts/utils";
+
 import Main        from "#parts/core/main.svelte";
 import Cards       from "#parts/core/cards.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
@@ -29,7 +31,7 @@ import { artists_data } from "./artists";
       <Header> {collection.toUpperCase()} </Header>
 
       <Cards>
-        {#each artists as artist}
+        {#each shuffle(artists) as artist}
           <ArtistBlock {artist} />
         {/each}
       </Cards>

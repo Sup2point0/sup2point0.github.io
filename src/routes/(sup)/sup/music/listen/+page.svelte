@@ -14,6 +14,18 @@ import LinkCard from "#parts/ui/card.link.svelte";
 
 <Cards>
   <!-- <LinkCard link="/sup/music/listen/tracks" text="tracks I listen to" /> -->
-  <LinkCard link="/sup/music/listen/artists" text="artists I listen to" />
+  <LinkCard
+    link="/sup/music/listen/artists"
+    text="artists I listen to"
+    picts={[
+      "icons/artists/bo-burnham.webp",
+      "icons/artists/camellia.png",
+      "icons/artists/pikasonic.jpg",
+      "icons/artists/silentroom.jpg",
+      "icons/artists/vexento.jpg",
+      "icons/artists/wing.jpg",
+    ]}
+    aspect="square"
+  />
   <LinkCard link="/sup/music/listen/genres" text="genres I listen to" />
 </Cards>

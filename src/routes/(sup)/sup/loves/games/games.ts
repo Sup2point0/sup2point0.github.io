@@ -1,6 +1,5 @@
-import { shardify } from "#scripts/utils";
-import type { Searchable } from "#scripts/search-filter.svelte.ts";
-import type { DatePoint } from "#scripts/types";
+import { prep, type Searchable } from "#scripts/search-filter.svelte.ts";
+import type { DatePoint, Groups } from "#scripts/types";
 
 
 export enum Genre {
@@ -68,7 +67,8 @@ const _template = [
 ];
 
 
-export const games_data: Record<string, GameData[]> = {
+const data: Groups<GameData> =
+{
   "active": [
     {
       shard:  "manifold-garden",
@@ -486,18 +486,6 @@ export const games_data: Record<string, GameData[]> = {
   ],
 };
 
-export const games_list: GameData[] = (
-  () => {
-    for (let [collection, games] of Object.entries(games_data))
-    {
-      for (let game of games)
-      {
-        game._score = 0;
-        game.collection = collection;
-        game.shard ??= shardify(game.name);
-      }
-    }
-
-    return Object.values(games_data).flat();
-  }
-)();
+prep(data);
+export const games_data: Groups<GameData> = data;
+export const games_list: GameData[] = Object.values(data).flat();

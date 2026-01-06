@@ -1,10 +1,10 @@
-import { shardify } from "#scripts/utils";
-import { GenreKind, type GenreData } from "#scripts/types";
+import { prep } from "#scripts/search-filter.svelte.ts";
+import { GenreKind } from "#scripts/types";
+import type { GenreData, Groups } from "#scripts/types";
 
 
-export const genres_data: {
-  [collection: string]: GenreData[]
-} = {
+const data: Groups<GenreData> =
+{
   "favourites": [
     {
       name: "200step",
@@ -92,7 +92,7 @@ export const genres_data: {
       tracks: ["literally every single damn track I listen to"],
     },
     {
-      name: "film",
+      name: "genre",
       artists: ["Hans Zimmer", "Johannes Bornlöf"],
     },
     {
@@ -287,20 +287,6 @@ export const genres_data: {
   ],
 };
 
-export const genres_list: GenreData[] = (
-  () => {
-    for (let [collection, genres] of Object.entries(genres_data)) {
-      for (let genre of genres)
-      {
-        genre.collection = collection;
-        genre._score = 0;
-        
-        if (genre.shard === undefined) {
-          genre.shard = shardify(genre.name);
-        }
-      }
-    }
-
-    return Object.values(genres_data).flat();
-  }
-)();
+prep(data);
+export const genres_data: Groups<GenreData> = data;
+export const genres_list: GenreData[] = Object.values(data).flat();

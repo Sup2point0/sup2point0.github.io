@@ -1,5 +1,5 @@
-import { shardify, i } from "#scripts/utils";
-import type { Searchable } from "#scripts/search-filter.svelte";
+import { prep, type Searchable } from "#scripts/search-filter.svelte.ts";
+import { i } from "#scripts/utils";
 import type { Groups, DatePoint } from "#scripts/types";
 
 
@@ -97,7 +97,8 @@ const template: ProjectData = [
 ];
 
 
-export const projects_data: Groups<ProjectData> = {
+const data: Groups<ProjectData> =
+{
   "Favourites": [
     {
       name: "Assort",
@@ -638,17 +639,6 @@ export const projects_data: Groups<ProjectData> = {
   ],
 };
 
-export const projects_list: ProjectData[] = (
-  () => {
-    for (let projects of Object.values(projects_data))
-    {
-      for (let project of projects)
-      {
-        project._score = 0;
-        project.shard ??= shardify(project.name);
-      }
-    }
-
-    return Object.values(projects_data).flat();
-  }
-)();
+prep(data);
+export const projects_data: Groups<ProjectData> = data;
+export const projects_list: ProjectData[] = Object.values(data).flat();

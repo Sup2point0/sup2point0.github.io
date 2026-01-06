@@ -1,4 +1,4 @@
-import { shardify } from "#scripts/utils";
+import { prep } from "#scripts/search-filter.svelte.ts";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
@@ -6,7 +6,8 @@ import type { Groups } from "#scripts/types";
 export interface SeriesData extends MediaData {}
 
 
-export const series_data: Groups<SeriesData> = {
+const data: Groups<SeriesData> =
+{
   "All-Time Favourites": [
     {
       name:   "« 全职高手 »",
@@ -96,18 +97,6 @@ export const series_data: Groups<SeriesData> = {
   ],
 };
 
-export const series_list: SeriesData[] = (
-  () => {
-    for (let [collection, series] of Object.entries(series_data))
-    {
-      for (let each of series)
-      {
-        each._score = 0;
-        each.collection = collection;
-        each.shard ??= shardify(each.name);
-      }
-    }
-
-    return Object.values(series_data).flat();
-  }
-)();
+prep(data);
+export const series_data: Groups<SeriesData> = data;
+export const series_list: SeriesData[] = Object.values(data).flat();

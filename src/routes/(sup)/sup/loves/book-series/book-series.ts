@@ -1,4 +1,4 @@
-import { shardify } from "#scripts/utils";
+import { prep } from "#scripts/search-filter.svelte.ts";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
@@ -25,7 +25,8 @@ const _template = [
 ];
 
 
-export const book_series_data: Groups<BookSeriesData> = {
+const data: Groups<BookSeriesData> =
+{
   "All-Time Favourites": [
     {
       name:   "Legend",
@@ -139,18 +140,6 @@ export const book_series_data: Groups<BookSeriesData> = {
   ],
 };
 
-export const book_series_list: BookSeriesData[] = (
-  () => {
-    for (let [collection, items] of Object.entries(book_series_data))
-    {
-      for (let series of items)
-      {
-        series._score = 0;
-        series.collection = collection;
-        series.shard ??= shardify(series.name);
-      }
-    }
-
-    return Object.values(book_series_data).flat();
-  }
-)();
+prep(data);
+export const book_series_data: Groups<BookSeriesData> = data;
+export const book_series_list: BookSeriesData[] = Object.values(data).flat();

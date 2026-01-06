@@ -1,4 +1,8 @@
-import { all, any, sum, datepoint_to_date } from "#scripts/utils";
+import {
+  shardify, datepoint_to_date,
+  all, any, sum,
+} from "#scripts/utils";
+
 import type { Shard, Groups, States } from "#scripts/types";
 
 
@@ -13,6 +17,19 @@ export interface Searchable {
   _score?: number;
 
   [prop: string]: any;
+}
+
+export function prep<Entity extends Searchable>(data: Groups<Entity>): void
+{
+  for (let [collection, entities] of Object.entries(data))
+  {
+    for (let entity of entities)
+    {
+      entity.shard ??= shardify(entity.name);
+      entity.collection = collection;
+      entity._score = 0;
+    }
+  }
 }
 
 

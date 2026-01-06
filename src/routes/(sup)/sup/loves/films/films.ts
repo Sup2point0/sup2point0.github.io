@@ -1,4 +1,4 @@
-import { shardify } from "#scripts/utils";
+import { prep } from "#scripts/search-filter.svelte.ts";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
@@ -31,7 +31,8 @@ export interface FilmData extends MediaData
 }
 
 
-export const films_data: Groups<FilmData> = {
+const data: Groups<FilmData> =
+{
   "All-Time Favourites": [
     {
       name:   "Alita: Battle Angel",
@@ -352,18 +353,6 @@ export const films_data: Groups<FilmData> = {
   ],
 };
 
-export const films_list: FilmData[] = (
-  () => {
-    for (let [collection, films] of Object.entries(films_data))
-    {
-      for (let film of films)
-      {
-        film._score = 0;
-        film.collection = collection;
-        film.shard ??= shardify(film.name);
-      }
-    }
-
-    return Object.values(films_data).flat();
-  }
-)();
+prep(data);
+export const films_data: Groups<FilmData> = data;
+export const films_list: FilmData[] = Object.values(data).flat();

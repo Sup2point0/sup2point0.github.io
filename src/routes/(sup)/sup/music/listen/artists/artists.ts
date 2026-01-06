@@ -3,7 +3,8 @@ import { Genre, Vibe } from "#scripts/types";
 import type { ArtistData, Groups } from "#scripts/types";
 
 
-export const artists_data: Groups<ArtistData> = {
+export const artists_data: Groups<ArtistData> =
+{
   "newly discovered": [
     {
       shard:  "ludicin",

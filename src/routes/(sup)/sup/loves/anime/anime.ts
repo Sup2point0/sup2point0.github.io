@@ -1,4 +1,5 @@
-import { shardify, i } from "#scripts/utils";
+import { prep } from "#scripts/search-filter.svelte.ts";
+import { i } from "#scripts/utils";
 import { Genre, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
@@ -6,7 +7,8 @@ import type { Groups } from "#scripts/types";
 export interface AnimeData extends MediaData {}
 
 
-export const animes_data: Groups<AnimeData> = {
+const data: Groups<AnimeData> =
+{
   "Favourites": [
     {
       name: "Suzume no Tojimari",
@@ -69,18 +71,6 @@ export const animes_data: Groups<AnimeData> = {
   ],
 };
 
-export const animes_list: AnimeData[] = (
-  () => {
-    for (let [collection, series] of Object.entries(animes_data))
-    {
-      for (let anime of series)
-      {
-        anime.collection = collection;
-        anime._score = 0;
-        anime.shard ??= shardify(anime.name);
-      }
-    }
-
-    return Object.values(animes_data).flat();
-  }
-)();
+prep(data);
+export const animes_data: Groups<AnimeData> = data;
+export const animes_list: AnimeData[] = Object.values(data).flat();

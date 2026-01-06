@@ -24,6 +24,7 @@ export enum Genre {
 export enum Theme {
   COMING_OF_AGE = "coming of age",
   ESPORTS       = "esports",
+  FAMILY        = "family",
   GRIT          = "grit",
   MAGIC         = "magic",
   MYTHOLOGY     = "mythology",

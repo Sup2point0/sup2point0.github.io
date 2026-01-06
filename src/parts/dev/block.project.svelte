@@ -80,8 +80,8 @@ onMount(() => {
       
       {#if Array.isArray(project.state)}
         {#each project.state.entries() as [i, state]}
-          {#if i > 0} <span class="separator"> × </span> {/if}
           <p class="state {state}"> {state.toUpperCase()} </p>
+          <span class="separator"> × </span>
         {/each}
       {:else}
         <p class="state {project.state}"> {project.state.toUpperCase()} </p>
@@ -91,19 +91,18 @@ onMount(() => {
     <div class="inner alt">
       {#if Array.isArray(project.kind)}
         {#each project.kind.entries() as [i, kind]}
-          {#if i > 0} <span class="separator"> × </span> {/if}
           <p class="kind {kind}"> {kind.toUpperCase()} </p>
+          <span class="separator"> × </span>
         {/each}
       {:else}
         <p class="kind {project.kind}"> {project.kind.toUpperCase()} </p>
+        <span class="separator"> × </span>
       {/if}
-
-      <span class="separator"> × </span>
 
       {#if Array.isArray(project.flavour)}
         {#each project.flavour.entries() as [i, flavour]}
-          {#if i > 0} <span class="separator"> × </span> {/if}
           <p class="flavour {flavour}"> {flavour.toUpperCase()} </p>
+          <span class="separator"> × </span>
         {/each}
       {:else}
         <p class="flavour {project.flavour}"> {project.flavour.toUpperCase()} </p>

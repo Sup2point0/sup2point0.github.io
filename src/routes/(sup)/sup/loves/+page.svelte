@@ -94,6 +94,12 @@ const routes = [
       link="/sup/loves/book-series"
       text="Book Series"
       capt="losing my soul in fictional worlds"
+      picts={[
+        "covers/books/legend.jpg",
+        "covers/books/oblivion.jpg",
+        "covers/books/half-blood-prince.jpg",
+        "covers/books/red-queen.jpg",
+      ]}
     />
   </Cards>
 </Main>

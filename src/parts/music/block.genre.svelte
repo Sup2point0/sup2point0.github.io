@@ -137,27 +137,20 @@ button.block.genre {
   flex-flow: column nowrap;
   gap: 0.5rem;
 
-  a {
-    padding-bottom: 0.1em;
-    @include link($lesser: true);
-    @include font-ui;
-    font-size: 125%;
-    line-height: 150%;
-    transition: #{trans()};
-
-    &:hover {
-      cursor: pointer;
-      color: $col-deut;
-    }
-  }
-
-  p {
+  p, a {
     @include font-ui;
     font-size: 125%;
     color: $col-text;
     line-height: 150%;
   }
 
+  a {
+    padding-bottom: 0.1em;
+    @include link($lesser: true);
+    transition: #{trans()};
+  }
+
+  @include separator;
   span.separator {
     padding-bottom: 0.1em;
     @include font-fun;

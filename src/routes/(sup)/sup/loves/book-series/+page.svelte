@@ -44,7 +44,7 @@ let displayed_series: FilterResults<BookSeriesData> = $derived(
 
         <Cards>
           {#each series as anime}
-            <MediaBlock kind="book-series" media={anime} />
+            <MediaBlock kind="books" media={anime} />
           {/each}
         </Cards>
       </section>
@@ -59,7 +59,7 @@ let displayed_series: FilterResults<BookSeriesData> = $derived(
 
         <Cards>
           {#each series as anime (anime.shard)}
-            <MediaBlock kind="book-series" media={anime} />
+            <MediaBlock kind="books" media={anime} />
           {/each}
         </Cards>
       </section>
@@ -70,7 +70,7 @@ let displayed_series: FilterResults<BookSeriesData> = $derived(
 
     <Cards>
       {#each displayed as anime (anime.shard)}
-        <MediaBlock kind="book-series" media={anime} />
+        <MediaBlock kind="books" media={anime} />
       {/each}
     </Cards>
 

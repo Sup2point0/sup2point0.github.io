@@ -6,7 +6,7 @@ A block displaying info for a media, series, anime, show, etc.
 <script lang="ts">
 
 import { display_date } from "#scripts/utils";
-import type { MediaData } from "#scripts/types";
+import type { MediaData } from "#scripts/types/media";
 
 import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
 
@@ -14,7 +14,7 @@ import { onMount } from "svelte";
 
 
 interface Props {
-  kind: "films" | "series" | "anime" | "book" | "book-series";
+  kind: "films" | "series" | "anime" | "books";
   media: MediaData;
 }
 
@@ -57,6 +57,15 @@ onMount(() => {
           </p>
         {/if}
       </div>
+
+      {#if kind === "books" && media.fav}
+        <div class="inner">
+          <div class="fav-book">
+            <h4> FAVOURITE </h4>
+            <p> {media.fav} </p>
+          </div>
+        </div>
+      {/if}
 
       <div class="lower">
         <ul class="tags">
@@ -178,6 +187,36 @@ img {
     @include font-tech;
     font-size: 150%;
     color: $col-text-deut;
+  }
+}
+
+.inner {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
+
+  p {
+    @include font-ui;
+    font-size: 125%;
+    color: $col-text;
+    line-height: 150%;
+  }
+
+  .fav-book {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+
+    h4 {
+      padding-bottom: 0.25em;
+      padding-right: 1em;
+      @include font-tech;
+      font-weight: normal;
+      font-size: 90%;
+      color: $col-text-deut;
+    }
   }
 }
 

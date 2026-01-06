@@ -19,7 +19,8 @@ onMount(() => {
 
 
 const routes = [
-  `The world is wonderful, and there is so much to love.`,  // TODO
+  `I’ll be gradually adding more stuff here, for now it’s just the content I consume ^v^`,
+  `What can I say, the world is wonderful, and there is so much to love.`,
 ];
 
 </script>
@@ -38,11 +39,27 @@ const routes = [
 <Main>
   <Block>
     {#if displayed_route}
+      <p> Sometimes, I feel like I have too many interests. </p>
+      <div style:height="0.69rem"></div>
       {@html displayed_route}
     {/if}
   </Block>
 
   <Cards>
+    <LinkCard
+      link="/sup/music"
+      text="Music"
+      capt="so much it has its own tab ;)"
+      picts={[
+        "icons/artists/camellia.png",
+        "icons/artists/pikasonic.jpg",
+        "icons/artists/silentroom.jpg",
+        "icons/artists/vexento.jpg",
+        "icons/artists/wing.jpg",
+      ]}
+      aspect="square"
+    />
+
     <LinkCard
       link="/sup/loves/games"
       text="Games"
@@ -56,6 +73,13 @@ const routes = [
       ]}
       aspect="square"
     />
+    
+    <LinkCard
+      link="/sup/loves"
+      text="Puzzles"
+      capt="Coming soon!"
+    />
+
     <LinkCard
       link="/sup/loves/films"
       text="Films"
@@ -68,6 +92,7 @@ const routes = [
         "covers/films/wild-robot.jpg",
       ]}
     />
+
     <LinkCard
       link="/sup/loves/series"
       text="Series"
@@ -79,6 +104,7 @@ const routes = [
         "covers/series/the-mandalorian.jpg",
       ]}
     />
+
     <LinkCard
       link="/sup/loves/anime"
       text="Anime"
@@ -90,6 +116,13 @@ const routes = [
         "covers/anime/ygo-arc-v.jpg",
       ]}
     />
+    
+    <LinkCard
+      link="/sup/loves"
+      text="Manga / Webtoon"
+      capt="Coming soon!"
+    />
+
     <LinkCard
       link="/sup/loves/book-series"
       text="Book Series"
@@ -101,5 +134,36 @@ const routes = [
         "covers/books/red-queen.jpg",
       ]}
     />
+    
+    <LinkCard
+      link="/sup/loves"
+      text="YouTube"
+      capt="Coming soon!"
+    />
+    
+    <LinkCard
+      link="/sup/loves"
+      text="Mathematics"
+      capt="Coming soon!"
+    />
+    
+    <LinkCard
+      link="/sup/loves"
+      text="Miscellaneous"
+      capt="Coming soon!"
+    />
   </Cards>
+
+  <Block kind="fun">
+    <p> For more, head over to <a target="_blank" href="https://sup2point0.github.io/Assort"><em>Assort</em></a> ;D </p>
+  </Block>
 </Main>
+
+
+<style lang="scss">
+
+a {
+  @include link;
+}
+
+</style>

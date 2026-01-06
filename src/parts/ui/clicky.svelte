@@ -9,12 +9,12 @@ import { base } from "$app/paths";
 
 interface Props {
   text?: string;
-  intern?: string;
+  link?: string;
   action?: () => void;
   children?: any;
 }
 
-let { text, intern, action, children }: Props = $props();
+let { text, link: href, action: onclick, children }: Props = $props();
 
 </script>
 
@@ -28,17 +28,13 @@ let { text, intern, action, children }: Props = $props();
 {/snippet}
 
 
-{#if intern}
-  <a class="clicky"
-    href="{base}/{intern}"
-  >
+{#if href}
+  <a class="clicky" {href}>
     {@render content()}
   </a>
 
 {:else}
-  <button class="clicky"
-    onclick={action}
-  >
+  <button class="clicky" {onclick}>
     {@render content()}
   </button>
 

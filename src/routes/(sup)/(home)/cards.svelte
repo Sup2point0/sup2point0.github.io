@@ -4,7 +4,8 @@
 
 import { pick_random } from "#scripts/utils";
 
-import Cards from "#parts/core/cards.svelte";
+import Cards    from "#parts/core/cards.svelte";
+import Clicky   from "#src/parts/ui/clicky.svelte";
 import LinkCard from "#parts/ui/card.link.svelte";
 
 import { onMount } from "svelte";
@@ -73,6 +74,8 @@ const content_routes = {
     <LinkCard text="writing" link="https://sup2point0.github.io/Assort/writing" capt={displayed_routes.writing} />
     <LinkCard text="poetry" link="https://sup2point0.github.io/Assort/poetry" capt={displayed_routes.poetry} />
   </Cards>
+
+  <Clicky text="VIEW MORE" link="/sup/projects" />
 {/if}
 
 

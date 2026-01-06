@@ -23,7 +23,7 @@ const title_routes = [
 
 
 {#if displayed_title}
-  <Header> {displayed_title} </Header>
+  <Header margin={false}> {displayed_title.toUpperCase()} </Header>
 
   <Block kind="fun">
     woah, you’ve reached the end!

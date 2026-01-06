@@ -38,7 +38,7 @@ const showerthoughts = [
 
 
 {#if displayed_showerthought}
-  <Header> Today’s Showerthought </Header>
+  <Header margin={false}> TODAY’S SHOWERTHOUGHT </Header>
 
   <Block kind="fun">
     {@html displayed_showerthought}

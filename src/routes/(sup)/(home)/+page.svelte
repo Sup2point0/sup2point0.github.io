@@ -21,16 +21,14 @@ import ProfileFooter from "./footer.svelte";
   <meta name="author" content="Sup#2.0" />
   <meta name="description" content="An avid portal with way too much in their neural cortex." />
 
-  <meta property="og:type" content="website" />
   <meta property="og:title" content="Sup#2.0" />
   <meta property="og:description" content="An avid portal with way too much in their neural cortex." />
-  <meta property="og:image" content="/purple-portal.png" />
 
   <meta name="google-site-verification" content="ua2bFDon6yUD7LDNbH4IBTAo6cVfiPAZaWkoMfhhBAc" />
 </svelte:head>
 
 
-<Main gap="2rem">
+<Main gap="3rem">
   <section class="upper">
     <div class="left">
       <ProfileHeader />
@@ -43,13 +41,11 @@ import ProfileFooter from "./footer.svelte";
     </div>
   </section>
 
-  <ProfileCards />
-  <div style:height="1rem"></div>
-  <ProfileLoves />
-  <div style:height="1rem"></div>
-  <ProfileShowerthought />
-  <div style:height="1rem"></div>
-  <ProfileFooter />
+  <section><ProfileCards /></section>
+  <section><ProfileLoves /></section>
+
+  <section><ProfileShowerthought /></section>
+  <section><ProfileFooter /></section>
 </Main>
 
 <Footer />
@@ -57,12 +53,17 @@ import ProfileFooter from "./footer.svelte";
 
 <style lang="scss">
 
-section.upper {
+section {
+  width: 100%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   gap: 2rem;
+}
+
+section.upper {
+  flex-flow: row wrap;
 
   div {
     display: flex;

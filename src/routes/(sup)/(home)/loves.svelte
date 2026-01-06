@@ -1,7 +1,7 @@
 <script>
   
-import Cards from "#parts/core/cards.svelte";
-import Block from "#parts/ui/block.svelte";
+import Cards    from "#parts/core/cards.svelte";
+import Clicky   from "#parts/ui/clicky.svelte";
 import LinkCard from "#parts/ui/card.link.svelte";
 
 
@@ -30,14 +30,12 @@ const title_routes = [
     {displayed_title}
   </h2>
 
-  <Block>
-    Too many to fit here, so head over to <a class="link" href="/sup/loves">loves</a> ;)
-  </Block>
-
   <Cards force_grid={true}>
     <LinkCard text="music production" link="/sup/music/create" />
     <LinkCard text="rhythm games" link="/sup/loves/games" />
   </Cards>
+
+  <Clicky text="VIEW MORE" link="/sup/loves" />
 {/if}
 
 

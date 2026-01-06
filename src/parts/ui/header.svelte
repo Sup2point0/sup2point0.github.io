@@ -2,18 +2,19 @@
 
 <script lang="ts">
 
-let { children } = $props();
+let { margin = true, children } = $props();
 
 </script>
 
 
-<h2> {@render children?.()} </h2>
+<h2 style:margin-bottom={margin ? "2rem" : undefined}>
+  {@render children?.()}
+</h2>
 
 
 <style lang="scss">
 
 h2 {
-  margin-bottom: 2rem;
   @include font-tech;
   font-weight: normal;
   font-size: 200%;

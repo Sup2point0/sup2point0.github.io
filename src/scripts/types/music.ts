@@ -48,6 +48,7 @@ export interface ArtistData {
   icon: string;
   
   genres?: Genre[];
+  vibes?: Vibe[];
   track?: ExternalTrackData | ExternalTrackData[];
   links?: {
     [platform: string]: string;
@@ -80,6 +81,7 @@ export interface GenreData {
 export enum Genre {
   STEP200      = "200step",
   ALT_POP      = "alternative pop",
+  ALT_PUNK_ROCK = "alternative punk rock",
   ANIME        = "anime",
   ARCADE       = "arcade",
   ARTCORE      = "artcore",
@@ -89,8 +91,10 @@ export enum Genre {
   CAMELLIACORE = "Camelliacore",
   CINEMATIC    = "cinematic",
   COLOUR_BASS  = "colour bass",
+  COMEDY       = "comedy",
   COMPLEXTRO   = "complextro",
   CPOP         = "c-pop",
+  DOWNTEMPO    = "downtempo",
   DRUM_N_BASS  = "drum & bass",
   DUBSTEP      = "dubstep",
   EDM          = "EDM",
@@ -113,6 +117,7 @@ export enum Genre {
   ORIENTAL     = "oriental",
   PIANO        = "piano",
   POP          = "pop",
+  PUNK         = "punk",
   RAP          = "rap",
   RHYTHM       = "rhythm",
   ROCK         = "rock",
@@ -121,6 +126,14 @@ export enum Genre {
   TRANSCENDENTAL = "transcendental",
   TRAP         = "trap",
   VOCALOID     = "vocaloid",
+}
+
+export enum Vibe {
+  CHILLOUT  = "chillout",
+  DISCO     = "disco",
+  EMOTIONAL = "emotional",
+  HEROIC    = "heroic",
+  WAR       = "war",
 }
 
 export enum Daw {

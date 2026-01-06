@@ -149,6 +149,11 @@ button.block.media {
 img {
   max-width: 100%;
   box-shadow: 0 8px 16px rgb(black, 40%);
+  transition: #{trans()};
+
+  button.block.media:where(:hover, :focus-visible) & {
+    transform: scale(103%);
+  }
 }
 
 .info {

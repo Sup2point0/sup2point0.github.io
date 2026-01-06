@@ -644,7 +644,7 @@ export const projects_list: ProjectData[] = (
       for (let [j, project] of projects.entries()) {
         project._score_ = 0;
         if (project.shard === undefined) {
-          project.shard = `${i.toString()}-${j.toString()}`;
+          project.shard = `${i}-${j}`;
         }
       }
     }

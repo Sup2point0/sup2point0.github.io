@@ -489,9 +489,11 @@ export const games_data: Record<string, GameData[]> = {
 export const games_list: GameData[] = (
   () => {
     for (let [i, [collection, games]] of Object.entries(games_data).entries()) {
-      for (let [j, game] of games.entries()) {
+      for (let [j, game] of games.entries())
+      {
         game.collection = collection;
         game._score_ = 0;
+
         if (game.shard === undefined) {
           game.shard = `${i}-${j}`;
         }

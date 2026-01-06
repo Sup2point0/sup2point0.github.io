@@ -1,10 +1,11 @@
+import { shardify } from "#scripts/utils";
 import { GenreKind, type GenreData } from "#scripts/types";
 
 
 export const genres_data: {
   [collection: string]: GenreData[]
 } = {
-  favourites: [
+  "favourites": [
     {
       name: "200step",
       artists: ["かめりあ"],
@@ -114,7 +115,7 @@ export const genres_data: {
       artists: ["PIKASONIC", "Chiru-san"],
     },
     {
-      name: "game",
+      name: "genre",
       artists: ["Plants vs. Zombies", "AirAttack"],
     },
     {
@@ -199,7 +200,7 @@ export const genres_data: {
       tracks: ["Proof Geometric Construction Can Solve All Love Affairs"],
     },
   ],
-  ambivalent: [
+  "ambivalent": [
     {
       name: "acid jazz",
       tracks: ["Sweden (acid jazz remix)"],
@@ -285,3 +286,21 @@ export const genres_data: {
     },
   ],
 };
+
+export const genres_list: GenreData[] = (
+  () => {
+    for (let [collection, genres] of Object.entries(genres_data)) {
+      for (let genre of genres)
+      {
+        genre.collection = collection;
+        genre._score_ = 0;
+        
+        if (genre.shard === undefined) {
+          genre.shard = shardify(genre.name);
+        }
+      }
+    }
+
+    return Object.values(genres_data).flatMap(g => g);
+  }
+)();

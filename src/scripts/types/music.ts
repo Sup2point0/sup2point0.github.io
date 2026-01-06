@@ -66,7 +66,7 @@ export enum GenreKind {
   VIBE  = "vibe",
 }
 
-export interface GenreData {
+export interface GenreData extends Searchable {
   fav?: boolean;
   
   name: string;

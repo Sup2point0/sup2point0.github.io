@@ -991,7 +991,7 @@ export const artists_data: Groups<ArtistData> = {
       shard:  "function-phantom",
       name:   "Function Phantom",
       date:   2024,
-      icon:   undefined,
+      icon:   "function-phantom.jpg",
       track: {
         name: "Algebra", link: "https://youtube.com/watch?v=nePdNxMnvX0&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd"
       },
@@ -1002,7 +1002,7 @@ export const artists_data: Groups<ArtistData> = {
       shard:  "mafumafu",
       name:   "Mafumafu",
       date:   2023,
-      icon:   undefined,
+      icon:   "mafumafu.jpg",
       genres: [Genre.JCORE,],
       track: {
         name: "I wanna be a girl", link: "https://youtube.com/watch?v=ucbx9we6EHk&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd",
@@ -1013,7 +1013,7 @@ export const artists_data: Groups<ArtistData> = {
       shard:  "hoshimachi-suisei",
       name:   "Hoshimachi Suisei",
       date:   2025,
-      icon:   undefined,
+      icon:   "bibbidiba.jpg",
       genres: [Genre.JCORE,],
       track: {
         name: "BIBBIDIBA", link: "https://youtube.com/watch?v=8ZP5eqm4JqM&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd",
@@ -1024,7 +1024,7 @@ export const artists_data: Groups<ArtistData> = {
       shard:  "wave-meow",
       name:   "Wave Meow",
       date:   2025,
-      icon:   undefined,
+      icon:   "natsu.jpg",
       genres: [Genre.DRUM_N_BASS,],
       track: {
         name: "Natsu!", link: "https://youtube.com/watch?v=GCSDxOLWZ2o&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd",
@@ -1104,7 +1104,7 @@ export const artists_data: Groups<ArtistData> = {
       shard:  "tatsh",
       name:   "Tatsh",
       date:   2024,
-      icon:   undefined,
+      icon:   "xenolith.jpg",
       track: {
         name: "Xenolith", link: "https://youtube.com/watch?v=-4a0_SaMWxg"
       },

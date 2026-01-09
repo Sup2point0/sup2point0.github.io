@@ -60,7 +60,12 @@ onMount(() => {
 
       {#if kind === "books" && media.fav}
         <div class="inner">
-          <div class="fav-book">
+          <div class="field">
+            <h4> AUTHOR </h4>
+            <p> {media.author} </p>
+          </div>
+
+          <div class="field">
             <h4> FAVOURITE </h4>
             <p> {media.fav} </p>
           </div>
@@ -198,7 +203,6 @@ img {
 .inner {
   display: flex;
   flex-flow: column nowrap;
-  gap: 0.5rem;
 
   p {
     @include font-ui;
@@ -207,7 +211,7 @@ img {
     line-height: 150%;
   }
 
-  .fav-book {
+  .field {
     display: flex;
     flex-flow: row wrap;
     justify-content: start;

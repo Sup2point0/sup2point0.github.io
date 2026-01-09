@@ -102,7 +102,7 @@ const data: Groups<BookSeriesData> =
       author: "H.L. Dennis",
       date:   [2012, 2014],
       books:  6,
-      cover:  undefined,
+      cover:  "secret-breakers.jpg",
       genres: [Genre.MYSTERY],
       themes: [],
     }, {
@@ -110,7 +110,7 @@ const data: Groups<BookSeriesData> =
       author: "Dav Pilkey",
       date:   [1997, 2015],
       books:  12,
-      cover:  undefined,
+      cover:  "turbo-toilet-2000.jpg",
       genres: [],
       themes: [],
     },
@@ -122,7 +122,7 @@ const data: Groups<BookSeriesData> =
       date:   [2000, 2023],
       books:  13,
       fav:    "Scorpia Rising",
-      cover:  undefined,
+      cover:  "scorpia-rising.jpg",
       genres: [],
       themes: [],
     }

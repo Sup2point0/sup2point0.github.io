@@ -42,7 +42,7 @@ onMount(() => {
   <NavLink text="LOVES" link="/sup/loves" />
   <NavLink text="MUSIC" link="/sup/music" />
   <NavLink text="PROJECTS" link="/sup/projects" />
-  <NavLink text="DEV" link="/sup/dev" dead={true} />
+  <NavLink text="DEV" link="/sup/dev" />
 </nav>
 
 

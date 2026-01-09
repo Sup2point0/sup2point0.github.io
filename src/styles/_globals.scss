@@ -1,4 +1,9 @@
-// COLOURS
+// == CONSTANTS == //
+$width-shrink: 640px;
+$width-expand: 1441px;
+$shear-factor: -12deg;
+
+// == COLOURS == //
 $col-prot: #ff0090;
 $col-deut: #40f190;
 $col-trit: #40e0ff;
@@ -11,7 +16,6 @@ $col-text-deut: rgb(white, 60%);
 $col-card: rgb(black, 20%);
 $col-card-hover: rgb(black, 50%);
 
-// CONSTANTS
-$width-shrink: 640px;
-$width-expand: 1441px;
-$shear-factor: -12deg;
+// == DEV == //
+$col-hexback-dots: oklch(0.2278 0.1061 280.06 / 25%);
+$col-hexback-cell: oklch(0.4173 0.1357 273.71 / 16%);

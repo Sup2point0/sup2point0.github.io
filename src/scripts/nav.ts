@@ -3,10 +3,11 @@ import { persisted } from "svelte-persisted-store";
 
 class VisitedPages
 {
-  loves = false;
-  music = false;
+  info     = false;
+  loves    = false;
+  music    = false;
   projects = false;
-  dev = false;
+  dev      = false;
 }
 
 class NavData

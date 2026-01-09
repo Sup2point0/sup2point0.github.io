@@ -54,7 +54,7 @@ onMount(() => {
   cx = rect.x + rect.width / 2;
   cy = rect.y + rect.height / 2;
   
-  updaters.push(updater);
+  updaters?.push(updater);
 });
 
 
@@ -126,16 +126,15 @@ const updater: CellUpdater = (mode, args) => {
   style:--x={x}
   style:--y={y}
   style:--offset={y % 2}
+  style:--prox={proximity + shimmer}
 >
-  <div class="hex-cell"
-    style:--prox={proximity + shimmer}
-  ></div>
+  <div class="hex-cell"></div>
 </div>
 
 
 <style lang="scss">
 
-$width: 2rem;
+$width: 7rem;
 $height: calc($width * cos(30deg));
 $tight: 0.94;
 

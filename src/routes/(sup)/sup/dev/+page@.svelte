@@ -6,21 +6,31 @@ import Nav from "#parts/core/nav.svelte";
 import HexCell from "./cell.hex.svelte";
 import type { CellUpdater } from "./cell.hex.svelte";
 
-import { setContext } from "svelte";
+import { onMount, setContext } from "svelte";
+import { fade } from "svelte/transition";
 
 
-const cols = 31;
-const rows = 36;
-
-setContext("cols", cols);
-setContext("rows", rows);
+const COLS = 31; setContext("cols", COLS);
+const ROWS = 36; setContext("rows", ROWS);
 
 
-let mouse = { x: 0, y: 0 };;
+let live = $state(false);
+
+let mouse = { x: 0, y: 0 };
 let scroll = { x: 0, y: 0 };
 
 let lattice: HTMLElement | null = $state(null);
 let updaters: CellUpdater[] = [];
+
+
+onMount(() => {
+  if (lattice === undefined) return;
+
+  lattice!.scrollLeft = (lattice!.scrollWidth - lattice!.clientWidth) / 2;
+  lattice!.scrollTop = (lattice!.scrollHeight - lattice!.clientWidth) / 2;
+
+  live = true;
+});
 
 
 function sync_mouse(e: MouseEvent)
@@ -34,12 +44,12 @@ function sync_mouse(e: MouseEvent)
 
   for (let update of updaters) update("prox", { mouse, scroll });
 
-  if (Math.random() > 0.99) {
-    let delay = 100 + Math.floor(Math.random() * 200);
-    let anim = 1 + Math.floor(Math.random() * 4);
-    // window.alert(`HI ${delay} ${anim}`)
-    for (let update of updaters) update("shimmer", { delay, anim });
-  }
+  // NOTE: Not performant enough, maybe we can try adding again at some point in the future =()
+  // if (Math.random() > 0.99) {
+  //   let delay = 100 + Math.floor(Math.random() * 200);
+  //   let anim = 1 + Math.floor(Math.random() * 4);
+  //   for (let update of updaters) update("shimmer", { delay, anim });
+  // }
 }
 
 </script>
@@ -56,14 +66,21 @@ function sync_mouse(e: MouseEvent)
     bind:this={lattice}
     onscroll={sync_mouse}
   >
-    <div id="lattice-content">
-      <!-- back -->
-      {#each { length: cols } as _, x}
-        {#each { length: rows } as _, y}
-          <HexCell {x} {y} {updaters} />
-        {/each}
-      {/each}
-    </div>
+
+<div id="lattice-content"
+  class:live
+  in:fade={{ duration: 500, delay: 500 }}
+>
+  <!-- back -->
+  {#each { length: COLS } as _, x}
+    {#each { length: ROWS } as _, y}
+      <HexCell {x} {y} {updaters} />
+    {/each}
+  {/each}
+
+  <!-- domains -->
+</div>
+
   </div>
 </div>
 
@@ -97,12 +114,19 @@ function sync_mouse(e: MouseEvent)
 #lattice-content {
   width: 200vw;
   height: 200vw;
+  overflow: hidden;
   position: relative;
   background-image:
     radial-gradient(circle at 25% 25%, $col-hexback-dots 1px, transparent 1px),
     radial-gradient(circle at 75% 75%, $col-hexback-dots 1px, transparent 1px),
   ;
   background-size: 1rem calc(1rem / cos(60deg));
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+  &.live {
+    opacity: 1;
+  }
 }
 
 </style>

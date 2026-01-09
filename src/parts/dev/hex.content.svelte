@@ -4,13 +4,18 @@
 
 <script lang="ts">
 
+import type { LangData, TechData } from "#scripts/types/dev";
+
+type CellSource = LangData | TechData;
+
+
 interface Props {
+  entity: CellSource;
   x: number;
   y: number;
-  icon: string;
 }
 
-let { x, y, icon: src }: Props = $props();
+let { entity, x, y }: Props = $props();
 
 </script>
 
@@ -22,7 +27,9 @@ let { x, y, icon: src }: Props = $props();
   style:--offset={y % 2}
 >
   <div class="hex-content">
-    <img alt="" {src} />
+    <img alt="" src="/icons/dev/{entity.icon}"
+      style:border-radius={entity._style === "round" ? "20%" : undefined}
+    />
   </div>
 </div>
 

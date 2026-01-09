@@ -2,17 +2,20 @@
 
 import "#styles/essence.scss";
 
+import { shuffle, zip } from "#scripts/utils";
+
+import { lattice } from "./dev.cells";
+
 import Nav        from "#parts/core/nav.svelte";
 import HexCell    from "#parts/dev/hex.cell.svelte";
 import HexContent from "#parts/dev/hex.content.svelte";
-import type { CellUpdater } from "#parts/dev/hex.cell.svelte";
 
-import { onMount, setContext, type SvelteComponent } from "svelte";
+import { onMount, type SvelteComponent } from "svelte";
 import { fade } from "svelte/transition";
 
 
-const COLS = 31; setContext("cols", COLS);
-const ROWS = 36; setContext("rows", ROWS);
+const COLS = 31; const CX = 14;
+const ROWS = 36; const CY = 13;
 
 
 let live = $state(false);
@@ -20,17 +23,15 @@ let live = $state(false);
 let mx = 0, my = 0;
 let sx = 0, sy = 0;
 
-let latent_updates = 0;
 
-
-let lattice: HTMLElement | null = $state(null);
+let viewport: HTMLElement | null = $state(null);
 let cells: SvelteComponent[] = [];
 
 onMount(() => {
-  if (lattice === undefined) return;
+  if (viewport === undefined) return;
 
-  lattice!.scrollLeft = (lattice!.scrollWidth - lattice!.clientWidth) / 2;
-  lattice!.scrollTop = (lattice!.scrollHeight - lattice!.clientWidth) / 2;
+  viewport!.scrollLeft = (viewport!.scrollWidth - viewport!.clientWidth) / 2;
+  viewport!.scrollTop = (viewport!.scrollHeight - viewport!.clientWidth) / 2;
 
   live = true;
 });
@@ -45,8 +46,8 @@ function sync_mouse(e: any)
   mx = nx;
   my = ny;
 
-  sx = lattice?.scrollLeft ?? 0;
-  sy = lattice?.scrollTop ?? 0;
+  sx = viewport?.scrollLeft ?? 0;
+  sy = viewport?.scrollTop ?? 0;
 
   /* NOTE PERF: Avoid updates on insignificant mouse movements to lighten load */
   // if (
@@ -59,6 +60,19 @@ function sync_mouse(e: any)
   }
 }
 
+function get_random_hex_cords(): [number, number][]
+{
+  return shuffle([
+    [0, 0],
+    [1, -1],
+    [1, 0],
+    [1, 1],
+    [0, 1],
+    [-1, 0],
+    [0, -1],
+  ]);
+}
+
 </script>
 
 
@@ -69,7 +83,7 @@ function sync_mouse(e: any)
     <Nav />
   </div>
 
-  <div id="lattice" bind:this={lattice} onscroll={sync_mouse}>
+  <div id="lattice" bind:this={viewport} onscroll={sync_mouse}>
 
     <div id="lattice-content"
       class:live
@@ -82,7 +96,16 @@ function sync_mouse(e: any)
         {/each}
       {/each}
 
-      <HexContent x={16} y={16} icon="/icons/dev/vscode.svg" />
+      {#each Object.values(lattice) as collection}
+        {@const cells = zip(get_random_hex_cords(), collection.cells)}
+
+        {#each cells as [[dx, dy], entity]}
+          {@const x = CX + collection.x + dx}
+          {@const y = CY + collection.y + dy}
+
+          <HexContent {entity} {x} {y} />
+        {/each}
+      {/each}
     </div>
 
   </div>

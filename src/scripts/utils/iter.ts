@@ -25,6 +25,15 @@ export function all<Type>(
   }
 }
 
+export function zip<X,Y>(left: X[], right: Y[]): [X,Y][]
+{
+  if (right.length >= left.length) {
+    return left.map((each, i) => [each, right[i]]);
+  } else {
+    return right.map((each, i) => [left[i], each]);
+  }
+}
+
 export function sum(iterable: number[]): number
 {
   return iterable.reduce((acc, n) => acc + n, 0);

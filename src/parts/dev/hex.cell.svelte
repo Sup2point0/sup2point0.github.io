@@ -1,27 +1,8 @@
 <!-- @component HexCell -->
 
-<script lang="ts" module>
-
-export type CellUpdater = (
-  mode: "prox" | "shimmer",
-  args: ProximityArgs | ShimmerArgs,
-) => void;
-
-interface ProximityArgs {
-  mouse: { x: number, y: number},
-  scroll: { x: number, y: number},
-}
-
-interface ShimmerArgs {
-  delay: number;
-  anim: number;
-}
-
-</script>
-
 <script lang="ts">
 
-import { onMount, getContext } from "svelte";
+import { onMount } from "svelte";
 
 
 interface Props {
@@ -30,10 +11,6 @@ interface Props {
 }
 
 let { x, y }: Props = $props();
-
-
-const X: number = getContext("cols");
-const Y: number = getContext("rows");
 
 
 let proximity: number = $state(0);

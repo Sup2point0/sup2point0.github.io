@@ -7,7 +7,7 @@ import HexCell    from "#parts/dev/hex.cell.svelte";
 import HexContent from "#parts/dev/hex.content.svelte";
 import type { CellUpdater } from "#parts/dev/hex.cell.svelte";
 
-import { onMount, setContext } from "svelte";
+import { onMount, setContext, type SvelteComponent } from "svelte";
 import { fade } from "svelte/transition";
 
 
@@ -17,12 +17,14 @@ const ROWS = 36; setContext("rows", ROWS);
 
 let live = $state(false);
 
-let mouse = { x: 0, y: 0 };
-let scroll = { x: 0, y: 0 };
+let mx = 0, my = 0;
+let sx = 0, sy = 0;
+
+let latent_updates = 0;
+
 
 let lattice: HTMLElement | null = $state(null);
-let updaters: CellUpdater[] = [];
-
+let cells: SvelteComponent[] = [];
 
 onMount(() => {
   if (lattice === undefined) return;
@@ -34,23 +36,27 @@ onMount(() => {
 });
 
 
-function sync_mouse(e: MouseEvent)
+function sync_mouse(e: any)
 {
   /* Dirty little hack to ensure a reactive update on scroll :P */
-  mouse.x = e.pageX ?? mouse.x - 1;
-  mouse.y = e.pageY ?? mouse.y;
+  let nx = e.pageX ?? mx - 1;
+  let ny = e.pageY ?? my;
 
-  scroll.x = lattice?.scrollLeft ?? 0;
-  scroll.y = lattice?.scrollTop ?? 0;
+  mx = nx;
+  my = ny;
 
-  for (let update of updaters) update("prox", { mouse, scroll });
+  sx = lattice?.scrollLeft ?? 0;
+  sy = lattice?.scrollTop ?? 0;
 
-  // NOTE: Not performant enough, maybe we can try adding again at some point in the future =()
-  // if (Math.random() > 0.99) {
-  //   let delay = 100 + Math.floor(Math.random() * 200);
-  //   let anim = 1 + Math.floor(Math.random() * 4);
-  //   for (let update of updaters) update("shimmer", { delay, anim });
-  // }
+  /* NOTE PERF: Avoid updates on insignificant mouse movements to lighten load */
+  // if (
+  //   Math.abs(nx - mx) < 100
+  //   && Math.abs(ny - my) < 100
+  // ) return;
+
+  for (let cell of cells) {
+    cell.update(mx, my, sx, sy);
+  }
 }
 
 </script>
@@ -72,13 +78,11 @@ function sync_mouse(e: MouseEvent)
       <!-- back -->
       {#each { length: COLS } as _, x}
         {#each { length: ROWS } as _, y}
-          <HexCell {x} {y} {updaters} />
+          <HexCell bind:this={cells[x*ROWS + y]} {x} {y} />
         {/each}
       {/each}
 
-      <HexContent x={15} y={16} icon="/icons/dev/haskell.svg" />
       <HexContent x={16} y={16} icon="/icons/dev/vscode.svg" />
-      <HexContent x={17} y={16} icon="/icons/dev/rust.svg" />
     </div>
 
   </div>

@@ -33,6 +33,7 @@ $width: 7rem;
 $height: calc($width * cos(30deg));
 $tight: 0.94;
 
+
 .position-container {
   position: absolute;
   left: -2 * $width;

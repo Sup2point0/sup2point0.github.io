@@ -2,9 +2,10 @@
 
 import "#styles/essence.scss";
 
-import Nav from "#parts/core/nav.svelte";
-import HexCell from "./cell.hex.svelte";
-import type { CellUpdater } from "./cell.hex.svelte";
+import Nav        from "#parts/core/nav.svelte";
+import HexCell    from "#parts/dev/hex.cell.svelte";
+import HexContent from "#parts/dev/hex.content.svelte";
+import type { CellUpdater } from "#parts/dev/hex.cell.svelte";
 
 import { onMount, setContext } from "svelte";
 import { fade } from "svelte/transition";
@@ -62,24 +63,21 @@ function sync_mouse(e: MouseEvent)
     <Nav />
   </div>
 
-  <div id="lattice"
-    bind:this={lattice}
-    onscroll={sync_mouse}
-  >
+  <div id="lattice" bind:this={lattice} onscroll={sync_mouse}>
 
-<div id="lattice-content"
-  class:live
-  in:fade={{ duration: 500, delay: 500 }}
->
-  <!-- back -->
-  {#each { length: COLS } as _, x}
-    {#each { length: ROWS } as _, y}
-      <HexCell {x} {y} {updaters} />
-    {/each}
-  {/each}
+    <div id="lattice-content"
+      class:live
+      in:fade={{ duration: 500, delay: 500 }}
+    >
+      <!-- back -->
+      {#each { length: COLS } as _, x}
+        {#each { length: ROWS } as _, y}
+          <HexCell {x} {y} {updaters} />
+        {/each}
+      {/each}
 
-  <!-- domains -->
-</div>
+      <HexContent x={16} y={16} icon="/icons/dev/vscode.svg" />
+    </div>
 
   </div>
 </div>

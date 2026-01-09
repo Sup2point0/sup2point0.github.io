@@ -27,7 +27,7 @@ import { onMount, getContext } from "svelte";
 interface Props {
   x: number;
   y: number;
-  updaters: CellUpdater[];
+  updaters?: CellUpdater[];
 }
 
 let { x, y, updaters }: Props = $props();

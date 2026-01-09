@@ -76,7 +76,9 @@ function sync_mouse(e: MouseEvent)
         {/each}
       {/each}
 
+      <HexContent x={15} y={16} icon="/icons/dev/haskell.svg" />
       <HexContent x={16} y={16} icon="/icons/dev/vscode.svg" />
+      <HexContent x={17} y={16} icon="/icons/dev/rust.svg" />
     </div>
 
   </div>

@@ -53,12 +53,22 @@ $tight: 0.94;
 
   clip-path: polygon(50% -50%,100% 50%,50% 150%,0 50%);
   transform: rotate(30deg);
+  transition: #{trans()};
+
+  &:hover {
+    background: rgba(white, 5%);
+
+    img {
+      transform: rotate(-30deg) scale(105%);
+    }
+  }
 }
 
 img {
-  width: 0.69 * $width;
+  width: 0.5 * $width;
   aspect-ratio: 1 / 1;
   transform: rotate(-30deg);
+  transition: #{trans()};
 }
 
 </style>

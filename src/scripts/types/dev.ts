@@ -3,8 +3,8 @@ import type { ProjectData } from "#routes/(sup)/sup/projects/projects";
 import type { Shard } from "#scripts/types";
 
 
-export interface DevEntity extends Searchable {
-  projects?: ProjectData[];
+export interface DevEntity extends Searchable {  
+  colour: string;
 }
 
 

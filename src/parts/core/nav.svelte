@@ -7,9 +7,10 @@ import { onMount } from "svelte";
 
 interface Props {
   back?: boolean;
+  margin?: string;
 }
 
-let { back = true }: Props = $props();
+let { back = true, margin = "1rem" }: Props = $props();
 
 
 let self: HTMLElement;
@@ -36,6 +37,7 @@ onMount(() => {
 
 <nav class={{ back, fixed }}
   bind:this={self}
+  style:margin-bottom={margin}
 >
   <NavLink text="INFO" link="/sup/info" />
   <NavLink text="SUP" link="https://sup2point0.github.io" />
@@ -49,8 +51,8 @@ onMount(() => {
 <style lang="scss">
 
 nav {
+  pointer-events: initial;
   width: 100%;
-  margin-bottom: 1rem;
   padding: 0.5rem;
   position: sticky;
   top: -1px;

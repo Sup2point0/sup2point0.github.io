@@ -2,10 +2,10 @@
 
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
-import Cards         from "#parts/core/cards.svelte";
-import Main          from "#parts/core/main.svelte";
-import Block         from "#parts/ui/block.svelte";
-import Header        from "#parts/ui/header.svelte";
+import Cards  from "#parts/core/cards.svelte";
+import Main   from "#parts/core/main.svelte";
+import Block  from "#parts/ui/block.svelte";
+import Header from "#parts/ui/header.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
 import ProjectBlock  from "#parts/dev/block.project.svelte";
 

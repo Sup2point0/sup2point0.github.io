@@ -2,10 +2,13 @@
 
 <script lang="ts">
 
-import { projects_list } from "#routes/(sup)/sup/projects/projects";
 import type { DevEntity } from "#src/scripts/types/dev";
 
-import ProjectBlock from "#parts/dev/block.project.svelte";
+import SearchFilters from "#parts/ui/search-filters.svelte";
+import ProjectBlock  from "#parts/dev/block.project.svelte";
+
+import { projects_list } from "#routes/(sup)/sup/projects/projects";
+import { ProjectSearchFilter } from "#routes/(sup)/sup/projects/filter.projects.svelte.ts";
 
 import { fade, scale } from "svelte/transition";
 import { expoOut } from "svelte/easing";
@@ -17,6 +20,9 @@ interface Props {
 
 let { entity = $bindable() }: Props = $props();
 
+
+// svelte-ignore non_reactive_update
+let filters = new ProjectSearchFilter();
 
 let displayed_projects = $derived(
   projects_list.filter(proj => proj.tech.includes("Svelte/Kit"))
@@ -36,7 +42,9 @@ let displayed_projects = $derived(
     onclick={() => entity = null}
     transition:fade={{ duration: 200 }}
   >
-    <div class="content-layout">
+    <div class="content-layout"
+      onclick={e => e.stopPropagation()}
+    >
 
       <div class="side left">
         <h1 transition:scale={{ start: 0.8, duration: 700, delay: 200, easing: expoOut }}>
@@ -46,6 +54,8 @@ let displayed_projects = $derived(
 
       <div class="side right">
         <h2> PROJECTS </h2>
+
+        <SearchFilters bind:filters />
 
         <div class="blocks">
           {#each displayed_projects as project}
@@ -62,15 +72,16 @@ let displayed_projects = $derived(
 <style lang="scss">
 
 .entity-overlay {
+  flex: 1 1;
   width: 100vw;
-  height: 100vh;
-  position: absolute;
-  z-index: 100;
+  padding: 1rem;
+  // z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
+
   background: rgba(black, 25%);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(20px);
 }
 
 .content-layout {
@@ -98,13 +109,14 @@ h1 {
 }
 
 .side {
-  flex-grow: 1;
   height: 80vh;
   max-height: 80vh;
 
   &.right {
+    flex: 1 1;
     display: flex;
     flex-flow: column nowrap;
+    align-items: center;
     gap: 1rem;
   }
 }
@@ -115,10 +127,13 @@ h2 {
 }
 
 .blocks {
+  width: max-content;
+  padding: 0 2rem;
   overflow-y: auto;
   display: flex;
   flex-flow: column nowrap;
-  gap: 1rem;
+  align-items: center;
+  gap: 2rem;
 }
 
 </style>

@@ -54,6 +54,8 @@ onNavigate(navigation => {
 
 function sync_mouse(e: any)
 {
+  if (selected_entity !== null) return;
+  
   /* Dirty little hack to ensure a reactive update on scroll :P */
   let nx = e.pageX ?? mx - 1;
   let ny = e.pageY ?? my;
@@ -79,12 +81,8 @@ function get_random_hex_cords(): [number, number][]
 {
   return shuffle([
     [0, 0],
-    [1, -1],
-    [1, 0],
-    [1, 1],
-    [0, 1],
-    [-1, 0],
-    [0, -1],
+    [1, -1], [1, 0], [1, 1],
+    [0, 1], [-1, 0], [0, -1],
   ]);
 }
 
@@ -94,10 +92,6 @@ function get_random_hex_cords(): [number, number][]
 <svelte:document onmousemove={sync_mouse} />
 
 <div class="root">
-  <div class="nav-container">
-    <Nav />
-  </div>
-
   <div id="lattice" bind:this={viewport} onscroll={sync_mouse}>
     <div id="lattice-content" class:live>
 
@@ -126,7 +120,10 @@ function get_random_hex_cords(): [number, number][]
     </div>
   </div>
 
-  <Overlay bind:entity={selected_entity} />
+  <div class="overlay-layout" class:expand={selected_entity !== null}>
+    <Nav margin="0" />
+    <Overlay bind:entity={selected_entity} />
+  </div>
 </div>
 
 
@@ -142,11 +139,6 @@ function get_random_hex_cords(): [number, number][]
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
-}
-
-.nav-container {
-  width: 100%;
-  position: absolute;
 }
   
 #lattice {
@@ -171,6 +163,19 @@ function get_random_hex_cords(): [number, number][]
 
   &.live  {
     opacity: 1;
+  }
+}
+
+.overlay-layout {
+  pointer-events: none;
+  width: 100vw;
+    height: 100vh;
+  position: absolute;
+  display: flex;
+  flex-flow: column nowrap;
+
+  &.expand {
+    pointer-events: auto;
   }
 }
 

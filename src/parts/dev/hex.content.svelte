@@ -28,6 +28,7 @@ let {
   style:--x={x}
   style:--y={y}
   style:--offset={y % 2}
+  style:--col={entity.colour}
 >
   <button class="hex-content" onclick={e => {
     selected_entity = entity;
@@ -64,6 +65,7 @@ $tight: 0.94;
   transform:
     translateX(calc( $tight * $width * (var(--x) + var(--offset, 0) / 2) ))
     translateY(calc( $tight * $height * var(--y) ))
+    scale(96%)
   ;
 }
 
@@ -82,19 +84,23 @@ $tight: 0.94;
   transform: rotate(30deg);
   transition: #{trans()};
 
-  &:hover {
-    background: rgba(white, 5%);
+  &:hover, &:focus-visible {
+    background: var(--col, rgba(#40ff90, 10%));
 
     img {
-      transform: rotate(-30deg) scale(105%);
+      transform: rotate(-30deg) scale(110%);
     }
+  }
+
+  &:active {
+    transform: rotate(30deg) scale(95%);
   }
 }
 
 img {
   width: 0.5 * $width;
   aspect-ratio: 1 / 1;
-  transform: rotate(-30deg);
+  transform: rotate(-30deg) scale(102%);
   transition: #{trans()};
 }
 

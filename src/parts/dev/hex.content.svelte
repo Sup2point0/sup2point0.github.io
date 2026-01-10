@@ -4,18 +4,21 @@
 
 <script lang="ts">
 
-import type { LangData, TechData } from "#scripts/types/dev";
-
-type CellSource = LangData | TechData;
+import type { DevEntity } from "#scripts/types/dev";
 
 
 interface Props {
-  entity: CellSource;
+  entity: DevEntity;
   x: number;
   y: number;
+  selected_entity: DevEntity | null;
+  viewport: HTMLElement;
 }
 
-let { entity, x, y }: Props = $props();
+let {
+  entity, x, y,
+  selected_entity = $bindable(), viewport = $bindable(),
+}: Props = $props();
 
 </script>
 
@@ -26,11 +29,24 @@ let { entity, x, y }: Props = $props();
   style:--y={y}
   style:--offset={y % 2}
 >
-  <div class="hex-content">
+  <button class="hex-content" onclick={e => {
+    selected_entity = entity;
+
+    let rect = e.target?.getBoundingClientRect();
+    if (rect !== undefined) {
+      // viewport.scrollLeft += rect.x + (rect.width - viewport.clientWidth) / 2;
+      // viewport.scrollTop += rect.y + (rect.height - viewport.clientHeight) / 2;
+      viewport.scrollTo({
+        left: viewport.scrollLeft + rect.x + (rect.width - viewport.clientWidth) / 2,
+        top:  viewport.scrollTop + rect.y + (rect.height - viewport.clientHeight) / 2,
+        behavior: "smooth",
+      })
+    }
+  }}>
     <img alt="" src="/icons/dev/{entity.icon}"
       style:border-radius={entity._style === "round" ? "20%" : undefined}
     />
-  </div>
+  </button>
 </div>
 
 
@@ -59,6 +75,9 @@ $tight: 0.94;
   justify-content: center;
   align-items: center;
 
+  background: none;
+  border: none;
+  outline: none;
   clip-path: polygon(50% -50%,100% 50%,50% 150%,0 50%);
   transform: rotate(30deg);
   transition: #{trans()};

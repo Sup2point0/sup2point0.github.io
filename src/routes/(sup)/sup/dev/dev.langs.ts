@@ -1,4 +1,3 @@
-import { projects_list, Lang as LANG } from "#routes/(sup)/sup/projects/projects";
 import type { LangData } from "#scripts/types/dev";
 
 
@@ -52,7 +51,6 @@ export const Lang: Record<string, LangData> =
   RUST: {
     name:  "Rust",
     icon:  "rust.svg",
-    projects: projects_list.filter(proj => proj.tech.includes(LANG.RUST)),
   },
   SCSS: {
     name:  "SCSS",

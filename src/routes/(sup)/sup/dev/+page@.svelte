@@ -10,11 +10,10 @@ import { lattice } from "./dev.cells";
 import Nav          from "#parts/core/nav.svelte";
 import HexCell      from "#parts/dev/hex.cell.svelte";
 import HexContent   from "#parts/dev/hex.content.svelte";
-import ProjectBlock from "#parts/dev/block.project.svelte";
+import Overlay from "./overlay.svelte";
 
 import { onMount, type SvelteComponent } from "svelte";
-import { fade, scale } from "svelte/transition";
-import { expoOut } from "svelte/easing";
+import { onNavigate } from "$app/navigation";
 
 
 const COLS = 31; const CX = 14;
@@ -37,7 +36,19 @@ onMount(() => {
   viewport!.scrollLeft = (viewport!.scrollWidth - viewport!.clientWidth) / 2;
   viewport!.scrollTop = (viewport!.scrollHeight - viewport!.clientWidth) / 2;
 
-  live = true;
+  setTimeout(() => { live = true; }, 10);
+});
+
+onNavigate(navigation => {
+	if (!document.startViewTransition) return;
+
+	return new Promise(resolve => {
+		document.startViewTransition(async () => {
+			resolve();
+			await navigation.complete;
+      window?.scrollTo(0, 0);
+		});
+	});
 });
 
 
@@ -80,10 +91,7 @@ function get_random_hex_cords(): [number, number][]
 </script>
 
 
-<svelte:document
-  onmousemove={sync_mouse}
-  onkeydown={e => { if (e.key === "Escape") selected_entity = null; }}
-/>
+<svelte:document onmousemove={sync_mouse} />
 
 <div class="root">
   <div class="nav-container">
@@ -91,7 +99,7 @@ function get_random_hex_cords(): [number, number][]
   </div>
 
   <div id="lattice" bind:this={viewport} onscroll={sync_mouse}>
-    <div id="lattice-content" class:live in:fade={{ duration: 1000, delay: 500 }}>
+    <div id="lattice-content" class:live>
 
       <!-- back -->
       {#each { length: COLS } as _, x}
@@ -118,25 +126,7 @@ function get_random_hex_cords(): [number, number][]
     </div>
   </div>
 
-  {#if selected_entity}
-    <div class="entity-overlay" transition:fade={{ duration: 200 }}>
-      <div class="overlay-content"
-        transition:scale={{ start: 0.8, duration: 700, delay: 200, easing: expoOut }}
-      >
-        <h1> {selected_entity.name} </h1>
-
-        {#if selected_entity.projects}
-          <section>
-            <h2> Projects </h2>
-
-            {#each selected_entity.projects as project}
-              <ProjectBlock {project} />
-            {/each}
-          </section>
-        {/if}
-      </div>
-    </div>
-  {/if}
+  <Overlay bind:entity={selected_entity} />
 </div>
 
 
@@ -177,29 +167,11 @@ function get_random_hex_cords(): [number, number][]
   ;
   background-size: 1rem calc(1rem / cos(60deg));
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 1s ease-in-out;
 
   &.live  {
     opacity: 1;
   }
-}
-
-.entity-overlay {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  z-index: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(black, 25%);
-  backdrop-filter: blur(8px);
-}
-
-.overlay-content {
-  width: 80vw;
-  height: 80vh;
-  background: oklch(0.125 0.095 273.71 / 70%);
 }
 
 </style>

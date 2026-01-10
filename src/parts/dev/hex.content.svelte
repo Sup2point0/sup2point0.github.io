@@ -35,8 +35,6 @@ let {
 
     let rect = e.target?.getBoundingClientRect();
     if (rect !== undefined) {
-      // viewport.scrollLeft += rect.x + (rect.width - viewport.clientWidth) / 2;
-      // viewport.scrollTop += rect.y + (rect.height - viewport.clientHeight) / 2;
       viewport.scrollTo({
         left: viewport.scrollLeft + rect.x + (rect.width - viewport.clientWidth) / 2,
         top:  viewport.scrollTop + rect.y + (rect.height - viewport.clientHeight) / 2,

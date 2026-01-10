@@ -16,19 +16,27 @@ import { onMount, type SvelteComponent } from "svelte";
 import { onNavigate } from "$app/navigation";
 
 
-const COLS = 31; const CX = 14;
-const ROWS = 36; const CY = 13;
+const COLS = 40; const CX = 20;
+const ROWS = 47; const CY = 20;
 
 
 let live = $state(false);
 let selected_entity: DevEntity | null = $state(null);
 
+/** Is the mouse pressed? */
 let mousedown = $state(0);
+
+/** Mouse cords */
 let mx = 0, my = 0;
+
+/** Scroll cords */
 let sx = 0, sy = 0;
 
+/** Max scroll cords*/
+let rx = 0, ry = 0;
 
-let viewport: HTMLElement | null = $state(null);
+
+let viewport: HTMLElement | undefined = $state(undefined);
 let cells: SvelteComponent[] = [];
 
 onMount(() => {
@@ -67,6 +75,17 @@ function sync_mouse(e: any)
   sx = viewport?.scrollLeft ?? 0;
   sy = viewport?.scrollTop ?? 0;
 
+  if (viewport !== undefined) {
+    rx = viewport.scrollWidth - viewport.clientWidth;
+    ry = viewport.scrollHeight - viewport.clientHeight;
+
+    if      (sx == 0)  { viewport.scrollLeft = rx - 1; }
+    else if (sx >= rx) { viewport.scrollLeft = 1; }
+
+    if      (sy == 0)  { viewport.scrollTop = ry - 1; }
+    else if (sy >= ry) { viewport.scrollTop = 1; }
+  }
+
   /* NOTE PERF: Avoid updates on insignificant mouse movements to lighten load */
   // if (
   //   Math.abs(nx - mx) < 100
@@ -74,7 +93,7 @@ function sync_mouse(e: any)
   // ) return;
 
   for (let cell of cells) {
-    cell.update(mx, my, sx, sy);
+    cell.update(mx, my, sx, sy, rx, ry);
   }
 }
 
@@ -155,8 +174,8 @@ function get_random_hex_cords(): [number, number][]
 }
 
 #lattice-content {
-  width: 200vw;
-  height: 200vw;
+  width: 300vw;
+  height: 300vw;
   overflow: hidden;
   position: relative;
   background-image:

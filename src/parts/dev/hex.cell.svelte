@@ -31,18 +31,24 @@ onMount(() => {
 export function update(
   mx: number, my: number,
   sx: number, sy: number,
+  rx: number, ry: number,
 )
 {
-  let dx = mx - (cx - sx);
-  let dy = my - (cy - sy);
+  let dxi = mx - (cx - sx); let dxl = dxi - rx; let dxr = dxi + rx;
+  let dyi = my - (cy - sy); let dyl = dyi - ry; let dyr = dyi + ry;
+
+  let dx = Math.min(Math.abs(dxi), Math.abs(dxl), Math.abs(dxr));
+  let dy = Math.min(Math.abs(dyi), Math.abs(dyl), Math.abs(dyr));
+
   let norm = dx**2 + dy**2;
 
-  let scaled = norm / 100;
-  let prox = 100 / (scaled + 1);
-
+  let prox = 100 / (norm / 100 + 1);
   let target = Math.min(prox, 1) * scale;
-  // proximity = target;
-  proximity += (target - proximity) / 8;
+
+  /* NOTE PERF: Try avoid unnecessary updates on faraway cells */
+  if (Math.abs(target - proximity) > 0.005) {
+    proximity += (target - proximity) / 8;
+  }
 }
 
 </script>

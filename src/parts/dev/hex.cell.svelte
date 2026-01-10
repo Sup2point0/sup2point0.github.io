@@ -8,9 +8,10 @@ import { onMount } from "svelte";
 interface Props {
   x: number;
   y: number;
+  scale: number;
 }
 
-let { x, y }: Props = $props();
+let { x, y, scale }: Props = $props();
 
 
 let proximity: number = $state(0);
@@ -39,7 +40,7 @@ export function update(
   let scaled = norm / 100;
   let prox = 100 / (scaled + 1);
 
-  let target = Math.min(prox, 1);
+  let target = Math.min(prox, 1) * scale;
   // proximity = target;
   proximity += (target - proximity) / 8;
 }

@@ -65,6 +65,7 @@ $tight: 0.94;
   transform:
     translateX(calc( $tight * $width * (var(--x) + var(--offset, 0) / 2) ))
     translateY(calc( $tight * $height * var(--y) ))
+    rotate(30deg)
     scale(96%)
   ;
 }
@@ -81,11 +82,10 @@ $tight: 0.94;
   border: none;
   outline: none;
   clip-path: polygon(50% -50%,100% 50%,50% 150%,0 50%);
-  transform: rotate(30deg);
-  transition: #{trans()};
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 
   &:hover, &:focus-visible {
-    background: var(--col, rgba(#40ff90, 10%));
+    background: var(--col, rgb(white, 10%));
 
     img {
       transform: rotate(-30deg) scale(110%);
@@ -93,7 +93,7 @@ $tight: 0.94;
   }
 
   &:active {
-    transform: rotate(30deg) scale(95%);
+    transform: scale(95%);
   }
 }
 

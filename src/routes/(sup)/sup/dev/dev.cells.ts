@@ -29,11 +29,11 @@ export const lattice: Record<string, DomainData> = prep(
     cells: [Lang.RUST, Lang.PYTHON, Lang.RUBY, Lang.HASKELL,]
   },
   neo_langs: {
-    x: GAP, y: GAP, col: "#rgb(199 199 255 / 25%)",
+    x: GAP, y: GAP, col: "rgb(199 199 255 / 25%)",
     cells: [Lang.KOTLIN,]
   },
   tech: {
-    x: 0, y: -GAP, col: "#rgb(64 255 144 / 20%)",
+    x: 0, y: -GAP, col: "rgb(64 255 144 / 20%)",
     cells: [Tech.CODESPACES],
   },
   util: {
@@ -41,14 +41,14 @@ export const lattice: Record<string, DomainData> = prep(
     cells: [Lang.JSON, Lang.LATEX, Lang.SQLITE]
   },
   game: {
-    x: -GAP, y: 0, col: "#rgb(255 0 144 / 20%)",
+    x: -GAP, y: 0, col: "rgb(255 0 144 / 10%)",
     cells: [
       Tech.UNITY,
       Lang.CSHARP,
     ]
   },
   web: {
-    x: GAP, y: 0, col: "#rgb(255 199 32 / 20%)",
+    x: GAP, y: 0, col: "rgb(255 199 32 / 20%)",
     cells: [Lang.SVELTE, Lang.JAVASCRIPT, Lang.TYPESCRIPT, Lang.CSS, Lang.SCSS, Lang.HTML,]
   },
   apps: {

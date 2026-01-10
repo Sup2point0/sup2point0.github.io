@@ -23,6 +23,7 @@ const ROWS = 36; const CY = 13;
 let live = $state(false);
 let selected_entity: DevEntity | null = $state(null);
 
+let mousedown = $state(0);
 let mx = 0, my = 0;
 let sx = 0, sy = 0;
 
@@ -89,7 +90,11 @@ function get_random_hex_cords(): [number, number][]
 </script>
 
 
-<svelte:document onmousemove={sync_mouse} />
+<svelte:document
+  onmousemove={sync_mouse}
+  onmousedown={e => { sync_mouse(e); mousedown = 1; }}
+  onmouseup={e => { sync_mouse(e); mousedown = 0; }}
+/>
 
 <div class="root">
   <div id="lattice" bind:this={viewport} onscroll={sync_mouse}>
@@ -99,7 +104,7 @@ function get_random_hex_cords(): [number, number][]
       {#each { length: COLS } as _, x}
         {#each { length: ROWS } as _, y}
           <!-- svelte-ignore binding_property_non_reactive -->
-          <HexCell bind:this={cells[x*ROWS + y]} {x} {y} />
+          <HexCell bind:this={cells[x*ROWS + y]} {x} {y} scale={1 + mousedown / 2} />
         {/each}
       {/each}
 
@@ -142,6 +147,7 @@ function get_random_hex_cords(): [number, number][]
 }
   
 #lattice {
+  user-select: none;
   margin-top: -1rem;
   flex-grow: 1;
   overflow: scroll;

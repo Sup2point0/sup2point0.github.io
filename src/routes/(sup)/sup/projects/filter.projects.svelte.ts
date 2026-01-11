@@ -12,7 +12,18 @@ import { Tech } from "#sup/dev/dev.techs";
 
 export class ProjectSearchFilter extends SearchFilter<ProjectData>
 {
-  tech    = $state({ ...SearchFilter.init_states(Lang), ...SearchFilter.init_states(Tech) })
+  tech = $state(
+    Object.fromEntries(
+      Object.entries({
+        ...SearchFilter.init_states(Object.values(Lang).map(lang => lang.shard)),
+        ...SearchFilter.init_states(Object.values(Tech).map(tech => tech.shard))
+      })
+      .toSorted(
+        (prot, deut) => prot[0].localeCompare(deut[0])
+      )
+    )
+  );
+
   flavour = $state(SearchFilter.init_states(Flavour));
   kind    = $state(SearchFilter.init_states(Kind));
   state   = $state(SearchFilter.init_states(State));

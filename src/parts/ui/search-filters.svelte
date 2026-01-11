@@ -196,7 +196,7 @@ search {
     max-width: min(80vw, 60rem);
 
     th, td {
-      padding: 0.8rem 0;
+      padding: 0.5rem 0;
     }
 
     th {

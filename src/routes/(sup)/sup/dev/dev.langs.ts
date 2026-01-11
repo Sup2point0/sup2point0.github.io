@@ -136,7 +136,7 @@ export const Lang: LangsData = prep(
     icon:    "latex.svg",
   },
   SVELTE: {
-    name:    "Svelte",
+    name:    "Svelte/Kit",
     date:    "spring 2024",
     love:    3,
     fluency: Fluency.TIER_3,

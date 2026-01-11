@@ -3,7 +3,7 @@ import { i } from "#scripts/utils";
 import { Lang } from "#sup/dev/dev.langs";
 import { Tech } from "#sup/dev/dev.techs";
 import type { DevEntity } from "#scripts/types/dev";
-import type { Groups, DatePoint } from "#scripts/types";
+import type { Shard, Groups, DatePoint } from "#scripts/types";
 
 
 // export enum Lang {
@@ -65,7 +65,8 @@ export interface ProjectData extends Searchable
 
   flavour: Flavour | Flavour[];
   kind: Kind | Kind[];
-  tech: DevEntity[];
+  tech: Shard[];
+  tech_data: DevEntity[];
   state: State | State[];
 
   links?: {
@@ -86,7 +87,7 @@ const template: ProjectData = [
   icon: undefined,
   flavour: Flavour.DEV,
   kind: Kind.GENERAL,
-  tech: [
+  tech_data: [
     Lang.SVELTE,
   ],
   state: State.DEVELOPING,
@@ -98,17 +99,17 @@ const template: ProjectData = [
 ];
 
 
-const data: Groups<ProjectData> =
+const data: Groups<ProjectData> = prep(
 {
   "Favourites": [
     {
-      name: "Assort",
-      love: 3,
-      date: [2021, "present"],
-      icon: "assort.svg",
+      name:  "Assort",
+      love:  3,
+      date:  [2021, "present"],
+      icon:  "assort.svg",
       flavour: [Flavour.PERSONAL, Flavour.DEV],
-      kind: [Kind.WIKI, Kind.WEBSITE],
-      tech: [
+      kind:    [Kind.WIKI, Kind.WEBSITE],
+      tech_data: [
         Lang.MARKDOWN, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.HTML, Lang.JSON,
       ],
       state: State.ETERNAL,
@@ -119,13 +120,13 @@ const data: Groups<ProjectData> =
       desc: `An assortment of all my creations. My personal wiki!`,
     },
     {
-      name: "Integrity",
-      love: 3,
-      date: [2024, "present"],
-      icon: "integrity.svg",
+      name:  "Integrity",
+      love:  3,
+      date:  [2024, "present"],
+      icon:  "integrity.svg",
       flavour: [Flavour.DEV, Flavour.ACADEMIC],
-      kind: Kind.WEBSITE,
-      tech: [
+      kind:    Kind.WEBSITE,
+      tech_data: [
         Lang.RUBY, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
         Lang.KATEX, Lang.JSON, Lang.MARKDOWN,
       ],
@@ -137,13 +138,13 @@ const data: Groups<ProjectData> =
       desc: `All my hand-crafted maths questions, game development in Desmos, and more!`,
     },
     {
-      name: "Avidity (Unity)",
-      love: 1,
-      icon: undefined,
-      date: ["summer 2025", "present"],
+      name:  "Avidity (Unity)",
+      love:  1,
+      icon:  undefined,
+      date:  ["summer 2025", "present"],
       flavour: Flavour.DEV,
-      kind: Kind.APPLICATION,
-      tech: [
+      kind:    Kind.APPLICATION,
+      tech_data: [
         Tech.UNITY, Lang.CSHARP,
       ],
       state: State.DEVELOPING,
@@ -154,13 +155,13 @@ const data: Groups<ProjectData> =
     },
     {
       shard: "weighted-list",
-      name: "weighted-list",
-      love: 2,
-      date: ["May 2022", "present"],
-      icon: undefined,
+      name:  "weighted-list",
+      love:  2,
+      date:  ["May 2022", "present"],
+      icon:  undefined,
       flavour: Flavour.DEV,
-      kind: Kind.FRAMEWORK,
-      tech: [
+      kind:    Kind.FRAMEWORK,
+      tech_data: [
         Lang.PYTHON, Lang.CSHARP, Lang.TYPESCRIPT, Lang.HASKELL, Lang.RUST, // LANG.RUBY
       ],
       state: [State.DEVELOPING, State.MAINTAINING],
@@ -170,13 +171,13 @@ const data: Groups<ProjectData> =
       desc: `A specialised list for weighted randomisation, implemented in every language as I know. I now use it as an exercise when learning new ones!`,
     },
     {
-      name: "Stranger Quarkdown",
-      love: 1,
-      date: ["July 2024", "present"],
-      icon: "squarkdown.png",
+      name:  "Stranger Quarkdown",
+      love:  1,
+      date:  ["July 2024", "present"],
+      icon:  "squarkdown.png",
       flavour: Flavour.DEV,
-      kind: Kind.FRAMEWORK,
-      tech: [
+      kind:    Kind.FRAMEWORK,
+      tech_data: [
         Lang.RUBY, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
       ],
       state: [State.MAINTAINING, State.DEVELOPING],
@@ -189,13 +190,13 @@ const data: Groups<ProjectData> =
     },
     {
       shard: "lattix",
-      name: "lattix",
-      love: 2,
-      date: ["April 2025", "present"],
-      icon: "lattix.svg",
+      name:  "lattix",
+      love:  2,
+      date:  ["April 2025", "present"],
+      icon:  "lattix.svg",
       flavour: Flavour.DEV,
-      kind: [Kind.WEBSITE, Kind.APPLICATION],
-      tech: [
+      kind:    [Kind.WEBSITE, Kind.APPLICATION],
+      tech_data: [
         Lang.SVELTE, Lang.TYPESCRIPT,
       ],
       state: State.INDETERMINATE,
@@ -206,24 +207,24 @@ const data: Groups<ProjectData> =
       desc: `More beautiful puzzle solving`,
     },
     {
-      name: "Algorhythm",
-      love: 3,
-      date: ["summer 2023", "present"],
+      name:  "Algorhythm",
+      love:  3,
+      date:  ["summer 2023", "present"],
       flavour: [Flavour.DEV, Flavour.PERSONAL],
-      kind: Kind.GAME,
-      tech: [
+      kind:    Kind.GAME,
+      tech_data: [
         Lang.PYTHON,
       ],
       state: State.HIATUS,
       desc: `A keyboard-based rhythm game. Originally implemented in Python as a proof of concept, will properly develop in Unity someday!`,
     },
     {
-      name: "supcode",
-      love: 3,
-      date: [2021, "present"],
+      name:  "supcode",
+      love:  3,
+      date:  [2021, "present"],
       flavour: Flavour.DEV,
-      kind: Kind.LANGUAGE,
-      tech: [
+      kind:    Kind.LANGUAGE,
+      tech_data: [
         Lang.MARKDOWN, Lang.SUPCODE
       ],
       state: State.HIATUS,
@@ -235,13 +236,13 @@ const data: Groups<ProjectData> =
   ],
   "Creations": [
     {
-      name: "Antarctica",
-      love: 3,
-      date: [2021, "present"],
-      icon: "antarctica.png",
+      name:  "Antarctica",
+      love:  3,
+      date:  [2021, "present"],
+      icon:  "antarctica.png",
       flavour: Flavour.PERSONAL,
-      kind: Kind.WIKI,
-      tech: [
+      kind:    Kind.WIKI,
+      tech_data: [
         Lang.MARKDOWN,
       ],
       state: State.HIATUS,
@@ -251,11 +252,11 @@ const data: Groups<ProjectData> =
       desc: `A fictional reimagining of the coolest place on Earth.`,
     },
     {
-      name: "Victory",
-      date: [2020, "present"],
+      name:  "Victory",
+      date:  [2020, "present"],
       flavour: Flavour.PERSONAL,
-      kind: [Kind.GAME, Kind.WORLD],
-      tech: [
+      kind:    [Kind.GAME, Kind.WORLD],
+      tech_data: [
         Lang.SVELTE, Lang.MARKDOWN
       ],
       state: State.HIATUS,
@@ -266,13 +267,13 @@ const data: Groups<ProjectData> =
     },
     {
       shard: "buccaneer-game",
-      name: "Buccaneer Game",
-      love: 1,
-      date: [2022, "present"],
-      icon: "buccaneer-game.svg",
+      name:  "Buccaneer Game",
+      love:  1,
+      date:  [2022, "present"],
+      icon:  "buccaneer-game.svg",
       flavour: [Flavour.PERSONAL, Flavour.DEV],
-      kind: Kind.GENERAL,
-      tech: [
+      kind:    Kind.GENERAL,
+      tech_data: [
         Lang.SVELTE, Lang.TYPESCRIPT,
       ],
       state: State.HIATUS,
@@ -286,12 +287,12 @@ const data: Groups<ProjectData> =
   "Websites": [
     {
       shard: "lucidity",
-      name: "Lucidity",
-      love: 1,
-      date: ["September 2025", "present"],
+      name:  "Lucidity",
+      love:  1,
+      date:  ["September 2025", "present"],
       flavour: Flavour.DEV,
-      kind: Kind.WEBSITE,
-      tech: [
+      kind:    Kind.WEBSITE,
+      tech_data: [
         Lang.SVELTE,
       ],
       state: State.MAINTAINING,
@@ -303,13 +304,13 @@ const data: Groups<ProjectData> =
     },
     {
       shard: "skyscraping",
-      name: "Skyscraping",
-      love: 1,
-      date: ["May 2025", "present"],
-      icon: "skyscraping.svg",
+      name:  "Skyscraping",
+      love:  1,
+      date:  ["May 2025", "present"],
+      icon:  "skyscraping.svg",
       flavour: [Flavour.DEV, Flavour.PERSONAL],
-      kind: [Kind.WEBSITE, Kind.WIKI],
-      tech: [
+      kind:    [Kind.WEBSITE, Kind.WIKI],
+      tech_data: [
         Lang.SVELTE,
       ],
       state: State.DEVELOPING,
@@ -320,13 +321,13 @@ const data: Groups<ProjectData> =
       desc: `An adventurer’s archive of techniques and tricks for solving Skyscrapers puzzles`,
     },
     {
-      name: "pyco:bytes",
-      love: 1,
-      date: [2024, 2025],
-      icon: "pycobytes.png",
+      name:  "pyco:bytes",
+      love:  1,
+      date:  [2024, 2025],
+      icon:  "pycobytes.png",
       flavour: Flavour.DEV,
-      kind: [Kind.WEBSITE, Kind.WRITING],
-      tech: [
+      kind:    [Kind.WEBSITE, Kind.WRITING],
+      tech_data: [
         Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.HTML, Lang.PYTHON, Lang.MARKDOWN
       ],
       state: State.ARCHIVED,
@@ -340,13 +341,13 @@ const data: Groups<ProjectData> =
   "Current": [
     {
       shard: "dbxt",
-      name: "duelingbook-extractor",
-      love: 0,
-      date: ["December 2025", "present"],
-      icon: undefined,
+      name:  "duelingbook-extractor",
+      love:  0,
+      date:  ["December 2025", "present"],
+      icon:  undefined,
       flavour: Flavour.DEV,
-      kind: Kind.TOOL,
-      tech: [
+      kind:    Kind.TOOL,
+      tech_data: [
         Lang.RUST,
       ],
       state: State.DEVELOPING,
@@ -357,12 +358,12 @@ const data: Groups<ProjectData> =
     },
     {
       shard: "fractually-awesome",
-      name: "fractually-awesome",
-      date: ["December 2025", "present"],
-      icon: undefined,
+      name:  "fractually-awesome",
+      date:  ["December 2025", "present"],
+      icon:  undefined,
       flavour: Flavour.DEV,
-      kind: Kind.APPLICATION,
-      tech: [
+      kind:    Kind.APPLICATION,
+      tech_data: [
         Lang.RUST,
       ],
       state: State.DEVELOPING,
@@ -373,11 +374,11 @@ const data: Groups<ProjectData> =
     },
     {
       shard: "vscode-supcode-visuals",
-      name: "supcode Visuals for VSCode",
-      date: ["late 2025", "present"],
+      name:  "supcode Visuals for VSCode",
+      date:  ["late 2025", "present"],
       flavour: Flavour.DEV,
-      kind: Kind.EXTENSION,
-      tech: [
+      kind:    Kind.EXTENSION,
+      tech_data: [
         Lang.TYPESCRIPT,
       ],
       state: State.DEVELOPING,
@@ -388,11 +389,11 @@ const data: Groups<ProjectData> =
     },
     {
       shard: "shardify",
-      name: "shardify",
-      date: ["fall 2025", "present"],
+      name:  "shardify",
+      date:  ["fall 2025", "present"],
       flavour: Flavour.DEV,
-      kind: Kind.TOOL,
-      tech: [
+      kind:    Kind.TOOL,
+      tech_data: [
         Lang.RUST,
       ],
       state: State.DEVELOPING,
@@ -403,11 +404,11 @@ const data: Groups<ProjectData> =
     },
     {
       shard: "archividian",
-      name: "archividian",
-      date: ["fall 2025", "present"],
+      name:  "archividian",
+      date:  ["fall 2025", "present"],
       flavour: Flavour.DEV,
-      kind: Kind.TOOL,
-      tech: [
+      kind:    Kind.TOOL,
+      tech_data: [
         Lang.RUST,
       ],
       state: State.DEVELOPING,
@@ -420,11 +421,11 @@ const data: Groups<ProjectData> =
   "Miscellaneous": [
     {
       shard: "brainflop",
-      name: "brainflop",
-      date: ["fall 2025", "present"],
+      name:  "brainflop",
+      date:  ["fall 2025", "present"],
       flavour: Flavour.DEV,
-      kind: Kind.PROGRAM,
-      tech: [
+      kind:    Kind.PROGRAM,
+      tech_data: [
         Lang.HASKELL,
       ],
       state: State.INDETERMINATE,
@@ -435,11 +436,11 @@ const data: Groups<ProjectData> =
     },
     {
       shard: "sorting-hat",
-      name: "sorting-hat",
-      date: [2024, "present"],
+      name:  "sorting-hat",
+      date:  [2024, "present"],
       flavour: Flavour.DEV,
-      kind: Kind.PROGRAM,
-      tech: [
+      kind:    Kind.PROGRAM,
+      tech_data: [
         Lang.CSHARP, Lang.HASKELL, Lang.RUST,
       ],
       state: State.DEVELOPING,
@@ -450,11 +451,11 @@ const data: Groups<ProjectData> =
     },
     {
       shard: "hastkell",
-      name: "hASTkell",
-      date: ["fall 2025", "present"],
+      name:  "hASTkell",
+      date:  ["fall 2025", "present"],
       flavour: Flavour.DEV,
-      kind: Kind.FRAMEWORK,
-      tech: [
+      kind:    Kind.FRAMEWORK,
+      tech_data: [
         Lang.HASKELL,
       ],
       state: State.INDETERMINATE,
@@ -465,12 +466,12 @@ const data: Groups<ProjectData> =
     },
     {
       shard: "adrenaline",
-      name: "Adrenaline",
-      date: "summer 2025",
-      icon: undefined,
+      name:  "Adrenaline",
+      date:  "summer 2025",
+      icon:  undefined,
       flavour: Flavour.DEV,
-      kind: Kind.GAME,
-      tech: [
+      kind:    Kind.GAME,
+      tech_data: [
         Tech.UNITY, Lang.CSHARP,
       ],
       state: State.ARCHIVED,
@@ -481,11 +482,11 @@ const data: Groups<ProjectData> =
     },
     {
       shard: "youtube-playlist-shuffler",
-      name: "YouTube Playlist Shuffler",
-      date: 2025,
+      name:  "YouTube Playlist Shuffler",
+      date:  2025,
       flavour: Flavour.DEV,
-      kind: Kind.TOOL,
-      tech: [Lang.PYTHON],
+      kind:    Kind.TOOL,
+      tech_data: [Lang.PYTHON],
       state: State.MAINTAINING,
       links: {
         github: "https://github.com/Sup2point0/youtube-playlist-shuffler",
@@ -493,12 +494,12 @@ const data: Groups<ProjectData> =
       desc: `A script for shuffling a YouTube playlist through the Google API`,
     },
     {
-      name: "Vividity",
-      date: "July 2024",
-      love: 0,
+      name:  "Vividity",
+      date:  "July 2024",
+      love:  0,
       flavour: Flavour.DEV,
-      kind: Kind.TOOL,
-      tech: [
+      kind:    Kind.TOOL,
+      tech_data: [
         Lang.PYTHON, Lang.SCSS,
       ],
       state: State.HIATUS,
@@ -509,12 +510,12 @@ const data: Groups<ProjectData> =
     },
     {
       shard: "nocturne",
-      name: "Nocturne",
-      date: "February 2024",
-      icon: undefined,
+      name:  "Nocturne",
+      date:  "February 2024",
+      icon:  undefined,
       flavour: Flavour.DEV,
-      kind: Kind.GENERAL,
-      tech: [
+      kind:    Kind.GENERAL,
+      tech_data: [
         Lang.CSHARP,
       ],
       state: State.INDETERMINATE,
@@ -524,11 +525,11 @@ const data: Groups<ProjectData> =
       desc: `A collection of standalone C# projects made for fun, including a Mandelbrot set renderer and quaternion calculator`,
     },
     {
-      name: "suptools",
-      date: 2022,
+      name:  "suptools",
+      date:  2022,
       flavour: Flavour.DEV,
-      kind: Kind.FRAMEWORK,
-      tech: [Lang.PYTHON],
+      kind:    Kind.FRAMEWORK,
+      tech_data: [Lang.PYTHON],
       state: State.INDETERMINATE,
       links: {
         github: "https://github.com/Sup2point0/suptools",
@@ -538,12 +539,12 @@ const data: Groups<ProjectData> =
   ],
   "Archives": [
     {
-      name: "Avidity (Svelte)",
-      icon: undefined,
-      date: [2024, 2025],
+      name:  "Avidity (Svelte)",
+      icon:  undefined,
+      date:  [2024, 2025],
       flavour: Flavour.DEV,
-      kind: [Kind.APPLICATION, Kind.WEBSITE],
-      tech: [
+      kind:    [Kind.APPLICATION, Kind.WEBSITE],
+      tech_data: [
         Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS
       ],
       state: State.ARCHIVED,
@@ -554,11 +555,11 @@ const data: Groups<ProjectData> =
       desc: `Web-based prototype of Avidity, now re-developing in Unity.`,
     },
     {
-      name: "REAX",
-      date: 2024,
+      name:  "REAX",
+      date:  2024,
       flavour: [Flavour.DEV, Flavour.ACADEMIC],
-      kind: Kind.APPLICATION,
-      tech: [
+      kind:    Kind.APPLICATION,
+      tech_data: [
         Tech.UNITY, Lang.CSHARP, Lang.PYTHON, Lang.JSON,
       ],
       state: State.ARCHIVED,
@@ -569,10 +570,10 @@ const data: Groups<ProjectData> =
     },
     {
       shard: "vapour",
-      name: "Vapour",
+      name:  "Vapour",
       flavour: Flavour.DEV,
-      kind: Kind.PROGRAM,
-      tech: [
+      kind:    Kind.PROGRAM,
+      tech_data: [
         Lang.CSHARP, Tech.OPENGL,
       ],
       state: State.ARCHIVED,
@@ -582,25 +583,25 @@ const data: Groups<ProjectData> =
       desc: `Rendering images with random walks`,
     },
     {
-      name: "Quarkdown",
-      date: 2024,
+      name:  "Quarkdown",
+      date:  2024,
       flavour: Flavour.DEV,
-      kind: Kind.FRAMEWORK,
-      tech: [
+      kind:    Kind.FRAMEWORK,
+      tech_data: [
         Lang.PYTHON, Lang.HTML,
       ],
       state: State.ARCHIVED,
       desc: `An automated content deployment framework for exporting Markdown files in repositories to GitHub Pages. The predecessor to ${i("Squarkdown")}.`,
     },
     {
-      name: "Ignis",
-      love: 0,
-      date: 2024,
-      icon: "ai.jpg",
+      name:  "Ignis",
+      love:  0,
+      date:  2024,
+      icon:  "ai.jpg",
       flavour: Flavour.DEV,
-      kind: [Kind.GENERAL, Kind.PROGRAM],
-      tech: [
-        Lang.PYTHON, Lang.SQLITE,
+      kind:    [Kind.GENERAL, Kind.PROGRAM],
+      tech_data: [
+        Lang.PYTHON, Lang.SQLITE, Tech.NEXTCORD,
       ],
       state: State.ARCHIVED,
       links: {
@@ -609,13 +610,13 @@ const data: Groups<ProjectData> =
       desc: `A series of projects relating to ${i("Yu-Gi-Oh")}`,  // TODO
     },
     {
-      name: "PENGUIN",
-      love: 3,
-      date: [2021, 2022],
-      icon: "penguin.png",
+      name:  "PENGUIN",
+      love:  3,
+      date:  [2021, 2022],
+      icon:  "penguin.png",
       flavour: [Flavour.DEV, Flavour.PERSONAL],
-      kind: [Kind.PROGRAM, Kind.APPLICATION],
-      tech: [
+      kind:    [Kind.PROGRAM, Kind.APPLICATION],
+      tech_data: [
         Lang.PYTHON, Tech.NEXTCORD,
       ],
       state: State.ARCHIVED,
@@ -625,21 +626,24 @@ const data: Groups<ProjectData> =
       desc: `Playful & Energetic New General Utility & Information Network Bot, the masbot ADE of Antarctica.`,
     },
     {
-      name: "The Monkeyopolis Times",
-      love: 3,
-      date: [2021, 2022],
-      icon: "monkeyopolis-times.png",
+      name:  "The Monkeyopolis Times",
+      love:  3,
+      date:  [2021, 2022],
+      icon:  "monkeyopolis-times.png",
       flavour: Flavour.PERSONAL,
-      kind: Kind.GRAPHIC,
-      tech: [
+      kind:    Kind.GRAPHIC,
+      tech_data: [
         // "Google Slides" as Tech,
       ],
       state: State.ARCHIVED,
       desc: `A fan-made Bloons TD 6 newspaper`,
     },
   ],
-};
+} as Groups<Partial<ProjectData>>,
+  entity => {
+    entity.tech = entity.tech_data!.map(tech => tech.shard!);
+  }
+);
 
-prep(data);
 export const projects_data: Groups<ProjectData> = data;
 export const projects_list: ProjectData[] = Object.values(data).flat();

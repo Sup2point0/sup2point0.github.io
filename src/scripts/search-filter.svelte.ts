@@ -19,7 +19,10 @@ export interface Searchable {
   [prop: string]: any;
 }
 
-export function prep<Entity extends Searchable>(data: Groups<Entity>): void
+export function prep<Entity extends Searchable>(
+  data: Groups<Entity>,
+  process?: (entity: Entity) => void,
+): Groups<Entity>
 {
   for (let [collection, entities] of Object.entries(data))
   {
@@ -28,8 +31,11 @@ export function prep<Entity extends Searchable>(data: Groups<Entity>): void
       entity.shard ??= shardify(entity.name);
       entity.collection = collection;
       entity._score = 0;
+      process?.(entity);
     }
   }
+
+  return data;
 }
 
 

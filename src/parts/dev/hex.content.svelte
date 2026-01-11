@@ -23,7 +23,6 @@ let {
 </script>
 
 
-
 <div class="position-container"
   style:--x={x}
   style:--y={y}

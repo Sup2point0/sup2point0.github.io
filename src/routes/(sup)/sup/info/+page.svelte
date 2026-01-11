@@ -37,12 +37,6 @@ $effect(() => {
   <meta name="description" content="All about Sup#2.0!" />
 </svelte:head>
 
-<table>
-  <tbody>
-    
-  </tbody>
-</table>
-
 
 <section class="profile">
   <PurplePortal />

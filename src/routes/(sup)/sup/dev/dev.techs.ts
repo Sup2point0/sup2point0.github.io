@@ -16,6 +16,10 @@ export const Tech: Record<string, TechData> =
     name:  "git",
     icon:  "git.svg",
   },
+  GITHUB: {
+    name: "GitHub",
+    icon: "github.svg",
+  },
   NUSHELL: {
     name:  "NuShell",
     icon:  "nushell.png",

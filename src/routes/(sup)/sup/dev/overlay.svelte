@@ -2,7 +2,8 @@
 
 <script lang="ts">
 
-import type { DevEntity } from "#src/scripts/types/dev";
+import { display_date } from "#scripts/utils";
+import type { DevEntity } from "#scripts/types/dev";
 
 import SearchFilters from "#parts/ui/search-filters.svelte";
 import ProjectBlock  from "#parts/dev/block.project.svelte";
@@ -10,7 +11,7 @@ import ProjectBlock  from "#parts/dev/block.project.svelte";
 import { projects_list } from "#routes/(sup)/sup/projects/projects";
 import { ProjectSearchFilter } from "#routes/(sup)/sup/projects/filter.projects.svelte.ts";
 
-import { fade, scale } from "svelte/transition";
+import { fade, scale, slide } from "svelte/transition";
 import { expoOut } from "svelte/easing";
 
 
@@ -24,8 +25,10 @@ let { entity = $bindable() }: Props = $props();
 // svelte-ignore non_reactive_update
 let filters = new ProjectSearchFilter();
 
+const relevant_projects = projects_list.filter(proj => proj.tech.includes("Svelte/Kit"));
+
 let displayed_projects = $derived(
-  projects_list.filter(proj => proj.tech.includes("Svelte/Kit"))
+  filters.apply(relevant_projects)
 );
 
 </script>
@@ -44,18 +47,52 @@ let displayed_projects = $derived(
   >
     <div class="content-layout"
       onclick={e => e.stopPropagation()}
+      transition:scale={{ start: 0.8, duration: 700, delay: 200, easing: expoOut }}
     >
 
-      <div class="side left">
-        <h1 transition:scale={{ start: 0.8, duration: 700, delay: 200, easing: expoOut }}>
+      <div class="side left"
+        transition:slide={{ axis: "y", duration: 700, easing: expoOut }}
+      >
+        <h1>
           {entity.name?.toUpperCase() ?? "???"}
         </h1>
+
+        <p class="date"> {display_date(entity.date)} </p>
+
+        <table><tbody>
+          {#if entity.love}
+            <tr>
+              <th> LOVE </th>
+              <td> {entity.love} </td>
+            </tr>
+          {/if}
+
+          <tr>
+            <th> FLUENCY </th>
+            <td> {entity.fluency.toUpperCase()} </td>
+          </tr>
+          
+          {#if entity.technicals}
+            <tr>
+              <th> TECHNICALS </th>
+              <td>
+                {#each entity.technicals as detail}
+                  <p class="detail"> {detail.toUpperCase()} </p>
+                {/each}
+              </td>
+            </tr>
+          {/if}
+        </tbody></table>
+
+        {#if entity.desc}
+          <section> {@html entity.desc} </section>
+        {/if}
       </div>
 
       <div class="side right">
         <h2> PROJECTS </h2>
 
-        <SearchFilters bind:filters />
+        <SearchFilters bind:filters allow_expand={false} />
 
         <div class="blocks">
           {#each displayed_projects as project}
@@ -75,7 +112,6 @@ let displayed_projects = $derived(
   flex: 1 1;
   width: 100vw;
   padding: 1rem;
-  // z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,46 +130,86 @@ let displayed_projects = $derived(
   gap: 4rem;
 }
 
-h1 {
-  width: max-content;
-  padding: 0.5rem 3rem 0.5rem 2rem;
-  @include font-dev;
-  font-weight: 200;
-  text-align: center;
-  @include shear-card;
-  
-  &::before {
-    background: $col-back-overlay;
-    border-left: 4px solid $col-prot;
+
+.side {
+  flex-grow: 1 1;
+  height: 80vh;
+  max-height: 80vh;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+
+.left {
+  padding: 0 2rem;
+  align-items: start;
+  gap: 2rem;
+
+  h1 {
+    width: max-content;
+    padding: 0.5rem 3rem 0.5rem 2rem;
+    @include font-dev;
+    font-weight: 200;
+    text-align: center;
+    @include shear-card;
+    
+    &::before {
+      background: $col-back-overlay;
+      border-left: 4px solid $col-prot;
+    }
+  }
+
+  .date {
+    @include font-dev;
+    color: $col-text-deut;
+    font-weight: 500;
+    font-size: 125%;
+  }
+
+  table {
+    @include font-dev;
+    text-align: left;
+
+    th {
+      color: $col-text-deut;
+      font-weight: 300;
+    }
+
+    td {
+      padding-left: 1em;
+    }
+  }
+
+  section {
+    padding: 1em 1.5em;
+    @include font-dev;
+    @include shear-card;
+
+    &::before {
+      background: $col-back-overlay;
+    }
   }
 }
 
-.side {
-  height: 80vh;
-  max-height: 80vh;
 
-  &.right {
-    flex: 1 1;
+.right {
+  align-items: center;
+  gap: 1rem;
+
+  h2 {
+    @include font-dev;
+    font-weight: 400;
+  }
+
+  .blocks {
+    width: max-content;
+    padding: 0 2rem;
+    overflow-y: auto;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
   }
-}
-
-h2 {
-  @include font-dev;
-  font-weight: 400;
-}
-
-.blocks {
-  width: max-content;
-  padding: 0 2rem;
-  overflow-y: auto;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: 2rem;
 }
 
 </style>

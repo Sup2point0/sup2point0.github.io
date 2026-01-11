@@ -20,12 +20,12 @@ export const lattice: Record<string, DomainData> = prep(
   core: {
     x: 0, y: 0, col: "rgb(255 255 255 / 10%)",
     cells: [
-      Tech.GIT, Tech.VSCODE, Tech.NUSHELL,
+      Tech.GITHUB, Tech.GIT, Tech.VSCODE, Tech.NUSHELL,
       Lang.MARKDOWN,
     ]
   },
   langs: {
-    x: 0, y: GAP, col: "#40e0ff20",
+    x: 0, y: GAP, col: "rgb(64, 240, 255 / 20%)",
     cells: [Lang.RUST, Lang.PYTHON, Lang.RUBY, Lang.HASKELL,]
   },
   neo_langs: {

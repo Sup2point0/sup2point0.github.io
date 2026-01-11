@@ -14,10 +14,17 @@ interface Props {
   kind?: "ui" | "fun";
   width?: string;
   delay?: number;
+  style?: string;
   children?: any;
 }
 
-let { kind = "ui", width = "69%", delay = 0, children }: Props = $props();
+let {
+  kind = "ui",
+  width = "69%",
+  delay = 0,
+  style,
+  children
+}: Props = $props();
 
 
 let active = $state(false);
@@ -35,6 +42,7 @@ onMount(() => {
   class:active
   style:width
   style:--delay="{delay}ms"
+  {style}
 >
   {#if active}
     <div class="content"
@@ -54,7 +62,6 @@ onMount(() => {
 
   @include font-fun;
   color: $col-text;
-  text-align: center;
   line-height: 150%;
   @include shear-card;
 

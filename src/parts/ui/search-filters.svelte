@@ -17,10 +17,11 @@ import { expoInOut } from "svelte/easing";
 
 interface Props {
   filters: SearchFilter<any>;
+  allow_expand?: boolean;
   result_count?: number;
 }
 
-let { filters = $bindable(), result_count }: Props = $props();
+let { filters = $bindable(), allow_expand = true, result_count }: Props = $props();
 
 
 let open = $state(false);
@@ -32,9 +33,11 @@ let open = $state(false);
   <div class="row">
     <SearchInput bind:query={filters.query} />
 
-    <button class="expand" class:open onclick={() => { open = !open; }}>
-      <div> › </div>
-    </button>
+    {#if allow_expand}
+      <button class="expand" class:open onclick={() => { open = !open; }}>
+        <div> › </div>
+      </button>
+    {/if}
   </div>
 
   {#if open}

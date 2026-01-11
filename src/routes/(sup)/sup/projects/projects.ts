@@ -6,33 +6,6 @@ import type { DevEntity } from "#scripts/types/dev";
 import type { Shard, Groups, DatePoint } from "#scripts/types";
 
 
-// export enum Lang {
-//   SUPCODE = "supcode",
-//   PYTHON = "Python",
-//   CSHARP = "C#",
-//   RUBY = "Ruby",
-//   HASKELL = "Haskell",
-//   RUST = "Rust",
-//   SVELTE = "Svelte/Kit",
-//   JAVASCRIPT = "JavaScript", TYPESCRIPT = "JavaScript / TypeScript",
-//   CSS = "CSS", SCSS = "CSS / SCSS",
-//   HTML = "HTML",
-//   MARKDOWN = "Markdown",
-//   LATEX = "LaTeX", KATEX = "LaTeX / KaTeX",
-//   REGEX = "RegEx",
-//   JSON = "JSON",
-//   SQL = "SQL", SQLITE = "SQLite",
-// };
-
-// export enum Tool {
-//   UNITY = "Unity",
-//   PAGES = "GitHub Pages",
-//   NEXTCORD = "Nextcord",
-//   PYGAME = "pygame",
-//   KERAS = "keras",
-//   OPENGL = "OpenGL",
-// };
-
 export enum Flavour {
   DEV = "software",
   ACADEMIC = "academic",

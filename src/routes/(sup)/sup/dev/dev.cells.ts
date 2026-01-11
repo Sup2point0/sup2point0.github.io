@@ -29,12 +29,12 @@ export const lattice: Record<string, DomainData> = prep(
     cells: [Lang.RUST, Lang.PYTHON, Lang.RUBY, Lang.HASKELL,]
   },
   neo_langs: {
-    x: GAP, y: GAP, col: "rgb(199 199 255 / 25%)",
-    cells: [Lang.KOTLIN,]
+    x: -GAP, y: GAP, col: "rgb(199 199 255 / 25%)",
+    cells: [Lang.SWIFT, Lang.DART, Lang.KOTLIN,]
   },
-  tech: {
-    x: 0, y: -GAP, col: "rgb(64 255 144 / 20%)",
-    cells: [Tech.CODESPACES],
+  want_langs: {
+    x: GAP, y: GAP, col: "rgb(199 199 255 / 25%)",
+    cells: [Lang.JULIA, Lang.ELIXIR]
   },
   util: {
     x: GAP, y: -GAP,
@@ -52,8 +52,8 @@ export const lattice: Record<string, DomainData> = prep(
     cells: [Lang.SVELTE, Lang.JAVASCRIPT, Lang.TYPESCRIPT, Lang.CSS, Lang.SCSS, Lang.HTML,]
   },
   apps: {
-    x: -GAP, y: -GAP,
-    cells: [Tech.DESMOS, Tech.POWERPOINT,]
+    x: -GAP, y: -GAP, col: "rgb(64 255 144 / 20%)",
+    cells: [Tech.DESMOS, Tech.POWERPOINT, Tech.CODESPACES,]
   },
 });
 

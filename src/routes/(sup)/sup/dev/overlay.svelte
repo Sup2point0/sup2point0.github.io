@@ -54,73 +54,86 @@ let displayed_projects = $derived(
       transition:scale={{ start: 0.8, duration: 700, delay: 200, easing: expoOut }}
     >
 
-      <div class="side left"
-        transition:slide={{ axis: "y", duration: 700, easing: expoOut }}
-      >
-        <h1> {entity.name?.toUpperCase() ?? "???"} </h1>
+<!-- sec -->
+<div class="side left"
+  transition:slide={{ axis: "y", duration: 700, easing: expoOut }}
+>
+  <header>
+    <img alt={entity.name} src="/icons/dev/{entity.icon}" />
+    <h1> {entity.name?.toUpperCase() ?? "???"} </h1>
+  </header>
 
-        <table><tbody>
-          <tr>
-            <th> SINCE </th>
-            <td> {display_date(entity.date)} </td>
-          </tr>
+  <table><tbody>
+    <tr>
+      <th> SINCE </th>
+      <td> {display_date(entity.date)} </td>
+    </tr>
 
-          {#if entity.versions}
-            <tr>
-              <th> VERSIONS </th>
-              <td> {entity.versions[0]}–{entity.versions[1]} </td>
-            </tr>
-          {/if}
+    {#if entity.versions}
+      <tr>
+        <th> VERSIONS </th>
+        <td> {entity.versions[0]}–{entity.versions[1]} </td>
+      </tr>
+    {/if}
 
-          <tr style:height="0.5rem"></tr>
+    <tr style:height="0.5rem"></tr>
 
-          {#if entity.love}
-            <tr>
-              <th> LOVE </th>
-              <td> {#each { length: entity.love } as _} ❤️‍🔥 {/each} </td>
-            </tr>
-          {/if}
+    {#if entity.love}
+      <tr>
+        <th> LOVE </th>
+        <td> {#each { length: entity.love } as _} ❤️‍🔥 {/each} </td>
+      </tr>
+    {/if}
 
-          {#if entity.fluency}
-            <tr class="fluency">
-              <th> FLUENCY </th>
-              <td class="tier-{Object.values(Fluency).indexOf(entity.fluency)}">
-                {entity.fluency.toUpperCase()}
-              </td>
-            </tr>
-          {/if}
-          
-          {#if entity.technicals}
-            <tr>
-              <th> TECHNICALS </th>
-              <td>
-                {#each entity.technicals as detail}
-                  <p class="detail"> {detail.toUpperCase()} </p>
-                {/each}
-              </td>
-            </tr>
-          {/if}
-        </tbody></table>
-
-        {#if entity.desc}
-          <section> {@html entity.desc} </section>
-        {/if}
-      </div>
-
-      <div class="side right">
-        <h2> PROJECTS </h2>
-
-        <SearchFilters bind:filters
-          allow_expand={false}
-          result_count={displayed_projects.length}
-        />
-
-        <div class="blocks">
-          {#each displayed_projects as project}
-            <ProjectBlock {project} />
+    {#if entity.fluency}
+      <tr class="fluency">
+        <th> FLUENCY </th>
+        <td class="tier-{Object.values(Fluency).indexOf(entity.fluency)}">
+          {entity.fluency.toUpperCase()}
+        </td>
+      </tr>
+    {/if}
+    
+    {#if entity.technicals}
+      <tr>
+        <th> TECHNICALS </th>
+        <td>
+          {#each entity.technicals as detail}
+            <p class="detail"> {detail.toUpperCase()} </p>
           {/each}
-        </div>
-      </div>
+        </td>
+      </tr>
+    {/if}
+  </tbody></table>
+
+  {#if entity.desc}
+    {#if Array.isArray(entity.desc)}
+      {#each entity.desc as block}
+        <section> {@html block} </section>
+      {/each}
+    {:else}
+      <section> {@html entity.desc} </section>
+    {/if}
+  {/if}
+</div>
+<!-- /sec -->
+
+<div class="side right">
+  {#if entity.has_projects !== false}
+    <h2> PROJECTS </h2>
+
+    <SearchFilters bind:filters
+      allow_expand={false}
+      result_count={displayed_projects.length}
+    />
+
+    <div class="blocks">
+      {#each displayed_projects as project}
+        <ProjectBlock {project} />
+      {/each}
+    </div>
+  {/if}
+</div>
     
     </div>
   </div>
@@ -137,63 +150,70 @@ let displayed_projects = $derived(
   justify-content: center;
   align-items: center;
 
-  background: rgba(black, 25%);
+  background: $col-back-overlay;
   backdrop-filter: blur(20px);
 }
 
 .content-layout {
-  width: 80vw;
+  width: 85vw;
   height: 80vh;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: start;
-  gap: 4rem;
-}
-
-
-.side {
-  flex-grow: 1 1;
-  height: 80vh;
-  max-height: 80vh;
-  display: flex;
-  flex-flow: column nowrap;
   gap: 2rem;
 }
 
 
-.left {
-  padding: 0 2rem;
+.side {
+  flex-grow: 1;
+  height: 80vh;
+  max-height: 80vh;
+  display: flex;
+  flex-flow: column nowrap;
   align-items: start;
+}
 
-  h1 {
-    width: max-content;
-    padding: 0.5rem 3rem 0.4rem 2rem;
-    @include font-dev;
-    font-weight: 200;
-    text-align: center;
-    @include shear-card;
-    
-    &::before {
-      background: $col-back-overlay;
-      border-left: 4px solid $col-prot;
-    }
+
+.left {
+  max-width: 40%;
+  padding: 0 2rem;
+  gap: 1rem;
+
+  * {
+    // animation: 0.5s cubic-bezier(0.19, 1, 0.22, 1) slide-in;  // ease-out-exp
   }
 
-  .date {
-    @include font-dev;
-    color: $col-text-deut;
-    font-weight: 300;
-    font-size: 100%;
+  header {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 2rem;
 
-    span {
-      padding-left: 0.4em;
-      font-weight: 500;
-      font-size: 125%;
+    img {
+      height: 5rem;
+      animation: 0.5s cubic-bezier(0.19, 1, 0.22, 1) slide-in;  // ease-out-exp
+      animation-fill-mode: backwards;
+    }
+
+    h1 {
+      width: max-content;
+      padding: 0.5rem 3rem 0.4rem 2rem;
+      @include font-dev;
+      font-weight: 200;
+      text-align: center;
+      @include shear-card;
+      animation-delay: 0.1s;
+      
+      &::before {
+        background: $col-card-overlay;
+        border-left: 4px solid $col-prot;
+      }
     }
   }
 
   table {
+    padding: 0.5rem 0 1rem;
     @include font-dev;
     text-align: left;
 
@@ -220,14 +240,14 @@ let displayed_projects = $derived(
     @include shear-card;
 
     &::before {
-      background: $col-back-overlay;
+      background: $col-card-overlay;
     }
   }
 }
 
 
 .right {
-  align-items: center;
+  gap: 2rem;
 
   h2 {
     @include font-dev;
@@ -235,13 +255,24 @@ let displayed_projects = $derived(
   }
 
   .blocks {
-    width: max-content;
     padding: 0 2rem;
     overflow-y: auto;
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
+    align-items: stretch;
     gap: 2rem;
+  }
+}
+
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-4rem);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
   }
 }
 

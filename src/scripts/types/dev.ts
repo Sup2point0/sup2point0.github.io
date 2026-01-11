@@ -25,7 +25,7 @@ export interface DevEntity extends Searchable {
   desc?:    string | string[];
   lore?:    string | string[];
 
-  _show?: boolean;
+  has_projects?: boolean;
 }
 
 

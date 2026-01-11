@@ -36,10 +36,6 @@ export const lattice: Record<string, DomainData> = prep(
     x: GAP, y: GAP, col: "rgb(199 199 255 / 25%)",
     cells: [Lang.JULIA, Lang.ELIXIR]
   },
-  util: {
-    x: GAP, y: -GAP,
-    cells: [Lang.JSON, Lang.LATEX, Lang.SQLITE]
-  },
   game: {
     x: -GAP, y: 0, col: "rgb(255 0 144 / 10%)",
     cells: [
@@ -53,7 +49,15 @@ export const lattice: Record<string, DomainData> = prep(
   },
   apps: {
     x: -GAP, y: -GAP, col: "rgb(64 255 144 / 20%)",
-    cells: [Tech.DESMOS, Tech.POWERPOINT, Tech.CODESPACES,]
+    cells: [Tech.DESMOS, Tech.POWERPOINT,]
+  },
+  misc: {
+    x: 0, y: -GAP,
+    cells: [Tech.CODESPACES, Tech.ACTIONS,]
+  },
+  util: {
+    x: GAP, y: -GAP,
+    cells: [Lang.JSON, Lang.KATEX, Lang.LATEX, Lang.REGEX, Lang.SQLITE]
   },
 });
 

@@ -85,7 +85,7 @@ $tight: 0.94;
     background: var(--col, rgb(white, 10%));
 
     img {
-      transform: rotate(-30deg) scale(110%);
+      transform: rotate(330deg) scale(110%);
     }
   }
 
@@ -98,7 +98,7 @@ img {
   width: 0.5 * $width;
   aspect-ratio: 1 / 1;
   transform: rotate(-30deg) scale(102%);
-  transition: #{trans()};
+  transition: transform 1.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);  // ease-in-out-back
 }
 
 </style>

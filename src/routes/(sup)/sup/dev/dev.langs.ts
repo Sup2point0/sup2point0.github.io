@@ -17,7 +17,7 @@ export const Lang: LangsData = prep(
   },
   CSS: {
     name:     "CSS",
-    date:     "spring 2024",
+    date:     "winter 2023",
     love:     3,
     fluency:  Fluency.TIER_3,
     icon:     "css.svg",
@@ -36,7 +36,7 @@ export const Lang: LangsData = prep(
   ELIXIR: {
     name:     "Elixir",
     date:     "2024",
-    love:     1,
+    love:     null,
     fluency:  Fluency.LEARN,
     icon:     "elixir.png",
     desc:
@@ -86,7 +86,8 @@ export const Lang: LangsData = prep(
     date:     2024,
     love:     2,
     fluency:  Fluency.TIER_3,
-    icon:     "vscode.svg",
+    icon:     "katex.png",
+      _style: "round",
   },
   KOTLIN: {
     name:     "Kotlin",
@@ -113,13 +114,15 @@ export const Lang: LangsData = prep(
     icon:     "markdown.png",
     related:  ["HTML", "LATEX"],
     details: ["GitHub-Flavoured Markdown"],
-    desc:
-      `I love Markdown. So much. <br> It’s such a quick, efficient and elegant markup language. I pretty much use it for all my writing or note-taking now.`,
+    desc: [
+      `I love Markdown. So much.`,
+      `It’s such a quick, efficient and elegant markup language. I pretty much use it for all my writing or note-taking now.`,
+    ],
   },
   PYTHON: {
     name:     "Python",
-    date:     2020,
-    versions: ["3.5", "3.13"],
+    date:     2018,
+    versions: ["3.5", "3.14"],
     love:     3,
     fluency:  Fluency.TIER_3,
     icon:     "python.svg",
@@ -132,14 +135,15 @@ export const Lang: LangsData = prep(
     date:     2022,
     love:     2,
     fluency:  Fluency.TIER_2,
-    icon:     undefined,
+    icon:     "regex.png",
     related:  ["LATEX"],
     desc: [
       `Arcane wizardry at its finest.`,
-      `RegEx is pretty damn awesome if you just learn its basics. It comes in super handy when doing large-scale find-and -replace-s, like when fixing formatting in a file.`,
+      `RegEx is pretty damn awesome if you just learn its basics. It comes in super handy when doing large-scale find-and-replace-s, like when fixing formatting in a file.`,
     ],
     lore:
       `I can’t remember why I learned RegEx, or even how I heard of it, but it has come in clutch time and time again.`,
+    has_projects: false,
   },
   RUBY: {
     name:     "Ruby",
@@ -179,7 +183,7 @@ export const Lang: LangsData = prep(
     name:     "supcode",
     date:     2021,
     love:     null,
-    icon:     "latex.svg",
+    icon:     undefined,
   },
   SVELTE: {
     name:     "Svelte/Kit",
@@ -211,7 +215,8 @@ export const Lang: LangsData = prep(
     related:  ["JAVASCRIPT", "SVELTE", "SCSS"],
     desc: [
       `TypeScript is a welcome layer above JavaScript.`,
-      `Personally, I find it extremely uncomfortable to work with a codebase that has no type hinting – ofc, you can use JSDoc with plain JavaScript, but this is nowhere near as convenient and efficient as in Python. The somewhat strictly enforced static typing is a little annoying at times, but it does keep my code rigorous and much more bug-free, which I can’t complain about.`,
+      `Personally, I find it extremely uncomfortable to work with a codebase that has no type hinting – ofc, you can use JSDoc with plain JavaScript, but this is nowhere near as convenient and efficient as in Python.`,
+      `The somewhat strictly enforced static typing can be a little annoying at times, but it does keep my code rigorous and much more bug-free, which I can’t complain about.`,
     ],
     lore:
       `The original reason I wanted to pick up TypeScript is because I read that VSCode extensions are written in it, and I was considering developing a supcode syntax highlighting extension.`,

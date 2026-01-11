@@ -230,7 +230,7 @@ const data: Groups<ProjectData> = prep_groups(
       flavour: Flavour.PERSONAL,
       kind:    [Kind.GAME, Kind.WORLD],
       tech_data: [
-        Lang.SVELTE, Lang.MARKDOWN
+        Lang.JAVASCRIPT, Lang.CSS, Lang.HTML, Lang.MARKDOWN
       ],
       state: State.HIATUS,
       links: {

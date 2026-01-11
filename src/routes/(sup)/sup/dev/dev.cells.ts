@@ -4,7 +4,7 @@ import { Tech } from "./dev.techs";
 import type { DevEntity } from "#scripts/types/dev";
 
 
-const GAP = 4;
+const GAP = 5;
 
 
 interface DomainData {

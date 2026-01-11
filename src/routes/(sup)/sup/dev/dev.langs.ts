@@ -26,7 +26,7 @@ export const Lang: LangsData = prep(
     name:     "Dart",
     date:     "mid 2025",
     love:     null,
-    fluench:  Fluency.TIER_1,
+    fluency:  Fluency.TIER_1,
     icon:     "dart.svg",
     desc:
       `Cool little language, just didn’t have any reasons to continue learning it.`,
@@ -41,6 +41,7 @@ export const Lang: LangsData = prep(
     icon:     "elixir.png",
     desc:
       `idk, just sounds like a cool language to learn some day`,
+    has_projects: false,
   },
   HASKELL: {
     name:     "Haskell",
@@ -64,6 +65,7 @@ export const Lang: LangsData = prep(
     icon:     "javascript.png",
       _style: "round",
     related:  ["TYPESCRIPT", "SVELTE", "HTML", "CSS"],
+    describe: "cursed",
     desc:
       `I was told JavaScript is a cursed language, and I said I wouldn’t learn it. Eh, people change.`,
   },
@@ -80,6 +82,7 @@ export const Lang: LangsData = prep(
     love:     null,
     fluency:  Fluency.LEARN,
     icon:     "julia.png",
+    has_projects: false,
   },
   KATEX: {
     name:     "KaTeX",
@@ -184,6 +187,7 @@ export const Lang: LangsData = prep(
     date:     2021,
     love:     null,
     icon:     undefined,
+    has_projects: false,
   },
   SVELTE: {
     name:     "Svelte/Kit",
@@ -204,6 +208,7 @@ export const Lang: LangsData = prep(
     fluency:  Fluency.LEARN,
     icon:     "swift.png",
       _style: "round",
+    has_projects: false,
   },
   TYPESCRIPT: {
     name:     "TypeScript",

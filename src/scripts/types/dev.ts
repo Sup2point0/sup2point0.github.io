@@ -4,7 +4,7 @@ import type { DatePoint } from "#scripts/types";
 
 export enum Fluency {
   LEARN  = "Would Like to Learn",
-  TIER_1 = "New",
+  TIER_1 = "Newbie",
   TIER_2 = "Comfortable",
   TIER_3 = "Absolutely Comfortable",
   TIER_4 = "Beyond Comfortable",
@@ -21,9 +21,11 @@ export interface DevEntity extends Searchable {
   colour?:  string;
   related?: string[];
 
-  details?: string | string[];
-  desc?:    string | string[];
-  lore?:    string | string[];
+  details?:  string | string[];
+  describe?: string;
+  capt?:     string;
+  desc?:     string | string[];
+  lore?:     string | string[];
 
   has_projects?: boolean;
 }

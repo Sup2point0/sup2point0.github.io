@@ -51,7 +51,7 @@ let displayed_projects = $derived(
   >
     <div class="content-layout"
       onclick={e => e.stopPropagation()}
-      transition:scale={{ start: 0.8, duration: 700, delay: 200, easing: expoOut }}
+      transition:scale={{ start: 0.85, duration: 700, delay: 200, easing: expoOut }}
     >
 
 <!-- sec -->
@@ -63,58 +63,61 @@ let displayed_projects = $derived(
     <h1> {entity.name?.toUpperCase() ?? "???"} </h1>
   </header>
 
-  <table><tbody>
-    <tr>
-      <th> SINCE </th>
-      <td> {display_date(entity.date)} </td>
-    </tr>
-
-    {#if entity.versions}
+  <div class="content">
+    <table><tbody>
       <tr>
-        <th> VERSIONS </th>
-        <td> {entity.versions[0]}–{entity.versions[1]} </td>
+        <th> SINCE </th>
+        <td> {display_date(entity.date)} </td>
       </tr>
+
+      {#if entity.versions}
+        <tr>
+          <th> VERSIONS </th>
+          <td> {entity.versions[0]} – {entity.versions[1]} </td>
+        </tr>
+      {/if}
+
+      <tr style:height="0.5rem"></tr>
+
+      {#if entity.love}
+        <tr>
+          <th> LOVE </th>
+          <td> {#each { length: entity.love } as _} ❤️‍🔥 {/each} </td>
+        </tr>
+      {/if}
+
+      {#if entity.fluency}
+        <tr class="fluency">
+          <th> FLUENCY </th>
+          <td class="tier-{Object.values(Fluency).indexOf(entity.fluency)}">
+            {entity.fluency.toUpperCase()}
+          </td>
+        </tr>
+      {/if}
+    </tbody></table>
+
+    {#if entity.desc}
+      {#if Array.isArray(entity.desc)}
+        {#each entity.desc as block}
+          <section> {@html block} </section>
+        {/each}
+      {:else}
+        <section> {@html entity.desc} </section>
+      {/if}
     {/if}
 
-    <tr style:height="0.5rem"></tr>
-
-    {#if entity.love}
-      <tr>
-        <th> LOVE </th>
-        <td> {#each { length: entity.love } as _} ❤️‍🔥 {/each} </td>
-      </tr>
+    {#if entity.describe}
+      <section>
+        <h3> HOW WOULD I DESCRIBE IT? </h3>
+        <p> {entity.describe} </p>
+      </section>
     {/if}
 
-    {#if entity.fluency}
-      <tr class="fluency">
-        <th> FLUENCY </th>
-        <td class="tier-{Object.values(Fluency).indexOf(entity.fluency)}">
-          {entity.fluency.toUpperCase()}
-        </td>
-      </tr>
+    {#if entity.lore}
+      <h2 style:margin-top="2rem"> LORE </h2>
+      <section> {@html entity.lore} </section>
     {/if}
-    
-    {#if entity.technicals}
-      <tr>
-        <th> TECHNICALS </th>
-        <td>
-          {#each entity.technicals as detail}
-            <p class="detail"> {detail.toUpperCase()} </p>
-          {/each}
-        </td>
-      </tr>
-    {/if}
-  </tbody></table>
-
-  {#if entity.desc}
-    {#if Array.isArray(entity.desc)}
-      {#each entity.desc as block}
-        <section> {@html block} </section>
-      {/each}
-    {:else}
-      <section> {@html entity.desc} </section>
-    {/if}
-  {/if}
+  </div>
 </div>
 <!-- /sec -->
 
@@ -172,6 +175,11 @@ let displayed_projects = $derived(
   display: flex;
   flex-flow: column nowrap;
   align-items: start;
+
+  h2 {
+    @include font-dev;
+    font-weight: 400;
+  }
 }
 
 
@@ -180,11 +188,9 @@ let displayed_projects = $derived(
   padding: 0 2rem;
   gap: 1rem;
 
-  * {
-    // animation: 0.5s cubic-bezier(0.19, 1, 0.22, 1) slide-in;  // ease-out-exp
-  }
-
   header {
+    position: sticky;
+    top: 0;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -192,8 +198,6 @@ let displayed_projects = $derived(
 
     img {
       height: 5rem;
-      animation: 0.5s cubic-bezier(0.19, 1, 0.22, 1) slide-in;  // ease-out-exp
-      animation-fill-mode: backwards;
     }
 
     h1 {
@@ -211,6 +215,14 @@ let displayed_projects = $derived(
       }
     }
   }
+}
+
+.content {
+  padding: 0 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
 
   table {
     padding: 0.5rem 0 1rem;
@@ -242,17 +254,18 @@ let displayed_projects = $derived(
     &::before {
       background: $col-card-overlay;
     }
+
+    h3 {
+      color: $col-quat;
+      font-weight: 300;
+      font-size: 90%;
+    }
   }
 }
 
 
 .right {
   gap: 2rem;
-
-  h2 {
-    @include font-dev;
-    font-weight: 400;
-  }
 
   .blocks {
     padding: 0 2rem;

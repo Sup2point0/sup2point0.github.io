@@ -31,9 +31,9 @@ onMount(() => {
 
 
 const routes = [
-  `In all honesty I find genres a bit arbitrary, and I’d rather categorise music by its feeling. So I’ve included both :P`,
+  String.raw `In all honesty I find genres a bit arbitrary, and I’d rather categorise music by its feeling. So I’ve included both :P`,
 
-  `Lowkey I can’t really accurately ascertain what genres the music I listen to are, sooo`,
+  `I won’t lie, I’m extraordinarily bad at describing the music I listen to. Sooo, a lot of this might be ‘inaccurate’ ¯\_(ツ)_/¯`,
 
   `For each genre or vibe, I’ve included artists and tracks I listen to that are pretty representative (I reckon) of that kinda music, so if you listen to it too, there’s a good chance you’ll have heard of them!`,
 ];
@@ -56,7 +56,7 @@ const routes = [
 <Main>
   <Block>
     {#if displayed_route}
-      I’m not kidding when I say I vibe to almost all kinds of music. Grouping these would be a nightmare, so here’s a massive list for your perusal (shuffled for flavour!).
+      I’m not kidding when I say I vibe to almost all kinds of music. Grouping these would be a nightmare, so instead, here’s a massive list for your perusal!
       <div style:height="0.69em"></div>
 
       {@html displayed_route}

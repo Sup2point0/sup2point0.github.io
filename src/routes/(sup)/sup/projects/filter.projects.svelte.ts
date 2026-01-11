@@ -15,8 +15,8 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
   tech = $state(
     Object.fromEntries(
       Object.entries({
-        ...SearchFilter.init_states(Object.values(Lang).map(lang => lang.shard)),
-        ...SearchFilter.init_states(Object.values(Tech).map(tech => tech.shard))
+        ...SearchFilter.init_shard_states(Lang),
+        ...SearchFilter.init_shard_states(Tech),
       })
       .toSorted(
         (prot, deut) => prot[0].localeCompare(deut[0])

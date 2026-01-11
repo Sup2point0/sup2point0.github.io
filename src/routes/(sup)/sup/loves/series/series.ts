@@ -1,4 +1,4 @@
-import { prep } from "#scripts/search-filter.svelte.ts";
+import { prep_groups } from "#scripts/search-filter.svelte.ts";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
@@ -97,6 +97,6 @@ const data: Groups<SeriesData> =
   ],
 };
 
-prep(data);
+prep_groups(data);
 export const series_data: Groups<SeriesData> = data;
 export const series_list: SeriesData[] = Object.values(data).flat();

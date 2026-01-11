@@ -1,4 +1,4 @@
-import { prep } from "#scripts/search-filter.svelte.ts";
+import { prep_groups } from "#scripts/search-filter.svelte.ts";
 import { i } from "#scripts/utils";
 import { Genre, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
@@ -71,6 +71,6 @@ const data: Groups<AnimeData> =
   ],
 };
 
-prep(data);
+prep_groups(data);
 export const animes_data: Groups<AnimeData> = data;
 export const animes_list: AnimeData[] = Object.values(data).flat();

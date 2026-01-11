@@ -1,4 +1,4 @@
-import { prep, type Searchable } from "#scripts/search-filter.svelte.ts";
+import { prep_groups, type Searchable } from "#scripts/search-filter.svelte.ts";
 import type { DatePoint, Groups } from "#scripts/types";
 
 
@@ -486,6 +486,6 @@ const data: Groups<GameData> =
   ],
 };
 
-prep(data);
+prep_groups(data);
 export const games_data: Groups<GameData> = data;
 export const games_list: GameData[] = Object.values(data).flat();

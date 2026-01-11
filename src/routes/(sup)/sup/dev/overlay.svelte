@@ -30,7 +30,7 @@ let displayed_projects = $derived(
   entity
     ? filters.apply(
       projects_list.filter(
-        proj => any(proj.tech.map(t => t.shard === entity!.shard))
+        proj => proj.tech.some(shard => (shard === entity!.shard))
       )
     ) as ProjectData[]
     : []

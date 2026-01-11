@@ -48,11 +48,15 @@ let self: HTMLInputElement;
   }
 
   &:hover, &:has(input:focus) {
-    width: 33rem;
+    width: min(33rem, 75vw);
 
     &::before {
       background: rgb(white, 30%);
     }
+  }
+
+  &:has(input:active)::before {
+    background: rgb(#ccc, 30%);
   }
 }
 

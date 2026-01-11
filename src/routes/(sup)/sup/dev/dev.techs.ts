@@ -10,6 +10,7 @@ export const Tech: TechsData = prep(
   CODESPACES: {
     name:  "Codespaces",
     icon:  "codespaces.png",
+    _show: false,
   },
   DESMOS: {
     name:  "Desmos",
@@ -19,10 +20,12 @@ export const Tech: TechsData = prep(
   GIT: {
     name:  "git",
     icon:  "git.svg",
+    _show: false,
   },
   GITHUB: {
     name: "GitHub",
     icon: "github.svg",
+    _show: false,
   },
   NEXTCORD: {
     name:  "Nextcord",
@@ -31,6 +34,7 @@ export const Tech: TechsData = prep(
   NUSHELL: {
     name:  "NuShell",
     icon:  "nushell.png",
+    _show: false,
   },
   OPENGL: {
     name:  "OpenGL",
@@ -47,6 +51,7 @@ export const Tech: TechsData = prep(
   VSCODE: {
     name:  "VSCode",
     icon:  "vscode.svg",
+    _show: false,
   },
 });
 

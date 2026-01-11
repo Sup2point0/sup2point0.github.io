@@ -1,5 +1,5 @@
 import type { Searchable } from "#scripts/search-filter.svelte";
-import type { Shard, DatePoint } from "#scripts/types";
+import type { DatePoint } from "#scripts/types";
 
 
 export enum Fluency {
@@ -15,11 +15,13 @@ export interface DevEntity extends Searchable {
   love: 3 | 2 | 1 | null;
   fluency?: Fluency;
 
-  colour?: string;
+  colour?:  string;
   related?: string[];
 
   details?: string[];
-  desc?: string;
+  desc?:    string;
+
+  _show?: boolean;
 }
 
 

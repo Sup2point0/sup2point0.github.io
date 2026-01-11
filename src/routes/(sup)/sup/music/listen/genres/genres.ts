@@ -1,4 +1,4 @@
-import { prep } from "#scripts/search-filter.svelte.ts";
+import { prep_groups } from "#scripts/search-filter.svelte.ts";
 import { GenreKind } from "#scripts/types";
 import type { GenreData, Groups } from "#scripts/types";
 
@@ -287,6 +287,6 @@ const data: Groups<GenreData> =
   ],
 };
 
-prep(data);
+prep_groups(data);
 export const genres_data: Groups<GenreData> = data;
 export const genres_list: GenreData[] = Object.values(data).flat();

@@ -19,7 +19,7 @@ export interface Searchable {
   [prop: string]: any;
 }
 
-export function prep<Entity extends Searchable>(
+export function prep_groups<Entity extends Searchable>(
   data: Groups<Entity>,
   process?: (entity: Entity) => void,
 ): Groups<Entity>
@@ -68,10 +68,24 @@ export class SearchFilter<Entity extends Searchable>
   }
 
 
-  static init_states(states: object, state?: boolean): States
+  static init_states(states: object, init_state?: boolean): States
   {
     return {
-      ...Object.fromEntries(Object.values(states).map(s => [s, state ?? true]))
+      ...Object.fromEntries(
+        Object.values(states)
+        .map(s => [s, init_state ?? true])
+      )
+    };
+  }
+
+  static init_shard_states(states: Record<Shard, Searchable>, init_state?: boolean): States
+  {
+    return {
+      ...Object.fromEntries(
+        Object.values(states)
+        .filter(s => s._show !== false)
+        .map(s => [s.shard, init_state ?? true])
+      )
     };
   }
 

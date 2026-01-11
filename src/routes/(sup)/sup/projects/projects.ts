@@ -1,4 +1,4 @@
-import { prep, type Searchable } from "#scripts/search-filter.svelte.ts";
+import { prep_groups, type Searchable } from "#scripts/search-filter.svelte.ts";
 import { i } from "#scripts/utils";
 import { Lang } from "#sup/dev/dev.langs";
 import { Tech } from "#sup/dev/dev.techs";
@@ -99,7 +99,7 @@ const template: ProjectData = [
 ];
 
 
-const data: Groups<ProjectData> = prep(
+const data: Groups<ProjectData> = prep_groups(
 {
   "Favourites": [
     {
@@ -643,7 +643,7 @@ const data: Groups<ProjectData> = prep(
   entity => {
     entity.tech = entity.tech_data!.map(tech => tech.shard!);
   }
-);
+) as Groups<ProjectData>;
 
 export const projects_data: Groups<ProjectData> = data;
 export const projects_list: ProjectData[] = Object.values(data).flat();

@@ -1,16 +1,18 @@
 import { partial_ratio } from "fuzzball";
 
 import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
-import { any, all, sum, get_enabled, datepoint_to_date } from "#scripts/utils";
+import { any, all, get_enabled, datepoint_to_date } from "#scripts/utils";
 import type { States } from "#scripts/types";
 
-import { Lang, Tool, Flavour, Kind, State } from "./projects";
+import { Flavour, Kind, State } from "./projects";
 import type { ProjectData } from "./projects";
+import { Lang } from "#sup/dev/dev.langs";
+import { Tech } from "#sup/dev/dev.techs";
 
 
 export class ProjectSearchFilter extends SearchFilter<ProjectData>
 {
-  tech    = $state({ ...SearchFilter.init_states(Lang), ...SearchFilter.init_states(Tool) })
+  tech    = $state({ ...SearchFilter.init_states(Lang), ...SearchFilter.init_states(Tech) })
   flavour = $state(SearchFilter.init_states(Flavour));
   kind    = $state(SearchFilter.init_states(Kind));
   state   = $state(SearchFilter.init_states(State));

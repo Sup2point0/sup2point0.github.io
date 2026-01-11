@@ -1,54 +1,73 @@
+import { shardify } from "#scripts/utils";
 import { Fluency, type LangData } from "#scripts/types/dev";
 
 
-export const Lang: Record<string, LangData> =
+type LangsData = Record<string, LangData>;
+
+
+export const Lang: LangsData = prep(
 {
   CSHARP: {
     name:    "C#",
     date:    "fall 2023",
-    love:    2,
+    love:    1,
     fluency: Fluency.TIER_2,
     icon:    "csharp.svg",
   },
   CSS: {
     name:    "CSS",
+    date:    "spring 2024",
+    love:    3,
     fluency: Fluency.TIER_3,
     icon:    "css.svg",
   },
   HASKELL: {
     name:    "Haskell",
+    date:    "fall 2025",
+    love:    1,
     fluency: Fluency.TIER_1,
     icon:    "haskell.svg",
   },
   HTML: {
     name:    "HTML",
-    date:    ["winter 2023", "present"],
-    love:    1,
+    date:    "winter 2023",
+    love:    null,
     fluency: Fluency.TIER_3,
     icon:    "html.svg",
   },
   JAVASCRIPT: {
     name:    "JavaScript",
     date:    "early 2024",
-    love:    1,
+    love:    null,
     fluency: Fluency.TIER_3,
     icon:    "javascript.png",
       _style: "round",
   },
   JSON: {
     name:    "JSON",
+    date:    2021,
+    love:    1,
     fluency: Fluency.TIER_3,
     icon:    "json.svg",
   },
+  KATEX: {
+    name:    "KaTeX / LaTeX",
+    date:    2024,
+    love:    2,
+    fluency: Fluency.TIER_3,
+    icon:    "vscpde.svg",
+  },
   KOTLIN: {
     name:    "Kotlin",
+    date:    "fall 2025",
+    love:    null,
     fluency: Fluency.TIER_1,
     icon:    "kotlin.png",
   },
   LATEX: {
     name:    "LaTeX",
     date:    2022,
-    love:    1,
+    love:    null,
     fluency: Fluency.TIER_2,
     icon:    "latex.svg",
   },
@@ -79,17 +98,20 @@ export const Lang: Record<string, LangData> =
     date:    2022,
     love:    2,
     fluency: Fluency.TIER_2,
+    icon:    undefined,
   },
   RUBY: {
     name:    "Ruby",
     date:    "summer 2023",
-    love:    3,
+    love:    2,
     fluency: Fluency.TIER_1,
     icon:    "ruby.svg",
     related: ["PYTHON"],
   },
   RUST: {
     name:    "Rust",
+    date:    "fall 2025",
+    love:    2,
     fluency: Fluency.TIER_2,
     icon:    "rust.svg",
   },
@@ -102,8 +124,16 @@ export const Lang: Record<string, LangData> =
   },
   SQLITE: {
     name:    "SQLite",
+    date:    2024,
+    love:    null,
     fluency: Fluency.TIER_1,
     icon:    "sqlite.svg",
+  },
+  SUPCODE: {
+    name:    "supcode",
+    date:    2021,
+    love:    null,
+    icon:    "latex.svg",
   },
   SVELTE: {
     name:    "Svelte",
@@ -120,4 +150,13 @@ export const Lang: Record<string, LangData> =
     icon:    "typescript.svg",
       _style: "round",
   },
+});
+
+function prep(data: LangsData): LangsData
+{
+  for (let [shard, lang] of Object.entries(data)) {
+    lang.shard = shardify(shard);
+  }
+
+  return data;
 }

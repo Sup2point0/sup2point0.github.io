@@ -63,5 +63,5 @@ export function display_date(date: DatePoint | DatePoint[]): string
     return date[0].toString().toUpperCase();
   }
 
-  return date.toString().toUpperCase();
+  return date?.toString().toUpperCase() ?? "UNKNOWN DATE";
 }

@@ -13,7 +13,7 @@ export enum Fluency {
 export interface DevEntity extends Searchable {  
   date: DatePoint;
   love: 3 | 2 | 1 | null;
-  fluency: Fluency;
+  fluency?: Fluency;
 
   colour?: string;
   related?: string[];

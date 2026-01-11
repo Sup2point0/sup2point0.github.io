@@ -17,6 +17,7 @@ const config = {
       "#parts": "./src/parts/",
       "#styles": "./src/styles/",
       "#scripts": "./src/scripts/",
+      "#sup": "./src/routes/(sup)/sup",
     },
     prerender: {
       handleHttpError: "warn",

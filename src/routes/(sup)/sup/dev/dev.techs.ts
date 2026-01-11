@@ -1,7 +1,11 @@
+import { shardify } from "#scripts/utils";
 import type { TechData } from "#scripts/types/dev";
 
 
-export const Tech: Record<string, TechData> =
+type TechsData = Record<string, TechData>;
+
+
+export const Tech: TechsData = prep(
 {
   CODESPACES: {
     name:  "Codespaces",
@@ -20,9 +24,17 @@ export const Tech: Record<string, TechData> =
     name: "GitHub",
     icon: "github.svg",
   },
+  NEXTCORD: {
+    name:  "Nextcord",
+    icon:  undefined,
+  },
   NUSHELL: {
     name:  "NuShell",
     icon:  "nushell.png",
+  },
+  OPENGL: {
+    name:  "OpenGL",
+    icon:  undefined,
   },
   POWERPOINT: {
     name:  "PowerPoint",
@@ -36,4 +48,13 @@ export const Tech: Record<string, TechData> =
     name:  "VSCode",
     icon:  "vscode.svg",
   },
+});
+
+function prep(data: TechsData): TechsData
+{
+  for (let [shard, tech] of Object.entries(data)) {
+    tech.shard = shardify(shard);
+  }
+
+  return data;
 }

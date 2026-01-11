@@ -3,7 +3,7 @@
 <script lang="ts">
 
 import { shardify, display_date } from "#scripts/utils";
-import type { ProjectData } from "#routes/(sup)/sup/projects/projects";
+import type { ProjectData } from "#sup/projects/projects";
 
 import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
 
@@ -123,7 +123,7 @@ onMount(() => {
   <div class="lower">
     <ul class="tags">
       {#each project.tech ?? [] as tech}
-        <li class="tech {shardify(tech)}"> {tech} </li>
+        <li class="tech {tech?.shard}"> {tech?.name ?? "????"} </li>
       {/each}
     </ul>
   </div>

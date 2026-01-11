@@ -6,7 +6,7 @@ A block displaying info for a game.
 <script lang="ts">
 
 import { display_date } from "#scripts/utils";
-import { type GameData } from "#routes/(sup)/sup/loves/games/games";
+import { type GameData } from "#sup/loves/games/games";
 
 import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
 

@@ -1,36 +1,37 @@
 import { prep, type Searchable } from "#scripts/search-filter.svelte.ts";
 import { i } from "#scripts/utils";
+import { Lang } from "#sup/dev/dev.langs";
+import { Tech } from "#sup/dev/dev.techs";
+import type { DevEntity } from "#scripts/types/dev";
 import type { Groups, DatePoint } from "#scripts/types";
 
 
-export enum Lang {
-  SUPCODE = "supcode",
-  PYTHON = "Python",
-  CSHARP = "C#",
-  RUBY = "Ruby",
-  HASKELL = "Haskell",
-  RUST = "Rust",
-  SVELTE = "Svelte/Kit",
-  JAVASCRIPT = "JavaScript", TYPESCRIPT = "JavaScript / TypeScript",
-  CSS = "CSS", SCSS = "CSS / SCSS",
-  HTML = "HTML",
-  MARKDOWN = "Markdown",
-  LATEX = "LaTeX", KATEX = "LaTeX / KaTeX",
-  REGEX = "RegEx",
-  JSON = "JSON",
-  SQL = "SQL", SQLITE = "SQLite",
-};
+// export enum Lang {
+//   SUPCODE = "supcode",
+//   PYTHON = "Python",
+//   CSHARP = "C#",
+//   RUBY = "Ruby",
+//   HASKELL = "Haskell",
+//   RUST = "Rust",
+//   SVELTE = "Svelte/Kit",
+//   JAVASCRIPT = "JavaScript", TYPESCRIPT = "JavaScript / TypeScript",
+//   CSS = "CSS", SCSS = "CSS / SCSS",
+//   HTML = "HTML",
+//   MARKDOWN = "Markdown",
+//   LATEX = "LaTeX", KATEX = "LaTeX / KaTeX",
+//   REGEX = "RegEx",
+//   JSON = "JSON",
+//   SQL = "SQL", SQLITE = "SQLite",
+// };
 
-export enum Tool {
-  UNITY = "Unity",
-  PAGES = "GitHub Pages",
-  NEXTCORD = "Nextcord",
-  PYGAME = "pygame",
-  KERAS = "keras",
-  OPENGL = "OpenGL",
-};
-
-export type Tech = Lang | Tool;
+// export enum Tool {
+//   UNITY = "Unity",
+//   PAGES = "GitHub Pages",
+//   NEXTCORD = "Nextcord",
+//   PYGAME = "pygame",
+//   KERAS = "keras",
+//   OPENGL = "OpenGL",
+// };
 
 export enum Flavour {
   DEV = "software",
@@ -64,7 +65,7 @@ export interface ProjectData extends Searchable
 
   flavour: Flavour | Flavour[];
   kind: Kind | Kind[];
-  tech: Tech[];
+  tech: DevEntity[];
   state: State | State[];
 
   links?: {
@@ -143,7 +144,7 @@ const data: Groups<ProjectData> =
       flavour: Flavour.DEV,
       kind: Kind.APPLICATION,
       tech: [
-        Tool.UNITY, Lang.CSHARP,
+        Tech.UNITY, Lang.CSHARP,
       ],
       state: State.DEVELOPING,
       links: {
@@ -211,7 +212,7 @@ const data: Groups<ProjectData> =
       flavour: [Flavour.DEV, Flavour.PERSONAL],
       kind: Kind.GAME,
       tech: [
-        Lang.PYTHON, Tool.PYGAME,
+        Lang.PYTHON,
       ],
       state: State.HIATUS,
       desc: `A keyboard-based rhythm game. Originally implemented in Python as a proof of concept, will properly develop in Unity someday!`,
@@ -470,7 +471,7 @@ const data: Groups<ProjectData> =
       flavour: Flavour.DEV,
       kind: Kind.GAME,
       tech: [
-        Tool.UNITY, Lang.CSHARP,
+        Tech.UNITY, Lang.CSHARP,
       ],
       state: State.ARCHIVED,
       links: {
@@ -558,7 +559,7 @@ const data: Groups<ProjectData> =
       flavour: [Flavour.DEV, Flavour.ACADEMIC],
       kind: Kind.APPLICATION,
       tech: [
-        Tool.UNITY, Lang.CSHARP, Lang.PYTHON, Lang.JSON,
+        Tech.UNITY, Lang.CSHARP, Lang.PYTHON, Lang.JSON,
       ],
       state: State.ARCHIVED,
       links: {
@@ -572,7 +573,7 @@ const data: Groups<ProjectData> =
       flavour: Flavour.DEV,
       kind: Kind.PROGRAM,
       tech: [
-        Lang.CSHARP, Tool.OPENGL,
+        Lang.CSHARP, Tech.OPENGL,
       ],
       state: State.ARCHIVED,
       links: {
@@ -599,7 +600,7 @@ const data: Groups<ProjectData> =
       flavour: Flavour.DEV,
       kind: [Kind.GENERAL, Kind.PROGRAM],
       tech: [
-        Lang.PYTHON, Lang.SQL, Tool.KERAS, Tool.NEXTCORD
+        Lang.PYTHON, Lang.SQLITE,
       ],
       state: State.ARCHIVED,
       links: {
@@ -615,7 +616,7 @@ const data: Groups<ProjectData> =
       flavour: [Flavour.DEV, Flavour.PERSONAL],
       kind: [Kind.PROGRAM, Kind.APPLICATION],
       tech: [
-        Lang.PYTHON, Tool.NEXTCORD,
+        Lang.PYTHON, Tech.NEXTCORD,
       ],
       state: State.ARCHIVED,
       links: {
@@ -631,7 +632,7 @@ const data: Groups<ProjectData> =
       flavour: Flavour.PERSONAL,
       kind: Kind.GRAPHIC,
       tech: [
-        "Google Slides" as Tool,
+        // "Google Slides" as Tech,
       ],
       state: State.ARCHIVED,
       desc: `A fan-made Bloons TD 6 newspaper`,

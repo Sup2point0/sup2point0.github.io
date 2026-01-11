@@ -3,13 +3,14 @@
 <script lang="ts">
 
 import { display_date } from "#scripts/utils";
+import { any } from "#scripts/utils";
 import type { DevEntity } from "#scripts/types/dev";
 
 import SearchFilters from "#parts/ui/search-filters.svelte";
 import ProjectBlock  from "#parts/dev/block.project.svelte";
 
-import { projects_list } from "#routes/(sup)/sup/projects/projects";
-import { ProjectSearchFilter } from "#routes/(sup)/sup/projects/filter.projects.svelte.ts";
+import { projects_list, type ProjectData } from "#sup/projects/projects";
+import { ProjectSearchFilter } from "#sup/projects/filter.projects.svelte.ts";
 
 import { fade, scale, slide } from "svelte/transition";
 import { expoOut } from "svelte/easing";
@@ -25,10 +26,14 @@ let { entity = $bindable() }: Props = $props();
 // svelte-ignore non_reactive_update
 let filters = new ProjectSearchFilter();
 
-const relevant_projects = projects_list.filter(proj => proj.tech.includes("Svelte/Kit"));
-
 let displayed_projects = $derived(
-  filters.apply(relevant_projects)
+  entity
+    ? filters.apply(
+      projects_list.filter(
+        proj => any(proj.tech.map(t => t.shard === entity!.shard))
+      )
+    ) as ProjectData[]
+    : []
 );
 
 </script>
@@ -67,10 +72,12 @@ let displayed_projects = $derived(
             </tr>
           {/if}
 
-          <tr>
-            <th> FLUENCY </th>
-            <td> {entity.fluency.toUpperCase()} </td>
-          </tr>
+          {#if entity.fluency}
+            <tr>
+              <th> FLUENCY </th>
+              <td> {entity.fluency.toUpperCase()} </td>
+            </tr>
+          {/if}
           
           {#if entity.technicals}
             <tr>

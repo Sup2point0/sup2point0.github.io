@@ -45,6 +45,7 @@ onMount(() => {
     alt={project.name} title={project.name}
     width="120px" height="120px"
     src={project.icon ? `/icons/projects/${project.icon}` : "/purple-portal.png"}
+    style:border-radius={project._style === "round" ? "50%" : undefined}
   />
 {/if}
 

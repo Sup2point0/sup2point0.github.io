@@ -5,7 +5,9 @@ A card for an album with its cover, name and other info.
 
 <script lang="ts">
 
-import type { AlbumData } from "#scripts/types";
+import { display_date } from "#scripts/utils";
+import type { AlbumData } from "#scripts/types/music";
+
 
 interface Props {
   album: AlbumData;
@@ -37,7 +39,9 @@ let { album, collection }: Props = $props();
   </div>
 
   <div class="lower">
-    <p class="date"> {album.date} </p>
+    {#if album.date}
+      <p class="date"> {display_date(album.date)} </p>
+    {/if}
   </div>
 </a>
 

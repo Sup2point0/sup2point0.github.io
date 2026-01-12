@@ -1,11 +1,9 @@
-<!-- @component AlbumBlock
-
-A wide block card for viewing an album's info.
--->
+<!-- @component AlbumBlock -->
 
 <script lang="ts">
 
-import type { AlbumData } from "#scripts/types";
+import { display_date } from "#scripts/utils";
+import type { AlbumData } from "#scripts/types/music";
 
 
 interface Props {
@@ -21,7 +19,8 @@ let { album }: Props = $props();
   <div class="info">
     <h1> {album.name} </h1>
     <div class="capt">
-      <p class="date"> {album.date} </p>
+      <p class="date"> {display_date(album.date)} </p>
+
       {#if album.daw}
         <div class="separator"> × </div>
         <p class="daw"> MADE IN {album.daw.toUpperCase()} </p>

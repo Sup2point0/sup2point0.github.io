@@ -78,4 +78,9 @@ export const backs: PictData[] = [
     blur:  { init: 4, end: 6 },
     brightness: { init: 80, end: 50 },
   },
+  {
+    file:  "sunset.png",
+    blur:  { init: 6, end: 4 },
+    brightness: { init: 80, end: 80 },
+  },
 ];

@@ -2,30 +2,8 @@ import { prep_groups, type Searchable } from "#scripts/search-filter.svelte.ts";
 import { i } from "#scripts/utils";
 import { Lang } from "#sup/dev/dev.langs";
 import { Tech } from "#sup/dev/dev.techs";
-import type { DevEntity } from "#scripts/types/dev";
+import { Flavour, Kind, State, type DevEntity } from "#scripts/types/dev";
 import type { Shard, Groups, DatePoint } from "#scripts/types";
-
-
-export enum Flavour {
-  DEV = "software",
-  ACADEMIC = "academic",
-  PERSONAL = "personal",
-}
-
-export enum Kind {
-  GENERAL = "general",
-  WEBSITE = "website", GAME = "game", APPLICATION = "application", FRAMEWORK = "framework", TOOL = "tool", PROGRAM = "program", EXTENSION = "extension", WIKI = "wiki",
-  LANGUAGE = "language", WORLD = "worldbuilding", WRITING = "writing", GRAPHIC = "graphic design",
-}
-
-export enum State {
-  ETERNAL = "eternal",
-  DEVELOPING = "developing",
-  MAINTAINING = "maintaining",
-  HIATUS = "on hiatus",
-  INDETERMINATE = "indeterminate",
-  ARCHIVED = "archived",
-}
 
 
 export interface ProjectData extends Searchable
@@ -53,24 +31,24 @@ export interface ProjectData extends Searchable
 
 /* @ts-ignore 6133 */
 const template: ProjectData = [
-{
-  shard: "",
-  name: "",
-  love: 0,
-  date: undefined,
-  icon: undefined,
-  flavour: Flavour.DEV,
-  kind: Kind.GENERAL,
-  tech_data: [
-    Lang.SVELTE,
-  ],
-  state: State.DEVELOPING,
-  links: {
-    github: "https://github.com/Sup2point0/...",
-  },
-  desc:
-    ``,
-},
+    {
+      shard: "",
+      name: "",
+      love: 0,
+      date: undefined,
+      icon: undefined,
+      flavour: Flavour.DEV,
+      kind: Kind.GENERAL,
+      tech_data: [
+        Lang.SVELTE,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/...",
+      },
+      desc:
+        ``,
+    },
 ];
 
 
@@ -138,7 +116,7 @@ const data: Groups<ProjectData> = prep_groups(
       date:  ["May 2022", "present"],
       icon:  undefined,
       flavour: Flavour.DEV,
-      kind:    Kind.FRAMEWORK,
+      kind:    Kind.LIBRARY,
       tech_data: [
         Lang.PYTHON, Lang.CSHARP, Lang.TYPESCRIPT, Lang.HASKELL, Lang.RUST, // LANG.RUBY
       ],
@@ -329,6 +307,24 @@ const data: Groups<ProjectData> = prep_groups(
   ],
   "Current": [
     {
+      shard: "natbitset",
+      name: "natbitset",
+      love: 0,
+      date: ["January 2026", "present"],
+      icon: undefined,
+      flavour: Flavour.DEV,
+      kind: Kind.LIBRARY,
+      tech_data: [
+        Lang.SVELTE,
+      ],
+      state: State.MAINTAINING,
+      links: {
+        github: "https://github.com/Sup2point0/natbitset",
+      },
+      desc:
+        `A super-lightweight bitset implementation for positive integers`,
+    },
+    {
       shard: "ascendant",
       name:  "ascendant",
       love:  0,
@@ -357,7 +353,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.RUST,
       ],
-      state: State.DEVELOPING,
+      state: State.INDETERMINATE,
       links: {
         github: "https://github.com/Sup2point0/duelingbook-extractor",
       },
@@ -397,6 +393,8 @@ const data: Groups<ProjectData> = prep_groups(
       desc:
         `Visual Studio Code extension for supcode-flavoured editor customisations`,
     },
+  ],
+  "Miscellaneous": [
     {
       shard: "shardify",
       name:  "shardify",
@@ -413,8 +411,6 @@ const data: Groups<ProjectData> = prep_groups(
       desc:
         `Lightweight Rust-powered CLI to convert arbitrary strings to normalised kebab-case identifiers`,
     },
-  ],
-  "Miscellaneous": [
     {
       shard: "archividian",
       name:  "archividian",
@@ -456,7 +452,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.CSHARP, Lang.HASKELL, Lang.RUST,
       ],
-      state: State.DEVELOPING,
+      state: State.ETERNAL,
       links: {
         github: "https://github.com/Sup2point0/sorting-hat",
       },
@@ -542,19 +538,6 @@ const data: Groups<ProjectData> = prep_groups(
       },
       desc:
         `A collection of standalone C# projects made for fun, including a Mandelbrot set renderer and quaternion calculator`,
-    },
-    {
-      name:  "suptools",
-      date:  2022,
-      flavour: Flavour.DEV,
-      kind:    Kind.FRAMEWORK,
-      tech_data: [Lang.PYTHON],
-      state: State.INDETERMINATE,
-      links: {
-        github: "https://github.com/Sup2point0/suptools",
-      },
-      desc:
-        `Utilities for general use throughout Python projects`,
     },
   ],
   "Archives": [
@@ -651,6 +634,19 @@ const data: Groups<ProjectData> = prep_groups(
       },
       desc:
         `Playful & Energetic New General Utility & Information Network Bot, the masbot ADE of Antarctica.`,
+    },
+    {
+      name:  "suptools",
+      date:  2022,
+      flavour: Flavour.DEV,
+      kind:    Kind.FRAMEWORK,
+      tech_data: [Lang.PYTHON],
+      state: State.ARCHIVED,
+      links: {
+        github: "https://github.com/Sup2point0/suptools",
+      },
+      desc:
+        `Utilities for general use throughout Python projects`,
     },
     {
       name:  "The Monkeyopolis Times",

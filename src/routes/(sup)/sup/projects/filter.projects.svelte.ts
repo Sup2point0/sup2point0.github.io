@@ -4,10 +4,10 @@ import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte"
 import { any, all, get_enabled, datepoint_to_date } from "#scripts/utils";
 import type { States } from "#scripts/types";
 
-import { Flavour, Kind, State } from "./projects";
 import type { ProjectData } from "./projects";
 import { Lang } from "#sup/dev/dev.langs";
 import { Tech } from "#sup/dev/dev.techs";
+import { Flavour, Kind, State } from "#scripts/types/dev";
 
 
 export class ProjectSearchFilter extends SearchFilter<ProjectData>

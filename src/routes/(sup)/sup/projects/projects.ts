@@ -1,5 +1,5 @@
 import { prep_groups, type Searchable } from "#scripts/search-filter.svelte.ts";
-import { i } from "#scripts/utils";
+import { a, i } from "#scripts/utils";
 import { Lang } from "#sup/dev/dev.langs";
 import { Tech } from "#sup/dev/dev.techs";
 import { Flavour, Kind, State, type DevEntity } from "#scripts/types/dev";
@@ -307,6 +307,24 @@ const data: Groups<ProjectData> = prep_groups(
   ],
   "Current": [
     {
+      shard: "hlox",
+      name: "hlox",
+      love: 0,
+      date: ["January 2026", "present"],
+      icon: undefined,
+      flavour: Flavour.DEV,
+      kind: Kind.FRAMEWORK,
+      tech_data: [
+        Lang.HASKELL,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/hlox",
+      },
+      desc:
+        `Haskell implementation of a tree-walk interpreter for the Lox programming language (from ${a("Crafting Intepreters", "https://craftinginterpreters.com")})`,
+    },
+    {
       shard: "natbitset",
       name: "natbitset",
       love: 0,
@@ -315,7 +333,7 @@ const data: Groups<ProjectData> = prep_groups(
       flavour: Flavour.DEV,
       kind: Kind.LIBRARY,
       tech_data: [
-        Lang.SVELTE,
+        Lang.RUST,
       ],
       state: State.MAINTAINING,
       links: {

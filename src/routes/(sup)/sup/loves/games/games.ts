@@ -3,41 +3,41 @@ import type { DatePoint, Groups } from "#scripts/types";
 
 
 export enum Genre {
-  RHYTHM = "rhythm",
+  RHYTHM        = "rhythm",
   TOWER_DEFENCE = "tower defence",
-  RACING = "racing",
-  SHMUP = "shmup",
-  ROGUE = "rogue",
-  METROIDVANIA = "metroidvania",
-  RUNNER = "runner",
-  PUZZLE = "puzzle",
-  CARDS = "cards",
-  SANDBOX = "sandbox",
-  IO = ".io games",
-  CLASSICS  = "classics",
+  RACING        = "racing",
+  SHMUP         = "shmup",
+  ROGUE         = "rogue",
+  METROIDVANIA  = "metroidvania",
+  RUNNER        = "runner",
+  PUZZLE        = "puzzle",
+  CARDS         = "cards",
+  SANDBOX       = "sandbox",
+  IO            = ".io games",
+  CLASSICS      = "classics",
 }
 
 export enum Platform {
-  MOBILE = "mobile",
+  MOBILE  = "mobile",
   DESKTOP = "desktop",
-  ARCADE = "arcade",
+  ARCADE  = "arcade",
   CONSOLE = "console",
-  VR = "VR",
+  VR      = "VR",
 }
 
 export enum PlayState {
-  ACTIVE = "active",
+  ACTIVE        = "active",
   OPPORTUNISTIC = "opportunistic",
-  INTERMITTENT = "intermittent",
-  INFREQUENT = "infrequent",
-  RETIRED = "retired",
-  WISHLIST = "wishlist",
+  INTERMITTENT  = "intermittent",
+  INFREQUENT    = "infrequent",
+  RETIRED       = "retired",
+  WISHLIST      = "wishlist",
 }
 
 export interface GameData extends Searchable
 {
-  name:   string;
-  love:   3 | 2 | 1 | null;
+  name:  string;
+  love:  3 | 2 | 1 | null;
   date?: DatePoint | DatePoint[];
 
   icon?: string;
@@ -46,7 +46,7 @@ export interface GameData extends Searchable
   genres: Genre[];
   platforms: Platform[];
   
-  state:  PlayState;
+  state: PlayState;
   desc?: string | string[];
 
   _score?: number;

@@ -221,6 +221,7 @@ export class SearchFilter<Entity extends Searchable>
       group_sorter = this.default_group_sort.bind(this),
     } = options;
 
+    /* @ts-ignore SAFETY: `.groupBy()` expects a callback returning a `Key`, idky TypeScript thinks it should be `string` ¯\_(ツ)_/¯ */
     let groups = Object.groupBy(source, grouper) as Groups<Entity>;
     let out    = Object.entries(groups)          as [Key, Entity[]][];
     

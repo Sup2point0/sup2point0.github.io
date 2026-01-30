@@ -31,6 +31,7 @@ const title_routes = [
   </h2>
 
   <Cards force_grid={true}>
+    <LinkCard text="software development" link="/sup/dev/" />
     <LinkCard text="music production" link="/sup/music/create" />
     <LinkCard text="rhythm games" link="/sup/loves/games" />
   </Cards>

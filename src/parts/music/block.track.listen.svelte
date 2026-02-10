@@ -53,7 +53,7 @@ onMount(() => {
       <div class="upper">
         <h3> {track.name} </h3>
 
-        <div class="track-artists">
+        <div class="artists">
           {#each track.artists as shard}
             <!-- TODO -->
             <a href="/music/listen/artists#{shard}">
@@ -140,13 +140,25 @@ img {
   h3 {
     padding: 0.25rem 0 0.5rem;
     @include font-ui;
-    font-size: 250%;
+    font-size: 200%;
     font-weight: normal;
     color: $col-text;
     text-align: start;
 
     .block-track-listen.shrink & {
       font-size: 175%;
+    }
+  }
+
+  .artists {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+
+    a {
+      @include font-fun;
+      font-size: 150%;
+      @include link;
     }
   }
 }

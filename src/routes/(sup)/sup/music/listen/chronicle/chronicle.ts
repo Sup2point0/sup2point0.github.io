@@ -1,4 +1,4 @@
-import { Genre, type TrackData } from "#scripts/types/music";
+import { Genre, Vibe, type TrackData } from "#scripts/types/music";
 import type { Dates } from "#scripts/types";
 
 
@@ -40,7 +40,8 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["puru"],
         date:    undefined,
         cover:   "grimheart.jpg",
-        genres:  [],
+        genres:  [Genre.TRAP],
+        vibes:   [Vibe.CHILLOUT],
         links: {
           youtube: "",
         },
@@ -55,7 +56,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["street"],
         date:    undefined,
         cover:   "sakura-fubiki.jpg",
-        genres:  [],
+        genres:  [Genre.RHYTHM, Genre.NEUROFUNK],
         links: {
           youtube: "",
         },
@@ -70,7 +71,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["pikasonic"],
         date:    undefined,
         cover:   "new-start.jpg",
-        genres:  [],
+        genres:  [Genre.KAWAII_FUTURE_BASS],
         links: {
           youtube: "",
         },
@@ -85,7 +86,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["wing"],
         date:    undefined,
         cover:   "dopamine-dnb.jpg",
-        genres:  [],
+        genres:  [Genre.BEATBOX, Genre.DRUM_N_BASS],
         links: {
           youtube: "",
         },
@@ -101,6 +102,7 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "what-could-have-been.jpg",
         genres:  [],
+        vibes:   [Vibe.EMOTIONAL],
         links: {
           youtube: "",
         },
@@ -115,7 +117,8 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["stessie"],
         date:    undefined,
         cover:   "what-if.jpg",
-        genres:  [],
+        genres:  [Genre.ELECTRONIC],
+        vibes:   [Vibe.HAPPY],
         links: {
           youtube: "",
         },
@@ -131,6 +134,7 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "luo-ri.jpg",
         genres:  [],
+        vibes:   [Vibe.CHILLOUT],
         links: {
           youtube: "",
         },
@@ -175,7 +179,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["polyphia"],
         date:    undefined,
         cover:   "playing-god.jpg",
-        genres:  [],
+        genres:  [Genre.TRANSCENDENTAL, Genre.GUITAR],
         links: {
           youtube: "",
         },
@@ -190,7 +194,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["ak-q"],
         date:    undefined,
         cover:   "ignotus.webp",
-        genres:  [],
+        genres:  [Genre.ARTCORE, Genre.RHYTHM],
         links: {
           youtube: "",
         },
@@ -235,7 +239,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["wave-meow"],
         date:    undefined,
         cover:   "natsu.jpg",
-        genres:  [],
+        genres:  [Genre.DRUM_N_BASS, Genre.RHYTHM],
         links: {
           youtube: "",
         },
@@ -265,7 +269,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["ludicin"],
         date:    undefined,
         cover:   "lost-requiem.jpg",
-        genres:  [],
+        genres:  [Genre.FULL_FLAVOUR, Genre.RHYTHM],
         links: {
           youtube: "",
         },
@@ -280,7 +284,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["katseye"],
         date:    undefined,
         cover:   "debut.webp",
-        genres:  [],
+        genres:  [Genre.KPOP],
         links: {
           youtube: "",
         },
@@ -295,7 +299,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["stellaon", "klydix"],
         date:    undefined,
         cover:   "spring-klydix-remix.jpg",
-        genres:  [],
+        genres:  [Genre.ELECTRONIC],
         links: {
           youtube: "",
         },
@@ -310,7 +314,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["exyl"],
         date:    undefined,
         cover:   "save-this-wrld.jpg",
-        genres:  [],
+        genres:  [Genre.ELECTRONIC, Genre.RHYTHM],
         links: {
           youtube: "",
         },

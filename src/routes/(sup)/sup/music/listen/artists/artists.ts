@@ -1,9 +1,10 @@
+import { prep_groups } from "#scripts/search-filter.svelte";
 import { a, h } from "#scripts/utils";
 import { Genre, Vibe } from "#scripts/types";
 import type { ArtistData, Groups } from "#scripts/types";
 
 
-export const artists_data: Groups<ArtistData> =
+const data: Groups<ArtistData> =
 {
   "newly discovered": [
     {
@@ -1125,3 +1126,7 @@ export const artists_data: Groups<ArtistData> =
     },
   ],
 };
+
+prep_groups(data);
+export const artists_data: Groups<ArtistData> = data;
+export const artists_list: ArtistData[] = Object.values(data).flat();

@@ -1,0 +1,43 @@
+import type { Searchable } from "#scripts/search-filter.svelte";
+import type { Shard, DatePoint } from "#scripts/types";
+
+
+export interface TrackData extends Searchable {
+  feat?:       boolean;
+  is_preview?: boolean;
+
+  shard: Shard;
+  name:  string;
+  date?: string;
+  
+  audio?: string;
+  cover?: string;
+  album:  AlbumData;
+
+  genres?: string[];
+  vibes?:  string[];
+
+  desc?: string;
+}
+
+
+export interface AlbumData {
+  is_preview?: boolean;
+  
+  shard: Shard;
+  name:  string;
+  date?: DatePoint | DatePoint[];
+
+  cover?: string;
+  daw?:   Daw | Daw[];
+
+  desc?:  string | string[];
+  tracks: TrackData[];
+}
+
+
+export enum Daw {
+  FL         = "FL Studio",
+  GarageBand = "GarageBand",
+  MuseScore  = "MuseScore 3",
+}

@@ -1,11 +1,11 @@
 <script lang="ts">
-
-import Main from "#parts/core/main.svelte";
-import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
-import AlbumBlock from "#parts/music/block.album.svelte";
-import TrackBlock from "#parts/music/block.track.svelte";
   
 import type { AlbumData } from "#scripts/types";
+
+import Main        from "#parts/core/main.svelte";
+import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
+import AlbumBlock  from "#parts/music/block.album.svelte";
+import TrackBlock  from "#parts/music/block.track.create.svelte";
 
 import { page } from "$app/state";
 

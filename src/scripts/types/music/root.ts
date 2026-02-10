@@ -1,80 +1,7 @@
-import type { Searchable } from "#scripts/search-filter.svelte";
-import type { Shard, DatePoint } from "./index";
-
-
-export interface TrackData extends Searchable {
-  feat?:       boolean;
-  is_preview?: boolean;
-
-  shard: Shard;
-  name:  string;
-  date?: string;
-  
-  audio?: string;
-  cover?: string;
-  album:  AlbumData;
-
-  genres?: string[];
-  vibes?:  string[];
-
-  desc?: string;
-}
-
-
-export interface AlbumData {
-  is_preview?: boolean;
-  
-  shard: Shard;
-  name:  string;
-  date?: DatePoint | DatePoint[];
-
-  cover?: string;
-  daw?:   Daw | Daw[];
-
-  desc?:  string | string[];
-  tracks: TrackData[];
-}
-
-
-export interface ArtistData {
-  shard: Shard;
-  name:  string;
-
-  date?: number | string;
-  discovered?: string;
-
-  icon: string;
-  
-  genres?: Genre[];
-  vibes?:  Vibe[];
-  track?:  ExternalTrackData | ExternalTrackData[];
-  links?: {
-    [platform: string]: string;
-  };
-}
-
-interface ExternalTrackData {
-  name:  string;
-  link?: string;
-}
-
-
 export enum GenreKind {
   GENRE = "genre",
   VIBE  = "vibe",
 }
-
-export interface GenreData extends Searchable {
-  fav?: boolean;
-  
-  name:  string;
-  kind?: GenreKind;
-  
-  artists?: string[];
-  tracks?:  string | string[];
-  desc?:    string | string[];
-}
-
 
 export enum Genre {
   STEP200         = "200step",
@@ -132,10 +59,4 @@ export enum Vibe {
   EMOTIONAL = "emotional",
   HEROIC    = "heroic",
   WAR       = "war",
-}
-
-export enum Daw {
-  FL         = "FL Studio",
-  GarageBand = "GarageBand",
-  MuseScore  = "MuseScore 3",
 }

@@ -28,4 +28,5 @@ import LinkCard from "#parts/ui/card.link.svelte";
     aspect="square"
   />
   <LinkCard link="/sup/music/listen/genres" text="genres I listen to" />
+  <LinkCard link="/sup/music/listen/chronicle" text="taste over the years" />
 </Cards>

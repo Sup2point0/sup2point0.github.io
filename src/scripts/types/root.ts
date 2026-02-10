@@ -5,6 +5,9 @@ export type Shard = string;
 /** A non-specific point in time. */
 export type DatePoint = number | string | "childhood" | "present";
 
+/** A single date, or 2 ends of a date range. */
+export type Dates = DatePoint | [DatePoint, DatePoint];
+
 
 /** An object whose keys group arrays of items into categories. */
 export type Groups<Type> = Record<string, Type[]>;

@@ -1,6 +1,6 @@
 <!-- @component TrackBlock
 
-A wide block card for viewing and playing a soundtrack.
+A wide block card for viewing and playing a created soundtrack.
 -->
 
 <script lang="ts">

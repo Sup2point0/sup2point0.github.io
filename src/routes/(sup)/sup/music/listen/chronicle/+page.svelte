@@ -35,20 +35,19 @@ import { chronicle_data } from "./chronicle";
   <div class="chronicle">
     {#each chronicle_data as { era, date, tracks }}
       <section>
-        <div class="pane">
-        </div>
+        <div class="bar"></div>
 
-        <div class="content">
+        <div class="pane">
           <header>
             <p class="date"> {display_date(date)} </p>
             <h2> {era} </h2>
           </header>
+        </div>
 
-          <div class="blocks">
-            {#each tracks as track}
-              <TrackBlock {track} />
-            {/each}
-          </div>
+        <div class="content">
+          {#each tracks as track}
+            <TrackBlock {track} />
+          {/each}
         </div>
       </section>
     {/each}
@@ -59,6 +58,7 @@ import { chronicle_data } from "./chronicle";
 <style lang="scss">
 
 .chronicle {
+  width: 100%;
   padding: 0 2rem;
   display: flex;
   flex-flow: column nowrap;
@@ -67,25 +67,32 @@ import { chronicle_data } from "./chronicle";
   section {
     display: flex;
     flex-flow: row nowrap;
+    align-items: stretch;
     gap: 4rem;
   }
 }
 
 
-.pane {
+.bar {
   width: 0.1rem;
+  height: 85vh;
+  position: sticky;
+  top: 10vh;
   background: white;
   border-radius: 0.05rem;
 }
 
-
-.content {
-  width: 100%;
+.pane {
+  height: 100%;
+  position: sticky;
+  top: 5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
 }
 
-header {
-  padding-bottom: 2rem;
 
+header {
   p.date {
     @include font-tech;
     font-size: 150%;
@@ -99,8 +106,8 @@ header {
   }
 }
 
-.blocks {
-  padding-bottom: 2rem;
+.content {
+  flex-grow: 1;
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;

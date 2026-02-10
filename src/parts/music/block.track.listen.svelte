@@ -45,13 +45,14 @@ onMount(() => {
     <div class="img-container">
       <img alt={track.name} title={track.name}
         width="200px" height="200px"
-        src="/covers/music/listen/elek.united.jpg"
+        src="/covers/music/listen/{track.cover}"
       />
     </div>
 
     <div class="info">
       <div class="upper">
         <h3> {track.name} </h3>
+
         <div class="track-artists">
           {#each track.artists as shard}
             <!-- TODO -->
@@ -60,7 +61,9 @@ onMount(() => {
             </a>
           {/each}
         </div>
+      </div>
 
+      <div class="lower">
         <ul class="genres">
           {#each track.genres ?? [] as genre}
             <li class="genre"> {genre} </li>
@@ -82,6 +85,7 @@ onMount(() => {
 
 
 .block-track-listen {
+  flex-grow: 1;
   min-width: 40rem;
   padding: 1rem 3rem;
   transition: #{trans()};
@@ -91,7 +95,6 @@ onMount(() => {
   &:hover img {
     box-shadow: 0 0 42px rgb(white, 20%);
     animation: 0.8s shine;
-    // animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);  // ease-in-exp
 
     @keyframes shine {
       0%   { filter: brightness(100%); }
@@ -142,11 +145,13 @@ img {
     color: $col-text;
     text-align: start;
 
-    .block.shrink & {
+    .block-track-listen.shrink & {
       font-size: 175%;
     }
   }
+}
 
+.lower {
   ul.genres {
     display: flex;
     flex-flow: row wrap;
@@ -176,12 +181,6 @@ img {
       &.genre::before { background: color.change($col-trit, $alpha: 0.69); }
       &.vibe::before { background: color.change($col-deut, $alpha: 0.69); }
     }
-  }
-}
-
-.lower {
-  audio {
-    padding-bottom: 0.5rem;
   }
 }
 

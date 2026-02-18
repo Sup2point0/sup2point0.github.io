@@ -1,4 +1,5 @@
 import { Genre, Vibe, type TrackData } from "#scripts/types/music";
+import { a, i } from "#scripts/utils";
 import type { Dates } from "#scripts/types";
 
 
@@ -954,48 +955,51 @@ export const chronicle_data: ChronicleData[] = [
     date: "timeless",
     tracks: [
       {
-        shard:   "",
+        shard:   "home",
         name:    "Home",
-        artists: [],
+        artists: ["vexento"],
         date:    undefined,
         cover:   undefined,
-        genres:  [],
+        genres:  [Genre.DOWNTEMPO],
+        vibes:   [Vibe.CHILLOUT, Vibe.HAPPY],
         links: {
           youtube: "",
         },
-        discovered: ``,
+        discovered: `Vexento discography`,
         desc: [
-          ``,
+          `Well, it’s just home, isn’t it?`,
+          `Vexento is so unbelievably talented at crafting beautiful timeless ${i("feelings")}.`,
         ],
       },
       {
-        shard:   "",
+        shard:   "when-youre-gone",
         name:    "When You’re Gone",
-        artists: [],
+        artists: ["avril-lavigne"],
         date:    undefined,
         cover:   undefined,
-        genres:  [],
+        genres:  [Genre.POP],
+        vibes:   [Vibe.EMOTIONAL],
         links: {
           youtube: "",
         },
-        discovered: ``,
+        discovered: `some Ultraman video on YouTube`,
         desc: [
           ``,
         ],
       },
       {
-        shard:   "",
+        shard:   "never-gonna-give-you-up",
         name:    "Never Gonna Give You Up",
-        artists: [],
+        artists: ["rick-astley"],
         date:    undefined,
         cover:   undefined,
-        genres:  [],
+        genres:  [Genre.POP],
         links: {
           youtube: "",
         },
         discovered: ``,
         desc: [
-          ``,
+          `I unironically enjoy this song, alright? Also, you should check ${a("this<sup>↗</sup>", "https://youtube.com/watch?v=yPYZpwSpKmA")} out ;)`,
         ],
       },
     ],

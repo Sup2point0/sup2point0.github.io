@@ -70,9 +70,11 @@ onMount(() => {
         <div class="artists">
           {#each track.artists as shard}
             <!-- TODO display artist name properly -->
-            <a href="/music/listen/artists#{shard}">
+            <a href="/sup/music/listen/artists#{shard}">
               {shard}
             </a>
+
+            <span class="separator"> × </span>
           {/each}
         </div>
       </div>
@@ -208,11 +210,13 @@ img {
   .artists {
     display: flex;
     flex-flow: row wrap;
-    gap: 1rem;
+    align-items: center;
+    gap: 0.5rem;
+    @include separator;
 
     a {
-      @include font-ui;
-      font-size: 125%;
+      @include font-fun;
+      font-size: 150%;
       @include link;
     }
   }

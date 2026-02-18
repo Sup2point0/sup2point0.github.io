@@ -114,6 +114,7 @@
 
 @mixin separator {
   span.separator {
+    padding-bottom: 0.1em;
     @include font-fun;
     color: $col-text-deut;
     font-size: 125%;

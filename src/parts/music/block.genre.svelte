@@ -151,16 +151,6 @@ button.block.genre {
   }
 
   @include separator;
-  span.separator {
-    padding-bottom: 0.1em;
-    @include font-fun;
-    color: $col-text-deut;
-    font-size: 125%;
-
-    &:last-child {
-      display: none;
-    }
-  }
 }
 
 .artists, .tracks {

@@ -81,7 +81,7 @@
       }
     }
 
-    @if glow {
+    @if $glow {
       &:active::before {
         background: $col-card-click;
       }

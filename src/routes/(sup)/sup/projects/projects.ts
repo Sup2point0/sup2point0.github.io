@@ -33,10 +33,10 @@ export interface ProjectData extends Searchable
 const template: ProjectData = [
     {
       shard: "",
-      name: "",
-      love: 0,
-      date: undefined,
-      icon: undefined,
+      name:  "",
+      love:  0,
+      date:  undefined,
+      icon:  undefined,
       flavour: Flavour.DEV,
       kind: Kind.GENERAL,
       tech_data: [
@@ -195,59 +195,6 @@ const data: Groups<ProjectData> = prep_groups(
         `A syntactically delicious conceptual programming language!`,
     },
   ],
-  "Creations": [
-    {
-      name:  "Antarctica",
-      love:  3,
-      date:  [2021, "present"],
-      icon:  "antarctica.png",
-      flavour: Flavour.PERSONAL,
-      kind:    Kind.WIKI,
-      tech_data: [
-        Lang.MARKDOWN,
-      ],
-      state: State.HIATUS,
-      links: {
-        github: "https://sup2point0.github.io/Antarctica",
-      },
-      desc:
-        `A fictional reimagining of the coolest place on Earth.`,
-    },
-    {
-      name:  "Victory",
-      date:  [2020, "present"],
-      flavour: Flavour.PERSONAL,
-      kind:    [Kind.GAME, Kind.WORLD],
-      tech_data: [
-        Lang.JAVASCRIPT, Lang.CSS, Lang.HTML, Lang.MARKDOWN
-      ],
-      state: State.HIATUS,
-      links: {
-        github: "https://github.com/Sup2point0/Victory"
-      },
-      desc:
-        `A custom card game for me and my sister to play, inspired by ${i("Yu-Gi-Oh!")}`,
-    },
-    {
-      shard: "buccaneer-game",
-      name:  "Buccaneer Game",
-      love:  1,
-      date:  [2022, "present"],
-      icon:  "buccaneer-game.svg",
-      flavour: [Flavour.PERSONAL, Flavour.DEV],
-      kind:    Kind.GENERAL,
-      tech_data: [
-        Lang.SVELTE, Lang.TYPESCRIPT,
-      ],
-      state: State.HIATUS,
-      links: {
-        github: "https://github.com/Sup2point0/buccaneer-game",
-        site: "https://sup2point0.github.io/buccaneer-game",
-      },
-      desc:
-        `Mathematical piracy and chaotic fun`,
-    },
-  ],
   "Websites": [
     {
       shard: "lucidity",
@@ -307,11 +254,29 @@ const data: Groups<ProjectData> = prep_groups(
   ],
   "Current": [
     {
+      shard: "supcore",
+      name:  "supcore",
+      love:  2,
+      date:  ["February 2026", "present"],
+      icon:  undefined,
+      flavour: Flavour.DEV,
+      kind: Kind.GENERAL,
+      tech_data: [
+        Lang.RUST,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/supcore",
+      },
+      desc:
+        `A lexer-parser for supcode!`,
+    },
+    {
       shard: "hlox",
-      name: "hlox",
-      love: 0,
-      date: ["January 2026", "present"],
-      icon: undefined,
+      name:  "Hlox",
+      love:  0,
+      date:  ["January 2026", "present"],
+      icon:  undefined,
       flavour: Flavour.DEV,
       kind: Kind.FRAMEWORK,
       tech_data: [
@@ -326,10 +291,10 @@ const data: Groups<ProjectData> = prep_groups(
     },
     {
       shard: "natbitset",
-      name: "natbitset",
-      love: 0,
-      date: ["January 2026", "present"],
-      icon: undefined,
+      name:  "natbitset",
+      love:  0,
+      date:  ["January 2026", "present"],
+      icon:  undefined,
       flavour: Flavour.DEV,
       kind: Kind.LIBRARY,
       tech_data: [
@@ -353,7 +318,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.RUST,
       ],
-      state: State.DEVELOPING,
+      state: State.INDETERMINATE,
       links: {
         github: "https://github.com/Sup2point0/ascendant",
       },
@@ -379,23 +344,6 @@ const data: Groups<ProjectData> = prep_groups(
         `Extracting custom cards data from DuelingBook for conversions to other data formats`,
     },
     {
-      shard: "fractually-awesome",
-      name:  "fractually-awesome",
-      date:  ["December 2025", "present"],
-      icon:  undefined,
-      flavour: Flavour.DEV,
-      kind:    Kind.APPLICATION,
-      tech_data: [
-        Lang.RUST,
-      ],
-      state: State.INDETERMINATE,
-      links: {
-        github: "https://github.com/Sup2point0/fractually-awesome",
-      },
-      desc:
-        `Zooming in on the Mandelbrot set and other fractals`,
-    },
-    {
       shard: "vscode-supcode-visuals",
       name:  "supcode Visuals for VSCode",
       date:  ["late 2025", "present"],
@@ -414,6 +362,23 @@ const data: Groups<ProjectData> = prep_groups(
   ],
   "Miscellaneous": [
     {
+      shard: "fractually-awesome",
+      name:  "Fractually Awesome",
+      date:  ["December 2025", "present"],
+      icon:  undefined,
+      flavour: Flavour.DEV,
+      kind:    Kind.APPLICATION,
+      tech_data: [
+        Lang.RUST,
+      ],
+      state: State.INDETERMINATE,
+      links: {
+        github: "https://github.com/Sup2point0/fractually-awesome",
+      },
+      desc:
+        `Zooming in on the Mandelbrot set and other fractals`,
+    },
+    {
       shard: "shardify",
       name:  "shardify",
       date:  ["fall 2025", "present"],
@@ -431,7 +396,7 @@ const data: Groups<ProjectData> = prep_groups(
     },
     {
       shard: "archividian",
-      name:  "archividian",
+      name:  "Archividian",
       date:  ["fall 2025", "present"],
       flavour: Flavour.DEV,
       kind:    Kind.TOOL,
@@ -556,6 +521,59 @@ const data: Groups<ProjectData> = prep_groups(
       },
       desc:
         `A collection of standalone C# projects made for fun, including a Mandelbrot set renderer and quaternion calculator`,
+    },
+  ],
+  "Creations": [
+    {
+      name:  "Antarctica",
+      love:  3,
+      date:  [2021, "present"],
+      icon:  "antarctica.png",
+      flavour: Flavour.PERSONAL,
+      kind:    Kind.WIKI,
+      tech_data: [
+        Lang.MARKDOWN,
+      ],
+      state: State.HIATUS,
+      links: {
+        github: "https://sup2point0.github.io/Antarctica",
+      },
+      desc:
+        `A fictional reimagining of the coolest place on Earth.`,
+    },
+    {
+      name:  "Victory",
+      date:  [2020, "present"],
+      flavour: Flavour.PERSONAL,
+      kind:    [Kind.GAME, Kind.WORLD],
+      tech_data: [
+        Lang.JAVASCRIPT, Lang.CSS, Lang.HTML, Lang.MARKDOWN
+      ],
+      state: State.HIATUS,
+      links: {
+        github: "https://github.com/Sup2point0/Victory"
+      },
+      desc:
+        `A custom card game for me and my sister to play, inspired by ${i("Yu-Gi-Oh!")}`,
+    },
+    {
+      shard: "buccaneer-game",
+      name:  "Buccaneer Game",
+      love:  1,
+      date:  [2022, "present"],
+      icon:  "buccaneer-game.svg",
+      flavour: [Flavour.PERSONAL, Flavour.DEV],
+      kind:    Kind.GENERAL,
+      tech_data: [
+        Lang.SVELTE, Lang.TYPESCRIPT,
+      ],
+      state: State.HIATUS,
+      links: {
+        github: "https://github.com/Sup2point0/buccaneer-game",
+        site: "https://sup2point0.github.io/buccaneer-game",
+      },
+      desc:
+        `Mathematical piracy and chaotic fun`,
     },
   ],
   "Archives": [

@@ -12,8 +12,7 @@ import type { TrackData } from "#scripts/types/music/listen";
 import { artists_data } from "#src/routes/(sup)/sup/music/listen/artists/artists";
 
 import { onMount } from "svelte";
-import { slide } from "svelte/transition";
-import { expoInOut } from "svelte/easing";
+
 
 interface Props {
   track: TrackData;
@@ -21,8 +20,6 @@ interface Props {
 
 let { track }: Props = $props();
 
-
-let open = $state(false);
 
 let self: HTMLElement;
 let anim = new AnimationData();
@@ -38,13 +35,11 @@ onMount(() => {
 </script>
 
 
-<button class="block-track-listen"
+<div class="block-track-listen"
   class:shrink={track.name.length > 20}
   class:intersected={anim.intersected}
-  class:open
   id={track.shard}
   bind:this={self}
-  onclick={() => { open = !open; }}
   style:--delay={calc_delay(anim, 0.2)}
 >
   <div class="content">
@@ -77,41 +72,38 @@ onMount(() => {
         </div>
       </div>
 
-      <div class="sep"></div>
+      <div class="lower">
+        {#if track.desc}
+          <div class="desc">
+            {#if Array.isArray(track.desc)}
+              {#each track.desc as block}
+                <p> {@html block} </p>
+              {/each}
+            {:else}
+              <p> {@html track.desc} </p>
+            {/if}
+          </div>
+        {/if}
 
-      {#if open && track.desc}
-        <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
-          {#if Array.isArray(track.desc)}
-            {#each track.desc as block}
-              <p> {@html block} </p>
-            {/each}
-          {:else}
-            <p> {@html track.desc} </p>
-          {/if}
-        </div>
+        {#if track.discovered}
+          <p class="discovered">
+            {@html track.discovered}
+          </p>
+        {/if}
 
-      {:else}
-        <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
-          {#if track.discovered}
-            <p class="discovered">
-              {@html track.discovered}
-            </p>
-          {/if}
+        <ul class="genres">
+          {#each track.genres ?? [] as genre}
+            <li class="genre"> {genre} </li>
+          {/each}
 
-          <ul class="genres">
-            {#each track.genres ?? [] as genre}
-              <li class="genre"> {genre} </li>
-            {/each}
-
-            {#each track.vibes ?? [] as vibe}
-              <li class="vibe"> {vibe} </li>
-            {/each}
-          </ul>
-        </div>
-      {/if}
+          {#each track.vibes ?? [] as vibe}
+            <li class="vibe"> {vibe} </li>
+          {/each}
+        </ul>
+      </div>
     </div>
   </div>
-</button>
+</div>
 
 
 <style lang="scss">
@@ -122,22 +114,24 @@ onMount(() => {
 .block-track-listen {
   min-width: 40rem;
   padding: 1rem 1rem 1rem 3rem;
-  font-size: unset;
-  background: unset;
-  border: unset;
-  outline: unset;
   transition: #{trans()};
-  @include shear-card($interactive: true, $glow: true);
+  @include shear-card($interactive: true);
   @include anim-block;
 
-  &:hover img {
-    box-shadow: 0 0 42px rgb(white, 20%);
-    animation: 0.8s shine;
+  &:hover {
+    .lower p {
+      color: $col-text;
+    }
 
-    @keyframes shine {
-      0%   { filter: brightness(100%); }
-      50%  { filter: brightness(108%); }
-      100% { filter: brightness(100%); }
+    img {
+      box-shadow: 0 0 42px rgb(white, 20%);
+      animation: 0.8s shine;
+
+      @keyframes shine {
+        0%   { filter: brightness(100%); }
+        50%  { filter: brightness(108%); }
+        100% { filter: brightness(100%); }
+      }
     }
   }
 }
@@ -175,7 +169,7 @@ img {
 
 .upper {
   width: 100%;
-  
+
   .title {
     width: 100%;
     display: flex;
@@ -217,20 +211,21 @@ img {
   }
 }
 
-.sep {
-  width: 69%;
-  height: 1px;
-  margin: 0.5rem 0 1rem;
-  background: rgb(white, 10%);
-}
-
 .lower {
-  p {
-    @include font-ui;
-    font-size: 80%;
-    font-weight: 300;
-    color: $col-text-deut;
-    text-align: left;
+  .desc {
+    margin: 1em 0;
+    border-top: 1px solid rgb(white, 10%);
+    border-bottom: 1px solid rgb(white, 10%);
+
+    p {
+      padding: 1em 0;
+      @include font-ui;
+      font-size: 80%;
+      font-weight: 300;
+      color: $col-text-deut;
+      text-align: left;
+      transition: #{trans()};
+    }
   }
 
   p.discovered {

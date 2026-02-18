@@ -30,10 +30,7 @@ let open = $state(false);
   <p> {@html text} </p>
 
   {#if desc && open}
-    <div class="desc"
-      transition:slide={{ duration: 400, easing: expoOut }}
-    >
-
+    <div class="desc" transition:slide={{ duration: 400, easing: expoOut }}>
       {#if Array.isArray(desc)}
         {#each desc as block}
           <p> {@html block} </p>
@@ -41,7 +38,6 @@ let open = $state(false);
       {:else}
         <p> {@html desc} </p>
       {/if}
-
     </div>
   {/if}
 </button>
@@ -97,7 +93,7 @@ button p {
   p {
     font-size: 80%;
     font-weight: 300;
-    color: rgb(white, 50%);
+    color: $col-text-deut;
     transition: #{trans()};
   }
 }

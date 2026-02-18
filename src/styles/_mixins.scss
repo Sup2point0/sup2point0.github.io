@@ -80,11 +80,17 @@
         }
       }
     }
+
+    @if glow {
+      &:active::before {
+        background: $col-card-click;
+      }
+    }
   }
 }
 
 @mixin anim-block {
-  &::before {
+  &:not(.intersected)::before {
     transform: skew($shear-factor) scale(90%);
     opacity: 0;
     transition:
@@ -93,10 +99,10 @@
       opacity 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
   }
 
-  &.intersected::before {
-    transform: skew($shear-factor);
-    opacity: 1;
-  }
+  // &.intersected::before {
+  //   transform: skew($shear-factor);
+  //   opacity: 1;
+  // }
 }
 
 

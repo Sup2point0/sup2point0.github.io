@@ -3,7 +3,6 @@
 import { display_date } from "#scripts/utils";
 
 import Main        from "#parts/core/main.svelte";
-import Cards       from "#parts/core/cards.svelte";
 import Block       from "#parts/ui/block.svelte"
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import TrackBlock  from "#parts/music/block.track.listen.svelte";

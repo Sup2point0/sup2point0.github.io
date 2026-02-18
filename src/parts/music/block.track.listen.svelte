@@ -85,7 +85,6 @@ onMount(() => {
 
 
 .block-track-listen {
-  flex-grow: 1;
   min-width: 40rem;
   padding: 1rem 3rem;
   transition: #{trans()};

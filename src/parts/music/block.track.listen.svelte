@@ -5,6 +5,7 @@ A wide block card for displaying info about a track I listen to.
 
 <script lang="ts">
 
+import { display_date } from "#scripts/utils";
 import type { TrackData } from "#scripts/types/music/listen";
 
 import { artists_data } from "#src/routes/(sup)/sup/music/listen/artists/artists";
@@ -51,11 +52,19 @@ onMount(() => {
 
     <div class="info">
       <div class="upper">
-        <h3> {track.name} </h3>
+        <div class="title">
+          <h3> {track.name} </h3>
+
+          {#if track.date}
+            <p class="date">
+              {display_date(track.date)}
+            </p>
+          {/if}
+        </div>
 
         <div class="artists">
           {#each track.artists as shard}
-            <!-- TODO -->
+            <!-- TODO display artist name properly -->
             <a href="/music/listen/artists#{shard}">
               {shard}
             </a>
@@ -136,16 +145,31 @@ img {
 }
 
 .upper {
-  h3 {
-    padding: 0.25rem 0 0.5rem;
-    @include font-ui;
-    font-size: 200%;
-    font-weight: normal;
-    color: $col-text;
-    text-align: start;
+  .title {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: end;
+    gap: 0.5rem;
 
-    .block-track-listen.shrink & {
+    h3 {
+      @include font-ui;
       font-size: 175%;
+      font-weight: normal;
+      color: $col-text;
+      text-align: start;
+
+      .block-track-listen.shrink & {
+        font-size: 150%;
+      }
+    }
+
+    p.date {
+      padding-bottom: 0.25em;
+      @include font-tech;
+      font-size: 125%;
+      color: $col-text-deut;
     }
   }
 
@@ -156,7 +180,7 @@ img {
 
     a {
       @include font-fun;
-      font-size: 150%;
+      font-size: 140%;
       @include link;
     }
   }
@@ -173,7 +197,7 @@ img {
     li {
       padding: 0.1em 0.5em 0;
       @include font-fun;
-      font-size: 150%;
+      font-size: 125%;
       color: $col-text;
       @include shear-card();
       transition: #{trans()};

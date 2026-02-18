@@ -3,6 +3,7 @@
 <script lang="ts">
 
 import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
+import { display_date } from "#scripts/utils";
 import type { ArtistData } from "#scripts/types";
 
 import { onMount } from "svelte";
@@ -71,7 +72,7 @@ onMount(() => {
 
     {#if artist.date}
       <p class="date">
-        {artist.date.toString().toUpperCase()}
+        {display_date(artist.date)}
       </p>
     {/if}
   </div>

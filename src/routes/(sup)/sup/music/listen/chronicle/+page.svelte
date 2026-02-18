@@ -28,7 +28,7 @@ import { chronicle_data } from "./chronicle";
   <Block>
     This is a brief selection of my favourite tracks over the years! They’re not exactly “favourites” per se, but more just tracks that I really notably liked, and are a landmark along my evolution of music tastes.
     <div style:height="0.69rem"></div>
-    While I’ve split these into discrete “eras”, in reality there was definitely overlap between them – not everything was perfectly linear, many eras evolved in parallel!
+    While I’ve split these into discrete “eras”, in reality there was definitely overlap between them – not everything was perfectly linear, many eras evolved in parallel! Also, the dates don’t mean I don’t listen to these tracks anymore, they just indicate when I came across them!
   </Block>
 
   <div class="chronicle">
@@ -94,19 +94,21 @@ import { chronicle_data } from "./chronicle";
 header {
   p.date {
     @include font-tech;
-    font-size: 150%;
+    font-size: 125%;
     color: $col-text-deut;
   }
 
   h2 {
+    padding-top: 0.5em;
     @include font-fun;
     font-weight: 300;
-    font-size: 500%;
+    font-size: 400%;
+    line-height: 75%;
   }
 }
 
 .content {
-  flex-grow: 1;
+  flex-grow: 2;
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;

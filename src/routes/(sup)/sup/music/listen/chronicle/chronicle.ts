@@ -39,7 +39,7 @@ export const chronicle_data: ChronicleData[] = [
         name:    "Breakeven",
         artists: ["the-script"],
         date:    "2026 February 14",
-        cover:   undefined,
+        cover:   "the-script.jpg",
         genres:  [Genre.POP],
         vibes:   [Vibe.EMOTIONAL],
         links: {
@@ -47,7 +47,7 @@ export const chronicle_data: ChronicleData[] = [
         },
         discovered: `childhood`,
         desc: [
-          ``,
+          `We always loved this song, but now we feel this song.`,
         ],
       },
     ],
@@ -354,67 +354,7 @@ export const chronicle_data: ChronicleData[] = [
     tracks: [
       {
         shard:   "",
-        name:    "「アイドル」",
-        artists: [],
-        date:    undefined,
-        cover:   undefined,
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: ``,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "",
-        name:    "たぶん",
-        artists: [],
-        date:    undefined,
-        cover:   undefined,
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: ``,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "",
-        name:    "Beyond the Way",
-        artists: [],
-        date:    undefined,
-        cover:   undefined,
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: ``,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "",
-        name:    "I wanna be a girl",
-        artists: [],
-        date:    undefined,
-        cover:   undefined,
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: ``,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "",
-        name:    "バグ / 25時、ナイトコードで。",
+        name:    "BIBBIDIBA",
         artists: [],
         date:    undefined,
         cover:   undefined,
@@ -444,7 +384,67 @@ export const chronicle_data: ChronicleData[] = [
       },
       {
         shard:   "",
-        name:    "BIBBIDIBA",
+        name:    "バグ / 25時、ナイトコードで。",
+        artists: [],
+        date:    undefined,
+        cover:   undefined,
+        genres:  [],
+        links: {
+          youtube: "",
+        },
+        discovered: ``,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "",
+        name:    "I wanna be a girl",
+        artists: [],
+        date:    undefined,
+        cover:   undefined,
+        genres:  [],
+        links: {
+          youtube: "",
+        },
+        discovered: ``,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "",
+        name:    "Beyond the Way",
+        artists: [],
+        date:    undefined,
+        cover:   undefined,
+        genres:  [],
+        links: {
+          youtube: "",
+        },
+        discovered: ``,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "",
+        name:    "たぶん",
+        artists: [],
+        date:    undefined,
+        cover:   undefined,
+        genres:  [],
+        links: {
+          youtube: "",
+        },
+        discovered: ``,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "",
+        name:    "「アイドル」",
         artists: [],
         date:    undefined,
         cover:   undefined,
@@ -485,176 +485,26 @@ export const chronicle_data: ChronicleData[] = [
     date: 2023,
     tracks: [
       {
-        shard:   "qing-ya",
-        name:    "青芽",
-        artists: ["tea-12"],
+        shard:   "algebra",
+        name:    "Algebra",
+        artists: ["function-phantom"],
         date:    undefined,
-        cover:   "qing-ya.jpg",
-        genres:  [Genre.CPOP],
-        links: {
-          youtube: "",
-        },
-        discovered: `Phigros`,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "water",
-        name:    "WATER",
-        artists: ["a-39"],
-        date:    undefined,
-        cover:   "water.jpg",
-        genres:  [Genre.HARDCORE, Genre.VOCALOID, Genre.COLOUR_BASS],
-        links: {
-          youtube: "",
-        },
-        discovered: `Phigros`,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "no-one-yes-man",
-        name:    "NO ONE YES MAN",
-        artists: ["myukke"],
-        date:    undefined,
-        cover:   "no-one-yes-man.jpg",
+        cover:   "algebra.jpg",
         genres:  [],
         links: {
           youtube: "",
         },
-        discovered: `Phigros`,
+        discovered: `Phigros custom chart`,
         desc: [
           ``,
         ],
       },
       {
-        shard:   "realms",
-        name:    "Realms",
-        artists: ["hinkik", "a-himitsu"],
-        date:    undefined,
-        cover:   "realms.jpg",
-        genres:  [Genre.ELECTRONIC, Genre.DRUM_N_BASS, Genre.RHYTHM],
-        links: {
-          youtube: "",
-        },
-        discovered: `Phigros`,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "dance-with-silence",
-        name:    "Dance with Silence",
-        artists: ["camellia"],
-        date:    undefined,
-        cover:   "tera-io.jpg",
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: `Phigros`,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "terabyte-connection",
-        name:    "+ERABY+E CONNEC+10N",
-        artists: ["camellia"],
-        date:    undefined,
-        cover:   "terabyte-connection.jpg",
-        genres:  [Genre.TRANSCENDENTAL,Genre.CAMELLIACORE, Genre.HARDCORE],
-        links: {
-          youtube: "",
-        },
-        discovered: `Phigros`,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "nhelv",
-        name:    "Nhelv",
-        artists: ["silentroom"],
-        date:    undefined,
-        cover:   "nhelv.jpg",
-        genres:  [Genre.NEUROFUNK],
-        links: {
-          youtube: "",
-        },
-        discovered: `YouTube reccs`,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "distorted-fate",
-        name:    "Distorted Fate",
-        artists: ["sakuzyo"],
-        date:    undefined,
-        cover:   "distorted-fate.jpg",
-        genres:  [Genre.BOSS_MUSIC],
-        links: {
-          youtube: "",
-        },
-        discovered: `Phigros`,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "spin-eternally",
-        name:    "Spin Eternally",
-        artists: ["camellia"],
-        date:    undefined,
-        cover:   "spin-eternally.png",
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: `かめりあ discography`,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "waving-wings",
-        name:    "飄える翼追い掛けて ～終飛～",
-        artists: ["camellia"],
-        date:    undefined,
-        cover:   "ashed-wings.jpg",
-        genres:  [Genre.HARDCORE, Genre.SPEEDCORE],
-        links: {
-          youtube: "",
-        },
-        discovered: `かめりあ discography`,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "oo-parts",
-        name:    "ΩΩPARTS",
-        artists: ["camellia"],
-        date:    undefined,
-        cover:   "oo-parts.jpg",
-        genres:  [Genre.FULL_FLAVOUR, Genre.TRANSCENDENTAL],
-        links: {
-          youtube: "",
-        },
-        discovered: `かめりあ discography`,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "luminescence",
-        name:    "Luminescence",
+        shard:   "ming-huo",
+        name:    "明鏡烈火",
         artists: [],
         date:    undefined,
-        cover:   "luminescence.jpg",
+        cover:   "ming-huo.jpg",
         genres:  [],
         links: {
           youtube: "",
@@ -680,11 +530,11 @@ export const chronicle_data: ChronicleData[] = [
         ],
       },
       {
-        shard:   "ming-huo",
-        name:    "明鏡烈火",
+        shard:   "luminescence",
+        name:    "Luminescence",
         artists: [],
         date:    undefined,
-        cover:   "ming-huo.jpg",
+        cover:   "luminescence.jpg",
         genres:  [],
         links: {
           youtube: "",
@@ -695,16 +545,166 @@ export const chronicle_data: ChronicleData[] = [
         ],
       },
       {
-        shard:   "algebra",
-        name:    "Algebra",
-        artists: ["function-phantom"],
+        shard:   "oo-parts",
+        name:    "ΩΩPARTS",
+        artists: ["camellia"],
         date:    undefined,
-        cover:   "algebra.jpg",
+        cover:   "oo-parts.jpg",
+        genres:  [Genre.FULL_FLAVOUR, Genre.TRANSCENDENTAL],
+        links: {
+          youtube: "",
+        },
+        discovered: `かめりあ discography`,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "waving-wings",
+        name:    "飄える翼追い掛けて ～終飛～",
+        artists: ["camellia"],
+        date:    undefined,
+        cover:   "ashed-wings.jpg",
+        genres:  [Genre.HARDCORE, Genre.SPEEDCORE],
+        links: {
+          youtube: "",
+        },
+        discovered: `かめりあ discography`,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "spin-eternally",
+        name:    "Spin Eternally",
+        artists: ["camellia"],
+        date:    undefined,
+        cover:   "spin-eternally.png",
         genres:  [],
         links: {
           youtube: "",
         },
-        discovered: `Phigros custom chart`,
+        discovered: `かめりあ discography`,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "distorted-fate",
+        name:    "Distorted Fate",
+        artists: ["sakuzyo"],
+        date:    undefined,
+        cover:   "distorted-fate.jpg",
+        genres:  [Genre.BOSS_MUSIC],
+        links: {
+          youtube: "",
+        },
+        discovered: `Phigros`,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "nhelv",
+        name:    "Nhelv",
+        artists: ["silentroom"],
+        date:    undefined,
+        cover:   "nhelv.jpg",
+        genres:  [Genre.NEUROFUNK],
+        links: {
+          youtube: "",
+        },
+        discovered: `YouTube reccs`,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "terabyte-connection",
+        name:    "+ERABY+E CONNEC+10N",
+        artists: ["camellia"],
+        date:    undefined,
+        cover:   "terabyte-connection.jpg",
+        genres:  [Genre.TRANSCENDENTAL,Genre.CAMELLIACORE, Genre.HARDCORE],
+        links: {
+          youtube: "",
+        },
+        discovered: `Phigros`,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "dance-with-silence",
+        name:    "Dance with Silence",
+        artists: ["camellia"],
+        date:    undefined,
+        cover:   "tera-io.jpg",
+        genres:  [],
+        links: {
+          youtube: "",
+        },
+        discovered: `Phigros`,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "realms",
+        name:    "Realms",
+        artists: ["hinkik", "a-himitsu"],
+        date:    undefined,
+        cover:   "realms.jpg",
+        genres:  [Genre.ELECTRONIC, Genre.DRUM_N_BASS, Genre.RHYTHM],
+        links: {
+          youtube: "",
+        },
+        discovered: `Phigros`,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "no-one-yes-man",
+        name:    "NO ONE YES MAN",
+        artists: ["myukke"],
+        date:    undefined,
+        cover:   "no-one-yes-man.jpg",
+        genres:  [],
+        links: {
+          youtube: "",
+        },
+        discovered: `Phigros`,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "water",
+        name:    "WATER",
+        artists: ["a-39"],
+        date:    undefined,
+        cover:   "water.jpg",
+        genres:  [Genre.HARDCORE, Genre.VOCALOID, Genre.COLOUR_BASS],
+        links: {
+          youtube: "",
+        },
+        discovered: `Phigros`,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "qing-ya",
+        name:    "青芽",
+        artists: ["tea-12"],
+        date:    undefined,
+        cover:   "qing-ya.jpg",
+        genres:  [Genre.CPOP],
+        links: {
+          youtube: "",
+        },
+        discovered: `Phigros`,
         desc: [
           ``,
         ],
@@ -717,67 +717,7 @@ export const chronicle_data: ChronicleData[] = [
     tracks: [
       {
         shard:   "",
-        name:    "荣耀的战场",
-        artists: [],
-        date:    undefined,
-        cover:   undefined,
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: ``,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "",
-        name:    "Up in the Hills",
-        artists: [],
-        date:    undefined,
-        cover:   undefined,
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: ``,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "",
-        name:    "Are You Happy",
-        artists: [],
-        date:    undefined,
-        cover:   undefined,
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: ``,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "",
-        name:    "Susume! Ultraman Zero",
-        artists: [],
-        date:    undefined,
-        cover:   undefined,
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: ``,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "",
-        name:    "Proof Geometric Construction Can Solve All Love Affairs",
+        name:    "Friendship Games",
         artists: [],
         date:    undefined,
         cover:   undefined,
@@ -807,7 +747,67 @@ export const chronicle_data: ChronicleData[] = [
       },
       {
         shard:   "",
-        name:    "Friendship Games",
+        name:    "Proof Geometric Construction Can Solve All Love Affairs",
+        artists: [],
+        date:    undefined,
+        cover:   undefined,
+        genres:  [],
+        links: {
+          youtube: "",
+        },
+        discovered: ``,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "",
+        name:    "Susume! Ultraman Zero",
+        artists: [],
+        date:    undefined,
+        cover:   undefined,
+        genres:  [],
+        links: {
+          youtube: "",
+        },
+        discovered: ``,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "",
+        name:    "Are You Happy",
+        artists: [],
+        date:    undefined,
+        cover:   undefined,
+        genres:  [],
+        links: {
+          youtube: "",
+        },
+        discovered: ``,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "",
+        name:    "Up in the Hills",
+        artists: [],
+        date:    undefined,
+        cover:   undefined,
+        genres:  [],
+        links: {
+          youtube: "",
+        },
+        discovered: ``,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "",
+        name:    "荣耀的战场",
         artists: [],
         date:    undefined,
         cover:   undefined,
@@ -827,83 +827,8 @@ export const chronicle_data: ChronicleData[] = [
     date: "childhood",
     tracks: [
       {
-        shard:   "united",
-        name:    "United",
-        artists: ["elektronomia"],
-        date:    2016,
-        cover:   undefined,
-        genres:  [Genre.EDM, Genre.HOUSE],
-        links: {
-          youtube: "https://www.youtube.com/watch?v=EgXcda1SzxU&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd",
-        },
-        discovered: `Elektronomia’s discography`,
-        desc: [
-          ``,
-        ],
-      },
-      {
         shard:   "",
-        name:    "Throwback",
-        artists: [],
-        date:    undefined,
-        cover:   undefined,
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: ``,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "",
-        name:    "PLAY",
-        artists: [],
-        date:    undefined,
-        cover:   undefined,
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: ``,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "",
-        name:    "Banana Breeze",
-        artists: [],
-        date:    undefined,
-        cover:   undefined,
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: ``,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "",
-        name:    "End of Time",
-        artists: [],
-        date:    undefined,
-        cover:   undefined,
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: ``,
-        desc: [
-          ``,
-        ],
-      },
-      {
-        shard:   "",
-        name:    "Ibiza",
+        name:    "No Turning Back",
         artists: [],
         date:    undefined,
         cover:   undefined,
@@ -933,7 +858,7 @@ export const chronicle_data: ChronicleData[] = [
       },
       {
         shard:   "",
-        name:    "No Turning Back",
+        name:    "Ibiza",
         artists: [],
         date:    undefined,
         cover:   undefined,
@@ -942,6 +867,81 @@ export const chronicle_data: ChronicleData[] = [
           youtube: "",
         },
         discovered: ``,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "",
+        name:    "End of Time",
+        artists: [],
+        date:    undefined,
+        cover:   undefined,
+        genres:  [],
+        links: {
+          youtube: "",
+        },
+        discovered: ``,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "",
+        name:    "Banana Breeze",
+        artists: [],
+        date:    undefined,
+        cover:   undefined,
+        genres:  [],
+        links: {
+          youtube: "",
+        },
+        discovered: ``,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "",
+        name:    "PLAY",
+        artists: [],
+        date:    undefined,
+        cover:   undefined,
+        genres:  [],
+        links: {
+          youtube: "",
+        },
+        discovered: ``,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "",
+        name:    "Throwback",
+        artists: [],
+        date:    undefined,
+        cover:   undefined,
+        genres:  [],
+        links: {
+          youtube: "",
+        },
+        discovered: ``,
+        desc: [
+          ``,
+        ],
+      },
+      {
+        shard:   "united",
+        name:    "United",
+        artists: ["elektronomia"],
+        date:    2016,
+        cover:   undefined,
+        genres:  [Genre.EDM, Genre.HOUSE],
+        links: {
+          youtube: "https://www.youtube.com/watch?v=EgXcda1SzxU&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd",
+        },
+        discovered: `Elektronomia’s discography`,
         desc: [
           ``,
         ],

@@ -9,17 +9,20 @@ export function register_animation(root: HTMLElement, anim: AnimationData): void
 {
   if (!root) return;
   
-  let observer = new IntersectionObserver(entries => {
-    for (let entry of entries) {
-      if (!anim.intersected && entry.isIntersecting) {        
-        anim.intersected = true;
-        anim.left = entry.boundingClientRect.left;
-        anim.top = entry.boundingClientRect.top;
+  let observer = new IntersectionObserver(
+    entries => {
+      for (let entry of entries) {
+        if (!anim.intersected && entry.isIntersecting) {        
+          anim.intersected = true;
+          anim.left = entry.boundingClientRect.left;
+          anim.top = entry.boundingClientRect.top;
+        }
       }
+    },
+    {
+      threshold: 0.2,
     }
-  }, {
-    threshold: 0.2,
-  });
+  );
 
   observer.observe(root);
 }

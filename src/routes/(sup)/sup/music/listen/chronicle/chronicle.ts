@@ -936,14 +936,15 @@ export const chronicle_data: ChronicleData[] = [
         name:    "United",
         artists: ["elektronomia"],
         date:    2016,
-        cover:   undefined,
+        cover:   "united.jpg",
         genres:  [Genre.EDM, Genre.HOUSE],
+        vibes:   [Vibe.NOSTALGIC],
         links: {
           youtube: "https://www.youtube.com/watch?v=EgXcda1SzxU&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd",
         },
         discovered: `Elektronomia’s discography`,
         desc: [
-          ``,
+          `The first track I ever “fell in love” with. I remember it as being the final track listed when I was listening to Elektronomia’s tracks on the music platform I was using at the time, and I came to know it as being quite special. Its ‘happy nostalgic’ vibe became my favourite type of EDM for years to come.`,
         ],
       },
     ],

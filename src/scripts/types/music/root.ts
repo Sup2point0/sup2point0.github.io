@@ -63,5 +63,6 @@ export enum Vibe {
   EMOTIONAL = "emotional",
   HAPPY     = "happy",
   HEROIC    = "heroic",
+  NOSTALGIC = "nostalgic",
   WAR       = "war",
 }

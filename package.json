@@ -6,9 +6,11 @@
 		"dev": "vite dev",
       "devx": "vite dev --open",
 		"build": "vite build",
-		"preview": "vite preview"
+		"preview": "vite preview",
+    "test": "playwright test"
 	},
 	"devDependencies": {
+    "@playwright/test": "^1.58.1",
     "@stdlib/random-sample": "^0.2.1",
 		"@sveltejs/adapter-static": "^3.0.1",
 		"@sveltejs/kit": "^2.0",

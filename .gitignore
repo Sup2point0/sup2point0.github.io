@@ -1,7 +1,9 @@
 *.ini
 
-build/
+/build/
 
-node_modules/
-.svelte-kit/
+/node_modules/
+/.svelte-kit/
+/test-results/
+
 vite.config.*.timestamp

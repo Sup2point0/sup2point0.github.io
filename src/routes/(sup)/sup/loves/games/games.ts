@@ -79,7 +79,8 @@ const data: Groups<GameData> =
       genres: [Genre.PUZZLE],
       platforms: [Platform.DESKTOP],
       state:  PlayState.ACTIVE,
-    }, {
+    },
+    {
       shard:  "phigros",
       name:   "Phigros",
       love:   3,
@@ -88,7 +89,8 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
       state:  PlayState.ACTIVE,
-    }, {
+    },
+    {
       shard:  "chunithm",
       name:   "CHUNITHM",
       love:   1,
@@ -96,8 +98,9 @@ const data: Groups<GameData> =
       icon:   "chunithm.png",
       genres: [Genre.RHYTHM],
       platforms: [Platform.ARCADE],
-      state:  PlayState.INTERMITTENT,
-    }, {
+      state:  PlayState.ACTIVE,
+    },
+    {
       shard:  "arcaea",
       name:   "Arcaea",
       love:   1,
@@ -106,7 +109,8 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
       state:  PlayState.ACTIVE,
-    }, {
+    },
+    {
       shard:  "milthm",
       name:   "Milthm",
       love:   2,
@@ -119,15 +123,6 @@ const data: Groups<GameData> =
   ],
   "wishlist": [
     {
-      shard:  "firewatch",
-      name:   "Firewatch",
-      love:   null,
-      date:   "January 2026",
-      icon:   "firewatch.avif",
-      genres: [],
-      platforms: [Platform.DESKTOP],
-      state:  PlayState.WISHLIST,
-    }, {
       shard:  "hollow-knight",
       name:   "Hollow Knight",
       love:   null,
@@ -159,7 +154,8 @@ const data: Groups<GameData> =
       genres: [Genre.TOWER_DEFENCE, Genre.CLASSICS],
       platforms: [Platform.DESKTOP],
       state:  PlayState.OPPORTUNISTIC,
-    }, {
+    },
+    {
       shard:  "bloons-pop",
       name:   "Bloons Pop!",
       love:   2,
@@ -168,7 +164,8 @@ const data: Groups<GameData> =
       genres: [Genre.PUZZLE],
       platforms: [Platform.MOBILE],
       state:  PlayState.INTERMITTENT,
-    }, {
+    },
+    {
       shard:  "bloons-supermonkey-2",
       name:   "Bloons Supermonkey 2",
       love:   3,
@@ -177,7 +174,8 @@ const data: Groups<GameData> =
       genres: [Genre.SHMUP],
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
-    }, {
+    },
+    {
       shard:  "bloons-td5",
       name:   "Bloons TD 5",
       love:   1,
@@ -198,7 +196,18 @@ const data: Groups<GameData> =
       genres: [Genre.CARDS],
       platforms: [Platform.MOBILE],
       state:  PlayState.INTERMITTENT,
-    }, {
+    },
+    {
+      shard:  "firewatch",
+      name:   "Firewatch",
+      love:   null,
+      date:   "January 2026",
+      icon:   "firewatch.avif",
+      genres: [],
+      platforms: [Platform.DESKTOP],
+      state:  PlayState.RETIRED,
+    },
+    {
       shard:  "soul-knight",
       name:   "Soul Knight",
       love:   2,
@@ -207,7 +216,8 @@ const data: Groups<GameData> =
       genres: [Genre.ROGUE],
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
-    }, {
+    },
+    {
       shard:  "bao-wei-luo-bo",
       name:   "保卫萝卜",
       love:   3,
@@ -216,7 +226,8 @@ const data: Groups<GameData> =
       genres: [Genre.TOWER_DEFENCE],
       platforms: [Platform.MOBILE],
       state:  PlayState.OPPORTUNISTIC,
-    }, {
+    },
+    {
       shard:  "minecraft",
       name:   "Minecraft",
       love:   null,
@@ -225,7 +236,7 @@ const data: Groups<GameData> =
         _style: "no-crop",
       genres: [Genre.SANDBOX, Genre.CLASSICS],
       platforms: [Platform.MOBILE, Platform.CONSOLE, Platform.DESKTOP],
-      state:  PlayState.INFREQUENT,
+      state:  PlayState.RETIRED,
     },
   ],
   
@@ -239,7 +250,8 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
       state:  PlayState.ACTIVE,
-    }, {
+    },
+    {
       shard:  "dance-cube-evo",
       name:   "DanceCube EVO",
       love:   null,
@@ -248,7 +260,8 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.ARCADE],
       state:  PlayState.OPPORTUNISTIC,
-    }, {
+    },
+    {
       shard:  "vivid-stasis",
       name:   "vivid/stasis",
       love:   null,
@@ -257,7 +270,8 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.DESKTOP],
       state:  PlayState.INTERMITTENT,
-    }, {
+    },
+    {
       shard:  "melatonin",
       name:   "Melatonin",
       love:   null,
@@ -266,7 +280,8 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.DESKTOP],
       state:  PlayState.INTERMITTENT,
-    }, {
+    },
+    {
       shard:  "rizline",
       name:   "Rizline",
       love:   null,
@@ -275,7 +290,8 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
       state:  PlayState.INFREQUENT,
-    }, {
+    },
+    {
       shard:  "shinobi-slash",
       name:   "シノビスラッシュ",
       love:   null,
@@ -284,7 +300,8 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
       state:  PlayState.INTERMITTENT,
-    }, {
+    },
+    {
       shard:  "ryceam",
       name:   "RYCEAM",
       love:   null,
@@ -293,7 +310,8 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
       state:  PlayState.INFREQUENT,
-    }, {
+    },
+    {
       shard:  "deemo-2",
       name:   "DEEMO II",
       love:   null,
@@ -302,7 +320,8 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
       state:  PlayState.INFREQUENT,
-    }, {
+    },
+    {
       shard:  "rhythm-plus",
       name:   "Rhythm+",
       love:   null,
@@ -312,7 +331,8 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
-    }, {
+    },
+    {
       shard:  "maimai",
       name:   "maimai",
       love:   null,
@@ -321,7 +341,8 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.ARCADE],
       state:  PlayState.RETIRED,
-    }, {
+    },
+    {
       shard:  "beat-saber",
       name:   "Beat Saber",
       love:   null,
@@ -330,7 +351,8 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.VR],
       state:  PlayState.OPPORTUNISTIC,
-    }, {
+    },
+    {
       shard:  "osu",
       name:   "osu!",
       love:   null,
@@ -351,7 +373,8 @@ const data: Groups<GameData> =
       genres: [Genre.RACING],
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
-    }, {
+    },
+    {
       shard:  "asphalt-8",
       name:   "Asphalt 8: Airborne",
       love:   1,
@@ -360,7 +383,8 @@ const data: Groups<GameData> =
       genres: [Genre.RACING, Genre.CLASSICS],
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
-    }, {
+    },
+    {
       shard:  "air-attack-2",
       name:   "AirAttack 2",
       love:   1,
@@ -369,7 +393,8 @@ const data: Groups<GameData> =
       genres: [Genre.SHMUP],
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
-    }, {
+    },
+    {
       shard:  "air-attack",
       name:   "AirAttack",
       love:   3,
@@ -378,7 +403,8 @@ const data: Groups<GameData> =
       genres: [Genre.SHMUP],
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
-    }, {
+    },
+    {
       shard:  "pvz-2",
       name:   "Plants vs. Zombies 2",
       love:   3,
@@ -387,7 +413,8 @@ const data: Groups<GameData> =
       genres: [Genre.TOWER_DEFENCE, Genre.CLASSICS],
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
-    }, {
+    },
+    {
       shard:  "pvz",
       name:   "Plants vs. Zombies",
       love:   2,
@@ -408,7 +435,8 @@ const data: Groups<GameData> =
       genres: [Genre.RUNNER],
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
-    }, {
+    },
+    {
       shard:  "minion-rush",
       name:   "Minion Rush",
       love:   1,
@@ -417,7 +445,8 @@ const data: Groups<GameData> =
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
       date:   ["childhood"],
-    }, {
+    },
+    {
       shard:  "temple-run-2",
       name:   "Temple Run 2",
       icon:   "temple-run-2.jpg",
@@ -426,7 +455,8 @@ const data: Groups<GameData> =
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
       date:   ["childhood"],
-    }, {
+    },
+    {
       shard:  "temple-run",
       name:   "Temple Run",
       love:   null,
@@ -447,7 +477,8 @@ const data: Groups<GameData> =
       genres: [Genre.IO],
       platforms: [Platform.DESKTOP],
       state:  PlayState.INFREQUENT,
-    }, {
+    },
+    {
       shard:  "diep-io",
       name:   "diep.io",
       love:   3,
@@ -456,7 +487,8 @@ const data: Groups<GameData> =
       genres: [Genre.SHMUP, Genre.IO],
       platforms: [Platform.DESKTOP],
       state:  PlayState.RETIRED,
-    }, {
+    },
+    {
       shard:  "arras-io",
       name:   "arras.io",
       love:   1,
@@ -465,7 +497,8 @@ const data: Groups<GameData> =
       genres: [Genre.SHMUP, Genre.IO],
       platforms: [Platform.DESKTOP],
       state:  PlayState.INFREQUENT,
-    }, {
+    },
+    {
       shard:  "zombs-io",
       name:   "zombs.io",
       love:   1,
@@ -474,7 +507,8 @@ const data: Groups<GameData> =
       platforms: [Platform.DESKTOP],
       state:  PlayState.RETIRED,
       date:   ["childhood"],
-    }, {
+    },
+    {
       shard:  "fightz-io",
       name:   "fightz.io",
       love:   null,

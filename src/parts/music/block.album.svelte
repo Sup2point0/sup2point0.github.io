@@ -34,7 +34,7 @@ let { album }: Props = $props();
   
   <img alt={album.name} title={album.name}
     width="240px" height="240px"
-    src="/covers/music/{album.cover ?? 'preview.png'}"
+    src="/covers/music/create/{album.cover ?? 'preview.png'}"
   />
 </div>
 

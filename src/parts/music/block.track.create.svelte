@@ -25,7 +25,7 @@ let { track }: Props = $props();
   <div class="img-container">
     <img alt={track.name} title={track.name}
       width="200px" height="200px"
-      src="/covers/music/{track.cover ?? 'preview.png'}"
+      src="/covers/music/create/{track.cover ?? 'preview.png'}"
     />
   </div>
 

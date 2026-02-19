@@ -62,12 +62,12 @@ const routes = [
       text="Music I Make"
       capt="electronic, wackcore, game music"
       picts={[
-        "covers/music/cortex.dactyl.png",
-        "covers/music/cortex.voxel.png",
-        "covers/music/elysion.aphenia.png",
-        "covers/music/elysion.ceruleus.png",
-        "covers/music/vision.another-dawn.png",
-        "covers/music/vision.reminiscence.png",
+        "covers/music/create/cortex.dactyl.png",
+        "covers/music/create/cortex.voxel.png",
+        "covers/music/create/elysion.aphenia.png",
+        "covers/music/create/elysion.ceruleus.png",
+        "covers/music/create/vision.another-dawn.png",
+        "covers/music/create/vision.reminiscence.png",
       ]}
       aspect="square"
     />

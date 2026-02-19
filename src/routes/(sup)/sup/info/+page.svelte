@@ -53,14 +53,6 @@ $effect(() => {
       </td>
     </tr>
     <tr>
-      <th> PRONOUNS </th>
-      <td>
-        <span>he</span>
-        <span class="sep">/</span>
-        <span>him</span>
-      </td>
-    </tr>
-    <tr>
       <th> LOCALE </th>
       <td> <span>Antarctica</span> </td>
     </tr>

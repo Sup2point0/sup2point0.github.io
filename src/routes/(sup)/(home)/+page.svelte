@@ -1,17 +1,16 @@
 <script>
 
 import Footer from "#parts/core/footer.svelte";
-import Main from "#src/parts/core/main.svelte";
-import Nav from "#parts/core/nav.svelte";
+import Main   from "#parts/core/main.svelte";
+import Nav    from "#parts/core/nav.svelte";
 
-import ProfileHeader from "./header.svelte";
-import ProfileBio from "./bio.svelte";
+import ProfileHeader     from "./header.svelte";
+import ProfileBio        from "./bio.svelte";
 import ProfileDirections from "./directions.svelte";
 
-import ProfileCards from "./cards.svelte";
-import ProfileLoves from "./loves.svelte";
+import ProfileCards         from "./cards.svelte";
+import ProfileLoves         from "./loves.svelte";
 import ProfileShowerthought from "./showerthought.svelte";
-import ProfileFooter from "./footer.svelte";
 
 </script>
 
@@ -45,7 +44,6 @@ import ProfileFooter from "./footer.svelte";
   <section><ProfileLoves /></section>
 
   <section><ProfileShowerthought /></section>
-  <!-- <section><ProfileFooter /></section> -->
 </Main>
 
 <Footer />

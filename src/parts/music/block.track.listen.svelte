@@ -9,7 +9,7 @@ import { AnimationData, register_animation, calc_delay } from "#scripts/anim.sve
 import { display_date } from "#scripts/utils";
 import type { TrackData } from "#scripts/types/music/listen";
 
-import { artists_data } from "#src/routes/(sup)/sup/music/listen/artists/artists";
+import { artists_data } from "#routes/(sup)/sup/music/listen/artists/artists";
 
 import { onMount } from "svelte";
 import { slide } from "svelte/transition";

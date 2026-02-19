@@ -5,7 +5,7 @@
 import { pick_random } from "#scripts/utils";
 
 import Cards    from "#parts/core/cards.svelte";
-import Clicky   from "#src/parts/ui/clicky.svelte";
+import Clicky   from "#parts/ui/clicky.svelte";
 import LinkCard from "#parts/ui/card.link.svelte";
 
 import { onMount } from "svelte";

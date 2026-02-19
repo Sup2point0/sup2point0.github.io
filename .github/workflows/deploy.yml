@@ -25,14 +25,19 @@ jobs:
           cache: 'npm'
           # cache-dependency-path: ./package-lock.json'
 
-      - name: 'svelte / install'
+      - name: 'svelte / npm install'
         run: npm install
 
-      - name: 'svelte / build'
+      - name: 'svelte / npm run build'
         env:
           BASE_PATH: '/${{ github.event.repository.name }}/site'
         run: |
           npm run build
+
+      - name: 'svelte / npm run test'
+        run: |
+          npx playwright install
+          npm run test
 
       - name: 'github / upload artifacts'
         uses: actions/upload-pages-artifact@v3

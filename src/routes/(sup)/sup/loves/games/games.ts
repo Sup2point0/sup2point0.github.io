@@ -48,8 +48,6 @@ export interface GameData extends Searchable
   
   state: PlayState;
   desc?: string | string[];
-
-  _score?: number;
 }
 
 

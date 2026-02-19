@@ -9,6 +9,10 @@ export type DatePoint = number | string | "childhood" | "present";
 export type Dates = DatePoint | [DatePoint, DatePoint];
 
 
+/** A measure of how much I love something. */
+export type Love = 3 | 2 | 1 | null;
+
+
 /** An object whose keys group arrays of items into categories. */
 export type Groups<Type> = Record<string, Type[]>;
 

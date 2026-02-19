@@ -118,4 +118,15 @@ header {
   gap: 1rem;
 }
 
+
+@media (max-width: $width-shrink) {
+  .chronicle section {
+    flex-flow: column nowrap;
+
+    .bar, .pane {
+      position: unset;
+    }
+  }
+}
+
 </style>

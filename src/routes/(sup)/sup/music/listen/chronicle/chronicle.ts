@@ -61,7 +61,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "save-this-wrld",
         name:    "SAVE THIS WRLD",
         artists: ["exyl"],
-        date:    undefined,
+        date:    "late 2025",
         cover:   "save-this-wrld.jpg",
         genres:  [Genre.ELECTRONIC, Genre.RHYTHM],
         links: {
@@ -76,7 +76,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "spring-klydix-remix",
         name:    "Spring (KLYDIX remix)",
         artists: ["stellaon", "klydix"],
-        date:    undefined,
+        date:    "late 2025",
         cover:   "spring-klydix-remix.jpg",
         genres:  [Genre.ELECTRONIC],
         links: {
@@ -91,7 +91,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "debut",
         name:    "Debut",
         artists: ["katseye"],
-        date:    undefined,
+        date:    "fall 2025",
         cover:   "debut.webp",
         genres:  [Genre.KPOP],
         links: {
@@ -106,7 +106,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "lost-requiem",
         name:    "Lost Requiem",
         artists: ["ludicin"],
-        date:    undefined,
+        date:    "late 2025",
         cover:   "lost-requiem.jpg",
         genres:  [Genre.FULL_FLAVOUR, Genre.RHYTHM],
         links: {
@@ -121,7 +121,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "thick-rain",
         name:    "《粗线条的雨》",
         artists: [],
-        date:    undefined,
+        date:    "fall 2025",
         cover:   "thick-rain.jpg",
         genres:  [],
         links: {
@@ -136,7 +136,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "natsu",
         name:    "Natsu!",
         artists: ["wave-meow"],
-        date:    undefined,
+        date:    "fall 2025",
         cover:   "natsu.jpg",
         genres:  [Genre.DRUM_N_BASS, Genre.RHYTHM],
         links: {
@@ -151,7 +151,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "flutter-echo",
         name:    "Flutter Echo",
         artists: ["cansol"],
-        date:    undefined,
+        date:    "fall 2025",
         cover:   "flutter-echo.jpg",
         genres:  [Genre.ELECTRONIC, Genre.KAWAII, Genre.DRUM_N_BASS],
         links: {
@@ -166,7 +166,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "your-idol",
         name:    "Your Idol",
         artists: ["saja-boys", "k-pop-demon-hunters"],
-        date:    undefined,
+        date:    "summer 2025",
         cover:   "your-idol.jpg",
         genres:  [Genre.KPOP, Genre.TRAP],
         links: {
@@ -181,7 +181,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "ignotus",
         name:    "Ignotus",
         artists: ["ak-q"],
-        date:    undefined,
+        date:    "fall 2025",
         cover:   "ignotus.webp",
         genres:  [Genre.ARTCORE, Genre.RHYTHM],
         links: {
@@ -196,7 +196,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "playing-god",
         name:    "Playing God",
         artists: ["polyphia"],
-        date:    undefined,
+        date:    "spring 2025",
         cover:   "playing-god.jpg",
         genres:  [Genre.TRANSCENDENTAL, Genre.GUITAR],
         links: {
@@ -211,7 +211,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "amethyst",
         name:    "Amethyst",
         artists: ["kanro"],
-        date:    undefined,
+        date:    "spring 2025",
         cover:   "amethyst.jpg",
         genres:  [],
         links: {
@@ -226,7 +226,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "final-showdown",
         name:    "Final Showdown",
         artists: ["hookington"],
-        date:    undefined,
+        date:    "spring 2025",
         cover:   "final-showdown.jpg",
         genres:  [],
         links: {
@@ -257,7 +257,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "what-if",
         name:    "What If",
         artists: ["stessie"],
-        date:    undefined,
+        date:    "spring 2025",
         cover:   "what-if.jpg",
         genres:  [Genre.ELECTRONIC],
         vibes:   [Vibe.HAPPY],
@@ -273,7 +273,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "what-could-have-been",
         name:    "What Could Have Been",
         artists: ["sting"],
-        date:    undefined,
+        date:    "spring 2025",
         cover:   "what-could-have-been.jpg",
         genres:  [],
         vibes:   [Vibe.EMOTIONAL],
@@ -289,7 +289,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "dopamine-dnb-remix",
         name:    "Dopamine (DnB remix)",
         artists: ["wing"],
-        date:    undefined,
+        date:    "spring 2025",
         cover:   "dopamine-dnb.jpg",
         genres:  [Genre.BEATBOX, Genre.DRUM_N_BASS],
         links: {
@@ -304,7 +304,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "new-start",
         name:    "New Start",
         artists: ["pikasonic"],
-        date:    undefined,
+        date:    "early 2025",
         cover:   "new-start.jpg",
         genres:  [Genre.KAWAII_FUTURE_BASS],
         vibes:   [Vibe.HAPPY],
@@ -320,7 +320,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "sakura-fubiki",
         name:    "Sakura Fubiki",
         artists: ["street"],
-        date:    undefined,
+        date:    "summer 2024",
         cover:   "sakura-fubiki.jpg",
         genres:  [Genre.RHYTHM, Genre.NEUROFUNK],
         links: {
@@ -335,7 +335,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "grimheart",
         name:    "Grimheart",
         artists: ["puru"],
-        date:    undefined,
+        date:    "summer 2024",
         cover:   "grimheart.jpg",
         genres:  [Genre.TRAP],
         vibes:   [Vibe.CHILLOUT],
@@ -722,7 +722,7 @@ export const chronicle_data: ChronicleData[] = [
         name:    "Friendship Games",
         artists: ["mlp"],
         date:    undefined,
-        cover:   "friendship-games.webp",
+        cover:   "friendship-games.jpg",
         genres:  [],
         links: {
           youtube: "",

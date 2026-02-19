@@ -1,5 +1,5 @@
 import { Genre, Vibe, type TrackData } from "#scripts/types/music";
-import { a, i } from "#scripts/utils";
+import { a, h, i } from "#scripts/utils";
 import type { Dates } from "#scripts/types";
 
 
@@ -354,42 +354,42 @@ export const chronicle_data: ChronicleData[] = [
     date: 2023,
     tracks: [
       {
-        shard:   "",
+        shard:   "bibbidiba",
         name:    "BIBBIDIBA",
-        artists: [],
-        date:    undefined,
-        cover:   undefined,
-        genres:  [],
+        artists: ["hoshimachi-suisei"],
+        date:    "spring 2025",
+        cover:   "bibbidiba.png",
+        genres:  [Genre.JPOP],
         links: {
           youtube: "",
         },
-        discovered: ``,
+        discovered: `YouTube Music reccs`,
         desc: [
           ``,
         ],
       },
       {
-        shard:   "",
+        shard:   "mend-your-ways",
         name:    "Mend Your Ways",
-        artists: [],
-        date:    undefined,
-        cover:   undefined,
-        genres:  [],
+        artists: ["such", "psyqui"],
+        date:    "spring 2025",
+        cover:   "mend-your-ways.jpg",
+        genres:  [Genre.JCORE, Genre.NEUROFUNK],
         links: {
           youtube: "",
         },
-        discovered: ``,
+        discovered: `YouTube Music reccs`,
         desc: [
           ``,
         ],
       },
       {
-        shard:   "",
+        shard:   "bug",
         name:    "バグ / 25時、ナイトコードで。",
         artists: [],
         date:    undefined,
-        cover:   undefined,
-        genres:  [],
+        cover:   "bug.jpg",
+        genres:  [Genre.JCORE],
         links: {
           youtube: "",
         },
@@ -399,61 +399,61 @@ export const chronicle_data: ChronicleData[] = [
         ],
       },
       {
-        shard:   "",
+        shard:   "i-wanna-be-a-girl",
         name:    "I wanna be a girl",
-        artists: [],
+        artists: ["mafumafu"],
         date:    undefined,
-        cover:   undefined,
+        cover:   "i-wanna-be-a-girl.jpg",
         genres:  [],
         links: {
           youtube: "",
         },
-        discovered: ``,
+        discovered: `Rhythm+ (browser rhythm game)`,
         desc: [
           ``,
         ],
       },
       {
-        shard:   "",
+        shard:   "beyond-the-way",
         name:    "Beyond the Way",
-        artists: [],
+        artists: ["giga", "miku", "ren"],
         date:    undefined,
-        cover:   undefined,
-        genres:  [],
+        cover:   "beyond-the-way.jpg",
+        genres:  [Genre.TRAP, Genre.VOCALOID],
         links: {
           youtube: "",
         },
-        discovered: ``,
+        discovered: `YouTube reccs`,
         desc: [
           ``,
         ],
       },
       {
-        shard:   "",
+        shard:   "tabun",
         name:    "たぶん",
-        artists: [],
+        artists: ["yoasobi"],
         date:    undefined,
-        cover:   undefined,
-        genres:  [],
+        cover:   "tabun.png",
+        genres:  [Genre.JCORE, Genre.LOFI],
         links: {
           youtube: "",
         },
-        discovered: ``,
+        discovered: `YOASOBI discography`,
         desc: [
           ``,
         ],
       },
       {
-        shard:   "",
+        shard:   "idol",
         name:    "「アイドル」",
-        artists: [],
+        artists: ["yoasobi"],
         date:    undefined,
-        cover:   undefined,
-        genres:  [],
+        cover:   "idol.png",
+        genres:  [Genre.JPOP, Genre.ANIME],
         links: {
           youtube: "",
         },
-        discovered: ``,
+        discovered: `${h("Oshi no Ko")} anime`,
         desc: [
           ``,
         ],
@@ -465,16 +465,17 @@ export const chronicle_data: ChronicleData[] = [
     date: 2024,
     tracks: [
       {
-        shard:   "",
+        shard:   "sentient",
         name:    "Sentient",
-        artists: [],
+        artists: ["gavin-luke"],
         date:    undefined,
-        cover:   undefined,
-        genres:  [],
+        cover:   "sentient.jpg",
+        genres:  [Genre.PIANO],
+        vibes:   [Vibe.EMOTIONAL],
         links: {
           youtube: "",
         },
-        discovered: ``,
+        discovered: `YouTube reccs`,
         desc: [
           ``,
         ],
@@ -717,41 +718,41 @@ export const chronicle_data: ChronicleData[] = [
     date: [2019, 2022],
     tracks: [
       {
-        shard:   "",
+        shard:   "friendship-games",
         name:    "Friendship Games",
-        artists: [],
+        artists: ["mlp"],
         date:    undefined,
-        cover:   undefined,
+        cover:   "friendship-games.webp",
         genres:  [],
         links: {
           youtube: "",
         },
-        discovered: ``,
+        discovered: `childhood`,
         desc: [
           ``,
         ],
       },
       {
-        shard:   "",
+        shard:   "suzume",
         name:    "Suzume",
-        artists: [],
+        artists: ["radwimps", "Toaka"],
         date:    undefined,
-        cover:   undefined,
+        cover:   "suzume.jpg",
         genres:  [],
         links: {
           youtube: "",
         },
-        discovered: ``,
+        discovered: `${h("Suzume no Tojimari")} anime`,
         desc: [
           ``,
         ],
       },
       {
-        shard:   "",
+        shard:   "geometric-love",
         name:    "Proof Geometric Construction Can Solve All Love Affairs",
         artists: [],
         date:    undefined,
-        cover:   undefined,
+        cover:   "geometric-love.jpg",
         genres:  [],
         links: {
           youtube: "",
@@ -762,11 +763,11 @@ export const chronicle_data: ChronicleData[] = [
         ],
       },
       {
-        shard:   "",
+        shard:   "suzume-ultraman-zero",
         name:    "Susume! Ultraman Zero",
         artists: [],
         date:    undefined,
-        cover:   undefined,
+        cover:   "susume.jpg",
         genres:  [],
         links: {
           youtube: "",
@@ -777,11 +778,11 @@ export const chronicle_data: ChronicleData[] = [
         ],
       },
       {
-        shard:   "",
+        shard:   "are-you-happy",
         name:    "Are You Happy",
         artists: [],
         date:    undefined,
-        cover:   undefined,
+        cover:   "make-happy.jpg",
         genres:  [],
         links: {
           youtube: "",
@@ -792,11 +793,11 @@ export const chronicle_data: ChronicleData[] = [
         ],
       },
       {
-        shard:   "",
+        shard:   "up-in-the-hills",
         name:    "Up in the Hills",
         artists: [],
         date:    undefined,
-        cover:   undefined,
+        cover:   "stowaway-home.jpg",
         genres:  [],
         links: {
           youtube: "",
@@ -807,11 +808,11 @@ export const chronicle_data: ChronicleData[] = [
         ],
       },
       {
-        shard:   "",
+        shard:   "rong-yao-de-zhan-chang",
         name:    "荣耀的战场",
         artists: [],
         date:    undefined,
-        cover:   undefined,
+        cover:   "rong-yao-de-zhan-chang.jpg",
         genres:  [],
         links: {
           youtube: "",
@@ -960,7 +961,7 @@ export const chronicle_data: ChronicleData[] = [
         name:    "Home",
         artists: ["vexento"],
         date:    undefined,
-        cover:   undefined,
+        cover:   "home.jpg",
         genres:  [Genre.DOWNTEMPO],
         vibes:   [Vibe.CHILLOUT, Vibe.HAPPY],
         links: {
@@ -977,7 +978,7 @@ export const chronicle_data: ChronicleData[] = [
         name:    "When You’re Gone",
         artists: ["avril-lavigne"],
         date:    undefined,
-        cover:   undefined,
+        cover:   "when-youre-gone.jpg",
         genres:  [Genre.POP],
         vibes:   [Vibe.EMOTIONAL],
         links: {
@@ -993,12 +994,12 @@ export const chronicle_data: ChronicleData[] = [
         name:    "Never Gonna Give You Up",
         artists: ["rick-astley"],
         date:    undefined,
-        cover:   undefined,
+        cover:   "never-gonna-give-you-up.jpg",
         genres:  [Genre.POP],
         links: {
           youtube: "",
         },
-        discovered: ``,
+        discovered: `??`,
         desc: [
           `I unironically enjoy this song, alright? Also, you should check ${a("this<sup>↗</sup>", "https://youtube.com/watch?v=yPYZpwSpKmA")} out ;)`,
         ],

@@ -232,7 +232,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkB2wYNdQ7vwkvGyJz1xw6KL",
       },
-      discovered: `YouTube reccs`,
+      discovered: `${h("Sentient")} in YouTube reccs`,
     },
   ],
   "mood": [
@@ -911,6 +911,20 @@ const data: Groups<ArtistData> =
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkDo8xDD039YebXy0ONQyPOA",
       },
       discovered: `some Ultraman video on YouTube`,
+    },
+    {
+      shard:  "the-script",
+      name:   "The Script",
+      date:   "childhood",
+      icon:   "the-script.jpg",
+      genres: [Genre.ROCK, Genre.POP,],
+      track: {
+        name: "Breakeven", link: "https://youtube.com/watch?v=MzCLLHscMOw&list=PLYWIouv-DSkDwQhcy2I5dhtK5hKayqd6o"
+      },
+      links: {
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkDwQhcy2I5dhtK5hKayqd6o",
+      },
+      discovered: `childhood`,
     },
     {
       shard:  "owl-city",

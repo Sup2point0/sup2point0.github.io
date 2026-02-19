@@ -39,6 +39,7 @@ export enum Genre {
   KAWAII             = "kawaii",
   KAWAII_FUTURE_BASS = "kawaii future bass",
   KPOP               = "k-pop",
+  LOFI               = "lo-fi",
   MUSIC              = "music",
   NEUROFUNK          = "neurofunk",
   ORCHESTRAL         = "orchestral",

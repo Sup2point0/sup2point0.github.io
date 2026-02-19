@@ -58,6 +58,7 @@ import { chronicle_data } from "./chronicle";
 
 .chronicle {
   width: 100%;
+  max-width: max-content;
   padding: 0 2rem;
   display: flex;
   flex-flow: column nowrap;
@@ -66,6 +67,7 @@ import { chronicle_data } from "./chronicle";
   section {
     display: flex;
     flex-flow: row nowrap;
+    justify-content: space-between;
     align-items: stretch;
     gap: 4rem;
   }
@@ -74,14 +76,15 @@ import { chronicle_data } from "./chronicle";
 
 .bar {
   width: 0.1rem;
-  height: 85vh;
+  max-height: 85vh;
   position: sticky;
-  top: 10vh;
+  top: 5rem;
   background: white;
   border-radius: 0.05rem;
 }
 
 .pane {
+  flex-grow: 1;
   height: 100%;
   position: sticky;
   top: 5rem;
@@ -109,6 +112,7 @@ header {
 
 .content {
   flex-grow: 2;
+  max-width: max-content;
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;

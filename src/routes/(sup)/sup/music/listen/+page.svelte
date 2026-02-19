@@ -15,6 +15,20 @@ import LinkCard from "#parts/ui/card.link.svelte";
 <Cards>
   <!-- <LinkCard link="/sup/music/listen/tracks" text="tracks I listen to" /> -->
   <LinkCard
+    link="/sup/music/listen/chronicle"
+    text="iconic tracks"
+    picts={[
+      "covers/music/listen/what-if.jpg",
+      "covers/music/listen/ming-huo.jpg",
+      "covers/music/listen/synthesis.jpg",
+      "covers/music/listen/oo-parts.jpg",
+      "covers/music/listen/ashed-wings.jpg",
+      "covers/music/listen/terabyte-connection.jpg",
+      "covers/music/listen/united.jpg",
+    ]}
+    aspect="square"
+  />
+  <LinkCard
     link="/sup/music/listen/artists"
     text="artists I listen to"
     picts={[
@@ -28,5 +42,4 @@ import LinkCard from "#parts/ui/card.link.svelte";
     aspect="square"
   />
   <LinkCard link="/sup/music/listen/genres" text="genres I listen to" />
-  <LinkCard link="/sup/music/listen/chronicle" text="taste over the years" />
 </Cards>

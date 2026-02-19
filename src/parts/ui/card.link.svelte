@@ -5,6 +5,8 @@ A card that links to another page.
 
 <script lang="ts">
 
+import sample from "@stdlib/random-sample";
+
 import { shuffle } from "#scripts/utils";
 
 import { base } from "$app/paths";
@@ -22,6 +24,9 @@ interface Props {
 
 let { link, text, capt, picts, fixed = false, aspect = "tall", children }: Props = $props();
 
+
+const picts_shuffled = sample(picts ?? [], { replace: false }).slice(0, 5);
+
 </script>
 
 
@@ -30,7 +35,7 @@ let { link, text, capt, picts, fixed = false, aspect = "tall", children }: Props
 >
   {#if picts}
     <div class="picts {aspect}">
-      {#each (fixed ? picts : shuffle(picts)) as pict}
+      {#each (fixed ? picts : picts_shuffled) as pict}
         <div class="img-container">
           <img alt="" src="{base}/{pict}" />
         </div>

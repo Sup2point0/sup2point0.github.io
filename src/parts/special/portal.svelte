@@ -33,7 +33,10 @@ function should_activate(e: KeyboardEvent): boolean
   if (live) return false;
 
   return (
-    e.key.toLowerCase() === "k" && (e.ctrlKey || e.metaKey)
+    (e.ctrlKey || e.metaKey) && (
+      e.key.toLowerCase() === "k"
+      || e.key === "/"
+    )
   );
 }
 
@@ -74,10 +77,10 @@ function activate(state: boolean): (e: Event) => void
 {#if live}
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <!-- svelte-ignore a11y_click_events_have_key_events -->
-  <div class="portal-overlay"
+  <!-- <div class="portal-overlay"
     onclick={activate(false)}
     transition:fade={{ duration: 250 }}
-  ></div>
+  ></div> -->
 
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -85,7 +88,7 @@ function activate(state: boolean): (e: Event) => void
     class:live={anim}
     onclick={e => e.stopPropagation()}
     out:scale={{ start: 0.9, duration: 500, easing: expoOut }}
-  >
+    >
     <!-- in:scale={{ start: 0.85, duration: 700, easing: expoOut }}
     out:fade={{ duration: 300 }} -->
     <SearchInput bind:input={search_input} bind:query />
@@ -117,12 +120,23 @@ function activate(state: boolean): (e: Event) => void
 
   --delay: 0.1s;
   transform: translateX(-50%) translateY(-50%) scale(85%);
-  opacity: 0;
   transition: all #{trans-exp()};
+
+  :global(> .input-container::before),
+  :global(> .input-container > input)
+  {
+    opacity: 0;
+    transition: all #{trans-exp()};
+  }
   
   &.live {
     transform: translateX(-50%) translateY(-50%);
-    opacity: 1;
+
+    :global(> .input-container::before),
+    :global(> .input-container > input)
+    {
+      opacity: 1;
+    }
   }
 }
 

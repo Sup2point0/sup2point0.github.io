@@ -18,7 +18,7 @@ export function anim(node: HTMLElement): void
 
 
 /** DEPRECATED */
-export function register_animation(root: HTMLElement, anim: AnimationData): void
+export function register_animation(root: HTMLElement, anim: AnimationData)
 {
   if (!root) {
     console.warn("failed to attach animation handler!");
@@ -43,6 +43,8 @@ export function register_animation(root: HTMLElement, anim: AnimationData): void
   );
 
   observer.observe(root);
+
+  return () => observer.unobserve(root);
 }
 
 /** DEPRECATED */

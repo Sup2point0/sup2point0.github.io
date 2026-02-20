@@ -5,12 +5,9 @@ A block displaying info for a media, series, anime, show, etc.
 
 <script lang="ts">
 
+import { anim } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 import type { MediaData } from "#scripts/types/media";
-
-import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
-
-import { onMount } from "svelte";
 
 
 interface Props {
@@ -20,26 +17,12 @@ interface Props {
 
 let { kind, media }: Props = $props();
 
-
-let self: HTMLElement;
-let anim = new AnimationData();
-
-onMount(() => {
-  if (self) {
-    register_animation(self, anim);
-  } else {
-    setTimeout(() => register_animation(self, anim), 1000);
-  }
-});
-
 </script>
 
 
-<button class="media {kind} block"
-  class:intersected={anim.intersected}
+<button class="block-media {kind}"
   id={media.shard}
-  bind:this={self}
-  style:--delay={calc_delay(anim, 0.2)}
+  {@attach anim}
 >
   <div class="content">
     <img alt={media.name} title={media.name}
@@ -110,7 +93,7 @@ onMount(() => {
 @use 'sass:color';
 
 
-button.block.media {
+.block-media {
   flex-grow: 1;
   max-width: 36rem;
   padding: 1rem 2.5rem;
@@ -144,7 +127,8 @@ button.block.media {
   opacity: 0;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
 
-  button.block.media.intersected & {
+  /* NOTE: Need `:global` to avoid CSS being purged!! */
+  :global(.block-media.intersected) & {
     transform: none;
     opacity: 1;
   }
@@ -156,7 +140,7 @@ img {
   box-shadow: 0 8px 16px rgb(black, 40%);
   transition: #{trans()};
 
-  button.block.media:where(:hover, :focus-visible) & {
+  .block-media:where(:hover, :focus-visible) & {
     transform: scale(103%);
   }
 }
@@ -187,7 +171,7 @@ img {
     color: $col-text;
     text-align: start;
 
-    .block.media.active &, .block.media.opportunistic & {
+    .block-media.active &, .block-media.opportunistic & {
       color: $col-quat;
     }
   }

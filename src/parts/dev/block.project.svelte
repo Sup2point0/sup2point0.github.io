@@ -2,12 +2,9 @@
 
 <script lang="ts">
 
+import { anim } from "#scripts/anim.svelte.ts";
 import { shardify, display_date } from "#scripts/utils";
 import type { ProjectData } from "#sup/projects/projects";
-
-import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
-
-import { onMount } from "svelte";
 
 
 interface Props {
@@ -16,27 +13,13 @@ interface Props {
 
 let { project }: Props = $props();
 
-
-let self: HTMLElement;
-let anim = new AnimationData();
-
-onMount(() => {
-  if (self) {
-    register_animation(self, anim);
-  } else {
-    setTimeout(() => register_animation(self, anim), 1000);
-  }
-});
-
 </script>
 
 
-<button class="project block"
-  class:intersected={anim.intersected}
+<button class="block-project"
   class:shrink={project.name.length > 20}
   id={project.shard}
-  bind:this={self}
-  style:--delay={calc_delay(anim, 0.2)}
+  {@attach anim}
 >
   <div class="content">
 
@@ -139,7 +122,7 @@ onMount(() => {
 @use 'sass:color';
 
 
-.block.project {
+.block-project {
   flex-grow: 1;
   max-width: 36rem;
   padding: 1rem 1rem 1rem 2.5rem;
@@ -169,7 +152,8 @@ onMount(() => {
   opacity: 0;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
 
-  button.block.project.intersected & {
+  /* NOTE: Need `:global` to avoid CSS being purged!! */
+  :global(.block-project.intersected) & {
     transform: none;
     opacity: 1;
   }
@@ -349,7 +333,7 @@ img.project-icon {
 
 
 @media (min-width: $width-expand) {
-  .block.project {
+  .block-project {
     max-width: 40rem;
   }
 }

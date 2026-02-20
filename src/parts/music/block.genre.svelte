@@ -2,11 +2,9 @@
 
 <script lang="ts">
 
-import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
+import { anim } from "#scripts/anim.svelte.ts";
 import { shardify } from "#scripts/utils";
 import type { GenreData } from "#scripts/types";
-
-import { onMount } from "svelte";
 
 
 interface Props {
@@ -15,27 +13,13 @@ interface Props {
 
 let { genre }: Props = $props();
 
-
-let self: HTMLElement;
-let anim = new AnimationData();
-
-onMount(() => {
-  if (self) {
-    register_animation(self, anim);
-  } else {
-    setTimeout(() => register_animation(self, anim), 1000);
-  }
-});
-
 </script>
 
 
-<button class="genre block {genre.kind}"
-  class:intersected={anim.intersected}
+<button class="block-genre {genre.kind}"
   class:fav={genre.fav}
   id={genre.name.toLowerCase()}
-  bind:this={self}
-  style:--delay={calc_delay(anim)}
+  {@attach anim}
 >
   <div class="content">
     <div class="upper">
@@ -81,7 +65,7 @@ onMount(() => {
 @use 'sass:color';
 
 
-button.block.genre {
+.block-genre {
   flex-grow: 1;
   max-width: 32rem;
   padding: 1rem 1.5rem;
@@ -106,7 +90,8 @@ button.block.genre {
   opacity: 0;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
 
-  button.block.genre.intersected & {
+  /* NOTE: Need `:global` to avoid CSS being purged!! */
+  :global(.block-genre.intersected) & {
     transform: none;
     opacity: 1;
   }

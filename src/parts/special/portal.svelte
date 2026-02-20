@@ -5,13 +5,11 @@ An overlay for quick navigation and commands execution.
 
 <script lang="ts">
   
-import SearchInput from "#parts/ui/search-input.svelte";
-
 import { fade, scale } from "svelte/transition";
 import { expoOut } from "svelte/easing";
 
 
-let search_input: HTMLInputElement | null = null;
+let input: HTMLInputElement | null = null;
 let previously_focused: HTMLElement | null = null;
 
 let live  = $state(false);
@@ -51,7 +49,7 @@ function activate(state: boolean): (e: Event) => void
 
       if (live) {
         previously_focused = document.activeElement;
-        search_input?.focus();
+        input?.focus();
       } else {
         previously_focused?.focus();
       }
@@ -77,10 +75,10 @@ function activate(state: boolean): (e: Event) => void
 {#if live}
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <!-- svelte-ignore a11y_click_events_have_key_events -->
-  <!-- <div class="portal-overlay"
+  <div class="portal-overlay"
     onclick={activate(false)}
     transition:fade={{ duration: 250 }}
-  ></div> -->
+  ></div>
 
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -88,10 +86,15 @@ function activate(state: boolean): (e: Event) => void
     class:live={anim}
     onclick={e => e.stopPropagation()}
     out:scale={{ start: 0.9, duration: 500, easing: expoOut }}
-    >
-    <!-- in:scale={{ start: 0.85, duration: 700, easing: expoOut }}
-    out:fade={{ duration: 300 }} -->
-    <SearchInput bind:input={search_input} bind:query />
+  >
+    <div class="input-container">
+      <input type="search"
+        bind:value={query}
+        bind:this={input}
+        name="portal"
+        placeholder="quicknav to page, run a command, or search for secrets!"
+      />
+    </div>
   </div>
 {/if}
 
@@ -106,8 +109,8 @@ function activate(state: boolean): (e: Event) => void
   top: 0;
   left: 0;
 
-  background: rgb(black, 20%);
-  backdrop-filter: blur(4px);
+  background: rgb(black, 25%);
+  backdrop-filter: blur(8px);
 }
 
 .portal-content {
@@ -121,23 +124,69 @@ function activate(state: boolean): (e: Event) => void
   --delay: 0.1s;
   transform: translateX(-50%) translateY(-50%) scale(85%);
   transition: all #{trans-exp()};
-
-  :global(> .input-container::before),
-  :global(> .input-container > input)
-  {
-    opacity: 0;
-    transition: all #{trans-exp()};
-  }
   
   &.live {
     transform: translateX(-50%) translateY(-50%);
+  }
+}
 
-    :global(> .input-container::before),
-    :global(> .input-container > input)
-    {
-      opacity: 1;
+.input-container {
+  width: min(36rem, 80vw);
+  @include shear-card();
+  transition: #{trans()};
+
+  &::before {
+    background: rgb(white, 25%);
+    opacity: 0;
+    transition: opacity #{trans-exp()};
+  }
+
+  &:hover, &:has(input:focus) {
+    width: min(37rem, 85vw);
+
+    &::before {
+      background: rgb(white, 30%);
     }
   }
+
+  &:has(input:active)::before {
+    background: rgb(#ccc, 30%);
+  }
+
+  .portal-content.live &::before {
+    opacity: 1;
+  }
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem 1rem 0.45rem;
+
+  appearance: none;
+  @include font-fun;
+  font-size: 1.25rem;
+  color: $col-text;
+  background: none;
+  border: none;
+  outline: none;
+  opacity: 0;
+  transition: all #{trans-exp()};
+
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .portal-content.live & {
+    opacity: 1;
+  }
+}
+
+input::placeholder {
+  @include font-fun;
+  font-size: 1.25rem;
+  color: $col-deut;
 }
 
 </style>

@@ -7,21 +7,19 @@ A search input bar.
 
 interface Props {
   query: string;
+  input: HTMLInputElement | null;
 }
 
-let { query = $bindable() }: Props = $props();
-
-
-let self: HTMLInputElement;
+let { query = $bindable(), input = $bindable() }: Props = $props();
 
 </script>
 
 
 <svelte:window onkeydown={e => {
   if (e.key === "f") {
-    if (e.ctrlKey || document.activeElement !== self) {
+    if (e.ctrlKey || document.activeElement !== input) {
       e.preventDefault();
-      self.focus();
+      input.focus();
     }
   }
 }} />
@@ -31,7 +29,7 @@ let self: HTMLInputElement;
   <input type="search"
     bind:value={query}
     placeholder="search"
-    bind:this={self}
+    bind:this={input}
   />
 </div>
 

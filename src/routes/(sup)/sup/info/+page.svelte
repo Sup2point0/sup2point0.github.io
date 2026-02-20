@@ -6,7 +6,7 @@ import Clicky   from "#parts/ui/clicky.svelte";
 import FactCard from "#parts/ui/card.fact.svelte";
 import Block    from "#parts/ui/block.svelte";
 import Header   from "#parts/ui/header.svelte";
-import PurplePortal from "#parts/special/portal.svelte";
+import PurplePortal from "#parts/special/purple-portal.svelte";
 
 import { facts_pinned, facts } from "./facts";
 import type { Fact } from "./facts";

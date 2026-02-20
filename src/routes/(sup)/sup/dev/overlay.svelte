@@ -39,7 +39,12 @@ let displayed_projects = $derived(
 
 
 <svelte:document
-  onkeydown={e => { if (e.key === "Escape") entity = null; }}
+  onkeydown={e => {
+    if (e.key === "Escape") {
+      entity = null;
+      e.preventDefault();
+    }
+  }}
 />
 
 {#if entity}

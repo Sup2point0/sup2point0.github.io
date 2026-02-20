@@ -2,7 +2,8 @@
 
 import "#styles/essence.scss";
 
-import Back from "#parts/core/back.svelte";
+import Back   from "#parts/core/back.svelte";
+import Portal from "#parts/special/portal.svelte";
 
 import { onNavigate } from "$app/navigation";
 
@@ -34,6 +35,8 @@ onNavigate(navigation => {
     <p class="error"> Uh, something went wrong! </p>
   {/if}
 </div>
+
+<Portal />
 
 
 <style lang="scss">

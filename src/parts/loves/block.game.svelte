@@ -1,16 +1,10 @@
-<!-- @component GameBlock
-
-A block displaying info for a game.
--->
+<!-- @component GameBlock -->
 
 <script lang="ts">
 
+import { anim } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 import { type GameData } from "#sup/loves/games/games";
-
-import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
-
-import { onMount } from "svelte";
 
 
 interface Props {
@@ -19,70 +13,58 @@ interface Props {
 
 let { game }: Props = $props();
 
-
-let self: HTMLElement;
-let anim = new AnimationData();
-
-onMount(() => {
-  if (self) {
-    register_animation(self, anim);
-  } else {
-    setTimeout(() => register_animation(self, anim), 1000);
-  }
-});
-
 </script>
 
 
 <button class="game block {game.state} {game._style}"
-  class:intersected={anim.intersected}
   id={game.shard}
-  bind:this={self}
-  style:--delay={calc_delay(anim, 0.2)}
+  {@attach anim}
 >
   <div class="content">
-    <div class="img-container">
-      <img alt={game.name} title={game.name}
-        width="120px" height="120px"
-        src={game.icon ? `/icons/games/${game.icon}` : "/purple-portal.png"}
-      />
-    </div>
 
-    <div class="info">
-      <div class="upper">
-        <h3> {game.name} </h3>
+<div class="img-container">
+  <img alt={game.name} title={game.name}
+    width="120px" height="120px"
+    src={game.icon ? `/icons/games/${game.icon}` : "/purple-portal.png"}
+  />
+</div>
 
-        {#if game.love}
-          <p class="love">
-            {#each { length: game.love } as _}
-              ❤️‍🔥
-            {/each}
-          </p>
-        {/if}
-      </div>
+<div class="info">
+  <div class="upper">
+    <h3> {game.name} </h3>
 
-      <div class="inner">
-        {#if game.date}
-          <p class="date">
-            {display_date(game.date)}
-          </p>
+    {#if game.love}
+      <p class="love">
+        {#each { length: game.love } as _}
+          ❤️‍🔥
+        {/each}
+      </p>
+    {/if}
+  </div>
 
-          <span class="separator"> × </span>
-        {/if}
+  <div class="inner">
+    {#if game.date}
+      <p class="date">
+        {display_date(game.date)}
+      </p>
 
-        <p class="state {game.state}">
-          {game.state.toUpperCase()}
-        </p>
-      </div>
+      <span class="separator"> × </span>
+    {/if}
 
-      <div class="lower">
-        <ul class="genres">
-          {#each game.genres ?? [] as genre}
-            <li> {genre} </li>
-          {/each}
-        </ul>
-      </div>
-    </div>
+    <p class="state {game.state}">
+      {game.state.toUpperCase()}
+    </p>
+  </div>
+
+  <div class="lower">
+    <ul class="genres">
+      {#each game.genres ?? [] as genre}
+        <li> {genre} </li>
+      {/each}
+    </ul>
+  </div>
+</div>
+
   </div>
 </button>
 

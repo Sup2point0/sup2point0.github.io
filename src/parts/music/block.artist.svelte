@@ -2,11 +2,9 @@
 
 <script lang="ts">
 
-import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
+import { anim } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 import type { ArtistData } from "#scripts/types";
-
-import { onMount } from "svelte";
 
 
 interface Props {
@@ -15,27 +13,13 @@ interface Props {
 
 let { artist }: Props = $props();
 
-
-let self: HTMLElement;
-let anim = new AnimationData();
-
-onMount(() => {
-  if (self) {
-    register_animation(self, anim);
-  } else {
-    setTimeout(() => register_animation(self, anim), 1000);
-  }
-});
-
 </script>
 
 
-<button class="artist block"
-  class:intersected={anim.intersected}
+<button class="block-artist"
   class:shrink={artist.name.length > 12}
   id={artist.shard}
-  bind:this={self}
-  style:--delay={calc_delay(anim)}
+  {@attach anim}
 >
   <div class="content">
 
@@ -87,6 +71,7 @@ onMount(() => {
         {#each Object.entries(artist.links) as [platform, link]}
           <a target="_blank" href={link} rel="external">
             <img
+              class="platform"
               alt={platform}
               title={platform.toUpperCase()}
               src="/icons/socials/{platform}.svg"
@@ -119,17 +104,22 @@ onMount(() => {
 @use 'sass:color';
 
 
-button.block.artist {
+.block-artist {
   flex-grow: 1;
   max-width: 32rem;
   padding: 1rem 1.5rem;
   background: none;
   border: none;
+  transition: #{trans()};
   @include shear-card($interactive: true);
   @include anim-block;
 
   &:hover {
     cursor: auto;
+  }
+
+  &.intersected :global {
+    background: red !important;
   }
 }
 
@@ -144,7 +134,8 @@ button.block.artist {
   opacity: 0;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
 
-  button.block.artist.intersected & {
+  /* NOTE: Need `:global` to avoid CSS being purged!! */
+  :global(.block-artist.intersected) & {
     transform: none;
     opacity: 1;
   }
@@ -160,7 +151,7 @@ button.block.artist {
     box-shadow: 0 8px 16px rgb(black, 40%);
     transition: #{trans()};
 
-    button.block.artist:hover & {
+    .block-artist:hover & {
       box-shadow: 0 0 42px rgb(white, 20%);
       animation-name: shine;
       animation-duration: 0.8s;
@@ -275,7 +266,7 @@ button.block.artist {
     color: $col-quat;
     text-align: start;
 
-    button.shrink & {
+    .block-artist.shrink & {
       font-size: 200%;
     }
   }
@@ -302,7 +293,7 @@ button.block.artist {
     text-align: left;
   }
 
-  img {
+  img.platform {
     max-height: 1.5rem;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -319,16 +310,16 @@ button.block.artist {
       filter: brightness(75%);
     }
     
-    button.block.artist:hover & {
+    .block-artist:hover & {
       opacity: 1;
     }
   }
 }
 
-:global(button.block.artist p.discovered a) {
+:global(button.block-artist p.discovered a) {
   @include link;
 }
-:global(button.block.artist p.discovered .highlight) {
+:global(button.block-artist p.discovered .highlight) {
   color: $col-acc;
 }
 

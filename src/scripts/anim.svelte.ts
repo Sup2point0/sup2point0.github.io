@@ -1,18 +1,36 @@
-export class AnimationData {
+export class AnimationData
+{
   intersected: boolean = $state(false);
-  left: number = $state(0);
-  top: number = $state(0);
+  left: number = 0;
+  top: number = 0;
 }
 
 
+export function anim(node: HTMLElement): void
+{
+  let anim = new AnimationData();
+
+  register_animation(node, anim);
+
+  /* @ts-ignore */
+  node.style["--delay"] = calc_delay(anim, 0.2);
+}
+
+
+/** DEPRECATED */
 export function register_animation(root: HTMLElement, anim: AnimationData): void
 {
-  if (!root) return;
+  if (!root) {
+    console.warn("failed to attach animation handler!");
+    return;
+  };
   
   let observer = new IntersectionObserver(
     entries => {
-      for (let entry of entries) {
+      for (let entry of entries)
+      {
         if (!anim.intersected && entry.isIntersecting) {        
+          entry.target.classList.add("intersected");
           anim.intersected = true;
           anim.left = entry.boundingClientRect.left;
           anim.top = entry.boundingClientRect.top;
@@ -20,14 +38,14 @@ export function register_animation(root: HTMLElement, anim: AnimationData): void
       }
     },
     {
-      threshold: 0.2,
+      threshold: 0.5,
     }
   );
 
   observer.observe(root);
 }
 
-
+/** DEPRECATED */
 export function calc_delay(anim: AnimationData, scale: number = 1): string
 {
   return `calc(

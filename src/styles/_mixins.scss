@@ -90,19 +90,21 @@
 }
 
 @mixin anim-block {
-  &:not(.intersected)::before {
-    transform: skew($shear-factor) scale(90%);
-    opacity: 0;
+  &::before {
     transition:
       #{trans()},
       transform 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s),
       opacity 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
   }
+  
+  &:not(.intersected)::before {
+    transform: skew($shear-factor) scale(90%);
+    opacity: 0;
+  }
 
-  // &.intersected::before {
-  //   transform: skew($shear-factor);
-  //   opacity: 1;
-  // }
+  &.intersected::before {
+    opacity: 1;
+  }
 }
 
 
@@ -129,4 +131,9 @@
 @function trans()
 {
   @return 'all 0.12s ease-out';
+}
+
+@function trans-exp()
+{
+  @return '1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s)';
 }

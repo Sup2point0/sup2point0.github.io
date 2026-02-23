@@ -27,7 +27,7 @@ import ProfileShowerthought from "./showerthought.svelte";
 </svelte:head>
 
 
-<Main gap="3rem">
+<Main gap="5rem">
   <section class="upper">
     <div class="left">
       <ProfileHeader />
@@ -61,6 +61,7 @@ section {
 }
 
 section.upper {
+  padding-top: 1rem;
   flex-flow: row wrap;
 
   div {

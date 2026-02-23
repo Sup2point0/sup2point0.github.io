@@ -15,12 +15,18 @@ export function shuffle<Item>(source: Item[]): Item[]
 }
 
 
+interface Collection<Item>
+{
+  length: number;
+  at(idx: number): Item | undefined;
+}
+
 // FIXME this isn't quite THAT uniform... =/
 
 /** Deterministically pick a random item from `source`, based on the current date, with uniform probability of picking each item. */
 export async function pick_daily<Item>(
-  source: Item[]
-): Promise<Item>
+  source: Collection<Item>
+): Promise<Item | undefined>
 {
   let t = new Date();
 
@@ -34,5 +40,5 @@ export async function pick_daily<Item>(
   let int = view.getUint32(0);
   let idx = int % source.length;
 
-  return source[idx];
+  return source.at(idx);
 }

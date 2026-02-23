@@ -13,6 +13,7 @@ export interface PictData {
   brightness?: InterpData;
 }
 
+
 export const backs = new FrozenWeightedList<PictData>
 (
   // standard

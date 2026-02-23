@@ -1,5 +1,5 @@
 import adapter from "@sveltejs/adapter-static";
-import sveltePreprocess from "svelte-preprocess";
+import { sveltePreprocess } from "svelte-preprocess";
 
 
 const config = {
@@ -40,7 +40,12 @@ const config = {
         `
       },
     })
-  ]
+  ],
+
+  onwarn: (warning, handler) => {
+    if (warning.code === "css_unused_selector" && warning.message.includes(".intersected")) return;
+    handler(warning);
+  },
 };
 
 export default config;

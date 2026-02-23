@@ -191,7 +191,7 @@ img.project-icon {
     color: $col-text;
     text-align: start;
 
-    .block.shrink & {
+    .block-project.shrink & {
       font-size: 175%;
     }
   }
@@ -255,7 +255,7 @@ img.project-icon {
       opacity: 1;
       @include transition($delay: true);
 
-      .block.project:where(:hover, :focus) & {
+      .block-project:where(:hover, :focus) & {
         opacity: 0;
         @include transition;
       }
@@ -268,7 +268,7 @@ img.project-icon {
       opacity: 0;
       @include transition;
 
-      .block.project:where(:hover, :focus) & {
+      .block-project:where(:hover, :focus) & {
         opacity: 1;
         @include transition($delay: true);
       }

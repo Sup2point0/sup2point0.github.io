@@ -16,7 +16,7 @@ let { game }: Props = $props();
 </script>
 
 
-<button class="game block {game.state} {game._style}"
+<button class="block-game {game.state} {game._style}"
   id={game.shard}
   {@attach anim}
 >
@@ -74,7 +74,7 @@ let { game }: Props = $props();
 @use 'sass:color';
 
 
-.block.game {
+.block-game {
   flex-grow: 1;
   max-width: 32rem;
   padding: 1rem 1.5rem;
@@ -113,7 +113,7 @@ let { game }: Props = $props();
   opacity: 0;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
 
-  .block.game.intersected & {
+  .block-game.intersected & {
     transform: none;
     opacity: 1;
   }
@@ -124,12 +124,12 @@ let { game }: Props = $props();
   height: 120px;
   
   img {
-    .block.game:not(.no-crop) & {
+    .block-game:not(.no-crop) & {
       border-radius: 50%;
       box-shadow: 0 8px 16px rgb(black, 40%);
     }
 
-    .block.game.active & {
+    .block-game.active & {
       box-shadow: 0 0 32px color.change($col-trit, $alpha: 0.5);
     }
   }
@@ -160,7 +160,7 @@ let { game }: Props = $props();
     color: $col-text;
     text-align: start;
 
-    .block.game.active &, .block.game.opportunistic & {
+    .block-game.active &, .block-game.opportunistic & {
       color: $col-quat;
     }
   }

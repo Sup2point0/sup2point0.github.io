@@ -19,7 +19,7 @@ let timeout: number = 0;
 
 function pick_backdrop()
 {
-  pict = backs[Math.floor(Math.random() * backs.length)];
+  pict = backs.sample_value() ?? null;
   if (timeout) clearTimeout(timeout);
   timeout = setTimeout(pick_backdrop, 2 * 60 * 1000);
 }

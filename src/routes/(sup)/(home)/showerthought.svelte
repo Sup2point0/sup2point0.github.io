@@ -25,6 +25,7 @@ const showerthoughts = new FrozenWeightedList
   [1, `suffering builds character.`],
   [1, `everything will be fine.`],
   [1, `sup sup’s sups sup sup’s sup sup sup sup’s sup sups`],
+  [1, `Saw what you mean, and mean what you say.`],
   [1, `If a capacitive capacitor could capacitate capacitance, how much capacitance could a capacitative capacitor capacitate if it capacitatively capacitated capacitance?`],
 
   [1, `life is one huge logistical issue`],

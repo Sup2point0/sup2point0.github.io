@@ -3,18 +3,19 @@ import type { DatePoint, Groups } from "#scripts/types";
 
 
 export enum Genre {
-  RHYTHM        = "rhythm",
-  TOWER_DEFENCE = "tower defence",
-  RACING        = "racing",
-  SHMUP         = "shmup",
-  ROGUE         = "rogue",
-  METROIDVANIA  = "metroidvania",
-  RUNNER        = "runner",
-  PUZZLE        = "puzzle",
   CARDS         = "cards",
-  SANDBOX       = "sandbox",
-  IO            = ".io games",
   CLASSICS      = "classics",
+  EXPLORATION   = "exploration",
+  IO            = ".io games",
+  METROIDVANIA  = "metroidvania",
+  PUZZLE        = "puzzle",
+  RACING        = "racing",
+  RHYTHM        = "rhythm",
+  ROGUE         = "rogue",
+  RUNNER        = "runner",
+  SANDBOX       = "sandbox",
+  SHMUP         = "shmup",
+  TOWER_DEFENCE = "tower defence",
 }
 
 export enum Platform {
@@ -68,6 +69,16 @@ const _template = [
 const data: Groups<GameData> =
 {
   "active": [
+    {
+      shard:  "outer-wilds",
+      name:   "Outer Wilds",
+      love:   null,
+      date:   ["February 2026", "present"],
+      icon:   "outer-wilds.jpg",
+      genres: [Genre.EXPLORATION],
+      platforms: [Platform.DESKTOP],
+      state:  PlayState.ACTIVE,
+    },
     {
       shard:  "manifold-garden",
       name:   "Manifold Garden",
@@ -317,7 +328,7 @@ const data: Groups<GameData> =
       icon:   "deemo-2.png",
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
-      state:  PlayState.INFREQUENT,
+      state:  PlayState.RETIRED,
     },
     {
       shard:  "rhythm-plus",

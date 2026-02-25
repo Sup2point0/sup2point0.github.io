@@ -37,7 +37,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:  "cinema-wins",
       name:   "CinemaWins",
-      love:   3,
+      love:   2,
       date:   undefined,
       icon:   undefined,
       topics: ["films"],
@@ -48,7 +48,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:  "good-work",
       name:   "Good Work",
-      love:   2,
+      love:   1,
       date:   undefined,
       icon:   undefined,
       topics: ["news"],
@@ -59,7 +59,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:  "chris-spargo",
       name:   "Chris Spargo",
-      love:   2,
+      love:   1,
       date:   undefined,
       icon:   undefined,
       topics: ["uk"],
@@ -81,7 +81,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:  "a-show-about-the-news",
       name:   "A Show About The News",
-      love:   2,
+      love:   1,
       date:   ["late 2025", "present"],
       icon:   undefined,
       topics: ["news"],
@@ -103,7 +103,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:  "the-cursed-judge",
       name:   "The Cursed Judge",
-      love:   1,
+      love:   null,
       date:   undefined,
       icon:   undefined,
       topics: ["games"],
@@ -114,7 +114,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:  "schnee",
       name:   "schnee",
-      love:   1,
+      love:   null,
       date:   undefined,
       icon:   undefined,
       topics: ["films"],
@@ -147,7 +147,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:  "thomas-flight",
       name:   "Thomas Flight",
-      love:   2,
+      love:   1,
       date:   undefined,
       icon:   undefined,
       topics: ["films"],
@@ -158,7 +158,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:  "lemmino",
       name:   "LEMMiNO",
-      love:   2,
+      love:   null,
       date:   undefined,
       icon:   undefined,
       topics: ["everything"],
@@ -169,7 +169,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:  "jay-and-mark",
       name:   "Jay and Mark",
-      love:   2,
+      love:   null,
       date:   undefined,
       icon:   undefined,
       topics: ["uk", "world"],
@@ -204,7 +204,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:  "fireship",
       name:   "Fireship",
-      love:   1,
+      love:   null,
       date:   undefined,
       icon:   undefined,
       topics: ["software", "news"],
@@ -215,7 +215,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:  "game-makers-toolkit",
       name:   "Game Maker’s Toolkit",
-      love:   2,
+      love:   1,
       date:   undefined,
       icon:   undefined,
       topics: ["gamedev", "software"],
@@ -226,7 +226,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:  "joma-tech",
       name:   "Joma Tech",
-      love:   1,
+      love:   null,
       date:   undefined,
       icon:   undefined,
       topics: ["software", "comedy"],
@@ -248,7 +248,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:  "logan-smith",
       name:   "Logan Smith",
-      love:   2,
+      love:   1,
       date:   undefined,
       icon:   undefined,
       topics: ["rust", "software"],
@@ -384,7 +384,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:   "prodbycircus",
       name:    "prodbycircus",
-      love:    2,
+      love:    1,
       date:    ["early 2026", "present"],
       icon:    undefined,
       topics:  ["music production"],
@@ -395,7 +395,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:   "snapp-makes-beats",
       name:    "Snapp Makes Beats",
-      love:    3,
+      love:    2,
       date:    ["early 2025?", "present"],
       icon:    undefined,
       topics:  ["music production", "comedy"],
@@ -406,7 +406,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:   "synthet",
       name:    "Synthet",
-      love:    3,
+      love:    2,
       date:    undefined,
       icon:    undefined,
       topics:  ["music production"],
@@ -419,7 +419,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:   "casually-explained",
       name:    "Casually Explained",
-      love:    1,
+      love:    null,
       date:    undefined,
       icon:    undefined,
       topics:  ["everything"],
@@ -441,7 +441,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:   "kevinu",
       name:    "Kevinu",
-      love:    3,
+      love:    1,
       date:    ["summer 2025", "present"],
       icon:    undefined,
       topics:  ["life", "relationships", "comedy"],
@@ -452,7 +452,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:   "daniel-thrasher",
       name:    "Daniel Thrasher",
-      love:    1,
+      love:    null,
       date:    ["spring 2020", "present"],
       icon:    undefined,
       topics:  ["piano", "music", "skits"],
@@ -463,7 +463,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:   "nathan-doan",
       name:    "Nathan Doan",
-      love:    1,
+      love:    null,
       date:    undefined,
       icon:    undefined,
       topics:  ["skits"],
@@ -485,7 +485,7 @@ const data: Groups<YouTubeChannelData> =
     {
       shard:   "pro-zd",
       name:    "ProZD",
-      love:    2,
+      love:    null,
       date:    undefined,
       icon:    undefined,
       topics:  ["games", "skits"],

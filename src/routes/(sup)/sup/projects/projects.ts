@@ -185,7 +185,7 @@ const data: Groups<ProjectData> = prep_groups(
       flavour: Flavour.DEV,
       kind:    Kind.LANGUAGE,
       tech_data: [
-        Lang.MARKDOWN, Lang.SUPCODE
+        Lang.SUPCODE
       ],
       state: State.HIATUS,
       links: {
@@ -451,7 +451,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.HASKELL,
       ],
-      state: State.INDETERMINATE,
+      state: State.ARCHIVED,
       links: {
         github: "https://github.com/Sup2point0/hASTkell",
       },
@@ -482,7 +482,7 @@ const data: Groups<ProjectData> = prep_groups(
       flavour: Flavour.DEV,
       kind:    Kind.TOOL,
       tech_data: [Lang.PYTHON],
-      state: State.MAINTAINING,
+      state: State.ARCHIVED,
       links: {
         github: "https://github.com/Sup2point0/youtube-playlist-shuffler",
       },
@@ -633,6 +633,9 @@ const data: Groups<ProjectData> = prep_groups(
         Lang.PYTHON, Lang.HTML,
       ],
       state: State.ARCHIVED,
+      links: {
+        github: "https://github.com/Sup2point0/Quarkdown"
+      },
       desc:
         `An automated content deployment framework for exporting Markdown files in repositories to GitHub Pages. The predecessor to ${i("Squarkdown")}.`,
     },

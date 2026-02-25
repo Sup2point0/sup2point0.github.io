@@ -1,5 +1,5 @@
 import type { Searchable } from "#scripts/search-filter.svelte";
-import type { DatePoint } from "./index";
+import type { Path, Dates } from "#scripts/types";
 
 
 export enum Genre {
@@ -37,13 +37,13 @@ export enum Theme {
 
 export interface MediaData extends Searchable
 {
-  name: string;
-  date?: DatePoint | DatePoint[];
+  name:  string;
+  date?: Dates;
 
   genres?: Genre[];
   themes?: Theme[];
 
-  cover?: string;
+  cover?: Path;
 
   desc?: string | string[];
 }

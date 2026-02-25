@@ -499,3 +499,30 @@ const data: Groups<YouTubeChannelData> =
 prep_groups(data);
 export const channels_data: Groups<YouTubeChannelData> = data;
 export const channels_list: YouTubeChannelData[] = Object.values(data).flat();
+
+// GoldenNovaYugioh
+
+// Grian
+// Mumbo Jumbo
+
+// EKRuby
+// Enamel Man
+// Crab Master Duel
+// feuerrmFilms
+
+// Noodle
+// pinguefy
+// Austin McConnell
+
+
+
+// thejuicemedia
+// Aaron Paulsen
+// Matt Rose
+// Lessons in Meme Culture
+// Man Carrying Thing
+// al jokes
+// Jake Krantz
+
+// Thomas Snyder
+// Tantacrul

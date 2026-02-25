@@ -136,7 +136,7 @@ const routes = [
     />
     
     <LinkCard
-      link="/sup/loves"
+      link="/sup/loves/youtube"
       text="YouTube"
       capt="Coming soon!"
     />

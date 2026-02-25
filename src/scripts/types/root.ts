@@ -1,11 +1,14 @@
 /** A unique identifier for any entity. */
 export type Shard = string;
 
+/** A filepath for an asset. */
+export type Path = string;
+
 
 /** A non-specific point in time. */
 export type DatePoint = number | string | "childhood" | "present";
 
-/** A single date, or 2 ends of a date range. */
+/** A single date, or 2 endpoints of a date range. */
 export type Dates = DatePoint | [DatePoint, DatePoint];
 
 

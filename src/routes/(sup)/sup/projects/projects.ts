@@ -82,7 +82,7 @@ const data: Groups<ProjectData> = prep_groups(
       kind:    Kind.WEBSITE,
       tech_data: [
         Lang.RUBY, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
-        Lang.KATEX, Lang.JSON, Lang.MARKDOWN,
+        Lang.KATEX, Lang.JSON, Lang.MARKDOWN, Tech.DESMOS,
       ],
       state: [State.DEVELOPING, State.MAINTAINING],
       links: {
@@ -94,7 +94,7 @@ const data: Groups<ProjectData> = prep_groups(
     },
     {
       name:  "Avidity (Unity)",
-      love:  1,
+      love:  null,
       icon:  undefined,
       date:  ["summer 2025", "present"],
       flavour: Flavour.DEV,
@@ -118,7 +118,7 @@ const data: Groups<ProjectData> = prep_groups(
       flavour: Flavour.DEV,
       kind:    Kind.LIBRARY,
       tech_data: [
-        Lang.PYTHON, Lang.CSHARP, Lang.TYPESCRIPT, Lang.HASKELL, Lang.RUST, // LANG.RUBY
+        Lang.PYTHON, Lang.CSHARP, Lang.TYPESCRIPT, Lang.HASKELL, Lang.RUST, Tech.DESMOS, // LANG.RUBY
       ],
       state: [State.DEVELOPING, State.MAINTAINING],
       links: {
@@ -166,19 +166,6 @@ const data: Groups<ProjectData> = prep_groups(
         `More beautiful puzzle solving`,
     },
     {
-      name:  "Algorhythm",
-      love:  3,
-      date:  ["summer 2023", "present"],
-      flavour: [Flavour.DEV, Flavour.PERSONAL],
-      kind:    Kind.GAME,
-      tech_data: [
-        Lang.PYTHON,
-      ],
-      state: State.HIATUS,
-      desc:
-        `A keyboard-based rhythm game. Originally implemented in Python as a proof of concept, will properly develop in Unity someday!`,
-    },
-    {
       name:  "supcode",
       love:  3,
       date:  [2021, "present"],
@@ -204,7 +191,7 @@ const data: Groups<ProjectData> = prep_groups(
       flavour: Flavour.DEV,
       kind:    Kind.WEBSITE,
       tech_data: [
-        Lang.SVELTE,
+        Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
       ],
       state: State.MAINTAINING,
       links: {
@@ -223,7 +210,7 @@ const data: Groups<ProjectData> = prep_groups(
       flavour: [Flavour.DEV, Flavour.PERSONAL],
       kind:    [Kind.WEBSITE, Kind.WIKI],
       tech_data: [
-        Lang.SVELTE,
+        Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.KATEX, Lang.MARKDOWN,
       ],
       state: State.DEVELOPING,
       links: {
@@ -235,7 +222,7 @@ const data: Groups<ProjectData> = prep_groups(
     },
     {
       name:  "pyco:bytes",
-      love:  1,
+      love:  null,
       date:  [2024, 2025],
       icon:  "pycobytes.png",
       flavour: Flavour.DEV,
@@ -253,6 +240,25 @@ const data: Groups<ProjectData> = prep_groups(
     },
   ],
   "Current": [
+    {
+      shard: "squippy",
+      name:  "Squippy",
+      love:  null,
+      date:  ["March 2026", "present"],
+      icon:  undefined,
+      flavour: Flavour.DEV,
+      kind: [Kind.APPLICATION, Kind.WEBSITE],
+      tech_data: [
+        Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/squippy",
+        site: "https://sup2point0.github.io/squippy"
+      },
+      desc:
+        `A clean, no-nonsense SRT subtitles editor`,
+    },
     {
       shard: "supcore",
       name:  "supcore",
@@ -346,6 +352,7 @@ const data: Groups<ProjectData> = prep_groups(
     {
       shard: "vscode-supcode-visuals",
       name:  "supcode Visuals for VSCode",
+      love:  1,
       date:  ["late 2025", "present"],
       flavour: Flavour.DEV,
       kind:    Kind.EXTENSION,
@@ -524,6 +531,19 @@ const data: Groups<ProjectData> = prep_groups(
     },
   ],
   "Creations": [
+    {
+      name:  "Algorhythm",
+      love:  2,
+      date:  ["summer 2023", "present"],
+      flavour: [Flavour.DEV, Flavour.PERSONAL],
+      kind:    Kind.GAME,
+      tech_data: [
+        Lang.PYTHON,
+      ],
+      state: State.HIATUS,
+      desc:
+        `A keyboard-based rhythm game. Originally implemented in Python as a proof of concept, will properly develop in Unity someday!`,
+    },
     {
       name:  "Antarctica",
       love:  3,

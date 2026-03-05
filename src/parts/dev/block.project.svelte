@@ -301,6 +301,7 @@ img.project-icon {
       @include font-ui;
       font-size: 110%;
       color: $col-text;
+      text-shadow: 0 0.5px 1.5px black;
       @include shear-card();
       transition: #{trans()};
 
@@ -309,6 +310,7 @@ img.project-icon {
         padding-left: 0.8em;
         padding-right: 0.8em;
         color: black;
+        text-shadow: 0 0 0 transparent;
       
         &::before {
           background: white;
@@ -324,9 +326,10 @@ img.project-icon {
       &.ruby::before       { background: color.change(#ff1000, $alpha: 0.8); }
       &.haskell::before    { background: color.change(#9090f1, $alpha: 0.69); }
       &.rust::before       { background: color.change(#f160f1, $alpha: 0.69); }
-      &.svelte::before     { background: color.change(#ff7020, $alpha: 0.8); }
-      &.javascript::before { background: color.change(#ffc720, $alpha: 0.69); }
-      &.typescript::before { background: color.change(#ffc720, $alpha: 0.69); }
+      &.svelte::before     { background: color.change(#ff6000, $alpha: 0.8); }
+      &.javascript::before { background: color.change(#ffa900, $alpha: 0.69); }
+      &.typescript::before { background: color.change(#ffa900, $alpha: 0.69); }
+      &.desmos::before     { background: color.change(#009317, $alpha: 0.69); }
     }
   }
 }

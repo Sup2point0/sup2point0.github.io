@@ -34,4 +34,10 @@ main {
   align-items: center;
 }
 
+@media (max-width: $width-shrink) {
+  main {
+    padding: 0 2rem;
+  }
+}
+
 </style>

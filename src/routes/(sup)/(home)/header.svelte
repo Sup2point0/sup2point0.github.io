@@ -114,5 +114,16 @@ p:hover {
     transition-delay: 0.1s;
   }
 }
+
+
+@media (max-width: $width-shrink) {
+  img#purple-portal {
+    max-width: 100vw;
+  }
+
+  img#sup2point0 {
+    max-width: 100vw;
+  }
+}
   
 </style>

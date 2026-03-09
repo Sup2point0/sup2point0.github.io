@@ -82,4 +82,10 @@ section.upper {
   }
 }
 
+@media (max-width: $width-shrink) {
+  section.upper {
+    flex-flow: column nowrap;
+  }
+}
+
 </style>

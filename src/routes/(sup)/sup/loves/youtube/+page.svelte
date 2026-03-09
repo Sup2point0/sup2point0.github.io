@@ -1,12 +1,35 @@
 <script lang="ts">
 
+import { pick_random } from "#scripts/utils";
+import type { FilterResults } from "#scripts/search-filter.svelte.ts";
+
 import Cards         from "#parts/core/cards.svelte";
 import Main          from "#parts/core/main.svelte";
+import Block         from "#parts/ui/block.svelte";
 import Breadcrumbs   from "#parts/ui/breadcrumbs.svelte";
 import Header        from "#parts/ui/header.svelte";
+import SearchFilters from "#parts/ui/search-filters.svelte";
 import ChannelBlock  from "#parts/loves/block.channel.svelte";
 
-import { channels_data, type YouTubeChannelData } from "./channels";
+import { channels_data, channels_list, type YouTubeChannelData } from "./channels";
+import { ChannelSearchFilter } from "./filter.channels.svelte.ts";
+
+import { onMount } from "svelte";
+
+
+// svelte-ignore non_reactive_update
+let filters = new ChannelSearchFilter();
+
+let displayed_channels: FilterResults<YouTubeChannelData> = $derived(filters.apply(channels_list));
+
+let displayed_route = $state("");
+
+onMount(() => {
+  displayed_route = pick_random(routes);
+});
+
+
+const routes = [];
 
 </script>
 
@@ -23,15 +46,50 @@ import { channels_data, type YouTubeChannelData } from "./channels";
 ]} />
 
 <Main>
-  {#each Object.entries(channels_data) as [collection, channels]}
-    <section>
-      <Header> {collection?.toUpperCase()} </Header>
+  <SearchFilters bind:filters result_count={displayed_channels.length} />
 
-      <Cards>
-        {#each channels as channel}
-          <ChannelBlock {channel} />
-        {/each}
-      </Cards>
-    </section>
-  {/each}
+  <Block>
+    <p> These are the YouTube channels I enjoy watching ;) </p>
+
+    <p> I haven’t included pure music channels here, since those belong over in <a href="/sup/music/listen/artists">Artists</a>! </p>
+  </Block>
+
+  {#if filters.query === "" && filters.dirtiness === 0}
+    {#each Object.entries(channels_data) as [collection, channels]}
+      <section>
+        <Header> {collection?.toUpperCase()} </Header>
+
+        <Cards>
+          {#each channels as channel}
+            <ChannelBlock {channel} />
+          {/each}
+        </Cards>
+      </section>
+    {/each}
+
+  {:else if filters.group_by !== "default"}
+    {@const displayed = displayed_channels as [string, YouTubeChannelData[]][]}
+
+    {#each displayed as [collection, channels]}
+      <section>
+        <Header> {collection?.toUpperCase()} </Header>
+
+        <Cards>
+          {#each channels as channel (channel.shard)}
+            <ChannelBlock {channel} />
+          {/each}
+        </Cards>
+      </section>
+    {/each}
+
+  {:else}
+    {@const displayed = displayed_channels as YouTubeChannelData[]}
+
+    <Cards>
+      {#each displayed as channel (channel.shard)}
+        <ChannelBlock {channel} />
+      {/each}
+    </Cards>
+
+  {/if}
 </Main>

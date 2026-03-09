@@ -22,7 +22,7 @@ const _template = [
       name:   "",
       love:   0,
       date:   undefined,
-      icon:   undefined,
+      icon:   ".jpg",
       topics: [],
       desc: [
         ``,
@@ -39,7 +39,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "CinemaWins",
       love:   2,
       date:   undefined,
-      icon:   undefined,
+      icon:   "cinema-wins.jpg",
       topics: ["films"],
       desc: [
         ``
@@ -50,7 +50,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Good Work",
       love:   1,
       date:   undefined,
-      icon:   undefined,
+      icon:   "good-work.jpg",
       topics: ["news"],
       desc: [
         ``
@@ -61,7 +61,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Chris Spargo",
       love:   1,
       date:   undefined,
-      icon:   undefined,
+      icon:   "chris-spargo.jpg",
       topics: ["uk"],
       desc: [
         ``
@@ -72,7 +72,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "CGP Grey",
       love:   3,
       date:   undefined,
-      icon:   undefined,
+      icon:   "cgp-grey.jpg",
       topics: ["society", "stem"],
       desc: [
         ``
@@ -83,7 +83,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "A Show About The News",
       love:   1,
       date:   ["late 2025", "present"],
-      icon:   undefined,
+      icon:   "a-show-about-the-news.jpg",
       topics: ["news"],
       desc: [
         ``
@@ -94,7 +94,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Siliconversations",
       love:   1,
       date:   ["early 2026", "present"],
-      icon:   undefined,
+      icon:   "siliconversations.jpg",
       topics: ["society", "ai"],
       desc: [
         ``
@@ -105,7 +105,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "The Cursed Judge",
       love:   null,
       date:   undefined,
-      icon:   undefined,
+      icon:   "the-cursed-judge.jpg",
       topics: ["games"],
       desc: [
         ``
@@ -116,7 +116,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "schnee",
       love:   null,
       date:   undefined,
-      icon:   undefined,
+      icon:   "schnee.jpg",
       topics: ["films"],
       desc: [
         ``
@@ -127,7 +127,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Vsauce",
       love:   3,
       date:   undefined,
-      icon:   undefined,
+      icon:   "vsauce.jpg",
       topics: ["society", "stem", "life"],
       desc: [
         ``
@@ -138,7 +138,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Tom Scott",
       love:   3,
       date:   undefined,
-      icon:   undefined,
+      icon:   "tom-scott.jpg",
       topics: ["everything", "uk", "stem"],
       desc: [
         ``
@@ -149,7 +149,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Thomas Flight",
       love:   1,
       date:   undefined,
-      icon:   undefined,
+      icon:   "thomas-flight.jpg",
       topics: ["films"],
       desc: [
         ``
@@ -160,7 +160,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "LEMMiNO",
       love:   null,
       date:   undefined,
-      icon:   undefined,
+      icon:   "lemmino.jpg",
       topics: ["everything"],
       desc: [
         ``
@@ -171,7 +171,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Jay and Mark",
       love:   null,
       date:   undefined,
-      icon:   undefined,
+      icon:   "jay-and-mark.jpg",
       topics: ["uk", "world"],
       desc: [
         ``
@@ -184,7 +184,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Code Aesthetic",
       love:   2,
       date:   undefined,
-      icon:   undefined,
+      icon:   "code-aesthetic.jpg",
       topics: ["code", "software"],
       desc: [
         ``
@@ -195,7 +195,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Code to the Moon",
       love:   null,
       date:   undefined,
-      icon:   undefined,
+      icon:   "code-to-the-moon.jpg",
       topics: ["rust", "software"],
       desc: [
         ``
@@ -206,7 +206,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Fireship",
       love:   null,
       date:   undefined,
-      icon:   undefined,
+      icon:   "fireship.jpg",
       topics: ["software", "news"],
       desc: [
         ``
@@ -217,7 +217,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Game Maker’s Toolkit",
       love:   1,
       date:   undefined,
-      icon:   undefined,
+      icon:   "game-makers-toolkit.jpg",
       topics: ["gamedev", "software"],
       desc: [
         ``
@@ -228,7 +228,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Joma Tech",
       love:   null,
       date:   undefined,
-      icon:   undefined,
+      icon:   "joma-tech.jpg",
       topics: ["software", "comedy"],
       desc: [
         ``
@@ -239,7 +239,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Kevin Fang",
       love:   2,
       date:   undefined,
-      icon:   undefined,
+      icon:   "kevin-fang.jpg",
       topics: ["software", "news"],
       desc: [
         ``,
@@ -250,7 +250,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Logan Smith",
       love:   1,
       date:   undefined,
-      icon:   undefined,
+      icon:   "logan-smith.jpg",
       topics: ["rust", "software"],
       desc: [
         ``
@@ -261,7 +261,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "mcoding",
       love:   2,
       date:   undefined,
-      icon:   undefined,
+      icon:   "mcoding.jpg",
       topics: ["python", "code", "software"],
       desc: [
         ``
@@ -272,7 +272,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "No Boilerplate",
       love:   3,
       date:   undefined,
-      icon:   undefined,
+      icon:   "no-boilerplate.jpg",
       topics: ["rust", "code", "software"],
       desc: [
         ``
@@ -283,7 +283,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Philomatics",
       love:   undefined,
       date:   undefined,
-      icon:   undefined,
+      icon:   "philomatics.jpg",
       topics: ["software"],
       desc: [
         ``
@@ -294,7 +294,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "SimonDev",
       love:   undefined,
       date:   undefined,
-      icon:   undefined,
+      icon:   "simon-dev.jpg",
       topics: ["software"],
       desc: [
         ``
@@ -305,7 +305,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "Spanning Tree",
       love:   2,
       date:   undefined,
-      icon:   undefined,
+      icon:   "spanning-tree.jpg",
       topics: ["computer science", "software"],
       desc: [
         ``
@@ -318,7 +318,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "3Blue1Brown",
       love:   3,
       date:   undefined,
-      icon:   undefined,
+      icon:   "3b1b.jpg",
       topics: ["maths", "computer science"],
       desc: [
         ``,
@@ -329,7 +329,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "2swap",
       love:   2,
       date:   undefined,
-      icon:   undefined,
+      icon:   "2swap.jpg",
       topics: ["maths", "computer science"],
       desc: [
         ``,
@@ -342,7 +342,7 @@ const data: Groups<YouTubeChannelData> =
       name:    "Charles Cornell",
       love:    null,
       date:    undefined,
-      icon:    undefined,
+      icon:    "charles-cornell.jpg",
       topics:  ["piano", "music theory"],
       desc: [
         ``
@@ -353,7 +353,7 @@ const data: Groups<YouTubeChannelData> =
       name:    "heiakim",
       love:    null,
       date:    undefined,
-      icon:    undefined,
+      icon:    "heiakim.jpg",
       topics:  ["music production"],
       desc: [
         ``
@@ -364,7 +364,7 @@ const data: Groups<YouTubeChannelData> =
       name:    "In The Mix",
       love:    3,
       date:    undefined,
-      icon:    undefined,
+      icon:    "in-the-mix.jpg",
       topics:  ["music production"],
       desc: [
         ``
@@ -375,7 +375,7 @@ const data: Groups<YouTubeChannelData> =
       name:    "Neddie",
       love:    null,
       date:    undefined,
-      icon:    undefined,
+      icon:    "neddie.jpg",
       topics:  ["music production"],
       desc: [
         ``
@@ -386,7 +386,7 @@ const data: Groups<YouTubeChannelData> =
       name:    "prodbycircus",
       love:    1,
       date:    ["early 2026", "present"],
-      icon:    undefined,
+      icon:    "prodbycircus.jpg",
       topics:  ["music production"],
       desc: [
         ``
@@ -397,7 +397,7 @@ const data: Groups<YouTubeChannelData> =
       name:    "Snapp Makes Beats",
       love:    2,
       date:    ["early 2025?", "present"],
-      icon:    undefined,
+      icon:    "snapp-makes-beats.jpg",
       topics:  ["music production", "comedy"],
       desc: [
         ``
@@ -408,7 +408,7 @@ const data: Groups<YouTubeChannelData> =
       name:    "Synthet",
       love:    2,
       date:    undefined,
-      icon:    undefined,
+      icon:    "synthet.jpg",
       topics:  ["music production"],
       desc: [
         ``
@@ -421,7 +421,7 @@ const data: Groups<YouTubeChannelData> =
       name:    "Casually Explained",
       love:    null,
       date:    undefined,
-      icon:    undefined,
+      icon:    "casually-explained.jpg",
       topics:  ["everything"],
       desc: [
         ``
@@ -432,7 +432,7 @@ const data: Groups<YouTubeChannelData> =
       name:    "Artspear Entertainment",
       love:    3,
       date:    ["pre-2017", "present"],
-      icon:    undefined,
+      icon:    "artspear-entertainment.jpg",
       topics:  ["animation"],
       desc: [
         ``
@@ -443,7 +443,7 @@ const data: Groups<YouTubeChannelData> =
       name:    "Kevinu",
       love:    1,
       date:    ["summer 2025", "present"],
-      icon:    undefined,
+      icon:    "kevinu.jpg",
       topics:  ["life", "relationships", "comedy"],
       desc: [
         ``
@@ -454,7 +454,7 @@ const data: Groups<YouTubeChannelData> =
       name:    "Daniel Thrasher",
       love:    null,
       date:    ["spring 2020", "present"],
-      icon:    undefined,
+      icon:    "daniel-thrasher.jpg",
       topics:  ["piano", "music", "skits"],
       desc: [
         ``
@@ -465,7 +465,7 @@ const data: Groups<YouTubeChannelData> =
       name:    "Nathan Doan",
       love:    null,
       date:    undefined,
-      icon:    undefined,
+      icon:    "nathan-doan.jpg",
       topics:  ["skits"],
       desc: [
         ``
@@ -476,7 +476,7 @@ const data: Groups<YouTubeChannelData> =
       name:    "Steven He",
       love:    null,
       date:    undefined,
-      icon:    undefined,
+      icon:    "steven-he.jpg",
       topics:  ["Chinese", "skits"],
       desc: [
         ``
@@ -487,7 +487,7 @@ const data: Groups<YouTubeChannelData> =
       name:    "ProZD",
       love:    null,
       date:    undefined,
-      icon:    undefined,
+      icon:    "pro-zd.jpg",
       topics:  ["games", "skits"],
       desc: [
         ``

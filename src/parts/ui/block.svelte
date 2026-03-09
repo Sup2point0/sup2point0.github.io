@@ -96,6 +96,10 @@ onMount(() => {
   :global(p) {
     padding: 0.5em 0;
   }
+
+  :global(a) {
+    @include link;
+  }
 }
 
 </style>

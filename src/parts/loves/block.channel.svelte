@@ -126,7 +126,6 @@ let { channel }: Props = $props();
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: start;
-  gap: 0.5rem;
 }
 
 
@@ -147,13 +146,15 @@ let { channel }: Props = $props();
 
   p.love {
     min-width: max-content;
-    font-size: 150%;
+    font-size: 125%;
   }
 }
 
 .inner {
   flex-grow: 1;
   width: 100%;
+  padding-top: 0.25rem;
+  padding-bottom: 1rem;
   display: flex;
   flex-flow: row wrap;
   gap: 0.5rem;

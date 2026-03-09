@@ -8,6 +8,14 @@ const data: Groups<ArtistData> =
 {
   "newly discovered": [
     {
+      shard:  "klydix",
+      name:   "KLYDIX",
+      date:   "early 2026",
+      icon:   undefined,
+      genres: [Genre.RHYTHM, Genre.ELECTRONIC,],
+      discovered: `YouTube Music reccs`,
+    },
+    {
       shard:  "ludicin",
       name:   "Ludicin",
       date:   "late 2025",

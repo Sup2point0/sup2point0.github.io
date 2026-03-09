@@ -172,7 +172,6 @@ img.project-icon {
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: start;
-  gap: 0.25rem;
 }
 
 
@@ -198,7 +197,7 @@ img.project-icon {
 
   p.love {
     min-width: max-content;
-    font-size: 150%;
+    font-size: 120%;
   }
 
   > div {
@@ -277,7 +276,7 @@ img.project-icon {
 }
 
 .body {
-  padding-bottom: 0.5rem;
+  padding: 0.75rem 0 0.75rem;
 
   p {
     @include font-ui;

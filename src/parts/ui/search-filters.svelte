@@ -181,8 +181,12 @@ search {
       transform: rotate(-90deg) translateY(-3px);
     }
 
-    &:where(:hover, :focus-visible)::before {
-      background: rgb(white, 30%);
+    &:where(:hover, :focus-visible) {
+      cursor: pointer;
+
+      &::before {
+        background: rgb(white, 30%);
+      }
     }
 
     &:active::before {

@@ -7,10 +7,10 @@ A search input bar.
 
 interface Props {
   query: string;
-  input: HTMLInputElement | null;
+  input?: HTMLInputElement | null;
 }
 
-let { query = $bindable(), input = $bindable() }: Props = $props();
+let { query = $bindable(), input = $bindable(null) }: Props = $props();
 
 </script>
 
@@ -19,7 +19,7 @@ let { query = $bindable(), input = $bindable() }: Props = $props();
   if (e.key === "f") {
     if (e.ctrlKey || document.activeElement !== input) {
       e.preventDefault();
-      input.focus();
+      input?.focus();
     }
   }
 }} />

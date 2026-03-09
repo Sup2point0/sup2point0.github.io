@@ -11,13 +11,23 @@ export type FilterResults<Entity> = Entity[] | [string, Entity[]][];
 type Sorter<Entity> = (entities: Entity[]) => Entity[];
 
 
-export interface Searchable {
+/**
+ * An entity that forms part of a searchable collection.
+ */
+export interface Searchable
+{
+  /** Permanent unique identifier for the entity, used as keys, link anchors, etc. */
   shard?: Shard;
+
+  /** Which 'collection' this entity belongs to. */
   collection?: string;
+  
+  /** A cached score for how relevant this entity is for a given search query. */
   _score?: number;
 
   [prop: string]: any;
 }
+
 
 export function prep_groups<Entity extends Searchable>(
   data: Groups<Entity>,
@@ -39,6 +49,9 @@ export function prep_groups<Entity extends Searchable>(
 }
 
 
+/**
+ * Base class for a search filter.
+ */
 export class SearchFilter<Entity extends Searchable>
 {
   dirtiness: number = $state(0);
@@ -59,6 +72,11 @@ export class SearchFilter<Entity extends Searchable>
     return [];
   }
 
+  /**
+   * Which search filters can have individual states toggled, and their corresponding state object.
+   * 
+   * For instance, a media search filter might return `{ genres: <States> }`, allowing the user to enable/disable individual genres in the search results.
+   */
   get toggles(): Record<string, States> {
     return {};
   }
@@ -68,6 +86,9 @@ export class SearchFilter<Entity extends Searchable>
   }
 
 
+  /**
+   * Construct a state object with the members of an enum `states`, initialising each state to `init_state` (`true` by default).
+   * */
   static init_states(states: object, init_state?: boolean): States
   {
     return {

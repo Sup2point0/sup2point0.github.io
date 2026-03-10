@@ -177,6 +177,39 @@ const data: Groups<YouTubeChannelData> =
         ``
       ],
     },
+    {
+      shard:  "noodle",
+      name:   "Noodle",
+      love:   null,
+      date:   undefined,
+      icon:   "noodle.jpg",
+      topics: ["gaming"],
+      desc: [
+        ``,
+      ],
+    },
+    {
+      shard:  "pinguefy",
+      name:   "pinguefy",
+      love:   1,
+      date:   undefined,
+      icon:   "pingeufy.jpg",
+      topics: ["gaming"],
+      desc: [
+        ``,
+      ],
+    },
+    {
+      shard:  "austin-mcconnell",
+      name:   "Austin McConnell",
+      love:   null,
+      date:   undefined,
+      icon:   "austin-mcconnell.jpg",
+      topics: ["everything"],
+      desc: [
+        ``,
+      ],
+    },
   ],
   "dev": [
     {
@@ -415,6 +448,89 @@ const data: Groups<YouTubeChannelData> =
       ],
     },
   ],
+  "hermitcraft": [
+    {
+      shard:  "grian",
+      name:   "Grian",
+      love:   3,
+      date:   2021,
+      icon:   "grian.jpg",
+      topics: ["minecraft"],
+      desc: [
+        ``,
+      ],
+    },
+    {
+      shard:  "mumbo-jumbo",
+      name:   "Mumbo Jumbo",
+      love:   2,
+      date:   2020,
+      icon:   "mumbo-jumbo.jpg",
+      topics: ["minecraft"],
+      desc: [
+        ``,
+      ],
+    },
+  ],
+  "gaming": [
+    {
+      shard:  "ek-ruby",
+      name:   "EK Ruby",
+      love:   null,
+      date:   "summer 2023",
+      icon:   "ek-ruby.jpg",
+      topics: ["phigros", "rhythm games"],
+      desc: [
+        ``,
+      ],
+    },
+    {
+      shard:  "enamel-man",
+      name:   "Enamel Man",
+      love:   null,
+      date:   2024,
+      icon:   "enamel-man.jpg",
+      topics: ["phigros", "rhythm games"],
+      desc: [
+        ``,
+      ],
+    },
+    {
+      shard:  "crab-master-duel",
+      name:   "Crab Master Duel",
+      love:   null,
+      date:   2024,
+      icon:   "crab-master-duel.jpg",
+      topics: ["Yu-Gi-Oh!", "gaming"],
+      desc: [
+        ``,
+      ],
+    },
+    {
+      shard:  "feuerrm-films",
+      name:   "feuerrmFilms",
+      love:   null,
+      date:   2018,
+      icon:   "feuerrm-films.jpg",
+      topics: ["asphalt", "gaming"],
+      desc: [
+        ``,
+      ],
+    },
+  ],
+  "Yu-Gi-Oh": [
+    {
+      shard:  "golden-nova-yugioh",
+      name:   "GoldenNovaYugioh",
+      love:   null,
+      date:   2023,
+      icon:   "golden-nova-yugioh.jpg",
+      topics: ["Yu-Gi-Oh!", "lore"],
+      desc: [
+        ``,
+      ],
+    },
+  ],
   "comic relief": [
     {
       shard:   "casually-explained",
@@ -500,21 +616,6 @@ prep_groups(data);
 export const channels_data: Groups<YouTubeChannelData> = data;
 export const channels_list: YouTubeChannelData[] = Object.values(data).flat();
 
-// GoldenNovaYugioh
-
-// Grian
-// Mumbo Jumbo
-
-// EKRuby
-// Enamel Man
-// Crab Master Duel
-// feuerrmFilms
-
-// Noodle
-// pinguefy
-// Austin McConnell
-
-
 
 // thejuicemedia
 // Aaron Paulsen
@@ -526,3 +627,5 @@ export const channels_list: YouTubeChannelData[] = Object.values(data).flat();
 
 // Thomas Snyder
 // Tantacrul
+
+// Emergent Garden

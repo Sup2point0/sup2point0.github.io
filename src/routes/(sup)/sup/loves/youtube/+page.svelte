@@ -1,6 +1,6 @@
 <script lang="ts">
 
-import { pick_random } from "#scripts/utils";
+import { pick_random, shuffle } from "#scripts/utils";
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
 import Cards         from "#parts/core/cards.svelte";
@@ -22,10 +22,12 @@ let filters = new ChannelSearchFilter();
 
 let displayed_channels: FilterResults<YouTubeChannelData> = $derived(filters.apply(channels_list));
 
+let live = $state(false);
 let displayed_route = $state("");
 
 onMount(() => {
   displayed_route = pick_random(routes);
+  live = true;
 });
 
 
@@ -60,7 +62,7 @@ const routes = [];
         <Header> {collection?.toUpperCase()} </Header>
 
         <Cards>
-          {#each channels as channel}
+          {#each shuffle(live ? channels : []) as channel (channel.shard)}
             <ChannelBlock {channel} />
           {/each}
         </Cards>

@@ -16,14 +16,15 @@ let { channel }: Props = $props();
 </script>
 
 
-<button class="block-channel {channel.state} {channel._style}"
+<button class="block-channel {channel._style}"
   id={channel.shard}
   {@attach anim}
 >
   <div class="content">
 
 <div class="img-container">
-  <img alt={channel.name} title={channel.name}
+  <img
+    alt={channel.name} title={channel.name}
     width="120px" height="120px"
     src={channel.icon ? `/icons/youtube/${channel.icon}` : "/purple-portal.png"}
   />

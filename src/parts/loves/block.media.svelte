@@ -25,7 +25,8 @@ let { kind, media }: Props = $props();
   {@attach anim}
 >
   <div class="content">
-    <img alt={media.name} title={media.name}
+    <img
+      alt={media.name} title={media.name}
       height="200px"
       src={media.cover ? `/covers/${kind}/${media.cover}` : "/purple-portal.png"}
     />

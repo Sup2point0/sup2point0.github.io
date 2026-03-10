@@ -20,7 +20,10 @@ onMount(() => {
 
 const routes = [
   `I’ll be gradually adding more stuff here, for now it’s just the content I consume ^v^`,
+
   `What can I say, the world is wonderful, and there is so much to love.`,
+
+  `Like, I’ll interact with, admire and fall in love with anything and everything. Anything and everything interests me.`,
 ];
 
 </script>
@@ -40,7 +43,7 @@ const routes = [
   <Block>
     {#if displayed_route}
       <p> Sometimes, I feel like I have too many interests. </p>
-      <div style:height="0.69rem"></div>
+
       {@html displayed_route}
     {/if}
   </Block>
@@ -95,7 +98,7 @@ const routes = [
 
     <LinkCard
       link="/sup/loves/series"
-      text="Series"
+      text="Shows / Series"
       capt="heart-wrenching soul-wrecking sagas"
       picts={[
         "covers/series/arcane-s1.jpg",
@@ -138,7 +141,13 @@ const routes = [
     <LinkCard
       link="/sup/loves/youtube"
       text="YouTube"
-      capt="Coming soon!"
+      capt="Best of the internet"
+      picts={[
+        "icons/youtube/3b1b.jpg",
+        "icons/youtube/in-the-mix.jpg",
+        "icons/youtube/kevin-fang.jpg",
+        "icons/youtube/kevinu.jpg",
+      ]}
     />
     
     <LinkCard

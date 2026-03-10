@@ -162,7 +162,7 @@ export const facts: Fact[] = [
   },
   {
     text: `I used to have a YouTube channel with ${h("127,000")} views.`,
-    desc: `A little over 200 subscribers, hehe. Unfortunately, the account got terminated for copyright violations(?). Welp, what can we can do but ${a("start from scratch", "https://youtube.com/@SuppetySup")}.`,
+    desc: `A little over 200 subscribers, hehe. Unfortunately, the account got terminated for copyright violations(?). Welp, what can you do. Anyway, ${a("check this out", "https://youtube.com/@VengeanceVanguard")} ;)`,
   },
   {
     text: `My record for solving the ${a("3x3x3 Rubik’s Cube", "https://wikipedia.org/wiki/Rubik%27s_Cube")} is ${h("18.34")} seconds.`,
@@ -211,7 +211,11 @@ export const facts: Fact[] = [
   {
     text: `If you keep scrolling, you might get to the end.`,
     desc: `Trust.`,
-  }
+  },
+  {
+    text: `???`,
+    desc: `${a("???", "/sup/sup", true)}`
+  },
 ].map((fact, idx) => {
   (fact as Fact).idx = idx + facts_pinned.length;
   return fact as Fact;

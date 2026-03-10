@@ -64,7 +64,7 @@ export const chronicle_data: ChronicleData[] = [
   },
   {
     era:  "Modernity",
-    date: [2023, "early 2026"],
+    date: [2023, "late 2025"],
     tracks: [
       {
         shard:   "save-this-wrld",

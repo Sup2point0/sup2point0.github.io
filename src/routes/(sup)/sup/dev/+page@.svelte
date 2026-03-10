@@ -42,8 +42,8 @@ let cells: SvelteComponent[] = [];
 onMount(() => {
   if (viewport === undefined) return;
 
-  viewport!.scrollLeft = (viewport!.scrollWidth - viewport!.clientWidth) / 2;
-  viewport!.scrollTop = (viewport!.scrollHeight - viewport!.clientWidth) / 2;
+  viewport.scrollLeft = (viewport.scrollWidth - viewport.clientWidth) / 2;
+  viewport.scrollTop = (viewport.scrollHeight - viewport.clientWidth) / 2;
 
   setTimeout(() => { live = true; }, 10);
 });
@@ -196,7 +196,7 @@ function get_random_hex_cords(): [number, number][]
 .overlay-layout {
   pointer-events: none;
   width: 100vw;
-    height: 100vh;
+  height: 100vh;
   position: absolute;
   display: flex;
   flex-flow: column nowrap;

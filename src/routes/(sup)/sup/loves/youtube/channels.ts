@@ -193,7 +193,7 @@ const data: Groups<YouTubeChannelData> =
       name:   "pinguefy",
       love:   1,
       date:   undefined,
-      icon:   "pingeufy.jpg",
+      icon:   "pinguefy.jpg",
       topics: ["gaming"],
       desc: [
         ``,
@@ -246,11 +246,11 @@ const data: Groups<YouTubeChannelData> =
       ],
     },
     {
-      shard:  "game-makers-toolkit",
+      shard:  "gmtk",
       name:   "Game Maker’s Toolkit",
       love:   1,
       date:   undefined,
-      icon:   "game-makers-toolkit.jpg",
+      icon:   "gmtk.jpg",
       topics: ["gamedev", "software"],
       desc: [
         ``
@@ -398,17 +398,6 @@ const data: Groups<YouTubeChannelData> =
       love:    3,
       date:    undefined,
       icon:    "in-the-mix.jpg",
-      topics:  ["music production"],
-      desc: [
-        ``
-      ],
-    },
-    {
-      shard:   "neddie",
-      name:    "Neddie",
-      love:    null,
-      date:    undefined,
-      icon:    "neddie.jpg",
       topics:  ["music production"],
       desc: [
         ``

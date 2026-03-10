@@ -26,6 +26,7 @@ const config = {
         "/",
         "/assort",
         "/sup",
+        "/sup/sup",
       ],
     },
 	},

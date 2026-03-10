@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
 
-import { display_date } from "#scripts/utils";
+import { pick_random, display_date } from "#scripts/utils";
 
 import Main        from "#parts/core/main.svelte";
 import Block       from "#parts/ui/block.svelte"
@@ -8,6 +8,24 @@ import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import TrackBlock  from "#parts/music/block.track.listen.svelte";
 
 import { chronicle_data } from "./chronicle";
+
+import { onMount } from "svelte";
+
+
+let invert: boolean;
+let displayed_route = $state("");
+
+onMount(() => {
+  invert = Math.random() > 0.5;
+  displayed_route = pick_random(routes);
+});
+
+
+const routes = [
+  `While I’ve split these into discrete “eras”, in reality there was definitely overlap between them – not everything was perfectly linear, many eras evolved in parallel! Also, the dates don’t mean I don’t listen to these tracks anymore, they just indicate when I first came across them!`,
+
+  `It goes without saying that if a track’s in here, I already love it to bits. So I’ll try refrain from reiterating “I LOVE THIS TRACK SO MUCH”, altho sometimes it really does just need emphasising. And while I could probably say whether I like one track more than another if held at gunpoint, music is music, and I love it all, there’s no competition or rankings.`,
+];
 
 </script>
 
@@ -26,9 +44,13 @@ import { chronicle_data } from "./chronicle";
 
 <Main>
   <Block>
-    This is a brief selection of my favourite tracks over the years! They’re not exactly “favourites” per se, but more just tracks that I really notably liked, and are a landmark along my evolution of music tastes.
-    <div style:height="0.69rem"></div>
-    While I’ve split these into discrete “eras”, in reality there was definitely overlap between them – not everything was perfectly linear, many eras evolved in parallel! Also, the dates don’t mean I don’t listen to these tracks anymore, they just indicate when I came across them!
+    {#if displayed_route}
+      <p> This is a brief selection of my favourite tracks over the years! They’re not exactly “favourites” per se, but more just tracks that I really notably liked, and are a landmark along my evolution of music tastes. </p>
+      
+      <p> {@html displayed_route} </p>
+
+      <p> You can find these tracks in a <a target="_blank" href="https://youtube.com/playlist?list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd">YouTube playlist of mine</a> ;) </p>
+    {/if}
   </Block>
 
   <div class="chronicle">
@@ -45,7 +67,7 @@ import { chronicle_data } from "./chronicle";
 
         <div class="content">
           {#each tracks as track}
-            <TrackBlock {track} />
+            <TrackBlock {track} {invert} />
           {/each}
         </div>
       </section>

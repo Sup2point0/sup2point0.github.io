@@ -5,7 +5,7 @@ A wide block card for displaying info about a track I listen to.
 
 <script lang="ts">
 
-import { AnimationData, register_animation, calc_delay } from "#scripts/anim.svelte.ts";
+import { anim } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 import type { TrackData } from "#scripts/types/music/listen";
 
@@ -17,22 +17,22 @@ import { expoInOut } from "svelte/easing";
 
 interface Props {
   track: TrackData;
+  invert?: boolean;
 }
 
-let { track }: Props = $props();
+let { track, invert = false }: Props = $props();
 
 
 let open = $state(false);
 
 let self: HTMLElement;
-let anim = new AnimationData();
 
 onMount(() => {
-  if (self) {
-    register_animation(self, anim);
-  } else {
-    setTimeout(() => register_animation(self, anim), 1000);
-  }
+  requestAnimationFrame(() => {
+    if (invert) {
+      open = !open;
+    }
+  });
 });
 
 </script>
@@ -40,78 +40,79 @@ onMount(() => {
 
 <button class="block-track-listen"
   class:shrink={track.name.length > 20}
-  class:intersected={anim.intersected}
   class:open
   id={track.shard}
   bind:this={self}
   onclick={() => { open = !open; }}
-  style:--delay={calc_delay(anim, 0.2)}
+  {@attach anim}
 >
   <div class="content">
-    <div class="img-container">
-      <img alt={track.name} title={track.name}
-        width="200px" height="200px"
-        src="/covers/music/listen/{track.cover}"
-      />
-    </div>
 
-    <div class="info">
-      <div class="upper">
-        <div class="title">
-          <h3> {track.name} </h3>
+<div class="img-container">
+  <img alt={track.name} title={track.name}
+    width="200px" height="200px"
+    src="/covers/music/listen/{track.cover}"
+  />
+</div>
 
-          {#if track.date}
-            <p class="date">
-              {display_date(track.date)}
-            </p>
-          {/if}
-        </div>
+<div class="info">
+  <div class="upper">
+    <div class="title">
+      <h3> {track.name} </h3>
 
-        <div class="artists">
-          {#each track.artists as shard}
-            <!-- TODO display artist name properly -->
-            <a href="/sup/music/listen/artists#{shard}">
-              {shard}
-            </a>
-
-            <span class="separator"> × </span>
-          {/each}
-        </div>
-      </div>
-
-      <div class="sep"></div>
-
-      {#if open && track.desc}
-        <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
-          {#if Array.isArray(track.desc)}
-            {#each track.desc as block}
-              <p> {@html block} </p>
-            {/each}
-          {:else}
-            <p> {@html track.desc} </p>
-          {/if}
-        </div>
-
-      {:else}
-        <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
-          {#if track.discovered}
-            <p class="discovered">
-              {@html track.discovered}
-            </p>
-          {/if}
-
-          <ul class="genres">
-            {#each track.genres ?? [] as genre}
-              <li class="genre"> {genre} </li>
-            {/each}
-
-            {#each track.vibes ?? [] as vibe}
-              <li class="vibe"> {vibe} </li>
-            {/each}
-          </ul>
-        </div>
+      {#if track.date}
+        <p class="date">
+          {display_date(track.date)}
+        </p>
       {/if}
     </div>
+
+    <div class="artists">
+      {#each track.artists as shard}
+        <!-- TODO display artist name properly -->
+        <a href="/sup/music/listen/artists#{shard}">
+          {shard}
+        </a>
+
+        <span class="separator"> × </span>
+      {/each}
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  {#if open && track.desc}
+    <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
+      {#if Array.isArray(track.desc)}
+        {#each track.desc as block}
+          <p> {@html block} </p>
+        {/each}
+      {:else}
+        <p> {@html track.desc} </p>
+      {/if}
+    </div>
+
+  {:else}
+    <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
+      {#if track.discovered}
+        <p class="discovered">
+          {@html track.discovered}
+        </p>
+      {/if}
+
+      <ul class="genres">
+        {#each track.genres ?? [] as genre}
+          <li class="genre"> {genre} </li>
+        {/each}
+
+        {#each track.vibes ?? [] as vibe}
+          <li class="vibe"> {vibe} </li>
+        {/each}
+      </ul>
+    </div>
+  {/if}
+</div>
+
   </div>
 </button>
 
@@ -143,6 +144,10 @@ onMount(() => {
       100% { filter: brightness(100%); }
     }
   }
+
+  &:hover .lower p {
+    color: $col-text;
+  }
 }
 
 .content {
@@ -156,7 +161,8 @@ onMount(() => {
   opacity: 0;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
 
-  .block-track-listen.intersected & {
+  /* NOTE: Need `:global` to avoid CSS being purged!! */
+  :global(.block-track-listen.intersected) & {
     transform: none;
     opacity: 1;
   }
@@ -237,6 +243,7 @@ img {
     font-weight: 300;
     color: $col-text-deut;
     text-align: left;
+    transition: #{trans()};
   }
 
   p.discovered {

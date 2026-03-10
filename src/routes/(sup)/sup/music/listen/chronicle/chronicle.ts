@@ -19,9 +19,6 @@ const _template = [
         date:    undefined,
         cover:   undefined,
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: ``,
         desc: [
           ``,
@@ -36,6 +33,21 @@ export const chronicle_data: ChronicleData[] = [
     date: "present",
     tracks: [
       {
+        shard:   "resonance",
+        name:    "resonance",
+        artists: ["nabbe"],
+        date:    "early 2026",
+        cover:   "resonance.jpg",
+        genres:  [Genre.ELECTRONIC,],
+        vibes:   [Vibe.MUTED,],
+        discovered: `YouTube Music reccs`,
+        desc: [
+          `I’ll never change, eh? I can love fast, hardcore music all I want, but I’ll always return to my roots – that melancholic, muted vibe. If you’ll forgive the pun, it resonates with my heart so purely.`,
+
+          `Don’t really want to analyse the track, if I’m honest. It is just beautiful, that is all there is to say.`,
+        ],
+      },
+      {
         shard:   "breakeven",
         name:    "Breakeven",
         artists: ["the-script"],
@@ -43,9 +55,6 @@ export const chronicle_data: ChronicleData[] = [
         cover:   "the-script.jpg",
         genres:  [Genre.POP],
         vibes:   [Vibe.EMOTIONAL],
-        links: {
-          youtube: "",
-        },
         discovered: `childhood`,
         desc: [
           `We always loved this song, but now we feel this song.`,
@@ -64,9 +73,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    "late 2025",
         cover:   "save-this-wrld.jpg",
         genres:  [Genre.ELECTRONIC, Genre.RHYTHM],
-        links: {
-          youtube: "",
-        },
         discovered: `YouTube Music reccs`,
         desc: [
           ``,
@@ -79,9 +85,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    "late 2025",
         cover:   "spring-klydix-remix.jpg",
         genres:  [Genre.ELECTRONIC],
-        links: {
-          youtube: "",
-        },
         discovered: `Firefly Music`,
         desc: [
           ``,
@@ -94,12 +97,9 @@ export const chronicle_data: ChronicleData[] = [
         date:    "fall 2025",
         cover:   "debut.webp",
         genres:  [Genre.KPOP],
-        links: {
-          youtube: "",
-        },
         discovered: `friend`,
         desc: [
-          ``,
+          `Not generally a fan of this sorta music, but I can’t not enjoy it, because ${i("gawddamn")} is it rich. The rhythms, harmonies and progressions are actually so spot-on.`,
         ],
       },
       {
@@ -109,12 +109,11 @@ export const chronicle_data: ChronicleData[] = [
         date:    "late 2025",
         cover:   "lost-requiem.jpg",
         genres:  [Genre.FULL_FLAVOUR, Genre.RHYTHM],
-        links: {
-          youtube: "",
-        },
         discovered: `YouTube reccs`,
         desc: [
-          ``,
+          `hello かめりあ 2.0??`,
+
+          `The atmosphere is incredible, and it contrasts so beautifully with the harsh, dry drops. Sheer magnificence.`
         ],
       },
       {
@@ -124,12 +123,11 @@ export const chronicle_data: ChronicleData[] = [
         date:    "fall 2025",
         cover:   "thick-rain.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `Milthm`,
         desc: [
-          ``,
+          `Listening to this with studio headphones on was ...an experience. I have no idea how they managed it. The mix is one of the best I’ve ever heard, tbh. It’s so full and warm and atmospheric.`,
+
+          `Only complaint is the voice is too ‘girlish’ at times, but hey, it grew on me as always.`,
         ],
       },
       {
@@ -139,12 +137,11 @@ export const chronicle_data: ChronicleData[] = [
         date:    "fall 2025",
         cover:   "natsu.jpg",
         genres:  [Genre.DRUM_N_BASS, Genre.RHYTHM],
-        links: {
-          youtube: "",
-        },
         discovered: `Firefly Music`,
         desc: [
-          ``,
+          `AHHHHH THESE RHYTHMS`,
+
+          `It’s tough to put the feeling I get listening to this track into words. It’s just a total utter headbopper, destructively delicious.`,
         ],
       },
       {
@@ -154,9 +151,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    "fall 2025",
         cover:   "flutter-echo.jpg",
         genres:  [Genre.ELECTRONIC, Genre.KAWAII, Genre.DRUM_N_BASS],
-        links: {
-          youtube: "",
-        },
         discovered: `Phigros × KALPA collaboration II`,
         desc: [
           ``,
@@ -169,9 +163,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    "summer 2025",
         cover:   "your-idol.jpg",
         genres:  [Genre.KPOP, Genre.TRAP],
-        links: {
-          youtube: "",
-        },
         discovered: `K-pop Demon Hunters`,
         desc: [
           ``,
@@ -184,9 +175,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    "fall 2025",
         cover:   "ignotus.webp",
         genres:  [Genre.ARTCORE, Genre.RHYTHM],
-        links: {
-          youtube: "",
-        },
         discovered: `Arcaea`,
         desc: [
           ``,
@@ -199,9 +187,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    "spring 2025",
         cover:   "playing-god.jpg",
         genres:  [Genre.TRANSCENDENTAL, Genre.GUITAR],
-        links: {
-          youtube: "",
-        },
         discovered: `YouTube Music reccs`,
         desc: [
           ``,
@@ -214,9 +199,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    "spring 2025",
         cover:   "amethyst.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `YouTube Music reccs`,
         desc: [
           ``,
@@ -229,9 +211,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    "spring 2025",
         cover:   "final-showdown.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `Chiru-san × Hookington – Rebirth`,
         desc: [
           ``,
@@ -245,12 +224,11 @@ export const chronicle_data: ChronicleData[] = [
         cover:   "luo-ri.jpg",
         genres:  [Genre.CPOP],
         vibes:   [Vibe.CHILLOUT],
-        links: {
-          youtube: "",
-        },
         discovered: `news`,
         desc: [
-          ``,
+          `This track and ${a("《粗线条的雨》", "#thick-rain", true)} are really alike. Pure chillout. I suck at describing music with words, so idk how to describe it. But the atmosphere is just so full and warm. It’s like a “soundtrack of your life” type track. And the drums... it’s sorta a ‘bop’, but I feel like there’s a better word that hasn’t been invented yet. Aw man, I love this track.`,
+          
+          `And yes, I discovered it from a Chinese news video which used it as the backing soundtrack. New music comes from everywhere ;)`,
         ],
       },
       {
@@ -261,12 +239,13 @@ export const chronicle_data: ChronicleData[] = [
         cover:   "what-if.jpg",
         genres:  [Genre.ELECTRONIC],
         vibes:   [Vibe.HAPPY],
-        links: {
-          youtube: "",
-        },
         discovered: `Firefly Music`,
         desc: [
-          ``,
+          `I’m writing these thoughts out of order so I’m naturally running out of words (or rather, starting to repeat myself lmao)`,
+
+          `Anyway, this might be one of the most amazing melodies I’ve ever heard. It might also be the first ‘happy’ track I’ve listened to where I actually feel ${i("fully")} happy. I say this because, for instance with ${a("Ibiza", "#ibiza", true)}, it’s a happy melody but I still hear sadness in it. But not for this track. It’s pure happiness, it’s sooo feel good. So that is really special for me.`,
+
+          `(only the ending has a touch of sadness, but it’s more like a “the end of the happiest day of my life” type ending.)`,
         ],
       },
       {
@@ -275,14 +254,15 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["sting"],
         date:    "spring 2025",
         cover:   "what-could-have-been.jpg",
-        genres:  [],
-        vibes:   [Vibe.EMOTIONAL],
-        links: {
-          youtube: "",
-        },
+        genres:  [Genre.ORCHESTRAL,],
+        vibes:   [Vibe.EMOTIONAL,],
         discovered: `Arcane`,
         desc: [
-          ``,
+          `There’s many aspects of music that I’m susceptible to, but as a producer, one I’ve become increasingly sensitive to is ${i("progression")} – how a track grows, develops and shifts.`,
+
+          `And whooh, this track. Chills. From the pensive opening piano, to the raw, pained vocals of Sting, to the first chord release. I’m not joking, chills every. single. time. I’m listening to the track as I write this and I got chills without even paying full attention.`,
+
+          `The violin surges, the sustained vocals, the raw felt emotion. Whether I look at it in the context of Arcane or as its own track, either way it’s beautifully perfect.`
         ],
       },
       {
@@ -292,12 +272,11 @@ export const chronicle_data: ChronicleData[] = [
         date:    "spring 2025",
         cover:   "dopamine-dnb.jpg",
         genres:  [Genre.BEATBOX, Genre.DRUM_N_BASS],
-        links: {
-          youtube: "",
-        },
         discovered: `WING`,
         desc: [
-          ``,
+          `I first came across an unofficial recording of Wing performing an early version of this on some Korean show, in a YouTube video that got recommended to me out of luck (I wouldn’t have found it since the title was all Korean).`,
+
+          `So when the actual thing dropped, aw yeah, it was HYPE. And man, what a track. So clean, so polished, so elegant. Pure mastery all throughout.`,
         ],
       },
       {
@@ -308,9 +287,6 @@ export const chronicle_data: ChronicleData[] = [
         cover:   "new-start.jpg",
         genres:  [Genre.KAWAII_FUTURE_BASS],
         vibes:   [Vibe.HAPPY],
-        links: {
-          youtube: "",
-        },
         discovered: `Firely Music, YouTube reccs`,
         desc: [
           ``,
@@ -323,9 +299,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    "summer 2024",
         cover:   "sakura-fubiki.jpg",
         genres:  [Genre.RHYTHM, Genre.NEUROFUNK],
-        links: {
-          youtube: "",
-        },
         discovered: `Arcaea`,
         desc: [
           ``,
@@ -339,12 +312,11 @@ export const chronicle_data: ChronicleData[] = [
         cover:   "grimheart.jpg",
         genres:  [Genre.TRAP],
         vibes:   [Vibe.CHILLOUT],
-        links: {
-          youtube: "",
-        },
         discovered: `Arcaea`,
         desc: [
-          ``,
+          `Here’s how I’d put this – I knew I liked this genre, but I ${i("didn’t know it existed")}. And the only person who makes it like this is puru. (maybe also Frums, but only that specific section of XNOR)`,
+
+          `It’s so special. The drums and rhythms are fairly fast, and the textures aren’t all soft. But the track just ${i("is soft")}. It’s so inexplicable. It occupies such an unparalleled space that is just ${i("puru")}.`,
         ],
       },
     ],
@@ -360,9 +332,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    "spring 2025",
         cover:   "bibbidiba.png",
         genres:  [Genre.JPOP],
-        links: {
-          youtube: "",
-        },
         discovered: `YouTube Music reccs`,
         desc: [
           ``,
@@ -375,9 +344,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    "spring 2025",
         cover:   "mend-your-ways.jpg",
         genres:  [Genre.JCORE, Genre.NEUROFUNK],
-        links: {
-          youtube: "",
-        },
         discovered: `YouTube Music reccs`,
         desc: [
           ``,
@@ -390,9 +356,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "bug.jpg",
         genres:  [Genre.JCORE],
-        links: {
-          youtube: "",
-        },
         discovered: ``,
         desc: [
           ``,
@@ -405,9 +368,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "i-wanna-be-a-girl.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `Rhythm+ (browser rhythm game)`,
         desc: [
           ``,
@@ -420,9 +380,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "beyond-the-way.jpg",
         genres:  [Genre.TRAP, Genre.VOCALOID],
-        links: {
-          youtube: "",
-        },
         discovered: `YouTube reccs`,
         desc: [
           ``,
@@ -435,9 +392,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "tabun.png",
         genres:  [Genre.JCORE, Genre.LOFI],
-        links: {
-          youtube: "",
-        },
         discovered: `YOASOBI discography`,
         desc: [
           ``,
@@ -450,9 +404,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "idol.png",
         genres:  [Genre.JPOP, Genre.ANIME],
-        links: {
-          youtube: "",
-        },
         discovered: `${h("Oshi no Ko")} anime`,
         desc: [
           ``,
@@ -472,9 +423,6 @@ export const chronicle_data: ChronicleData[] = [
         cover:   "sentient.jpg",
         genres:  [Genre.PIANO],
         vibes:   [Vibe.EMOTIONAL],
-        links: {
-          youtube: "",
-        },
         discovered: `YouTube reccs`,
         desc: [
           ``,
@@ -493,9 +441,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "algebra.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `Phigros custom chart`,
         desc: [
           ``,
@@ -508,12 +453,10 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "ming-huo.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `Phigros`,
         desc: [
-          ``,
+          `It’s too perfect. It just... like, ticks all the boxes.`,
+          `The energy, the rhythms, the textures. More than anything, it’s how perfectly it all comes together. Of all the rhythm game tracks I’ve listened to, this has one of the fewest ‘rough edges’ (which is usually the main thing keeping many tracks from, for instance, being on this list :P).`,
         ],
       },
       {
@@ -523,9 +466,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "synthesis.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `YouTube reccs`,
         desc: [
           ``,
@@ -538,9 +478,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "luminescence.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `Phigros`,
         desc: [
           ``,
@@ -553,9 +490,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "oo-parts.jpg",
         genres:  [Genre.FULL_FLAVOUR, Genre.TRANSCENDENTAL],
-        links: {
-          youtube: "",
-        },
         discovered: `かめりあ discography`,
         desc: [
           ``,
@@ -568,9 +502,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "ashed-wings.jpg",
         genres:  [Genre.HARDCORE, Genre.SPEEDCORE],
-        links: {
-          youtube: "",
-        },
         discovered: `かめりあ discography`,
         desc: [
           ``,
@@ -583,9 +514,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "spin-eternally.png",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `かめりあ discography`,
         desc: [
           ``,
@@ -598,9 +526,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "distorted-fate.jpg",
         genres:  [Genre.BOSS_MUSIC],
-        links: {
-          youtube: "",
-        },
         discovered: `Phigros`,
         desc: [
           ``,
@@ -613,9 +538,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "nhelv.jpg",
         genres:  [Genre.NEUROFUNK],
-        links: {
-          youtube: "",
-        },
         discovered: `YouTube reccs`,
         desc: [
           ``,
@@ -628,9 +550,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "terabyte-connection.jpg",
         genres:  [Genre.TRANSCENDENTAL,Genre.CAMELLIACORE, Genre.HARDCORE],
-        links: {
-          youtube: "",
-        },
         discovered: `Phigros`,
         desc: [
           ``,
@@ -643,9 +562,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "tera-io.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `Phigros`,
         desc: [
           ``,
@@ -658,9 +574,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "realms.jpg",
         genres:  [Genre.ELECTRONIC, Genre.DRUM_N_BASS, Genre.RHYTHM],
-        links: {
-          youtube: "",
-        },
         discovered: `Phigros`,
         desc: [
           ``,
@@ -673,9 +586,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "no-one-yes-man.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `Phigros`,
         desc: [
           ``,
@@ -688,9 +598,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "water.jpg",
         genres:  [Genre.HARDCORE, Genre.VOCALOID, Genre.COLOUR_BASS],
-        links: {
-          youtube: "",
-        },
         discovered: `Phigros`,
         desc: [
           ``,
@@ -703,9 +610,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "qing-ya.jpg",
         genres:  [Genre.CPOP],
-        links: {
-          youtube: "",
-        },
         discovered: `Phigros`,
         desc: [
           ``,
@@ -724,9 +628,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "friendship-games.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `childhood`,
         desc: [
           ``,
@@ -739,9 +640,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "suzume.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `${h("Suzume no Tojimari")} anime`,
         desc: [
           ``,
@@ -750,14 +648,11 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "geometric-love",
         name:    "Proof Geometric Construction Can Solve All Love Affairs",
-        artists: [],
+        artists: ["manbo-p"],
         date:    undefined,
         cover:   "geometric-love.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: ``,
+        discovered: `YouTube reccs`,
         desc: [
           ``,
         ],
@@ -769,9 +664,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "susume.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: ``,
         desc: [
           ``,
@@ -780,13 +672,10 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "are-you-happy",
         name:    "Are You Happy",
-        artists: [],
-        date:    undefined,
+        artists: ["bo-burnham"],
+        date:    2021,
         cover:   "make-happy.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: ``,
         desc: [
           ``,
@@ -795,31 +684,29 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "up-in-the-hills",
         name:    "Up in the Hills",
-        artists: [],
+        artists: ["johannes-bornlof"],
         date:    undefined,
         cover:   "stowaway-home.jpg",
-        genres:  [],
-        links: {
-          youtube: "",
-        },
+        genres:  [Genre.ORCHESTRAL,],
         discovered: ``,
         desc: [
-          ``,
+          `It is pretty awe-inspiring how rarely Johannes Bornlöf misses, and the proportion of his discography that I ${i("really like")} is pretty astounding. Beat かめりあ, tbh.`,
+
+          `But of all his incredible tracks, for some reason this one just hits different. It’s the melody. ${h("Only the Brave")} has a similarly timeless melody, but this one really, really struck me fsr. It’s... beautiful, really. The sense of longing, nostalgia, triumph, all captured in one.`,
+
+          `I don’t really like picking favourites, but somehow I was able to pick this out as my favourite Johannes Bornlöf track. It’s genuinely incredible how much his music has been able to move me.`,
         ],
       },
       {
         shard:   "rong-yao-de-zhan-chang",
         name:    "荣耀的战场",
-        artists: [],
-        date:    undefined,
+        artists: ["R1SE"],
+        date:    "summer 2019",
         cover:   "rong-yao-de-zhan-chang.jpg",
-        genres:  [],
-        links: {
-          youtube: "",
-        },
-        discovered: ``,
+        genres:  [Genre.CPOP],
+        discovered: `《全职高手》 (The King’s Avatar)`,
         desc: [
-          ``,
+          `What an ANTHEM. Honestly, looking back, this is probably the first Chinese track that I properly fell in love with. The story of 《全职高手》 also adds so much sentimental value and meaning to the song.`,
         ],
       },
     ],
@@ -835,9 +722,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "no-turning-back.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `Vexento release`,
         desc: [
           ``,
@@ -850,9 +734,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "slash.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `NCS release`,
         desc: [
           ``,
@@ -865,9 +746,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "ibiza.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `Elektronomia release`,
         desc: [
           ``,
@@ -880,9 +758,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "end-of-time.webp",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `Alan Walker release`,
         desc: [
           ``,
@@ -895,9 +770,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "banana-breeze.jpg",
         genres:  [],
-        links: {
-          youtube: "",
-        },
         discovered: `Vexento discography`,
         desc: [
           ``,
@@ -911,9 +783,6 @@ export const chronicle_data: ChronicleData[] = [
         cover:   "play.jpg",
         genres:  [Genre.EDM],
         vibes:   [Vibe.EMOTIONAL],
-        links: {
-          youtube: "",
-        },
         discovered: `Alan Walker release`,
         desc: [
           ``,
@@ -926,9 +795,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "throwback.jpg",
         genres:  [Genre.ELECTRONIC, Genre.HARDCORE],
-        links: {
-          youtube: "",
-        },
         discovered: `NCS discography`,
         desc: [
           ``,
@@ -964,9 +830,6 @@ export const chronicle_data: ChronicleData[] = [
         cover:   "home.jpg",
         genres:  [Genre.DOWNTEMPO],
         vibes:   [Vibe.CHILLOUT, Vibe.HAPPY],
-        links: {
-          youtube: "",
-        },
         discovered: `Vexento discography`,
         desc: [
           `Well, it’s just home, isn’t it?`,
@@ -981,9 +844,6 @@ export const chronicle_data: ChronicleData[] = [
         cover:   "when-youre-gone.jpg",
         genres:  [Genre.POP],
         vibes:   [Vibe.EMOTIONAL],
-        links: {
-          youtube: "",
-        },
         discovered: `some Ultraman video on YouTube`,
         desc: [
           ``,
@@ -996,9 +856,6 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "never-gonna-give-you-up.jpg",
         genres:  [Genre.POP],
-        links: {
-          youtube: "",
-        },
         discovered: `??`,
         desc: [
           `I unironically enjoy this song, alright? Also, you should check ${a("this<sup>↗</sup>", "https://youtube.com/watch?v=yPYZpwSpKmA")} out ;)`,

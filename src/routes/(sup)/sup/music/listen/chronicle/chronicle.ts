@@ -7,6 +7,7 @@ interface ChronicleData
 {
   era:    string;
   date:   Dates;
+  desc:   string[];
   tracks: TrackData[];
 }
 
@@ -31,6 +32,11 @@ export const chronicle_data: ChronicleData[] = [
   {
     era:  "Post-Modernity",
     date: "present",
+    desc: [
+      `Currently, I’m just listening to a lot of everything!`,
+
+      `While on paper my musical library is ridiculously massive, I still somehow manage to feel stifled at times... so I’m always looking for new stuff. YouTube Music’s autoplay helps a lot with this ;P`,
+    ],
     tracks: [
       {
         shard:   "resonance",
@@ -65,6 +71,9 @@ export const chronicle_data: ChronicleData[] = [
   {
     era:  "Modernity",
     date: [2023, "late 2025"],
+    desc: [
+      `Over these years my music taste really started to explode, as I grew into rhythm games other than Phigros, came across beatboxing, and started playing YouTube Music while studying.`,
+    ],
     tracks: [
       {
         shard:   "save-this-wrld",
@@ -177,7 +186,9 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.ARTCORE, Genre.RHYTHM],
         discovered: `Arcaea`,
         desc: [
-          ``,
+          `For me this is peak artcore. Peak Arcaea music, in fact. I would call this the ${i("sound")} of Arcaea.`,
+
+          `I can’t even place my finger on what makes it so special. Maybe it’s the reverb, maybe it’s how the slightly scratchy textures meld with the softer warmer ones, maybe it’s the pitch bends on the melody. It’s really quite magical. Such an iconic track.`,
         ],
       },
       {
@@ -198,10 +209,16 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["kanro"],
         date:    "spring 2025",
         cover:   "amethyst.jpg",
-        genres:  [],
+        genres:  [Genre.ELECTRONIC, Genre.DUBSTEP,],
         discovered: `YouTube Music reccs`,
         desc: [
-          ``,
+          `Many of the tracks on this list made this list because their drop just hit like an absolute truck.`,
+
+          `Well, this one was a damn hurricane. 20/20 stank face.`,
+
+          `Then the bridge breakdown too. Yeah, it’s probably just way too much OTT and chonky reverb, but it just sounds so delicious.`,
+
+          `Not so much a fan of the kawaii vocals, but the syncopated rhythms in this one are such headboppers.`,
         ],
       },
       {
@@ -210,7 +227,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["hookington"],
         date:    "spring 2025",
         cover:   "final-showdown.jpg",
-        genres:  [],
+        genres:  [Genre.RHYTHM, Genre.ELECTRONIC, Genre.MUSIC,],
         discovered: `Chiru-san × Hookington – Rebirth`,
         desc: [
           ``,
@@ -289,7 +306,7 @@ export const chronicle_data: ChronicleData[] = [
         vibes:   [Vibe.HAPPY],
         discovered: `Firely Music, YouTube reccs`,
         desc: [
-          ``,
+          `The first PIKASONIC track I discovered, and such a unique vibe.`,
         ],
       },
       {
@@ -323,7 +340,10 @@ export const chronicle_data: ChronicleData[] = [
   },
   {
     era:  "Japanese Era",
-    date: 2023,
+    date: [2022, "late 2025"],
+    desc: [
+      `Slightly preceding my rhythm game music explosion and growing in parallel, I also found many, many Japanese tracks that I really liked.`,
+    ],
     tracks: [
       {
         shard:   "bibbidiba",
@@ -356,7 +376,7 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "bug.jpg",
         genres:  [Genre.JCORE],
-        discovered: ``,
+        discovered: `Rhythm+ (browser rhythm game)`,
         desc: [
           ``,
         ],
@@ -370,7 +390,7 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [],
         discovered: `Rhythm+ (browser rhythm game)`,
         desc: [
-          ``,
+          `Ignoring the meaning of the song, `,
         ],
       },
       {
@@ -414,6 +434,9 @@ export const chronicle_data: ChronicleData[] = [
   {
     era:  "Calm Interlude",
     date: 2024,
+    desc: [
+      `Well, this track needs to be in this list, but it doesn’t really fit anywhere. Bit awkward.`,
+    ],
     tracks: [
       {
         shard:   "sentient",
@@ -433,6 +456,11 @@ export const chronicle_data: ChronicleData[] = [
   {
     era:  "Phigros Era",
     date: 2023,
+    desc: [
+      `In summer of 2023 I was introduced to Phigros and rhythm gaming, and my music taste has never been the same since.`,
+
+      `Of course, I was already an electronic music enjoyer, but rhythm game music truly took that to the next level, where I started embracing harsher and harder genres like hardcore, neurofunk, and Camelliacore.`,
+    ],
     tracks: [
       {
         shard:   "algebra",
@@ -620,6 +648,7 @@ export const chronicle_data: ChronicleData[] = [
   {
     era:  "Emotional Interlude",
     date: [2019, 2022],
+    desc: [],
     tracks: [
       {
         shard:   "friendship-games",
@@ -714,17 +743,25 @@ export const chronicle_data: ChronicleData[] = [
   {
     era:  "EDM Era",
     date: "childhood",
+    desc: [
+      `My musical journey began with electronic, specifically NCS (NoCopyrightSounds) era EDM (electronic dance music). Elektronomia was the first artist I followed, and the first artist I called my “favourite”.`,
+    ],
     tracks: [
       {
         shard:   "no-turning-back",
         name:    "No Turning Back",
         artists: ["vexento"],
-        date:    undefined,
+        date:    "August 2021",
         cover:   "no-turning-back.jpg",
-        genres:  [],
+        genres:  [Genre.ELECTRONIC,],
+        vibes:   [Vibe.EMOTIONAL, Vibe.CHILLOUT,],
         discovered: `Vexento release`,
         desc: [
-          ``,
+          `Timeless, timeless melody.`,
+          
+          `Aw man, it’s so beautiful. Vexento, I love your music so much.`,
+
+          `Fun fact, I caught this as it released. I hadn’t been caught up with Vexento at the time, and I happened to the see the preview for this in my subscriptions. Listening to this really takes me back...`,
         ],
       },
       {
@@ -745,10 +782,14 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["elektronomia"],
         date:    undefined,
         cover:   "ibiza.jpg",
-        genres:  [],
+        genres:  [Genre.EDM],
         discovered: `Elektronomia release`,
         desc: [
-          ``,
+          `Alright, call me crazy, but I’ve always heard sadness in this track. Ofc, rhythm-wise and feeling-wise, it’s clearly a beach track, but to me the melody has a hint of “nostalgia for days long gone” sadness in it.`,
+
+          `I’ve found myself associating this track with the ${h(i("Ventura saga"))} (book series), particularly ${i("The Truth of Different Skies")}. It’s like a memory of life of Earth. idk man, I suck at describing this stuff TvT`,
+
+          `Either way, definitely some of Elektronomia’s finest work. It’s one of my favourite drops, but I especially love the bridge. The counter-melody is so cool.`,
         ],
       },
       {
@@ -772,7 +813,9 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [],
         discovered: `Vexento discography`,
         desc: [
-          ``,
+          `Vexento is absolutely MASTERFUL at mixing. I felt this so clearly after starting music production myself. He’s unbelievably talented at creating full, heartwarming mixes, where even tho it ${i("sounds like")} there’s not that much going on, the feeling is all there. It’s incredible.`,
+
+          `And like Johannes Bornlöf, I’m gonna have to pick this track as my favourite of his. It’s just so perfect.`,
         ],
       },
       {
@@ -781,11 +824,11 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["alan-walker", "k-391", "Tungevaag"],
         date:    undefined,
         cover:   "play.jpg",
-        genres:  [Genre.EDM],
-        vibes:   [Vibe.EMOTIONAL],
+        genres:  [Genre.EDM,],
+        vibes:   [Vibe.EMOTIONAL,],
         discovered: `Alan Walker release`,
         desc: [
-          ``,
+          `It’s somewhat generic Alan Walker, but this track captures what I loved about his music the most. It’s the atmosphere he creates. It’s music that accompanies you throughout your life.`,
         ],
       },
       {
@@ -821,6 +864,9 @@ export const chronicle_data: ChronicleData[] = [
   {
     era:  "Timeless",
     date: "timeless",
+    desc: [
+      `Some tracks don’t really fit in any particular moment in the chronicle. They’re just too timeless, too legendary. So I suppose I’ll just leave them here ;)`,
+    ],
     tracks: [
       {
         shard:   "home",
@@ -840,7 +886,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "when-youre-gone",
         name:    "When You’re Gone",
         artists: ["avril-lavigne"],
-        date:    undefined,
+        date:    "childhood",
         cover:   "when-youre-gone.jpg",
         genres:  [Genre.POP],
         vibes:   [Vibe.EMOTIONAL],
@@ -853,7 +899,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "never-gonna-give-you-up",
         name:    "Never Gonna Give You Up",
         artists: ["rick-astley"],
-        date:    undefined,
+        date:    "eternal",
         cover:   "never-gonna-give-you-up.jpg",
         genres:  [Genre.POP],
         discovered: `??`,

@@ -16,7 +16,7 @@ import LinkCard from "#parts/ui/card.link.svelte";
   <!-- <LinkCard link="/sup/music/listen/tracks" text="tracks I listen to" /> -->
   <LinkCard
     link="/sup/music/listen/chronicle"
-    text="iconic tracks"
+    text="evolution of taste"
     picts={[
       "covers/music/listen/what-if.jpg",
       "covers/music/listen/ming-huo.jpg",

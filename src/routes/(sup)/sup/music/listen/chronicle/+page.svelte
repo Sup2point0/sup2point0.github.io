@@ -54,7 +54,7 @@ const routes = [
   </Block>
 
   <div class="chronicle">
-    {#each chronicle_data as { era, date, tracks }}
+    {#each chronicle_data as { era, date, desc, tracks }}
       <section>
         <div class="bar"></div>
 
@@ -63,6 +63,12 @@ const routes = [
             <p class="date"> {display_date(date)} </p>
             <h2> {era} </h2>
           </header>
+          
+          <aside>
+            {#each desc as block}
+              <p> {@html block} </p>
+            {/each}
+          </aside>
         </div>
 
         <div class="content">
@@ -111,8 +117,8 @@ const routes = [
   position: sticky;
   top: 5rem;
   display: flex;
-  flex-flow: row nowrap;
-  gap: 1rem;
+  flex-flow: column nowrap;
+  gap: 2.5rem;
 }
 
 
@@ -129,6 +135,15 @@ header {
     font-weight: 300;
     font-size: 400%;
     line-height: 75%;
+  }
+}
+
+aside {
+  p {
+    margin-bottom: 1em;
+    @include font-ui;
+    color: $col-text-deut;
+    line-height: 150%;
   }
 }
 

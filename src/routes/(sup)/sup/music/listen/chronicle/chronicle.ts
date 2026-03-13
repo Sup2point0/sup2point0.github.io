@@ -44,11 +44,11 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["nabbe"],
         date:    "early 2026",
         cover:   "resonance.jpg",
-        genres:  [Genre.ELECTRONIC,],
-        vibes:   [Vibe.MUTED,],
+        genres:  [Genre.ELECTRONIC],
+        vibes:   [Vibe.MUTED],
         discovered: `YouTube Music reccs`,
         desc: [
-          `I’ll never change, eh? I can love fast, hardcore music all I want, but I’ll always return to my roots – that melancholic, muted vibe. If you’ll forgive the pun, it resonates with my heart so purely.`,
+          `I’ll never change, eh? I can love fast, hardcore music all I want, but I’ll always return to my roots – that melodic, melancholic, muted vibe. If you’ll forgive the pun, it resonates with my heart so purely.`,
 
           `Don’t really want to analyse the track, if I’m honest. It is just beautiful, that is all there is to say.`,
         ],
@@ -70,7 +70,7 @@ export const chronicle_data: ChronicleData[] = [
   },
   {
     era:  "Modernity",
-    date: [2023, "late 2025"],
+    date: ["summer 2024", "late 2025"],
     desc: [
       `Over these years my music taste really started to explode, as I grew into rhythm games other than Phigros, came across beatboxing, and started playing YouTube Music while studying.`,
     ],
@@ -96,7 +96,11 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.ELECTRONIC],
         discovered: `Firefly Music`,
         desc: [
-          ``,
+          `MELODIC STUFF ACTUALLY KILLS ME.`,
+
+          `The opening melody man. Beautiful is the word, but I do overuse that word here. CUZ EVERYTHING IS FRICKIN BEAUTIFUL-`,
+
+          `The main melody is really nice as well. Love the breakbeat interlude. Such a bop, and great remix!`,
         ],
       },
       {
@@ -162,7 +166,9 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.ELECTRONIC, Genre.KAWAII, Genre.DRUM_N_BASS],
         discovered: `Phigros × KALPA collaboration II`,
         desc: [
-          ``,
+          `Aw, this one just makes my heart melt a little. It’s so cute!!`,
+
+          `What really does it for me is the maturity of the composition. The developments are so satisfying, and each part has so much character. It feels like a soundtrack for a little gremlin’s wondrous adventure, y’know?`,
         ],
       },
       {
@@ -174,7 +180,11 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.KPOP, Genre.TRAP],
         discovered: `K-pop Demon Hunters`,
         desc: [
-          ``,
+          `It slaps. That’s all there is to it.`,
+
+          `Yes, it’s ironic, and I love it. It’s so addictive, I just can’t get enough.`,
+
+          `All of the music in K-pop Demon Hunters is top-notch. You could call the tracks a little cliché, sure, but. They hit that cliché ${i("perfectly")}. They capture exactly the vibe they’re going for, and the production quality is top-notch. I just can’t not appreciate it. Doing the same stuff as everyone else isn’t a problem if you do it ${i("insanely well")}, innit.`,
         ],
       },
       {
@@ -209,7 +219,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["kanro"],
         date:    "spring 2025",
         cover:   "amethyst.jpg",
-        genres:  [Genre.ELECTRONIC, Genre.DUBSTEP,],
+        genres:  [Genre.ELECTRONIC, Genre.DUBSTEP],
         discovered: `YouTube Music reccs`,
         desc: [
           `Many of the tracks on this list made this list because their drop just hit like an absolute truck.`,
@@ -227,7 +237,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["hookington"],
         date:    "spring 2025",
         cover:   "final-showdown.jpg",
-        genres:  [Genre.RHYTHM, Genre.ELECTRONIC, Genre.MUSIC,],
+        genres:  [Genre.RHYTHM, Genre.ELECTRONIC, Genre.MUSIC],
         discovered: `Chiru-san × Hookington – Rebirth`,
         desc: [
           ``,
@@ -271,8 +281,8 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["sting"],
         date:    "spring 2025",
         cover:   "what-could-have-been.jpg",
-        genres:  [Genre.ORCHESTRAL,],
-        vibes:   [Vibe.EMOTIONAL,],
+        genres:  [Genre.ORCHESTRAL],
+        vibes:   [Vibe.EMOTIONAL],
         discovered: `Arcane`,
         desc: [
           `There’s many aspects of music that I’m susceptible to, but as a producer, one I’ve become increasingly sensitive to is ${i("progression")} – how a track grows, develops and shifts.`,
@@ -390,7 +400,11 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [],
         discovered: `Rhythm+ (browser rhythm game)`,
         desc: [
-          `Ignoring the meaning of the song, `,
+          `Ignoring the meaning of the song, it is an utter steal. I just can’t stop bopping.`,
+
+          `Considering the meaning of the song, it is an utter steal. Makes it 20x funnier, I love it. Also, mafumafu’s voice is pure insanity.`,
+
+          `There’s a way to develop melodies from verse to chorus that sounds so intuitive and natural – to the listener, not the writer – and sure, it’s ‘standard’, but it still feels magical. This track does it so well.`,
         ],
       },
       {
@@ -448,14 +462,18 @@ export const chronicle_data: ChronicleData[] = [
         vibes:   [Vibe.EMOTIONAL],
         discovered: `YouTube reccs`,
         desc: [
-          ``,
+          `y’know what, maybe this belongs in the timeless section.`,
+
+          `Music from the soul.`,
+
+          `I aspire to create something like this, someday.`,
         ],
       },
     ],
   },
   {
     era:  "Phigros Era",
-    date: 2023,
+    date: ["summer 2023", 2024],
     desc: [
       `In summer of 2023 I was introduced to Phigros and rhythm gaming, and my music taste has never been the same since.`,
 
@@ -628,7 +646,13 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.HARDCORE, Genre.VOCALOID, Genre.COLOUR_BASS],
         discovered: `Phigros`,
         desc: [
-          ``,
+          `Opening slaps. The sweep buildup, the releases, the light reverb, the development, the momentum on the hats, it’s just delicious.`,
+
+          `And damn, what a melody(s). Didn’t even realise it was a hardcore track (I guess that’s how you tell you’ve been electronic-indoctrinated, eh? :P)`,
+
+          `Favourite part is the post-1st drop breakdown, it’s so... ${i("evil")} is how I’d describe it. Maybe there’s a bit of mental association with the sick Phigros chart, lmao, but sick.`,
+
+          `Oh right, and then that leads into an amazing atmospheric melodic drop. Such a polished track, and the extended version is actually great as well!`,
         ],
       },
       {
@@ -648,18 +672,24 @@ export const chronicle_data: ChronicleData[] = [
   {
     era:  "Emotional Interlude",
     date: [2019, 2022],
-    desc: [],
+    desc: [
+      `This period is tough to pinpoint, really. It wasn’t particularly defined by anything. I was listening to a lot of OSTs from games, series, anime.`
+    ],
     tracks: [
       {
         shard:   "friendship-games",
         name:    "Friendship Games",
         artists: ["mlp"],
-        date:    undefined,
+        date:    "childhood",
         cover:   "friendship-games.jpg",
-        genres:  [],
+        genres:  [Genre.SOUNDTRACK, Genre.ELECTRONIC, Genre.ROCK],
         discovered: `childhood`,
         desc: [
-          ``,
+          `If you haven’t listened to the song before, ${i("listen to it")}. I’m serious.`,
+
+          `The opening, genuinely. One of the most masterful things I’ve ever heard. (By ‘masterful’ I mean in the context of what it aims to achieve, which is to build a mysterious, curious atmosphere.) The rhythmic piano, the vocal fade-ins, the drum hits, the atmospheric piano notes, it’s just. “AHH”, y’know?`,
+
+          `The rest probably isn’t for everyone, but I love the vibe and energy.`,
         ],
       },
       {
@@ -687,15 +717,15 @@ export const chronicle_data: ChronicleData[] = [
         ],
       },
       {
-        shard:   "suzume-ultraman-zero",
+        shard:   "susume-ultraman-zero",
         name:    "Susume! Ultraman Zero",
-        artists: [],
-        date:    undefined,
+        artists: ["voyager"],
+        date:    "childhood",
         cover:   "susume.jpg",
-        genres:  [],
-        discovered: ``,
+        genres:  [Genre.SOUNDTRACK, Genre.ROCK],
+        discovered: `${h("Ultraman Zero: The Revenge of Belial")} (film)`,
         desc: [
-          ``,
+          `Such a theme. The way everything comes together is really nice, and the energy is so complete. Ultraman Zero is just pure unfiltered epicness, so it just fits him perfectly.`,
         ],
       },
       {
@@ -704,10 +734,19 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["bo-burnham"],
         date:    2021,
         cover:   "make-happy.jpg",
-        genres:  [],
-        discovered: ``,
+        genres:  [Genre.PIANO],
+        vibes:   [Vibe.EMOTIONAL],
+        discovered: `Bo Burnham discography`,
         desc: [
-          ``,
+          `When I first heard this song, it felt like I’d heard the opening melody before.`,
+
+          `It’s a beautiful melody. This song is fragile, tender and vulnerable, distinct to Bo’s other songs. It’s incredible how he can do diabolical harsh rap (words), dumb over-the-top comedic bops (ironic), and genuinely vibey soundtracks (FaceTime), and under all that is able to pull this softness off. His voice in this is really the kind that breaks your heart.`,
+
+          `I learnt to play this on piano, y’know. It’s fun to play, but it does feel incomplete without the lyrics over it. The harmonies really are quite beautiful.`,
+
+          `And damn, what a question. You feel it.`,
+
+          `What a farewell as well.`,
         ],
       },
       {
@@ -716,7 +755,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["johannes-bornlof"],
         date:    undefined,
         cover:   "stowaway-home.jpg",
-        genres:  [Genre.ORCHESTRAL,],
+        genres:  [Genre.ORCHESTRAL],
         discovered: ``,
         desc: [
           `It is pretty awe-inspiring how rarely Johannes Bornlöf misses, and the proportion of his discography that I ${i("really like")} is pretty astounding. Beat かめりあ, tbh.`,
@@ -742,9 +781,11 @@ export const chronicle_data: ChronicleData[] = [
   },
   {
     era:  "EDM Era",
-    date: "childhood",
+    date: [2016, 2021],
     desc: [
-      `My musical journey began with electronic, specifically NCS (NoCopyrightSounds) era EDM (electronic dance music). Elektronomia was the first artist I followed, and the first artist I called my “favourite”.`,
+      `My musical journey began with electronic, specifically NCS-era EDM (${h("NoCopyrightSounds")} / electronic dance music). My favourite YouTuber at the time, ${h("iXPLODE")}, who made .io games videos, used this music in his videos.`,
+      
+      `${h("Elektronomia")} was the first artist I followed, and the first artist I called my “favourite”.`,
     ],
     tracks: [
       {
@@ -753,8 +794,8 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["vexento"],
         date:    "August 2021",
         cover:   "no-turning-back.jpg",
-        genres:  [Genre.ELECTRONIC,],
-        vibes:   [Vibe.EMOTIONAL, Vibe.CHILLOUT,],
+        genres:  [Genre.ELECTRONIC],
+        vibes:   [Vibe.EMOTIONAL, Vibe.CHILLOUT],
         discovered: `Vexento release`,
         desc: [
           `Timeless, timeless melody.`,
@@ -824,8 +865,8 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["alan-walker", "k-391", "Tungevaag"],
         date:    undefined,
         cover:   "play.jpg",
-        genres:  [Genre.EDM,],
-        vibes:   [Vibe.EMOTIONAL,],
+        genres:  [Genre.EDM],
+        vibes:   [Vibe.EMOTIONAL],
         discovered: `Alan Walker release`,
         desc: [
           `It’s somewhat generic Alan Walker, but this track captures what I loved about his music the most. It’s the atmosphere he creates. It’s music that accompanies you throughout your life.`,

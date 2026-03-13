@@ -50,6 +50,7 @@ export enum Genre {
   RAP                = "rap",
   RHYTHM             = "rhythm",
   ROCK               = "rock",
+  SOUNDTRACK         = "soundtrack",
   SPEEDCORE          = "speedcore",
   TECHNO             = "techno",
   TRANCE             = "trance",

@@ -1,6 +1,8 @@
 <script lang="ts">
 
-import { pick_random, display_date } from "#scripts/utils";
+import { FrozenWeightedList } from "@sup2.0/weighted-list";
+
+import { display_date, i } from "#scripts/utils";
 
 import Main        from "#parts/core/main.svelte";
 import Block       from "#parts/ui/block.svelte"
@@ -13,26 +15,30 @@ import { onMount } from "svelte";
 
 
 let invert: boolean;
-let displayed_route = $state("");
+let displayed_routes: string[] = $state([]);
 
 onMount(() => {
   invert = Math.random() > 0.5;
-  displayed_route = pick_random(routes);
+  displayed_routes = routes.sample_values_unique(2).toArray();
 });
 
 
-const routes = [
-  `While I’ve split these into discrete “eras”, in reality there was definitely overlap between them – not everything was perfectly linear, many eras evolved in parallel! Also, the dates don’t mean I don’t listen to these tracks anymore, they just indicate when I first came across them!`,
+const routes = new FrozenWeightedList(
+  [1, `Or, well, they’re not exactly “favourites” per se. More so just tracks that I notably really liked, and which are sorta a ‘landmark’ along my evolution of music taste.`],
 
-  `It goes without saying that if a track’s in here, I already love it to bits. So I’ll try refrain from reiterating “I LOVE THIS TRACK SO MUCH”, altho sometimes it really does just need emphasising. And while I could probably say whether I like one track more than another if held at gunpoint, music is music, and I love it all, there’s no competition or rankings.`,
-];
+  [1, `Very important to remember that this is a – honestly, ${i("quite extremely condensed")} – list with the aim of showing someone how my music taste has evolved. So I’ve had to pick and choose, and cull a lot of ‘similar’ tracks. That’s why you won’t see that many tracks in each era, and why the styles will shift so quick.`],
+
+  [1, `While I’ve split these into discrete “eras” for some semblance of order, in reality you’ll notice there’s a lot of overlap – evolution of music taste is very nonlinear! Btw, the dates don’t mean I don’t listen to these tracks anymore, they just indicate when I first came across them ;)`],
+
+  [1, `It goes without saying that if a track’s in here, I already love it to bits. So I’ll try refrain from reiterating “I LOVE THIS TRACK SO MUCH”, altho sometimes it really does just need emphasising. And while I could probably say whether I like one track more than another if held at gunpoint, music is music, and I love it all, there’s no competition or rankings.`],
+);
 
 </script>
 
 
 <svelte:head>
   <title> Chronicle × Music × Sup#2.0 </title>
-  <meta name="description" content="A brief selection of my favourite music over the years" />
+  <meta name="description" content="A concentrated selection of my favourite music over the years" />
 </svelte:head>
 
 
@@ -44,12 +50,14 @@ const routes = [
 
 <Main>
   <Block>
-    {#if displayed_route}
-      <p> This is a brief selection of my favourite tracks over the years! They’re not exactly “favourites” per se, but more just tracks that I really notably liked, and are a landmark along my evolution of music tastes. </p>
+    {#if displayed_routes.length > 0}
+      <p> This is a (concentrated) selection of my favourite tracks over the years! </p>
       
-      <p> {@html displayed_route} </p>
+      {#each displayed_routes as route}
+        <p> {@html route} </p>
+      {/each}
 
-      <p> You can find these tracks in a <a target="_blank" href="https://youtube.com/playlist?list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd">YouTube playlist of mine</a> ;) </p>
+      <p> If you want to listen to these, you can find them in a <a target="_blank" href="https://youtube.com/playlist?list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd">YouTube playlist of mine</a> ;) </p>
     {/if}
   </Block>
 
@@ -90,7 +98,7 @@ const routes = [
   padding: 0 2rem;
   display: flex;
   flex-flow: column nowrap;
-  gap: 10rem;
+  gap: 5rem;
 
   section {
     display: flex;
@@ -113,42 +121,42 @@ const routes = [
 
 .pane {
   flex-grow: 1;
+  max-width: 24em;
   height: 100%;
   position: sticky;
   top: 5rem;
   display: flex;
   flex-flow: column nowrap;
   gap: 2.5rem;
-}
 
+  header {
+    p.date {
+      @include font-tech;
+      font-size: 125%;
+      color: $col-text-deut;
+    }
 
-header {
-  p.date {
-    @include font-tech;
-    font-size: 125%;
-    color: $col-text-deut;
+    h2 {
+      padding-top: 0.5em;
+      @include font-fun;
+      font-weight: 300;
+      font-size: 400%;
+      line-height: 75%;
+    }
   }
 
-  h2 {
-    padding-top: 0.5em;
-    @include font-fun;
-    font-weight: 300;
-    font-size: 400%;
-    line-height: 75%;
-  }
-}
-
-aside {
-  p {
-    margin-bottom: 1em;
-    @include font-ui;
-    color: $col-text-deut;
-    line-height: 150%;
+  aside {
+    p {
+      margin-bottom: 1em;
+      @include font-ui;
+      color: $col-text-deut;
+      line-height: 150%;
+    }
   }
 }
 
 .content {
-  flex-grow: 2;
+  flex-grow: 1;
   max-width: max-content;
   display: flex;
   flex-flow: column nowrap;

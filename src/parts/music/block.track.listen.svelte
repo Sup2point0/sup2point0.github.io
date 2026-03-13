@@ -124,8 +124,8 @@ onMount(() => {
 
 .block-track-listen {
   min-width: 45rem;
-  max-width: 50rem;
-  padding: 1rem 1rem 1rem 3rem;
+  max-width: 60rem;
+  padding: 1rem 1.5rem 1rem 3rem;
   font-size: unset;
   background: unset;
   border: unset;

@@ -41,6 +41,10 @@ code {
   font-family: 'Fira Mono', 'Roboto Mono', 'Consolas', monospace;
 }
 
+.highlight {
+  color: $col-acc;
+}
+
 
 ::selection {
   color: white !important;

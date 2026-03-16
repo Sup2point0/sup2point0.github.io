@@ -31,6 +31,7 @@ const routes = [
   "/sup/loves/series",
   "/sup/loves/anime",
   "/sup/loves/book-series",
+  "/sup/loves/youtube",
 
   "/sup/music",
   "/sup/music/listen",

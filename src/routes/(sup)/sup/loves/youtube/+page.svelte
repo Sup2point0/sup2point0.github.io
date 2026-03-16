@@ -1,6 +1,8 @@
 <script lang="ts">
 
-import { pick_random, shuffle } from "#scripts/utils";
+import { FrozenWeightedList } from "@sup2.0/weighted-list";
+
+import { shuffle } from "#scripts/utils";
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
 import Cards         from "#parts/core/cards.svelte";
@@ -26,12 +28,12 @@ let live = $state(false);
 let displayed_route = $state("");
 
 onMount(() => {
-  displayed_route = pick_random(routes);
+  displayed_route = routes.sample_value()!;
   live = true;
 });
 
 
-const routes = [];
+const routes = new FrozenWeightedList<string>();
 
 </script>
 

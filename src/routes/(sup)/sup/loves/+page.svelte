@@ -1,5 +1,7 @@
 <script lang="ts">
 
+import { FrozenWeightedList } from "@sup2.0/weighted-list";
+
 import { pick_random } from "#scripts/utils";
 
 import Cards       from "#parts/core/cards.svelte";
@@ -14,17 +16,18 @@ import { onMount } from "svelte";
 let displayed_route = $state("");
 
 onMount(() => {
-  displayed_route = pick_random(routes);
+  displayed_route = routes.sample_value()!;
 });
 
 
-const routes = [
-  `I’ll be gradually adding more stuff here, for now it’s just the content I consume ^v^`,
+const routes = new FrozenWeightedList
+(
+  [1, `I’ll be gradually adding more stuff here, for now it’s just the content I consume ^v^`],
 
-  `What can I say, the world is wonderful, and there is so much to love.`,
+  [1, `What can I say, the world is wonderful, and there is so much to love.`],
 
-  `Like, I’ll interact with, admire and fall in love with anything and everything. Anything and everything interests me.`,
-];
+  [1, `Like, I’ll interact with, admire and fall in love with anything and everything. Anything and everything interests me.`],
+);
 
 </script>
 
@@ -44,7 +47,7 @@ const routes = [
     {#if displayed_route}
       <p> Sometimes, I feel like I have too many interests. </p>
 
-      {@html displayed_route}
+      <p> {@html displayed_route} </p>
     {/if}
   </Block>
 

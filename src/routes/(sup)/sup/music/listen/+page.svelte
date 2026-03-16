@@ -13,7 +13,9 @@ import { onMount } from "svelte";
 
 let displayed_route = $state("");
 
-onMount(() => { displayed_route = routes.sample_value()!; });
+onMount(() => {
+  displayed_route = routes.sample_value()!;
+});
 
 
 const routes = new FrozenWeightedList

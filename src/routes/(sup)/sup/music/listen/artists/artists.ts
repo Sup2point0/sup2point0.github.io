@@ -8,32 +8,35 @@ const data: Groups<ArtistData> =
 {
   "newly discovered": [
     {
-      shard:  "klydix",
-      name:   "KLYDIX",
+      shard:  "nabbe",
+      name:   "Nabbe",
       date:   "early 2026",
-      icon:   undefined,
-      genres: [Genre.RHYTHM, Genre.ELECTRONIC,],
-      discovered: `YouTube Music reccs`,
-    },
-    {
-      shard:  "ludicin",
-      name:   "Ludicin",
-      date:   "late 2025",
-      icon:   "ludicin.jpg",
-      genres: [Genre.RHYTHM, Genre.FULL_FLAVOUR, Genre.ORCHESTRAL,],
+      icon:   "nabbe.jpg",
+      genres: [Genre.ELECTRONIC],
       track: {
-        name: "Lost Requiem", link: "https://youtube.com/watch?v=QdiqIo963PE"
+        name: "Resonance", link: undefined
       },
       discovered: `YouTube Music reccs`,
     },
     {
-      shard:  "steradlye",
-      name:   "Steradlye",
-      date:   "late 2025",
-      icon:   "steradlye.jpg",
-      genres: [Genre.ELECTRONIC, Genre.DUBSTEP, Genre.FUTURE_BASS,],
-      links: {
-        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkANhMFRwLXr2yGKpFDvXJhO",
+      shard:  "exyl",
+      name:   "Exyl",
+      date:   "early 2026",
+      icon:   "exyl.jpg",
+      genres: [Genre.ELECTRONIC, Genre.DUBSTEP],
+      track: {
+        name: "SAVE THIS WRLD", link: undefined
+      },
+      discovered: `YouTube Music reccs`,
+    },
+    {
+      shard:  "klydix",
+      name:   "KLYDIX",
+      date:   "early 2026",
+      icon:   "klydix.jpg",
+      genres: [Genre.RHYTHM, Genre.ELECTRONIC],
+      track: {
+        name: "STELLAON – Spring (KLYDIX remix)", link: undefined
       },
       discovered: `YouTube Music reccs`,
     },
@@ -42,7 +45,7 @@ const data: Groups<ArtistData> =
       name:   "UNFINISH",
       date:   "late 2025",
       icon:   "unfinish.jpg",
-      genres: [Genre.ELECTRONIC, Genre.DUBSTEP, Genre.RHYTHM,],
+      genres: [Genre.ELECTRONIC, Genre.DUBSTEP, Genre.RHYTHM],
       track: {
         name: "Turbo Luck Second", link: "https://youtube.com/watch?v=r37wNOtg_pY&list=PLYWIouv-DSkAGD_WKtKGd5eFyoR6xATgj"
       },
@@ -74,8 +77,8 @@ const data: Groups<ArtistData> =
       name:   "Vexento",
       date:   "summer 2019",
       icon:   "vexento.jpg",
-      genres: [Genre.ELECTRONIC, Genre.DOWNTEMPO,],
-      vibes:  [Vibe.CHILLOUT,],
+      genres: [Genre.ELECTRONIC, Genre.DOWNTEMPO],
+      vibes:  [Vibe.CHILLOUT],
       track: {
         name: "Banana Breeze", link: "https://youtube.com/watch?v=bBOwy0Ykk1Q&list=PLYWIouv-DSkCza5V1caC65JOK1rkrDqxK"
       },
@@ -89,7 +92,7 @@ const data: Groups<ArtistData> =
       name:   "PIKASONIC",
       date:   2024,
       icon:   "pikasonic.jpg",
-      genres: [Genre.ELECTRONIC, Genre.FUTURE_BASS, Genre.JCORE,],
+      genres: [Genre.ELECTRONIC, Genre.FUTURE_BASS, Genre.JCORE],
       track: {
         name: "New Start", link: "https://youtube.com/watch?v=_P_2hh8CE_s&list=PLYWIouv-DSkDro0y_y55ojMZ6u3m6RKzJ"
       },
@@ -103,8 +106,8 @@ const data: Groups<ArtistData> =
       name:   "Stessie",
       date:   "spring 2025",
       icon:   "stessie.jpg",
-      genres: [Genre.ELECTRONIC,],
-      vibes:  [Vibe.CHILLOUT,],
+      genres: [Genre.ELECTRONIC],
+      vibes:  [Vibe.CHILLOUT],
       track: {
         name: "What If", link: "https://youtube.com/watch?v=4c-PohhHgWI&list=PLYWIouv-DSkAlt2TuUBsjZgKF17agTDx4"
       },
@@ -120,8 +123,8 @@ const data: Groups<ArtistData> =
       name:   "puru",
       date:   "summer 2024",
       icon:   "puru.jpg",
-      genres: [Genre.RHYTHM, Genre.TRAP,],
-      vibes:  [Vibe.CHILLOUT,],
+      genres: [Genre.RHYTHM, Genre.TRAP],
+      vibes:  [Vibe.CHILLOUT],
       track: {
         name: "Grimheart", link: "https://youtube.com/watch?v=S9LE5FB5E5I&list=PLYWIouv-DSkBt4zknZoQPwgiYLB4xHSRf"
       },
@@ -131,25 +134,11 @@ const data: Groups<ArtistData> =
       discovered: `Arcaea`,
     },
     {
-      shard:  "tn-shi",
-      name:   "tn-shi",
-      date:   2024,
-      icon:   "tn-shi.jpg",
-      genres: [Genre.FUTURE_CORE, Genre.TRANSCENDENTAL, Genre.ARCADE,],
-      track: {
-        name: "Synthesis.", link: "https://youtube.com/watch?v=dOP7G5J755s&list=PLYWIouv-DSkARK0RHQXJnm2-webMrXzQ4"
-      },
-      links: {
-        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkARK0RHQXJnm2-webMrXzQ4",
-      },
-      discovered: `YouTube reccs`,
-    },
-    {
       shard:  "a-39",
       name:   "A-39",
       date:   "summer 2023",
       icon:   "a-39.jpg",
-      genres: [Genre.COLOUR_BASS, Genre.HARDCORE, Genre.VOCALOID,],
+      genres: [Genre.COLOUR_BASS, Genre.HARDCORE, Genre.VOCALOID],
       track: [
         { name: "聖夜讃歌", link: "https://youtube.com/watch?v=ZWWIxzsAz_c&list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7" },
         { name: "WATER", link: "https://youtube.com/watch?v=h69jvhd8z4w&list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7" },
@@ -160,11 +149,22 @@ const data: Groups<ArtistData> =
       discovered: `Phigros`,
     },
     {
+      shard:  "steradlye",
+      name:   "Steradlye",
+      date:   "late 2025",
+      icon:   "steradlye.jpg",
+      genres: [Genre.ELECTRONIC, Genre.DUBSTEP, Genre.FUTURE_BASS],
+      links: {
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkANhMFRwLXr2yGKpFDvXJhO",
+      },
+      discovered: `YouTube Music reccs`,
+    },
+    {
       shard:  "myukke",
       name:   "MYUKKE.",
       date:   "summer 2023",
       icon:   "myukke.jpg",
-      genres: [Genre.RHYTHM, Genre.ARCADE,],
+      genres: [Genre.RHYTHM, Genre.ARCADE],
       track: {
         name: "TTTTTONE", link: "https://youtube.com/watch?v=dE4kqk0tOEA&list=PLYWIouv-DSkCObYw5-q2fTs8VxVq7PF7m"
       },
@@ -174,26 +174,11 @@ const data: Groups<ArtistData> =
       discovered: `Phigros`,
     },
     {
-      shard:  "silentroom",
-      name:   "Silentroom",
-      date:   "spring 2024",
-      icon:   "silentroom.jpg",
-      genres: [Genre.ARCADE, Genre.NEUROFUNK, Genre.RHYTHM,],
-      track: [
-        { name: "Rainshower", link: "https://youtube.com/watch?v=tLL8cqRmaNE&list=PLYWIouv-DSkAF5BFVwpCjuPOmCUpcM26i" },
-        { name: "Nhelv", link: "https://youtube.com/watch?v=XtXRvEsWzQo&list=PLYWIouv-DSkAF5BFVwpCjuPOmCUpcM26i" },
-      ],
-      links: {
-        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAF5BFVwpCjuPOmCUpcM26i",
-      },
-      discovered: `YouTube`,
-    },
-    {
       shard:  "nhato",
       name:   "Nhato",
       date:   "fall 2025",
       icon:   "nhato.jpg",
-      genres: [Genre.ELECTRONIC, Genre.TRANCE,],
+      genres: [Genre.ELECTRONIC, Genre.TRANCE],
       track: {
         name: "Radiance", link: "https://youtube.com/watch?v=7o1S3o_VNII"
       },
@@ -204,7 +189,7 @@ const data: Groups<ArtistData> =
       name:   "Chiru-san",
       date:   2024,
       icon:   "chiru-san.jpg",
-      genres: [Genre.ELECTRONIC, Genre.FUTURE_BASS,],
+      genres: [Genre.ELECTRONIC, Genre.FUTURE_BASS],
       track: {
         name: "Rebirth", link: "https://youtube.com/watch?v=vrNnTiQe9iE&list=PLYWIouv-DSkCb_zXiyswxJzn6CktpzY2w"
       },
@@ -233,7 +218,7 @@ const data: Groups<ArtistData> =
       name:   "Gavin Luke",
       date:   2023,
       icon:   "gavin-luke.jpg",
-      genres: [Genre.PIANO, Genre.ORCHESTRAL,],
+      genres: [Genre.PIANO, Genre.ORCHESTRAL],
       track: {
         name: "Sentient", link: "https://youtube.com/watch?v=bpGjVY47gTU"
       },
@@ -245,11 +230,37 @@ const data: Groups<ArtistData> =
   ],
   "mood": [
     {
+      shard:  "silentroom",
+      name:   "Silentroom",
+      date:   "spring 2024",
+      icon:   "silentroom.jpg",
+      genres: [Genre.ARCADE, Genre.NEUROFUNK, Genre.RHYTHM],
+      track: [
+        { name: "Rainshower", link: "https://youtube.com/watch?v=tLL8cqRmaNE&list=PLYWIouv-DSkAF5BFVwpCjuPOmCUpcM26i" },
+        { name: "Nhelv", link: "https://youtube.com/watch?v=XtXRvEsWzQo&list=PLYWIouv-DSkAF5BFVwpCjuPOmCUpcM26i" },
+      ],
+      links: {
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAF5BFVwpCjuPOmCUpcM26i",
+      },
+      discovered: `YouTube`,
+    },
+    {
+      shard:  "ludicin",
+      name:   "Ludicin",
+      date:   "late 2025",
+      icon:   "ludicin.jpg",
+      genres: [Genre.RHYTHM, Genre.FULL_FLAVOUR, Genre.ORCHESTRAL],
+      track: {
+        name: "Lost Requiem", link: "https://youtube.com/watch?v=QdiqIo963PE"
+      },
+      discovered: `YouTube Music reccs`,
+    },
+    {
       shard:  "hinkik",
       name:   "Hinkik",
       date:   2024,
       icon:   "hinkik.jpg",
-      genres: [Genre.ELECTRONIC, Genre.HOUSE,],
+      genres: [Genre.ELECTRONIC, Genre.HOUSE],
       track: {
         name: "Realms", link: "https://youtube.com/watch?v=Ui9GnVC-jfw"
       },
@@ -260,7 +271,7 @@ const data: Groups<ArtistData> =
       name:   "茶鸣拾贰律",
       date:   "summer 2023",
       icon:   "tea-12.jpg",
-      genres: [Genre.CPOP, Genre.RHYTHM,],
+      genres: [Genre.CPOP, Genre.RHYTHM],
       track: [
         { name: "青芽", link: "https://youtube.com/watch?v=eP1MkegBcek&list=PLYWIouv-DSkC9I9WIvqLjQjnK28hbsO-p" },
         { name: "Feast 远东之宴", link: "https://youtube.com/watch?v=eI5aADjL7Ac&list=PLYWIouv-DSkC9I9WIvqLjQjnK28hbsO-p" },
@@ -271,12 +282,26 @@ const data: Groups<ArtistData> =
       discovered: `Phigros`,
     },
     {
+      shard:  "tn-shi",
+      name:   "tn-shi",
+      date:   2024,
+      icon:   "tn-shi.jpg",
+      genres: [Genre.FUTURE_CORE, Genre.TRANSCENDENTAL, Genre.ARCADE],
+      track: {
+        name: "Synthesis.", link: "https://youtube.com/watch?v=dOP7G5J755s&list=PLYWIouv-DSkARK0RHQXJnm2-webMrXzQ4"
+      },
+      links: {
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkARK0RHQXJnm2-webMrXzQ4",
+      },
+      discovered: `YouTube reccs`,
+    },
+    {
       shard:  "kirara-magic",
       name:   "Kirara Magic",
       date:   "summer 2025",
       icon:   "kirara-magic.jpg",
-      genres: [Genre.ELECTRONIC,],
-      vibes:  [Vibe.CHILLOUT,],
+      genres: [Genre.ELECTRONIC],
+      vibes:  [Vibe.CHILLOUT],
       track: {
         name: "Checkmate", link: "https://youtube.com/watch?v=yHjj9fWTZdY&list=PLYWIouv-DSkAyddNPBMP81AMJQlfDrQRj"
       },
@@ -287,7 +312,7 @@ const data: Groups<ArtistData> =
       name:   "Kanro",
       date:   "fall 2025",
       icon:   "kanro.jpg",
-      genres: [Genre.ELECTRONIC, Genre.DUBSTEP,],
+      genres: [Genre.ELECTRONIC, Genre.DUBSTEP],
       track: {
         name: "Amethyst", link: "https://youtube.com/watch?v=-__-oI8xWJk"
       },
@@ -298,7 +323,7 @@ const data: Groups<ArtistData> =
       name:   "Hookington",
       date:   "fall 2025",
       icon:   "hookington.png",
-      genres: [Genre.ELECTRONIC,],
+      genres: [Genre.ELECTRONIC],
       track: {
         name: "Final Showdown", link: "https://youtube.com/watch?v=UBGTDveF84o"
       },
@@ -309,7 +334,7 @@ const data: Groups<ArtistData> =
       name:   "M-UE",
       date:   2025,
       icon:   "m-ue.jpg",
-      genres: [Genre.RHYTHM, Genre.ORIENTAL,],
+      genres: [Genre.RHYTHM, Genre.ORIENTAL],
       track: {
         name: "明鏡烈火", link: "https://youtube.com/watch?v=o1yU4OyF-dU"
       },
@@ -320,7 +345,7 @@ const data: Groups<ArtistData> =
       name:   "Noah",
       date:   2024,
       icon:   "noah.webp",
-      genres: [Genre.CINEMATIC, Genre.RHYTHM,],
+      genres: [Genre.CINEMATIC, Genre.RHYTHM],
       track: {
         name: "Revolt From The Abyss", link: "https://youtube.com/watch?v=QBzz-yPE4mI&list=PLYWIouv-DSkAYbF7Q7zNJI1Ynd_btkNWu"
       },
@@ -331,7 +356,7 @@ const data: Groups<ArtistData> =
       name:   "Frums",
       date:   2025,
       icon:   "frums.jpg",
-      genres: [Genre.MUSIC, Genre.BREAKCORE, Genre.TRANSCENDENTAL,],
+      genres: [Genre.MUSIC, Genre.BREAKCORE, Genre.TRANSCENDENTAL],
       track: {
         name: "XNOR XNOR XNOR", link: "https://youtube.com/watch?v=3qnrewFcnQs&list=PLYWIouv-DSkA0OrCMw0YEUTbrimJBzUgW"
       },
@@ -342,7 +367,7 @@ const data: Groups<ArtistData> =
       name:   "Reku Mochizuki",
       date:   2025,
       icon:   "reku.jpg",
-      genres: [Genre.ELECTRONIC, Genre.RHYTHM,],
+      genres: [Genre.ELECTRONIC, Genre.RHYTHM],
       track: {
         name: "明鏡烈火", link: "https://youtube.com/watch?v=o1yU4OyF-dU&list=PLYWIouv-DSkBZ0MZMwBcbqW8l7-DmsIjq"
       },
@@ -356,7 +381,7 @@ const data: Groups<ArtistData> =
       name:   "Such",
       date:   "early 2025",
       icon:   "such.jpg",
-      genres: [Genre.JCORE, Genre.BASS,],
+      genres: [Genre.JCORE, Genre.BASS],
       track: {
         name: "Mend Your Ways", link: "https://youtube.com/watch?v=CxGGWotSoOg&list=PLYWIouv-DSkBlchcQSJ6oqzovuufxHqgo"
       },
@@ -370,7 +395,7 @@ const data: Groups<ArtistData> =
       name:   "Polyphia",
       date:   "spring 2025",
       icon:   "polyphia.jpg",
-      genres: [Genre.GUITAR, Genre.TRANSCENDENTAL,],
+      genres: [Genre.GUITAR, Genre.TRANSCENDENTAL],
       track: {
         name: "Playing God", link: "https://youtube.com/watch?v=Z5NoQg8LdDk"
       },
@@ -381,7 +406,7 @@ const data: Groups<ArtistData> =
       name:   "YOASOBI",
       date:   "summer 2023",
       icon:   "yoasobi.webp",
-      genres: [Genre.JPOP, Genre.ANIME,],
+      genres: [Genre.JPOP, Genre.ANIME],
       track: {
         name: "たぶん (Tabun)", link: "https://youtube.com/watch?v=8iuLXODzL04&list=PLYWIouv-DSkDz2EZqORKQX6ToEnZrVCaf"
       },
@@ -395,7 +420,7 @@ const data: Groups<ArtistData> =
       name:   "Street",
       date:   2024,
       icon:   "street.jpg",
-      genres: [Genre.NEUROFUNK, Genre.RHYTHM,],
+      genres: [Genre.NEUROFUNK, Genre.RHYTHM],
       track: {
         name: "Sakura Fubiki", link: "https://youtube.com/watch?v=0keUnlH_0IY&list=PLYWIouv-DSkARFlBS9jQ-7sFT8UecZbfR"
       },
@@ -406,7 +431,7 @@ const data: Groups<ArtistData> =
       name:   "Paper Skies",
       date:   2024,
       icon:   "paper-skies.jpg",
-      genres: [Genre.ELECTRONIC, Genre.COLOUR_BASS, Genre.DUBSTEP,],
+      genres: [Genre.ELECTRONIC, Genre.COLOUR_BASS, Genre.DUBSTEP],
       track: {
         name: "Freefalling", link: "https://youtube.com/watch?v=mcb5iievIgY&list=PLYWIouv-DSkAbl202yYcTYEC6w1QWTJbj"
       },
@@ -417,7 +442,7 @@ const data: Groups<ArtistData> =
       name:   "Xomu",
       date:   2025,
       icon:   "xomu.jpg",
-      genres: [Genre.ELECTRONIC, Genre.HOUSE, Genre.COMPLEXTRO,],
+      genres: [Genre.ELECTRONIC, Genre.HOUSE, Genre.COMPLEXTRO],
       track: undefined,
       discovered: `Hinkik`,
     },
@@ -426,7 +451,7 @@ const data: Groups<ArtistData> =
       name:   "ak+q",
       date:   "summer 2025",
       icon:   "ak-q.jpg",
-      genres: [Genre.ARTCORE, Genre.GOTHIC_HARDCORE, Genre.RHYTHM,],
+      genres: [Genre.ARTCORE, Genre.GOTHIC_HARDCORE, Genre.RHYTHM],
       track: {
         name: "Ignotus", link: "https://youtube.com/watch?v=U7M6e1MGYl0&list=PLYWIouv-DSkB918DxkTo33KMb1aITaB_9"
       },
@@ -440,7 +465,7 @@ const data: Groups<ArtistData> =
       name:   "Bo Burnham",
       date:   2021,
       icon:   "bo-burnham.webp",
-      genres: [Genre.COMEDY, Genre.POP, Genre.RAP, Genre.PIANO,],
+      genres: [Genre.COMEDY, Genre.POP, Genre.RAP, Genre.PIANO],
       track: [
         { name: "Are You Happy", link: "https://youtube.com/watch?v=sHxtZb9VRdg&list=PLYWIouv-DSkDG5k4_HrYF4VSNWWPsD5Nw" },
         { name: "The Chicken", link: "https://youtube.com/watch?v=NeOhV4zOxJ4&list=PLYWIouv-DSkDG5k4_HrYF4VSNWWPsD5Nw" },
@@ -457,7 +482,7 @@ const data: Groups<ArtistData> =
       name:   "WING",
       date:   "spring 2025",
       icon:   "wing.jpg",
-      genres: [Genre.BEATBOX,],
+      genres: [Genre.BEATBOX],
       track: {
         name: "Dopamine (DnB remix)", link: "https://youtube.com/watch?v=GBuKYAN0RbM&list=PLYWIouv-DSkCC0pprSmxOqXkVTigfkUQ-"
       },
@@ -469,9 +494,9 @@ const data: Groups<ArtistData> =
     {
       shard:  "kaji",
       name:   "KAJI",
-      date:   2025,
+      date:   "spring 2025",
       icon:   "kaji.jpg",
-      genres: [Genre.BEATBOX, Genre.HARDCORE, Genre.TECHNO,],
+      genres: [Genre.BEATBOX, Genre.HARDCORE, Genre.TECHNO],
       track: {
         name: "Bass Factory", link: "https://youtube.com/watch?v=YQRjGHsrzbk&list=PLYWIouv-DSkCC0pprSmxOqXkVTigfkUQ-"
       },
@@ -480,9 +505,9 @@ const data: Groups<ArtistData> =
     {
       shard:  "improver",
       name:   "Improver",
-      date:   2025,
+      date:   "spring 2025",
       icon:   "improver.jpg",
-      genres: [Genre.BEATBOX, Genre.DRUM_N_BASS,],
+      genres: [Genre.BEATBOX, Genre.DRUM_N_BASS],
       track: {
         name: "Feel the Future", link: "https://youtube.com/watch?v=tVZw7vQGR30&list=PLYWIouv-DSkCC0pprSmxOqXkVTigfkUQ-"
       },
@@ -491,13 +516,29 @@ const data: Groups<ArtistData> =
     {
       shard:  "den",
       name:   "DEN",
-      date:   2025,
-      icon:   undefined,
-      genres: [Genre.BEATBOX,],
+      date:   "spring 2025",
+      icon:   "den.jpg",
+      genres: [Genre.BEATBOX],
       track: {
         name: "One in a Million", link: undefined
       },
       discovered: `Grand Beatbox Battle 2025 wildcard`,
+    },
+    {
+      shard:  "h-has",
+      name:   "H-has",
+      date:   "summer 2025",
+      icon:   "h-has.webp",
+      genres: [Genre.BEATBOX],
+      discovered: `Grand Beatbox Battle 2025 wildcard`,
+    },
+    {
+      shard:  "beatpella-house",
+      name:   "Beatpella House",
+      date:   "spring 2025",
+      icon:   "beatpella-house.jpg",
+      genres: [Genre.BEATBOX],
+      discovered: `WING`,
     },
   ],
   "love them, but don’t listen much": [
@@ -506,7 +547,7 @@ const data: Groups<ArtistData> =
       name:   "Falcon Dives",
       date:   2021,
       icon:   "falcon-dives.jpg",
-      genres: [Genre.ELECTRONIC,],
+      genres: [Genre.ELECTRONIC],
       vibes:  [Vibe.DISCO],
       track: {
         name: "Teenage Color", link: "https://youtube.com/watch?v=rVAG7Dni1yA&list=PLYWIouv-DSkDGRBjzSJnzGnxKnIxaA_4r"
@@ -521,7 +562,7 @@ const data: Groups<ArtistData> =
       name:   "RHYX",
       date:   2025,
       icon:   "rhyx.jpg",
-      genres: [Genre.HITECH,],
+      genres: [Genre.HITECH],
       discovered: `YouTube reccs`,
     },
     {
@@ -529,7 +570,7 @@ const data: Groups<ArtistData> =
       name:   "s9ryne",
       date:   "summer 2023",
       icon:   "s9ryne.jpg",
-      genres: [Genre.ELECTRONIC, Genre.DUBSTEP,],
+      genres: [Genre.ELECTRONIC, Genre.DUBSTEP],
       discovered: `Phigros`,
     },
     {
@@ -537,7 +578,7 @@ const data: Groups<ArtistData> =
       name:   "Akira Complex",
       date:   "summer 2025",
       icon:   "akira-complex.jpg",
-      genres: [Genre.ARTCORE, Genre.RHYTHM,],
+      genres: [Genre.ARTCORE, Genre.RHYTHM],
       track: {
         name: "Ether Strike", link: undefined
       },
@@ -548,7 +589,7 @@ const data: Groups<ArtistData> =
       name:   "Laur",
       date:   2024,
       icon:   "laur.webp",
-      genres: [Genre.ARTCORE,],
+      genres: [Genre.ARTCORE],
       track: {
         name: "PRAGMATISM -RESURRECTION-", link: "https://youtube.com/watch?v=W0nauM-k3eU"
       },
@@ -559,7 +600,7 @@ const data: Groups<ArtistData> =
       name:   "Lime",
       date:   2024,
       icon:   "lime.jpg",
-      genres: [Genre.ELECTRONIC, Genre.RHYTHM,],
+      genres: [Genre.ELECTRONIC, Genre.RHYTHM],
       track: {
         name: "Final Step!", link: "https://youtube.com/watch?v=v3JExHpJ09s&list=RDv3JExHpJ09s"
       },
@@ -570,7 +611,7 @@ const data: Groups<ArtistData> =
       name:   "Se-U-Ra",
       date:   2024,
       icon:   "se-u-ra.jpg",
-      genres: [Genre.ARTCORE, Genre.RHYTHM,],
+      genres: [Genre.ARTCORE, Genre.RHYTHM],
       track: {
         name: "Ark Six", link: "https://youtube.com/watch?v=BY4hMJPIbrI&list=PLYWIouv-DSkC4py2XtzGLX5AwEaGr1Q64"
       },
@@ -581,7 +622,7 @@ const data: Groups<ArtistData> =
       name:   "Arcerion",
       date:   2024,
       icon:   "arcerion.webp",
-      genres: [Genre.ELECTRONIC,],
+      genres: [Genre.ELECTRONIC],
       track: {
         name: "when you realize the music of the future is just distorting a guitar", link: "https://youtube.com/watch?v=tIVn888OHbY&list=PLYWIouv-DSkAzGVoAAvsJe9Ank9cyqk-G"
       },
@@ -595,7 +636,7 @@ const data: Groups<ArtistData> =
       name:   "AZALI",
       date:   2024,
       icon:   "azali.jpg",
-      genres: [Genre.PIANO, Genre.ARTCORE, Genre.BREAKCORE,],
+      genres: [Genre.PIANO, Genre.ARTCORE, Genre.BREAKCORE],
       track: {
         name: "TO DUST THOU SHALT RETURN", link: undefined
       },
@@ -606,7 +647,7 @@ const data: Groups<ArtistData> =
       name:   "Sakuzyo",
       date:   2023,
       icon:   "sakuzyo.jpg",
-      genres: [Genre.ELECTRONIC,],
+      genres: [Genre.ELECTRONIC],
       track: {
         name: "Distorted Fate", link: undefined
       },
@@ -617,7 +658,7 @@ const data: Groups<ArtistData> =
       name:   "姜米條",
       date:   "summer 2023",
       icon:   "jiang-mi-tiao.jpg",
-      genres: [Genre.NEUROFUNK, Genre.RHYTHM,],
+      genres: [Genre.NEUROFUNK, Genre.RHYTHM],
       track: [
         { name: "inferior", link: "https://youtube.com/watch?v=A-refzLZ7u0" },
         { name: "Shadow", link: "https://youtube.com/watch?v=11un4aCwCrs" },
@@ -629,7 +670,7 @@ const data: Groups<ArtistData> =
       name:   "Virtual Riot",
       date:   2024,
       icon:   "virtual-riot.jpg",
-      genres: [Genre.ELECTRONIC, Genre.COMPLEXTRO, Genre.DUBSTEP,],
+      genres: [Genre.ELECTRONIC, Genre.COMPLEXTRO, Genre.DUBSTEP],
       track: {
         name: "I heard you like polyrhythms", link: "https://youtube.com/watch?v=SthcxWPXG_E"
       },
@@ -640,7 +681,7 @@ const data: Groups<ArtistData> =
       name:   "heiakim",
       date:   2024,
       icon:   "heiakim.webp",
-      genres: [Genre.JPOP,],
+      genres: [Genre.JPOP],
       track: {
         name: "nana", link: "https://youtube.com/watch?v=iXH6zdvhN80"
       },
@@ -651,7 +692,7 @@ const data: Groups<ArtistData> =
       name:   "PSYQUI",
       date:   2025,
       icon:   "psyqui.jpg",
-      genres: [Genre.ELECTRONIC, Genre.JCORE,],
+      genres: [Genre.ELECTRONIC, Genre.JCORE],
       track: {
         name: "Mend Your Ways", link: undefined
       },
@@ -662,7 +703,7 @@ const data: Groups<ArtistData> =
       name:   "Tanger",
       date:   2024,
       icon:   "tanger.jpg",
-      genres: [Genre.ELECTRONIC,],
+      genres: [Genre.ELECTRONIC],
       track: {
         name: "K1LL SOMEBODY", link: "https://youtube.com/watch?v=zLzRsZtZ2ow"
       },
@@ -673,7 +714,7 @@ const data: Groups<ArtistData> =
       name:   "feuerrmFilms",
       date:   2018,
       icon:   "feuerrm.jpg",
-      genres: [Genre.ELECTRONIC,],
+      genres: [Genre.ELECTRONIC],
       track: {
         name: "Special Events", link: undefined
       },
@@ -686,7 +727,7 @@ const data: Groups<ArtistData> =
       name:   "Arcane",
       date:   "spring 2025",
       icon:   "arcane.jpg",
-      genres: [Genre.ALT_POP, Genre.PUNK, Genre.CINEMATIC,],
+      genres: [Genre.ALT_POP, Genre.PUNK, Genre.CINEMATIC],
       vibes:  [Vibe.EMOTIONAL],
       track: {
         name: "What Could Have Been", link: "https://youtube.com/watch?v=liPu1_aPH5k&list=PLYWIouv-DSkCdH3RpudnBc9RplsrUqQ_n"
@@ -717,7 +758,7 @@ const data: Groups<ArtistData> =
       name:   "Master Duel",
       date:   2022,
       icon:   "master-duel.jpg",
-      genres: [Genre.CINEMATIC, Genre.ORCHESTRAL,],
+      genres: [Genre.CINEMATIC, Genre.ORCHESTRAL],
       discovered: String.raw`¯\_(ツ)_/¯`,
     },
     {
@@ -725,7 +766,7 @@ const data: Groups<ArtistData> =
       name:   "Yu-Gi-Oh!",
       date:   2022,
       icon:   "yu-gi-oh.jpg",
-      genres: [Genre.ANIME, Genre.JPOP,],
+      genres: [Genre.ANIME, Genre.JPOP],
       track: [
         { name: "Calling", link: undefined },
         { name: "BRAVING", link: undefined },
@@ -737,7 +778,7 @@ const data: Groups<ArtistData> =
       name:   "AirAttack",
       date:   2020,
       icon:   "air-attack.jpg",
-      genres: [Genre.CINEMATIC,],
+      genres: [Genre.CINEMATIC],
       vibes:  [Vibe.HEROIC, Vibe.WAR],
       track: [
         { name: "Dark Sands", link: undefined },
@@ -761,7 +802,7 @@ const data: Groups<ArtistData> =
       name:   "Plants vs. Zombies",
       date:   2020,
       icon:   "pvz.webp",
-      genres: [Genre.GAME,],
+      genres: [Genre.GAME],
       track: {
         name: "Zombie On Your Lawn", link: undefined
       },
@@ -772,7 +813,7 @@ const data: Groups<ArtistData> =
       name:   "Dune",
       date:   2022,
       icon:   "dune.jpg",
-      genres: [Genre.CINEMATIC,],
+      genres: [Genre.CINEMATIC],
       discovered: `literally searched up “major films in 2021” while in my film-watching arc`,
     },
     {
@@ -780,7 +821,7 @@ const data: Groups<ArtistData> =
       name:   "熊出没",
       date:   "childhood",
       icon:   "boonie-bears.jpg",
-      genres: [Genre.CPOP,],
+      genres: [Genre.CPOP],
       track: {
         name: "你从未离去", link: "https://youtube.com/watch?v=KEZx9ZJKgLQ&list=PLYWIouv-DSkDNtgU2E_Clta_JZlmCU-do"
       },
@@ -794,7 +835,7 @@ const data: Groups<ArtistData> =
       name:   "My Little Pony",
       date:   2023,
       icon:   "mlp.jpg",
-      genres: [Genre.ALT_POP, Genre.ELECTRONIC,],
+      genres: [Genre.ALT_POP, Genre.ELECTRONIC],
       track: [
         { name: "Friendship Games", link: "https://youtube.com/watch?v=CNEYbc3C2NU&list=PLYWIouv-DSkCqc2skmsaCX1U3oMewEhkE" },
         { name: "Legend You Were Meant To Be", link: "https://youtube.com/watch?v=nCkV3yjQeOk&list=PLYWIouv-DSkCqc2skmsaCX1U3oMewEhkE" },
@@ -809,7 +850,7 @@ const data: Groups<ArtistData> =
       name:   "K-pop Demon Hunters",
       date:   "summer 2025",
       icon:   undefined,
-      genres: [Genre.KPOP, Genre.POP,],
+      genres: [Genre.KPOP, Genre.POP],
       track: {
         name: "Your Idol", link: "https://youtube.com/watch?v=mq2dq_KeV0M&list=PLYWIouv-DSkBSpUMpO2npkjWITrqSj5ev",
     },
@@ -825,7 +866,7 @@ const data: Groups<ArtistData> =
       name:   "Elektronomia",
       date:   2016,
       icon:   "elektronomia.webp",
-      genres: [Genre.EDM, Genre.HOUSE,],
+      genres: [Genre.EDM, Genre.HOUSE],
       track: [
         { name: "United", link: "https://youtube.com/watch?v=EgXcda1SzxU" },
         { name: "Ibiza", link: "https://youtube.com/watch?v=ru4Ttt22cuQ" },
@@ -840,7 +881,7 @@ const data: Groups<ArtistData> =
       name:   "Alan Walker",
       date:   2018,
       icon:   "alan-walker.jpg",
-      genres: [Genre.EDM, Genre.HOUSE,],
+      genres: [Genre.EDM, Genre.HOUSE],
       track: {
         name: "Different World", link: "https://youtube.com/watch?v=m-PJmmvyP10&list=PLYWIouv-DSkDwSbC-HHmA7UaQvpkr-Aqr"
       },
@@ -854,7 +895,7 @@ const data: Groups<ArtistData> =
       name:   "Jim Yosef",
       date:   2016,
       icon:   "jim-yosef.png",
-      genres: [Genre.EDM, Genre.HOUSE,],
+      genres: [Genre.EDM, Genre.HOUSE],
       track: {
         name: "Linked", link: undefined
       },
@@ -868,7 +909,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Throwback", link: undefined
       },
-      genres: [Genre.EDM, Genre.HARDCORE, Genre.TRAP,],
+      genres: [Genre.EDM, Genre.HARDCORE, Genre.TRAP],
       discovered: `NCS`,
     },
     {
@@ -876,7 +917,7 @@ const data: Groups<ArtistData> =
       name:   "Alex Skrindo",
       date:   2017,
       icon:   "alex-skrindo.jpg",
-      genres: [Genre.EDM,],
+      genres: [Genre.EDM],
       track: {
         name: "Lightning", link: undefined
       },
@@ -887,7 +928,7 @@ const data: Groups<ArtistData> =
       name:   "TheFatRat",
       date:   2019,
       icon:   "the-fat-rat.jpg",
-      genres: [Genre.EDM,],
+      genres: [Genre.EDM],
       track: {
         name: "Monody", link: undefined
       },
@@ -898,7 +939,7 @@ const data: Groups<ArtistData> =
       name:   "K-391",
       date:   2019,
       icon:   "k-391.jpg",
-      genres: [Genre.ELECTRONIC,],
+      genres: [Genre.ELECTRONIC],
       track: {
         name: "Lonely World", link: undefined
       },
@@ -911,7 +952,7 @@ const data: Groups<ArtistData> =
       name:   "Avril Lavigne",
       date:   2017,
       icon:   "avril-lavigne.jpg",
-      genres: [Genre.ROCK, Genre.POP,],
+      genres: [Genre.ROCK, Genre.POP],
       track: {
         name: "When You’re Gone", link: "https://youtube.com/watch?v=0G3_kG5FFfQ&list=PLYWIouv-DSkDo8xDD039YebXy0ONQyPOA"
       },
@@ -925,7 +966,7 @@ const data: Groups<ArtistData> =
       name:   "The Script",
       date:   "childhood",
       icon:   "the-script.jpg",
-      genres: [Genre.ROCK, Genre.POP,],
+      genres: [Genre.ROCK, Genre.POP],
       track: {
         name: "Breakeven", link: "https://youtube.com/watch?v=MzCLLHscMOw&list=PLYWIouv-DSkDwQhcy2I5dhtK5hKayqd6o"
       },
@@ -939,7 +980,7 @@ const data: Groups<ArtistData> =
       name:   "Owl City",
       date:   2022,
       icon:   "owl-city.jpg",
-      genres: [Genre.POP,],
+      genres: [Genre.POP],
       track: {
         name: "Fireflies", link: undefined
       },
@@ -949,7 +990,7 @@ const data: Groups<ArtistData> =
       shard:  "taylor-swift",
       name:   "Taylor Swift",
       icon:   undefined,
-      genres: [Genre.POP,],
+      genres: [Genre.POP],
       track: {
         name: "Anti-hero", link: undefined
       },
@@ -960,7 +1001,7 @@ const data: Groups<ArtistData> =
       name:   "Olivia Rodrigo",
       date:   2024,
       icon:   undefined,
-      genres: [Genre.POP, Genre.ALT_POP, Genre.ALT_PUNK_ROCK,],
+      genres: [Genre.POP, Genre.ALT_POP, Genre.ALT_PUNK_ROCK],
       track: {
         name: "Can’t Catch Me Now", link: undefined
       },
@@ -971,7 +1012,7 @@ const data: Groups<ArtistData> =
       name:   "KATSEYE",
       date:   2025,
       icon:   undefined,
-      genres: [Genre.KPOP,],
+      genres: [Genre.KPOP],
       track: {
         name: "Debut", link: "https://youtube.com/watch?v=bYg6aMDQ_TA&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd"
       },
@@ -984,7 +1025,7 @@ const data: Groups<ArtistData> =
       name:   "Firefly Music",
       date:   2025,
       icon:   "firefly-music.jpg",
-      genres: [Genre.ELECTRONIC,],
+      genres: [Genre.ELECTRONIC],
       discovered: `PIKASONIC - New Start in YouTube reccs`,
     },
     {
@@ -992,7 +1033,7 @@ const data: Groups<ArtistData> =
       name:   "NoCopyrightSounds",
       date:   2016,
       icon:   "ncs.jpg",
-      genres: [Genre.ELECTRONIC,],
+      genres: [Genre.ELECTRONIC],
       track: [
         { name: "SLASH", link: "https://youtube.com/watch?v=cGkv5RcPRuo&list=PLYWIouv-DSkAB87xm3E0Z1MttAXDTEzOr" },
         { name: "Throwback", link: "https://youtube.com/watch?v=cXLadJlS_nA&list=PLYWIouv-DSkAB87xm3E0Z1MttAXDTEzOr" },
@@ -1006,7 +1047,7 @@ const data: Groups<ArtistData> =
       shard:  "nomia-tunes",
       name:   "NomiaTunes",
       icon:   "nomia-tunes.jpg",
-      genres: [Genre.ELECTRONIC,],
+      genres: [Genre.ELECTRONIC],
       discovered: `Elektronomia`,
     },
   ],
@@ -1030,7 +1071,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Algebra", link: "https://youtube.com/watch?v=nePdNxMnvX0&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd"
       },
-      genres: [Genre.RHYTHM, Genre.ELECTRONIC,],
+      genres: [Genre.RHYTHM, Genre.ELECTRONIC],
       discovered: `Phigros April Fool’s custom chart on bilibili`,
     },
     {
@@ -1038,7 +1079,7 @@ const data: Groups<ArtistData> =
       name:   "Mafumafu",
       date:   2023,
       icon:   "mafumafu.jpg",
-      genres: [Genre.JCORE,],
+      genres: [Genre.JCORE],
       track: {
         name: "I wanna be a girl", link: "https://youtube.com/watch?v=ucbx9we6EHk&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd",
       },
@@ -1049,7 +1090,7 @@ const data: Groups<ArtistData> =
       name:   "Hoshimachi Suisei",
       date:   2025,
       icon:   "bibbidiba.jpg",
-      genres: [Genre.JCORE,],
+      genres: [Genre.JCORE],
       track: {
         name: "BIBBIDIBA", link: "https://youtube.com/watch?v=8ZP5eqm4JqM&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd",
       },
@@ -1060,7 +1101,7 @@ const data: Groups<ArtistData> =
       name:   "Wave Meow",
       date:   2025,
       icon:   "natsu.jpg",
-      genres: [Genre.DRUM_N_BASS,],
+      genres: [Genre.DRUM_N_BASS],
       track: {
         name: "Natsu!", link: "https://youtube.com/watch?v=GCSDxOLWZ2o&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd",
       },
@@ -1071,7 +1112,7 @@ const data: Groups<ArtistData> =
       name:   "Infected Mushroom",
       date:   2025,
       icon:   "infected-mushroom.jpg",
-      genres: [Genre.ELECTRONIC, Genre.BASS,],
+      genres: [Genre.ELECTRONIC, Genre.BASS],
       track: {
         name: "Guitarmass", link: undefined,
       },
@@ -1085,7 +1126,7 @@ const data: Groups<ArtistData> =
       name:   "Giga",
       date:   2024,
       icon:   "giga.jpg",
-      genres: [Genre.TRAP, Genre.VOCALOID,],
+      genres: [Genre.TRAP, Genre.VOCALOID],
       track: {
         name: "Beyond the Way", link: undefined
       },
@@ -1096,7 +1137,7 @@ const data: Groups<ArtistData> =
       name:   "DECO*27",
       date:   2024,
       icon:   "deco-27.jpg",
-      genres: [Genre.VOCALOID,],
+      genres: [Genre.VOCALOID],
       track: {
         name: "Rabbit Hole", link: undefined
       },
@@ -1107,7 +1148,7 @@ const data: Groups<ArtistData> =
       name:   "Lupus Nocte",
       date:   2021,
       icon:   "lupus-nocte.jpg",
-      genres: [Genre.ELECTRONIC,],
+      genres: [Genre.ELECTRONIC],
       track: {
         name: "Howling", link: undefined
       },
@@ -1118,7 +1159,7 @@ const data: Groups<ArtistData> =
       name:   "Eason Chan",
       date:   2023,
       icon:   "eason-chan.jpg",
-      genres: [Genre.CPOP,],
+      genres: [Genre.CPOP],
       track: {
         name: "«孤勇者»", link: undefined
       },
@@ -1132,7 +1173,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "« 青春修炼手册 »", link: undefined
       },
-      genres: [Genre.CPOP,],
+      genres: [Genre.CPOP],
       discovered: `childhood`,
     },
     {
@@ -1143,7 +1184,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Xenolith", link: "https://youtube.com/watch?v=-4a0_SaMWxg"
       },
-      genres: [Genre.ELECTRONIC,],
+      genres: [Genre.ELECTRONIC],
       discovered: `Phigros × Paradigm: Reboot`,
     },
   ],

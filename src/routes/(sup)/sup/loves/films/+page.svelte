@@ -1,5 +1,8 @@
 <script lang="ts">
 
+import { FrozenWeightedList } from "@sup2.0/weighted-list";
+
+import { status } from "#scripts/status.svelte.ts";
 import { pick_random, shuffle } from "#scripts/utils";
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
@@ -22,18 +25,20 @@ let filters = new FilmSearchFilter();
 
 let displayed_films: FilterResults<FilmData> = $derived(filters.apply(films_list));
 
+
 let displayed_route = $state("");
 
 onMount(() => {
-  displayed_route = pick_random(routes);
+  displayed_route = routes.sample_value()!;
 });
 
 
-const routes = [
-  `btw, please treat this as more of a tier list than ranking. It’s impossible to pick if I like a movie more than another :v`,
+const routes = new FrozenWeightedList
+(
+  [1, `btw, please treat this as more of a tier list than ranking. It’s impossible to pick if I like a movie more than another :v`],
   
-  `This isn’t quite a list of every film I’ve watched, but if I enjoyed it, it’ll be on here. If you’re reading this, I’m probably still searching for films I’ve watched but forgotten to put here =)`,
-];
+  [1, `This isn’t quite a list of every film I’ve watched, but if I enjoyed it, it’ll be on here. If you’re reading this, I’m probably still searching for films I’ve watched but forgotten to put here =)`],
+);
 
 </script>
 
@@ -50,7 +55,7 @@ const routes = [
 ]} />
 
 <Main>
-  <Block>
+  <Block kind="ui expanded">
     {#if displayed_route}
       <p> I <em>lovvve</em> watching films. I went on a whole film-watching arc in 2022–2023 where I’d watch a film every couple of nights, just cuz I’d been so deprived of them so far in life. It made me really come to love cinema. </p>
       
@@ -68,7 +73,7 @@ const routes = [
         <Header> {collection?.toUpperCase()} </Header>
 
         <Cards>
-          {#each shuffle(films) as film}
+          {#each status.client ? shuffle(films) : [] as film}
             <MediaBlock kind="films" media={film} />
           {/each}
         </Cards>

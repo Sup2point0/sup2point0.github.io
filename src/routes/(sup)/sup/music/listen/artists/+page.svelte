@@ -1,5 +1,6 @@
 <script>
 
+import { status } from "#scripts/status.svelte.ts";
 import { shuffle } from "#scripts/utils";
 
 import Main        from "#parts/core/main.svelte";
@@ -31,7 +32,7 @@ import { artists_data } from "./artists";
       <Header> {collection.toUpperCase()} </Header>
 
       <Cards>
-        {#each shuffle(artists) as artist}
+        {#each status.client ? shuffle(artists) : [] as artist}
           <ArtistBlock {artist} />
         {/each}
       </Cards>

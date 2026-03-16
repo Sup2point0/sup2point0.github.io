@@ -144,7 +144,7 @@ const routes = new FrozenWeightedList
     <LinkCard
       link="/sup/loves/youtube"
       text="YouTube"
-      capt="Best of the internet"
+      capt="best of the internet"
       picts={[
         "icons/youtube/3b1b.jpg",
         "icons/youtube/in-the-mix.jpg",

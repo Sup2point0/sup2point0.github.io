@@ -2,6 +2,7 @@
 
 import { FrozenWeightedList } from "@sup2.0/weighted-list";
 
+import { status } from "#scripts/status.svelte.ts";
 import { shuffle } from "#scripts/utils";
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
@@ -24,12 +25,11 @@ let filters = new ChannelSearchFilter();
 
 let displayed_channels: FilterResults<YouTubeChannelData> = $derived(filters.apply(channels_list));
 
-let live = $state(false);
+
 let displayed_route = $state("");
 
 onMount(() => {
   displayed_route = routes.sample_value()!;
-  live = true;
 });
 
 
@@ -64,7 +64,7 @@ const routes = new FrozenWeightedList<string>();
         <Header> {collection?.toUpperCase()} </Header>
 
         <Cards>
-          {#each shuffle(live ? channels : []) as channel (channel.shard)}
+          {#each status.client ? shuffle(channels) : [] as channel (channel.shard)}
             <ChannelBlock {channel} />
           {/each}
         </Cards>

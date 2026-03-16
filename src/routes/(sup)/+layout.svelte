@@ -2,14 +2,19 @@
 
 import "#styles/essence.scss";
 
+import { client_live } from "#scripts/status.svelte";
+
 import Back   from "#parts/core/back.svelte";
 import Portal from "#parts/special/portal.svelte";
 
+import { onMount } from "svelte";
 import { onNavigate } from "$app/navigation";
 
 
 let { children } = $props();
 
+
+onMount(client_live);
 
 onNavigate(navigation => {
 	if (!document.startViewTransition) return;

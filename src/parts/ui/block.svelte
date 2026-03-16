@@ -27,11 +27,11 @@ let {
 }: Props = $props();
 
 
-let active = $state(false);
+let live = $state(false);
 
 onMount(() => {
   setTimeout(() => {
-    active = true;
+    live = true;
   }, 50);
 });
 
@@ -39,14 +39,14 @@ onMount(() => {
 
 
 <div class="block {kind}"
-  class:active
+  class:live
   style:width
   style:--delay="{delay}ms"
   {style}
 >
-  {#if active}
+  {#if live}
     <div class="content"
-      transition:slide={{ duration: 1000, delay, easing: expoInOut }}
+      transition:slide={{ duration: 1000, delay: delay + 100, easing: expoInOut }}
     >
       {@render children()}
     </div>
@@ -93,7 +93,7 @@ onMount(() => {
     transition-delay: calc(var(--delay, 0) + 500ms);
   }
 
-  &.active::after {
+  &.live::after {
     transform: translateX(-50%);
   }
 

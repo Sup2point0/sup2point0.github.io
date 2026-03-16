@@ -1,13 +1,12 @@
 <script lang="ts">
 
-import { FrozenWeightedList } from "@sup2.0/weighted-list";
-
 import { display_date, i } from "#scripts/utils";
 
 import Main        from "#parts/core/main.svelte";
 import Block       from "#parts/ui/block.svelte"
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import TrackBlock  from "#parts/music/block.track.listen.svelte";
+import Adventure   from "#parts/special/adventure.svelte";
 
 import { chronicle_data } from "./chronicle";
 
@@ -15,30 +14,17 @@ import { onMount } from "svelte";
 
 
 let invert: boolean;
-let displayed_routes: string[] = $state([]);
 
 onMount(() => {
   invert = Math.random() > 0.5;
-  displayed_routes = routes.sample_values_unique(2).toArray();
 });
-
-
-const routes = new FrozenWeightedList(
-  [1, `Or, well, they’re not exactly “favourites” per se. More so just tracks that I notably really liked, and which are sorta a ‘landmark’ along my evolution of music taste.`],
-
-  [1, `Very important to remember that this is a – honestly, ${i("quite extremely condensed")} – list with the aim of showing someone how my music taste has evolved. So I’ve had to pick and choose, and cull a lot of ‘similar’ tracks. That’s why you won’t see that many tracks in each era, and why the styles will shift so quick.`],
-
-  [1, `While I’ve split these into discrete “eras” for some semblance of order, in reality you’ll notice there’s a lot of overlap – evolution of music taste is very nonlinear! Btw, the dates don’t mean I don’t listen to these tracks anymore, they just indicate when I first came across them ;)`],
-
-  [1, `It goes without saying that if a track’s in here, I already love it to bits. So I’ll try refrain from reiterating “I LOVE THIS TRACK SO MUCH”, altho sometimes it really does just need emphasising. And while I could probably say whether I like one track more than another if held at gunpoint, music is music, and I love it all, there’s no competition or rankings.`],
-);
 
 </script>
 
 
 <svelte:head>
   <title> Chronicle × Music × Sup#2.0 </title>
-  <meta name="description" content="A concentrated selection of my favourite music over the years" />
+  <meta name="description" content="A concentrated selection of my favourite music over the years!" />
 </svelte:head>
 
 
@@ -50,15 +36,19 @@ const routes = new FrozenWeightedList(
 
 <Main>
   <Block kind="ui expanded">
-    {#if displayed_routes.length > 0}
-      <p> This is a (concentrated) selection of my favourite tracks over the years! </p>
-      
-      {#each displayed_routes as route}
-        <p> {@html route} </p>
-      {/each}
+    <p> This is a (concentrated) selection of my favourite tracks over the years! </p>
+    
+    <Adventure multi={2} routes={[
+      [1, `Or, well, they’re not exactly “favourites” per se. More so just tracks that I notably really liked, and which are sorta a ‘landmark’ along my evolution of music taste.`],
 
-      <p> If you want to listen to these, you can find them in a <a target="_blank" href="https://youtube.com/playlist?list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd">YouTube playlist of mine</a> ;) </p>
-    {/if}
+      [1, `Very important to remember that this is a – honestly, ${i("quite extremely condensed")} – list with the aim of showing someone how my music taste has evolved. So I’ve had to pick and choose, and cull a lot of ‘similar’ tracks. That’s why you won’t see that many tracks in each era, and why the styles will shift so quick.`],
+
+      [1, `While I’ve split these into discrete “eras” for some semblance of order, in reality you’ll notice there’s a lot of overlap – evolution of music taste is very nonlinear! Btw, the dates don’t mean I don’t listen to these tracks anymore, they just indicate when I first came across them ;)`],
+
+      [1, `It goes without saying that if a track’s in here, I already love it to bits. So I’ll try refrain from reiterating “I LOVE THIS TRACK SO MUCH”, altho sometimes it really does just need emphasising. And while I could probably say whether I like one track more than another if held at gunpoint, music is music, and I love it all, there’s no competition or rankings.`],
+    ]} />
+
+    <p> If you want to listen to these, you can find them in a <a target="_blank" href="https://youtube.com/playlist?list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd">YouTube playlist of mine</a> ;) </p>
   </Block>
 
   <div class="chronicle">

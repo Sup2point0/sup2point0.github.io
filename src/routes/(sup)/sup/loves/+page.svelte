@@ -58,6 +58,7 @@ import Adventure   from "#parts/special/adventure.svelte";
         "icons/games/manifold-garden.png",
         "icons/games/master-duel.webp",
         "icons/games/phigros.webp",
+        "icons/games/outer-wilds.jpg",
       ]}
       aspect="square"
     />
@@ -129,10 +130,13 @@ import Adventure   from "#parts/special/adventure.svelte";
       capt="best of the internet"
       picts={[
         "icons/youtube/3b1b.jpg",
+        "icons/youtube/grian.jpg",
         "icons/youtube/in-the-mix.jpg",
         "icons/youtube/kevin-fang.jpg",
         "icons/youtube/kevinu.jpg",
+        "icons/youtube/no-boilerplate.jpg",
       ]}
+      aspect="square"
     />
     
     <LinkCard

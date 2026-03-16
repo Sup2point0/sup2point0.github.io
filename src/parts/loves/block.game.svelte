@@ -6,18 +6,36 @@ import { anim } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 import { type GameData } from "#sup/loves/games/games";
 
+import { onMount } from "svelte";
+import { slide } from "svelte/transition";
+import { expoInOut } from "svelte/easing";
+
 
 interface Props {
   game: GameData;
+  invert?: boolean
 }
 
-let { game }: Props = $props();
+let { game, invert = false }: Props = $props();
+
+
+let open = $state(false);
+
+onMount(() => {
+  requestAnimationFrame(() => {
+    if (invert) {
+      open = !open;
+    }
+  });
+});
 
 </script>
 
 
 <button class="block-game {game.state} {game._style}"
+  class:open
   id={game.shard}
+  onclick={() => { open = !open; }}
   {@attach anim}
 >
   <div class="content">
@@ -42,27 +60,39 @@ let { game }: Props = $props();
     {/if}
   </div>
 
-  <div class="inner">
-    {#if game.date}
-      <p class="date">
-        {display_date(game.date)}
-      </p>
+  <div class="sep"></div>
 
-      <span class="separator"> × </span>
-    {/if}
-
-    <p class="state {game.state}">
-      {game.state.toUpperCase()}
-    </p>
-  </div>
-
-  <div class="lower">
-    <ul class="genres">
-      {#each game.genres ?? [] as genre}
-        <li> {genre} </li>
+  {#if open}
+    <div class="lower desc" transition:slide={{ duration: 800, easing: expoInOut }}>
+      {#each game.desc as block}
+        <p> {@html block} </p>
       {/each}
-    </ul>
-  </div>
+    </div>
+
+  {:else}
+    <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
+      <div class="inner">
+        {#if game.date}
+          <p class="date">
+            {display_date(game.date)}
+          </p>
+
+          <span class="separator"> × </span>
+        {/if}
+
+        <p class="state {game.state}">
+          {game.state.toUpperCase()}
+        </p>
+      </div>
+
+      <ul class="genres">
+        {#each game.genres ?? [] as genre}
+          <li> {genre} </li>
+        {/each}
+      </ul>
+    </div>
+
+  {/if}
 </div>
 
   </div>
@@ -78,19 +108,25 @@ let { game }: Props = $props();
   flex-grow: 1;
   max-width: 32rem;
   padding: 1rem 1.5rem;
+  font-size: unset;
   background: none;
   border: none;
+  outline: none;
   transition: #{trans()};
   @include shear-card($interactive: true);
   @include anim-block;
 
-  &:hover {
-    cursor: auto;
+  &:hover, &:focus-visible {
+    cursor: pointer;
     opacity: 1 !important;
 
     .inner p {
       color: $col-text;
     }
+  }
+
+  &.open {
+    max-width: 40rem;
   }
 
   &.wishlist::before {
@@ -117,6 +153,10 @@ let { game }: Props = $props();
     transform: none;
     opacity: 1;
   }
+
+  .block-game.open & {
+    padding: 0 1rem;
+  }
 }
 
 
@@ -142,7 +182,6 @@ let { game }: Props = $props();
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: start;
-  gap: 0.5rem;
 }
 
 
@@ -155,7 +194,7 @@ let { game }: Props = $props();
 
   h3 {
     @include font-ui;
-    font-size: 200%;
+    font-size: 150%;
     font-weight: normal;
     color: $col-text;
     text-align: start;
@@ -167,32 +206,61 @@ let { game }: Props = $props();
 
   p.love {
     min-width: max-content;
-    font-size: 150%;
+    font-size: 125%;
   }
 }
 
-.inner {
-  flex-grow: 1;
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  gap: 0.5rem;
-  @include separator;
 
+.sep {
+  width: 69%;
+  height: 1px;
+  margin: 0.25rem 0 0.75rem;
+  background: rgb(white, 10%);
+}
+
+
+.lower.desc {
   p {
-    @include font-tech;
-    font-size: 100%;
+    padding-left: 0.2em;
+    margin-bottom: 0.5em;
+    @include font-ui;
+    font-size: 75%;
+    font-weight: 300;
     color: $col-text-deut;
+    text-align: left;
     transition: #{trans()};
 
-    &.wishlist      { color: #f190f1 !important; }
-    &.active        { color: #40f190 !important; }
-    &.opportunistic { color: #c7c7ff !important; }
+    .block-game:where(:hover, :focus-visible) & {
+      color: $col-text;
+    }
   }
 }
 
 .lower {
+  .inner {
+    flex-grow: 1;
+    width: 100%;
+    margin-bottom: 0.5em;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.5rem;
+    font-size: 75%;
+    @include separator;
+
+    p {
+      margin: 0;
+      @include font-tech;
+      color: $col-text-deut;
+      transition: #{trans()};
+
+      &.wishlist      { color: #f190f1 !important; }
+      &.active        { color: #40f190 !important; }
+      &.opportunistic { color: #c7c7ff !important; }
+    }
+  }
+
   ul.genres {
+    padding: 0 0.2rem;
     display: flex;
     flex-flow: row wrap;
     justify-content: start;
@@ -202,7 +270,7 @@ let { game }: Props = $props();
     li {
       padding: 0 0.5em;
       @include font-fun;
-      font-size: 150%;
+      font-size: 120%;
       color: $col-text;
       @include shear-card();
       transition: #{trans()};

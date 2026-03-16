@@ -25,8 +25,6 @@ let { track, invert = false }: Props = $props();
 
 let open = $state(false);
 
-let self: HTMLElement;
-
 onMount(() => {
   requestAnimationFrame(() => {
     if (invert) {
@@ -42,7 +40,6 @@ onMount(() => {
   class:shrink={track.name.length > 20}
   class:open
   id={track.shard}
-  bind:this={self}
   onclick={() => { open = !open; }}
   {@attach anim}
 >
@@ -81,15 +78,11 @@ onMount(() => {
 
   <div class="sep"></div>
 
-  {#if open && track.desc}
+  {#if open}
     <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
-      {#if Array.isArray(track.desc)}
-        {#each track.desc as block}
-          <p> {@html block} </p>
-        {/each}
-      {:else}
-        <p> {@html track.desc} </p>
-      {/if}
+      {#each track.desc as block}
+        <p> {@html block} </p>
+      {/each}
     </div>
 
   {:else}
@@ -127,9 +120,9 @@ onMount(() => {
   max-width: 60rem;
   padding: 1rem 1.5rem 1rem 3rem;
   font-size: unset;
-  background: unset;
-  border: unset;
-  outline: unset;
+  background: none;
+  border: none;
+  outline: none;
   transition: #{trans()};
   @include shear-card($interactive: true, $glow: true);
   @include anim-block;
@@ -143,10 +136,6 @@ onMount(() => {
       50%  { filter: brightness(108%); }
       100% { filter: brightness(100%); }
     }
-  }
-
-  &:hover .lower p {
-    color: $col-text;
   }
 }
 
@@ -181,6 +170,7 @@ img {
   justify-content: space-between;
   align-items: start;
 }
+
 
 .upper {
   width: 100%;
@@ -228,12 +218,14 @@ img {
   }
 }
 
+
 .sep {
   width: 69%;
   height: 1px;
   margin: 0.5rem 0 1rem;
   background: rgb(white, 10%);
 }
+
 
 .lower {
   p {
@@ -244,6 +236,10 @@ img {
     color: $col-text-deut;
     text-align: left;
     transition: #{trans()};
+
+    .block-track-listen:where(:hover, :focus-visible) & {
+      color: $col-text;
+    }
   }
 
   p.discovered {

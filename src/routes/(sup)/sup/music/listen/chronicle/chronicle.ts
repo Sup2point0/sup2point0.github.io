@@ -70,7 +70,7 @@ export const chronicle_data: ChronicleData[] = [
   },
   {
     era:  "Modernity",
-    date: ["summer 2024", "late 2025"],
+    date: ["summer 2024", "early 2026"],
     desc: [
       `Over these years my music taste really started to explode, as I grew into rhythm games other than Phigros, came across beatboxing, and started playing YouTube Music while studying.`,
     ],
@@ -79,7 +79,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "save-this-wrld",
         name:    "SAVE THIS WRLD",
         artists: ["exyl"],
-        date:    "late 2025",
+        date:    "early 2026",
         cover:   "save-this-wrld.jpg",
         genres:  [Genre.ELECTRONIC, Genre.RHYTHM],
         discovered: `YouTube Music reccs`,

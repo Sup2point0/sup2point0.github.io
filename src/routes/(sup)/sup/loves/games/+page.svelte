@@ -12,11 +12,20 @@ import GameBlock     from "#parts/loves/block.game.svelte";
 import { games_data, games_list, type GameData } from "./games";
 import { GameSearchFilter } from "./filter.games.svelte.ts";
 
+import { onMount } from "svelte";
+
 
 // svelte-ignore non_reactive_update
 let filters = new GameSearchFilter();
 
 let displayed_games: FilterResults<GameData> = $derived(filters.apply(games_list));
+
+
+let invert: boolean;
+
+onMount(() => {
+  invert = Math.random() > 0.5;
+});
 
 </script>
 
@@ -42,7 +51,7 @@ let displayed_games: FilterResults<GameData> = $derived(filters.apply(games_list
 
         <Cards>
           {#each games as game}
-            <GameBlock {game} />
+            <GameBlock {game} {invert} />
           {/each}
         </Cards>
       </section>
@@ -57,7 +66,7 @@ let displayed_games: FilterResults<GameData> = $derived(filters.apply(games_list
 
         <Cards>
           {#each games as game (game.shard)}
-            <GameBlock {game} />
+            <GameBlock {game} {invert} />
           {/each}
         </Cards>
       </section>
@@ -68,7 +77,7 @@ let displayed_games: FilterResults<GameData> = $derived(filters.apply(games_list
 
     <Cards>
       {#each displayed as game (game.shard)}
-        <GameBlock {game} />
+        <GameBlock {game} {invert} />
       {/each}
     </Cards>
 

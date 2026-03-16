@@ -1,4 +1,5 @@
 import { prep_groups, type Searchable } from "#scripts/search-filter.svelte.ts";
+import { i } from "#scripts/utils";
 import type { DatePoint, Groups } from "#scripts/types";
 
 
@@ -27,12 +28,13 @@ export enum Platform {
 }
 
 export enum PlayState {
+  WISHLIST      = "wishlist",
   ACTIVE        = "active",
   OPPORTUNISTIC = "opportunistic",
   INTERMITTENT  = "intermittent",
   INFREQUENT    = "infrequent",
   RETIRED       = "retired",
-  WISHLIST      = "wishlist",
+  FINISHED      = "finished",
 }
 
 export interface GameData extends Searchable
@@ -48,7 +50,7 @@ export interface GameData extends Searchable
   platforms: Platform[];
   
   state: PlayState;
-  desc?: string | string[];
+  desc?: string[];
 }
 
 
@@ -78,16 +80,17 @@ const data: Groups<GameData> =
       genres: [Genre.EXPLORATION],
       platforms: [Platform.DESKTOP],
       state:  PlayState.ACTIVE,
-    },
-    {
-      shard:  "manifold-garden",
-      name:   "Manifold Garden",
-      love:   3,
-      date:   ["January 2026", "present"],
-      icon:   "manifold-garden.png",
-      genres: [Genre.PUZZLE],
-      platforms: [Platform.DESKTOP],
-      state:  PlayState.ACTIVE,
+      desc: [
+        `The title of this game is the sort which I hear and think “I’ve heard this before”, even tho I probably haven’t. And it’s the kind where I {know} I want to play it just by hearing it. I made sure to skip parts of {The Cursed Judge}’s videos about it to avoid spoilers!`,
+
+        `I’m currently still exploring, and falling ever more in love with this game. Flying in space is quite addictive, what can I say.`,
+
+        `I remember when I first finished exploring the village on Timber Hearth, finally found the launch codes, and then saw the spaceship. The raw, tentative excitement, thinking “there’s no way...” and the dumb grin I couldn’t hold back, “am I actually gonna fly a spaceship 0.o” and the feeling of taking off and floating into space.`,
+
+        `Unfortunately I didn’t realise quite how much my poor laptop struggles with graphics (turns out Manifold Garden and Bloons are much lighter than I thought!) so I’ve had to turn every graphic setting to ...the lowest possible. And it still runs at like 20 FPS ;-;`,
+
+        `Ah well, it’s still enough to feel the beauty of the game and world.`,
+      ],
     },
     {
       shard:  "phigros",
@@ -98,6 +101,11 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
       state:  PlayState.ACTIVE,
+      desc: [
+        `Phigros was my first rhythm game. I was on camp and saw someone in my group playing it, so I asked them if I could try. Quickly fell in love, and the obsession blossomed as ever. Possibly one of the most transformative discoveries in my life.`,
+
+        `Phigros remains my favourite still, and it’s not even close. It is, quite simply, the ultimate rhythm game. The possibilities are endless. No game charts like Phigros, and you can emulate every other rhythm game in Phigros.`,
+      ],
     },
     {
       shard:  "chunithm",
@@ -197,6 +205,7 @@ const data: Groups<GameData> =
   ],
   "miscellaneous": [
     {
+      state:  PlayState.INTERMITTENT,
       shard:  "master-duel",
       name:   "Yu-Gi-Oh! Master Duel",
       love:   3,
@@ -204,9 +213,33 @@ const data: Groups<GameData> =
       icon:   "master-duel.webp",
       genres: [Genre.CARDS],
       platforms: [Platform.MOBILE],
-      state:  PlayState.INTERMITTENT,
+      desc: [
+        `Seriously, I cannot believe this game exists.`,
+
+        `It’s free. The animations are BEAUTIFUL. It captures the essence of anime duels in a way I never thought possible.`,
+
+        `The first time I saw Master Duel, I was blown away by the graphics, and every time I come back to it I just marvel at how incredible it looks. The ${i("impact")} of a boss monster landing on the field, complete with a unique animation, aw man, it’s so cool, it makes you so giddy.`,
+      ],
     },
     {
+      state:  PlayState.FINISHED,
+      shard:  "manifold-garden",
+      name:   "Manifold Garden",
+      love:   3,
+      date:   ["January 2026", "February 2026"],
+      icon:   "manifold-garden.png",
+      genres: [Genre.PUZZLE],
+      platforms: [Platform.DESKTOP],
+      desc: [
+        `Ever since learning of this game from {The Cursed Judge}’s video essays, it’s been top of my wishlist. Finally, finally got it during the Steam Christmas sale (almost missed it!). Wanted to play it there and then, but decided to save it for when I had time so I could play it properly alone.`,
+
+        `A couple days later, I played my first 2 hours of Manifold Garden in a dark room, alone, headphones on, no distractions. And. Oh my. Truly one of the most special experiences I’ve ever had.`,
+
+        `Ethereal. Oh man, I love this game so much. It’s so beautiful, and so perfect. What makes it so special as well is that it’s a once-in-a-lifetime experience – the magic lies in the first time, discovering the world, exploring the mechanics.`,
+      ],
+    },
+    {
+      state:  PlayState.FINISHED,
       shard:  "firewatch",
       name:   "Firewatch",
       love:   null,
@@ -214,9 +247,9 @@ const data: Groups<GameData> =
       icon:   "firewatch.avif",
       genres: [],
       platforms: [Platform.DESKTOP],
-      state:  PlayState.RETIRED,
     },
     {
+      state:  PlayState.RETIRED,
       shard:  "soul-knight",
       name:   "Soul Knight",
       love:   2,
@@ -224,7 +257,6 @@ const data: Groups<GameData> =
       icon:   "soul-knight.webp",
       genres: [Genre.ROGUE],
       platforms: [Platform.MOBILE],
-      state:  PlayState.RETIRED,
     },
     {
       shard:  "bao-wei-luo-bo",
@@ -251,6 +283,7 @@ const data: Groups<GameData> =
   
   "all the rhythm games": [
     {
+      state:  PlayState.ACTIVE,
       shard:  "paradigm-reboot",
       name:   "Paradigm: Reboot",
       love:   null,
@@ -258,7 +291,6 @@ const data: Groups<GameData> =
       icon:   "paradigm-reboot.png",
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
-      state:  PlayState.ACTIVE,
     },
     {
       shard:  "dance-cube-evo",

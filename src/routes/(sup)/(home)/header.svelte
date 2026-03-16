@@ -20,10 +20,10 @@ import ProfileLinks from "./links.svelte";
   <p>
     <span class="shown"> An avid portal with way too much in their neural cortex. </span>
     <span class="hidden">
-      nerd
-      <span class="separator"> × </span> creator
+      creator
       <span class="separator"> × </span> artist
       <span class="separator"> × </span> developer
+      <span class="separator"> × </span> nerd
       <span class="separator"> × </span> jack-of-all-knives
     </span>
   </p>

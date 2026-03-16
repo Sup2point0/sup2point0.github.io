@@ -20,23 +20,24 @@ onMount(async () => {
 
 const showerthoughts = new FrozenWeightedList
 (
-  [1, `everything is a human construct.`],
-  [1, `the most dangerous assumption you can make is that you are correct.`],
-  [1, `suffering builds character.`],
-  [1, `everything will be fine.`],
-  [1, `sup sup’s sups sup sup’s sup sup sup sup’s sup sups`],
-  [1, `Saw what you mean, and mean what you say.`],
-  [1, `If a capacitive capacitor could capacitate capacitance, how much capacitance could a capacitative capacitor capacitate if it capacitatively capacitated capacitance?`],
+  [20, `sup sup’s sups sup sup’s sup sup sup sup’s sup sups`],
+  [20, `jack of all knives, none of a kind, kind of a none`],
+  [20, `don’t mind me, just being productively unproductive`],
+  [20, `suffering from life deprivation`],
+  [20, `high on clutch catalyst`],
+  [20, `sleep is so good.`],
+  [20, `music is love, music is life.`],
+  [7, `growing up has got to be one of the saddest things I’ve ever experienced.`],
 
-  [1, `life is one huge logistical issue`],
+  [13, `everything is a human construct.`],
+  [13, `the most dangerous assumption you can make is that you are correct.`],
+  [13, `suffering builds character.`],
+  [13, `everything will be fine.`],
+  [13, `Say what you mean, and mean what you say.`],
+  [13, `If a capacitive capacitor could capacitate capacitance, how much capacitance could a capacitative capacitor capacitate if it capacitatively capacitated capacitance?`],
+  [13, `life is one huge logistical issue`],
+
   [1, `“ice lolly” and “popsicle” are just “icicle” and “lollipop” intersected.`],
-
-  [1, `don’t mind me, just being productively unproductive`],
-  [1, `suffering from life deprivation`],
-  [1, `high on clutch catalyst`],
-  [1, `sleep is so good.`],
-  [1, `music is love, music is life.`],
-  [1, `growing up has got to be one of the saddest things I’ve ever experienced.`],
 );
 
 </script>

@@ -39,6 +39,7 @@ const content_routes = {
     `I make websites!`,
     `can’t stop making them.`,
     `too fun.`,
+    `certified web dev junkie`,
   ],
   software: [
     `I make... applications, I guess you could call them?`,
@@ -67,15 +68,39 @@ const content_routes = {
   </h2>
 
   <Cards force_grid={true}>
-    <LinkCard text="games" link="sup/projects" capt={displayed_routes.games} />
-    <LinkCard text="websites" link="sup/projects" capt={displayed_routes.websites} />
-    <LinkCard text="software" link="sup/projects" capt={displayed_routes.software} />
-    <LinkCard text="graphics" link="https://sup2point0.github.io/Assort/graphics" capt={displayed_routes.graphics} />
-    <LinkCard text="writing" link="https://sup2point0.github.io/Assort/writing" capt={displayed_routes.writing} />
-    <LinkCard text="poetry" link="https://sup2point0.github.io/Assort/poetry" capt={displayed_routes.poetry} />
+    <LinkCard
+      text="games"
+      link="sup/projects"
+      capt={displayed_routes.games}
+    />
+    <LinkCard
+      link="sup/projects"
+      text="websites"
+      capt={displayed_routes.websites}
+    />
+    <LinkCard
+      link="sup/projects"
+      text="software"
+      capt={displayed_routes.software}
+    />
+    <LinkCard
+      link="https://sup2point0.github.io/Assort/graphics"
+      text="graphics"
+      capt={displayed_routes.graphics}
+    />
+    <LinkCard
+      link="https://sup2point0.github.io/Assort/writing"
+      text="writing"
+      capt={displayed_routes.writing}
+    />
+    <LinkCard
+      link="https://sup2point0.github.io/Assort/poetry"
+      text="poetry"
+      capt={displayed_routes.poetry}
+    />
   </Cards>
-
   <Clicky text="VIEW MORE" link="/sup/projects" />
+
 {/if}
 
 

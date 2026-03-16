@@ -1,9 +1,7 @@
 <script lang="ts">
 
-import { FrozenWeightedList } from "@sup2.0/weighted-list";
-
 import { status } from "#scripts/status.svelte.ts";
-import { shuffle } from "#scripts/utils";
+import { shuffle, a } from "#scripts/utils";
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
 import Cards         from "#parts/core/cards.svelte";
@@ -13,27 +11,16 @@ import Breadcrumbs   from "#parts/ui/breadcrumbs.svelte";
 import Header        from "#parts/ui/header.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
 import ChannelBlock  from "#parts/loves/block.channel.svelte";
+import Adventure     from "#parts/special/adventure.svelte";
 
 import { channels_data, channels_list, type YouTubeChannelData } from "./channels";
 import { ChannelSearchFilter } from "./filter.channels.svelte.ts";
-
-import { onMount } from "svelte";
 
 
 // svelte-ignore non_reactive_update
 let filters = new ChannelSearchFilter();
 
 let displayed_channels: FilterResults<YouTubeChannelData> = $derived(filters.apply(channels_list));
-
-
-let displayed_route = $state("");
-
-onMount(() => {
-  displayed_route = routes.sample_value()!;
-});
-
-
-const routes = new FrozenWeightedList<string>();
 
 </script>
 
@@ -55,7 +42,9 @@ const routes = new FrozenWeightedList<string>();
   <Block>
     <p> These are the YouTube channels I enjoy watching ;) </p>
 
-    <p> I haven’t included pure music channels here, since those belong over in <a href="/sup/music/listen/artists">Artists</a>! </p>
+    <Adventure routes={[
+      [1, `I haven’t included pure music channels here, since those belong over in ${a("Artists", "/sup/music/listen/artists")}!`]
+    ]} />
   </Block>
 
   {#if filters.query === "" && filters.dirtiness === 0}

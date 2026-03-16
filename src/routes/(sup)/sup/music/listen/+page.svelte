@@ -1,29 +1,11 @@
 <script lang="ts">
 
-import { FrozenWeightedList } from "@sup2.0/weighted-list";
-
 import Cards       from "#parts/core/cards.svelte";
 import Main        from "#parts/core/main.svelte";
 import Block       from "#parts/ui/block.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import LinkCard    from "#parts/ui/card.link.svelte";
-
-import { onMount } from "svelte";
-
-
-let displayed_route = $state("");
-
-onMount(() => {
-  displayed_route = routes.sample_value()!;
-});
-
-
-const routes = new FrozenWeightedList
-(
-  [1, `I vibe to pretty much all music. No no, genuinely.`],
-
-  [1, `I’m not gonna lie, I listen to quite a ridiculous variety of music.`],
-);
+import Adventure   from "#parts/special/adventure.svelte";
 
 </script>
 
@@ -35,9 +17,11 @@ const routes = new FrozenWeightedList
 
 <Main>
   <Block>
-    {#if displayed_route}
-      <p> {@html displayed_route} </p>
-    {/if}
+    <Adventure routes={[
+      [1, `I vibe to pretty much all music. No no, genuinely.`],
+
+      [1, `I’m not gonna lie, I listen to quite a ridiculous variety of music.`],
+    ]} />
   </Block>
 
   <Cards>

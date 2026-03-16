@@ -1,13 +1,14 @@
 <script lang="ts">
 
-import { pick_random, shuffle } from "#scripts/utils";
+import { shuffle } from "#scripts/utils";
 import type { GenreData } from "#scripts/types";
 
-import Main from "#parts/core/main.svelte";
-import Cards from "#parts/core/cards.svelte";
-import Block from "#parts/ui/block.svelte";
+import Main        from "#parts/core/main.svelte";
+import Cards       from "#parts/core/cards.svelte";
+import Block       from "#parts/ui/block.svelte";
 import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
-import GenreBlock from "#parts/music/block.genre.svelte";
+import GenreBlock  from "#parts/music/block.genre.svelte";
+import Adventure   from "#parts/special/adventure.svelte";
 
 import { genres_data } from "./genres";
 
@@ -15,28 +16,15 @@ import { onMount } from "svelte";
 import { fade } from "svelte/transition";
 
 
-let displayed_route = $state("");
-
 let displayed_genres: {
   [collection: string]: GenreData[];
 } = $state({});
 
 onMount(() => {
-  displayed_route = pick_random(routes);
-
   for (let [collection, genres] of Object.entries(genres_data)) {
     displayed_genres[collection] = shuffle(genres);
   }
 });
-
-
-const routes = [
-  String.raw `In all honesty I find genres a bit arbitrary, and I’d rather categorise music by its feeling. So I’ve included both :P`,
-
-  `I won’t lie, I’m extraordinarily bad at describing the music I listen to. Sooo, a lot of this might be ‘inaccurate’ ¯\_(ツ)_/¯`,
-
-  `For each genre or vibe, I’ve included artists and tracks I listen to that are pretty representative (I reckon) of that kinda music, so if you listen to it too, there’s a good chance you’ll have heard of them!`,
-];
 
 </script>
 
@@ -55,12 +43,15 @@ const routes = [
 
 <Main>
   <Block>
-    {#if displayed_route}
-      I’m not kidding when I say I vibe to almost all kinds of music. Grouping these would be a nightmare, so instead, here’s a massive list for your perusal!
-      <div style:height="0.69em"></div>
+    <p> I’m not kidding when I say I vibe to almost all kinds of music. Grouping these would be a nightmare, so instead, here’s a massive list for your perusal! </p>
 
-      {@html displayed_route}
-    {/if}
+    <Adventure routes={[
+      [1, `In all honesty I find genres a bit arbitrary, and I’d rather categorise music by its feeling. So I’ve included both :P`],
+
+      [1, `I won’t lie, I’m extraordinarily bad at describing the music I listen to. Sooo, a lot of this might be ‘inaccurate’ ¯ \\_(ツ)_/¯`],
+
+      [1, `For each genre or vibe, I’ve included artists and tracks I listen to that are pretty representative (I reckon) of that kinda music, so if you listen to it too, there’s a good chance you’ll have heard of them!`],
+    ]} />
   </Block>
 
   {#each Object.entries(displayed_genres) as [collection, genres]}

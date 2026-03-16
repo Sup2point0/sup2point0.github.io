@@ -364,7 +364,9 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.JPOP],
         discovered: `YouTube Music reccs`,
         desc: [
-          ``,
+          `YouTube Music really never fails to disappoint. I mean, granted, from what I know this track blew up, but either way what a find. You just can’t stop moving while listening to it. It’s so groovy, innit. Everything is so catchy.`,
+          
+          `The variations in the vocal tones are really fun, I seriously dig it.`,
         ],
       },
       {
@@ -428,7 +430,9 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.JCORE, Genre.LOFI],
         discovered: `YOASOBI discography`,
         desc: [
-          ``,
+          `Fell in love the first time I heard it – altho I’m struggling to remember now, it was quite a while ago TvT – and never fell out of love, really.`,
+
+          `All of it. The soft breaks, the melody, the harmonies, the solos, the swing. Such a mood.`,
         ],
       },
       {
@@ -839,10 +843,14 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["alan-walker", "k-391", "Ahrix"],
         date:    undefined,
         cover:   "end-of-time.webp",
-        genres:  [],
+        genres:  [Genre.EDM],
         discovered: `Alan Walker release`,
         desc: [
-          ``,
+          `The vibes are strong on this one.`,
+
+          `It’s interesting, this one grew on me. But it’s not that I didn’t like it at first, I did; I just ended up falling in love with it a lot more, sorta outta nowhere.`,
+
+          `My favourite aspect, rather surprisingly, might be the vocals! It’s a shame the vocalist isn’t credited, I really love her style.`,
         ],
       },
       {

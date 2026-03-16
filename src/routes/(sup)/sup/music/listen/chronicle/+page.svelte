@@ -49,7 +49,7 @@ const routes = new FrozenWeightedList(
 ]} />
 
 <Main>
-  <Block>
+  <Block kind="ui expanded">
     {#if displayed_routes.length > 0}
       <p> This is a (concentrated) selection of my favourite tracks over the years! </p>
       

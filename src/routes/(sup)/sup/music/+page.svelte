@@ -1,6 +1,6 @@
 <script lang="ts">
 
-import { pick_random } from "#scripts/utils";
+import { FrozenWeightedList } from "@sup2.0/weighted-list";
 
 import Main        from "#parts/core/main.svelte";
 import Cards       from "#parts/core/cards.svelte";
@@ -13,14 +13,13 @@ import { onMount } from "svelte";
 
 let displayed_route = $state("");
 
-onMount(() => {
-  displayed_route = pick_random(routes);
-});
+onMount(() => { displayed_route = routes.sample_value()!; });
 
 
-const routes = [
-  `Music is love, music is life.`,  // TODO
-];
+const routes = new FrozenWeightedList
+(
+  [1, `Music is such an irreplaceable part of my life and who I am. It’s been a long time coming, but I’ve fallen totally in with every aspect – listening to it, playing instruments, improvising, producing music, and everything in between.`],
+);
 
 </script>
 
@@ -38,7 +37,7 @@ const routes = [
 <Main>
   <Block>
     {#if displayed_route}
-      {@html displayed_route}
+      <p> {@html displayed_route} </p>
     {/if}
   </Block>
 

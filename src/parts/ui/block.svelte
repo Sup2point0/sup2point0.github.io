@@ -11,7 +11,7 @@ import { expoInOut } from "svelte/easing";
 
 
 interface Props {
-  kind?: "ui" | "fun";
+  kind?: "ui" | "fun" | "ui expanded";
   width?: string;
   delay?: number;
   style?: string;
@@ -23,7 +23,7 @@ let {
   width = "69%",
   delay = 0,
   style,
-  children
+  children,
 }: Props = $props();
 
 
@@ -75,6 +75,10 @@ onMount(() => {
     padding: 0.5em 2em;
     @include font-fun;
     font-size: 150%;
+  }
+
+  &.expanded {
+    padding: 1em 4em;
   }
 
   &::after {

@@ -6,7 +6,7 @@ An overlay for quick navigation and commands execution.
 <script lang="ts">
   
 import { fade, scale } from "svelte/transition";
-import { expoOut } from "svelte/easing";
+import { cubicIn, cubicOut, expoOut } from "svelte/easing";
 
 
 let input: HTMLInputElement | null = null;
@@ -77,7 +77,8 @@ function activate(state: boolean): (e: Event) => void
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <div class="portal-overlay"
     onclick={activate(false)}
-    transition:fade={{ duration: 250 }}
+    in:fade={{ duration: 500, easing: cubicOut }}
+    out:fade={{ duration: 500, easing: cubicIn }}
   ></div>
 
   <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -92,8 +93,9 @@ function activate(state: boolean): (e: Event) => void
         bind:value={query}
         bind:this={input}
         name="portal"
-        placeholder="quicknav to page, run a command, or search for secrets!"
+        placeholder="not ready yet!"
       />
+      <!-- quicknav to page, run a command, or search for secrets! -->
     </div>
   </div>
 {/if}

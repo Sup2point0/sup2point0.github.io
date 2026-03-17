@@ -136,6 +136,13 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE, Platform.DESKTOP],
       state:  PlayState.ACTIVE,
+      desc: [
+        `I like my rhythm games like programming languages – if it doesn’t teach you anything new (or less seriously, doesn’t do anything differently), it’s not worth learning (playing).`,
+
+        `I first heard about Milthm on desktop, as the rhythm game where you can press any key to hit notes. It sounded utterly absurd, so I really wanted to see how it worked. It’s like the Phigros of desktop rhythm games!`,
+
+        `Now I play Milthm on mobile, exclusively one-handed. It’s like another Phigros :D Cannot believe this game is entirely free, the quality is insane.`,
+      ],
     }, 
   ],
   "wishlist": [
@@ -171,6 +178,15 @@ const data: Groups<GameData> =
       genres: [Genre.TOWER_DEFENCE, Genre.CLASSICS],
       platforms: [Platform.DESKTOP],
       state:  PlayState.OPPORTUNISTIC,
+      desc: [
+        `If you held me at gunpoint and asked for my favourite game, I’d probably say Bloons TD 6.`,
+
+        `I just have to. It’s too perfect. It fulfils so many of my ...I’m not sure what the word is, not exactly “wishes”, but just stuff that I enjoy about a game. I really love complex intertwining systems that take time to familiarise with, where tiny details and optimisations matter, but where there’s also room for creativity and experimentation.`,
+
+        `And from a graphical standpoint, it’s not even close. They’re not ‘impressive’ per se, they’re just so fun, on-theme and flawless. tbh, I love the game more than it feels like I should. In my prime, I was watching all of ISAB’s videos, coming up with fictional monkeys, and ofc doing {the Monkeyopolis Times}.`,
+
+        `Unfortunately I have nowhere near enough time to play Bloons actively now, but every once in a while I’ll fire it up, and it’s like... {ahh, home sweet home}.`,
+      ],
     },
     {
       shard:  "bloons-pop",
@@ -267,6 +283,13 @@ const data: Groups<GameData> =
       genres: [Genre.TOWER_DEFENCE],
       platforms: [Platform.MOBILE],
       state:  PlayState.OPPORTUNISTIC,
+      desc: [
+        `lmao I really love my tower defence games don’t I`,
+
+        `It’s so simple yet so effective. Cute yet complex. Also, CARROTS #v#`,
+
+        `Casual games are great. Would recommend if you’re bored!`,
+      ],
     },
     {
       shard:  "minecraft",
@@ -301,6 +324,13 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.ARCADE],
       state:  PlayState.OPPORTUNISTIC,
+      desc: [
+        `You most likely don’t know this one, but it’s probably the most common arcade rhythm in China (in my experience), even above maimai. There’s 2 distinct versions of it, the original 2D one, and the newer 3D version ({EVO}). I can’t play the 2D one, but I love the 3D one!`,
+
+        `Altho individually its note kinds aren’t unique, it’s got loads of them, so altogether is the full package. {Paradigm: Reboot} on steroids. Playing on high scroll speed is exhilarating.`,
+
+        `Also, hexagons. Need I say more?`,
+      ],
     },
     {
       shard:  "vivid-stasis",
@@ -372,6 +402,9 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
+      desc: [
+        `Desperate times call for desperate measures. Sometimes, your only option is a browser rhythm game, and while Rhythm+ wasn’t perfect, it was satisfactory. Allowing colour customisation for everything was very based, you don’t see that much.`,
+      ],
     },
     {
       shard:  "maimai",
@@ -414,6 +447,15 @@ const data: Groups<GameData> =
       genres: [Genre.RACING],
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
+      desc: [
+        `Before rhythm games, this was the game I *trained*. By that I mean regular, frequent practice whenever I could. I wasn’t especially skilled, but I wasn’t too half bad either. Managed to set some high ranks in events, y’know (usually with the Lykan, lmao).`,
+
+        `It’s just fun, innit. It doesn’t get old. Racing cracked supercars across such a variety of environments around the world. It just feels awesome.`,
+
+        `I have to also credit Asphalt 9 for kicking off my passion for graphic design and typography. The game font, {Rajdhani}, was the first font I ever installed myself, and Asphalt 9’s UI design will stay with me forever.`,
+
+        `I {also} have to credit Asphalt 9 for igniting my passion for nomenclature. I seriously, {seriously} loved analysing the car names, and coming up with my own fictional ones ({Vengeance Seventure Adrenaline} my beloved).`,
+      ],
     },
     {
       shard:  "asphalt-8",
@@ -424,6 +466,9 @@ const data: Groups<GameData> =
       genres: [Genre.RACING, Genre.CLASSICS],
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
+      desc: [
+        `This was my childhood, man. Regardless of how pay2win the game might be, I was just happy racing. It’ll always hold a special place in my heart. Nevada, Tokyo, Iceland, they’ll never get old.`,
+      ],
     },
     {
       shard:  "air-attack-2",
@@ -454,6 +499,15 @@ const data: Groups<GameData> =
       genres: [Genre.TOWER_DEFENCE, Genre.CLASSICS],
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
+      desc: [
+        `y’know what, this ain’t a half bad contender for my favourite game of all time. It’s probably the game I hold the most hours in!`,
+
+        `I loved the graphics, the lore, the love, and most importantly, the absolutely brilliant wordplay in all the names.`,
+
+        `I’m gonna forego modesty here and say, I reckon I was pretty cracked at this game. I could micro with cool, calm efficiency, co-ordinate taps with high precision and multitask without breaking a sweat. Lowkey, maybe this was the precursor to me playing rhythm games lmao.`,
+
+        `Of course, the upgrade system and OP plants made all this less relevant, which is a shame. And yeah, EA made the game pay2win, but hey. I still had tons of fun, made loads of memories, and still (thankfully) have access to my stacked account, so I’m thankful this masterpiece existed.`,
+      ],
     },
     {
       shard:  "pvz",

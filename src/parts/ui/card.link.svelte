@@ -14,7 +14,6 @@ import { anim } from "#scripts/anim.svelte";
 import { onMount } from "svelte";
 import { slide } from "svelte/transition";
 import { expoInOut } from "svelte/easing";
-import { base } from "$app/paths";
 
 
 interface Props {
@@ -61,20 +60,20 @@ onMount(() => {
       <div class="picts {aspect}">
         {#each (fixed ? picts : picts_shuffled) as pict}
           <div class="img-container">
-            <img alt="" src="{base}/{pict}" />
+            <img alt="" src="/{pict}" />
           </div>
         {/each}
       </div>
     {/if}
 
     {#if displayed_text}
-      <h3 transition:slide={{ duration: 1000, delay: delay + 300, easing: expoInOut }}>
+      <h3 transition:slide={{ duration: 1000, delay: 0, easing: expoInOut }}>
         {@html displayed_text.toUpperCase()}
       </h3>
     {/if}
 
     {#if displayed_capt}
-      <p transition:slide={{ duration: 1000, delay: delay + 100, easing: expoInOut }}>
+      <p transition:slide={{ duration: 1000, delay: 400, easing: expoInOut }}>
         {@html capt}
       </p>
     {/if}

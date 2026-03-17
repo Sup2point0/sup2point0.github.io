@@ -5,13 +5,11 @@ The iconic purple portal profile picture icon, complete with animations and spec
 
 <script lang="ts">
 
-import { base } from "$app/paths";
-
 </script>
 
 
 <div class="container">
-  <img alt="purple portal" src="{base}/purple-portal.png" />
+  <img alt="purple portal" src="/purple-portal.png" />
 </div>
 
 

@@ -5,9 +5,6 @@ Shows the current navigation path.
 
 <script lang="ts">
 
-import { base } from "$app/paths";
-
-
 interface Props {
   levels: {
     text: string;
@@ -26,7 +23,7 @@ let { levels }: Props = $props();
       <div class="text current"> {text.toUpperCase()} </div>
     
     {:else}
-      <a class="text" href="{base}/{intern}">{text.toUpperCase()}</a>
+      <a class="text" href="/{intern}">{text.toUpperCase()}</a>
       <div class="separator">×</div>
     
     {/if}

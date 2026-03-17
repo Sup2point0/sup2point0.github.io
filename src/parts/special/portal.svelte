@@ -4,17 +4,24 @@ An overlay for quick navigation and commands execution.
 -->
 
 <script lang="ts">
-  
+
+import type { FilterResults } from "#scripts/search-filter.svelte";
+
+import { PortalSearchFilter, type PortalSearchResult } from "./filter.portal.svelte";
+
 import { fade, scale } from "svelte/transition";
 import { cubicIn, cubicOut, expoOut } from "svelte/easing";
 
 
-let input: HTMLInputElement | null = null;
-let previously_focused: HTMLElement | null = null;
+let input: HTMLInputElement;
+let previously_focused: HTMLElement;
 
 let live  = $state(false);
 let anim  = $state(false);
-let query = $state("");
+
+let filters = new PortalSearchFilter();
+
+let displayed_results: FilterResults<PortalSearchResult> = $derived(filters.apply());
 
 
 function should_deactivate(e: KeyboardEvent): boolean
@@ -62,12 +69,8 @@ function activate(state: boolean): (e: Event) => void
 
 <svelte:window
   onkeydown={e => {
-    if (should_deactivate(e)) {
-      activate(false)(e);
-    }
-    else if (should_activate(e)) {
-      activate(true)(e);
-    }
+    if    (should_deactivate(e)) { activate(false)(e); }
+    else if (should_activate(e)) { activate(true)(e); }
   }}
 />
 
@@ -77,26 +80,47 @@ function activate(state: boolean): (e: Event) => void
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <div class="portal-overlay"
     onclick={activate(false)}
-    in:fade={{ duration: 500, easing: cubicOut }}
-    out:fade={{ duration: 500, easing: cubicIn }}
+    in:fade={{ duration: 400, easing: cubicOut }}
+    out:fade={{ duration: 400, easing: cubicIn }}
   ></div>
 
-  <!-- svelte-ignore a11y_no_static_element_interactions -->
-  <!-- svelte-ignore a11y_click_events_have_key_events -->
-  <div class="portal-content"
-    class:live={anim}
-    onclick={e => e.stopPropagation()}
-    out:scale={{ start: 0.9, duration: 500, easing: expoOut }}
-  >
-    <div class="input-container">
-      <input type="search"
-        bind:value={query}
-        bind:this={input}
-        name="portal"
-        placeholder="not ready yet!"
-      />
-      <!-- quicknav to page, run a command, or search for secrets! -->
-    </div>
+<!-- svelte-ignore a11y_no_static_element_interactions -->
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<div class="portal-content"
+  class:live={anim}
+  onclick={e => e.stopPropagation()}
+  out:scale={{ start: 0.9, duration: 400, easing: expoOut }}
+>
+<div class="input-container">
+  <input type="search"
+    bind:value={filters.query}
+    bind:this={input}
+    name="portal"
+    placeholder="quicknav to page, run a command, or hunt for secrets!"
+  />
+</div>
+
+<ul class="results">
+  <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+  <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+  {#each (displayed_results as PortalSearchResult[]) as result, i}
+    <li class="result"
+      tabindex={0}
+      onclick={result.action}
+      style:--delay="{i * 50}ms"
+    >
+      <div class="upper">
+        <h4> {result.title} </h4>
+        <p> {result.capt} </p>
+      </div>
+
+      <div class="lower">
+        <p> {result.desc} </p>
+      </div>
+    </li>
+  {/each}
+</ul>
+
   </div>
 {/if}
 
@@ -122,6 +146,10 @@ function activate(state: boolean): (e: Event) => void
   z-index: 100;
   top: 50%;
   left: 50%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 2rem;
 
   --delay: 0.1s;
   transform: translateX(-50%) translateY(-50%) scale(85%);
@@ -131,6 +159,7 @@ function activate(state: boolean): (e: Event) => void
     transform: translateX(-50%) translateY(-50%);
   }
 }
+
 
 .input-container {
   width: min(36rem, 80vw);
@@ -189,6 +218,85 @@ input::placeholder {
   @include font-fun;
   font-size: 1.25rem;
   color: $col-deut;
+}
+
+
+ul.results {
+  list-style: none;
+  min-width: min(30em, 90vw);
+  max-width: max-content;
+  max-height: 40vh;
+  padding: 0 1rem;
+  overflow-y: auto;
+  scrollbar-width: none;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  gap: 0.5rem;
+
+  li.result {
+    padding: 0.5rem 1rem;
+    @include font-fun;
+    outline: none;
+    @include shear-card($interactive: true);
+
+    &::before {
+      background: rgb(white, 25%);
+      opacity: 0;
+      transition: opacity #{trans-exp()}, background 0.12s ease-out;
+    }
+
+    .portal-content.live &::before {
+      opacity: 1;
+    }
+
+    &:hover, &:focus-visible {
+      &::before {
+        background: rgb(#ddd, 50%);
+      }
+    }
+  }
+}
+
+ul.results li.result {
+  .upper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+
+    h4 {
+      margin-bottom: -0.25em;
+      font-size: 150%;
+      font-weight: normal;
+      color: transparent;
+      transition: color #{trans-exp()};
+      
+      .portal-content.live & {
+        color: $col-trit;
+      }
+    }
+
+    p {
+      color: transparent;
+      transition: color #{trans-exp()};
+      
+      .portal-content.live & {
+        color: $col-text-deut;
+      }
+    }
+  }
+
+  .lower {
+    p {
+      color: transparent;
+      transition: color #{trans-exp()};
+      
+      .portal-content.live & {
+        color: $col-text;
+      }
+    }
+  }
 }
 
 </style>

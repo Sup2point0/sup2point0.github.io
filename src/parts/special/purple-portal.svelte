@@ -11,11 +11,7 @@ import { base } from "$app/paths";
 
 
 <div class="container">
-  <img
-    class="purple-portal"
-    alt="purple portal"
-    src="{base}/purple-portal.png"
-  />
+  <img alt="purple portal" src="{base}/purple-portal.png" />
 </div>
 
 
@@ -24,15 +20,23 @@ import { base } from "$app/paths";
 @use 'sass:color';
 
 
-img.purple-portal {
+.container {
+  transform: scale(100%);
+  transition: transform 2.0s cubic-bezier(0.19, 1, 0.22, 1);  // ease-out-exp
+
+  &:has(img:hover) {
+    transform: scale(102%);
+  }
+}
+
+img {
   height: max(400px, 20vh);
+  transition: filter 0.42s ease-out, transform 0.42s cubic-bezier(0.19, 1, 0.22, 1);  // ease-out-exp
 
   animation-name: spinny;
   animation-duration: 42s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-
-  transition: filter 0.42s ease-out, transform 0.42s cubic-bezier(0.19, 1, 0.22, 1);  // ease-out-exp
 
   &:hover {
     filter: drop-shadow(0 0 69px color.change($col-prot, $alpha: 0.25));

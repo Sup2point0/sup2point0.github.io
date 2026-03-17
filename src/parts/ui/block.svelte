@@ -98,7 +98,7 @@ onMount(() => {
   }
 
   :global(p) {
-    padding: 0.5em 0;
+    padding: 0.25em 0;
   }
 
   :global(a) {

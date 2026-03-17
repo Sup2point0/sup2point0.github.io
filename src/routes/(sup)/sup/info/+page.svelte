@@ -2,24 +2,23 @@
 
 import { shuffle } from "#scripts/utils";
 
-import Clicky   from "#parts/ui/clicky.svelte";
-import FactCard from "#parts/ui/card.fact.svelte";
-import Block    from "#parts/ui/block.svelte";
-import Header   from "#parts/ui/header.svelte";
+import Clicky       from "#parts/ui/clicky.svelte";
+import FactCard     from "#parts/ui/card.fact.svelte";
+import Block        from "#parts/ui/block.svelte";
+import Header       from "#parts/ui/header.svelte";
 import PurplePortal from "#parts/special/purple-portal.svelte";
+import Adventure    from "#parts/special/adventure.svelte";
 
-import { facts_pinned, facts } from "./facts";
-import type { Fact } from "./facts";
+import { facts_pinned, facts, type Fact } from "./facts";
 import { frequerys } from "./faq";
 
 import { untrack } from "svelte";
 
 
 const facts_shuffled = shuffle(facts);
+
 let limit = $state(12);
-
 let facts_display: Fact[] = $state([]);
-
 
 $effect(() => {
   limit;
@@ -34,7 +33,7 @@ $effect(() => {
 
 <svelte:head>
   <title> Info × Sup#2.0 </title>
-  <meta name="description" content="All about Sup#2.0!" />
+  <meta name="description" content="Who is Sup#2.0? Why is Sup#2.0?" />
 </svelte:head>
 
 
@@ -79,7 +78,6 @@ $effect(() => {
   </tbody></table>
 </section>
 
-
 <section class="facts">
   <Header> TIDBITS </Header>
 
@@ -98,37 +96,30 @@ $effect(() => {
   <Header> FREQUERYS </Header>
 
   <div class="frequery-cards">
-    {#each frequerys as { q: question, a: answer }}
-      <div>
+    {#each frequerys as { q: question, a: answer }, i}
+      <Block kind="ui expanded" delay={i * 100}>
         <h3> {@html question} </h3>
+
         {#if Array.isArray(answer)}
           {#each answer as block}
             <p> {@html block} </p>
           {/each}
         {:else}
-          <p> {@html answer} </p>
+          <Adventure routes={answer} />
         {/if}
-      </div>
+      </Block>
     {/each}
   </div>
 </section>
 
-<Block kind="fun">
-  <p class="note">
-    thank you for stalking me, it’s been my pleasure ^v^
-  </p>
-</Block>
+<p class="note">
+  thank you for stalking me, it’s been my pleasure ^v^
+</p>
 
 
 <style lang="scss">
 
-section {
-  max-width: 100rem;
-  margin: 1rem 0;
-}
-
 section.profile {
-  margin: 0;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -151,6 +142,7 @@ section.profile {
     th {
       padding: 0 $space-col 0 0;
       @include font-tech;
+      font-size: 90%;
       font-weight: normal;
       color: $col-text-deut;
     }
@@ -174,7 +166,7 @@ section.profile {
 }
 
 section.facts {
-  padding: 2rem;
+  padding: 0 2rem;
   margin-top: 0;
   display: flex;
   flex-flow: column nowrap;
@@ -190,6 +182,7 @@ section.facts {
 }
 
 section.frequerys {
+  margin: 4rem 0;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -198,27 +191,20 @@ section.frequerys {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
 
-    div {
-      width: max(42em, 69%);
-      padding: 1em 2em;
-      @include shear-card;
+    h3 {
+      padding: 0.25em 0;
+      margin-bottom: 0.5em;
+      @include font-fun;
+      font-size: 150%;
+      color: $col-quat;
+      font-weight: normal;
+      border-bottom: 1px solid rgb(white, 10%);
+    }
 
-      h3 {
-        padding-bottom: 0.25em;
-        @include font-fun;
-        font-size: 150%;
-        color: $col-quat;
-        font-weight: normal;
-      }
-
-      p {
-        margin: 0.5em 0;
-        @include font-ui;
-        font-size: 90%;
-        line-height: 150%;
-      }
+    :global(p) {
+      font-size: 90%;
     }
   }
 }
@@ -228,7 +214,9 @@ section.frequerys {
 }
 
 p.note {
-  color: $col-deut;
+  @include font-fun;
+  font-size: 150%;
+  color: $col-trit;
 }
 
 </style>

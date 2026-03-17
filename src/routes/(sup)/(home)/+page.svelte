@@ -8,7 +8,7 @@ import ProfileHeader     from "./header.svelte";
 import ProfileBio        from "./bio.svelte";
 import ProfileDirections from "./directions.svelte";
 
-import ProfileCards         from "./cards.svelte";
+import ProfileCards         from "./create.svelte";
 import ProfileLoves         from "./loves.svelte";
 import ProfileShowerthought from "./showerthought.svelte";
 

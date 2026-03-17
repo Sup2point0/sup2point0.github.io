@@ -11,7 +11,7 @@ export function h(text: string): string
 }
 
 /** Add a hyperlink to text. */
-export function a(text: string, href?: string, intern?: boolean): string
+export function a(text: string, href: string = "", intern: boolean = false): string
 {
   return href ? `<a class="link" ${intern ? '' : 'target="_blank"'} href="${href}">${text}</a>` : text;
 }

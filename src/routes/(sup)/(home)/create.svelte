@@ -77,6 +77,7 @@ const content_routes = {
       link="sup/projects"
       text="websites"
       capt={displayed_routes.websites}
+      aspect="square"
     />
     <LinkCard
       link="sup/projects"

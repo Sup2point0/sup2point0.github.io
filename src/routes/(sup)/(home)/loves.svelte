@@ -32,12 +32,39 @@ const title_routes = new FrozenWeightedList(
   </h2>
 
   <Cards force_grid={true}>
-    <LinkCard text="software development" link="/sup/dev/" />
-    <LinkCard text="music production" link="/sup/music/create" />
-    <LinkCard text="rhythm games" link="/sup/loves/games" />
-    <LinkCard text="<em>Yu-Gi-Oh!</em>" link="https://sup2point0.github.io/Assort/yugioh" />
-    <LinkCard text="desmos" link="https://sup2point0.github.io/integrity" />
-    <LinkCard text="integration" link="https://sup2point0.github.io/integrity/questions/integrals" />
+    <LinkCard
+      link="/sup/dev/"
+      text="software development"
+    />
+    <LinkCard
+      link="/sup/music/create"
+      text="music production"
+      />
+    <LinkCard
+      link="/sup/loves/games"
+      text="rhythm games"
+      capt="Phigros, Milthm, CHUNITHM, Arcaea"
+    />
+    <LinkCard
+      link="https://sup2point0.github.io/Assort/yugioh"
+      text="<em>Yu-Gi-Oh!</em>"
+      capt="The lawyers’ card game"
+    />
+    <LinkCard
+      link="https://sup2point0.github.io/integrity"
+      text="desmos"
+      capt="The superior programming language"
+    />
+    <LinkCard
+      link="https://sup2point0.github.io/integrity/questions/integrals"
+      text="integration"
+      capt="The art of mathematics"
+    />
+    <LinkCard
+      link="https://sup2point0.github.io/skyscraping"
+      text="Skyscrapers"
+      capt="Sudoku on steroids"
+    />
   </Cards>
 
   <Clicky text="VIEW MORE" link="/sup/loves" />

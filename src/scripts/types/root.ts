@@ -4,6 +4,9 @@ export type Shard = string;
 /** A filepath for an asset. */
 export type Path = string;
 
+/** A single-line or multi-line description. */
+export type Description = string | string[];
+
 
 /** A non-specific point in time. */
 export type DatePoint = number | string | "childhood" | "present";

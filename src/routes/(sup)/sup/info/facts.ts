@@ -1,15 +1,12 @@
 import { i, h, a } from "#scripts/utils";
+import type { Description } from "#scripts/types";
 
 
 export interface Fact
 {
-  /** Unique identifier for the fact. */
   idx: number;
-
   text: string;
-
-  /** Text shown when the fact box is expanded. */
-  desc?: string | string[];
+  desc?: Description;
 }
 
 

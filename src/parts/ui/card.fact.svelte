@@ -5,12 +5,14 @@ A card which reveals more text when clicked.
 
 <script lang="ts">
 
+import type { Description } from "#scripts/types";
+
 import { slide, scale } from "svelte/transition";
 import { expoOut } from "svelte/easing";
 
 interface Props {
   text: string;
-  desc?: string | string[];
+  desc?: Description;
 }
 
 let { text, desc }: Props = $props();

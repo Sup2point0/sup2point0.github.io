@@ -2,7 +2,7 @@
 
 import "#styles/essence.scss";
 
-import { client_live } from "#scripts/status.svelte";
+import { client_live } from "#scripts/state";
 
 import Back   from "#parts/core/back.svelte";
 import Portal from "#parts/portal/portal.svelte";

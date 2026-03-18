@@ -1,6 +1,6 @@
 <script lang="ts">
 
-import { status } from "#scripts/status.svelte.ts";
+import { status } from "#scripts/state";
 import { shuffle } from "#scripts/utils";
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 

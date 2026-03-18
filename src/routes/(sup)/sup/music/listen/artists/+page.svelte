@@ -1,6 +1,6 @@
 <script>
 
-import { status } from "#scripts/status.svelte.ts";
+import { status } from "#scripts/state";
 import { shuffle } from "#scripts/utils";
 
 import Main        from "#parts/core/main.svelte";

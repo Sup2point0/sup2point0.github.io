@@ -5,6 +5,9 @@ A search input bar.
 
 <script lang="ts">
 
+import { portal } from "#scripts/state";
+
+
 interface Props {
   query: string;
   input?: HTMLInputElement | null;
@@ -16,6 +19,8 @@ let { query = $bindable(), input = $bindable(null) }: Props = $props();
 
 
 <svelte:window onkeydown={e => {
+  if (portal.live) return;
+  
   if (e.key === "f") {
     if (e.ctrlKey || document.activeElement !== input) {
       e.preventDefault();

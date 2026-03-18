@@ -5,9 +5,9 @@ An overlay for quick navigation and commands execution.
 
 <script lang="ts">
 
-import { PortalSearchFilter, type PortalSearchResult } from "./filter.portal.svelte";
+import { portal } from "#scripts/state";
 
-import PortalResult from "./result.svelte";
+import { PortalSearchFilter, type PortalSearchResult } from "./filter.portal.svelte";
 
 import { fade, scale } from "svelte/transition";
 import { cubicIn, cubicOut, expoOut } from "svelte/easing";
@@ -16,16 +16,13 @@ import { cubicIn, cubicOut, expoOut } from "svelte/easing";
 let input: HTMLInputElement;
 let previously_focused: HTMLElement;
 
-let live = $state(false);
-let delayed_live = $state(false);
-
 let filters = new PortalSearchFilter();
 let displayed_results = $derived(filters.apply() as PortalSearchResult[]);
 
 
 function should_deactivate(e: KeyboardEvent): boolean
 {
-  if (!live) return false;
+  if (!portal.open) return false;
 
   return (
     e.key === "Escape"
@@ -34,7 +31,7 @@ function should_deactivate(e: KeyboardEvent): boolean
 
 function should_activate(e: KeyboardEvent): boolean
 {
-  if (live) return false;
+  if (portal.open) return false;
 
   return (
     (e.ctrlKey || e.metaKey) && (
@@ -48,19 +45,45 @@ function activate(state: boolean): (e: Event) => void
 {
   return e => {
     e.preventDefault();
-    live = state;
+    portal.open = state;
     filters.focused_idx = 0;
 
     requestAnimationFrame(() => {
-      delayed_live = state;
+      portal.live = state;
 
-      if (live) {
+      if (portal.open) {
         previously_focused = document.activeElement;
         input?.focus();
       } else {
         previously_focused?.focus();
       }
     });
+  }
+}
+
+
+function handle_hotkeys(e: KeyboardEvent)
+{
+  switch (e.key) {
+    case "ArrowDown":
+      e.preventDefault();
+      if (e.ctrlKey || e.modKey || e.altKey) {
+        filters.focused_idx = displayed_results.length - 1;
+      } else {
+        filters.focused_idx++;
+      }
+      filters.update_focus(displayed_results);
+      break;
+    
+    case "ArrowUp":
+      e.preventDefault();
+      if (e.ctrlKey || e.modKey || e.altKey) {
+        filters.focused_idx = 0;
+      } else {
+        filters.focused_idx--;
+      }
+      filters.update_focus(displayed_results);
+      break;
   }
 }
 
@@ -75,7 +98,7 @@ function activate(state: boolean): (e: Event) => void
 />
 
 
-{#if live}
+{#if portal.open}
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <div class="portal-overlay"
@@ -87,7 +110,7 @@ function activate(state: boolean): (e: Event) => void
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <div class="portal-content"
-  class:live={delayed_live}
+  class:live={portal.live}
   onclick={e => e.stopPropagation()}
   out:scale={{ start: 0.9, duration: 400, easing: expoOut }}
 >
@@ -97,16 +120,35 @@ function activate(state: boolean): (e: Event) => void
     placeholder="quicknav to page, run a command, or hunt for secrets!"
     bind:value={filters.query}
     bind:this={input}
+    onkeydown={handle_hotkeys}
   />
 </div>
 
-<div class="results">
-  {#each displayed_results as result, idx}
-    <PortalResult {result} {idx}
-      live={delayed_live}
-      bind:filters
-      bind:results={displayed_results}
-    />
+<div class="results {filters.mode}">
+  {#each displayed_results as result, i (result.title + result.capt)}
+    <button class="result"
+      class:live={portal.live}
+      class:focused={filters.focused_idx === i}
+      bind:this={displayed_results[i].element}
+      tabindex={0}
+      onkeydown={handle_hotkeys}
+      onmousedown={() => { filters.focused_idx = i; }}
+      onclick={e => {
+        if (result.action()) {
+          activate(false)(e);
+        }
+      }}
+      style:--delay="{i * 69}ms"
+    >
+      <div class="upper">
+        <h4> {result.title} </h4>
+        <p> {result.capt} </p>
+      </div>
+
+      <div class="lower">
+        <p> {result.desc} </p>
+      </div>
+    </button>
   {/each}
 </div>
 
@@ -124,7 +166,7 @@ function activate(state: boolean): (e: Event) => void
   top: 0;
   left: 0;
 
-  background: rgb(black, 25%);
+  background: rgb(black, 40%);
   backdrop-filter: blur(8px);
 }
 
@@ -223,6 +265,79 @@ input::placeholder {
   align-items: stretch;
   gap: 0.5rem;
   transition: #{trans()};
+}
+
+button.result {
+  scroll-margin: 20vh;
+  padding: 0.25rem 1rem;
+  @include font-fun;
+  font-size: unset;
+  text-align: left;
+  background: none;
+  border: none;
+  outline: none;
+  @include shear-card($interactive: true);
+
+  &::before {
+    background: rgb(white, 25%);
+    opacity: 0;
+    transition: opacity #{trans-exp()}, background 0.12s ease-out;
+  }
+
+  .portal-content.live &::before {
+    opacity: 1;
+  }
+  
+  /* NOTE: We handle focusing purely programmatically, this counteracts the :focus CSS from `shear-card($interactive: true) */
+  &:focus::before {
+    background: rgb(white, 25%);
+  }
+
+  &.focused, &:hover {
+    &::before {
+      background: rgb(#ddd, 50%);
+    }
+  }
+}
+
+.result {
+  .upper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+
+    h4 {
+      margin-bottom: -0.25em;
+      font-size: 150%;
+      font-weight: normal;
+      color: transparent;
+      transition: color #{trans-exp()};
+      
+      .portal-content.live .shortcut   & { color: $col-deut; }
+      .portal-content.live .navigating & { color: $col-trit; }
+    }
+
+    p {
+      color: transparent;
+      transition: color #{trans-exp()};
+      
+      .portal-content.live & {
+        color: $col-text-deut;
+      }
+    }
+  }
+
+  .lower {
+    p {
+      color: transparent;
+      transition: color #{trans-exp()};
+      
+      .portal-content.live & {
+        color: $col-text;
+      }
+    }
+  }
 }
 
 </style>

@@ -21,8 +21,8 @@ export interface PortalSearchResult
 
 enum PortalFlavour
 {
-  Shortcut,
-  Navigating,
+  Shortcut = "shortcut",
+  Navigating = "navigating",
 }
 
 
@@ -35,29 +35,15 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
   focused_idx: number = $state(0);
 
 
-  jump_next(results: PortalSearchResult[])
+  update_focus(results: PortalSearchResult[])
   {
-    if (this.focused_idx === null || this.focused_idx >= results.length - 1) {
+    if (this.focused_idx < 0) {
+      this.focused_idx = results.length - 1
+    } else if (this.focused_idx >= results.length) {
       this.focused_idx = 0;
-    } else {
-      this.focused_idx++;
     }
 
     let target = results[this.focused_idx].element;
-    target?.focus();
-    requestAnimationFrame(() => target?.scrollIntoView({ behavior: "smooth" }));
-  }
-
-  jump_prev(results: PortalSearchResult[])
-  {
-    if (this.focused_idx === null || this.focused_idx === 0) {
-      this.focused_idx = results.length - 1;
-    } else {
-      this.focused_idx--;
-    }
-
-    let target = results[this.focused_idx].element;
-    target?.focus();
     requestAnimationFrame(() => target?.scrollIntoView({ behavior: "smooth" }));
   }
 
@@ -83,7 +69,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
       })
       .map(shortcut => ({
         title: shortcut.title,
-        capt:  shortcut.key,
+        capt:  shortcut.key.toUpperCase(),
         desc:  shortcut.desc,
         action: () => { this.query = `/${shortcut.key} ` },
       }))

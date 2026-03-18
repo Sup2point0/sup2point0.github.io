@@ -1,8 +1,12 @@
+import { partial_ratio } from "fuzzball";
+
 import { SearchFilter } from "#scripts/search-filter.svelte";
 import type { FilterResults, Searchable } from "#scripts/search-filter.svelte";
 
-import { routes_list, type RouteData } from "#routes";
-import { partial_ratio } from "fuzzball";
+import { routes_list } from "#routes";
+import { shortcuts_list, type ShortcutData } from "./shortcuts";
+
+import { goto } from "$app/navigation";
 
 
 export interface PortalSearchResult
@@ -11,6 +15,7 @@ export interface PortalSearchResult
   capt:  string;
   desc:  string;
   action: () => void;
+  element?: HTMLElement;
 }
 
 
@@ -39,9 +44,21 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
     }
   }
 
-  show_shortcuts(): FilterResults<PortalSearchFilter>
+  show_shortcuts(): FilterResults<PortalSearchResult>
   {
-    return [];  // TODO
+    return (
+      super.sort(shortcuts_list, {
+        scorer: (shortcut => Math.max(
+          partial_ratio(this.query, shortcut.title),
+        )),
+      })
+      .map(shortcut => ({
+        title: shortcut.title,
+        capt:  shortcut.key,
+        desc:  shortcut.desc,
+        action: () => { this.query = `/${shortcut.key} ` },
+      }))
+    );
   }
 
   show_routes(): FilterResults<PortalSearchResult>
@@ -57,7 +74,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
         title: route.title,
         capt:  route.dirs.slice(0, -1).join(" × "),
         desc:  `The quick brown fox jumps over the lazy dog`,
-        action: () => { window.location.href = route.link; },
+        action: () => goto(route.link),
       }))
     );
   }

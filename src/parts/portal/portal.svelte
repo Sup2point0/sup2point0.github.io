@@ -5,8 +5,6 @@ An overlay for quick navigation and commands execution.
 
 <script lang="ts">
 
-import type { FilterResults } from "#scripts/search-filter.svelte";
-
 import { PortalSearchFilter, type PortalSearchResult } from "./filter.portal.svelte";
 
 import { fade, scale } from "svelte/transition";
@@ -16,12 +14,12 @@ import { cubicIn, cubicOut, expoOut } from "svelte/easing";
 let input: HTMLInputElement;
 let previously_focused: HTMLElement;
 
-let live  = $state(false);
-let anim  = $state(false);
+let live = $state(false);
+let anim = $state(false);
 
 let filters = new PortalSearchFilter();
-
-let displayed_results: FilterResults<PortalSearchResult> = $derived(filters.apply());
+let displayed_results = $derived(filters.apply() as PortalSearchResult[]);
+let focused_result_idx: number | null = $state(null);
 
 
 function should_deactivate(e: KeyboardEvent): boolean
@@ -64,6 +62,33 @@ function activate(state: boolean): (e: Event) => void
   }
 }
 
+
+function jump_next()
+{
+  if (focused_result_idx === null || focused_result_idx >= displayed_results.length - 1) {
+    focused_result_idx = 0;
+  } else {
+    focused_result_idx++;
+  }
+
+  let target = displayed_results[focused_result_idx].element;
+  target?.focus();
+  requestAnimationFrame(() => target?.scrollIntoView({ behavior: "smooth" }));
+}
+
+function jump_prev()
+{
+  if (focused_result_idx === null || focused_result_idx === 0) {
+    focused_result_idx = displayed_results.length - 1;
+  } else {
+    focused_result_idx--;
+  }
+
+  let target = displayed_results[focused_result_idx].element;
+  target?.focus();
+  requestAnimationFrame(() => target?.scrollIntoView({ behavior: "smooth" }));
+}
+
 </script>
 
 
@@ -93,21 +118,35 @@ function activate(state: boolean): (e: Event) => void
 >
 <div class="input-container">
   <input type="search"
-    bind:value={filters.query}
-    bind:this={input}
     name="portal"
     placeholder="quicknav to page, run a command, or hunt for secrets!"
+    bind:value={filters.query}
+    bind:this={input}
+    onkeydown={e => {
+      switch (e.key) {
+        case "ArrowDown": e.preventDefault(); jump_next(); break;
+        case "ArrowUp":   e.preventDefault(); jump_prev(); break;
+      }
+    }}
+    onfocusout={() => { focused_result_idx = null; }}
   />
 </div>
 
 <ul class="results">
   <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
   <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-  {#each (displayed_results as PortalSearchResult[]) as result, i}
+  {#each displayed_results as result, i}
     <li class="result"
+      bind:this={displayed_results[i].element}
       tabindex={0}
       onclick={result.action}
-      style:--delay="{i * 50}ms"
+      onkeydown={e => {
+        switch (e.key) {
+          case "ArrowDown": e.preventDefault(); jump_next(); break;
+          case "ArrowUp":   e.preventDefault(); jump_prev(); break;
+        }
+      }}
+      style:--delay="{i * 69}ms"
     >
       <div class="upper">
         <h4> {result.title} </h4>

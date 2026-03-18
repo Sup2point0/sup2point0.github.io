@@ -14,7 +14,7 @@ export interface PortalSearchResult
   title: string;
   capt:  string;
   desc:  string;
-  action: () => void;
+  action: () => boolean | void;
   element?: HTMLElement;
 }
 
@@ -31,6 +31,35 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
   mode: PortalFlavour = $derived(
     this.query.startsWith("/") && !this.query.includes(" ") ? PortalFlavour.Shortcut
     : PortalFlavour.Navigating);
+
+  focused_idx: number = $state(0);
+
+
+  jump_next(results: PortalSearchResult[])
+  {
+    if (this.focused_idx === null || this.focused_idx >= results.length - 1) {
+      this.focused_idx = 0;
+    } else {
+      this.focused_idx++;
+    }
+
+    let target = results[this.focused_idx].element;
+    target?.focus();
+    requestAnimationFrame(() => target?.scrollIntoView({ behavior: "smooth" }));
+  }
+
+  jump_prev(results: PortalSearchResult[])
+  {
+    if (this.focused_idx === null || this.focused_idx === 0) {
+      this.focused_idx = results.length - 1;
+    } else {
+      this.focused_idx--;
+    }
+
+    let target = results[this.focused_idx].element;
+    target?.focus();
+    requestAnimationFrame(() => target?.scrollIntoView({ behavior: "smooth" }));
+  }
 
 
   apply(): FilterResults<PortalSearchResult>

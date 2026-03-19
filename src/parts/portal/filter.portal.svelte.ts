@@ -3,6 +3,7 @@ import { ratio, partial_ratio } from "fuzzball";
 import { play_tune } from "#scripts/state";
 import { SearchFilter, type Searchable } from "#scripts/search-filter.svelte";
 import type { TrackData } from "#scripts/types/music";
+import type { Int } from "#scripts/types";
 
 import { routes_list } from "#routes";
 import { shortcuts_data, shortcuts_list } from "./shortcuts";
@@ -48,7 +49,13 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
     }
   });
 
+  /** Which search result is currently focused. */
   focused_idx: number = $state(0);
+
+  /** Which search result (if any) has been triggered. */
+  triggered_idx: number | null = $state(null);
+
+  #trigger_timeout = 0;
 
 
   update_focus(results: PortalSearchResult[], buttons: HTMLButtonElement[])
@@ -60,6 +67,13 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
     }
 
     requestAnimationFrame(() => buttons[this.focused_idx]?.scrollIntoView({ behavior: "smooth" }));
+  }
+
+  trigger(index: Int)
+  {
+    this.triggered_idx = index;
+    if (this.#trigger_timeout) clearTimeout(this.#trigger_timeout);
+    this.#trigger_timeout = setTimeout(() => { this.triggered_idx = null; }, 100);
   }
 
 
@@ -119,6 +133,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
     return (
       super.sort(tracks, {
         scorer: track => Math.max(
+          track.name.at(0).toLowerCase() === this.query.at(3)?.toLowerCase() ? 100 : 0,
           partial_ratio(this.query, track.shard ?? ""),
           partial_ratio(this.query, track.name),
           partial_ratio(this.query, track.genres?.join(" ")),

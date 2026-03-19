@@ -12,14 +12,13 @@ import { expoOut } from "svelte/easing";
 import { scale } from "svelte/transition";
 
 
-let duration: number | null = $state(null);
-
+let duration: number | undefined = $state();
+let timestamp: number | undefined = $state();
 let interval = 0;
-let tick = $state(1);
 
 function onplay()
 {
-  interval = setInterval(() => { tick = -tick; }, 500);
+  interval = setInterval(() => { timestamp = tunes.audio?.currentTime }, 250);
 }
 
 function onended()
@@ -50,15 +49,13 @@ function onended()
     </button>
 
     <div class="progress">
-      {#key tick}
-        <p class="start">
-          {display_timestamp(tunes.audio.currentTime)}
-        </p>
+      <p class="start">
+        {display_timestamp(timestamp)}
+      </p>
 
-        <div class="bar"
-          style:--frac={duration ? tunes.audio.currentTime / duration : 0}>
-        </div>
-      {/key}
+      <div class="bar" class:long={duration >= 5 * 60}
+        style:--frac={(timestamp ?? 0) / (duration ?? 1)}>
+      </div>
 
       {#key tunes.track.shard}
         <p class="end"> {display_timestamp(duration)} </p>
@@ -79,7 +76,7 @@ audio {
   min-width: 20rem;
   width: 32vw;
   max-width: 40rem;
-  padding: 0.75rem 1.5rem 0.5rem 1rem;
+  padding: 0.5rem 1.5rem 0.5rem 1rem;
   @include shear-card();
   position: fixed;
   z-index: 200;
@@ -100,7 +97,7 @@ audio {
 
   h3 {
     @include font-fun;
-    font-size: 150%;
+    font-size: 200%;
     font-weight: normal;
     color: $col-quat;
     line-height: 100%;
@@ -108,7 +105,7 @@ audio {
 
   p {
     @include font-fun;
-    font-size: 120%;
+    font-size: 150%;
     color: $col-text-deut;
     line-height: 100%;
   }
@@ -133,7 +130,6 @@ button.stop {
 }
 
 .progress {
-  padding-top: 0.25rem;
   display: flex;
   flex-flow: row nowrap;
   justify-content: stretch;
@@ -142,6 +138,9 @@ button.stop {
 
   p {
     min-width: 2em;
+    @include font-tech;
+    font-size: 80%;
+    color: $col-text-deut;
     text-align: center;
   }
 
@@ -161,8 +160,13 @@ button.stop {
       position: absolute;
       top: 0;
       left: 0;
-      background: white;
+      background: linear-gradient(to right in oklch, $col-prot, $col-quat);
+      background-size: calc(1 / var(--frac, 1) * 100%);
       z-index: 250;
+    }
+
+    &.long::after {
+      background: linear-gradiant(to right in oklch, $col-prot, $col-quat, $col-deut, $col-trit);
     }
   }
 }

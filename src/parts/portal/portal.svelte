@@ -105,6 +105,7 @@ function handle_hotkeys(e: KeyboardEvent)
       break;
 
     case "Enter":
+      if (e.repeat) return;
       e.preventDefault();
       displayed_buttons[filters.focused_idx]?.click();
       break;
@@ -135,8 +136,11 @@ const placeholders = new FrozenWeightedList(
   onkeydown={e => {
     if    (should_deactivate(e)) { activate(false)(e); }
     else if (should_activate(e)) { activate(true)(e); }
-    else if ("abcdefghijklmnopqrstuvwxyz/".includes(e.key.toLowerCase())) {
+    
+    if ("abcdefghijklmnopqrstuvwxyz/".includes(e.key.toLowerCase())) {
       if (input && document.activeElement !== input) {
+        if (e.ctrlKey || e.metaKey || e.altKey) return;
+        
         e.preventDefault();
         input?.focus();
         input.value = input.value + e.key;
@@ -178,6 +182,7 @@ const placeholders = new FrozenWeightedList(
     <button class="result"
       class:live={portal.live}
       class:focused={filters.focused_idx === i}
+      class:triggered={filters.triggered_idx === i}
       bind:this={displayed_buttons[i]}
       tabindex={0}
       onkeydown={handle_hotkeys}
@@ -186,6 +191,7 @@ const placeholders = new FrozenWeightedList(
         requestAnimationFrame(() => input?.focus());
       }}
       onclick={e => {
+        filters.trigger(i);
         if (result.action()) {
           activate(false)(e);
         }
@@ -220,7 +226,6 @@ const placeholders = new FrozenWeightedList(
   z-index: 100;
   top: 0;
   left: 0;
-
   background: rgb(black, 40%);
   backdrop-filter: blur(8px);
 }
@@ -324,7 +329,7 @@ input::placeholder {
 
 button.result {
   scroll-margin: 20vh;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 1rem 0.1rem;
   @include font-fun;
   font-size: unset;
   text-align: left;
@@ -332,6 +337,7 @@ button.result {
   border: none;
   outline: none;
   @include shear-card($interactive: true);
+  transition: #{trans()};
 
   &::before {
     background: rgb(white, 25%);
@@ -353,6 +359,14 @@ button.result {
       background: rgb($col-trit, 40%);
     }
   }
+
+  &.triggered, &:active {
+    transform: scale(99%);
+
+    &::before {
+      background: rgb($col-deut, 40%);
+    }
+  }
 }
 
 .result {
@@ -364,7 +378,6 @@ button.result {
 
     h4 {
       max-width: 69%;
-      margin-bottom: -1em;
       font-size: 150%;
       font-weight: normal;
       color: transparent;

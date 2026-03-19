@@ -9,6 +9,7 @@ import { tracks_list } from "#sup/music/create/create";
 import { sites_data } from "#routes/sites";
 
 import { goto } from "$app/navigation";
+import { socials_list } from "#src/routes/(sup)/(home)/socials";
 
 
 export interface PortalSearchResult
@@ -25,19 +26,26 @@ enum PortalFlavour
 {
   Shortcut   = "shortcut",
   Navigating = "navigating",
-  Vibing     = "vibing",
   Warping    = "warping",
+  Vibing     = "vibing",
+  Socials    = "socialising",
 }
 
 
 export class PortalSearchFilter extends SearchFilter<Searchable>
 {
-  mode: PortalFlavour = $derived(
-      this.query.startsWith("/") && !this.query.includes(" ") ? PortalFlavour.Shortcut
-    : this.query.at(1)?.toLowerCase() === shortcuts_data.VIBES.key ? PortalFlavour.Vibing
-    : this.query.at(1)?.toLowerCase() === shortcuts_data.WARP.key ? PortalFlavour.Warping
-    : PortalFlavour.Navigating
-  );
+  mode: PortalFlavour = $derived.by(() => {
+    if (this.query.at(0) !== "/") return PortalFlavour.Navigating;
+
+    if (!this.query.includes(" ")) return PortalFlavour.Shortcut;
+
+    switch (this.query.at(1)) {
+      case shortcuts_data.WARP.key: return PortalFlavour.Warping;
+      case shortcuts_data.MUSIC.key: return PortalFlavour.Vibing;
+      case shortcuts_data.SOCIALS.key: return PortalFlavour.Socials;
+      default: return PortalFlavour.Navigating;
+    }
+  });
 
   focused_idx: number = $state(0);
 
@@ -57,24 +65,21 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
   apply(): PortalSearchResult[]
   {
     switch (this.mode) {
-      case PortalFlavour.Shortcut:
-        return this.show_shortcuts();
-
-      case PortalFlavour.Navigating:
-        return this.show_routes();
-
-      case PortalFlavour.Vibing:
-        return this.show_tracks();
-
-      case PortalFlavour.Warping:
-        return this.show_sites();
+      case PortalFlavour.Shortcut:   return this.show_shortcuts();
+      case PortalFlavour.Navigating: return this.show_routes();
+      case PortalFlavour.Warping:    return this.show_sites();
+      case PortalFlavour.Vibing:     return this.show_tracks();
+      case PortalFlavour.Socials:    return this.show_socials();
     }
   }
 
   show_shortcuts(): PortalSearchResult[]
   {
+    let filtered = shortcuts_list.filter(shortcut => this.query.includes(shortcut.key) || this.query === "/");
+    let shortcuts = filtered.length ? filtered : shortcuts_list;
+
     return (
-      super.sort(shortcuts_list, {
+      super.sort(shortcuts, {
         scorer: shortcut => Math.max(
           ratio(this.query, shortcut.title),
           100 * ~~(this.query.at(1)?.toLowerCase() === shortcut.key),
@@ -121,7 +126,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
       .map(track => ({
         title: track.name,
         capt:  track.album.name,
-        action: () => undefined,
+        action: () => alert("Working on it, coming soon!"),
       }))
     )
   }
@@ -141,6 +146,25 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
         desc:   site.desc,
         colour: site.colour,
         action: () => { window.open(`https://sup2point0.github.io/${site.intern}`, "_blank"); },
+      }))
+    );
+  }
+
+  show_socials(): PortalSearchResult[]
+  {
+    return (
+      super.sort(socials_list, {
+        scorer: social => Math.max(
+          partial_ratio(this.query, social.title),
+          partial_ratio(this.query, social.capt),
+        )
+      })
+      .map(social => ({
+        title:  social.title,
+        capt:   social.capt,
+        desc:   social.desc,
+        colour: social.colour,
+        action: () => { window.open(social.link, "_blank"); },
       }))
     );
   }

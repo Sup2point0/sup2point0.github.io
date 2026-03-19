@@ -108,6 +108,13 @@ function handle_hotkeys(e: KeyboardEvent)
       e.preventDefault();
       displayed_buttons[filters.focused_idx]?.click();
       break;
+
+    /* Don't allow starting the query with a space to keep shortcut handling easy */
+    case " ":
+      if (document.activeElement === input && filters.query === "") {
+        e.preventDefault();
+        break;
+      }
   }
 }
 
@@ -357,7 +364,7 @@ button.result {
 
     h4 {
       max-width: 69%;
-      margin-bottom: -0.25em;
+      margin-bottom: -1em;
       font-size: 150%;
       font-weight: normal;
       color: transparent;
@@ -372,6 +379,7 @@ button.result {
 
     p {
       color: transparent;
+      line-height: 100%;
       transition: color #{trans-exp()};
       
       .portal-content.live & {

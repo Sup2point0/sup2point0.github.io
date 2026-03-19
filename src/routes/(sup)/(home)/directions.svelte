@@ -2,7 +2,7 @@
 
 <script lang="ts">
 
-import { a } from "#scripts/utils";
+import { a, h } from "#scripts/utils";
 
 import Block     from "#parts/ui/block.svelte";
 import Adventure from "#parts/special/adventure.svelte";
@@ -16,6 +16,8 @@ import Adventure from "#parts/special/adventure.svelte";
   ]} />
 
   <Adventure routes={[
-    [20, `If you’re a fellow nerd, I’m sure you’ll have no problem exploring for yourself. If you’re a stalker, you can doxx me through ${a("info", "sup/info")}, track my life on ${a("YouTube", "https://youtube.com/@SuppetySup")}, and explore my universe in ${a("Assort", "https://sup2point0.github.io/Assort")} ;)`],
+    [20, `If you’re a fellow nerd, I’m sure you’ll have no problem exploring for yourself. If you’re a stalker, you can doxx me through ${a("info", "sup/info")}, track my life on ${a("YouTube", "https://youtube.com/@SuppetySup")}, and explore my universe in ${a("Assort", "https://sup2point0.github.io/Assort")} ^v^`],
+
+    [7, `If you’re also a programmer, you might enjoy the command line available across the site – access it with ${h("ctrl")} + ${h("/")} and speed away >:)`],
   ]} />
 </Block>

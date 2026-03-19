@@ -4,7 +4,7 @@ export type Int = number;
 export type Shard = string;
 
 /** A filepath for an asset. */
-export type Path = string;
+export type FilePath = string;
 
 /** A single-line or multi-line description. */
 export type Description = string | string[];

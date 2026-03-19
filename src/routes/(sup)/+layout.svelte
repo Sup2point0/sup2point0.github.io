@@ -6,6 +6,7 @@ import { nav, save_visited } from "#scripts/stores";
 import { client_live } from "#scripts/state";
 
 import Back   from "#parts/core/back.svelte";
+import Tunes  from "#parts/special/tunes.svelte";
 import Portal from "#parts/portal/portal.svelte";
 
 import { onMount } from "svelte";
@@ -48,6 +49,7 @@ onNavigate(navigation => {
   {/if}
 </div>
 
+<Tunes />
 <Portal />
 
 

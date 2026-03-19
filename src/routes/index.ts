@@ -1,10 +1,10 @@
 import type { Searchable } from "#scripts/search-filter.svelte";
-import type { Path } from "#scripts/types";
+import type { FilePath } from "#scripts/types";
 
 
 export interface RouteData extends Searchable
 {
-  link:  Path;
+  link:  FilePath;
   dirs:  string[];
   title: string[];
 }
@@ -59,7 +59,7 @@ export const routes_list: RouteData[] = (() =>
 {
   let out: RouteData[] = [];
 
-  function go(route: Path, parents: string[], source: object)
+  function go(route: FilePath, parents: string[], source: object)
   {
     for (let [dir, children] of Object.entries(source)) {
       if (dir === "_title") continue;

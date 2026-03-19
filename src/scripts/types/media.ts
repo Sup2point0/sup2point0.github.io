@@ -1,5 +1,5 @@
 import type { Searchable } from "#scripts/search-filter.svelte";
-import type { Path, Dates } from "#scripts/types";
+import type { FilePath, Dates } from "#scripts/types";
 
 
 export enum Genre {
@@ -43,7 +43,7 @@ export interface MediaData extends Searchable
   genres?: Genre[];
   themes?: Theme[];
 
-  cover?: Path;
+  cover?: FilePath;
 
   desc?: string | string[];
 }

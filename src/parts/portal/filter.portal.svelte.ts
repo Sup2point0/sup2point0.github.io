@@ -1,7 +1,8 @@
 import { ratio, partial_ratio } from "fuzzball";
 
-import { SearchFilter } from "#scripts/search-filter.svelte";
-import type { Searchable } from "#scripts/search-filter.svelte";
+import { play_tune } from "#scripts/state";
+import { SearchFilter, type Searchable } from "#scripts/search-filter.svelte";
+import type { TrackData } from "#scripts/types/music";
 
 import { routes_list } from "#routes";
 import { shortcuts_data, shortcuts_list } from "./shortcuts";
@@ -126,7 +127,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
       .map(track => ({
         title: track.name,
         capt:  track.album.name,
-        action: () => alert("Working on it, coming soon!"),
+        action: () => play_tune(track as TrackData),
       }))
     )
   }

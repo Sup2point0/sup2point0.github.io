@@ -44,7 +44,7 @@ import Adventure   from "#parts/special/adventure.svelte";
     />
     <LinkCard
       link="/sup/music/create"
-      text="Music I Make"
+      text="Music I Create"
       capt="electronic, wackcore, game music"
       picts={[
         "covers/music/create/cortex.dactyl.png",

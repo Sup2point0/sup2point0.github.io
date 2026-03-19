@@ -86,10 +86,15 @@ const links_core = [
 
 const link_chains: Record<Path, Path[]> = Object.fromEntries(
   Object.entries({
-    "music":                  ["music/listen", "music/create"],
-    "music/listen":           ["music/listen/chronicle"],
-    "music/listen/chronicle": ["music/listen/artists"],
-    "music/listen/artists":   ["music/listen/genres"],
+    "music":                       ["music/listen", "music/create"],
+    "music/listen":                ["music/listen/chronicle"],
+    "music/listen/chronicle":      ["music/listen/artists"],
+    "music/listen/artists":        ["music/listen/genres"],
+    "music/create":                ["music/create/tracks"],
+    "music/create/tracks":         ["music/create/albums"],
+    "music/create/albums":         ["music/create/albums/cortex"],
+    "music/create/albums/cortex":  ["music/create/albums/elysion"],
+    "music/create/albums/elysion": ["music/create/albums/algo-vision"],
   })
   .map(([checkpoint, next]) => [qualify(checkpoint), next.map(qualify)])
 );

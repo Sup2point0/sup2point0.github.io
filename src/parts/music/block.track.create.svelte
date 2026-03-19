@@ -62,6 +62,7 @@ let { track }: Props = $props();
 
 
 .block.track {
+  scroll-margin: 4rem;
   min-width: 40rem;
   padding: 1rem 3rem;
   display: flex;

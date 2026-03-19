@@ -1,3 +1,5 @@
+export type Int = number;
+
 /** A unique identifier for any entity. */
 export type Shard = string;
 
@@ -6,6 +8,9 @@ export type Path = string;
 
 /** A single-line or multi-line description. */
 export type Description = string | string[];
+
+/** CSS styles passed as an argument to a component. */
+export type Style = string | Record<string, any>;
 
 
 /** A non-specific point in time. */

@@ -570,18 +570,6 @@ export const chronicle_data: ChronicleData[] = [
         ],
       },
       {
-        shard:   "distorted-fate",
-        name:    "Distorted Fate",
-        artists: ["sakuzyo"],
-        date:    undefined,
-        cover:   "distorted-fate.jpg",
-        genres:  [Genre.BOSS_MUSIC],
-        discovered: `Phigros`,
-        desc: [
-          ``,
-        ],
-      },
-      {
         shard:   "nhelv",
         name:    "Nhelv",
         artists: ["silentroom"],

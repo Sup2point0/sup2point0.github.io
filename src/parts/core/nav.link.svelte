@@ -1,5 +1,10 @@
 <script lang="ts">
 
+import { nav } from "#scripts/stores";
+import { status } from "#scripts/state";
+
+import { scale } from "svelte/transition";
+import { expoOut } from "svelte/easing";
 import { page } from "$app/state";
 import { browser } from "$app/environment";
 
@@ -22,11 +27,15 @@ let active = $derived(
 
 
 <a class="nav-link"
+  href={link}
   class:active
   class:dead
-  href={link}
 >
   {text}
+
+  {#if status.client && $nav.directions.has(link)}
+    <div class="hot" transition:scale={{ duration: 600, easing: expoOut }}>!</div>
+  {/if}
 </a>
 
 
@@ -61,13 +70,28 @@ a.nav-link {
   }
 }
 
-a.nav-link.active:not(:hover, :focus-visible, :active) {
+.nav-link.active:not(:hover, :focus-visible, :active) {
   color: $col-text;
 }
 
-a.nav-link.dead {
+.nav-link.dead {
   pointer-events: none;
   opacity: 25%;
+}
+
+
+.hot {
+  position: absolute;
+  top: 0.25em;
+  right: 0.2em;
+  font-size: 60%;
+  font-weight: 700;
+  color: $col-quat;
+  transition: #{trans()};
+
+  .nav-link:where(:hover, :focus-visible) & {
+    color: transparent;
+  }
 }
 
 </style>

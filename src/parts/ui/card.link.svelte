@@ -6,10 +6,12 @@ A card that links to another page.
 <script lang="ts">
 
 import { FrozenWeightedList, type LikeWeightedItem } from "@sup2.0/weighted-list";
-
 import sample from "@stdlib/random-sample";
 
+import { nav } from "#scripts/stores";
 import { anim } from "#scripts/anim.svelte";
+
+import Hot from "#parts/special/hot.svelte";
 
 import { onMount } from "svelte";
 import { slide } from "svelte/transition";
@@ -69,6 +71,10 @@ onMount(() => {
     {#if displayed_text}
       <h3 transition:slide={{ duration: 1000, delay: 0, easing: expoInOut }}>
         {@html displayed_text.toUpperCase()}
+
+        {#if $nav.directions.has(link)}
+          <Hot style={{ top: 0, right: "-0.5em", }} />
+        {/if}
       </h3>
     {/if}
 
@@ -104,7 +110,7 @@ onMount(() => {
       background: $col-card-hover;
       border-radius: 0.6em;
       transform: skew(calc($shear-factor * 2 / 3));
-      @include focus-glow;
+      @include glow();
     }
   }
 }
@@ -122,6 +128,8 @@ onMount(() => {
 
 
 h3 {
+  width: max-content;
+  position: relative;
   @include font-fun;
   font-size: 200%;
   font-weight: normal;

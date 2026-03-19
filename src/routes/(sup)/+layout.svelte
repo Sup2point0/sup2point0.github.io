@@ -2,12 +2,14 @@
 
 import "#styles/essence.scss";
 
+import { nav, save_visited } from "#scripts/stores";
 import { client_live } from "#scripts/state";
 
 import Back   from "#parts/core/back.svelte";
 import Portal from "#parts/portal/portal.svelte";
 
 import { onMount } from "svelte";
+import { page } from "$app/state";
 import { onNavigate } from "$app/navigation";
 
 
@@ -15,6 +17,10 @@ let { children } = $props();
 
 
 onMount(client_live);
+onMount(() => {
+  $nav.visits++;
+  save_visited(page.url.pathname);
+});
 
 onNavigate(navigation => {
 	if (!document.startViewTransition) return;
@@ -24,6 +30,7 @@ onNavigate(navigation => {
 			resolve();
 			await navigation.complete;
       window?.scrollTo(0, 0);
+      save_visited(page.url.pathname);
 		});
 	});
 });

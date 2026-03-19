@@ -10,7 +10,7 @@ export interface RouteData extends Searchable
 }
 
 
-const data = {
+export const routes_data = {
   sup: {
     _title: null,
 
@@ -73,7 +73,7 @@ export const routes_list: RouteData[] = (() =>
     }
   }
 
-  go("/sup", [], data.sup);
+  go("/sup", [], routes_data.sup);
 
   return out;
 })();

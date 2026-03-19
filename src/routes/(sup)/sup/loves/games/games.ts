@@ -1,5 +1,5 @@
 import { prep_groups, type Searchable } from "#scripts/search-filter.svelte.ts";
-import { i } from "#scripts/utils";
+import { a, h, i } from "#scripts/utils";
 import type { DatePoint, Groups } from "#scripts/types";
 
 
@@ -81,7 +81,7 @@ const data: Groups<GameData> =
       platforms: [Platform.DESKTOP],
       state:  PlayState.ACTIVE,
       desc: [
-        `The title of this game is the sort which I hear and think “I’ve heard this before”, even tho I probably haven’t. And it’s the kind where I {know} I want to play it just by hearing it. I made sure to skip parts of {The Cursed Judge}’s videos about it to avoid spoilers!`,
+        `The title of this game is the sort which I hear and think “I’ve heard this before”, even tho I probably haven’t. And it’s the kind where I ${i("know")} I want to play it just by hearing it. I made sure to skip parts of ${h("The Cursed Judge")}’s videos about it to avoid spoilers!`,
 
         `I’m currently still exploring, and falling ever more in love with this game. Flying in space is quite addictive, what can I say.`,
 
@@ -183,9 +183,9 @@ const data: Groups<GameData> =
 
         `I just have to. It’s too perfect. It fulfils so many of my ...I’m not sure what the word is, not exactly “wishes”, but just stuff that I enjoy about a game. I really love complex intertwining systems that take time to familiarise with, where tiny details and optimisations matter, but where there’s also room for creativity and experimentation.`,
 
-        `And from a graphical standpoint, it’s not even close. They’re not ‘impressive’ per se, they’re just so fun, on-theme and flawless. tbh, I love the game more than it feels like I should. In my prime, I was watching all of ISAB’s videos, coming up with fictional monkeys, and ofc doing {the Monkeyopolis Times}.`,
+        `And from a graphical standpoint, it’s not even close. They’re not ‘impressive’ per se, they’re just so fun, on-theme and flawless. tbh, I love the game more than it feels like I should. In my prime, I was watching all of ISAB’s videos, coming up with fictional monkeys, and ofc doing ${a("the Monkeyopolis Times", "/sup/projects#monkeyopolis-times", true)}.`,
 
-        `Unfortunately I have nowhere near enough time to play Bloons actively now, but every once in a while I’ll fire it up, and it’s like... {ahh, home sweet home}.`,
+        `Unfortunately I have nowhere near enough time to play Bloons actively now, but every once in a while I’ll fire it up, and it’s like... ${i("ahh, home sweet home")}.`,
       ],
     },
     {
@@ -247,7 +247,7 @@ const data: Groups<GameData> =
       genres: [Genre.PUZZLE],
       platforms: [Platform.DESKTOP],
       desc: [
-        `Ever since learning of this game from {The Cursed Judge}’s video essays, it’s been top of my wishlist. Finally, finally got it during the Steam Christmas sale (almost missed it!). Wanted to play it there and then, but decided to save it for when I had time so I could play it properly alone.`,
+        `Ever since learning of this game from ${h("The Cursed Judge")}’s video essays, it’s been top of my wishlist. Finally, finally got it during the Steam Christmas sale (almost missed it!). Wanted to play it there and then, but decided to save it for when I had time so I could play it properly alone.`,
 
         `A couple days later, I played my first 2 hours of Manifold Garden in a dark room, alone, headphones on, no distractions. And. Oh my. Truly one of the most special experiences I’ve ever had.`,
 
@@ -325,9 +325,9 @@ const data: Groups<GameData> =
       platforms: [Platform.ARCADE],
       state:  PlayState.OPPORTUNISTIC,
       desc: [
-        `You most likely don’t know this one, but it’s probably the most common arcade rhythm in China (in my experience), even above maimai. There’s 2 distinct versions of it, the original 2D one, and the newer 3D version ({EVO}). I can’t play the 2D one, but I love the 3D one!`,
+        `You most likely don’t know this one, but it’s probably the most common arcade rhythm in China (in my experience), even above maimai. There’s 2 distinct versions of it, the original 2D one, and the newer 3D version (${i("EVO")}). I can’t play the 2D one, but I love the 3D one!`,
 
-        `Altho individually its note kinds aren’t unique, it’s got loads of them, so altogether is the full package. {Paradigm: Reboot} on steroids. Playing on high scroll speed is exhilarating.`,
+        `Altho individually its note kinds aren’t unique, it’s got loads of them, so altogether is the full package. ${a("Paradigm: Reboot", "#paradigm-reboot")} on steroids. Playing on high scroll speed is exhilarating.`,
 
         `Also, hexagons. Need I say more?`,
       ],
@@ -452,9 +452,9 @@ const data: Groups<GameData> =
 
         `It’s just fun, innit. It doesn’t get old. Racing cracked supercars across such a variety of environments around the world. It just feels awesome.`,
 
-        `I have to also credit Asphalt 9 for kicking off my passion for graphic design and typography. The game font, {Rajdhani}, was the first font I ever installed myself, and Asphalt 9’s UI design will stay with me forever.`,
+        `I have to also credit Asphalt 9 for kicking off my passion for graphic design and typography. The game font, ${a("Rajdhani", "https://fonts.google.com/specimen/Rajdhani")}, was the first font I ever installed myself, and Asphalt 9’s UI design will stay with me forever.`,
 
-        `I {also} have to credit Asphalt 9 for igniting my passion for nomenclature. I seriously, {seriously} loved analysing the car names, and coming up with my own fictional ones ({Vengeance Seventure Adrenaline} my beloved).`,
+        `I ${i("also")} have to credit Asphalt 9 for igniting my passion for nomenclature. I seriously, ${i("seriously")} loved analysing the car names, and coming up with my own fictional ones (${h("Vengeance Seventure Adrenaline")} my beloved).`,
       ],
     },
     {

@@ -30,7 +30,7 @@ function onended()
 </script>
 
 
-<audio src="/audio/{tunes.track?.audio}"
+<audio src={tunes.track && `/audio/${tunes.track?.audio}`}
   bind:this={tunes.audio}
   {onplay}
   {onended}

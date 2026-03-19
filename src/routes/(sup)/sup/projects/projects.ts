@@ -726,6 +726,7 @@ const data: Groups<ProjectData> = prep_groups(
         `Utilities for general use throughout Python projects`,
     },
     {
+      shard: "monkeyopolis-times",
       name:  "The Monkeyopolis Times",
       love:  3,
       date:  [2021, 2022],

@@ -113,7 +113,7 @@ onMount(() => {
   border: none;
   outline: none;
   transition: #{trans()};
-  @include shear-card($interactive: true);
+  @include shear-card($interactive: true, $glow: true);
   @include anim-block;
 
   &:hover, &:focus-visible {

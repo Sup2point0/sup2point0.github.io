@@ -76,7 +76,7 @@
         @if $glow {
           border-radius: 0.6em;
           transform: skew(calc($shear-factor * 2 / 3));
-          @include focus-glow;
+          @include glow();
         }
       }
     }
@@ -84,6 +84,7 @@
     @if $glow {
       &:active::before {
         background: $col-card-click;
+        @include glow(true);
       }
     }
   }
@@ -108,9 +109,14 @@
 }
 
 
-@mixin focus-glow {
+@mixin glow($active: false) {
   outline: none;
-  box-shadow: 0 0 12px $col-prot;
+
+  @if $active {
+    box-shadow: 0 0 12px $col-quat;
+  } @else {
+    box-shadow: 0 0 12px $col-prot;
+  }
 }
 
 

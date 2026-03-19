@@ -59,7 +59,7 @@ a.card.album {
   &:hover, &:focus-visible {
     &::before {
       border-radius: 0.6em;
-      @include focus-glow;
+      @include glow();
     }
 
     .img-container {

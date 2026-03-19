@@ -21,11 +21,9 @@ let { query = $bindable(), input = $bindable(null) }: Props = $props();
 <svelte:window onkeydown={e => {
   if (portal.live) return;
   
-  if (e.key === "f") {
-    if (e.ctrlKey || document.activeElement !== input) {
-      e.preventDefault();
-      input?.focus();
-    }
+  if (e.key === "f" && document.activeElement !== input) {
+    e.preventDefault();
+    input?.focus();
   }
 }} />
 

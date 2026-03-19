@@ -707,7 +707,7 @@ function assign_albums(album_data: object)
     for (let album of collection) {
       for (let track of album.tracks) {
         track.album = album;
-        track._score_ = 0;
+        track._score = 0;
       }
     }
   }

@@ -17,7 +17,13 @@ let input: HTMLInputElement;
 let previously_focused: HTMLElement;
 
 let filters = new PortalSearchFilter();
-let displayed_results = $derived(filters.apply() as PortalSearchResult[]);
+let displayed_results = $derived(filters.apply());
+
+
+$effect(() => {
+  filters.query;
+  filters.focused_idx = 0;
+});
 
 
 function should_deactivate(e: KeyboardEvent): boolean
@@ -67,22 +73,31 @@ function handle_hotkeys(e: KeyboardEvent)
   switch (e.key) {
     case "ArrowDown":
       e.preventDefault();
+
       if (e.ctrlKey || e.modKey || e.altKey) {
         filters.focused_idx = displayed_results.length - 1;
       } else {
         filters.focused_idx++;
       }
+
       filters.update_focus(displayed_results);
       break;
     
     case "ArrowUp":
       e.preventDefault();
+
       if (e.ctrlKey || e.modKey || e.altKey) {
         filters.focused_idx = 0;
       } else {
         filters.focused_idx--;
       }
+
       filters.update_focus(displayed_results);
+      break;
+
+    case "Enter":
+      e.preventDefault();
+      displayed_results[filters.focused_idx].element?.click();
       break;
   }
 }
@@ -94,6 +109,13 @@ function handle_hotkeys(e: KeyboardEvent)
   onkeydown={e => {
     if    (should_deactivate(e)) { activate(false)(e); }
     else if (should_activate(e)) { activate(true)(e); }
+    else if ("abcdefghijklmnopqrstuvwxyz/".includes(e.key.toLowerCase())) {
+      if (input && document.activeElement !== input) {
+        e.preventDefault();
+        input?.focus();
+        input.value = input.value + e.key;
+      }
+    }
   }}
 />
 
@@ -126,13 +148,18 @@ function handle_hotkeys(e: KeyboardEvent)
 
 <div class="results {filters.mode}">
   {#each displayed_results as result, i (result.title + result.capt)}
+    {@const _ = console.log("result = ", result)}
+
     <button class="result"
       class:live={portal.live}
       class:focused={filters.focused_idx === i}
       bind:this={displayed_results[i].element}
       tabindex={0}
       onkeydown={handle_hotkeys}
-      onmousedown={() => { filters.focused_idx = i; }}
+      onmousedown={() => {
+        filters.focused_idx = i;
+        requestAnimationFrame(() => input?.focus());
+      }}
       onclick={e => {
         if (result.action()) {
           activate(false)(e);
@@ -141,14 +168,17 @@ function handle_hotkeys(e: KeyboardEvent)
       style:--delay="{i * 69}ms"
     >
       <div class="upper">
-        <h4> {result.title} </h4>
-        <p> {result.capt} </p>
+        <h4 style:color={result.colour}> {@html result.title} </h4>
+        <p> {@html result.capt} </p>
       </div>
 
-      <div class="lower">
-        <p> {result.desc} </p>
-      </div>
+      {#if result.desc}
+        <div class="lower">
+          <p> {@html result.desc} </p>
+        </div>
+      {/if}
     </button>
+
   {/each}
 </div>
 
@@ -254,8 +284,8 @@ input::placeholder {
 
 .results {
   list-style: none;
-  min-width: min(30em, 90vw);
-  max-width: max-content;
+  min-width: min(30rem, 90vw);
+  max-width: 36rem;
   max-height: 50vh;
   padding: 0 1rem;
   overflow-y: auto;
@@ -295,7 +325,7 @@ button.result {
 
   &.focused, &:hover {
     &::before {
-      background: rgb(#ddd, 50%);
+      background: rgb($col-trit, 40%);
     }
   }
 }
@@ -308,14 +338,18 @@ button.result {
     align-items: baseline;
 
     h4 {
+      max-width: 69%;
       margin-bottom: -0.25em;
       font-size: 150%;
       font-weight: normal;
       color: transparent;
       transition: color #{trans-exp()};
       
+      .portal-content.live             & { color: $col-text; }
       .portal-content.live .shortcut   & { color: $col-deut; }
       .portal-content.live .navigating & { color: $col-trit; }
+      .portal-content.live .vibing     & { color: $col-quat; @include font-ui; font-size: unset; }
+      .portal-content.live .warping    & { color: $col-acc; }
     }
 
     p {

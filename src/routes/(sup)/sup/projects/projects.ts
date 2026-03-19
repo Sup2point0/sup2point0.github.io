@@ -241,6 +241,24 @@ const data: Groups<ProjectData> = prep_groups(
   ],
   "Current": [
     {
+      shard: "hexadris",
+      name:  "Hexadris",
+      love:  null,
+      date:  ["March 2026", "present"],
+      icon:  undefined,
+      flavour: Flavour.DEV,
+      kind: [Kind.APPLICATION, Kind.WEBSITE],
+      tech_data: [
+        Lang.RUST, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/hexadris",
+      },
+      desc:
+        `Connect 6 and other hexagonal games, hosted locally`,
+    },
+    {
       shard: "squippy",
       name:  "Squippy",
       love:  null,
@@ -332,24 +350,6 @@ const data: Groups<ProjectData> = prep_groups(
         `Pure logic-based Skyscrapers puzzle-solving algorithm`,
     },
     {
-      shard: "dbxt",
-      name:  "duelingbook-extractor",
-      love:  0,
-      date:  ["December 2025", "present"],
-      icon:  undefined,
-      flavour: Flavour.DEV,
-      kind:    Kind.TOOL,
-      tech_data: [
-        Lang.RUST,
-      ],
-      state: State.INDETERMINATE,
-      links: {
-        github: "https://github.com/Sup2point0/duelingbook-extractor",
-      },
-      desc:
-        `Extracting custom cards data from DuelingBook for conversions to other data formats`,
-    },
-    {
       shard: "vscode-supcode-visuals",
       name:  "supcode Visuals for VSCode",
       love:  1,
@@ -368,6 +368,24 @@ const data: Groups<ProjectData> = prep_groups(
     },
   ],
   "Miscellaneous": [
+    {
+      shard: "dbxt",
+      name:  "duelingbook-extractor",
+      love:  0,
+      date:  ["December 2025", "present"],
+      icon:  undefined,
+      flavour: Flavour.DEV,
+      kind:    Kind.TOOL,
+      tech_data: [
+        Lang.RUST,
+      ],
+      state: State.INDETERMINATE,
+      links: {
+        github: "https://github.com/Sup2point0/duelingbook-extractor",
+      },
+      desc:
+        `Extracting custom cards data from DuelingBook for conversions to other data formats`,
+    },
     {
       shard: "fractually-awesome",
       name:  "Fractually Awesome",
@@ -583,7 +601,7 @@ const data: Groups<ProjectData> = prep_groups(
       date:  [2022, "present"],
       icon:  "buccaneer-game.svg",
       flavour: [Flavour.PERSONAL, Flavour.DEV],
-      kind:    Kind.GENERAL,
+      kind:    [Kind.GAME, Kind.WEBSITE],
       tech_data: [
         Lang.SVELTE, Lang.TYPESCRIPT,
       ],

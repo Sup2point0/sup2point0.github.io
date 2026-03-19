@@ -5,19 +5,23 @@ An overlay for quick navigation and commands execution.
 
 <script lang="ts">
 
+import { FrozenWeightedList } from "@sup2.0/weighted-list";
+
 import { portal } from "#scripts/state";
 
-import { PortalSearchFilter, type PortalSearchResult } from "./filter.portal.svelte";
+import { PortalSearchFilter } from "./filter.portal.svelte";
 
 import { fade, scale } from "svelte/transition";
 import { cubicIn, cubicOut, expoOut } from "svelte/easing";
 
 
+// svelte-ignore non_reactive_update
 let input: HTMLInputElement;
 let previously_focused: HTMLElement;
 
 let filters = new PortalSearchFilter();
 let displayed_results = $derived(filters.apply());
+let displayed_buttons: HTMLButtonElement[] = $state([]);
 
 
 $effect(() => {
@@ -54,10 +58,15 @@ function activate(state: boolean): (e: Event) => void
     portal.open = state;
     filters.focused_idx = 0;
 
+    if (portal.open) {
+      placeholder = placeholders.sample_value()!;
+    }
+
     requestAnimationFrame(() => {
       portal.live = state;
 
       if (portal.open) {
+        /* @ts-ignore */
         previously_focused = document.activeElement;
         input?.focus();
       } else {
@@ -74,33 +83,43 @@ function handle_hotkeys(e: KeyboardEvent)
     case "ArrowDown":
       e.preventDefault();
 
-      if (e.ctrlKey || e.modKey || e.altKey) {
+      if (e.ctrlKey || e.metaKey || e.altKey) {
         filters.focused_idx = displayed_results.length - 1;
       } else {
         filters.focused_idx++;
       }
 
-      filters.update_focus(displayed_results);
+      filters.update_focus(displayed_results, displayed_buttons);
       break;
     
     case "ArrowUp":
       e.preventDefault();
 
-      if (e.ctrlKey || e.modKey || e.altKey) {
+      if (e.ctrlKey || e.metaKey || e.altKey) {
         filters.focused_idx = 0;
       } else {
         filters.focused_idx--;
       }
 
-      filters.update_focus(displayed_results);
+      filters.update_focus(displayed_results, displayed_buttons);
       break;
 
     case "Enter":
       e.preventDefault();
-      displayed_results[filters.focused_idx].element?.click();
+      displayed_buttons[filters.focused_idx]?.click();
       break;
   }
 }
+
+
+let placeholder = $state("");
+
+const placeholders = new FrozenWeightedList(
+  [20, `explore the site!`],
+  [20, `quicknav to any page!`],
+  [20, `type / to use a shortcut!`],
+  [1, `never gonna give you up~`],
+);
 
 </script>
 
@@ -139,7 +158,7 @@ function handle_hotkeys(e: KeyboardEvent)
 <div class="input-container">
   <input type="search"
     name="portal"
-    placeholder="quicknav to page, run a command, or hunt for secrets!"
+    {placeholder}
     bind:value={filters.query}
     bind:this={input}
     onkeydown={handle_hotkeys}
@@ -148,12 +167,11 @@ function handle_hotkeys(e: KeyboardEvent)
 
 <div class="results {filters.mode}">
   {#each displayed_results as result, i (result.title + result.capt)}
-    {@const _ = console.log("result = ", result)}
 
     <button class="result"
       class:live={portal.live}
       class:focused={filters.focused_idx === i}
-      bind:this={displayed_results[i].element}
+      bind:this={displayed_buttons[i]}
       tabindex={0}
       onkeydown={handle_hotkeys}
       onmousedown={() => {

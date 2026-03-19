@@ -18,7 +18,6 @@ export interface PortalSearchResult
   desc?:    string;
   action:   () => any;
   colour?:  string;
-  element?: HTMLElement;
 }
 
 
@@ -43,7 +42,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
   focused_idx: number = $state(0);
 
 
-  update_focus(results: PortalSearchResult[])
+  update_focus(results: PortalSearchResult[], buttons: HTMLButtonElement[])
   {
     if (this.focused_idx < 0) {
       this.focused_idx = results.length - 1
@@ -51,8 +50,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
       this.focused_idx = 0;
     }
 
-    let target = results[this.focused_idx].element;
-    requestAnimationFrame(() => target?.scrollIntoView({ behavior: "smooth" }));
+    requestAnimationFrame(() => buttons[this.focused_idx]?.scrollIntoView({ behavior: "smooth" }));
   }
 
 
@@ -103,7 +101,6 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
       .map(route => ({
         title: route.title,
         capt:  route.dirs.slice(0, -1).join(" × "),
-        desc:  `The quick brown fox jumps over the lazy dog`,
         action: () => goto(route.link),
       }))
     );

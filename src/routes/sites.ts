@@ -19,6 +19,11 @@ export const sites_data = [
     colour: "oklch(0.7 0.1186 201)",
   },
   {
+    name:   "Lucidity",
+    intern: "lucidity",
+    colour: "oklch(0.8691 0.1202 78.88)",
+  },
+  {
     name:   "pyco:bytes",
     intern: "pycobytes",
     colour: "#ffc720",

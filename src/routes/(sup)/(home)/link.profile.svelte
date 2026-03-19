@@ -6,28 +6,27 @@
 
 interface Props {
   title: string;
-  desc: string;
-  pict: string;
+  capt: string;
+  icon: string;
   link: string;
-  idx: number;
-  entities: number;
+  frac: number;
 }
 
-let { title, desc, pict, link, idx, entities }: Props = $props();
+let { title, capt, icon, link, frac }: Props = $props();
 
 </script>
 
 
 <div class="container"
-  style:--frac={idx / entities}
+  style:--frac={frac}
 >
   <div class="profile-link">
-    <img alt="" src="icons/socials/{pict}" />
+    <img alt="" src="icons/socials/{icon}" />
 
     <a class="info" target="_blank" href={link}>
       <div class="content">
         <h3> {title} </h3>
-        <p> {desc} </p>
+        <p> {capt} </p>
       </div>
     </a>
   </div>

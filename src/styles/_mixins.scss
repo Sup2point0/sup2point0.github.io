@@ -42,7 +42,7 @@
 
 @mixin card {
   background: $col-card;
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(12px);
 }
 
 @mixin shear-card($interactive: false, $glow: false) {

@@ -9,7 +9,7 @@ import { FrozenWeightedList } from "@sup2.0/weighted-list";
 
 import { portal } from "#scripts/state";
 
-import { PortalSearchFilter } from "./filter.portal.svelte";
+import { PortalSearchFilter } from "./filters.portal.svelte";
 
 import { fade, scale } from "svelte/transition";
 import { cubicIn, cubicOut, expoOut } from "svelte/easing";
@@ -403,6 +403,7 @@ button.result {
 
   .lower {
     p {
+      margin-top: -0.5em;
       color: transparent;
       transition: color #{trans-exp()};
       

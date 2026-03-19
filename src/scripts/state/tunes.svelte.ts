@@ -23,6 +23,14 @@ export function play_tune(track: TrackData)
   requestAnimationFrame(() => tunes.audio?.play());
 }
 
+export function toggle_pause()
+{
+  switch (tunes.playing) {
+    case true:  tunes.audio?.pause(); tunes.playing = false; break;
+    case false: tunes.audio?.play();  tunes.playing = true;  break;
+  }
+}
+
 export function stop_playing()
 {
   tunes.audio!.pause();

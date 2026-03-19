@@ -5,7 +5,7 @@ The site-wide music player!
 
 <script lang="ts">
 
-import { tunes, stop_playing } from "#scripts/state";
+import { tunes, toggle_pause, stop_playing } from "#scripts/state";
 import { display_timestamp } from "#scripts/utils";
 
 import { expoOut } from "svelte/easing";
@@ -18,12 +18,13 @@ let interval = 0;
 
 function onplay()
 {
-  interval = setInterval(() => { timestamp = tunes.audio?.currentTime }, 250);
+  interval = setInterval(() => { timestamp = tunes.audio?.currentTime }, 200);
 }
 
 function onended()
 {
-  clearInterval(interval)
+  clearInterval(interval);
+  stop_playing();
 }
 
 </script>
@@ -39,44 +40,71 @@ function onended()
 
 {#if tunes.track}
   <div class="popup" transition:scale={{ start: 0.8, duration: 600, easing: expoOut }}>
-    <div class="upper">
-      <h3> {tunes.track.name} </h3>
-      <p> {tunes.track.album?.name ?? ""} </p>
-    </div>
 
-    <button class="stop" onclick={stop_playing}>
-      ×
+<div class="left">
+  {#if tunes.track}
+    <button class="pause"
+      class:paused={!tunes.playing}
+      onclick={toggle_pause}
+    >
+      {#if tunes.playing}
+        ⏸
+      {:else}
+        ▶
+      {/if}
     </button>
+  {/if}
+</div>
 
-    <div class="progress">
-      <p class="start">
-        {display_timestamp(timestamp)}
-      </p>
+<div class="right">
+  <div class="upper">
+    <h3> {tunes.track.name} </h3>
+    <p> {tunes.track.album?.name ?? ""} </p>
+  </div>
 
-      <div class="bar" class:long={duration >= 5 * 60}
-        style:--frac={(timestamp ?? 0) / (duration ?? 1)}>
-      </div>
+  <button class="close" onclick={stop_playing}>
+    ×
+  </button>
 
-      {#key tunes.track.shard}
-        <p class="end"> {display_timestamp(duration)} </p>
-      {/key}
+  <div class="playback">
+
+    <p class="start">
+      {display_timestamp(timestamp)}
+    </p>
+
+    <div class="bar" class:long={duration >= 5 * 60}
+      style:--frac={(timestamp ?? 0) / (duration ?? 1)}>
     </div>
+
+    {#key tunes.track.shard}
+      <p class="end"> {display_timestamp(duration)} </p>
+    {/key}
+  </div>
+</div>
+
   </div>
 {/if}
 
 
 <style lang="scss">
 
+@use 'sass:color';
+
+
 audio {
   display: none;
 }
 
 .popup {
-  width: max-content;
+  width: max(32vw, max-content);
   min-width: 20rem;
-  width: 32vw;
   max-width: 40rem;
   padding: 0.5rem 1.5rem 0.5rem 1rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: stretch;
+  align-items: center;
+  gap: 1rem;
   @include shear-card();
   position: fixed;
   z-index: 200;
@@ -88,11 +116,51 @@ audio {
   }
 }
 
+
+button.pause {
+  width: 2rem;
+  height: 2rem;
+  padding-bottom: 0.2em;
+  font-size: 100%;
+  color: $col-text;
+  line-height: 100%;
+  text-align: center;
+  background: rgb(black, 40%);
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  transition:
+    background 0.08s ease-out,
+    transform 0.12s ease-out,
+  ;
+
+  &.paused {
+    padding-left: 0.1em;
+    padding-bottom: 0;
+  }
+
+  &:hover, &:focus-visible {
+    cursor: pointer;
+    background: $col-prot;
+  }
+
+  &:active {
+    background: color.adjust($col-prot, $lightness: -20%);
+    transform: scale(96%);
+  }
+}
+
+
+.right {
+  flex-grow: 1;
+}
+
 .upper {
+  padding: 0 0.5em;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   gap: 1em;
 
   h3 {
@@ -111,10 +179,12 @@ audio {
   }
 }
 
-button.stop {
+button.close {
+  width: 2rem;
+  height: 2rem;
   position: absolute;
-  top: 0.1em;
-  right: 0.5rem;
+  top: 0;
+  right: -0.3rem;
   @include font-fun;
   font-size: 150%;
   color: $col-card;
@@ -129,7 +199,8 @@ button.stop {
   }
 }
 
-.progress {
+.playback {
+  padding-top: 0.25rem;
   display: flex;
   flex-flow: row nowrap;
   justify-content: stretch;
@@ -137,7 +208,7 @@ button.stop {
   gap: 1rem;
 
   p {
-    min-width: 2em;
+    min-width: 2.4em;
     @include font-tech;
     font-size: 80%;
     color: $col-text-deut;
@@ -147,6 +218,7 @@ button.stop {
   .bar {
     $h: 0.5rem;
     flex-grow: 1;
+    min-width: 12rem;
     height: $h;
     position: relative;
     background: rgb(black, 20%);

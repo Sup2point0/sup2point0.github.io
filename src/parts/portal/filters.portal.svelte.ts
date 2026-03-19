@@ -11,7 +11,7 @@ import { tracks_list } from "#sup/music/create/create";
 import { sites_data } from "#routes/sites";
 
 import { goto } from "$app/navigation";
-import { socials_list } from "#src/routes/(sup)/(home)/socials";
+import { socials_list } from "#routes/(sup)/(home)/socials";
 
 
 export interface PortalSearchResult
@@ -128,7 +128,9 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
 
   show_tracks(): PortalSearchResult[]
   {
-    let tracks = tracks_list.filter(track => !track.is_preview);
+    let tracks = tracks_list
+      .filter(track => !track.is_preview)
+      .toSorted((prot, deut) => prot.name.localeCompare(deut.name));
 
     return (
       super.sort(tracks, {

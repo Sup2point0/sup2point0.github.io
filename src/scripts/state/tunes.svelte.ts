@@ -22,3 +22,10 @@ export function play_tune(track: TrackData)
   tunes.track = track;
   requestAnimationFrame(() => tunes.audio?.play());
 }
+
+export function stop_playing()
+{
+  tunes.audio!.pause();
+  tunes.playing = false;
+  tunes.track = null;
+}

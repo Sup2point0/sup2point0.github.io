@@ -105,6 +105,7 @@ let { artist }: Props = $props();
 
 
 .block-artist {
+  scroll-margin: 4rem;
   flex-grow: 1;
   max-width: 32rem;
   padding: 1rem 1.5rem;

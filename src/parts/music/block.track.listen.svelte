@@ -116,6 +116,7 @@ onMount(() => {
 
 
 .block-track-listen {
+  scroll-margin: 4rem;
   min-width: 45rem;
   max-width: 60rem;
   padding: 1rem 1.5rem 1rem 3rem;

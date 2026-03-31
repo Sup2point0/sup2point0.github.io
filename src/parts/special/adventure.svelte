@@ -15,9 +15,10 @@ import { onMount } from "svelte";
 interface Props {
   routes: LikeWeightedItem<Description>[] | FrozenWeightedList<Description>;
   multi?: number;
+  tagless?: boolean;
 }
 
-let { routes, multi = 0 }: Props = $props();
+let { routes, multi = 0, tagless = false }: Props = $props();
 
 
 let displayed_route: Description | null = $state(null);
@@ -36,23 +37,31 @@ onMount(() => {
 </script>
 
 
-{#snippet p(blocks)}
+{#snippet p(text)}
+  {#if tagless}
+    {@html text}
+  {:else}
+    <p> {@html text} </p>
+  {/if}
+{/snippet}
+
+{#snippet parts(blocks)}
   {#if Array.isArray(blocks)}
-    {#each blocks as route}
-      <p> {@html route} </p>
+    {#each blocks as block}
+      {@render p(block)}
     {/each}
   {:else}
-    <p> {@html blocks} </p>
+    {@render p(blocks)}
   {/if}
 {/snippet}
 
 
 {#if displayed_routes}
   {#each displayed_routes as route}
-    {@render p(route)}
+    {@render parts(route)}
   {/each}
 
 {:else if displayed_route}
-  {@render p(displayed_route)}
+  {@render parts(displayed_route)}
 
 {/if}

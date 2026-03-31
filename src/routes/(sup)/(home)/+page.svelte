@@ -18,10 +18,10 @@ import ProfileShowerthought from "./showerthought.svelte";
 <svelte:head>
   <title> Sup#2.0 </title>
   <meta name="author" content="Sup#2.0" />
-  <meta name="description" content="An avid portal with way too much in their neural cortex." />
+  <meta name="description" content="an avid portal with way too much in their neural cortex" />
 
   <meta property="og:title" content="Sup#2.0" />
-  <meta property="og:description" content="An avid portal with way too much in their neural cortex." />
+  <meta property="og:description" content="an avid portal with way too much in their neural cortex" />
 
   <meta name="google-site-verification" content="ua2bFDon6yUD7LDNbH4IBTAo6cVfiPAZaWkoMfhhBAc" />
 </svelte:head>

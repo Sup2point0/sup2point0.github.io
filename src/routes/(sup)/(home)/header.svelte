@@ -4,6 +4,8 @@
 
 import ProfileLinks from "./links.svelte";
 
+import Adventure from "#parts/special/adventure.svelte";
+
 </script>
 
 
@@ -18,7 +20,12 @@ import ProfileLinks from "./links.svelte";
   </section>
 
   <p>
-    <span class="shown"> An avid portal with way too much in their neural cortex. </span>
+    <span class="shown">
+      <Adventure tagless={true} routes={[
+        [20, `an avid portal with way too much in their neural cortex`],
+        [2, `jack of all knives, none of a kind, kind of a none, just having fun`],
+      ]} />
+    </span>
     <span class="hidden">
       creator
       <span class="separator"> × </span> artist

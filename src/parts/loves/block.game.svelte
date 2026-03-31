@@ -13,7 +13,7 @@ import { expoInOut } from "svelte/easing";
 
 interface Props {
   game: GameData;
-  invert?: boolean
+  invert?: boolean;
 }
 
 let { game, invert = false }: Props = $props();

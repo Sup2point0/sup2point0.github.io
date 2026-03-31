@@ -9,82 +9,96 @@ import { anim } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 import type { MediaData } from "#scripts/types/media";
 
+import { onMount } from "svelte";
+import { slide } from "svelte/transition";
+import { expoInOut } from "svelte/easing";
+
 
 interface Props {
   kind: "films" | "series" | "anime" | "books";
   media: MediaData;
+  invert?: boolean;
 }
 
-let { kind, media }: Props = $props();
+let { kind, media, invert = false }: Props = $props();
+
+
+let open = $state(false);
+
+onMount(() => {
+  requestAnimationFrame(() => {
+    if (invert) {
+      open = !open;
+    }
+  })
+})
 
 </script>
 
 
 <button class="block-media {kind}"
+  class:open
   id={media.shard}
+  onclick={() => { open = !open; }}
   {@attach anim}
 >
   <div class="content">
-    <img
-      alt={media.name} title={media.name}
-      height="200px"
-      src={media.cover ? `/covers/${kind}/${media.cover}` : "/purple-portal.png"}
-    />
 
-    <div class="info">
-      <div class="upper">
-        <h3> {media.name} </h3>
+<img
+  alt={media.name} title={media.name}
+  height="200px"
+  src={media.cover ? `/covers/${kind}/${media.cover}` : "/purple-portal.png"}
+/>
 
-        {#if media.date}
-          <p class="date">
-            {display_date(media.date)}
-          </p>
-        {/if}
-      </div>
+<div class="info">
+  <div class="upper">
+    <h3> {media.name} </h3>
 
-      {#if kind === "books" && media.fav}
-        <div class="inner">
-          <div class="field">
-            <h4> AUTHOR </h4>
-            <p> {media.author} </p>
-          </div>
+    {#if media.date}
+      <p class="date">
+        {display_date(media.date)}
+      </p>
+    {/if}
+  </div>
 
-          <div class="field">
-            <h4> FAVOURITE </h4>
-            <p> {media.fav} </p>
-          </div>
-        </div>
-      {/if}
+  <div class="sep"></div>
 
-      <div class="lower">
-        <ul class="tags">
-          {#each media.genres ?? [] as genre}
-            <li class="genre"> {genre} </li>
-          {/each}
-          
-          {#each media.themes ?? [] as theme}
-            <li class="theme"> {theme} </li>
-          {/each}
-        </ul>
-      </div>
-
-      {#if kind == "films"}
-        <div class="extra">
-          {#if media.franchise}
-            <p class="franchise {media.franchise}"> {media.franchise.toUpperCase()} </p>
-          {/if}
-
-          <!-- {#if media.franchise && media.flags?.length > 0}
-            <span class="separator"> × </span>
-          {/if}
-
-          {#each (media as FilmData).flags?.entries() as [i, flag]}
-            {#if i > 0} <span class="separator"> × </span> {/if}
-            <p class="flag {flag}"> {flag.toUpperCase()} </p>
-          {/each} -->
-        </div>
-      {/if}
+  {#if open}
+    <div class="lower desc" transition:slide={{ duration: 800, easing: expoInOut }}>
+      {#each media.desc as block}
+        <p> {@html block} </p>
+      {/each}
     </div>
+
+  {:else}
+    <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
+      {#if media.fields}
+        <table class="fields"><tbody>
+          {#each Object.entries(media.fields) as [key, value]}
+            {#if value != undefined}
+              <tr>
+                <th> {key.toUpperCase()} </th>
+                <td> {value} </td>
+              </tr>
+            {/if}
+          {/each}
+        </tbody></table>
+      {/if}
+
+      <ul class="tags">
+        {#each media.genres ?? [] as genre}
+          <li class="genre"> {genre} </li>
+        {/each}
+        
+        {#each media.themes ?? [] as theme}
+          <li class="theme"> {theme} </li>
+        {/each}
+      </ul>
+    </div>
+  
+  {/if}
+</div>
+
   </div>
 </button>
 
@@ -97,19 +111,26 @@ let { kind, media }: Props = $props();
 .block-media {
   flex-grow: 1;
   max-width: 36rem;
-  padding: 1rem 2.5rem;
+  padding: 1rem 1.5rem 1rem 2.5rem;
+  font-size: unset;
   background: none;
   border: none;
-  @include shear-card($interactive: true);
+  outline: none;
+  transition: #{trans()};
+  @include shear-card($interactive: true, $glow: true);
   @include anim-block;
 
-  &:hover {
-    cursor: auto;
+  &:hover, &:focus-visible {
+    cursor: pointer;
     opacity: 1 !important;
 
     .extra p {
       color: $col-text;
     }
+  }
+
+  &.open {
+    max-width: 40rem;
   }
 
   &.wishlist::before {
@@ -153,7 +174,6 @@ img {
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: start;
-  gap: 1rem;
 }
 
 
@@ -167,55 +187,71 @@ img {
 
   h3 {
     @include font-ui;
-    font-size: 200%;
+    font-size: 150%;
     font-weight: normal;
     color: $col-text;
     text-align: start;
-
-    .block-media.active &, .block-media.opportunistic & {
-      color: $col-quat;
-    }
   }
 
   p.date {
+    min-width: max-content;
     padding-bottom: 0.25em;
     @include font-tech;
-    font-size: 150%;
+    font-size: 125%;
     color: $col-text-deut;
   }
 }
 
-.inner {
-  display: flex;
-  flex-flow: column nowrap;
 
-  p {
+.sep {
+  width: 69%;
+  height: 1px;
+  margin: 0.25rem 0 0.75rem;
+  background: rgb(white, 10%);
+}
+
+
+.lower.desc p {
+  padding-left: 0.2em;
+    margin-bottom: 0.5em;
     @include font-ui;
-    font-size: 125%;
-    color: $col-text;
-    line-height: 150%;
-  }
+    font-size: 75%;
+    font-weight: 300;
+    color: $col-text-deut;
+    text-align: left;
+    transition: #{trans()};
 
-  .field {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: start;
-    align-items: center;
-    gap: 0.5rem;
+    .block-media:where(:hover, :focus-visible) & {
+      color: $col-text;
+    }
+}
 
-    h4 {
+.lower {
+  table.fields {
+    padding-bottom: 0.5rem;
+
+    tr {
+      text-align: left;
+    }
+
+    th {
       padding-bottom: 0.25em;
       padding-right: 1em;
       @include font-tech;
       font-weight: normal;
-      font-size: 90%;
+      font-size: 80%;
       color: $col-text-deut;
     }
-  }
-}
 
-.lower {
+    td {
+      @include font-ui;
+      color: $col-text;
+      line-height: 150%;
+    }
+  }
+
   ul.tags {
+    padding: 0 0.2rem;
     display: flex;
     flex-flow: row wrap;
     justify-content: start;
@@ -225,7 +261,7 @@ img {
     li {
       padding: 0 0.5em;
       @include font-fun;
-      font-size: 150%;
+      font-size: 120%;
       color: $col-text;
       @include shear-card();
       transition: #{trans()};
@@ -245,22 +281,6 @@ img {
       &.genre::before { background: color.change($col-trit, $alpha: 0.69); }
       &.theme::before { background: color.change($col-deut, $alpha: 0.69); }
     }
-  }
-}
-
-.extra {
-  flex-grow: 1;
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  gap: 0.5rem;
-  @include separator;
-
-  p {
-    @include font-tech;
-    font-size: 100%;
-    color: $col-text-deut;
   }
 }
 

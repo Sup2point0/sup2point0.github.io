@@ -1,5 +1,5 @@
 import type { Searchable } from "#scripts/search-filter.svelte";
-import type { filepath, Dates, Description } from "#scripts/types";
+import type { filepath, Dates, ProperDescription } from "#scripts/types";
 
 
 export enum Genre {
@@ -45,5 +45,7 @@ export interface MediaData extends Searchable
 
   cover?: filepath;
 
-  desc?: Description;
+  fields?: {};
+
+  desc?: ProperDescription;
 }

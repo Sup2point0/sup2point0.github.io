@@ -20,7 +20,9 @@ const data: Groups<AnimeData> =
       date: [2023, 2024],
       cover: "oshi-no-ko.webp",
       genres: [Genre.DRAMA, Genre.MYSTERY, Genre.ROMANCE],
-      desc: `${i("Oshi no Ko")} (seasons 1–2)`,
+      desc: [
+        `${i("Oshi no Ko")} (seasons 1–2)`,
+      ],
     },
   ],
   "Yu-Gi-Oh": [
@@ -61,7 +63,9 @@ const data: Groups<AnimeData> =
       date: [2020, 2023],
       cover: "kano-kari.webp",
       genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE],
-      desc: `${i("Rent-a-Girlfriend")} (seasons 1–3)`,
+      desc: [
+        `${i("Rent-a-Girlfriend")} (seasons 1–3)`,
+      ],
     }, {
       name: "Yosuga no Sora",
       date: 2010,

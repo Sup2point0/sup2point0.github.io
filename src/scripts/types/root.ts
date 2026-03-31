@@ -9,6 +9,8 @@ export type filepath = string;
 /** A single-line or multi-line description. */
 export type Description = string | string[];
 
+export type ProperDescription = string[];
+
 /** CSS styles passed as an argument to a component. */
 export type Style = string | Record<string, any>;
 

@@ -3,7 +3,7 @@ import {
   all, any, sum,
 } from "#scripts/utils";
 
-import type { Shard, Groups, States } from "#scripts/types";
+import type { shard, Groups, States } from "#scripts/types";
 
 
 export type FilterResults<Entity> = Entity[] | [string, Entity[]][];
@@ -17,7 +17,7 @@ type Sorter<Entity> = (entities: Entity[]) => Entity[];
 export interface Searchable
 {
   /** Permanent unique identifier for the entity, used as keys, link anchors, etc. */
-  shard?: Shard;
+  shard?: shard;
 
   /** Which 'collection' this entity belongs to. */
   collection?: string;
@@ -99,7 +99,7 @@ export class SearchFilter<Entity extends Searchable>
     };
   }
 
-  static init_shard_states(states: Record<Shard, Searchable>, init_state?: boolean): States
+  static init_shard_states(states: Record<shard, Searchable>, init_state?: boolean): States
   {
     return {
       ...Object.fromEntries(

@@ -1,12 +1,12 @@
 import type { Searchable } from "#scripts/search-filter.svelte";
-import type { Shard, DatePoint } from "#scripts/types";
+import type { shard, DatePoint } from "#scripts/types";
 
 
 export interface TrackData extends Searchable {
   feat?:       boolean;
   is_preview?: boolean;
 
-  shard: Shard;
+  shard: shard;
   name:  string;
   date?: string;
   
@@ -24,7 +24,7 @@ export interface TrackData extends Searchable {
 export interface AlbumData {
   is_preview?: boolean;
   
-  shard: Shard;
+  shard: shard;
   name:  string;
   date?: DatePoint | DatePoint[];
 

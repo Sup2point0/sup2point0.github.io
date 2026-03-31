@@ -1,10 +1,10 @@
-export type Int = number;
+export type int = number;
 
 /** A unique identifier for any entity. */
-export type Shard = string;
+export type shard = string;
 
 /** A filepath for an asset. */
-export type FilePath = string;
+export type filepath = string;
 
 /** A single-line or multi-line description. */
 export type Description = string | string[];

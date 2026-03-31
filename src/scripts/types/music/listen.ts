@@ -1,6 +1,6 @@
 import type { GenreKind, Genre, Vibe } from "#scripts/types/music";
 import type { Searchable } from "#scripts/search-filter.svelte";
-import type { Shard, DatePoint } from "#scripts/types";
+import type { shard, DatePoint } from "#scripts/types";
 
 
 type Url = string;
@@ -8,9 +8,9 @@ type Url = string;
 
 export interface TrackData extends Searchable
 {
-  shard:   Shard;
+  shard:   shard;
   name:    string;
-  artists: Shard[];
+  artists: shard[];
 
   date?: DatePoint | [DatePoint, DatePoint];
   cover?: string;
@@ -28,7 +28,7 @@ export interface TrackData extends Searchable
 
 
 export interface ArtistData {
-  shard: Shard;
+  shard: shard;
   name:  string;
 
   date?: number | string;

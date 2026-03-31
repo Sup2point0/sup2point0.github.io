@@ -3,7 +3,7 @@ import { a, i } from "#scripts/utils";
 import { Lang } from "#sup/dev/dev.langs";
 import { Tech } from "#sup/dev/dev.techs";
 import { Flavour, Kind, State, type DevEntity } from "#scripts/types/dev";
-import type { Shard, Groups, DatePoint } from "#scripts/types";
+import type { shard, Groups, DatePoint } from "#scripts/types";
 
 
 export interface ProjectData extends Searchable
@@ -17,7 +17,7 @@ export interface ProjectData extends Searchable
 
   flavour: Flavour | Flavour[];
   kind: Kind | Kind[];
-  tech: Shard[];
+  tech: shard[];
   tech_data: DevEntity[];
   state: State | State[];
 

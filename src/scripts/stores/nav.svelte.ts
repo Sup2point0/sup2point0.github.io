@@ -1,7 +1,7 @@
 import { persisted } from "svelte-persisted-store";
 
 import { pick_random } from "#scripts/utils";
-import type { Int, FilePath } from "#scripts/types";
+import type { int, filepath } from "#scripts/types";
 
 import { routes_list } from "#routes";
 
@@ -15,9 +15,9 @@ const links_init = [
 
 interface NavData
 {
-  visits:     Int;
-  visited:    SvelteSet<FilePath>;
-  directions: SvelteSet<FilePath>;
+  visits:     int;
+  visited:    SvelteSet<filepath>;
+  directions: SvelteSet<filepath>;
 }
 
 /** Persisted data on which pages the user has visited, so that we can let them know about pages they haven't visited yet! */
@@ -48,7 +48,7 @@ export const nav = persisted<NavData>(
 
 
 /** Mark a page on the site as having been visited, and unlock new directions for the user. */
-export function save_visited(path: FilePath)
+export function save_visited(path: filepath)
 {
   nav.update(n => {
     n.visited.add(path);
@@ -84,7 +84,7 @@ const links_core = [
   "dev",
 ].map(qualify);
 
-const link_chains: Record<FilePath, FilePath[]> = Object.fromEntries(
+const link_chains: Record<filepath, filepath[]> = Object.fromEntries(
   Object.entries({
     "music":                       ["music/listen", "music/create"],
     "music/listen":                ["music/listen/chronicle"],
@@ -99,7 +99,7 @@ const link_chains: Record<FilePath, FilePath[]> = Object.fromEntries(
   .map(([checkpoint, next]) => [qualify(checkpoint), next.map(qualify)])
 );
 
-function qualify(path: FilePath): FilePath
+function qualify(path: filepath): filepath
 {
   return path.startsWith("/sup/") ? path : `/sup/${path}`;
 }

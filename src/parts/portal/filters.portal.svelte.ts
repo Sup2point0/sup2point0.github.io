@@ -3,7 +3,7 @@ import { ratio, partial_ratio } from "fuzzball";
 import { play_tune } from "#scripts/state";
 import { SearchFilter, type Searchable } from "#scripts/search-filter.svelte";
 import type { TrackData } from "#scripts/types/music";
-import type { Int } from "#scripts/types";
+import type { int } from "#scripts/types";
 
 import { routes_list } from "#routes";
 import { shortcuts_data, shortcuts_list } from "./shortcuts";
@@ -69,7 +69,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
     requestAnimationFrame(() => buttons[this.focused_idx]?.scrollIntoView({ behavior: "smooth" }));
   }
 
-  trigger(index: Int)
+  trigger(index: int)
   {
     this.triggered_idx = index;
     if (this.#trigger_timeout) clearTimeout(this.#trigger_timeout);

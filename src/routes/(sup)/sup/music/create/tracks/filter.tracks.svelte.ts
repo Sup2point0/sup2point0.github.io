@@ -1,6 +1,7 @@
 import { partial_ratio } from "fuzzball";
 
 import { SearchFilter } from "#scripts/search-filter.svelte.ts";
+import { shuffle } from "#scripts/utils";
 import type { TrackData } from "#scripts/types";
 
 
@@ -15,11 +16,15 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
       tracks = tracks.filter(track => track.is_preview !== true);
     }
 
-    return super.sort(tracks,
-      track => Math.max(
+    if (this.query === "") {
+      return shuffle(tracks);
+    }
+
+    return super.sort(tracks, {
+      scorer: track => Math.max(
         partial_ratio(this.query, track.name),
         partial_ratio(this.query, track.album.name),
       )
-    );
+    });
   }
 }

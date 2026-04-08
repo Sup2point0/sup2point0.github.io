@@ -9,7 +9,7 @@ import SearchFilters from "#parts/ui/search-filters.svelte";
 import TrackCard from "#parts/music/card.track.svelte";
 
 import { tracks_list } from "../create";
-import { TrackSearchFilter } from "./filter.svelte";
+import { TrackSearchFilter } from "./filter.tracks.svelte";
 
 
 // svelte-ignore non_reactive_update

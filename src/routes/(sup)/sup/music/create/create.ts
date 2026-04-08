@@ -10,17 +10,8 @@ export const albums_data: Groups<AlbumData> = assign_albums({
     {
       shard:  "singles",
       name:   "Singles",
-      cover:  "single.skies-above.png",
+      cover:  "single.sunset.png",
       tracks: [
-        {
-          feat:   true,
-          shard:  "skies-above",
-          name:   "Skies Above",
-          audio:  undefined,
-          cover:  "single.skies-above.png",
-          genres: ["electronic"],
-          vibes:  ["chillout"],
-        },
         {
           shard:  "sunrise",
           name:   "Sunrise",
@@ -342,10 +333,9 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           is_preview: true,
         },
         {
-          is_preview: true,
           shard:  "nightfall",
           name:   "Nightfall",
-          audio:  undefined,
+          audio:  "nightfall-v1.m4a",
           cover:  "vision.nightfall.png",
           genres: ["electronic"],
           vibes:  ["euphoric", "vibrant"],
@@ -413,6 +403,14 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           cover:  "roots.rush-reloaded.png",
           genres: ["rhythm", "arcade"],
           vibes:  ["intense"],
+        },
+        {
+          shard:  "skies-above",
+          name:   "Skies Above",
+          audio:  undefined,
+          cover:  "roots.skies-above.png",
+          genres: ["electronic"],
+          vibes:  ["chillout"],
         },
         {
           is_preview: true,

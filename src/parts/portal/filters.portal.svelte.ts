@@ -3,7 +3,7 @@ import { ratio, partial_ratio } from "fuzzball";
 import { play_tune } from "#scripts/state";
 import { SearchFilter, type Searchable } from "#scripts/search-filter.svelte";
 import type { TrackData } from "#scripts/types/music";
-import type { int } from "#scripts/types";
+import type { int, filepath } from "#scripts/types";
 
 import { routes_list } from "#routes";
 import { shortcuts_data, shortcuts_list } from "./shortcuts";
@@ -19,6 +19,7 @@ export interface PortalSearchResult
   title:    string;
   capt:     string;
   desc?:    string;
+  icon?:    filepath
   action:   () => any;
   colour?:  string;
 }
@@ -144,6 +145,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
       .map(track => ({
         title: track.name,
         capt:  track.album.name,
+        icon:  `covers/music/create/${track.cover}`,
         action: () => play_tune(track as TrackData),
       }))
     )

@@ -116,6 +116,10 @@ function handle_hotkeys(e: KeyboardEvent)
         e.preventDefault();
         break;
       }
+
+    default:
+      filters.focused_idx = 0;
+      filters.update_focus(displayed_results, displayed_buttons);
   }
 }
 
@@ -128,6 +132,8 @@ const placeholders = new FrozenWeightedList(
   [20, `type / to use a shortcut!`],
   [1, `never gonna give you up~`],
 );
+
+$inspect(displayed_results.some(res => res.icon))
 
 </script>
 
@@ -151,6 +157,8 @@ const placeholders = new FrozenWeightedList(
 
 
 {#if portal.open}
+  {@const has_icons = displayed_results.some(res => res.icon)}
+
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <div class="portal-overlay"
@@ -198,16 +206,24 @@ const placeholders = new FrozenWeightedList(
       }}
       style:--delay="{i * 69}ms"
     >
-      <div class="upper">
-        <h4 style:color={result.colour}> {@html result.title} </h4>
-        <p> {@html result.capt} </p>
-      </div>
-
-      {#if result.desc}
-        <div class="lower">
-          <p> {@html result.desc} </p>
+      {#if has_icons}
+        <div class="left">
+          <img alt="" src={result.icon} />
         </div>
       {/if}
+
+      <div class="right">
+        <div class="upper">
+          <h4 style:color={result.colour}> {@html result.title} </h4>
+          <p> {@html result.capt} </p>
+        </div>
+
+        {#if result.desc}
+          <div class="lower">
+            <p> {@html result.desc} </p>
+          </div>
+        {/if}
+      </div>
     </button>
 
   {/each}
@@ -329,7 +345,11 @@ input::placeholder {
 
 button.result {
   scroll-margin: 20vh;
-  padding: 0.25rem 1rem 0.1rem;
+  padding: 0.2rem 1rem;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 1rem;
   @include font-fun;
   font-size: unset;
   text-align: left;
@@ -370,6 +390,21 @@ button.result {
 }
 
 .result {
+  .left {
+    flex-grow: 0;
+    height: 2em;
+
+    img {
+      max-height: 2em;
+      aspect-ratio: 1;
+    }
+  }
+
+  .right {
+    flex-grow: 1;
+    padding-top: 0.15rem;
+  }
+
   .upper {
     display: flex;
     flex-flow: row wrap;

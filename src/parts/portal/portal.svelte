@@ -133,8 +133,6 @@ const placeholders = new FrozenWeightedList(
   [1, `never gonna give you up~`],
 );
 
-$inspect(displayed_results.some(res => res.icon))
-
 </script>
 
 

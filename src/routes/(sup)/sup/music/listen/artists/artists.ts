@@ -8,6 +8,21 @@ const data: Groups<ArtistData> =
 {
   "newly discovered": [
     {
+      shard:  "mokkai",
+      name:   "MOKKAI",
+      date:   "summer 2025",
+      icon:   "mokkai.jpg",
+      genres: [Genre.ELECTRONIC],
+      vibes:  [Vibe.HAPPY, Vibe.CHILLOUT],
+      track: {
+        name: "Something To Say", link: "https://youtube.com/watch?v=D7T_3lztqNc&list=PLYWIouv-DSkAUmAACIsfh4d8WYSk8e1yJ"
+      },
+      discovered: `${h("Ride on Time")} in Firefly Music`,
+      desc: [
+        `I first heard ${h("Ride on Time")} by them on Firefly Music in summer 2025, but only tried listening to more of their discography in spring 2026.`,
+      ],
+    },
+    {
       shard:  "nabbe",
       name:   "Nabbe",
       date:   "early 2026",
@@ -39,20 +54,6 @@ const data: Groups<ArtistData> =
         name: "STELLAON – Spring (KLYDIX remix)", link: undefined
       },
       discovered: `YouTube Music reccs`,
-    },
-    {
-      shard:  "unfinish",
-      name:   "UNFINISH",
-      date:   "late 2025",
-      icon:   "unfinish.jpg",
-      genres: [Genre.ELECTRONIC, Genre.DUBSTEP, Genre.RHYTHM],
-      track: {
-        name: "Turbo Luck Second", link: "https://youtube.com/watch?v=r37wNOtg_pY&list=PLYWIouv-DSkAGD_WKtKGd5eFyoR6xATgj"
-      },
-      links: {
-        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAGD_WKtKGd5eFyoR6xATgj",
-      },
-      discovered: `YouTube reccs`,
     },
   ],
   "absolute favourites": [
@@ -119,6 +120,18 @@ const data: Groups<ArtistData> =
   ],
   "regulars": [
     {
+      shard:  "kirara-magic",
+      name:   "Kirara Magic",
+      date:   "summer 2025",
+      icon:   "kirara-magic.jpg",
+      genres: [Genre.ELECTRONIC],
+      vibes:  [Vibe.CHILLOUT],
+      track: {
+        name: "Checkmate", link: "https://youtube.com/watch?v=yHjj9fWTZdY&list=PLYWIouv-DSkAyddNPBMP81AMJQlfDrQRj"
+      },
+      discovered: `Dance Cube EVO`,
+    },
+    {
       shard:  "puru",
       name:   "puru",
       date:   "summer 2024",
@@ -174,17 +187,6 @@ const data: Groups<ArtistData> =
       discovered: `Phigros`,
     },
     {
-      shard:  "nhato",
-      name:   "Nhato",
-      date:   "fall 2025",
-      icon:   "nhato.jpg",
-      genres: [Genre.ELECTRONIC, Genre.TRANCE],
-      track: {
-        name: "Radiance", link: "https://youtube.com/watch?v=7o1S3o_VNII"
-      },
-      discovered: `Phigros`,
-    },
-    {
       shard:  "chiru-san",
       name:   "Chiru-san",
       date:   2024,
@@ -229,6 +231,31 @@ const data: Groups<ArtistData> =
     },
   ],
   "mood": [
+    {
+      shard:  "nhato",
+      name:   "Nhato",
+      date:   "fall 2025",
+      icon:   "nhato.jpg",
+      genres: [Genre.ELECTRONIC, Genre.TRANCE],
+      track: {
+        name: "Radiance", link: "https://youtube.com/watch?v=7o1S3o_VNII"
+      },
+      discovered: `Phigros`,
+    },
+    {
+      shard:  "unfinish",
+      name:   "UNFINISH",
+      date:   "late 2025",
+      icon:   "unfinish.jpg",
+      genres: [Genre.ELECTRONIC, Genre.DUBSTEP, Genre.RHYTHM],
+      track: {
+        name: "Turbo Luck Second", link: "https://youtube.com/watch?v=r37wNOtg_pY&list=PLYWIouv-DSkAGD_WKtKGd5eFyoR6xATgj"
+      },
+      links: {
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAGD_WKtKGd5eFyoR6xATgj",
+      },
+      discovered: `YouTube reccs`,
+    },
     {
       shard:  "silentroom",
       name:   "Silentroom",
@@ -294,18 +321,6 @@ const data: Groups<ArtistData> =
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkARK0RHQXJnm2-webMrXzQ4",
       },
       discovered: `YouTube reccs`,
-    },
-    {
-      shard:  "kirara-magic",
-      name:   "Kirara Magic",
-      date:   "summer 2025",
-      icon:   "kirara-magic.jpg",
-      genres: [Genre.ELECTRONIC],
-      vibes:  [Vibe.CHILLOUT],
-      track: {
-        name: "Checkmate", link: "https://youtube.com/watch?v=yHjj9fWTZdY&list=PLYWIouv-DSkAyddNPBMP81AMJQlfDrQRj"
-      },
-      discovered: `Dance Cube EVO`,
     },
     {
       shard:  "kanro",

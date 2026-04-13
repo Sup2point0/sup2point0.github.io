@@ -19,6 +19,16 @@ test("visit `/dev`", async ({ page }) =>
   expect(status?.ok(), `Failed to access \`/sup/dev\``).toBe(true);
 });
 
+test("use portal", async ({ page }) =>
+{
+  await page.keyboard.down("Control");
+  await page.keyboard.down("/");
+  await page.keyboard.up("Control");
+  await page.keyboard.down("Backspace");
+  await page.keyboard.down("/");
+  // TODO
+});
+
 
 const routes = [
   "/",

@@ -1,4 +1,7 @@
-<!-- @component ArtistBlock -->
+<!-- @component `ArtistBlock`
+
+A block display info for a musical artist.
+-->
 
 <script lang="ts">
 
@@ -6,19 +9,37 @@ import { anim } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 import type { ArtistData } from "#scripts/types";
 
+import { onMount } from "svelte";
+import { slide } from "svelte/transition";
+import { expoInOut } from "svelte/easing";
+
 
 interface Props {
   artist: ArtistData;
+  invert?: boolean;
 }
 
-let { artist }: Props = $props();
+let { artist, invert = false }: Props = $props();
+
+
+let open = $state(false);
+
+onMount(() => {
+  requestAnimationFrame(() => {
+    if (invert) {
+      open = !open;
+    }
+  })
+});
 
 </script>
 
 
 <button class="block-artist"
   class:shrink={artist.name.length > 12}
+  class:open
   id={artist.shard}
+  onclick={() => { open = !open; }}
   {@attach anim}
 >
   <div class="content">
@@ -61,38 +82,50 @@ let { artist }: Props = $props();
     {/if}
   </div>
 
-  <div class="inner">
-    <p class="discovered">
-      {@html artist.discovered}
-    </p>
+  <div class="sep"></div>
 
-    {#if artist.links}
-      <div class="links">
-        {#each Object.entries(artist.links) as [platform, link]}
-          <a target="_blank" href={link} rel="external">
-            <img
-              class="platform"
-              alt={platform}
-              title={platform.toUpperCase()}
-              src="/icons/socials/{platform}.svg"
-            />
-          </a>
-        {/each}
+  {#if open}
+    <div class="lower desc" transition:slide={{ duration: 800, easing: expoInOut }}>
+      {#each artist.desc ?? [] as block}
+        <p> {@html block} </p>
+      {/each}
+    </div>
+
+  {:else}
+    <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
+      <div class="inner">
+        <p class="discovered">
+          {@html artist.discovered}
+        </p>
+
+        {#if artist.links}
+          <div class="links">
+            {#each Object.entries(artist.links) as [platform, link]}
+              <a target="_blank" href={link} rel="external">
+                <img
+                  class="platform"
+                  alt={platform}
+                  title={platform.toUpperCase()}
+                  src="/icons/socials/{platform}.svg"
+                />
+              </a>
+            {/each}
+          </div>
+        {/if}
       </div>
-    {/if}
-  </div>
 
-  <div class="lower">
-    <ul class="genres">
-      {#each artist.genres ?? [] as genre}
-        <li class="genre"> {genre} </li>
-      {/each}
+      <ul class="tags">
+        {#each artist.genres ?? [] as genre}
+          <li class="genre"> {genre} </li>
+        {/each}
 
-      {#each artist.vibes ?? [] as vibe}
-        <li class="vibe"> {vibe} </li>
-      {/each}
-    </ul>
-  </div>
+        {#each artist.vibes ?? [] as vibe}
+          <li class="vibe"> {vibe} </li>
+        {/each}
+      </ul>
+    </div>
+  
+  {/if}
 </div>
 
   </div>
@@ -109,18 +142,16 @@ let { artist }: Props = $props();
   flex-grow: 1;
   max-width: 32rem;
   padding: 1rem 1.5rem;
+  // font-size: unset;
   background: none;
   border: none;
+  outline: none;
   transition: #{trans()};
-  @include shear-card($interactive: true);
+  @include shear-card($interactive: true, $glow: true);
   @include anim-block;
 
-  &:hover {
-    cursor: auto;
-  }
-
-  &.intersected :global {
-    background: red !important;
+  &:hover, &:focus-visible {
+    cursor: pointer;
   }
 }
 
@@ -181,7 +212,7 @@ let { artist }: Props = $props();
     @include shear-card($interactive: true);
 
     &::before {
-      background: rgb(white, 8%);
+      background: rgb(white, 4%);
       border-left: $border-width solid $col-prot;
       opacity: 0;
       transition: #{trans()}, opacity 0.2s ease-out;
@@ -249,8 +280,8 @@ let { artist }: Props = $props();
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: start;
-  gap: 0.5rem;
 }
+
 
 .upper {
   width: 100%;
@@ -280,52 +311,78 @@ let { artist }: Props = $props();
   }
 }
 
-.inner {
-  flex-grow: 1;
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
 
-  p.discovered {
-    @include font-fun;
-    font-size: 150%;
-    color: $col-text;
+.sep {
+  width: 69%;
+  height: 1px;
+  margin: 0.25rem 0 0.75rem;
+  background: rgb(white, 10%);
+}
+
+
+.lower.desc {
+  p {
+    padding-left: 0.2em;
+    margin-bottom: 0.5em;
+    @include font-ui;
+    font-size: 75%;
+    font-weight: 300;
+    color: $col-text-deut;
     text-align: left;
+    transition: #{trans()};
   }
-
-  img.platform {
-    max-height: 1.5rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    opacity: 0;
-    transition: #{trans()}, opacity 0.3s;
-
-    &:hover {
-      box-shadow: 0 0 16px black;
-      transform: scale(120%);
-    }
-
-    &:active {
-      transform: scale(115%);
-      filter: brightness(75%);
-    }
-    
-    .block-artist:hover & {
-      opacity: 1;
-    }
-  }
-}
-
-:global(button.block-artist p.discovered a) {
-  @include link;
-}
-:global(button.block-artist p.discovered .highlight) {
-  color: $col-acc;
 }
 
 .lower {
-  ul.genres {
+  width: 100%;
+  
+  .inner {
+    flex-grow: 1;
+    width: 100%;
+    margin-bottom: 0.5em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    p.discovered {
+      @include font-fun;
+      font-size: 150%;
+      color: $col-text;
+      text-align: left;
+    }
+
+    img.platform {
+      max-height: 1.5rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      opacity: 0;
+      transition: #{trans()}, opacity 0.3s;
+
+      &:hover {
+        box-shadow: 0 0 16px black;
+        transform: scale(120%);
+      }
+
+      &:active {
+        transform: scale(115%);
+        filter: brightness(75%);
+      }
+      
+      .block-artist:hover & {
+        opacity: 1;
+      }
+    }
+  }
+
+  :global(button.block-artist p.discovered a) {
+    @include link;
+  }
+  :global(button.block-artist p.discovered .highlight) {
+    color: $col-acc;
+  }
+
+  ul.tags {
+    padding: 0 0.2rem;
     display: flex;
     flex-flow: row wrap;
     justify-content: start;

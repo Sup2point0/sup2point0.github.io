@@ -1,4 +1,4 @@
-<!-- @component MediaBlock
+<!-- @component `MediaBlock`
 
 A block displaying info for a media, series, anime, show, etc.
 -->
@@ -31,7 +31,7 @@ onMount(() => {
       open = !open;
     }
   })
-})
+});
 
 </script>
 
@@ -65,7 +65,7 @@ onMount(() => {
 
   {#if open}
     <div class="lower desc" transition:slide={{ duration: 800, easing: expoInOut }}>
-      {#each media.desc as block}
+      {#each media.desc ?? [] as block}
         <p> {@html block} </p>
       {/each}
     </div>
@@ -109,6 +109,7 @@ onMount(() => {
 
 
 .block-media {
+  scroll-margin: 4rem;
   flex-grow: 1;
   max-width: 36rem;
   padding: 1rem 1.5rem 1rem 2.5rem;

@@ -33,8 +33,8 @@ import LinkCard from "#parts/ui/card.link.svelte";
       "covers/music/create/cortex.png",
       "covers/music/create/elysion.png",
       "covers/music/create/vision.nightfall.png",
+      "covers/music/create/roots.skies-above.png",
       "covers/music/create/origins.night.png",
-      "covers/music/create/single.skies-above.png",
     ]}
     aspect="square"
   />

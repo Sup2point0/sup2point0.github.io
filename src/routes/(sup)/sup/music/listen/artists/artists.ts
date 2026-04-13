@@ -145,6 +145,11 @@ const data: Groups<ArtistData> =
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkBt4zknZoQPwgiYLB4xHSRf",
       },
       discovered: `Arcaea`,
+      desc: [
+        `puru’s melodies absolutely melt me. I don’t know how they come up with them, but they’re unbelievably beautiful.`,
+
+        `Best part is, they combine that with the punchiest percussion, smooth synths and soul-bopping rhythms. Music with both movement and emotion, it’s an unstoppable combo.`,
+      ],
     },
     {
       shard:  "a-39",
@@ -214,6 +219,11 @@ const data: Groups<ArtistData> =
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkB_ZiTuDShR77RiOosIg_-3",
       },
       discovered: `AirAttack 2 OST`,
+      desc: [
+        `Genuinely, I don’t understand how this guy can make this much music. Firstly, he’s got like 12 pseudonyms, and secondly he releases full albums frequently on all of them. The output is insane. And it’s not slop at all, each track is seriously polished, and a very non-negligible number are icons. He’s got a remarkable knack for all sorts of ‘cinematic’ genres, and then some.`,
+
+        `His music is used everywhere since it’s on Epidemic Sound. It’s very fun to hear him in wild – both Grian and MrBeast have used his tracks! I love listening to his music for study and work.`,
+      ],
     },
     {
       shard:  "gavin-luke",

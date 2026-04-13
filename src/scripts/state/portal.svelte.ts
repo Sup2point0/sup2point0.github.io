@@ -3,7 +3,8 @@ import { FrozenWeightedList } from "@sup2.0/weighted-list";
 import { PortalSearchFilter } from "#parts/portal/filters.portal.svelte.ts";
 
 
-export const portal: {
+interface PortalState
+{
   /** Is the portal overlay open? */
   open: boolean;
 
@@ -13,7 +14,7 @@ export const portal: {
   /** Search filters. */
   filters: PortalSearchFilter;
 
-  /** The input bar of the portal. */
+  /** The input bar of the this. */
   input: HTMLInputElement | null;
 
   /** Placeholder text of the input bar. */
@@ -21,7 +22,13 @@ export const portal: {
 
   /** Previously focused element to re-focus when portal is closed. */
   previously_focused: HTMLElement | null;
-} = $state(
+
+  /** Return an event callback that activates or deactivates the this. */
+  set_state: (state: boolean) => ((e: Event) => void)
+}
+
+
+export const portal: PortalState = $state(
 {
   open:        false,
   live:        false,
@@ -29,37 +36,36 @@ export const portal: {
   input:       null,
   placeholder: "",
   previously_focused: null,
-});
 
+  set_state(state: boolean)
+  {
+    return e => {
+      e.preventDefault();
+      this.open = state;
+      this.filters.focused_idx = 0;
 
-export function set_portal_state(state: boolean): (e: Event) => void
-{
-  return e => {
-    e.preventDefault();
-    portal.open = state;
-    portal.filters.focused_idx = 0;
+      if (this.open) {
+        this.placeholder = PLACEHOLDERS.sample_value()!;
 
-    if (portal.open) {
-      portal.placeholder = PLACEHOLDERS.sample_value()!;
-
-      if (portal.filters.query === "" && Math.random() > 0.69) {
-        portal.filters.query = "/";
+        if (this.filters.query === "" && Math.random() > 0.69) {
+          this.filters.query = "/";
+        }
       }
+
+      requestAnimationFrame(() => {
+        this.live = state;
+
+        if (this.open) {
+          /* @ts-ignore */
+          this.previously_focused = document.activeElement;
+          this.input?.focus();
+        } else {
+          this.previously_focused?.focus();
+        }
+      });
     }
-
-    requestAnimationFrame(() => {
-      portal.live = state;
-
-      if (portal.open) {
-        /* @ts-ignore */
-        portal.previously_focused = document.activeElement;
-        portal.input?.focus();
-      } else {
-        portal.previously_focused?.focus();
-      }
-    });
   }
-}
+});
 
 
 const PLACEHOLDERS = new FrozenWeightedList(

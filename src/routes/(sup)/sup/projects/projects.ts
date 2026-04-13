@@ -67,7 +67,7 @@ const data: Groups<ProjectData> = prep_groups(
       ],
       state: State.ETERNAL,
       links: {
-        github: "https://sup2point0.github.io/Assort",
+        github: "https://github.com/Sup2point0/Assort",
         site: "https://sup2point0.github.io/Assort",
       },
       desc:

@@ -5,7 +5,7 @@ An overlay for quick navigation and commands execution.
 
 <script lang="ts">
 
-import { portal, set_portal_state } from "#scripts/state";
+import { portal } from "#scripts/state";
 
 import { fade, scale } from "svelte/transition";
 import { cubicIn, cubicOut, expoOut } from "svelte/easing";
@@ -97,8 +97,8 @@ function handle_hotkeys(e: KeyboardEvent)
 
 <svelte:window
   onkeydown={e => {
-    if    (should_deactivate(e)) { set_portal_state(false)(e); }
-    else if (should_activate(e)) { set_portal_state(true)(e); }
+    if    (should_deactivate(e)) { portal.set_state(false)(e); }
+    else if (should_activate(e)) { portal.set_state(true)(e); }
     
     if ("abcdefghijklmnopqrstuvwxyz/".includes(e.key.toLowerCase())) {
       if (portal.input && document.activeElement !== portal.input) {
@@ -119,7 +119,7 @@ function handle_hotkeys(e: KeyboardEvent)
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <div class="portal-overlay"
-    onclick={set_portal_state(false)}
+    onclick={portal.set_state(false)}
     in:fade={{ duration: 400, easing: cubicOut }}
     out:fade={{ duration: 400, easing: cubicIn }}
   ></div>
@@ -158,28 +158,27 @@ function handle_hotkeys(e: KeyboardEvent)
         onclick={e => {
           portal.filters.trigger(i);
           if (result.action()) {
-            set_portal_state(false)(e);
+            portal.set_state(false)(e);
           }
         }}
         style:--delay="{i * 69}ms"
       >
         {#if has_icons}
-          <div class="left">
+          <div class="icon">
             <img alt="" src={result.icon} />
           </div>
         {/if}
 
-        <div class="right">
-          <div class="upper">
-            <h4 style:color={result.colour}> {@html result.title} </h4>
-            <p> {@html result.capt} </p>
-          </div>
+        <div class="info">
+          <h4 style:color={result.colour}> {@html result.title} </h4>
 
           {#if result.desc}
-            <div class="lower">
-              <p> {@html result.desc} </p>
-            </div>
+            <p> {@html result.desc} </p>
           {/if}
+        </div>
+
+        <div class="capt">
+          <p> {@html result.capt} </p>
         </div>
       </button>
 
@@ -348,7 +347,8 @@ button.result {
 }
 
 .result {
-  .left {
+  width: 100%;
+  .icon {
     flex-grow: 0;
     height: 2em;
 
@@ -358,16 +358,8 @@ button.result {
     }
   }
 
-  .right {
+  .info {
     flex-grow: 1;
-    padding-top: 0.15rem;
-  }
-
-  .upper {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: baseline;
 
     h4 {
       max-width: 69%;
@@ -381,7 +373,24 @@ button.result {
       .portal-content.live .navigate  & { color: $col-trit; }
       .portal-content.live .warp      & { color: $col-acc; }
       .portal-content.live .music     & { color: $col-quat; @include font-ui; font-size: unset; }
+      .portal-content.live .project   & { color: $col-quat; }
     }
+
+    p {
+      margin-top: -0.25em;
+      color: transparent;
+      line-height: 100%;
+      transition: color #{trans-exp()};
+      
+      .portal-content.live & {
+        color: $col-text;
+      }
+    }
+  }
+
+  .capt {
+    min-width: max-content;
+    justify-self: right;
 
     p {
       color: transparent;
@@ -390,18 +399,6 @@ button.result {
       
       .portal-content.live & {
         color: $col-text-deut;
-      }
-    }
-  }
-
-  .lower {
-    p {
-      margin-top: -0.5em;
-      color: transparent;
-      transition: color #{trans-exp()};
-      
-      .portal-content.live & {
-        color: $col-text;
       }
     }
   }

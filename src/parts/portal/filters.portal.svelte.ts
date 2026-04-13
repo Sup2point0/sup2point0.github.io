@@ -3,15 +3,17 @@ import { ratio, partial_ratio } from "fuzzball";
 import { play_tune } from "#scripts/state";
 import { SearchFilter, type Searchable } from "#scripts/search-filter.svelte";
 import type { TrackData } from "#scripts/types/music";
+import { shuffle } from "#scripts/utils";
 import type { int, filepath } from "#scripts/types";
 
 import { Shortcut, type ShortcutData } from "./shortcuts";
 import { routes_list } from "#routes";
 import { tracks_list } from "#sup/music/create/create";
 import { sites_data } from "#routes/sites";
+import { projects_list } from "#sup/projects/projects";
+import { socials_list } from "#routes/(sup)/(home)/socials";
 
 import { goto } from "$app/navigation";
-import { socials_list } from "#routes/(sup)/(home)/socials";
 
 
 export interface PortalSearchResult
@@ -71,11 +73,11 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
   {
     switch (this.shortcut) {
       case Shortcut.Navigate: return this.show_routes();
-      case Shortcut.Warp:    return this.show_sites();
-      case Shortcut.Projects:   return [];
-      case Shortcut.Music:     return this.show_tracks();
-      case Shortcut.Socials:    return this.show_socials();
-      default:                  return this.show_shortcuts();
+      case Shortcut.Warp:     return this.show_sites();
+      case Shortcut.Music:    return this.show_tracks();
+      case Shortcut.Projects: return this.show_projects();
+      case Shortcut.Socials:  return this.show_socials();
+      default:                return this.show_shortcuts();
     }
   }
 
@@ -120,6 +122,25 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
     );
   }
 
+  show_sites(): PortalSearchResult[]
+  {
+    return (
+      super.sort(sites_data, {
+        scorer: site => Math.max(
+          partial_ratio(this.query, site.name),
+          partial_ratio(this.query, site.intern),
+        )
+      })
+      .map(site => ({
+        title:  site.name,
+        capt:   `https://sup2point0.github.io/${site.intern}`,
+        desc:   site.desc,
+        colour: site.colour,
+        action: () => { window.open(`https://sup2point0.github.io/${site.intern}`, "_blank"); },
+      }))
+    );
+  }
+
   show_tracks(): PortalSearchResult[]
   {
     let tracks = tracks_list
@@ -144,21 +165,22 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
     )
   }
 
-  show_sites(): PortalSearchResult[]
+  show_projects(): PortalSearchResult[]
   {
+    let projects = shuffle(projects_list.filter(proj => proj.links?.github));
+    
     return (
-      super.sort(sites_data, {
-        scorer: site => Math.max(
-          partial_ratio(this.query, site.name),
-          partial_ratio(this.query, site.intern),
+      super.sort(projects, {
+        scorer: proj => Math.max(
+          partial_ratio(this.query, proj.title),
+          partial_ratio(this.query, proj.capt) / 2,
         )
       })
-      .map(site => ({
-        title:  site.name,
-        capt:   `https://sup2point0.github.io/${site.intern}`,
-        desc:   site.desc,
-        colour: site.colour,
-        action: () => { window.open(`https://sup2point0.github.io/${site.intern}`, "_blank"); },
+      .map(proj => ({
+        title:  proj.name,
+        capt:   proj.links.github.replace("https://github.com/Sup2point0/", ""),
+        desc:   proj.desc,
+        action: () => { window.open(proj.links.github, "_blank"); },
       }))
     );
   }

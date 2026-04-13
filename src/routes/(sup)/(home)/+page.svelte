@@ -1,6 +1,6 @@
 <script>
 
-import { set_portal_state } from "#scripts/state";
+import { portal } from "#scripts/state";
 
 import Footer from "#parts/core/footer.svelte";
 import Main   from "#parts/core/main.svelte";
@@ -41,7 +41,7 @@ import ProfileShowerthought from "./showerthought.svelte";
       <ProfileDirections />
     </div>
 
-    <button onclick={set_portal_state(true)}>explore...</button>
+    <button onclick={portal.set_state(true)}>explore...</button>
   </section>
 
   <section><ProfileCards /></section>

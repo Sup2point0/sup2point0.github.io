@@ -7,6 +7,7 @@ export const sites_data = [
   {
     name:   "Buccaneer Game",
     intern: "buccaneer-game",
+    colour: "#f3e1d3",
   },
   {
     name:   "Integrity",
@@ -21,7 +22,7 @@ export const sites_data = [
   {
     name:   "Lucidity",
     intern: "lucidity",
-    colour: "oklch(0.8691 0.1202 78.88)",
+    colour: "oklch(0.6956 0.1529 301.77)",
   },
   {
     name:   "pyco:bytes",

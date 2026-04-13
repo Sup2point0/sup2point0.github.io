@@ -142,7 +142,7 @@ onMount(() => {
   flex-grow: 1;
   max-width: 32rem;
   padding: 1rem 1.5rem;
-  // font-size: unset;
+  font-size: unset;
   background: none;
   border: none;
   outline: none;
@@ -220,7 +220,7 @@ onMount(() => {
 
     a {
       @include font-ui;
-      font-size: 125%;
+      // font-size: 125%;
       color: $col-prot;
       text-decoration: none;
       opacity: 0;
@@ -293,20 +293,21 @@ onMount(() => {
 
   h3 {
     @include font-ui;
-    font-size: 200%;
+    font-size: 150%;
     font-weight: normal;
     color: $col-quat;
     text-align: start;
 
     .block-artist.shrink & {
-      font-size: 200%;
+      font-size: 125%;
     }
   }
 
   p.date {
+    min-width: max-content;
     padding-bottom: 0.25em;
     @include font-tech;
-    font-size: 150%;
+    font-size: 120%;
     color: $col-text-deut;
   }
 }
@@ -335,7 +336,7 @@ onMount(() => {
 
 .lower {
   width: 100%;
-  
+
   .inner {
     flex-grow: 1;
     width: 100%;
@@ -346,7 +347,6 @@ onMount(() => {
 
     p.discovered {
       @include font-fun;
-      font-size: 150%;
       color: $col-text;
       text-align: left;
     }
@@ -392,7 +392,7 @@ onMount(() => {
     li {
       padding: 0 0.5em;
       @include font-fun;
-      font-size: 150%;
+      font-size: 120%;
       color: $col-text;
       @include shear-card();
       transition: #{trans()};

@@ -2,15 +2,15 @@
 
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
+import { games_data, games_list, type GameData } from "./games";
+import { GameSearchFilter } from "./filter.games.svelte.ts";
+
 import Cards         from "#parts/core/cards.svelte";
 import Main          from "#parts/core/main.svelte";
 import Breadcrumbs   from "#parts/ui/breadcrumbs.svelte";
 import Header        from "#parts/ui/header.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
 import GameBlock     from "#parts/loves/block.game.svelte";
-
-import { games_data, games_list, type GameData } from "./games";
-import { GameSearchFilter } from "./filter.games.svelte.ts";
 
 import { onMount } from "svelte";
 

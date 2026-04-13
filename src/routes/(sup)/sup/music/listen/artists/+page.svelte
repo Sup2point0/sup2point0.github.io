@@ -1,7 +1,9 @@
-<script>
+<script lang="ts">
 
 import { status } from "#scripts/state";
 import { shuffle } from "#scripts/utils";
+
+import { artists_data } from "./artists";
 
 import Main        from "#parts/core/main.svelte";
 import Cards       from "#parts/core/cards.svelte";
@@ -9,7 +11,14 @@ import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
 import Header      from "#parts/ui/header.svelte";
 import ArtistBlock from "#parts/music/block.artist.svelte";
 
-import { artists_data } from "./artists";
+import { onMount } from "svelte";
+
+
+let invert: boolean;
+
+onMount(() => {
+  invert = Math.random() > 0.5;
+});
 
 </script>
 
@@ -33,7 +42,7 @@ import { artists_data } from "./artists";
 
       <Cards>
         {#each status.client ? shuffle(artists) : [] as artist}
-          <ArtistBlock {artist} />
+          <ArtistBlock {artist} {invert} />
         {/each}
       </Cards>
     </section>

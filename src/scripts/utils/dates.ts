@@ -1,7 +1,7 @@
-import type { DatePoint } from "#scripts/types";
+import type { Datepoint } from "#scripts/types";
 
 
-export function datepoint_to_date(date: DatePoint | DatePoint[] | undefined): number | number[]
+export function datepoint_to_date(date: Datepoint | Datepoint[] | undefined): number | number[]
 {
   if (date === undefined) {
     return -1;
@@ -53,7 +53,7 @@ export function datepoint_to_date(date: DatePoint | DatePoint[] | undefined): nu
 }
 
 
-export function display_date(date: DatePoint | DatePoint[]): string
+export function display_date(date: Datepoint | Datepoint[]): string
 {
   if (Array.isArray(date)) {
     if (date.length > 1) {

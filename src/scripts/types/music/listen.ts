@@ -1,9 +1,6 @@
 import type { GenreKind, Genre, Vibe } from "#scripts/types/music";
 import type { Searchable } from "#scripts/search-filter.svelte";
-import type { shard, DatePoint } from "#scripts/types";
-
-
-type Url = string;
+import type { shard, filepath, url, Datepoint, Dates, Description } from "#scripts/types";
 
 
 export interface TrackData extends Searchable
@@ -12,18 +9,18 @@ export interface TrackData extends Searchable
   name:    string;
   artists: shard[];
 
-  date?: DatePoint | [DatePoint, DatePoint];
-  cover?: string;
+  date?:  Dates;
+  cover?: filepath;
 
   genres?: Genre[];
   vibes?:  Vibe[];
   
   links?: {
-    [platform: string]: Url;
+    [platform: string]: url;
   };
 
   discovered?: string;
-  desc?:       string | string[];
+  desc?:       Description;
 }
 
 
@@ -31,7 +28,7 @@ export interface ArtistData {
   shard: shard;
   name:  string;
 
-  date?: number | string;
+  date?: Datepoint;
   icon:  string;
   
   genres?: Genre[];
@@ -39,15 +36,16 @@ export interface ArtistData {
   track?:  ExternalTrackData | ExternalTrackData[];
 
   links?: {
-    [platform: string]: string;
+    [platform: string]: url;
   };
 
   discovered?: string;
+  desc?:       string[];
 }
 
 interface ExternalTrackData {
   name:  string;
-  link?: string;
+  link?: url;
 }
 
 
@@ -59,5 +57,5 @@ export interface GenreData extends Searchable {
   
   artists?: string[];
   tracks?:  string | string[];
-  desc?:    string | string[];
+  desc?:    Description[];
 }

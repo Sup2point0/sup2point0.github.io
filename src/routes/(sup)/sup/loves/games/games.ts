@@ -1,6 +1,6 @@
 import { prep_groups, type Searchable } from "#scripts/search-filter.svelte.ts";
 import { a, h, i } from "#scripts/utils";
-import type { DatePoint, Groups } from "#scripts/types";
+import type { Datepoint, Groups } from "#scripts/types";
 
 
 export enum Genre {
@@ -41,7 +41,7 @@ export interface GameData extends Searchable
 {
   name:  string;
   love:  3 | 2 | 1 | null;
-  date?: DatePoint | DatePoint[];
+  date?: Datepoint | Datepoint[];
 
   icon?: string;
     _style?: "no-crop",

@@ -1,5 +1,5 @@
 import type { Searchable } from "#scripts/search-filter.svelte";
-import type { shard, DatePoint } from "#scripts/types";
+import type { shard, Datepoint } from "#scripts/types";
 
 
 export interface TrackData extends Searchable {
@@ -26,7 +26,7 @@ export interface AlbumData {
   
   shard: shard;
   name:  string;
-  date?: DatePoint | DatePoint[];
+  date?: Datepoint | Datepoint[];
 
   cover?: string;
   daw?:   Daw | Daw[];

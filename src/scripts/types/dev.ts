@@ -1,9 +1,9 @@
 import type { Searchable } from "#scripts/search-filter.svelte";
-import type { DatePoint } from "#scripts/types";
+import type { Datepoint } from "#scripts/types";
 
 
 export interface DevEntity extends Searchable {  
-  date:      DatePoint;
+  date:      Datepoint;
   versions?: string[];
 
   love:     3 | 2 | 1 | null;

@@ -3,14 +3,14 @@ import { a, i } from "#scripts/utils";
 import { Lang } from "#sup/dev/dev.langs";
 import { Tech } from "#sup/dev/dev.techs";
 import { Flavour, Kind, State, type DevEntity } from "#scripts/types/dev";
-import type { shard, Groups, DatePoint } from "#scripts/types";
+import type { shard, Groups, Datepoint } from "#scripts/types";
 
 
 export interface ProjectData extends Searchable
 {
   name: string;
   love?: 3 | 2 | 1 | 0;
-  date?: DatePoint | DatePoint[];
+  date?: Datepoint | Datepoint[];
 
   icon?: string;
     _round?: boolean;

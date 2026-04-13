@@ -6,6 +6,9 @@ export type shard = string;
 /** A filepath for an asset. */
 export type filepath = string;
 
+/** A fully-qualified, usually external URL. */
+export type url = string;
+
 /** A single-line or multi-line description. */
 export type Description = string | string[];
 
@@ -16,10 +19,10 @@ export type Style = string | Record<string, any>;
 
 
 /** A non-specific point in time. */
-export type DatePoint = number | string | "childhood" | "present";
+export type Datepoint = number | string | "childhood" | "present";
 
 /** A single date, or 2 endpoints of a date range. */
-export type Dates = DatePoint | [DatePoint, DatePoint];
+export type Dates = Datepoint | [Datepoint, Datepoint];
 
 
 /** A measure of how much I love something. */

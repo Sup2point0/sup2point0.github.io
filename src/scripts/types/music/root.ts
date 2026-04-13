@@ -67,5 +67,6 @@ export enum Vibe {
   HEROIC    = "heroic",
   MUTED     = "muted",
   NOSTALGIC = "nostalgic",
+  UPBEAT    = "upbeat",
   WAR       = "war",
 }

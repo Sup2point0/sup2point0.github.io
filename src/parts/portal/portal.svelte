@@ -9,24 +9,20 @@ import { FrozenWeightedList } from "@sup2.0/weighted-list";
 
 import { portal } from "#scripts/state";
 
-import { PortalSearchFilter } from "./filters.portal.svelte";
-
 import { fade, scale } from "svelte/transition";
 import { cubicIn, cubicOut, expoOut } from "svelte/easing";
 
 
 // svelte-ignore non_reactive_update
-let input: HTMLInputElement;
 let previously_focused: HTMLElement;
 
-let filters = new PortalSearchFilter();
-let displayed_results = $derived(filters.apply());
+let displayed_results = $derived(portal.filters.apply());
 let displayed_buttons: HTMLButtonElement[] = $state([]);
 
 
 $effect(() => {
-  filters.query;
-  filters.focused_idx = 0;
+  portal.filters.query;
+  portal.filters.focused_idx = 0;
 });
 
 
@@ -56,7 +52,7 @@ function activate(state: boolean): (e: Event) => void
   return e => {
     e.preventDefault();
     portal.open = state;
-    filters.focused_idx = 0;
+    portal.filters.focused_idx = 0;
 
     if (portal.open) {
       placeholder = placeholders.sample_value()!;
@@ -68,7 +64,7 @@ function activate(state: boolean): (e: Event) => void
       if (portal.open) {
         /* @ts-ignore */
         previously_focused = document.activeElement;
-        input?.focus();
+        portal.input?.focus();
       } else {
         previously_focused?.focus();
       }
@@ -84,42 +80,42 @@ function handle_hotkeys(e: KeyboardEvent)
       e.preventDefault();
 
       if (e.ctrlKey || e.metaKey || e.altKey) {
-        filters.focused_idx = displayed_results.length - 1;
+        portal.filters.focused_idx = displayed_results.length - 1;
       } else {
-        filters.focused_idx++;
+        portal.filters.focused_idx++;
       }
 
-      filters.update_focus(displayed_results, displayed_buttons);
+      portal.filters.update_focus(displayed_results, displayed_buttons);
       break;
     
     case "ArrowUp":
       e.preventDefault();
 
       if (e.ctrlKey || e.metaKey || e.altKey) {
-        filters.focused_idx = 0;
+        portal.filters.focused_idx = 0;
       } else {
-        filters.focused_idx--;
+        portal.filters.focused_idx--;
       }
 
-      filters.update_focus(displayed_results, displayed_buttons);
+      portal.filters.update_focus(displayed_results, displayed_buttons);
       break;
 
     case "Enter":
       if (e.repeat) return;
       e.preventDefault();
-      displayed_buttons[filters.focused_idx]?.click();
+      displayed_buttons[portal.filters.focused_idx]?.click();
       break;
 
     /* Don't allow starting the query with a space to keep shortcut handling easy */
     case " ":
-      if (document.activeElement === input && filters.query === "") {
+      if (document.activeElement === portal.input && portal.filters.query === "") {
         e.preventDefault();
         break;
       }
 
     default:
-      filters.focused_idx = 0;
-      filters.update_focus(displayed_results, displayed_buttons);
+      portal.filters.focused_idx = 0;
+      portal.filters.update_focus(displayed_results, displayed_buttons);
   }
 }
 
@@ -142,12 +138,12 @@ const placeholders = new FrozenWeightedList(
     else if (should_activate(e)) { activate(true)(e); }
     
     if ("abcdefghijklmnopqrstuvwxyz/".includes(e.key.toLowerCase())) {
-      if (input && document.activeElement !== input) {
+      if (portal.input && document.activeElement !== portal.input) {
         if (e.ctrlKey || e.metaKey || e.altKey) return;
         
         e.preventDefault();
-        input?.focus();
-        input.value = input.value + e.key;
+        portal.input?.focus();
+        portal.input.value = portal.input.value + e.key;
       }
     }
   }}
@@ -172,62 +168,63 @@ const placeholders = new FrozenWeightedList(
   onclick={e => e.stopPropagation()}
   out:scale={{ start: 0.9, duration: 400, easing: expoOut }}
 >
-<div class="input-container">
-  <input type="search"
-    name="portal"
-    {placeholder}
-    bind:value={filters.query}
-    bind:this={input}
-    onkeydown={handle_hotkeys}
-  />
-</div>
-
-<div class="results {filters.mode}">
-  {#each displayed_results as result, i (result.title + result.capt)}
-
-    <button class="result"
-      class:live={portal.live}
-      class:focused={filters.focused_idx === i}
-      class:triggered={filters.triggered_idx === i}
-      bind:this={displayed_buttons[i]}
-      tabindex={0}
+  <div class="input-container">
+    <input type="search"
+      name="portal"
+      {placeholder}
+      bind:value={portal.filters.query}
+      bind:this={portal.input}
       onkeydown={handle_hotkeys}
-      onmousedown={() => {
-        filters.focused_idx = i;
-        requestAnimationFrame(() => input?.focus());
-      }}
-      onclick={e => {
-        filters.trigger(i);
-        if (result.action()) {
-          activate(false)(e);
-        }
-      }}
-      style:--delay="{i * 69}ms"
-    >
-      {#if has_icons}
-        <div class="left">
-          <img alt="" src={result.icon} />
-        </div>
-      {/if}
+    />
+  </div>
 
-      <div class="right">
-        <div class="upper">
-          <h4 style:color={result.colour}> {@html result.title} </h4>
-          <p> {@html result.capt} </p>
-        </div>
+  <div class="results {portal.filters.mode}">
+    {#each displayed_results as result, i (result.title + result.capt)}
 
-        {#if result.desc}
-          <div class="lower">
-            <p> {@html result.desc} </p>
+      <button class="result"
+        class:live={portal.live}
+        class:focused={portal.filters.focused_idx === i}
+        class:triggered={portal.filters.triggered_idx === i}
+        bind:this={displayed_buttons[i]}
+        tabindex={0}
+        onkeydown={handle_hotkeys}
+        onmousedown={() => {
+          portal.filters.focused_idx = i;
+          requestAnimationFrame(() => portal.input?.focus());
+        }}
+        onclick={e => {
+          portal.filters.trigger(i);
+          if (result.action()) {
+            activate(false)(e);
+          }
+        }}
+        style:--delay="{i * 69}ms"
+      >
+        {#if has_icons}
+          <div class="left">
+            <img alt="" src={result.icon} />
           </div>
         {/if}
-      </div>
-    </button>
 
-  {/each}
+        <div class="right">
+          <div class="upper">
+            <h4 style:color={result.colour}> {@html result.title} </h4>
+            <p> {@html result.capt} </p>
+          </div>
+
+          {#if result.desc}
+            <div class="lower">
+              <p> {@html result.desc} </p>
+            </div>
+          {/if}
+        </div>
+      </button>
+
+    {/each}
+  </div>
+
 </div>
 
-  </div>
 {/if}
 
 

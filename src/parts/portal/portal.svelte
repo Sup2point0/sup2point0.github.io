@@ -141,7 +141,7 @@ function handle_hotkeys(e: KeyboardEvent)
     />
   </div>
 
-  <div class="results {portal.filters.mode}">
+  <div class="results {portal.filters.shortcut.title.toLowerCase()}">
     {#each displayed_results as result, i (result.title + result.capt)}
 
       <button class="result"
@@ -376,11 +376,11 @@ button.result {
       color: transparent;
       transition: color #{trans-exp()};
       
-      .portal-content.live             & { color: $col-text; }
-      .portal-content.live .shortcut   & { color: $col-deut; }
-      .portal-content.live .navigating & { color: $col-trit; }
-      .portal-content.live .vibing     & { color: $col-quat; @include font-ui; font-size: unset; }
-      .portal-content.live .warping    & { color: $col-acc; }
+      .portal-content.live            & { color: $col-text; }
+      .portal-content.live .shortcuts & { color: $col-deut; }
+      .portal-content.live .navigate  & { color: $col-trit; }
+      .portal-content.live .warp      & { color: $col-acc; }
+      .portal-content.live .music     & { color: $col-quat; @include font-ui; font-size: unset; }
     }
 
     p {

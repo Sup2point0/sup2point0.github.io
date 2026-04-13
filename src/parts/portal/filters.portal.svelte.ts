@@ -5,8 +5,8 @@ import { SearchFilter, type Searchable } from "#scripts/search-filter.svelte";
 import type { TrackData } from "#scripts/types/music";
 import type { int, filepath } from "#scripts/types";
 
+import { Shortcut, type ShortcutData } from "./shortcuts";
 import { routes_list } from "#routes";
-import { shortcuts_data, shortcuts_list } from "./shortcuts";
 import { tracks_list } from "#sup/music/create/create";
 import { sites_data } from "#routes/sites";
 
@@ -25,29 +25,18 @@ export interface PortalSearchResult
 }
 
 
-enum PortalFlavour
-{
-  Shortcut   = "shortcut",
-  Navigating = "navigating",
-  Warping    = "warping",
-  Vibing     = "vibing",
-  Socials    = "socialising",
-}
-
-
 export class PortalSearchFilter extends SearchFilter<Searchable>
 {
-  mode: PortalFlavour = $derived.by(() => {
-    if (this.query.at(0) !== "/") return PortalFlavour.Navigating;
+  shortcut: ShortcutData = $derived.by(() => {
+    if (this.query.at(0) !== "/") return Shortcut.Navigate;
+    if (!this.query.includes(" ")) return Shortcut.Shortcuts;
 
-    if (!this.query.includes(" ")) return PortalFlavour.Shortcut;
+    let key = this.query.at(1);
 
-    switch (this.query.at(1)) {
-      case shortcuts_data.WARP.key: return PortalFlavour.Warping;
-      case shortcuts_data.MUSIC.key: return PortalFlavour.Vibing;
-      case shortcuts_data.SOCIALS.key: return PortalFlavour.Socials;
-      default: return PortalFlavour.Navigating;
-    }
+    return (
+      Object.values(Shortcut)
+      .find(data => data.key === key)
+    ) ?? Shortcut.Navigate;
   });
 
   /** Which search result is currently focused. */
@@ -80,19 +69,23 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
 
   apply(): PortalSearchResult[]
   {
-    switch (this.mode) {
-      case PortalFlavour.Shortcut:   return this.show_shortcuts();
-      case PortalFlavour.Navigating: return this.show_routes();
-      case PortalFlavour.Warping:    return this.show_sites();
-      case PortalFlavour.Vibing:     return this.show_tracks();
-      case PortalFlavour.Socials:    return this.show_socials();
+    switch (this.shortcut) {
+      case Shortcut.Navigate: return this.show_routes();
+      case Shortcut.Warp:    return this.show_sites();
+      case Shortcut.Projects:   return [];
+      case Shortcut.Music:     return this.show_tracks();
+      case Shortcut.Socials:    return this.show_socials();
+      default:                  return this.show_shortcuts();
     }
   }
 
   show_shortcuts(): PortalSearchResult[]
   {
-    let filtered = shortcuts_list.filter(shortcut => this.query.includes(shortcut.key) || this.query === "/");
-    let shortcuts = filtered.length ? filtered : shortcuts_list;
+    let filtered = Object.values(Shortcut).filter(shortcut =>
+      shortcut.key !== "/"
+      && (this.query.includes(shortcut.key) || this.query === "/")
+    );
+    let shortcuts = filtered.length ? filtered : Object.values(Shortcut);
 
     return (
       super.sort(shortcuts, {

@@ -1,6 +1,6 @@
 import { FrozenWeightedList } from "@sup2.0/weighted-list";
 
-import { PortalSearchFilter } from "#parts/portal/filters.portal.svelte";
+import { PortalSearchFilter } from "#parts/portal/filters.portal.svelte.ts";
 
 
 export const portal: {
@@ -41,6 +41,10 @@ export function set_portal_state(state: boolean): (e: Event) => void
 
     if (portal.open) {
       portal.placeholder = PLACEHOLDERS.sample_value()!;
+
+      if (portal.filters.query === "" && Math.random() > 0.69) {
+        portal.filters.query = "/";
+      }
     }
 
     requestAnimationFrame(() => {

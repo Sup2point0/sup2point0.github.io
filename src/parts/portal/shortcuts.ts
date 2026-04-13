@@ -5,31 +5,39 @@ export interface ShortcutData
 {
   key:   string;
   title: string;
-  desc:  string;
+  desc?: string;
 }
 
 
-export const shortcuts_data = {
-  NAVIGATE: {
+export const Shortcut =
+{
+  Shortcuts: {
+    key: "/",
+    title: "Shortcuts",
+  },
+  Navigate: {
     key:   "n",
     title: "Navigate",
     desc:  `Quickjump to any page on the site`,
   },
-  WARP: {
+  Warp: {
     key:   "w",
     title: "Warp",
     desc:  `Visit a ${h("https://sup2point0.github.io")} site`,
   },
-  MUSIC: {
+  Music: {
     key:   "m",
     title: "Music",
     desc:  `Play a track of mine`,
   },
-  SOCIALS: {
+  Projects: {
+    key:   "p",
+    title: "Project",
+    desc:  `Visit a project of mine on GitHub`,
+  },
+  Socials: {
     key:   "s",
-    title: "socials",
+    title: "Socials",
     desc:  `Quicklink to one of my socials`,
   },
 };
-
-export const shortcuts_list = Object.values(shortcuts_data);

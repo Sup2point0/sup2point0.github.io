@@ -1,5 +1,3 @@
-import { page } from "$app/state";
-
 export const status = $state({ client: false });
 
 export function client_live()

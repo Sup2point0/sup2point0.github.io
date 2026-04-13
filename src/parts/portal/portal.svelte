@@ -5,9 +5,7 @@ An overlay for quick navigation and commands execution.
 
 <script lang="ts">
 
-import { FrozenWeightedList } from "@sup2.0/weighted-list";
-
-import { portal } from "#scripts/state";
+import { portal, set_portal_state } from "#scripts/state";
 
 import { fade, scale } from "svelte/transition";
 import { cubicIn, cubicOut, expoOut } from "svelte/easing";
@@ -45,31 +43,6 @@ function should_activate(e: KeyboardEvent): boolean
       || e.key === "/"
     )
   );
-}
-
-function activate(state: boolean): (e: Event) => void
-{
-  return e => {
-    e.preventDefault();
-    portal.open = state;
-    portal.filters.focused_idx = 0;
-
-    if (portal.open) {
-      placeholder = placeholders.sample_value()!;
-    }
-
-    requestAnimationFrame(() => {
-      portal.live = state;
-
-      if (portal.open) {
-        /* @ts-ignore */
-        previously_focused = document.activeElement;
-        portal.input?.focus();
-      } else {
-        previously_focused?.focus();
-      }
-    });
-  }
 }
 
 
@@ -119,23 +92,13 @@ function handle_hotkeys(e: KeyboardEvent)
   }
 }
 
-
-let placeholder = $state("");
-
-const placeholders = new FrozenWeightedList(
-  [20, `explore the site!`],
-  [20, `quicknav to any page!`],
-  [20, `type / to use a shortcut!`],
-  [1, `never gonna give you up~`],
-);
-
 </script>
 
 
 <svelte:window
   onkeydown={e => {
-    if    (should_deactivate(e)) { activate(false)(e); }
-    else if (should_activate(e)) { activate(true)(e); }
+    if    (should_deactivate(e)) { set_portal_state(false)(e); }
+    else if (should_activate(e)) { set_portal_state(true)(e); }
     
     if ("abcdefghijklmnopqrstuvwxyz/".includes(e.key.toLowerCase())) {
       if (portal.input && document.activeElement !== portal.input) {
@@ -156,7 +119,7 @@ const placeholders = new FrozenWeightedList(
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <div class="portal-overlay"
-    onclick={activate(false)}
+    onclick={set_portal_state(false)}
     in:fade={{ duration: 400, easing: cubicOut }}
     out:fade={{ duration: 400, easing: cubicIn }}
   ></div>
@@ -171,7 +134,7 @@ const placeholders = new FrozenWeightedList(
   <div class="input-container">
     <input type="search"
       name="portal"
-      {placeholder}
+      placeholder={portal.placeholder}
       bind:value={portal.filters.query}
       bind:this={portal.input}
       onkeydown={handle_hotkeys}
@@ -195,7 +158,7 @@ const placeholders = new FrozenWeightedList(
         onclick={e => {
           portal.filters.trigger(i);
           if (result.action()) {
-            activate(false)(e);
+            set_portal_state(false)(e);
           }
         }}
         style:--delay="{i * 69}ms"

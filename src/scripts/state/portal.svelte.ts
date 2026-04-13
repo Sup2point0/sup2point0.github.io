@@ -1,3 +1,5 @@
+import { FrozenWeightedList } from "@sup2.0/weighted-list";
+
 import { PortalSearchFilter } from "#parts/portal/filters.portal.svelte";
 
 
@@ -13,10 +15,52 @@ export const portal: {
 
   /** The input bar of the portal. */
   input: HTMLInputElement | null;
+
+  /** Placeholder text of the input bar. */
+  placeholder: string;
+
+  /** Previously focused element to re-focus when portal is closed. */
+  previously_focused: HTMLElement | null;
 } = $state(
 {
-  open: false,
-  live: false,
-  filters: new PortalSearchFilter(),
-  input: null
+  open:        false,
+  live:        false,
+  filters:     new PortalSearchFilter(),
+  input:       null,
+  placeholder: "",
+  previously_focused: null,
 });
+
+
+export function set_portal_state(state: boolean): (e: Event) => void
+{
+  return e => {
+    e.preventDefault();
+    portal.open = state;
+    portal.filters.focused_idx = 0;
+
+    if (portal.open) {
+      portal.placeholder = PLACEHOLDERS.sample_value()!;
+    }
+
+    requestAnimationFrame(() => {
+      portal.live = state;
+
+      if (portal.open) {
+        /* @ts-ignore */
+        portal.previously_focused = document.activeElement;
+        portal.input?.focus();
+      } else {
+        portal.previously_focused?.focus();
+      }
+    });
+  }
+}
+
+
+const PLACEHOLDERS = new FrozenWeightedList(
+  [20, `explore the site!`],
+  [20, `quicknav to any page!`],
+  [20, `type / to use a shortcut!`],
+  [1, `never gonna give you up~`],
+);

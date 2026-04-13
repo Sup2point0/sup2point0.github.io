@@ -1,6 +1,6 @@
 <script>
 
-import { portal } from "#scripts/state";
+import { set_portal_state } from "#scripts/state";
 
 import Footer from "#parts/core/footer.svelte";
 import Main   from "#parts/core/main.svelte";
@@ -41,7 +41,7 @@ import ProfileShowerthought from "./showerthought.svelte";
       <ProfileDirections />
     </div>
 
-    <button onclick={() => { portal.open = true; }}>explore...</button>
+    <button onclick={set_portal_state(true)}>explore...</button>
   </section>
 
   <section><ProfileCards /></section>
@@ -100,6 +100,14 @@ button {
 
   &::before {
     background: $col-card-light;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    &::before {
+      background: $col-card-light-hover;
+    }
   }
 }
 

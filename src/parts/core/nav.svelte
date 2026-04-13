@@ -2,41 +2,18 @@
 
 import NavLink from "#parts/core/nav.link.svelte";
 
-import { onMount } from "svelte";
-
 
 interface Props {
-  back?: boolean;
+  "with-back"?: boolean;
   margin?: string;
 }
 
-let { back = true, margin = "1rem" }: Props = $props();
-
-
-let self: HTMLElement;
-let fixed = $state(false);
-
-onMount(() => {
-  if (back) return;
-
-  let observer = new IntersectionObserver(([entry]) => {
-    if (entry.intersectionRatio < 1) {
-      fixed = true;
-    } else {
-      fixed = false;
-    }
-  }, {
-    threshold: 1.0,
-  });
-
-  observer.observe(self);
-});
+let { "with-back": back = true, margin = "1rem" }: Props = $props();
 
 </script>
 
 
-<nav class={{ back, fixed }}
-  bind:this={self}
+<nav class:back
   style:margin-bottom={margin}
 >
   <NavLink text="INFO" link="/sup/info" />
@@ -63,7 +40,7 @@ nav {
   align-items: center;
   transition: #{trans()};
 
-  &.back, &.fixed {
+  &.back {
     background: rgb(white, 4%);
     backdrop-filter: blur(12px) brightness(90%);
   }

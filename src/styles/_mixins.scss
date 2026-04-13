@@ -40,12 +40,15 @@
   }
 }
 
-@mixin card {
+@mixin card($light: false) {
   background: $col-card;
+  @if $light {
+    background: $col-card-light;
+  }
   backdrop-filter: blur(12px);
 }
 
-@mixin shear-card($interactive: false, $glow: false) {
+@mixin shear-card($interactive: false, $glow: false, $light: false) {
   position: relative;
   
   &::before {
@@ -57,7 +60,7 @@
     top: 0;
     left: 0;
     z-index: -1;
-    @include card;
+    @include card($light);
     transform: skew($shear-factor);
     transition: #{trans()};
   }
@@ -72,6 +75,9 @@
       
       &::before {
         background: $col-card-hover;
+        @if $light {
+          background: $col-card-light-hover;
+        }
 
         @if $glow {
           border-radius: 0.6em;

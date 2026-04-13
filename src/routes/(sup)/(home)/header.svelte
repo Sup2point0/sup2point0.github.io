@@ -96,8 +96,9 @@ p {
   span.hidden {
     position: absolute;
     top: 2rem;
-    right: 0;
+    left: 50%;
     white-space: nowrap;
+    transform: translateX(-50%);
     opacity: 0;
     transition-delay: 0s;
   }

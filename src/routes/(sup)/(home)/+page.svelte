@@ -1,5 +1,7 @@
 <script>
 
+import { portal } from "#scripts/state";
+
 import Footer from "#parts/core/footer.svelte";
 import Main   from "#parts/core/main.svelte";
 import Nav    from "#parts/core/nav.svelte";
@@ -31,13 +33,15 @@ import ProfileShowerthought from "./showerthought.svelte";
   <section class="upper">
     <div class="left">
       <ProfileHeader />
-      <Nav back={false} />
+      <Nav with-back={false} />
     </div>
 
     <div class="right">
       <ProfileBio />
       <ProfileDirections />
     </div>
+
+    <button onclick={() => { portal.open = true; }}>explore...</button>
   </section>
 
   <section><ProfileCards /></section>
@@ -79,6 +83,23 @@ section.upper {
       flex-shrink: 1;
       gap: 2rem;
     }
+  }
+}
+
+button {
+  min-width: min(30em, 90vw);
+  padding: 0.5rem 1rem 0.45rem;
+  appearance: none;
+  @include font-fun;
+  font-size: 1.25rem;
+  color: $col-text;
+  @include shear-card($light: true);
+  background: none;
+  border: none;
+  outline: none;
+
+  &::before {
+    background: $col-card-light;
   }
 }
 

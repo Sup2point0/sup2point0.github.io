@@ -45,14 +45,14 @@ let { query = $bindable(), input = $bindable(null) }: Props = $props();
   transition: #{trans()};
 
   &::before {
-    background: rgb(white, 25%);
+    background: $col-card-light;
   }
 
   &:hover, &:has(input:focus) {
     width: min(33rem, 75vw);
 
     &::before {
-      background: rgb(white, 30%);
+      background: $col-card-light-hover;
     }
   }
 

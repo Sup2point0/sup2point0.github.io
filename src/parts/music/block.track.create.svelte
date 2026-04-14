@@ -182,7 +182,7 @@ let { track }: Props = $props();
     color: $col-text;
     text-align: start;
 
-    .block.shrink & {
+    .block-track.shrink & {
       font-size: 175%;
     }
   }

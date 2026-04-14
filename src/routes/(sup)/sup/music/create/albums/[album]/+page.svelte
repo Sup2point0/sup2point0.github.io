@@ -41,6 +41,7 @@ let album: AlbumData = $derived(page.data as AlbumData);
 <style lang="scss">
 
 .tracks {
+  max-width: 100vw;
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;

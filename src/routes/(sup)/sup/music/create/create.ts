@@ -173,6 +173,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           feat:   true,
           shard:  "voxel",
           name:   "Voxel",
+          date:   "summer 2024",
           audio:  "voxel.m4a",
           cover:  "cortex.voxel.png",
           genres: ["electronic", "complextro", "arcade"],
@@ -205,7 +206,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         },
         {
           shard:  "syntax-error",
-          name:   "SyntaxError",
+          name:   "SyntaxErrør",
           audio:  "syntax-error-p1.m4a",
           cover:  "cortex.syntax-error.png",
           genres: ["wackcore"],

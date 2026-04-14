@@ -5,7 +5,8 @@ A wide block card for viewing and playing a soundtrack I created.
 
 <script lang="ts">
 
-import { tunes, play_tune, toggle_pause } from "#scripts/state";
+import { tunes } from "#scripts/state";
+import { display_date } from "#scripts/utils";
 import type { TrackData } from "#scripts/types/music/create";
 
 interface Props {
@@ -22,20 +23,19 @@ let { track }: Props = $props();
   class:preview={track.is_preview}
   class:shrink={track.name.length > 20}
   id={track.shard}
-  onclick={() => (tunes.track.shard === track.shard) ? tunes.toggle_pause() : tunes.play(track)}
+  onclick={() => (tunes.track?.shard === track.shard) ? tunes.toggle_pause() : tunes.play(track)}
 >
   <div class="cover">
     <img alt={track.name} title={track.name}
-      width="200px" height="200px"
       src="/covers/music/create/{track.cover ?? 'preview.png'}"
     />
 
     {#if track.audio}
-      <div class="play" class:paused={!tunes.playing}>
-        {#if tunes.playing}
-          ⏸
-        {:else}
+      <div class="play" class:paused={tunes.track?.shard !== track.shard}>
+        {#if tunes.track?.shard !== track.shard}
           ▶
+        {:else}
+          ⏸
         {/if}
       </div>
     {/if}
@@ -49,7 +49,15 @@ let { track }: Props = $props();
     <div class="sep"></div>
 
     <div class="lower">
-      <ul class="genres">
+      <div class="inner">
+        {#if track.date}
+          <p class="date">
+            {display_date(track.date)}
+          </p>
+        {/if}
+      </div>
+      
+      <ul class="tags">
         {#each track.genres ?? [] as genre}
           <li class="genre"> {genre} </li>
         {/each}
@@ -94,6 +102,8 @@ let { track }: Props = $props();
   position: relative;
 
   img {
+    width: min(169px, 90vw);
+    aspect-ratio: 1;
     box-shadow: 0 0 0px transparent;
     transition: box-shadow 0.4s ease-out;
 
@@ -178,6 +188,7 @@ let { track }: Props = $props();
   }
 }
 
+
 .sep {
   width: 69%;
   height: 1px;
@@ -185,8 +196,23 @@ let { track }: Props = $props();
   background: rgb(white, 10%);
 }
 
+
 .lower {
-  ul.genres {
+  .inner {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+    text-align: start;
+
+    p {
+      margin: 0;
+      @include font-tech;
+      color: $col-text-deut;
+      transition: #{trans()};
+    }
+  }
+
+  ul.tags {
+    padding: 0 0.2rem;
     display: flex;
     flex-flow: row wrap;
     justify-content: start;
@@ -196,7 +222,7 @@ let { track }: Props = $props();
     li {
       padding: 0.1em 0.5em 0;
       @include font-fun;
-      font-size: 150%;
+      font-size: 125%;
       color: $col-text;
       @include shear-card();
       transition: #{trans()};
@@ -215,6 +241,20 @@ let { track }: Props = $props();
       &.genre::before { background: color.change($col-trit, $alpha: 0.69); }
       &.vibe::before { background: color.change($col-deut, $alpha: 0.69); }
     }
+  }
+}
+
+
+@media (max-width: $width-shrink) {
+  .block-track {
+    min-width: 0;
+    max-width: 90vw;
+    flex-flow: column nowrap;
+    gap: 1rem;
+  }
+
+  h3 {
+    font-size: 100% !important;
   }
 }
 

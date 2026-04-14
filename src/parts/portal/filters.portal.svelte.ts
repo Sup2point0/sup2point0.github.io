@@ -2,8 +2,8 @@ import { ratio, partial_ratio } from "fuzzball";
 
 import { play_tune } from "#scripts/state";
 import { SearchFilter, type Searchable } from "#scripts/search-filter.svelte";
-import type { TrackData } from "#scripts/types/music";
 import { shuffle } from "#scripts/utils";
+import type { TrackData } from "#scripts/types/music/create";
 import type { int, filepath } from "#scripts/types";
 
 import { Shortcut, type ShortcutData } from "./shortcuts";
@@ -143,6 +143,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
 
   show_tracks(): PortalSearchResult[]
   {
+    // TODO just use a `TrackSearchFilter`, wouldn't that be cool!
     let tracks = tracks_list
       .filter(track => !track.is_preview)
       .toSorted((prot, deut) => prot.name.localeCompare(deut.name));
@@ -153,6 +154,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
           track.name.at(0).toLowerCase() === this.query.at(3)?.toLowerCase() ? 100 : 0,
           partial_ratio(this.query, track.shard ?? ""),
           partial_ratio(this.query, track.name),
+          partial_ratio(this.query, track.album.name),
           partial_ratio(this.query, track.genres?.join(" ")),
         ),
       })

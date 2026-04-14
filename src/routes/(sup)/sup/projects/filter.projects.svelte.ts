@@ -1,7 +1,7 @@
 import { partial_ratio } from "fuzzball";
 
 import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
-import { any, all, get_enabled, datepoint_to_date } from "#scripts/utils";
+import { any, all, get_enabled, datepoint_to_prec } from "#scripts/utils";
 import type { States } from "#scripts/types";
 
 import type { ProjectData } from "./projects";
@@ -158,7 +158,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
       case "date":
         /* @ts-ignore */
         grouper = proj => {
-          let value = datepoint_to_date(proj.date);
+          let value = datepoint_to_prec(proj.date);
           return Array.isArray(value) ? Math.min(...value.map(Math.floor)) : Math.floor(value);
         }
         break;

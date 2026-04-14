@@ -1,5 +1,5 @@
 import {
-  shardify, datepoint_to_date,
+  shardify, datepoint_to_prec,
   all, any, sum,
 } from "#scripts/utils";
 
@@ -201,18 +201,16 @@ export class SearchFilter<Entity extends Searchable>
     return this.sort(source, {
       scorer: each => {
         if (Array.isArray(each.date)) {
-          return Math.min(...datepoint_to_date(each.date) as number[]);
+          return Math.min(...datepoint_to_prec(each.date) as number[]);
         }
-        return datepoint_to_date(each.date) as number;
+        return datepoint_to_prec(each.date) as number;
       }
     })
   }
 
   sort_name(source: Entity[]): Entity[]
   {
-    return this.sort(source, {
-      comparer: (prot, deut) => prot.name.localeCompare(deut.name),
-    });
+    return source.toSorted((prot, deut) => prot.name.localeCompare(deut.name));
   }
 
 

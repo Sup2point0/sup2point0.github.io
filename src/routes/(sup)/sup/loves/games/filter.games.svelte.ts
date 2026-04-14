@@ -14,13 +14,12 @@ export class GameSearchFilter extends SearchFilter<GameData>
   state       = $state(SearchFilter.init_states(PlayState));
 
 
-  get toggles(): Record<string, States>
-  {
+  get toggles(): Record<string, States> {
     return {
       genres:    this.genres,
       platforms: this.platforms,
       state:     this.state,
-    }
+    };
   }
 
   get groups(): string[] {

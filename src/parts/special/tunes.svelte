@@ -5,7 +5,7 @@ The site-wide music player!
 
 <script lang="ts">
 
-import { tunes, toggle_pause, stop_playing } from "#scripts/state";
+import { tunes, stop_playing } from "#scripts/state";
 import { display_timestamp } from "#scripts/utils";
 
 import { expoOut } from "svelte/easing";
@@ -51,7 +51,7 @@ function onended()
   {#if tunes.track}
     <button class="pause"
       class:paused={!tunes.playing}
-      onclick={toggle_pause}
+      onclick={tunes.toggle_pause}
     >
       {#if tunes.playing}
         ⏸

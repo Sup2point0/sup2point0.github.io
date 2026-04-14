@@ -22,7 +22,22 @@ export const tunes: TuneState = $state({
     if (track.audio) {
       this.playing = true;
       this.track = track;
-      requestAnimationFrame(() => tunes.audio?.play());
+
+      requestAnimationFrame(() => {
+        tunes.audio?.play();
+
+        if (!("mediaSession" in window.navigator)) return;
+
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title:  track.name,
+          artist: "Sup#2.0",
+          album:  track.album.name,
+          artwork: [
+            { src: `/covers/music/create/${track.cover ?? track.album.cover ?? "placeholder.png"}` }
+          ],
+        });
+        navigator.mediaSession.playbackState = "playing";
+      });
     }
     else {
       window.alert("no audio file for this track =(");
@@ -35,8 +50,24 @@ export const tunes: TuneState = $state({
       case true:  this.audio?.pause(); this.playing = false; break;
       case false: this.audio?.play();  this.playing = true;  break;
     }
+
+    if ('mediaSession' in window.navigator) {
+      navigator.mediaSession.playbackState = this.playing ? "playing" : "paused";
+    }
   },
 });
+
+
+if ("mediaSession" in navigator) {
+  navigator.mediaSession.setActionHandler("play", () => tunes.toggle_pause());
+  navigator.mediaSession.setActionHandler("pause", () => tunes.toggle_pause());
+  navigator.mediaSession.setActionHandler("previoustrack", () => {
+    if (tunes.audio) tunes.audio.currentTime = 0;
+  });
+  navigator.mediaSession.setActionHandler("seekto", details => {
+    if (tunes.audio) tunes.audio.currentTime = details.seekTime ?? 0;
+  });
+}
 
 
 export function play_tune(track: TrackData)

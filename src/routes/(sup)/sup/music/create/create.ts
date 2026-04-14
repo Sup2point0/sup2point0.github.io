@@ -15,6 +15,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "sunrise",
           name:   "Sunrise",
+          date:   ["29 October 2024", "September 2025"],
           audio:  "sunrise-preview.m4a",
           cover:  "placeholder.png",
           genres: ["electronic"],
@@ -23,6 +24,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "gurls",
           name:   "aespa – Girls (Sup#2.0 remix)",
+          date:   ["18 January 2025", "24 January 2025"],
           audio:  "gurls-p1.m4a",
           cover:  "placeholder.png",
           genres: ["neurofunk", "hardcore", "electronic"],
@@ -30,6 +32,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "sunset",
           name:   "Sunset",
+          date:   ["8 October 2023", "November 2023"],
           audio:  "sunset.m4a",
           cover:  "single.sunset.png",
           genres: ["electronic"],
@@ -58,6 +61,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "a-journey-across-time",
           name:   "A Journey Across Time",
+          date:   ["13 May 2025", "September 2025"],
           audio:  "a-journey-across-time-p1.m4a",
           cover:  "placeholder.png",
           genres: ["cinematic"],
@@ -92,6 +96,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           feat:   true,
           shard:  "audacious-antiderivative",
           name:   "Audacious Antiderivative",
+          date:   ["20 September 2024", "present"],
           audio:  undefined,
           cover:  undefined,
           genres: ["electronic", "polymeter"],
@@ -101,6 +106,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "pathological-constant",
           name:   "Pathological Constant",
+          date:   ["20 September 2024", "present"],
           audio:  undefined,
           cover:  undefined,
           is_preview: true,
@@ -144,6 +150,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           feat:   true,
           shard:  "infinitesimal-ignition",
           name:   "Infinitesimal Ignition",
+          date:   ["16 March 2024", "present"],
           audio:  undefined,
           cover:  undefined,
           genres: ["bass"],
@@ -173,7 +180,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           feat:   true,
           shard:  "voxel",
           name:   "Voxel",
-          date:   "summer 2024",
+          date:   ["26 June 2024", "summer 2024"],
           audio:  "voxel.m4a",
           cover:  "cortex.voxel.png",
           genres: ["electronic", "complextro", "arcade"],
@@ -182,6 +189,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "pseudorandom",
           name:   "pseudorandom",
+          date:   ["15 December 2024", "September 2025"],
           audio:  "pseudorandom-preview.m4a",
           cover:  "cortex.pseudorandom.png",
           genres: ["wackcore"],
@@ -190,6 +198,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "dactyl",
           name:   "Dactyl",
+          date:   ["8 March 2024", "September 2025"],
           audio:  "dactyl-p1.m4a",
           cover:  "cortex.dactyl.png",
           genres: ["rhythm", "electronic", "bass"],
@@ -199,6 +208,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           is_preview: true,
           shard:  "mem-brain",
           name:   "MEM=BRAIN",
+          date:   ["24 March 2025", "present"],
           audio:  undefined,
           cover:  "cortex.mem-brain.png",
           genres: ["rhythm", "wackcore"],
@@ -207,6 +217,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "syntax-error",
           name:   "SyntaxErrør",
+          date:   ["10 February 2025", "September 2025"],
           audio:  "syntax-error-p1.m4a",
           cover:  "cortex.syntax-error.png",
           genres: ["wackcore"],
@@ -215,6 +226,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "elysion",
           name:   "Π0!ZV/Σ",
+          date:   ["28 June 2025", "September 2025"],
           audio:  "elysion.m4a",
           cover:  "cortex.elysion.png",
           genres: ["wackcore", "hardstyle"],
@@ -245,6 +257,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           feat:   true,
           shard:  "aphenia",
           name:   "Aphenia",
+          date:   ["december 2023", "spring 2024"],
           audio:  "aphenia.m4a",
           cover:  "elysion.aphenia.png",
           genres: ["neurofunk", "ambient"],
@@ -254,6 +267,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           is_preview: true,
           shard:  "ephemerald",
           name:   "Ephemerald",
+          date:   ["24 September 2024", "present"],
           audio:  undefined,
           cover:  "elysion.ephemerald.png",
           genres: ["artcore"],
@@ -271,6 +285,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "ceruleus",
           name:   "Ceruleus",
+          date:   ["19 May 2024", "December 2024"],
           audio:  "ceruleus.m4a",
           cover:  "elysion.ceruleus.png",
           genres: ["orchestral", "neurofunk"],
@@ -288,6 +303,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "viridian",
           name:   "Viridian",
+          date:   ["14 July 2024", "march 2025"],
           audio:  "viridian.m4a",
           cover:  "elysion.viridian.png",
           genres: ["artcore"],
@@ -319,6 +335,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           feat:   true,
           shard:  "another-dawn",
           name:   "Another Dawn",
+          date:   ["21 July 2024", "summer 2024"],
           audio:  "another-dawn.m4a",
           cover:  "vision.another-dawn.png",
           genres: ["electronic"],
@@ -336,6 +353,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "nightfall",
           name:   "Nightfall",
+          date:   ["24 August 2025", "April 2026"],
           audio:  "nightfall-v1.m4a",
           cover:  "vision.nightfall.png",
           genres: ["electronic"],
@@ -344,6 +362,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "reminiscence",
           name:   "Reminiscence",
+          date:   ["30 August 2024", "winter 2024"],
           audio:  "reminiscence.m4a",
           cover:  "vision.reminiscence.png",
           genres: ["ambient", "lo-fi"],
@@ -374,6 +393,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           is_preview: true,
           shard:  "away",
           name:   "Away",
+          date:   ["22 October 2023", "present"],
           audio:  undefined,
           cover:  "roots.away.png",
           genres: ["wackcore"],
@@ -382,6 +402,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "rejuvenate",
           name:   "Rejuvenate",
+          date:   ["7 July 2024", "fall 2024"],
           audio:  "rejuvenate-preview.m4a",
           cover:  "roots.rejuvenate.png",
           genres: ["electronic"],
@@ -400,6 +421,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           feat:   true,
           shard:  "rush-reloaded",
           name:   "Rush Reloaded",
+          date:   ["5 November 2023", "summer 2025"],
           audio:  "rush-reloaded-preview.m4a",
           cover:  "roots.rush-reloaded.png",
           genres: ["rhythm", "arcade"],
@@ -408,6 +430,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "skies-above",
           name:   "Skies Above",
+          date:   ["january 2026"],
           audio:  undefined,
           cover:  "roots.skies-above.png",
           genres: ["electronic"],
@@ -418,6 +441,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           feat:   true,
           shard:  "rise",
           name:   "Rise",
+          date:   ["18 September 2023", "present"],
           audio:  undefined,
           cover:  undefined,
           genres: ["artcore", "hardcore"],
@@ -437,6 +461,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "dawn",
           name:   "Dawn",
+          date:   ["september 2023"],
           audio:  "dawn.m4a",
           cover:  "origins.dawn.png",
           genres: ["electronic"],
@@ -445,6 +470,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "day",
           name:   "Day",
+          date:   ["october 2023"],
           audio:  "day.m4a",
           cover:  "origins.day.png",
           genres: ["electronic"],
@@ -454,6 +480,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           feat:   true,
           shard:  "night",
           name:   "Night",
+          date:   "october 2023",
           audio:  "night.m4a",
           cover:  "origins.night.png",
           genres: ["electronic"],
@@ -471,6 +498,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "tomorrow",
           name:   "Tomorrow",
+          date:   ["14 October 2023", "January 2024"],
           audio:  "tomorrow.m4a",
           cover:  "origins.tomorrow.png",
           genres: ["electronic"],
@@ -615,7 +643,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         {
           shard:  "let-you-down",
           name:   "Let You Down",
-          date:   "2024 SPRING",
+          date:   "spring 2024",
           audio:  "let-you-down.m4a",
           cover:  "let-you-down.jpg",
           vibes:  ["chill", "jokes"],
@@ -689,7 +717,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
       ],
     },
   ],
-});
+} as Groups<AlbumData>);
 
 export const albums_list: AlbumData[] = Object.values(albums_data).flat();
 

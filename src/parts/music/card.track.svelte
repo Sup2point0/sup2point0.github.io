@@ -5,7 +5,7 @@ A small square card for a soundtrack with its cover and name.
 
 <script lang="ts">
 
-import type { TrackData } from "#scripts/types";
+import type { TrackData } from "#scripts/types/music/create";
 
 interface Props {
   track: TrackData;
@@ -18,7 +18,6 @@ let { track }: Props = $props();
 
 <a class="track card"
   class:feat={track.feat}
-  class:preview={track.is_preview}
   href="/sup/music/create/albums/{track.album.shard}#{track.shard}"
 >
   <div class="img-container">
@@ -69,11 +68,6 @@ a.card.track.feat {
   img {
     box-shadow: 0 12px 64px color.change($col-trit, $alpha: 0.25);
   }
-}
-
-a.card.track.preview {
-  pointer-events: none;
-  opacity: 25%;
 }
 
 

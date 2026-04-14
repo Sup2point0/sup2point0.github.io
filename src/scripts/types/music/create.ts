@@ -8,7 +8,7 @@ export interface TrackData extends Searchable {
 
   shard: shard;
   name:  string;
-  date?: Datepoint;
+  date?: Dates;
   
   audio?: string;
   cover?: string;

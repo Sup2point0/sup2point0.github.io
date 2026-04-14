@@ -119,7 +119,7 @@
   outline: none;
 
   @if $active {
-    box-shadow: 0 0 12px $col-quat;
+    box-shadow: 0 0 12px $col-trit;
   } @else {
     box-shadow: 0 0 12px $col-prot;
   }

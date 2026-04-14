@@ -159,7 +159,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
       .map(track => ({
         title: track.name,
         capt:  track.album.name,
-        icon:  `covers/music/create/${track.cover}`,
+        icon:  `/covers/music/create/${track.cover}`,
         action: () => play_tune(track as TrackData),
       }))
     )

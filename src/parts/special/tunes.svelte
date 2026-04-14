@@ -16,8 +16,14 @@ let duration: number | undefined = $state();
 let timestamp: number | undefined = $state();
 let interval = 0;
 
+function sync_duration()
+{
+  duration = tunes.audio?.duration;
+}
+
 function onplay()
 {
+  sync_duration();
   interval = setInterval(() => { timestamp = tunes.audio?.currentTime }, 200);
 }
 
@@ -34,7 +40,7 @@ function onended()
   bind:this={tunes.audio}
   {onplay}
   {onended}
-  onloadeddata={() => { duration = this.duration; }}
+  onloadeddata={sync_duration}
 >
 </audio>
 
@@ -73,7 +79,7 @@ function onended()
     </p>
 
     <div class="bar" class:long={duration >= 5 * 60}
-      style:--frac={(timestamp ?? 0) / (duration ?? 1)}>
+      style:--frac={Math.min(1, (timestamp ?? 0) / (duration ?? 1))}>
     </div>
 
     {#key tunes.track.shard}

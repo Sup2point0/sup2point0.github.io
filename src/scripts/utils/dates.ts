@@ -1,59 +1,77 @@
-import type { Datepoint } from "#scripts/types";
+import type { Dates } from "#scripts/types";
 
 
-export function datepoint_to_date(date: Datepoint | Datepoint[] | undefined): number | number[]
+export function datepoint_to_prec(date: Dates | undefined): number | number[]
 {
   if (date === undefined) {
     return -1;
   }
 
   if (Array.isArray(date)) {
-    return date.map(datepoint_to_date) as number[];
+    return date.map(datepoint_to_prec) as number[];
   }
 
-  if (typeof date === "string") {
-    let [spec, year] = date.split(" ");
+  if (typeof date !== "string") return 0;
+  let parts = date.split(" ");
 
-    if (spec === "childhood") {
-      return 0;
-    }
-    if (spec === "present") {
-      return 3000;
-    }
+  let day:  string = "0";
+  let spec: string = "";
+  let year: string;
+  
+  switch (parts.length) {
+    case 1:
+      [year] = parts;
 
-    let prec: number;
-    switch (spec.toLowerCase()) {
-      case "late":      prec = 90; break;
-      case "winter":    prec = 85; break;
-      case "december":  prec = 80; break;
-      case "november":  prec = 75; break;
-      case "october":   prec = 70; break;
-      case "fall":      prec = 65; break;
-      case "september": prec = 60; break;
+      if (year === "childhood") {
+        return 0;
+      }
+      if (year === "present") {
+        return 3000;
+      }
 
-      case "summer": prec = 55; break;
-      case "august": prec = 50; break;
-      case "july":   prec = 45; break;
-      case "june":   prec = 40; break;
+      break;
+    
+    case 2: [spec, year] = parts; break;
+    case 3: [day, spec, year] = parts; break;
 
-      case "may":      prec = 35; break;
-      case "spring":   prec = 30; break;
-      case "april":    prec = 25; break;
-      case "march":    prec = 20; break;
-      case "february": prec = 15; break;
-      case "january":  prec = 10; break;
-      case "early":    prec = 5; break;
-      default:         prec = 0; break;
-    }
+    default: return -1;
+  }
+  
+  let coarse: number = 0;
 
-    return Number(year) + prec / 100;
+  switch (spec.toLowerCase()) {
+    case "late":      coarse = 90; break;
+    case "winter":    coarse = 85; break;
+    case "december":  coarse = 80; break;
+    case "november":  coarse = 75; break;
+    case "october":   coarse = 70; break;
+    case "fall":      coarse = 65; break;
+    case "september": coarse = 60; break;
+
+    case "summer": coarse = 55; break;
+    case "august": coarse = 50; break;
+    case "july":   coarse = 45; break;
+    case "june":   coarse = 40; break;
+
+    case "may":      coarse = 35; break;
+    case "spring":   coarse = 30; break;
+    case "april":    coarse = 25; break;
+    case "march":    coarse = 20; break;
+    case "february": coarse = 15; break;
+    case "january":  coarse = 10; break;
+    case "early":    coarse = 5; break;
+    default:         coarse = 0; break;
   }
 
-  return date
+  return (
+      10000 * Number(year)
+    + 100 * coarse
+    + Number(day)
+  );
 }
 
 
-export function display_date(date: Datepoint | Datepoint[]): string
+export function display_date(date: Dates): string
 {
   if (Array.isArray(date)) {
     if (date.length > 1) {

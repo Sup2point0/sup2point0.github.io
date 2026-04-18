@@ -7,6 +7,12 @@ import LinkCard from "#parts/ui/card.link.svelte";
 </script>
 
 
+<svelte:head>
+  <title> Create × Music × Sup#2.0 </title>
+  <meta name="description" content="All the music I create." />
+</svelte:head>
+
+
 <Breadcrumbs levels={[
   { text: "music", intern: "sup/music" },
   { text: "create" },

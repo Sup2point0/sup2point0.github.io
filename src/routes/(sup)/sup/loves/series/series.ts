@@ -37,8 +37,8 @@ const data: Groups<SeriesData> =
   "children’s shows I unironically love": [
     {
       name:   "« 熊出没 »",
-      desc:   `Boonie Bears`,
       genres: [Genre.CARTOON, Genre.COMEDY],
+      desc:   `Boonie Bears`,
     }, {
       name:   "Ben & Holly’s Little Kingdom",
     }, {

@@ -10,6 +10,12 @@ import Adventure   from "#parts/special/adventure.svelte";
 </script>
 
 
+<svelte:head>
+  <title> Listen × Music × Sup#2.0 </title>
+  <meta name="description" content="All the music I listen to." />
+</svelte:head>
+
+
 <Breadcrumbs levels={[
   { text: "music", intern: "sup/music" },
   { text: "listen" },

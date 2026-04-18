@@ -21,6 +21,9 @@ export interface Searchable
 
   /** Which 'collection' this entity belongs to. */
   collection?: string;
+
+  /** Should this entity be hidden by default? */
+  is_hidden?: boolean;
   
   /** A cached score for how relevant this entity is for a given search query. */
   _score?: number;
@@ -64,6 +67,8 @@ export class SearchFilter<Entity extends Searchable>
 
   sort_by:       string  = $state("default");
   reverse_sort:  boolean = $state(false);
+
+  show_hidden: boolean = $state(false);
 
   [prop: string]: any;
 
@@ -119,44 +124,45 @@ export class SearchFilter<Entity extends Searchable>
     exclude_if?: (entity: Entity) => boolean,
   ): Entity[]
   {
-    let out = source.filter(
-      each => {
-        each._score = 0;
-        let filtered = false;
+    let out = source.filter(each => {
+      each._score = 0;
+      let filtered = false;
 
-        if (exclude_if?.(each)) return false;
+      if (!this.show_hidden && each.is_hidden) return false;
+      if (exclude_if?.(each)) return false;
 
-        for (let [prop, states] of Object.entries(this.toggles)) {
-          if (all(states) || !any(states)) continue;
+      for (let [prop, states] of Object.entries(this.toggles)) {
+        /** If the user hasn't made any choice, don't activate any filters. */
+        if (all(states) || !any(states)) continue;
 
-          let hit = false;
+        let hit = false;
 
-          for (let [toggle, state] of Object.entries(states)) {
-            if (state) {
-              if (Array.isArray(each[prop])) {
-                let matches = each[prop].filter(p => p === toggle).length;
-                if (matches > 0) {
-                  hit = true;
-                  each._score += matches ** 2;
-                }
-              }
-              else if (each[prop] === toggle) {
+        for (let [toggle, state] of Object.entries(states)) {
+          if (state) {
+            if (Array.isArray(each[prop])) {
+              let matches = each[prop].filter(p => p === toggle).length;
+              if (matches > 0) {
                 hit = true;
-                each._score++;
+                each._score += matches ** 2;
               }
             }
+            else if (each[prop] === toggle) {
+              hit = true;
+              each._score++;
+            }
           }
-
-          if (!hit) return false;
-          filtered = true;
         }
 
-        return (each._score > 0 || !filtered);
+        if (!hit) return false;
+        filtered = true;
       }
-    );
 
+      return (each._score > 0 || !filtered);
+    });
+
+    /* If filtering removes all results, bail out and return the original. */
     if (out.length === 0 && this.query) {
-      out = source;
+      return source;
     }
 
     return out;

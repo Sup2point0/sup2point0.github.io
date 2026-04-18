@@ -13,6 +13,7 @@ import { sites_data } from "#routes/sites";
 import { projects_list } from "#sup/projects/projects";
 import { socials_list } from "#routes/(sup)/(home)/socials";
 
+import { page } from "$app/state";
 import { goto } from "$app/navigation";
 
 
@@ -109,9 +110,13 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
   {
     return (
       super.sort(routes_list, {
-        scorer: route => Math.max(
-          partial_ratio(this.query, route.link),
-          partial_ratio(this.query, route.title),
+        scorer: route => (
+          this.query === ""
+          ? partial_ratio(page.url.pathname, route.link)
+          : Math.max(
+            partial_ratio(this.query, route.link),
+            partial_ratio(this.query, route.title),
+          ) + (route.link.startsWith(page.url.pathname))
         ),
       })
       .map(route => ({

@@ -31,8 +31,10 @@ let { track }: Props = $props();
     />
 
     {#if track.audio}
-      <div class="play" class:paused={tunes.track?.shard !== track.shard}>
-        {#if tunes.track?.shard !== track.shard}
+      {@const paused = tunes.track?.shard !== track.shard || !tunes.playing}
+
+      <div class="play" class:paused>
+        {#if paused}
           ▶
         {:else}
           ⏸
@@ -141,7 +143,6 @@ let { track }: Props = $props();
     color: white;
     text-align: center;
     background: $col-card-hover;
-    backdrop-filter: blur(4px);
     border-radius: 50%;
     transform: translateX(-50%) translateY(-50%);
     opacity: 0;

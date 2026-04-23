@@ -53,11 +53,15 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
     }
 
     return super.sort(tracks, {
-      scorer: track => Math.max(
-        partial_ratio(this.query, track.shard ?? ""),
-        partial_ratio(this.query, track.name),
-        partial_ratio(this.query, track.album.name),
-        partial_ratio(this.query, track.genres?.join(" ") ?? ""),
+      scorer: track => (
+        /* NOTE: Prioritise tracks whose name starts with the same letter as the query */
+        (track.name.at(0)?.toLowerCase() === this.query.at(0)?.toLowerCase() ? 100 : 0)
+        + Math.max(
+          partial_ratio(this.query, track.shard ?? ""),
+          partial_ratio(this.query, track.name),
+          partial_ratio(this.query, track.album.name),
+          partial_ratio(this.query, track.genres?.join(" ") ?? ""),
+        )
       )
     });
   }

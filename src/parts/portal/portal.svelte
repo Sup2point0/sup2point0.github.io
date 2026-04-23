@@ -135,6 +135,7 @@ function handle_hotkeys(e: KeyboardEvent)
     <input type="search"
       name="portal"
       placeholder={portal.placeholder}
+      autocomplete="off"
       bind:value={portal.filters.query}
       bind:this={portal.input}
       onkeydown={handle_hotkeys}

@@ -25,11 +25,11 @@ export const facts: Fact[] = [
   },
   {
     text: `My record typing speed is ${h("190 WPM")}.`,
-    desc: `10-second burst tho, so not realistic at all lmao. I tend to float at more around ${h("130")}, and when I’m actually typing content it’s more like ${h("80~120")} WPM. Also, typing lowercase words != typing code.`,
+    desc: `10-second burst tho, so not realistic at all lmao. I tend to float at more around ${h("130")}, and when I’m actually typing content it’s more like ${h("80~120")} WPM. Also, typing lowercase words != typing sentences != typing code.`,
   },
   {
     text: `I can type one-handed at ${h("~90 WPM")}.`,
-    desc: `On iPad. I often need to hold my iPad with my left hand, and then type with my right, so I started typing one-handed. It’s very fun. Feels like playing Phigros.`
+    desc: `On iPad. I often need to hold my iPad with my left hand, and then type with my right, so I started typing one-handed. It’s very fun. Feels like playing Phigros :P`
   },
   {
     text: `I love light mode.`,
@@ -53,11 +53,11 @@ export const facts: Fact[] = [
   },
   {
     text: `I’m writing a novel of lore for my custom ${i("Yu-Gi-Oh")} cards.`,
-    desc: `It’s called ${i("The Stranded Saga")}. You can check it out ${a(`in ${i("Assort")}`)}, "https://sup2point0.github.io/Assort/yugioh/lore/stranded-saga/the-stranded-saga")}, altho it’s far from finished.`,
+    desc: `It’s called ${i("The Stranded Saga")}. You can check it out in ${a(i("Assort"), "https://sup2point0.github.io/Assort/yugioh/lore/stranded-saga/the-stranded-saga")}, altho it’s far from finished (and probably never will).`,
   },
   {
     text: `I’ve created ${h("300+")} integrals.`,
-    desc: `As in, written my own integration questions. Yeah, I’m down so bad for maths. You can see them ${a(`on ${i("Integrity")}`)}, "https://sup2point0.github.io/integrity/questions/integrals")}.`,
+    desc: `As in, written my own integration questions. Yeah, I’m down so bad for maths. You can see them on ${a(i("Integrity"), "https://sup2point0.github.io/integrity/questions/integrals")}.`,
   },
   
   {
@@ -82,7 +82,7 @@ export const facts: Fact[] = [
   },
   {
     text: `I write poetry.`,
-    desc: `Despite despising it for most of my childhood, I realised I unironically enjoy writing it. You can check out my works ${a(`in ${i("Assort")}`)}, "https://sup2point0.github.io/Assort/poetry")} :D`,
+    desc: `Despite despising it for most of my childhood, I realised I unironically enjoy writing it. You can check out my works in ${a(i("Assort"), "https://sup2point0.github.io/Assort/poetry")} :D`,
   },
   {
     text: `I like novels, manga, webtoons, anime, animations and film.`,
@@ -98,11 +98,11 @@ export const facts: Fact[] = [
   },
   {
     text: `I collect cool words.`,
-    desc: `${i("pseudopseudohypoparathyroidism")} is always a hilarious one. ${i("floccinaucinihilipilification")} is fun to type. ${i("methylenedioxymethamphetamine")} is a fire chemical substance (ignoring the fact it’s a class A drug). You can see my full list ${a(`in ${i("Assort")}`)})}.`,
+    desc: `${i("pseudopseudohypoparathyroidism")} is always a hilarious one. ${i("floccinaucinihilipilification")} is fun to type. ${i("methylenedioxymethamphetamine")} is a fire chemical substance (ignoring the fact it’s a class A drug). You can see my full list in ${a(i("Assort"))}.`,
   },
   {
-    text: `I play ${a("Phigros", "https://youtube.com/playlist?list=PLYWIouv-DSkCklDueGcBea6epdSR1aHEx")} one-handed.`,
-    desc: `It’s a rhythm game, looks ${a("like this", "https://youtube.com/watch?v=QTEHsYsBLLU")}. If you play Phigros too, I’ve φ-d 2 IN 14 charts and can φ a lot of IN 13 charts one-handed.`,
+    text: `I play ${a("Phigros", "https://youtube.com/playlist?list=PLYWIouv-DSkCklDueGcBea6epdSR1aHEx")} with 1 hand.`,
+    desc: `It’s a mobile rhythm game, looks ${a("like this", "https://youtube.com/playlist?list=PLYWIouv-DSkC19piQAafnIKzIpx4byVW5")}. My 1-hand RKS is 15.06 as of 12 May 2026, and I’ve FC-d a few IN 15s and φ-d quite a few IN 14s!`,
   },
   {
     text: `I play many, many rhythm games.`,
@@ -110,11 +110,11 @@ export const facts: Fact[] = [
   },
   {
     text: `I love ${a("Desmos", "https://www.desmos.com/calculator")}.`,
-    desc: `Desmos is the world’s greatest calculator. You can code in Desmos. You can make games in Desmos. (I’m serious.) You can find out more ${a(`on ${i("Integrity")}`)}, "https://sup2point0.github.io/integrity/desmos/gamedev")}.`,
+    desc: `Desmos is the world’s greatest calculator. You can code in Desmos. You can make games in Desmos. (I’m serious.) You can find out more on ${a(i("Integrity"), "https://sup2point0.github.io/integrity/desmos/gamedev")}.`,
   },
   {
     text: `I solve ${i("skyscrapers")} puzzles.`,
-    desc: `They’re similar to sudoku, I have a website, ${a(i("Skyscraping"), "https://sup2point0.github.io/skyscraping")}, where I write guides on solving skyscrapers.`,
+    desc: `They’re a variety of puzzle that’s similar to Sudoku. I have a website, ${a(i("Skyscraping"), "https://sup2point0.github.io/skyscraping")}, where I write guides on solving skyscrapers!`,
   },
   {
     text: `I used to be so into ${a("Scratch", "https://scratch.mit.edu/users/Sup2point0")}.`,
@@ -134,7 +134,7 @@ export const facts: Fact[] = [
   },
   {
     text: `I love Antarctica.`,
-    desc: ``,  // TODO
+    desc: `We’re a cool place.`,
   },
   {
     text: `${a("TypeScript", "https://www.typescriptlang.org/")} might be my favourite language.`,
@@ -150,12 +150,12 @@ export const facts: Fact[] = [
     desc: `The integral’s ${a(`on ${i("Integrity")}`)}, "https://sup2point0.github.io/integrity/question/integrals?shard=s24cu-dx1")}`,
   },
   {
-    text: `I’m making a shooter game in Desmos.`,
+    text: `I made a shooter game in Desmos.`,
     desc: `It’s a remake of the mobile game ${a("Ball Blast")}. You can check out a preview ${a("on YouTube", "https://youtube.com/watch?v=KX0i13fPqLo")}.`,
   },
   {
     text: `I’ve written a research paper on the origins of my username (${h("Sup#2.0")}).`,
-    desc: `I’ll have you know it’s fully cited and currently sitting at around 3000 words. No, it’s not published, and yes, it is a very serious project. You can read it ${a(`in ${i("Assort")}`)}, "https://github.com/Sup2point0/Assort/blob/origin/~writing/origins.md")}.`,
+    desc: `I’ll have you know it’s fully cited and currently sitting at around 3000 words. No, it’s not published, and yes, it is a very serious project. You can read it in ${a(i("Assort"), "https://github.com/Sup2point0/Assort/blob/origin/~writing/origins.md")}.`,
   },
   {
     text: `I used to have a YouTube channel with ${h("127,000")} views.`,
@@ -190,7 +190,7 @@ export const facts: Fact[] = [
   },
   {
     text: `I think the most beautiful part of a human are eyes.`,
-    desc: `Fingers and hair come in close second. It’s hard to pick. (this sounds sus vrej)`,
+    desc: `Hands and legs come in close second. It’s hard to pick. (this sounds sus vrej)`,
   },
   
   {

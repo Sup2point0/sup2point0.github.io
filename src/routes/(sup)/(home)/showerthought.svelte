@@ -5,11 +5,9 @@
 import { FrozenWeightedList } from "@sup2.0/weighted-list";
   
 import { pick_daily } from "#scripts/utils";
-
-import Block  from "#parts/ui/block.svelte";
-import Header from "#parts/ui/header.svelte";
   
 import { onMount } from "svelte";
+import { fade } from "svelte/transition";
 
 
 let displayed_showerthought: string | undefined = $state(undefined);
@@ -37,6 +35,8 @@ const showerthoughts = new FrozenWeightedList
   [13, `If a capacitive capacitor could capacitate capacitance, how much capacitance could a capacitative capacitor capacitate if it capacitatively capacitated capacitance?`],
   [13, `life is one huge logistical issue`],
 
+  [2, `there’s more to explore here.`],
+
   [1, `“ice lolly” and “popsicle” are just “icicle” and “lollipop” intersected.`],
 );
 
@@ -44,9 +44,15 @@ const showerthoughts = new FrozenWeightedList
 
 
 {#if displayed_showerthought}
-  <Header margin={false}> TODAY’S SHOWERTHOUGHT </Header>
-
-  <Block kind="fun">
-    {@html displayed_showerthought}
-  </Block>
+  <p transition:fade={{ duration: 1000, delay: 1000 }}> {@html displayed_showerthought} </p>
 {/if}
+
+
+<style lang="scss">
+
+p {
+  @include font-fun;
+  color: $col-deut;
+}
+
+</style>

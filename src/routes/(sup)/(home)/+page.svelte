@@ -41,13 +41,14 @@ import ProfileShowerthought from "./showerthought.svelte";
       <ProfileDirections />
     </div>
 
-    <button onclick={portal.set_state(true)}>explore...</button>
+    <search>
+      <button onclick={portal.set_state(true)}>explore...</button>
+      <ProfileShowerthought />
+    </search>
   </section>
 
   <section><ProfileCards /></section>
   <section><ProfileLoves /></section>
-
-  <section><ProfileShowerthought /></section>
 </Main>
 
 <Footer />
@@ -86,30 +87,38 @@ section.upper {
   }
 }
 
-button {
-  min-width: min(30em, 90vw);
-  padding: 0.5rem 1rem 0.45rem;
-  appearance: none;
-  @include font-fun;
-  font-size: 1.25rem;
-  color: $col-text;
-  @include shear-card($light: true);
-  background: none;
-  border: none;
-  outline: none;
-
-  &::before {
-    background: $col-card-light;
-  }
-
-  &:hover {
-    cursor: pointer;
+search {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 1rem;
+  
+  button {
+    min-width: min(30em, 90vw);
+    padding: 0.5rem 1rem 0.45rem;
+    appearance: none;
+    @include font-fun;
+    font-size: 1.25rem;
+    color: $col-text;
+    @include shear-card($light: true);
+    background: none;
+    border: none;
+    outline: none;
 
     &::before {
-      background: $col-card-light-hover;
+      background: $col-card-light;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      &::before {
+        background: $col-card-light-hover;
+      }
     }
   }
 }
+
 
 @media (max-width: $width-shrink) {
   section.upper {

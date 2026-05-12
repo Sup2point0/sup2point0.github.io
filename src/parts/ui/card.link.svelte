@@ -80,7 +80,7 @@ onMount(() => {
 
     {#if displayed_capt}
       <p transition:slide={{ duration: 1000, delay: 400, easing: expoInOut }}>
-        {@html capt}
+        {@html displayed_capt}
       </p>
     {/if}
 

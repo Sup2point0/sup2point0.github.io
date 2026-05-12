@@ -6,6 +6,9 @@ import ProfileLinks from "./links.svelte";
 
 import Adventure from "#parts/special/adventure.svelte";
 
+import { slide } from "svelte/transition";
+import { expoInOut } from "svelte/easing";
+
 </script>
 
 
@@ -19,7 +22,7 @@ import Adventure from "#parts/special/adventure.svelte";
     <img id="sup2point0" alt="Sup#2.0" src="sup2point0.png" >
   </section>
 
-  <p>
+  <p transition:slide={{ duration: 1000, easing: expoInOut }}>
     <span class="shown">
       <Adventure tagless={true} routes={[
         [20, `an avid portal with way too much in their neural cortex`],
@@ -82,7 +85,7 @@ img#sup2point0 {
 
 p {
   position: relative;
-  padding: 2rem 0;
+  padding: 2rem 0 1rem;
   @include font-fun;
   font-size: 150%;
   text-align: center;

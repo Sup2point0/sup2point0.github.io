@@ -28,6 +28,8 @@ import Adventure from "#parts/special/adventure.svelte";
 
     [2,  `How many of these do you think there are?`],
 
+    [2, `Have you noticed anything interesting about the site?`],
+
     [1,  `woah, this is a rare bio. Looks like you just expended a cut of your lifetime RNG!`],
   ]} />
 </Block>

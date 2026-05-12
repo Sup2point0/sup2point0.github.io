@@ -2,107 +2,78 @@
 
 <script lang="ts">
 
-import { pick_random } from "#scripts/utils";
+import Cards     from "#parts/core/cards.svelte";
+import Clicky    from "#parts/ui/clicky.svelte";
+import LinkCard  from "#parts/ui/card.link.svelte";
+import Adventure from "#parts/special/adventure.svelte";
 
-import Cards    from "#parts/core/cards.svelte";
-import Clicky   from "#parts/ui/clicky.svelte";
-import LinkCard from "#parts/ui/card.link.svelte";
-
-import { onMount } from "svelte";
 import { fade } from "svelte/transition";
-
-
-let displayed_title = $state("");
-let displayed_routes: Record<string, string> = {};
-
-onMount(() => {
-  displayed_title = pick_random(title_routes);
-
-  for (let [section, routes] of Object.entries(content_routes)) {
-    displayed_routes[section] = pick_random(routes);
-  }
-});
-
-const title_routes = [
-  `stuff I create`,
-  `my stuff`,
-  `stuff to check out`,
-];
-
-const content_routes = {
-  games: [
-    `I make games!`,
-    `game developer at heart.`,
-    `life-long love.`,
-  ],
-  websites: [
-    `I make websites!`,
-    `can’t stop making them.`,
-    `too fun.`,
-    `certified web dev junkie`,
-  ],
-  software: [
-    `I make... applications, I guess you could call them?`,
-    `tools and experiments `,
-    `what is a <code>.py</code> file anyway?`,
-  ],
-  graphics: [
-    `I make posters, adverts and infographics!`,
-    `PowerPoint my beloved~`,
-  ],
-  writing: [
-    `I like writing!`,
-  ],
-  poetry: [
-    `yes, I write poetry.`,
-    `yes, I unironically enjoy it.`,
-  ],
-};
 
 </script>
 
 
-{#if displayed_title}
-  <h2 transition:fade={{ duration: 500 }}>
-    {displayed_title}
-  </h2>
+<h2 transition:fade={{ duration: 500 }}>
+  <Adventure tagless={true} routes={[
+    [20, `stuff I create`],
+    [20, `my stuff`],
+    [20, `stuff to check out`],
+  ]} />
+</h2>
 
-  <Cards force_grid={true}>
-    <LinkCard
-      text="games"
-      link="sup/projects"
-      capt={displayed_routes.games}
-    />
-    <LinkCard
-      link="sup/projects"
-      text="websites"
-      capt={displayed_routes.websites}
-      aspect="square"
-    />
-    <LinkCard
-      link="sup/projects"
-      text="software"
-      capt={displayed_routes.software}
-    />
-    <LinkCard
-      link="https://sup2point0.github.io/Assort/graphics"
-      text="graphics"
-      capt={displayed_routes.graphics}
-    />
-    <LinkCard
-      link="https://sup2point0.github.io/Assort/writing"
-      text="writing"
-      capt={displayed_routes.writing}
-    />
-    <LinkCard
-      link="https://sup2point0.github.io/Assort/poetry"
-      text="poetry"
-      capt={displayed_routes.poetry}
-    />
-  </Cards>
-  <Clicky text="VIEW MORE" link="/sup/projects" />
+<Cards force_grid={true}>
+  <!-- <LinkCard
+    text="games"
+    link="sup/projects"
+    capt={[
+      [20, `I make games!`],
+      [20, `game developer at heart.`],
+      [20, `life-long love.`],
+    ]}
+  /> -->
+  <LinkCard
+    link="sup/projects"
+    text="websites"
+    capt={[
+      [20, `I make websites!`],
+      [20, `can’t stop making them.`],
+      [20, `too fun.`],
+      [20, `certified web dev junkie`],
+    ]}
+    aspect="square"
+  />
+  <LinkCard
+    link="sup/projects"
+    text="software"
+    capt={[
+      [20, `Applications, websites and games I’ve made`],
+      [20, `I make... applications, I guess you could call them?`],
+      [20, `tools and experiments `],
+      [1, `what is a <code>.py</code> file anyway?`],
+    ]}
+  />
+  <LinkCard
+    link="https://sup2point0.github.io/Assort/graphics"
+    text="graphics"
+    capt={[
+      [20, `I make posters, infographics and more!`],
+      [2, `PowerPoint my beloved~`],
+    ]}
+  />
+  <LinkCard
+    link="https://sup2point0.github.io/Assort/writing"
+    text="writing"
+    capt={null}
+  />
+  <LinkCard
+    link="https://sup2point0.github.io/Assort/poetry"
+    text="poetry"
+    capt={[
+      [20, `ravings and ponderings on life`],
+    ]}
+  />
+</Cards>
 
-{/if}
+<Clicky text="VIEW MORE" link="/sup/projects" />
 
 
 <style lang="scss">

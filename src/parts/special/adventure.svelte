@@ -10,6 +10,8 @@ import { FrozenWeightedList, type LikeWeightedItem } from "@sup2.0/weighted-list
 import type { Description } from "#scripts/types";
 
 import { onMount } from "svelte";
+import { slide } from "svelte/transition";
+import { expoInOut } from "svelte/easing";
 
 
 interface Props {
@@ -18,7 +20,11 @@ interface Props {
   tagless?: boolean;
 }
 
-let { routes, multi = 0, tagless = false }: Props = $props();
+let {
+  routes,
+  multi = 0,
+  tagless = false,
+}: Props = $props();
 
 
 let displayed_route: Description | null = $state(null);
@@ -57,11 +63,15 @@ onMount(() => {
 
 
 {#if displayed_routes}
-  {#each displayed_routes as route}
-    {@render parts(route)}
-  {/each}
+  <span transition:slide={{ duration: 800, easing: expoInOut }}>
+    {#each displayed_routes as route}
+      {@render parts(route)}
+    {/each}
+  </span>
 
 {:else if displayed_route}
-  {@render parts(displayed_route)}
+  <span transition:slide={{ duration: 800, easing: expoInOut }}>
+    {@render parts(displayed_route)}
+  </span>
 
 {/if}

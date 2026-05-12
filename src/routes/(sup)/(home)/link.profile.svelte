@@ -109,6 +109,10 @@ a.info {
     .content, &::before {
       opacity: 1;
     }
+
+    .content p {
+      color: $col-text;
+    }
   }
 
   h3 {
@@ -123,6 +127,7 @@ a.info {
     @include font-ui;
     font-size: 75%;
     color: $col-text-deut;
+    transition: #{trans()};
   }
 }
 

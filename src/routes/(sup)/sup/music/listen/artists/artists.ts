@@ -8,6 +8,20 @@ const data: Groups<ArtistData> =
 {
   "newly discovered": [
     {
+      shard:  "cansol",
+      name:   "Cansol",
+      date:   "2026",
+      icon:   "cansol.jpg",
+      genres: [Genre.ELECTRONIC, Genre.PIANO, Genre.RHYTHM],
+      track: {
+        name: "Flutter Echo", link: "https://youtube.com/watch?v=lOf0yZFlAaw"
+      },
+      discovered: `Phigros`,
+      desc: [
+        ``,
+      ],
+    },
+    {
       shard:  "mokkai",
       name:   "MOKKAI",
       date:   "summer 2025",
@@ -41,17 +55,6 @@ const data: Groups<ArtistData> =
       genres: [Genre.ELECTRONIC, Genre.DUBSTEP],
       track: {
         name: "SAVE THIS WRLD", link: undefined
-      },
-      discovered: `YouTube Music reccs`,
-    },
-    {
-      shard:  "klydix",
-      name:   "KLYDIX",
-      date:   "early 2026",
-      icon:   "klydix.jpg",
-      genres: [Genre.RHYTHM, Genre.ELECTRONIC],
-      track: {
-        name: "STELLAON – Spring (KLYDIX remix)", link: undefined
       },
       discovered: `YouTube Music reccs`,
     },
@@ -119,6 +122,17 @@ const data: Groups<ArtistData> =
     },
   ],
   "regulars": [
+    {
+      shard:  "klydix",
+      name:   "KLYDIX",
+      date:   "early 2026",
+      icon:   "klydix.jpg",
+      genres: [Genre.RHYTHM, Genre.ELECTRONIC],
+      track: {
+        name: "STELLAON – Spring (KLYDIX remix)", link: undefined
+      },
+      discovered: `YouTube Music reccs`,
+    },
     {
       shard:  "kirara-magic",
       name:   "Kirara Magic",

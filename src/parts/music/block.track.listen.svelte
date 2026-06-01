@@ -9,7 +9,7 @@ import { anim } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 import type { TrackData } from "#scripts/types/music/listen";
 
-import { artists_data } from "#routes/(sup)/sup/music/listen/artists/artists";
+import { artists_names } from "#routes/(sup)/sup/music/listen/artists/artists";
 
 import { onMount } from "svelte";
 import { slide } from "svelte/transition";
@@ -66,9 +66,8 @@ onMount(() => {
 
     <div class="artists">
       {#each track.artists as shard}
-        <!-- TODO display artist name properly -->
         <a href="/sup/music/listen/artists#{shard}">
-          {shard}
+          {artists_names[shard] ?? shard}
         </a>
 
         <span class="separator"> × </span>

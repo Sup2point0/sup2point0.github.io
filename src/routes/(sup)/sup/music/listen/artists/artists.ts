@@ -1,7 +1,7 @@
 import { prep_groups } from "#scripts/search-filter.svelte";
 import { a, h } from "#scripts/utils";
 import { Genre, Vibe } from "#scripts/types";
-import type { ArtistData, Groups } from "#scripts/types";
+import type { ArtistData, Groups, shard } from "#scripts/types";
 
 
 const data: Groups<ArtistData> =
@@ -25,7 +25,7 @@ const data: Groups<ArtistData> =
     {
       shard:  "cansol",
       name:   "Cansol",
-      date:   "2026",
+      date:   "late 2025",
       icon:   "cansol.jpg",
       genres: [Genre.ELECTRONIC, Genre.PIANO, Genre.RHYTHM],
       track: {
@@ -481,17 +481,6 @@ const data: Groups<ArtistData> =
       discovered: `Arcaea`,
     },
     {
-      shard:  "paper-skies",
-      name:   "Paper Skies",
-      date:   2024,
-      icon:   "paper-skies.jpg",
-      genres: [Genre.ELECTRONIC, Genre.COLOUR_BASS, Genre.DUBSTEP],
-      track: {
-        name: "Freefalling", link: "https://youtube.com/watch?v=mcb5iievIgY&list=PLYWIouv-DSkAbl202yYcTYEC6w1QWTJbj"
-      },
-      discovered: `YouTube reccs`,
-    },
-    {
       shard:  "xomu",
       name:   "Xomu",
       date:   2025,
@@ -596,6 +585,17 @@ const data: Groups<ArtistData> =
     },
   ],
   "love them, but don’t listen much": [
+    {
+      shard:  "paper-skies",
+      name:   "Paper Skies",
+      date:   2024,
+      icon:   "paper-skies.jpg",
+      genres: [Genre.ELECTRONIC, Genre.COLOUR_BASS, Genre.DUBSTEP],
+      track: {
+        name: "Freefalling", link: "https://youtube.com/watch?v=mcb5iievIgY&list=PLYWIouv-DSkAbl202yYcTYEC6w1QWTJbj"
+      },
+      discovered: `YouTube reccs`,
+    },
     {
       shard:  "falcon-dives",
       name:   "Falcon Dives",
@@ -1247,3 +1247,4 @@ const data: Groups<ArtistData> =
 prep_groups(data);
 export const artists_data: Groups<ArtistData> = data;
 export const artists_list: ArtistData[] = Object.values(data).flat();
+export const artists_names: Record<shard, string> = Object.fromEntries(artists_list.map(artist => [artist.shard, artist.name]));

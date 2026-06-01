@@ -168,7 +168,7 @@ export const chronicle_data: ChronicleData[] = [
         shard:   "thick-rain",
         name:    "《粗线条的雨》",
           lang:  "cn",
-        artists: [],
+        artists: ["有棵里里"],
         date:    "fall 2025",
         cover:   "thick-rain.jpg",
         genres:  [],

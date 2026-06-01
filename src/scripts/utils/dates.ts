@@ -40,6 +40,7 @@ export function datepoint_to_prec(date: Dates | undefined): number | number[]
   let coarse: number = 0;
 
   switch (spec.toLowerCase()) {
+    // FIXME "early/late 20xx" does not follow "20xx <month>" pattern
     case "late":      coarse = 90; break;
     case "winter":    coarse = 85; break;
     case "december":  coarse = 80; break;

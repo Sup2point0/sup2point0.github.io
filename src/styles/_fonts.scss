@@ -1,15 +1,24 @@
+@function -backup-fonts() {
+  @return 'Segoe UI', system-ui, 'ZCool XiaoWei', 'Noto Serif JP', sans-serif;
+}
+
 @mixin font-tech {
-  font-family: 'Anta', 'Agency FB', 'Segoe UI', system-ui, 'ZCool XiaoWei', sans-serif;
+  font-family: 'Anta', 'Agency FB', #{-backup-fonts()};
 }
-
 @mixin font-ui {
-  font-family: 'Overpass', 'Segoe UI', system-ui, 'ZCool XiaoWei', sans-serif;
+  font-family: 'Overpass', #{-backup-fonts()};
 }
-
 @mixin font-fun {
-  font-family: 'Nanum Pen Script', 'Nanum Pen', 'Segoe UI', system-ui, 'ZCool XiaoWei', sans-serif;
+  font-family: 'Nanum Pen Script', 'Nanum Pen', #{-backup-fonts()};
 }
 
 @mixin font-dev {
   font-family: 'Rajdhani', 'Overpass', 'Agency FB', 'Segoe UI', system-ui, sans-serif;
+}
+
+@mixin font-cn {
+  font-family: 'ZCool XiaoWei', 'Noto Serif JP', system-ui, sans-serif;
+}
+@mixin font-jp {
+  font-family: 'Noto Serif JP', 'ZCool XiaoWei', system-ui, sans-serif;
 }

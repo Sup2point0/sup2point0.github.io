@@ -55,7 +55,7 @@ onMount(() => {
 <div class="info">
   <div class="upper">
     <div class="title">
-      <h3> {track.name} </h3>
+      <h3 lang={track.lang}> {track.name} </h3>
 
       {#if track.date}
         <p class="date">
@@ -194,6 +194,9 @@ img {
       .block-track-listen.shrink & {
         font-size: 150%;
       }
+
+      &[lang="cn"] { @include font-cn; }
+      &[lang="ja"] { @include font-jp; }
     }
 
     p.date {

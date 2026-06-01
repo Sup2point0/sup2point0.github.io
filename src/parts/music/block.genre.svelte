@@ -6,6 +6,8 @@ import { anim } from "#scripts/anim.svelte.ts";
 import { shardify } from "#scripts/utils";
 import type { GenreData } from "#scripts/types";
 
+import { artists_names } from "#sup/music/listen/artists/artists";
+
 
 interface Props {
   genre: GenreData;
@@ -31,10 +33,9 @@ let { genre }: Props = $props();
         <div class="artists">
           <h4> ARTISTS </h4>
 
-          {#each genre.artists as artist}
-            <!-- TODO find a better way to access shard -->
-            <a href="artists#{shardify(artist)}">
-              {artist}
+          {#each genre.artists as shard}
+            <a href="artists#{shard}">
+              {artists_names[shard] ?? shard}
             </a>
 
             <span class="separator"> × </span>

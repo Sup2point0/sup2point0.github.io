@@ -8,196 +8,155 @@ const data: Groups<GenreData> =
   "favourites": [
     {
       name:    "200step",
-      artists: ["かめりあ"],
+      artists: ["camellia"],
       tracks:  ["путь льда", "TERA I/O", "Tojita Sekai"],
-    },
-    {
+    }, {
       name:    "anime",
-      artists: ["YOASOBI", "Ultraman", "Yu-Gi-Oh!"],
+      artists: ["yoasobi", "ultraman", "Yu-Gi-Oh!"],
       tracks:  ["IDOL", "Suzume"],
-    },
-    {
+    }, {
       name:    "arcade",
-      artists: ["MYUKKE.", "tn-shi", "Reku Mochizuki", "Silentroom"],
-    },
-    {
+      artists: ["myukke", "tn-shi", "reku-mochizuki", "silentroom"],
+    }, {
       name:    "artcore",
-      artists: ["ak+q", "tn-shi", "Laur"],
+      artists: ["ak+q", "tn-shi", "laur"],
       tracks:  ["PRAGMATISM -RESURRECTION-"],
-    },
-    {
+    }, {
       name:    "beatbox",
-      artists: ["WING", "KAJI", "Improver"],
+      artists: ["wing", "kaji", "improver"],
       tracks:  ["Bass Factory", "Dopamine (DnB remix)"],
-    },
-    {
+    }, {
       name:    "bop",
       kind:    GenreKind.VIBE,
-      artists: ["Stessie", "Kirara Magic"],
+      artists: ["stessie", "kirara-magic"],
       tracks:  ["Checkmate"],
-    },
-    {
+    }, {
       name:    "C-pop",
-      artists: ["茶鸣拾贰律"],
-    },
-    {
+      artists: ["tea-12"],
+    }, {
       fav:     true,
       name:    "Camelliacore",
-      artists: ["かめりあ"],
+      artists: ["camellia"],
       tracks:  ["Spin Eternally"],
-    },
-    {
+    }, {
       name:    "chillout",
       kind:    GenreKind.VIBE,
-      artists: ["Vexento", "puru"],
+      artists: ["vexento", "puru"],
       tracks:  ["Home", "Filament"],
-    },
-    {
+    }, {
       name:    "cinematic",
-      artists: ["Johannes Bornlöf", "Master Duel", "Noah"],
-    },
-    {
+      artists: ["johannes-bornlof", "master-duel", "noah"],
+    }, {
       name:    "colour bass",
-      artists: ["A-39", "PIKASONIC", "Chiru-san", "Steradlye"],
-    },
-    {
+      artists: ["a-39", "pikasonic", "chiru-san", "steradlye"],
+    }, {
       name:    "complextro",
-      artists: ["かめりあ", "Virtual Riot", "Chiru-san"],
-    },
-    {
+      artists: ["camellia", "virtual-riot", "chiru-san"],
+    }, {
       name:    "downtempo",
-      artists: ["Vexento", "puru", "heiakim"],
+      artists: ["vexento", "puru", "heiakim"],
       tracks:  ["Banana Breeze"],
-    },
-    {
+    }, {
       name:    "drum & bass",
-      artists: ["Hinkik", "かめりあ", "PIKASONIC"],
+      artists: ["hinkik", "camellia", "pikasonic"],
       tracks:  ["Realms"],
-    },
-    {
+    }, {
       name:    "dubstep",
-      artists: ["Chiru-san", "Arcane", "Steradlye", "Kanro"],
-    },
-    {
+      artists: ["chiru-san", "arcane", "steradlye", "kanro"],
+    }, {
       name:    "melodic dubstep",
-      artists: ["Virtual Riot", "Kanro"],
-    },
-    {
+      artists: ["virtual-riot", "kanro"],
+    }, {
       name:    "2010s EDM",
-      artists: ["Elektronomia", "NCS", "Alan Walker"],
-    },
-    {
+      artists: ["elektronomia", "NCS", "alan-walker"],
+    }, {
       name:    "electronic",
       artists: ["literally every single damn artist I listen to"],
       tracks:  ["literally every single damn track I listen to"],
-    },
-    {
+    }, {
       name:    "film",
-      artists: ["Hans Zimmer", "Johannes Bornlöf"],
-    },
-    {
+      artists: ["Hans Zimmer", "johannes-bornlof"],
+    }, {
       fav:     true,
       name:    "full flavour",
-      artists: ["かめりあ", "Ludicin"],
+      artists: ["camellia", "ludicin"],
       tracks:  ["ΩΩPARTS", "M1LL10N PP"],
-    },
-    {
+    }, {
       name:    "future bass",
-      artists: ["PIKASONIC", "Chiru-san", "Steradlye"],
-    },
-    {
+      artists: ["pikasonic", "chiru-san", "steradlye"],
+    }, {
       name:    "gothic hardcore / renaissance hardcore",
-      artists: ["Ludicin"],
+      artists: ["ludicin"],
       tracks:  ["Rrhar’il"],
-    },
-    {
+    }, {
       name:    "kawaii future bass",
-      artists: ["PIKASONIC", "Chiru-san"],
-    },
-    {
+      artists: ["pikasonic", "chiru-san"],
+    }, {
       name:    "game",
       artists: ["Plants vs. Zombies", "AirAttack"],
-    },
-    {
+    }, {
       name:    "glitch hop",
-      artists: ["Hinkik", "Xomu"],
+      artists: ["hinkik", "xomu"],
       tracks:  ["Invincible"],
-    },
-    {
+    }, {
       name:    "hardcore",
-      artists: ["かめりあ", "A-39", "KAJI", "USAO"],
-    },
-    {
+      artists: ["camellia", "a-39", "kaji", "usao"],
+    }, {
       name:    "happy hardcore / euphoric hardcore",
-      artists: ["PIKASONIC", "MYUKKE."],
-    },
-    {
+      artists: ["pikasonic", "myukke"],
+    }, {
       name:    "hi-tech",
-      artists: ["tn-shi", "RHYX", "かめりあ"],
-    },
-    {
+      artists: ["tn-shi", "rhyx", "camellia"],
+    }, {
       name:    "house",
-      artists: ["Elektronomia", "Alan Walker", "Hinkik"],
+      artists: ["elektronomia", "alan-walker", "hinkik"],
       tracks:  ["United"],
-    },
-    {
+    }, {
       name:    "J-core / J-pop",
-      artists: ["YOASOBI", "Such", "Ultraman"],
-    },
-    {
+      artists: ["yoasobi", "such", "ultraman"],
+    }, {
       name:    "music",
-      artists: ["Frums", "Street", "かめりあ"],
+      artists: ["frums", "street", "camellia"],
       tracks:  ["XNOR XNOR XNOR"],
-    },
-    {
+    }, {
       name:    "neurofunk",
-      artists: ["Silentroom", "かめりあ", "Street"],
+      artists: ["silentroom", "camellia", "street"],
       tracks:  ["Nhelv"],
-    },
-    {
+    }, {
       name:    "orchestral",
-      artists: ["Johannes Bornlöf", "Gavin Luke"],
-    },
-    {
+      artists: ["johannes-bornlof", "gavin-luke"],
+    }, {
       name:    "oriental",
-      artists: ["M-UE", "Xomu", "茶鸣拾贰律"],
-    },
-    {
+      artists: ["M-UE", "xomu", "茶鸣拾贰律"],
+    }, {
       name:    "piano",
-      artists: ["Gavin Luke", "Bo Burnham"],
-    },
-    {
+      artists: ["gavin-luke", "bo-burnham"],
+    }, {
       name:    "pop",
-      artists: ["Avril Lavigne", "Arcane"],
-    },
-    {
+      artists: ["avril-lavigne", "arcane"],
+    }, {
       name:    "rhythm",
-      artists: ["かめりあ", "Street", "Se-U-Ra"],
-    },
-    {
+      artists: ["camellia", "street", "Se-U-Ra"],
+    }, {
       name:    "rock",
-      artists: ["Avril Lavigne"],
+      artists: ["avril-lavigne"],
       tracks:  ["Stacie’s Mom", "sk8er boi"],
-    },
-    {
+    }, {
       name:    "speedcore",
-      artists: ["かめりあ"],
+      artists: ["camellia"],
       tracks:  ["Ashed Wings"],
-    },
-    {
+    }, {
       name:    "transcendental",
       kind:    GenreKind.VIBE,
-      artists: ["かめりあ", "Polyphia", "tn-shi"],
+      artists: ["camellia", "polyphia", "tn-shi"],
       tracks:  ["Synthesis.", "Playing God"],
-    },
-    {
+    }, {
       name:    "trap",
-      artists: ["puru", "WING"],
+      artists: ["puru", "wing"],
       tracks:  ["SLASH"],
-    },
-    {
+    }, {
       name:    "vocaloid",
-      artists: ["A-39"],
+      artists: ["a-39"],
       tracks:  ["Proof Geometric Construction Can Solve All Love Affairs"],
     },
   ],
@@ -205,91 +164,74 @@ const data: Groups<GenreData> =
     {
       name:    "acid jazz",
       tracks:  ["Sweden (acid jazz remix)"],
-    },
-    {
+    }, {
       name:    "botanica",
-    },
-    {
+    }, {
       name:    "breakcore",
-      artists: ["Frums"],
-    },
-    {
+      artists: ["azali", "frums"],
+    }, {
       name:    "denpa",
-    },
-    {
+    }, {
       name:    "doujin",
-    },
-    {
+    }, {
       name:    "drumstep",
-      desc:
+      desc: [
         `I’ll be real idek what this genre means`,
-    },
-    {
+      ],
+    }, {
       name:    "electroswing",
-      artists: ["かめりあ"],
-    },
-    {
+      artists: ["camellia"],
+    }, {
       name:    "extratone",
-      artists: ["かめりあ", "Kobaryo"],
-    },
-    {
+      artists: ["camellia", "kobaryo"],
+    }, {
       name:    "future core",
       artists: ["tn-shi"],
-      desc:
+      desc: [
         `bro all I hear are words`,
-    },
-    {
+      ],
+    }, {
       name:    "gabber",
-    },
-    {
+    }, {
       name:    "garage",
-    },
-    {
+    }, {
       name:    "jazz house",
-    },
-    {
+    }, {
       name:    "k-pop",
-      artists: ["KATSEYE", "BLACKPINK"],
+      artists: ["katseye", "BLACKPINK"],
       tracks:  ["Debut"],
-    },
-    {
+    }, {
       name:    "music",
       artists: ["LeaF"],
       tracks:  ["Aleph-0"],
-    },
-    {
+    }, {
       name:    "orchestral hardstyle",
-    },
-    {
+    }, {
       name:    "phonk",
       tracks:  ["IDOL (phonk / drill remix)"],
-    },
-    {
+    }, {
       name:    "psystyle",
-      artists: ["かめりあ"],
-    },
-    {
+      artists: ["camellia"],
+    }, {
       name:    "rap",
-      artists: ["Bo Burnham"],
+      artists: ["bo-burnham"],
       tracks:  ["Venom"],
-    },
-    {
+    }, {
       name:    "schranz",
-      desc:
+      desc: [
         `tf does this word mean??`,
-    },
-    {
+      ],
+    }, {
       name:    "techno",
-      artists: ["かめりあ", "KAJI"],
-    },
-    {
+      artists: ["camellia", "kaji"],
+    }, {
       name:    "tech step",
-      desc:
+      desc: [
         `what the hell is a step and how does it become tech`,
-    },
-    {
+      ],
+    }, {
       name:    "trance",
-      artists: ["Nhato"],
+      artists: ["nhato"],
     },
   ],
 };

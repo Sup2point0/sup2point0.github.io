@@ -39,6 +39,41 @@ export const chronicle_data: ChronicleData[] = [
     ],
     tracks: [
       {
+        shard:   "fake-love",
+        name:    "Fake Love",
+        artists: ["aureonix"],
+        date:    "2026 May",
+        cover:   "fake-love.jpg",
+        genres:  [Genre.ELECTRONIC],
+        vibes:   [Vibe.UPBEAT],
+        discovered: `YouTube Music reccs`,
+        desc: [
+          `I’ve been so high on this. It keeps coming up on my YouTube Music home page, and I keep clicking on it!!`,
+
+          `Similar vibe to ${a("What If", "#what-if", true)}’s final drop. It’s like, pure happy vibes, can’t even tell what’s going on in the production but it just sounds so full and good and awesome.`,
+
+          `I’m not specially a fan of vocals, but the vocals in this are super pretty, and slot into the arrangement so nicely.`,
+
+          `I’m often unsure what level of ‘love’ I need to reach for a song to be added to this list, but for this one, I quickly knew it in my heart. Maybe that’s how it should be :0`,
+        ],
+      },
+      {
+        shard:   "heiki-sou-desho",
+        name:    "平気そうでしょ",
+          lang:  "ja",
+        artists: ["moudelica"],
+        date:    "2026 May",
+        cover:   "heiki-sou-desho.jpg",
+        genres:  [Genre.JCORE, Genre.ELECTRONIC],
+        vibes:   [Vibe.UPBEAT],
+        discovered: `YouTube Music reccs`,
+        desc: [
+          `Woah, this came outta nowhere. It was one of those tracks where it just started playing, and I wasn’t sure whether to let it keep playing. But the cover art was cool (and cute, lol), and then the drop hit, then the breakdown, and I decided I like it.`,
+
+          `Surprised but not surprised that Moudelica speaks Japanese. Her voice is really nice in this, the breathiness is just the right level.`,
+        ],
+      },
+      {
         shard:   "resonance",
         name:    "resonance",
         artists: ["nabbe"],
@@ -132,6 +167,7 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "thick-rain",
         name:    "《粗线条的雨》",
+          lang:  "cn",
         artists: [],
         date:    "fall 2025",
         cover:   "thick-rain.jpg",
@@ -246,6 +282,7 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "luo-ri",
         name:    "落日親吻銀光海",
+          lang:  "cn",
         artists: [],
         date:    undefined,
         cover:   "luo-ri.jpg",
@@ -384,6 +421,7 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "bug",
         name:    "バグ / 25時、ナイトコードで。",
+          lang:  "ja",
         artists: [],
         date:    undefined,
         cover:   "bug.jpg",
@@ -424,6 +462,7 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "tabun",
         name:    "たぶん",
+          lang:  "ja",
         artists: ["yoasobi"],
         date:    undefined,
         cover:   "tabun.png",
@@ -438,6 +477,7 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "idol",
         name:    "「アイドル」",
+          lang:  "ja",
         artists: ["yoasobi"],
         date:    undefined,
         cover:   "idol.png",
@@ -499,6 +539,7 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "ming-huo",
         name:    "明鏡烈火",
+          lang:  "cn",
         artists: [],
         date:    undefined,
         cover:   "ming-huo.jpg",
@@ -548,6 +589,7 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "waving-wings",
         name:    "飄える翼追い掛けて ～終飛～",
+          lang:  "ja",
         artists: ["camellia"],
         date:    undefined,
         cover:   "ashed-wings.jpg",
@@ -650,6 +692,7 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "qing-ya",
         name:    "青芽",
+          lang:  "cn",
         artists: ["tea-12"],
         date:    undefined,
         cover:   "qing-ya.jpg",
@@ -760,6 +803,7 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "rong-yao-de-zhan-chang",
         name:    "荣耀的战场",
+          lang:  "cn",
         artists: ["R1SE"],
         date:    "summer 2019",
         cover:   "rong-yao-de-zhan-chang.jpg",

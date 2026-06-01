@@ -8,6 +8,21 @@ const data: Groups<ArtistData> =
 {
   "newly discovered": [
     {
+      shard:  "moudelica",
+      name:   "Moudelica",
+      date:   "2026 May",
+      icon:   "moudelica.jpg",
+      genres: [Genre.ELECTRONIC, Genre.JPOP],
+      vibes:  [Vibe.EMOTIONAL],
+      track: {
+        name: "平気そうでしょ", link: "https://youtube.com/watch?v=lNty-CWvQqU&list=PLYWIouv-DSkA-chALakUN7Wr1jdevXQxu"
+      },
+      discovered: `StarlingEDM in YouTube Music reccs`,
+      desc: [
+        ``,
+      ],
+    },
+    {
       shard:  "cansol",
       name:   "Cansol",
       date:   "2026",
@@ -44,17 +59,6 @@ const data: Groups<ArtistData> =
       genres: [Genre.ELECTRONIC],
       track: {
         name: "Resonance", link: undefined
-      },
-      discovered: `YouTube Music reccs`,
-    },
-    {
-      shard:  "exyl",
-      name:   "Exyl",
-      date:   "early 2026",
-      icon:   "exyl.jpg",
-      genres: [Genre.ELECTRONIC, Genre.DUBSTEP],
-      track: {
-        name: "SAVE THIS WRLD", link: undefined
       },
       discovered: `YouTube Music reccs`,
     },
@@ -118,7 +122,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAlt2TuUBsjZgKF17agTDx4",
       },
-      discovered: `Firefly Music`,
+      discovered: `Firefly Music in YouTube Music reccs`,
     },
   ],
   "regulars": [
@@ -255,6 +259,17 @@ const data: Groups<ArtistData> =
     },
   ],
   "mood": [
+    {
+      shard:  "exyl",
+      name:   "Exyl",
+      date:   "early 2026",
+      icon:   "exyl.jpg",
+      genres: [Genre.ELECTRONIC, Genre.DUBSTEP],
+      track: {
+        name: "SAVE THIS WRLD", link: undefined
+      },
+      discovered: `YouTube Music reccs`,
+    },
     {
       shard:  "nhato",
       name:   "Nhato",
@@ -1144,7 +1159,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Natsu!", link: "https://youtube.com/watch?v=GCSDxOLWZ2o&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd",
       },
-      discovered: `Firefly Music`,
+      discovered: `Firefly Music in YouTube Music reccs`,
     },
     {
       shard:  "infected-mushroom",

@@ -8,6 +8,23 @@ const data: Groups<ArtistData> =
 {
   "newly discovered": [
     {
+      shard:  "juggernaut",
+      name:   "Juggernaut.",
+      date:   "2026 May",
+      icon:   "juggernaut.jpg",
+      genres: [Genre.RHYTHM, Genre.HITECH],
+      track: {
+        name: "NO x", link: "https://youtube.com/watch?v=bMU3CMBtKqM&list=PLYWIouv-DSkB49VusnUD96zKkkRsMwEmT"
+      },
+      links: {
+        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkB49VusnUD96zKkkRsMwEmT",
+      },
+      discovered: `${h("NO x")} in Phigros`,
+      desc: [
+        ``,
+      ],
+    },
+    {
       shard:  "moudelica",
       name:   "Moudelica",
       date:   "2026 May",
@@ -16,6 +33,9 @@ const data: Groups<ArtistData> =
       vibes:  [Vibe.EMOTIONAL],
       track: {
         name: "平気そうでしょ", link: "https://youtube.com/watch?v=lNty-CWvQqU&list=PLYWIouv-DSkA-chALakUN7Wr1jdevXQxu"
+      },
+      links: {
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkA-chALakUN7Wr1jdevXQxu",
       },
       discovered: `StarlingEDM in YouTube Music reccs`,
       desc: [
@@ -34,21 +54,6 @@ const data: Groups<ArtistData> =
       discovered: `Phigros`,
       desc: [
         ``,
-      ],
-    },
-    {
-      shard:  "mokkai",
-      name:   "MOKKAI",
-      date:   "summer 2025",
-      icon:   "mokkai.jpg",
-      genres: [Genre.ELECTRONIC],
-      vibes:  [Vibe.HAPPY, Vibe.CHILLOUT],
-      track: {
-        name: "Something To Say", link: "https://youtube.com/watch?v=D7T_3lztqNc&list=PLYWIouv-DSkAUmAACIsfh4d8WYSk8e1yJ"
-      },
-      discovered: `${h("Ride on Time")} in Firefly Music`,
-      desc: [
-        `I first heard ${h("Ride on Time")} by them on Firefly Music in summer 2025, but only tried listening to more of their discography in spring 2026.`,
       ],
     },
     {
@@ -78,7 +83,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCLPwaevGf-8oKXSE4syPAT",
       },
-      discovered: `Phigros`,
+      discovered: `${h("かめりあ")} chapter in Phigros`,
     },
     {
       shard:  "vexento",
@@ -122,10 +127,25 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAlt2TuUBsjZgKF17agTDx4",
       },
-      discovered: `Firefly Music in YouTube Music reccs`,
+      discovered: `${h("What If")} on Firefly Music in YouTube Music reccs`,
     },
   ],
   "regulars": [
+    {
+      shard:  "mokkai",
+      name:   "MOKKAI",
+      date:   "summer 2025",
+      icon:   "mokkai.jpg",
+      genres: [Genre.ELECTRONIC],
+      vibes:  [Vibe.HAPPY, Vibe.CHILLOUT],
+      track: {
+        name: "Something To Say", link: "https://youtube.com/watch?v=D7T_3lztqNc&list=PLYWIouv-DSkAUmAACIsfh4d8WYSk8e1yJ"
+      },
+      discovered: `${h("Ride on Time")} on Firefly Music in YouTube reccs`,
+      desc: [
+        `I first heard ${h("Ride on Time")} by them on Firefly Music in summer 2025, but only tried listening to more of their discography in spring 2026.`,
+      ],
+    },
     {
       shard:  "klydix",
       name:   "KLYDIX",
@@ -135,7 +155,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "STELLAON – Spring (KLYDIX remix)", link: undefined
       },
-      discovered: `YouTube Music reccs`,
+      discovered: `StarlingEDM in YouTube Music reccs`,
     },
     {
       shard:  "kirara-magic",
@@ -147,7 +167,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Checkmate", link: "https://youtube.com/watch?v=yHjj9fWTZdY&list=PLYWIouv-DSkAyddNPBMP81AMJQlfDrQRj"
       },
-      discovered: `Dance Cube EVO`,
+      discovered: `${h("Checkmate")} in Dance Cube EVO`,
     },
     {
       shard:  "puru",
@@ -157,12 +177,12 @@ const data: Groups<ArtistData> =
       genres: [Genre.RHYTHM, Genre.TRAP],
       vibes:  [Vibe.CHILLOUT],
       track: {
-        name: "Grimheart", link: "https://youtube.com/watch?v=S9LE5FB5E5I&list=PLYWIouv-DSkBt4zknZoQPwgiYLB4xHSRf"
+        name: "Filament", link: "https://youtube.com/watch?v=UcvkBkcLEGM&list=PLYWIouv-DSkBt4zknZoQPwgiYLB4xHSRf"
       },
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkBt4zknZoQPwgiYLB4xHSRf",
       },
-      discovered: `Arcaea`,
+      discovered: `${h("Grimheart")} in Arcaea`,
       desc: [
         `puru’s melodies absolutely melt me. I don’t know how they come up with them, but they’re unbelievably beautiful.`,
 
@@ -182,7 +202,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7",
       },
-      discovered: `Phigros`,
+      discovered: `${h("WATER")} in Phigros`,
     },
     {
       shard:  "steradlye",
@@ -207,7 +227,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkCObYw5-q2fTs8VxVq7PF7m",
       },
-      discovered: `Phigros`,
+      discovered: `${h("NO ONE YES MAN")} in Phigros`,
     },
     {
       shard:  "chiru-san",
@@ -268,7 +288,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "SAVE THIS WRLD", link: undefined
       },
-      discovered: `YouTube Music reccs`,
+      discovered: `${h("SAVE THIS WRLD")} in YouTube Music reccs`,
     },
     {
       shard:  "nhato",
@@ -279,7 +299,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Radiance", link: "https://youtube.com/watch?v=7o1S3o_VNII"
       },
-      discovered: `Phigros`,
+      discovered: `${h("Radiance")} in Phigros`,
     },
     {
       shard:  "unfinish",
@@ -293,7 +313,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAGD_WKtKGd5eFyoR6xATgj",
       },
-      discovered: `YouTube reccs`,
+      discovered: `${h("Turbo Luck Second")} in YouTube reccs`,
     },
     {
       shard:  "silentroom",
@@ -319,7 +339,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Lost Requiem", link: "https://youtube.com/watch?v=QdiqIo963PE"
       },
-      discovered: `YouTube Music reccs`,
+      discovered: `${h("Lost Requiem")} in YouTube Music reccs`,
     },
     {
       shard:  "hinkik",
@@ -330,7 +350,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Realms", link: "https://youtube.com/watch?v=Ui9GnVC-jfw"
       },
-      discovered: `Phigros`,
+      discovered: `${h("Realms")} in Phigros`,
     },
     {
       shard:  "tea-12",
@@ -359,7 +379,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkARK0RHQXJnm2-webMrXzQ4",
       },
-      discovered: `YouTube reccs`,
+      discovered: `${h("Synthesis.")} in YouTube reccs`,
     },
     {
       shard:  "kanro",
@@ -370,7 +390,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Amethyst", link: "https://youtube.com/watch?v=-__-oI8xWJk"
       },
-      discovered: `YouTube reccs`,
+      discovered: `${h("Amethyst")} in YouTube reccs`,
     },
     {
       shard:  "hookington",
@@ -381,7 +401,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Final Showdown", link: "https://youtube.com/watch?v=UBGTDveF84o"
       },
-      discovered: `collab with Chiru-san`,
+      discovered: `${h("Final Showdown")} with ${a("Chiru-san", "#chiru-san", true)}`,
     },
     {
       shard:  "m-ue",
@@ -442,7 +462,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkBlchcQSJ6oqzovuufxHqgo",
       },
-      discovered: `YouTube Music reccs`,
+      discovered: `${h("Innocent")} in YouTube Music reccs`,
     },
     {
       shard:  "polyphia",
@@ -453,7 +473,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Playing God", link: "https://youtube.com/watch?v=Z5NoQg8LdDk"
       },
-      discovered: `YouTube Music reccs`,
+      discovered: `${h("Playing God")} in YouTube Music reccs`,
     },
     {
       shard:  "yoasobi",
@@ -467,7 +487,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkDz2EZqORKQX6ToEnZrVCaf",
       },
-      discovered: `${h("Oshi no Ko")} anime`,
+      discovered: `${h("Oshi no Ko")} anime OP`,
     },
     {
       shard:  "street",
@@ -478,7 +498,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Sakura Fubiki", link: "https://youtube.com/watch?v=0keUnlH_0IY&list=PLYWIouv-DSkARFlBS9jQ-7sFT8UecZbfR"
       },
-      discovered: `Arcaea`,
+      discovered: `${h("Sakura Fubiki")} in Arcaea`,
     },
     {
       shard:  "xomu",
@@ -532,7 +552,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCC0pprSmxOqXkVTigfkUQ-",
       },
-      discovered: `YouTube`,
+      discovered: `${h("Beatboxing Pros Are Insane")} in YouTube reccs`,
     },
     {
       shard:  "kaji",
@@ -594,7 +614,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Freefalling", link: "https://youtube.com/watch?v=mcb5iievIgY&list=PLYWIouv-DSkAbl202yYcTYEC6w1QWTJbj"
       },
-      discovered: `YouTube reccs`,
+      discovered: `${h("100K views = free FLP")} in YouTube reccs`,
     },
     {
       shard:  "falcon-dives",
@@ -617,7 +637,7 @@ const data: Groups<ArtistData> =
       date:   2025,
       icon:   "rhyx.jpg",
       genres: [Genre.HITECH],
-      discovered: `YouTube reccs`,
+      discovered: `${h("How to Make Hi-Tech Ninja")} in YouTube reccs`,
     },
     {
       shard:  "s9ryne",
@@ -705,7 +725,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Distorted Fate", link: undefined
       },
-      discovered: `Phigros`,
+      discovered: `${h("Distorted Fate")} in Phigros`,
     },
     {
       shard:  "jiang-mi-tiao",
@@ -739,7 +759,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "nana", link: "https://youtube.com/watch?v=iXH6zdvhN80"
       },
-      discovered: `YouTube reccs`,
+      discovered: `${h("nana")} in YouTube reccs`,
     },
     {
       shard:  "psyqui",
@@ -750,7 +770,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Mend Your Ways", link: undefined
       },
-      discovered: `Such – Mend Your Ways`,
+      discovered: `${h("Such – Mend Your Ways")} in YouTube Music reccs`,
     },
     {
       shard:  "tanger",
@@ -1080,7 +1100,7 @@ const data: Groups<ArtistData> =
       date:   2025,
       icon:   "firefly-music.jpg",
       genres: [Genre.ELECTRONIC],
-      discovered: `PIKASONIC - New Start in YouTube reccs`,
+      discovered: `${h("PIKASONIC - New Start")} in YouTube reccs`,
     },
     {
       shard:  "ncs",

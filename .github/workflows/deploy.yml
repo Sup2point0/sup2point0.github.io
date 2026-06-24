@@ -34,7 +34,7 @@ jobs:
           npm run build
 
       - name: 'github / upload artifacts'
-        uses: actions/upload-pages-artifact@v7
+        uses: actions/upload-pages-artifact@v3
         with:
           path: 'build/'
 

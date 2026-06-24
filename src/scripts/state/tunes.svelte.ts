@@ -24,8 +24,9 @@ export class TuneState
       return;
     }
 
-    this.playing = true;
     this.track = track;
+    this.timestamp = 0;
+    this.playing = true;
 
     requestAnimationFrame(async () => {
       await tunes.audio?.play();
@@ -88,8 +89,8 @@ export class TuneState
   
   stop_playing()
   {
-    tunes.audio   = null;
-    tunes.track   = null;
+    tunes.audio?.pause();
+    tunes.track = null;
     tunes.playing = false;
     this.stop_syncing_timestamp();
   }
@@ -109,7 +110,11 @@ export class TuneState
    * Sync the displayed duration with the raw audio element.
    */
   sync_duration() {
-    this.duration = this.audio?.duration ?? null;
+    if (this.audio == null || Number.isNaN(this.audio.duration)) {
+      this.duration = null;
+    } else {
+      this.duration = this.audio.duration;
+    }
   }
 
   /**

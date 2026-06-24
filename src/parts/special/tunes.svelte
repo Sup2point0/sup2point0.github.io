@@ -100,7 +100,7 @@ async function onmouseup()
     <p> {tunes.track.album?.name ?? ""} </p>
   </div>
 
-  <button class="close" onclick={onended}>
+  <button class="close" onclick={() => tunes.stop_playing()}>
     ×
   </button>
 

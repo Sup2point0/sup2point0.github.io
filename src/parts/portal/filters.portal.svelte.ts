@@ -1,6 +1,6 @@
 import { ratio, partial_ratio } from "fuzzball";
 
-import { play_tune } from "#scripts/state";
+import { tunes } from "#scripts/state";
 import { SearchFilter, type Searchable } from "#scripts/search-filter.svelte";
 import { shuffle } from "#scripts/utils";
 import type { TrackData } from "#scripts/types/music/create";
@@ -170,7 +170,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
         title: track.name,
         capt:  track.album.name,
         icon:  `/covers/music/create/${track.cover}`,
-        action: () => play_tune(track as TrackData),
+        action: () => tunes.play_track(track as TrackData),
       }))
     )
   }

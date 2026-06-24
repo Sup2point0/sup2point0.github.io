@@ -23,7 +23,7 @@ let { track }: Props = $props();
   class:preview={track.is_preview}
   class:shrink={track.name.length > 20}
   id={track.shard}
-  onclick={() => (tunes.track?.shard === track.shard) ? tunes.toggle_pause() : tunes.play(track)}
+  onclick={async () => (tunes.track?.shard === track.shard) ? await tunes.toggle_pause() : tunes.play_track(track)}
 >
   <div class="cover">
     <img alt={track.name} title={track.name}

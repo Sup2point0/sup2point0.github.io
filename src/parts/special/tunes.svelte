@@ -5,18 +5,12 @@ The site-wide music player!
 
 <script lang="ts">
 
-import { tunes, stop_playing } from "#scripts/state";
+import { tunes } from "#scripts/state";
 import { display_timestamp } from "#scripts/utils";
 
 import { expoOut } from "svelte/easing";
 import { scale } from "svelte/transition";
 
-
-let audio = $state({
-  duration:  undefined as number | undefined,
-  timestamp: undefined as number | undefined,
-  interval: 0,
-});
 
 let slider: HTMLElement | undefined = $state();
 let slider_width = $derived(slider?.clientWidth ?? 200);
@@ -29,57 +23,43 @@ let drag = $state({
 });
 
 
-function sync_duration() {
-  audio.duration = tunes.audio?.duration;
-}
-
-function sync_playhead() {
-  if (!tunes.audio || !audio.timestamp) return;
-  tunes.audio.currentTime = audio.timestamp;
-}
-
-function onplay() {
-  sync_duration();
-  audio.interval = setInterval(() => { audio.timestamp = tunes.audio?.currentTime; }, 200);
-}
-
-function onended() {
-  clearInterval(audio.interval);
-  stop_playing();
-}
-
-function onmousedown(e: MouseEvent) {
+function onmousedown(e: MouseEvent)
+{
   e.preventDefault();
+
+  if (!tunes.audio) return;
 
   drag.dragging = true;
   drag.x_init = e.clientX;
-  drag.timestamp_init = audio.timestamp!;
+  drag.timestamp_init = tunes.timestamp!;
 
   drag.was_playing = tunes.playing;
   tunes.pause();
 }
 
-function onmousemove(e: MouseEvent) {
-  if (!tunes.audio)     return;
-  if (!drag.dragging)   return;
+function onmousemove(e: MouseEvent)
+{
+  if (tunes.audio == null) return;
+  if (!drag.dragging) return;
   
-  if (!audio.timestamp) return;
-  if (!audio.duration)  return;
+  if (!tunes.timestamp) return;
+  if (!tunes.duration) return;
 
   let delta = e.clientX - drag.x_init;
   let frac = delta / slider_width;
-  let shift = frac * audio.duration;
+  let shift = frac * tunes.duration;
 
-  audio.timestamp = Math.min(Math.max(drag.timestamp_init + shift, 0), audio.duration - 0.01);
-
-  sync_playhead();
+  tunes.seek(drag.timestamp_init + shift);
 }
 
-function onmouseup() {
+async function onmouseup()
+{
+  if (!drag.dragging) return;
+
   drag.dragging = false;
 
   if (drag.was_playing) {
-    tunes.unpause();
+    await tunes.unpause();
   }
 }
 
@@ -88,11 +68,11 @@ function onmouseup() {
 
 <svelte:window {onmousemove} {onmouseup} />
 
-<audio src={tunes.track && `/audio/${tunes.track?.audio}`}
+<audio src={tunes.track && `/audio/${tunes.track?.audio ?? "unknown.mp3"}`}
   bind:this={tunes.audio}
-  {onplay}
-  {onended}
-  onloadeddata={sync_duration}
+  onplay={() => tunes.sync_duration()}
+  onended={() => tunes.stop_playing()}
+  onloadeddata={() => tunes.sync_duration()}
 >
 </audio>
 
@@ -103,7 +83,7 @@ function onmouseup() {
   {#if tunes.track}
     <button class="pause"
       class:paused={!tunes.playing}
-      onclick={() => tunes.toggle_pause()}
+      onclick={async () => await tunes.toggle_pause()}
     >
       {#if tunes.playing}
         ⏸
@@ -120,24 +100,26 @@ function onmouseup() {
     <p> {tunes.track.album?.name ?? ""} </p>
   </div>
 
-  <button class="close" onclick={stop_playing}>
+  <button class="close" onclick={onended}>
     ×
   </button>
 
   <div class="playback">
     <p class="start">
-      {display_timestamp(audio.timestamp)}
+      {display_timestamp(tunes.timestamp)}
     </p>
 
-    <div class="bar" class:long={audio.duration >= 5 * 60}
+    <div class="bar" class:long={(tunes.duration ?? 0) >= 5 * 60}
       role="slider"
+      aria-valuenow={tunes.timestamp}
+      tabindex={0}
       bind:this={slider}
       {onmousedown}
-      style:--frac={Math.min(1, (audio.timestamp ?? 0) / (audio.duration ?? 1))}>
+      style:--frac={Math.min(1, (tunes.timestamp ?? 0) / (tunes.duration ?? 1))}>
     </div>
 
     {#key tunes.track.shard}
-      <p class="end"> {display_timestamp(audio.duration)} </p>
+      <p class="end"> {display_timestamp(tunes.duration)} </p>
     {/key}
   </div>
 </div>
@@ -205,8 +187,7 @@ button.pause {
   }
 
   &:active {
-    background: color.adjust($col-prot, $lightness: -20%);
-    transform: scale(96%);
+    background: $col-trit;
   }
 }
 

@@ -23,6 +23,7 @@ let drag = $state({
 });
 
 
+// when the user clicks on the playback slider, start tracking their drag movement
 function onmousedown(e: MouseEvent)
 {
   e.preventDefault();
@@ -37,6 +38,8 @@ function onmousedown(e: MouseEvent)
   tunes.pause();
 }
 
+// as they drag, seek the playhead, using delta from their original position
+// this is more reliable than finding the frame-by-frame delta
 function onmousemove(e: MouseEvent)
 {
   if (tunes.audio == null) return;
@@ -52,6 +55,7 @@ function onmousemove(e: MouseEvent)
   tunes.seek(drag.timestamp_init + shift);
 }
 
+// when the user lets go, unpause the music if it was previously playing
 async function onmouseup()
 {
   if (!drag.dragging) return;

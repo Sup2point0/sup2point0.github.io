@@ -12,29 +12,81 @@ import { expoOut } from "svelte/easing";
 import { scale } from "svelte/transition";
 
 
-let duration: number | undefined = $state();
-let timestamp: number | undefined = $state();
-let interval = 0;
+let audio = $state({
+  duration:  undefined as number | undefined,
+  timestamp: undefined as number | undefined,
+  interval: 0,
+});
 
-function sync_duration()
-{
-  duration = tunes.audio?.duration;
+let slider: HTMLElement | undefined = $state();
+let slider_width = $derived(slider?.clientWidth ?? 200);
+
+let drag = $state({
+  dragging: false,
+  x_init: 0,
+  timestamp_init: 0,
+  was_playing: false,
+});
+
+
+function sync_duration() {
+  audio.duration = tunes.audio?.duration;
 }
 
-function onplay()
-{
+function sync_playhead() {
+  if (!tunes.audio || !audio.timestamp) return;
+  tunes.audio.currentTime = audio.timestamp;
+}
+
+function onplay() {
   sync_duration();
-  interval = setInterval(() => { timestamp = tunes.audio?.currentTime }, 200);
+  audio.interval = setInterval(() => { audio.timestamp = tunes.audio?.currentTime; }, 200);
 }
 
-function onended()
-{
-  clearInterval(interval);
+function onended() {
+  clearInterval(audio.interval);
   stop_playing();
+}
+
+function onmousedown(e: MouseEvent) {
+  e.preventDefault();
+
+  drag.dragging = true;
+  drag.x_init = e.clientX;
+  drag.timestamp_init = audio.timestamp!;
+
+  drag.was_playing = tunes.playing;
+  tunes.pause();
+}
+
+function onmousemove(e: MouseEvent) {
+  if (!tunes.audio)     return;
+  if (!drag.dragging)   return;
+  
+  if (!audio.timestamp) return;
+  if (!audio.duration)  return;
+
+  let delta = e.clientX - drag.x_init;
+  let frac = delta / slider_width;
+  let shift = frac * audio.duration;
+
+  audio.timestamp = Math.min(Math.max(drag.timestamp_init + shift, 0), audio.duration - 0.01);
+
+  sync_playhead();
+}
+
+function onmouseup() {
+  drag.dragging = false;
+
+  if (drag.was_playing) {
+    tunes.unpause();
+  }
 }
 
 </script>
 
+
+<svelte:window {onmousemove} {onmouseup} />
 
 <audio src={tunes.track && `/audio/${tunes.track?.audio}`}
   bind:this={tunes.audio}
@@ -51,7 +103,7 @@ function onended()
   {#if tunes.track}
     <button class="pause"
       class:paused={!tunes.playing}
-      onclick={tunes.toggle_pause}
+      onclick={() => tunes.toggle_pause()}
     >
       {#if tunes.playing}
         ⏸
@@ -73,17 +125,19 @@ function onended()
   </button>
 
   <div class="playback">
-
     <p class="start">
-      {display_timestamp(timestamp)}
+      {display_timestamp(audio.timestamp)}
     </p>
 
-    <div class="bar" class:long={duration >= 5 * 60}
-      style:--frac={Math.min(1, (timestamp ?? 0) / (duration ?? 1))}>
+    <div class="bar" class:long={audio.duration >= 5 * 60}
+      role="slider"
+      bind:this={slider}
+      {onmousedown}
+      style:--frac={Math.min(1, (audio.timestamp ?? 0) / (audio.duration ?? 1))}>
     </div>
 
     {#key tunes.track.shard}
-      <p class="end"> {display_timestamp(duration)} </p>
+      <p class="end"> {display_timestamp(audio.duration)} </p>
     {/key}
   </div>
 </div>
@@ -230,6 +284,14 @@ button.close {
     background: rgb(black, 20%);
     transform: skew($shear-factor);
 
+    &:hover {
+      cursor: grab;
+    }
+
+    &:active {
+      cursor: grabbing;
+    }
+
     &::after {
       width: calc(var(--frac, 0) * 100%);
       height: $h;
@@ -244,7 +306,8 @@ button.close {
     }
 
     &.long::after {
-      background: linear-gradiant(to right in oklch, $col-prot, $col-quat, $col-deut, $col-trit);
+      background: linear-gradient(to right in oklch, $col-prot, $col-quat, $col-deut, $col-trit);
+      background-size: calc(1 / var(--frac, 1) * 100%);
     }
   }
 }

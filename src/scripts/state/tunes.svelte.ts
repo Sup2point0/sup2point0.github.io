@@ -7,7 +7,9 @@ export interface TuneState
   playing: boolean;
   track:   TrackData | null;
 
-  play: (track: TrackData) => void;
+  play:         (track: TrackData) => void;
+  pause:        () => void;
+  unpause:      () => void;
   toggle_pause: () => void;
 }
 
@@ -44,11 +46,24 @@ export const tunes: TuneState = $state({
     }
   },
 
-  toggle_pause(this: TuneState)
+  pause(this: TuneState)
   {
-    switch (this.playing) {
-      case true:  this.audio?.pause(); this.playing = false; break;
-      case false: this.audio?.play();  this.playing = true;  break;
+    this.audio?.pause();
+    this.playing = false;
+  },
+
+  unpause(this: TuneState)
+  {
+    this.audio?.play();
+    this.playing = true;
+  },
+
+  async toggle_pause(this: TuneState)
+  {
+    if (this.playing) {
+      this.pause();
+    } else {
+      this.unpause();
     }
 
     if ('mediaSession' in window.navigator) {

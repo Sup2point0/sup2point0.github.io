@@ -12,7 +12,7 @@ import Main          from "#parts/core/main.svelte";
 import Breadcrumbs   from "#parts/ui/breadcrumbs.svelte";
 import Header        from "#parts/ui/header.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
-import TrackCard     from "#parts/music/card.track.svelte";
+import TrackCard     from "#parts/music/card.track.create.svelte";
 
 
 // svelte-ignore non_reactive_update

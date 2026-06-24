@@ -5,7 +5,11 @@ A small square card for a soundtrack with its cover and name.
 
 <script lang="ts">
 
+import { tunes } from "#scripts/state";
 import type { TrackData } from "#scripts/types/music/create";
+
+import { goto } from "$app/navigation";
+
 
 interface Props {
   track: TrackData;
@@ -16,9 +20,12 @@ let { track }: Props = $props();
 </script>
 
 
-<a class="track card"
+<button class="card-track"
   class:feat={track.feat}
-  href="/sup/music/create/albums/{track.album.shard}#{track.shard}"
+  onclick={async () => {
+    await goto(`/sup/music/create/albums/${track.album.shard}#${track.shard}`);
+    tunes.play_track(track);
+  }}
 >
   <div class="img-container">
     <img alt={track.name} title={track.name}
@@ -28,7 +35,7 @@ let { track }: Props = $props();
 
     <h3> {track.name} </h3>
   </div>
-</a>
+</button>
 
 
 <style lang="scss">
@@ -36,10 +43,13 @@ let { track }: Props = $props();
 @use 'sass:color';
 
 
-a.card.track {
+.card-track {
   padding: 1rem 2rem;
-  display: block;
-  text-decoration: none;
+  font-size: unset;
+  text-align: left;
+  background: none;
+  border: none;
+  outline: none;
 
   @include shear-card($interactive: true, $glow: true);
   transition: #{trans()};
@@ -62,22 +72,22 @@ a.card.track {
       }
     }
   }
-}
 
-a.card.track.feat {
-  img {
-    box-shadow: 0 12px 64px color.change($col-trit, $alpha: 0.25);
+  &.feat {
+    img {
+      box-shadow: 0 12px 64px color.change($col-trit, $alpha: 0.25);
+    }
   }
 }
 
 
 .img-container {
   height: 200px;
-  transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: transform 1.0s cubic-bezier(0.19, 1, 0.22, 1);  // ease-out-exp
 
   h3 {
     width: 100%;
-    padding: 2em 0 0.5em 0.75em;
+    padding: 5em 0 0.5em 0.75em;
     margin: 0;
     position: absolute;
     left: 0;

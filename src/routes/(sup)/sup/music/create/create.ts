@@ -4,7 +4,7 @@ import type { AlbumData, TrackData } from "#scripts/types/music/create";
 import type { Groups } from "#scripts/types";
 
 
-/* @ts-ignore */
+// /* @ts-ignore */
 export const albums_data: Groups<AlbumData> = assign_albums({
   pinned: [
     {
@@ -90,7 +90,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
       date:   [2024, "present"],
       daw:    Daw.GarageBand,
       desc:
-        `Soundtracks for nontrivial mathematical shenanigans.`,
+        `Soundtracks for nontrivial mathematical shenanigans`,
       tracks: [
         {
           feat:   true,
@@ -251,7 +251,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
       cover:  "elysion.png",
       daw:    Daw.GarageBand,
       desc:
-        `Experimental soundtracks in a variety of genres.`,
+        `Experimental soundtracks in a variety of genres`,
       tracks: [
         {
           feat:   true,
@@ -329,7 +329,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
       cover:  "vision.another-dawn.png",
       daw:    Daw.GarageBand,
       desc:
-        `New soundtracks created for the revival of my rhythm game ${i("Algorhythm")}.`,
+        `New soundtracks created for the revival of my rhythm game ${i("Algorhythm")}`,
       tracks: [
         {
           feat:   true,
@@ -638,7 +638,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
       cover:  "garageband.jpg",
       daw:    Daw.GarageBand,
       desc:
-        `Miscellaneous and ancient creations in GarageBand.`,
+        `Miscellaneous and ancient creations in GarageBand`,
       tracks: [
         {
           shard:  "let-you-down",
@@ -717,7 +717,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
       ],
     },
   ],
-} as Groups<AlbumData>);
+});
 
 export const albums_list: AlbumData[] = Object.values(albums_data).flat();
 
@@ -728,10 +728,11 @@ export const tracks_list: TrackData[] = Object.values(albums_data).flatMap(
 );
 
 
-function assign_albums(album_data: object)
+function assign_albums(album_data: Groups<object>): Groups<AlbumData>
 {
   for (let collection of Object.values(album_data)) {
     for (let album of collection) {
+      // @ts-ignore
       for (let track of album.tracks) {
         track.album = album;
         track._score = 0;
@@ -739,5 +740,5 @@ function assign_albums(album_data: object)
     }
   }
 
-  return album_data;
+  return album_data as Groups<AlbumData>;
 }

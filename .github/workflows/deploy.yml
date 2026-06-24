@@ -16,10 +16,10 @@ jobs:
         
     steps:
       - name: 'git / checkout'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 'node / setup'
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: latest
           cache: 'npm'
@@ -34,7 +34,7 @@ jobs:
           npm run build
 
       - name: 'github / upload artifacts'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v7
         with:
           path: 'build/'
 
@@ -53,4 +53,4 @@ jobs:
     steps:
       - name: 'github / deploy'
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

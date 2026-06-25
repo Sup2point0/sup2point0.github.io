@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: 'git / checkout'
         uses: actions/checkout@v7
+        with:
+          submodules: true
 
       - name: 'node / setup'
         uses: actions/setup-node@v6

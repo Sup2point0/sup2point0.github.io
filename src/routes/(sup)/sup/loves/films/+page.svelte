@@ -13,14 +13,13 @@ import SearchFilters from "#parts/ui/search-filters.svelte";
 import MediaBlock    from "#parts/loves/block.media.svelte";
 import Adventure     from "#parts/special/adventure.svelte";
 
-import { films_data, films_list, type FilmData } from "./films";
+import { films_data, type FilmData } from "./films";
 import { FilmSearchFilter } from "./filter.films.svelte.ts";
-
 
 // svelte-ignore non_reactive_update
 let filters = new FilmSearchFilter();
 
-let displayed_films: FilterResults<FilmData> = $derived(filters.apply(films_list));
+let films_filtered = $derived(filters.apply(films_data));
 
 </script>
 
@@ -29,6 +28,21 @@ let displayed_films: FilterResults<FilmData> = $derived(filters.apply(films_list
   <title> Films × Loves × Sup#2.0 </title>
   <meta name="description" content="All the films I have watched, or would like to watch!" />
 </svelte:head>
+
+
+{#snippet cards(films: FilmData[], wants_shuffle: boolean)}
+  {@const _films =
+    wants_shuffle
+    ? (status.client ? shuffle(films) : [])
+    : films
+  }
+
+  <Cards>
+    {#each _films as film (film.shard)}
+      <MediaBlock kind="films" media={film} />
+    {/each}
+  </Cards>
+{/snippet}
 
 
 <Breadcrumbs levels={[
@@ -49,44 +63,20 @@ let displayed_films: FilterResults<FilmData> = $derived(filters.apply(films_list
     ]} />
   </Block>
 
-  <SearchFilters bind:filters result_count={displayed_films.length} />
+  <SearchFilters bind:filters result_count={filters.count_results(films_filtered)} />
 
-  {#if filters.query === "" && filters.dirtiness === 0}
-    {#each Object.entries(films_data) as [collection, films]}
-      <section>
-        <Header> {collection?.toUpperCase()} </Header>
-
-        <Cards>
-          {#each status.client ? shuffle(films) : [] as film}
-            <MediaBlock kind="films" media={film} />
-          {/each}
-        </Cards>
-      </section>
-    {/each}
-
-  {:else if filters.group_by !== "default"}
-    {@const displayed = displayed_films as [string, FilmData[]][]}
-
-    {#each displayed as [collection, films]}
-      <section>
-        <Header> {collection?.toUpperCase()} </Header>
-
-        <Cards>
-          {#each films as film (film.shard)}
-            <MediaBlock kind="films" media={film} />
-          {/each}
-        </Cards>
-      </section>
+  {#if films_filtered.is_grouped}
+    {#each films_filtered.data as [collection, films]}
+      {#if films.length > 0}
+        <section>
+          <Header> {collection?.toUpperCase()} </Header>
+          {@render cards(films, filters.is_clear)}
+        </section>
+      {/if}
     {/each}
 
   {:else}
-    {@const displayed = displayed_films as FilmData[]}
-
-    <Cards>
-      {#each displayed as film (film.shard)}
-        <MediaBlock kind="films" media={film} />
-      {/each}
-    </Cards>
+    {@render cards(films_filtered.data, false)}
 
   {/if}
 </Main>

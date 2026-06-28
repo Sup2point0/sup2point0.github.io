@@ -12,7 +12,7 @@ export class MediaSearchFilter<Media extends MediaData> extends SearchFilter<Med
   themes = $state(SearchFilter.init_states(Theme));
 
 
-  get toggles(): Record<string, States> {
+  override get toggles(): Record<string, States> {
     return {
       genres: this.genres,
       themes: this.themes,
@@ -24,13 +24,10 @@ export class MediaSearchFilter<Media extends MediaData> extends SearchFilter<Med
   }
 
 
-  /**
-   * Apply the search filters to the incoming media data, returning it either grouped or as a flat collection.
-   */
   apply(data: Groups<Media>): FilterResults<Media>
   {
-    if (this.query === "" && this.dirtiness === 0) {
-      return super.grouped_results(this.entries(data));
+    if (this.is_clear) {
+      return super.grouped_results(super.filter_mandatory(data));
     }
 
     let media = Object.values(data).flat();

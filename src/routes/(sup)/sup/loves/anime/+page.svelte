@@ -1,7 +1,6 @@
 <script lang="ts">
 
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
-import type { Grouped } from "#scripts/types";
 
 import Cards         from "#parts/core/cards.svelte";
 import Main          from "#parts/core/main.svelte";

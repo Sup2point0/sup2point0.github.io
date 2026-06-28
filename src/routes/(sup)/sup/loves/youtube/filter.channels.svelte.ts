@@ -2,7 +2,7 @@ import { partial_ratio } from "fuzzball";
 
 import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
 import { shuffle } from "#scripts/utils";
-import type { States } from "#scripts/types";
+import type { Groups, States } from "#scripts/types";
 
 import { channels_list, type YouTubeChannelData } from "./channels";
 
@@ -18,7 +18,7 @@ export class ChannelSearchFilter extends SearchFilter<YouTubeChannelData>
   );
 
 
-  get toggles(): Record<string, States>
+  override get toggles(): Record<string, States>
   {
     return {
       topics: this.topics,
@@ -29,23 +29,29 @@ export class ChannelSearchFilter extends SearchFilter<YouTubeChannelData>
     return ["default", "love", "date", "topics"];
   }
 
-  get sorts(): string[] {
+  override get sorts(): string[] {
     return [...super.sorts, "random"];
   }
 
 
-  apply(channels: YouTubeChannelData[]): FilterResults<YouTubeChannelData>
+  apply(data: Groups<YouTubeChannelData>): FilterResults<YouTubeChannelData>
   {
-    let out: FilterResults<YouTubeChannelData> = super.filter(channels);
+    if (this.is_clear) {
+      return super.grouped_results(super.filter_mandatory(data));
+    }
+
+    let channels = Object.values(data).flat();
+    let filtered = super.filter(channels);
 
     if (this.group_by !== "default") {
-      out = this.#group_and_sort(out);
+      return super.grouped_results(this.#group_and_sort(filtered));
     }
     else if (this.sort_by !== "default" || this.query) {
-      out = this.#sort(out);
+      return super.flat_results(this.#sort(filtered));
     }
-
-    return out;
+    else {
+      return super.flat_results(filtered);
+    }
   }
 
   #sort(channels: YouTubeChannelData[]): YouTubeChannelData[]

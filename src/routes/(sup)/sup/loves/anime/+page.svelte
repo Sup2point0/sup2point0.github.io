@@ -1,6 +1,7 @@
 <script lang="ts">
 
 import type { FilterResults } from "#scripts/search-filter.svelte.ts";
+import type { Grouped } from "#scripts/types";
 
 import Cards         from "#parts/core/cards.svelte";
 import Main          from "#parts/core/main.svelte";
@@ -9,14 +10,14 @@ import Header        from "#parts/ui/header.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
 import MediaBlock    from "#parts/loves/block.media.svelte";
 
-import { animes_data, animes_list, type AnimeData } from "./anime";
+import { animes_data, type AnimeData } from "./anime";
 import { AnimeSearchFilter } from "./filter.anime.svelte.ts";
 
 
 // svelte-ignore non_reactive_update
 let filters = new AnimeSearchFilter();
 
-let displayed_animes: FilterResults<AnimeData> = $derived(filters.apply(animes_list));
+let animes_filtered: FilterResults<AnimeData> = $derived(filters.apply(animes_data));
 
 </script>
 
@@ -27,50 +28,35 @@ let displayed_animes: FilterResults<AnimeData> = $derived(filters.apply(animes_l
 </svelte:head>
 
 
+{#snippet cards(animes: AnimeData[])}
+  <Cards>
+    {#each animes as anime (anime.shard)}
+      <MediaBlock kind="anime" media={anime} />
+    {/each}
+  </Cards>
+{/snippet}
+
+
 <Breadcrumbs levels={[
   { text: "loves", intern: "sup/loves" },
   { text: "anime" },
 ]} />
 
 <Main>
-  <SearchFilters bind:filters result_count={displayed_animes.length} />
+  <SearchFilters bind:filters result_count={filters.count_results(animes_filtered)} />
 
-  {#if filters.query === "" && filters.dirtiness === 0}
-    {#each Object.entries(animes_data) as [collection, series]}
-      <section>
-        <Header> {collection?.toUpperCase()} </Header>
-
-        <Cards>
-          {#each series as anime}
-            <MediaBlock kind="anime" media={anime} />
-          {/each}
-        </Cards>
-      </section>
-    {/each}
-
-  {:else if filters.group_by !== "default"}
-    {@const displayed = displayed_animes as [string, AnimeData[]][]}
-
-    {#each displayed as [collection, series]}
-      <section>
-        <Header> {collection?.toUpperCase()} </Header>
-
-        <Cards>
-          {#each series as anime (anime.shard)}
-            <MediaBlock kind="anime" media={anime} />
-          {/each}
-        </Cards>
-      </section>
+  {#if animes_filtered.is_grouped}
+    {#each animes_filtered.data as [collection, animes]}
+      {#if animes.length > 0}
+        <section>
+          <Header> {collection?.toUpperCase()} </Header>
+          {@render cards(animes)}
+        </section>
+      {/if}
     {/each}
 
   {:else}
-    {@const displayed = displayed_animes as AnimeData[]}
-
-    <Cards>
-      {#each displayed as anime (anime.shard)}
-        <MediaBlock kind="anime" media={anime} />
-      {/each}
-    </Cards>
+    {@render cards(animes_filtered.data)}
 
   {/if}
 </Main>

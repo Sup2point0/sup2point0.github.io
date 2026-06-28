@@ -3,7 +3,7 @@ import { partial_ratio } from "fuzzball";
 import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
 import { shuffle } from "#scripts/utils";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
-import type { States } from "#scripts/types";
+import type { Groups, Grouped, States } from "#scripts/types";
 
 
 export class MediaSearchFilter<Media extends MediaData> extends SearchFilter<Media>
@@ -24,18 +24,27 @@ export class MediaSearchFilter<Media extends MediaData> extends SearchFilter<Med
   }
 
 
-  apply(media: Media[]): FilterResults<Media>
+  /**
+   * Apply the search filters to the incoming media data, returning it either grouped or as a flat collection.
+   */
+  apply(data: Groups<Media>): FilterResults<Media>
   {
-    let out: FilterResults<Media> = this.filter_media(media);
+    if (this.query === "" && this.dirtiness === 0) {
+      return super.grouped_results(this.entries(data));
+    }
+
+    let media = Object.values(data).flat();
+    let filtered = this.filter_media(media);
 
     if (this.group_by !== "default") {
-      out = this.#group_and_sort(out);
+      return super.grouped_results(this.#group_and_sort(filtered));
     }
     else if (this.sort_by !== "default" || this.query) {
-      out = this.sort_media(out);
+      return super.flat_results(this.sort_media(filtered));
     }
-
-    return out;
+    else {
+      return super.flat_results(filtered);
+    }
   }
 
   protected filter_media(media: Media[]): Media[]
@@ -65,7 +74,7 @@ export class MediaSearchFilter<Media extends MediaData> extends SearchFilter<Med
     }
   }
 
-  #group_and_sort(media: Media[]): [string, Media[]][]
+  #group_and_sort(media: Media[]): Grouped<Media>
   {
     let grouper;
 

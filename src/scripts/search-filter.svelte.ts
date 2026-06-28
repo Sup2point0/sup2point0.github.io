@@ -3,10 +3,11 @@ import {
   all, any, sum,
 } from "#scripts/utils";
 
-import type { shard, Groups, States } from "#scripts/types";
+import type {
+  int, shard,
+  Groups, Grouped, States,
+} from "#scripts/types";
 
-
-export type FilterResults<Entity> = Entity[] | [string, Entity[]][];
 
 type Sorter<Entity> = (entities: Entity[]) => Entity[];
 
@@ -49,6 +50,27 @@ export function prep_groups<Entity extends Searchable>(
   }
 
   return data;
+}
+
+
+/**
+ * Results returned from a search filter, which may be grouped or ungrouped (a flat collection).
+ * 
+ * This functions as a tagged union, discriminated by `.is_grouped` (`true` for `Grouped<Entity>`).
+ */
+export type FilterResults<Entity>
+  = FlatResults<Entity>
+  | GroupedResults<Entity>
+;
+
+interface FlatResults<Entity> {
+  is_grouped: false;
+  data: Entity[];
+}
+
+interface GroupedResults<Entity> {
+  is_grouped: true;
+  data: Grouped<Entity>;
 }
 
 
@@ -116,6 +138,33 @@ export class SearchFilter<Entity extends Searchable>
   }
 
 
+  flat_results(results: Entity[]): FlatResults<Entity> {
+    return { is_grouped: false, data: results };
+  }
+
+  grouped_results(results: Grouped<Entity>): GroupedResults<Entity> {
+    return { is_grouped: true, data: results };
+  }
+
+  count_results(results: FilterResults<Entity>): int
+  {
+    if (results.is_grouped) {
+      return sum(results.data.map(group => group.length));
+    } else {
+      return results.data.length;
+    }
+  }
+
+
+  entries(source: Groups<Entity>): Grouped<Entity>
+  {
+    return Object.entries(source).map(([group, entities]) => [
+      group,
+      entities.filter(each => !each.is_hidden || this.show_hidden)
+    ]);
+  }
+
+
   /**
    * Filter a list of entities (out-of-place).
    */
@@ -123,7 +172,7 @@ export class SearchFilter<Entity extends Searchable>
     source: Entity[],
     exclude_if?: (entity: Entity) => boolean,
   ): Entity[]
-  {
+  { 
     let out = source.filter(each => {
       each._score = 0;
       let filtered = false;
@@ -132,7 +181,7 @@ export class SearchFilter<Entity extends Searchable>
       if (exclude_if?.(each)) return false;
 
       for (let [prop, states] of Object.entries(this.toggles)) {
-        /** If the user hasn't made any choice, don't activate any filters. */
+        /* If the user hasn't made any choice, don't activate any filters. */
         if (all(states) || !any(states)) continue;
 
         let hit = false;
@@ -276,43 +325,43 @@ export class SearchFilter<Entity extends Searchable>
   }
 
   default_group_sort<Key extends PropertyKey>(
-      groups: [Key, Entity[]][],
-    ): [Key, Entity[]][]
-    {
-      if (this.group_by === "date" && (this.sort_by === "date" || this.sort_by === "default")) {
-        return groups.toSorted(
-          ([g1, e1], [g2, e2]) => (g2 as number) - (g1 as number)
-        );
-      }
-  
-      if (this.dirtiness > 1) {
-        return groups.toSorted(
-          ([group, media]) => {
-            if (this.query) {
-              return sum(
-                media.map(each => each._score ?? 0)
-              );
-            }
-            return media.length;
-          }
-        );
-      }
-  
-      let toggles = Object.keys(this.toggles);
-  
-      if (toggles.includes(this.group_by)) {
-        return groups.toSorted(
-          ([g1, e1], [g2, e2]) => {
-            let prot = Object.keys(this[this.group_by]).indexOf(g1 as string);
-            let deut = Object.keys(this[this.group_by]).indexOf(g2 as string);
-  
-            if (prot === -1 && deut !== -1) return 1;
-            if (prot !== -1 && deut === -1) return -1;
-            return prot - deut;
-          }
-        )
-      }
-  
-      return groups;
+    groups: [Key, Entity[]][],
+  ): [Key, Entity[]][]
+  {
+    if (this.group_by === "date" && (this.sort_by === "date" || this.sort_by === "default")) {
+      return groups.toSorted(
+        ([g1, e1], [g2, e2]) => (g2 as number) - (g1 as number)
+      );
     }
+
+    if (this.dirtiness > 1) {
+      return groups.toSorted(
+        ([group, media]) => {
+          if (this.query) {
+            return sum(
+              media.map(each => each._score ?? 0)
+            );
+          }
+          return media.length;
+        }
+      );
+    }
+
+    let toggles = Object.keys(this.toggles);
+
+    if (toggles.includes(this.group_by)) {
+      return groups.toSorted(
+        ([g1, e1], [g2, e2]) => {
+          let prot = Object.keys(this[this.group_by]).indexOf(g1 as string);
+          let deut = Object.keys(this[this.group_by]).indexOf(g2 as string);
+
+          if (prot === -1 && deut !== -1) return 1;
+          if (prot !== -1 && deut === -1) return -1;
+          return prot - deut;
+        }
+      )
+    }
+
+    return groups;
+  }
 }

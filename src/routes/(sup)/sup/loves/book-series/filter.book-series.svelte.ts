@@ -5,7 +5,7 @@ import { type BookSeriesData } from "./book-series";
 
 export class BookSeriesSearchFilter extends MediaSearchFilter<BookSeriesData>
 {
-  get sorts(): string[] {
+  override get sorts(): string[] {
     return [...super.sorts, "books count"];
   }
 

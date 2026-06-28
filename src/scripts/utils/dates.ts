@@ -1,11 +1,17 @@
 import type { Dates } from "#scripts/types";
 
 
+const SCALE_MAJOR = 10000;
+const SCALE_MINOR = 100;
+
+
 export function datepoint_to_prec(date: Dates | undefined): number | number[]
 {
   if (date === undefined) {
     return -1;
   }
+
+  if (typeof date === "number") return SCALE_MAJOR * date;
 
   if (Array.isArray(date)) {
     return date.map(datepoint_to_prec) as number[];
@@ -65,8 +71,8 @@ export function datepoint_to_prec(date: Dates | undefined): number | number[]
   }
 
   return (
-      10000 * Number(year)
-    + 100 * coarse
+      SCALE_MAJOR * Number(year)
+    + SCALE_MINOR * coarse
     + Number(day)
   );
 }

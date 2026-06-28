@@ -75,6 +75,7 @@ export class MediaSearchFilter<Media extends MediaData> extends SearchFilter<Med
   {
     let grouper;
 
+    // FIXME why switch here?
     switch (this.group_by) {
       default:
         /* @ts-ignore */

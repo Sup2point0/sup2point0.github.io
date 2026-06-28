@@ -1,8 +1,6 @@
 <script lang="ts">
 
-import type { FilterResults } from "#scripts/search-filter.svelte.ts";
-
-import { games_data, games_list, type GameData } from "./games";
+import { games_data, type GameData } from "./games";
 import { GameSearchFilter } from "./filter.games.svelte.ts";
 
 import Cards         from "#parts/core/cards.svelte";
@@ -18,7 +16,7 @@ import { onMount } from "svelte";
 // svelte-ignore non_reactive_update
 let filters = new GameSearchFilter();
 
-let displayed_games: FilterResults<GameData> = $derived(filters.apply(games_list));
+let games_filtered = $derived(filters.apply(games_data));
 
 
 let invert: boolean;
@@ -36,50 +34,35 @@ onMount(() => {
 </svelte:head>
 
 
+{#snippet cards(games: GameData[])}
+  <Cards>
+    {#each games as game (game.shard)}
+      <GameBlock {game} {invert} />
+    {/each}
+  </Cards>
+{/snippet}
+
+
 <Breadcrumbs levels={[
   { text: "loves", intern: "sup/loves" },
   { text: "games" },
 ]} />
 
 <Main>
-  <SearchFilters bind:filters result_count={displayed_games.length} />
+  <SearchFilters bind:filters result_count={filters.count_results(games_filtered)} />
 
-  {#if filters.query === "" && filters.dirtiness === 0}
-    {#each Object.entries(games_data) as [collection, games]}
-      <section>
-        <Header> {collection?.toUpperCase()} </Header>
-
-        <Cards>
-          {#each games as game}
-            <GameBlock {game} {invert} />
-          {/each}
-        </Cards>
-      </section>
-    {/each}
-
-  {:else if filters.group_by !== "default"}
-    {@const displayed = displayed_games as [string, GameData[]][]}
-
-    {#each displayed as [collection, games]}
-      <section>
-        <Header> {collection?.toUpperCase()} </Header>
-
-        <Cards>
-          {#each games as game (game.shard)}
-            <GameBlock {game} {invert} />
-          {/each}
-        </Cards>
-      </section>
+  {#if games_filtered.is_grouped}
+    {#each games_filtered.data as [collection, games]}
+      {#if games.length > 0}
+        <section>
+          <Header text={collection?.toUpperCase()} />
+          {@render cards(games)}
+        </section>
+      {/if}
     {/each}
 
   {:else}
-    {@const displayed = displayed_games as GameData[]}
-
-    <Cards>
-      {#each displayed as game (game.shard)}
-        <GameBlock {game} {invert} />
-      {/each}
-    </Cards>
+    {@render cards(games_filtered.data)}
 
   {/if}
 </Main>

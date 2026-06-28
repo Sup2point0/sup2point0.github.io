@@ -2,7 +2,7 @@ import { partial_ratio } from "fuzzball";
 
 import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
 import { shuffle } from "#scripts/utils";
-import type { States } from "#scripts/types";
+import type { Groups, States } from "#scripts/types";
 
 import { Genre, Platform, PlayState, type GameData } from "./games";
 
@@ -14,7 +14,7 @@ export class GameSearchFilter extends SearchFilter<GameData>
   state       = $state(SearchFilter.init_states(PlayState));
 
 
-  get toggles(): Record<string, States> {
+  override get toggles(): Record<string, States> {
     return {
       genres:    this.genres,
       platforms: this.platforms,
@@ -26,23 +26,29 @@ export class GameSearchFilter extends SearchFilter<GameData>
     return ["default", "love", "date", "genres", "platforms", "state"];
   }
 
-  get sorts(): string[] {
+  override get sorts(): string[] {
     return [...super.sorts, "random"];
   }
 
 
-  apply(games: GameData[]): FilterResults<GameData>
+  apply(data: Groups<GameData>): FilterResults<GameData>
   {
-    let out: FilterResults<GameData> = super.filter(games);
+    if (this.is_clear) {
+      return super.grouped_results(super.filter_mandatory(data));
+    }
+
+    let games = Object.values(data).flat();
+    let filtered = super.filter(games);
 
     if (this.group_by !== "default") {
-      out = this.#group_and_sort(out);
+      return super.grouped_results(this.#group_and_sort(filtered));
     }
     else if (this.sort_by !== "default" || this.query) {
-      out = this.#sort(out);
+      return super.flat_results(this.#sort(filtered));
     }
-
-    return out;
+    else {
+      return super.flat_results(filtered);
+    }
   }
 
   #sort(games: GameData[]): GameData[]

@@ -75,14 +75,14 @@ const data: Groups<AnimeData> =
       desc: [
         `${i("Rent-a-Girlfriend")} (seasons 1–3)`,
       ],
-      is_hidden: true,
+      is_shown: false,
     },
     {
       name:   "Yosuga no Sora",
       date:   2010,
       cover:  "yosuga-no-sora.jpg",
       genres: ["??" as Genre],
-      is_hidden: true,
+      is_shown: false,
     },
   ],
 };

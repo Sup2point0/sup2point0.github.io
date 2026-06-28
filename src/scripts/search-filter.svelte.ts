@@ -23,8 +23,8 @@ export interface Searchable
   /** Which 'collection' this entity belongs to. */
   collection?: string;
 
-  /** Should this entity be hidden by default? */
-  is_hidden?: boolean;
+  /** Should this entity be shown? */
+  is_shown?: boolean;
   
   /** A cached score for how relevant this entity is for a given search query. */
   _score?: number;
@@ -181,7 +181,7 @@ export class SearchFilter<Entity extends Searchable>
   {
     return Object.entries(source).map(([group, entities]) => [
       group,
-      entities.filter(each => !each.is_hidden || this.show_all)
+      entities.filter(each => this.show_all || each.is_shown !== false)
     ]);
   }
 
@@ -198,7 +198,6 @@ export class SearchFilter<Entity extends Searchable>
       each._score = 0;
       let filtered = false;
 
-      if (!this.show_all && each.is_hidden) return false;
       if (exclude_if?.(each)) return false;
 
       for (let [prop, states] of Object.entries(this.toggles)) {

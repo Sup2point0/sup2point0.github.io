@@ -416,7 +416,7 @@ const data: Groups<FilmData> =
       date:   2015,
       cover:  undefined,
       flags:  [Flag.ANIMATED],
-      is_hidden: true,
+      is_shown: false,
     },
   ],
 };

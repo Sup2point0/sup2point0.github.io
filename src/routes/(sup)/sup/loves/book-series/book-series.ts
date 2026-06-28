@@ -166,6 +166,7 @@ const data: Groups<BookSeriesData> =
         author:    "Tahereh Mafi",
         favourite: undefined,
       },
+      is_shown: false,
     },
   ],
 };

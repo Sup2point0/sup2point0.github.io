@@ -9,16 +9,14 @@ import Header        from "#parts/ui/header.svelte";
 import SearchFilters from "#parts/ui/search-filters.svelte";
 import MediaBlock    from "#parts/loves/block.media.svelte";
 
-import { book_series_data, book_series_list, type BookSeriesData } from "./book-series";
+import { book_series_data, type BookSeriesData } from "./book-series";
 import { BookSeriesSearchFilter } from "./filter.book-series.svelte.ts";
 
 
 // svelte-ignore non_reactive_update
 let filters = new BookSeriesSearchFilter();
 
-let displayed_series: FilterResults<BookSeriesData> = $derived(
-  filters.apply(book_series_list) as FilterResults<BookSeriesData>
-);
+let books_filtered = $derived(filters.apply(book_series_data));
 
 </script>
 
@@ -29,50 +27,35 @@ let displayed_series: FilterResults<BookSeriesData> = $derived(
 </svelte:head>
 
 
+{#snippet cards(books: BookSeriesData[])}
+  <Cards>
+    {#each books as book (book.shard)}
+      <MediaBlock kind="books" media={book} />
+    {/each}
+  </Cards>
+{/snippet}
+
+
 <Breadcrumbs levels={[
   { text: "loves", intern: "sup/loves" },
   { text: "book series" },
 ]} />
 
 <Main>
-  <SearchFilters bind:filters result_count={displayed_series.length} />
+  <SearchFilters bind:filters result_count={filters.count_results(books_filtered)} />
 
-  {#if filters.query === "" && filters.dirtiness === 0}
-    {#each Object.entries(book_series_data) as [collection, series]}
-      <section>
-        <Header> {collection?.toUpperCase()} </Header>
-
-        <Cards>
-          {#each series as anime}
-            <MediaBlock kind="books" media={anime} />
-          {/each}
-        </Cards>
-      </section>
-    {/each}
-
-  {:else if filters.group_by !== "default"}
-    {@const displayed = displayed_series as [string, BookSeriesData[]][]}
-
-    {#each displayed as [collection, series]}
-      <section>
-        <Header> {collection?.toUpperCase()} </Header>
-
-        <Cards>
-          {#each series as anime (anime.shard)}
-            <MediaBlock kind="books" media={anime} />
-          {/each}
-        </Cards>
-      </section>
+  {#if books_filtered.is_grouped}
+    {#each books_filtered.data as [collection, books]}
+      {#if books.length > 0}
+        <section>
+          <Header text={collection?.toUpperCase()} />
+          {@render cards(books)}
+        </section>
+      {/if}
     {/each}
 
   {:else}
-    {@const displayed = displayed_series as BookSeriesData[]}
-
-    <Cards>
-      {#each displayed as anime (anime.shard)}
-        <MediaBlock kind="books" media={anime} />
-      {/each}
-    </Cards>
+    {@render cards(books_filtered.data)}
 
   {/if}
 </Main>

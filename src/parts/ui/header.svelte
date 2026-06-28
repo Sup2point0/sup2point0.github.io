@@ -1,14 +1,27 @@
-<!-- @component Header -->
+<!-- @component `Header`
+ 
+An `<h2>`-level header.
+-->
 
 <script lang="ts">
 
-let { margin = true, children } = $props();
+interface Props {
+  text?: string;
+  margin?: boolean;
+  children?: any;
+}
+
+let { text, margin = true, children }: Props = $props();
 
 </script>
 
 
 <h2 style:margin-bottom={margin ? "2rem" : undefined}>
-  {@render children?.()}
+  {#if children}
+    {@render children()}
+  {:else}
+    {@html text ?? "–––"}
+  {/if}
 </h2>
 
 

@@ -5,7 +5,7 @@ const SCALE_MAJOR = 10000;
 const SCALE_MINOR = 100;
 
 
-export function datepoint_to_prec(date: Dates | undefined): number | number[]
+export function datepoint_to_prec(date: Dates | undefined): number
 {
   if (date === undefined) {
     return -1;
@@ -14,7 +14,7 @@ export function datepoint_to_prec(date: Dates | undefined): number | number[]
   if (typeof date === "number") return SCALE_MAJOR * date;
 
   if (Array.isArray(date)) {
-    return date.map(datepoint_to_prec) as number[];
+    return Math.min(...date.map(datepoint_to_prec));
   }
 
   if (typeof date !== "string") return 0;

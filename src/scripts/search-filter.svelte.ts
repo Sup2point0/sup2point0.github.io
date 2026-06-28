@@ -90,11 +90,19 @@ export class SearchFilter<Entity extends Searchable>
   sort_by:       string  = $state("default");
   reverse_sort:  boolean = $state(false);
 
-  show_hidden: boolean = $state(false);
+  show_all: boolean = $state(false);
+
+  /**
+   * If the user has not interacted with any filters, should entities in each collection be shuffled by default?
+   */
+  shuffle_by_default: boolean = false;
 
   [prop: string]: any;
 
 
+  /**
+   * Which search filters should show their current state beneath the search bar, as an immediate visual reminder to the user (even when they don't have the filters opened).
+   */
   get previews(): [string, string][] {
     return [];
   }
@@ -108,8 +116,21 @@ export class SearchFilter<Entity extends Searchable>
     return {};
   }
 
+  // TODO get groups()?
+
+  /**
+   * Which properties by which the user can sort the search results.
+   */
   get sorts(): string[] {
     return ["default", "date", "name"];
+  }
+
+
+  /**
+   * Are the search filters (effectively) untouched by the user? (i.e. Should the default initial filters be applied?)
+   */
+  get is_clear(): boolean {
+    return this.query === "" && this.dirtiness === 0;
   }
 
 
@@ -156,11 +177,11 @@ export class SearchFilter<Entity extends Searchable>
   }
 
 
-  entries(source: Groups<Entity>): Grouped<Entity>
+  filter_mandatory(source: Groups<Entity>): Grouped<Entity>
   {
     return Object.entries(source).map(([group, entities]) => [
       group,
-      entities.filter(each => !each.is_hidden || this.show_hidden)
+      entities.filter(each => !each.is_hidden || this.show_all)
     ]);
   }
 
@@ -177,7 +198,7 @@ export class SearchFilter<Entity extends Searchable>
       each._score = 0;
       let filtered = false;
 
-      if (!this.show_hidden && each.is_hidden) return false;
+      if (!this.show_all && each.is_hidden) return false;
       if (exclude_if?.(each)) return false;
 
       for (let [prop, states] of Object.entries(this.toggles)) {

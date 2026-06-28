@@ -114,6 +114,15 @@ let open = $state(false);
             {/each}
           </div> </td>
         </tr>
+
+        <tr> <th> EXTRA </th>
+          <td>
+            <ClickySelect text="SHOW ALL"
+              active={filters.show_all}
+              onclick={() => { filters.show_all = !filters.show_all; }}
+            />
+          </td>
+        </tr>
       </tbody></table>
     </div>
   

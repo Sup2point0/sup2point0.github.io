@@ -3,22 +3,21 @@ import { partial_ratio } from "fuzzball";
 import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte.ts";
 import { shuffle, datepoint_to_prec } from "#scripts/utils";
 import type { TrackData } from "#scripts/types/music/create";
-import type { States } from "#scripts/types";
 
 
 export class TrackSearchFilter extends SearchFilter<TrackData>
 {
-  get groups() {
-    return ["default", "album", "year", "genre"];
-  }
-
-  filter_by = $state({
+  override filter_by = $state({
     "is preview": false,
   });
 
-  sort_by = $state("random");
+  override sort_by = $state("random");
 
-  get sorts() {
+  override get groups() {
+    return ["default", "album", "year", "genre"];
+  }
+
+  override get sorts() {
     return ["random", "name", "year", "album"];
   }
 

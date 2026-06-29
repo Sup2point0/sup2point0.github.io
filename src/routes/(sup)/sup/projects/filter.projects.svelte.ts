@@ -31,7 +31,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
   [prop: string]: States | any;
   
 
-  get previews(): [string, string][]
+  override get previews(): [string, string][]
   {
     return [
       ...this.if_selected("tech"),
@@ -50,6 +50,11 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
     return out;
   }
 
+  filter_by = $state({
+    "on github": false,
+    "has site": false,
+  });
+
   get toggles(): Record<string, States>
   {
     return {
@@ -60,31 +65,13 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
     };
   }
 
-  filter_by = $state({
-    "on github": false,
-    "has site": false,
-  });
-
-  get groups(): string[]
+  override get groups(): string[]
   {
     return ["default", "date", "tech", "flavour", "kind", "state"];
   }
 
 
-  apply(projects: ProjectData[]): FilterResults<ProjectData>
-  {    
-    let out: FilterResults<ProjectData> = this.#filter(projects);
-    
-    if (this.group_by !== "default") {
-      out = this.#group_and_sort(out);
-    }
-    else if (this.sort_by !== "default" || this.query) {      
-      out = this.#sort(out);
-    }
-
-    return out;
-  }
-
+  // TODO refactor to use common `.filter()`
   #filter(projects: ProjectData[]): ProjectData[]
   {
     let out = projects.filter(

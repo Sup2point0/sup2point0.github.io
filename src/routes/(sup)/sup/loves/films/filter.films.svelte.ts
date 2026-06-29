@@ -10,7 +10,6 @@ export class FilmSearchFilter extends MediaSearchFilter<FilmData>
 
   franchise = $state(MediaSearchFilter.init_states(Franchise));
 
-
   override filter_by = $state({
     ...MediaSearchFilter.init_states(Flag, false)
   });
@@ -23,7 +22,7 @@ export class FilmSearchFilter extends MediaSearchFilter<FilmData>
   }
   
 
-  override filter_media(films: FilmData[]): FilmData[]
+  override filter(films: FilmData[]): FilmData[]
   {
     return super.filter(films,
       film => {

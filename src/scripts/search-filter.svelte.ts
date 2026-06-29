@@ -81,7 +81,7 @@ export interface GroupedResults<Entity> {
  * 
  * To use the filter, call `.apply()` and provide the data to filter.
  * 
- * The most important methods for deriving classes to override are `.sorter()` and `.grouper()`, which `.apply()` will call.
+ * The most important methods for deriving classes to override are `.sort_default()` and `.grouper()`, which `.apply()` will call.
  */
 export class SearchFilter<Entity extends Searchable>
 {
@@ -103,38 +103,31 @@ export class SearchFilter<Entity extends Searchable>
    */
   shuffle_by_default: boolean = false;
 
-  /* NOTE: This may mask type checking */
-  [prop: string]: any;
-
   /**
    * Which search filters should show their current state beneath the search bar, as an immediate visual reminder to the user (even when they don't have the filters opened).
    */
-  get previews(): [string, string][] {
-    return [];
-  }
+  previews: [string, string][] = [];
 
   /**
    * Which search filters can have individual states toggled, and their corresponding state object.
    * 
    * For instance, a media search filter might return `{ genres: <States> }`, allowing the user to enable/disable individual genres in the search results.
    */
-  get toggles(): Record<string, States> {
-    return {};
-  }
+  toggles: Record<string, States> = {};
 
   /**
    * Groups by which the user can group search results, such as date or love.
    */
-  get groups(): string[] {
-    return ["default"];
-  }
+  groups: string[] = ["default"];
 
   /**
    * Properties by which the user can sort search results, such as date or name.
    */
-  get sorts(): string[] {
-    return ["default", "date", "name"];
-  }
+  sorts: string[] = ["default", "date", "name"];
+
+  /* NOTE: This may mask type checking */
+  // FIXME why do we need this?
+  [prop: string]: any;
 
 
   /**

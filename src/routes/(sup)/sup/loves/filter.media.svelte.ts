@@ -1,9 +1,8 @@
 import { partial_ratio } from "fuzzball";
 
-import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
+import { SearchFilter } from "#scripts/search-filter.svelte";
 import { shuffle } from "#scripts/utils";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
-import type { Groups, Grouped, States } from "#scripts/types";
 
 
 export class MediaSearchFilter<Media extends MediaData> extends SearchFilter<Media>
@@ -12,15 +11,16 @@ export class MediaSearchFilter<Media extends MediaData> extends SearchFilter<Med
   themes = $state(SearchFilter.init_states(Theme));
 
 
-  override get toggles(): Record<string, States> {
-    return {
+  constructor()
+  {
+    super()
+
+    this.toggles = {
       genres: this.genres,
       themes: this.themes,
     };
-  }
 
-  override get groups() {
-    return ["default", "date", "genres", "themes"];
+    this.groups.push("date", "genres", "themes");
   }
 
 

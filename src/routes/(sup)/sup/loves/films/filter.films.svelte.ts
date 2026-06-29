@@ -1,5 +1,4 @@
 import { MediaSearchFilter } from "../filter.media.svelte";
-import type { States } from "#scripts/types";
 
 import { Franchise, Flag, type FilmData } from "./films";
 
@@ -14,11 +13,12 @@ export class FilmSearchFilter extends MediaSearchFilter<FilmData>
     ...MediaSearchFilter.init_states(Flag, false)
   });
 
-  override get toggles(): Record<string, States> {
-    return {
-      ...super.toggles,
-      franchise: this.franchise,
-    }
+
+  constructor()
+  {
+    super();
+
+    this.toggles["franchise"] = this.franchise;
   }
   
 

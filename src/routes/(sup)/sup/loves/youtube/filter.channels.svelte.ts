@@ -1,8 +1,6 @@
 import { partial_ratio } from "fuzzball";
 
-import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
-import { shuffle } from "#scripts/utils";
-import type { Groups, States } from "#scripts/types";
+import { SearchFilter } from "#scripts/search-filter.svelte";
 
 import { channels_list, type YouTubeChannelData } from "./channels";
 
@@ -18,19 +16,17 @@ export class ChannelSearchFilter extends SearchFilter<YouTubeChannelData>
   );
 
 
-  override get toggles(): Record<string, States>
+  constructor()
   {
-    return {
+    super();
+
+    this.toggles = {
       topics: this.topics,
-    }
-  }
+    };
 
-  override get groups() {
-    return ["default", "love", "date", "topics"];
-  }
+    this.groups.push("love", "date", "topics");
 
-  override get sorts() {
-    return [...super.sorts, "random"];
+    this.sorts.push("random");
   }
 
 

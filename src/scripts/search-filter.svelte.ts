@@ -1,5 +1,6 @@
 import {
   shardify, datepoint_to_prec,
+  shuffle,
   all, any, sum,
 } from "#scripts/utils";
 
@@ -9,6 +10,7 @@ import type {
 } from "#scripts/types";
 
 
+type SortBy = "default" | "date" | "name" | string;
 type Sorter<Entity> = (entities: Entity[]) => Entity[];
 
 
@@ -91,7 +93,7 @@ export class SearchFilter<Entity extends Searchable>
 
   filter_by:     States = $state({});
 
-  sort_by:       string  = $state("default");
+  sort_by:       SortBy  = $state("default");
   reverse_sort:  boolean = $state(false);
 
   show_all: boolean = $state(false);
@@ -103,7 +105,6 @@ export class SearchFilter<Entity extends Searchable>
 
   /* NOTE: This may mask type checking */
   [prop: string]: any;
-
 
   /**
    * Which search filters should show their current state beneath the search bar, as an immediate visual reminder to the user (even when they don't have the filters opened).
@@ -145,27 +146,19 @@ export class SearchFilter<Entity extends Searchable>
 
 
   /**
-   * Construct a state object with the members of an enum `states`, initialising each state to `init_state` (`true` by default).
-   * */
-  static init_states(states: object, init_state?: boolean): States
-  {
-    return {
-      ...Object.fromEntries(
-        Object.values(states)
-        .map(s => [s, init_state ?? true])
-      )
-    };
-  }
+   * Lookup dictionary for sorting algorithms to apply depending on `.sort-by`.
+   */
+  protected sorters_specific: Record<string, Sorter<Entity>>;
 
-  static init_shard_states(states: Record<shard, Searchable>, init_state?: boolean): States
+
+  constructor()
   {
-    return {
-      ...Object.fromEntries(
-        Object.values(states)
-        .filter(s => s._show !== false)
-        .map(s => [s.shard, init_state ?? true])
-      )
+    this.sorters_specific = {
+      "date":   source => this.sort(source, { scorer: each => datepoint_to_prec(each.date) }),
+      "name":   source => source.toSorted((l, r) => l.name.localeCompare(r.name)),
+      "random": source => shuffle(source),
     };
+
   }
 
 
@@ -187,6 +180,36 @@ export class SearchFilter<Entity extends Searchable>
   }
 
 
+  /**
+   * Apply the search filters to the provided `date` to produce search results, which may be grouped or ungrouped.
+   */
+  apply(data: Groups<Entity>): FilterResults<Entity>
+  {
+    if (this.is_clear) {
+      return this.grouped_results(this.filter_mandatory(data));
+    }
+
+    let entities = Object.values(data).flat();
+    let filtered = this.filter(entities);
+
+    if (this.group_by !== "default") {
+      return this.grouped_results(this.sort_grouped(filtered));
+    }
+    else if (this.sort_by !== "default" || this.query) {
+      return this.flat_results(this.sort_ungrouped(filtered));
+    }
+    else {
+      return this.flat_results(filtered);
+    }
+  }
+
+
+  // == FILTER == //
+
+  /**
+   * (out-of-place) Apply a base set of filters to collections of entities.
+   */
+  // TODO private
   filter_mandatory(source: Groups<Entity>): Grouped<Entity>
   {
     return Object.entries(source).map(([group, entities]) => [
@@ -194,7 +217,6 @@ export class SearchFilter<Entity extends Searchable>
       entities.filter(each => this.show_all || each.is_shown !== false)
     ]);
   }
-
 
   /**
    * (out-of-place) Filter a list of entities.
@@ -279,12 +301,57 @@ export class SearchFilter<Entity extends Searchable>
     return out;
   }
 
-  sort_date(source: Entity[]): Entity[]
+  /**
+   * (out-of-place) Sort `source` by applying the search filters, producing ungrouped results.
+   */
+  sort_ungrouped(source: Entity[]): Entity[]
+  {
+    let sorter = this.sorters_specific[this.sort_by]?.bind(this);
+    let sorted = sorter ? sorter(source) : this.sort_default(source);
+
+    if (this.reverse_sort) sorted.reverse();
+
+    return sorted;
+  }
+
+  /**
+   * (out-of-place) Group then sort `source` by applying the search filters, producing grouped results.
+   */
+  sort_grouped(source: Entity[]): Grouped<Entity>
+  {
+    return this.group(source, {
+      grouper: this.grouper.bind(this),
+      entity_sorter: this.sort_ungrouped.bind(this),
+    })
+  }
+
+  /**
+   * The default sorter to apply when `.sort-by` is `"default"`.
+   * 
+   * This method should be overridden by child classes.
+   */
+  protected sort_default(source: Entity[]): Entity[]
+  {
+    return source;
+  }
+
+  /**
+   * This method should be overridden by child classes.
+   */
+  protected grouper(entity: Entity): string
+  {
+    let value = entity[this.group_by];
+    return Array.isArray(value) ? value[0] : value;
+  }
+  
+
+  // FIXME remove
+  protected sort_date(source: Entity[]): Entity[]
   {
     return this.sort(source, {
       scorer: each => {
         if (Array.isArray(each.date)) {
-          return Math.min(...datepoint_to_prec(each.date) as number[]);
+          return datepoint_to_prec(each.date);
         }
         return datepoint_to_prec(each.date) as number;
       }
@@ -309,24 +376,22 @@ export class SearchFilter<Entity extends Searchable>
    * @param grouper Grouper function applied to each entity to assign it a group.
    * @param entity_sorter Sorter function applied to each group to sort the entities inside it.
    * @param group_sorter Function applied to each group name to assign it a score used for sorting groups.
-   * @returns List of groups of entities.
    */
   group<Key extends PropertyKey>(
     source: Entity[],
     options: {
-      grouper?: (entity: Entity) => Key,
+      grouper: (entity: Entity) => Key,
       entity_sorter?: Sorter<Entity>,
       group_sorter?: Sorter<[Key, Entity[]]>,
     },
   ): [Key, Entity[]][]
   {
     let {
-      grouper = this.default_group.bind(this),
+      grouper,
       entity_sorter,
       group_sorter = this.default_group_sort.bind(this),
     } = options;
-
-    /* @ts-ignore SAFETY: `.groupBy()` expects a callback returning a `Key`, idky TypeScript thinks it should be `string` ¯\_(ツ)_/¯ */
+    
     let groups = Object.groupBy(source, grouper) as Groups<Entity>;
     let out    = Object.entries(groups)          as [Key, Entity[]][];
     
@@ -348,12 +413,6 @@ export class SearchFilter<Entity extends Searchable>
     if (this.reverse_group) out.reverse();
 
     return out;
-  }
-
-  default_group(entity: Entity): string
-  {
-    let value = entity[this.group_by];
-    return Array.isArray(value) ? value[0] : value;
   }
 
   default_group_sort<Key extends PropertyKey>(
@@ -395,5 +454,32 @@ export class SearchFilter<Entity extends Searchable>
     }
 
     return groups;
+  }
+
+
+  // == STATIC == //
+
+  /**
+   * Construct a state object with the members of an enum `states`, initialising each state to `init_state` (`true` by default).
+   * */
+  static init_states(states: object, init_state?: boolean): States
+  {
+    return {
+      ...Object.fromEntries(
+        Object.values(states)
+        .map(s => [s, init_state ?? true])
+      )
+    };
+  }
+
+  static init_shard_states(states: Record<shard, Searchable>, init_state?: boolean): States
+  {
+    return {
+      ...Object.fromEntries(
+        Object.values(states)
+        .filter(s => s._show !== false)
+        .map(s => [s.shard, init_state ?? true])
+      )
+    };
   }
 }

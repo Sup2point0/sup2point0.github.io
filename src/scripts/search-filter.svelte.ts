@@ -63,12 +63,12 @@ export type FilterResults<Entity>
   | GroupedResults<Entity>
 ;
 
-interface FlatResults<Entity> {
+export interface FlatResults<Entity> {
   is_grouped: false;
   data: Entity[];
 }
 
-interface GroupedResults<Entity> {
+export interface GroupedResults<Entity> {
   is_grouped: true;
   data: Grouped<Entity>;
 }

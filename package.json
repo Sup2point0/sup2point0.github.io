@@ -10,8 +10,8 @@
       "devx":    "vite dev --open",
 		"build":   "vite build",
 		"preview": "vite preview",
-    "test":    "vitest",
-      "testr":   "vitest run",
+    "test":    "vitest run",
+      "testw":   "vitest",
       "testx":   "playwright test"
 	},
 

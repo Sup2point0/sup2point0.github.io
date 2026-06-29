@@ -75,7 +75,11 @@ interface GroupedResults<Entity> {
 
 
 /**
- * Base class for a search filter.
+ * Base class for a search filter, with support for grouping, filtering and sorting.
+ * 
+ * To use the filter, call `.apply()` and provide the data to filter.
+ * 
+ * The most important methods for deriving classes to override are `.sorter()` and `.grouper()`, which `.apply()` will call.
  */
 export class SearchFilter<Entity extends Searchable>
 {
@@ -97,6 +101,7 @@ export class SearchFilter<Entity extends Searchable>
    */
   shuffle_by_default: boolean = false;
 
+  /* NOTE: This may mask type checking */
   [prop: string]: any;
 
 
@@ -116,10 +121,15 @@ export class SearchFilter<Entity extends Searchable>
     return {};
   }
 
-  // TODO get groups()?
+  /**
+   * Groups by which the user can group search results, such as date or love.
+   */
+  get groups(): string[] {
+    return ["default"];
+  }
 
   /**
-   * Which properties by which the user can sort the search results.
+   * Properties by which the user can sort search results, such as date or name.
    */
   get sorts(): string[] {
     return ["default", "date", "name"];
@@ -170,7 +180,7 @@ export class SearchFilter<Entity extends Searchable>
   count_results(results: FilterResults<Entity>): int
   {
     if (results.is_grouped) {
-      return sum(results.data.map(group => group.length));
+      return sum(results.data.map(([group, entities]) => entities.length));
     } else {
       return results.data.length;
     }
@@ -187,7 +197,7 @@ export class SearchFilter<Entity extends Searchable>
 
 
   /**
-   * Filter a list of entities (out-of-place).
+   * (out-of-place) Filter a list of entities.
    */
   filter(
     source: Entity[],
@@ -238,14 +248,12 @@ export class SearchFilter<Entity extends Searchable>
   }
 
 
+  // == SORT == //
+
   /**
-   * Sort a list of entities (out-of-place).
-   * @param source List of entities.
-   * @param comparer Function applied to pairs of entities to determine their order relative to each other.
-   * @param scorer Function applied to each entity to assign it a score used for sorting.
-   * @returns Sorted list of entities.
+   * (out-of-place) Sort a list of entities.
    */
-  sort(
+  protected sort(
     source: Entity[],
     options: {
       comparer?: (e1: Entity, e2: Entity) => number,
@@ -283,11 +291,14 @@ export class SearchFilter<Entity extends Searchable>
     })
   }
 
-  sort_name(source: Entity[]): Entity[]
+  // FIXME remove
+  protected sort_name(source: Entity[]): Entity[]
   {
     return source.toSorted((prot, deut) => prot.name.localeCompare(deut.name));
   }
 
+
+  // == GROUP == //
 
   /**
    * Group a list of entities.
@@ -321,6 +332,7 @@ export class SearchFilter<Entity extends Searchable>
     
     if (entity_sorter) {
       out = out.map(
+        // FIXME elim iife
         ([group, entities]) => [
           group,
           (() => {

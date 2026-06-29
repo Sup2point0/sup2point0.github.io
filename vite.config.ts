@@ -1,3 +1,5 @@
+/// <reference types="vitest/config" />
+
 import { sveltekit } from "@sveltejs/kit/vite";
 import { defineConfig } from "vite";
 
@@ -9,4 +11,7 @@ if (process.argv.includes("--open")) {
 
 export default defineConfig({
   plugins: [sveltekit()],
+  test: {
+    dir: "tests/unit/"
+  }
 });

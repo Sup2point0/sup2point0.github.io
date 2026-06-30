@@ -1,4 +1,4 @@
-import type { States } from "#scripts/types";
+import type { Groups, Grouped, States } from "#scripts/types";
 
 
 export function any<Type>(
@@ -39,6 +39,7 @@ export function sum(iterable: number[]): number
   return iterable.reduce((acc, n) => acc + n, 0);
 }
 
+
 export function get_enabled(
   object: States,
 ): string[]
@@ -48,4 +49,17 @@ export function get_enabled(
     .filter(([prop, state]) => state)
     .map(([prop, state]) => prop)
   );
+}
+
+export function map_grouped<Type>(
+  groups: Groups<Type>,
+  mapper: (collection: Type[]) => Type[],
+): Grouped<Type>
+{  
+  return Object.entries(groups).map(
+    ([group, entities]) => [
+      group,
+      mapper(entities),
+    ]
+  )
 }

@@ -49,7 +49,7 @@ onMount(() => {
 ]} />
 
 <Main>
-  <SearchFilters bind:filters result_count={filters.count_results(games_filtered)} />
+  <SearchFilters bind:filters result_count={GameSearchFilter.count_results(games_filtered)} />
 
   {#if games_filtered.is_grouped}
     {#each games_filtered.data as [collection, games]}

@@ -1,7 +1,7 @@
 import { partial_ratio } from "fuzzball";
 
-import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte";
-import { any, all, get_enabled, datepoint_to_prec } from "#scripts/utils";
+import { SearchFilter } from "#scripts/search-filter.svelte";
+import { any, all, get_enabled } from "#scripts/utils";
 import type { States } from "#scripts/types";
 
 import type { ProjectData } from "./projects";
@@ -27,47 +27,43 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
   flavour = $state(SearchFilter.init_states(Flavour));
   kind    = $state(SearchFilter.init_states(Kind));
   state   = $state(SearchFilter.init_states(State));
-
-  [prop: string]: States | any;
   
-
-  override get previews(): [string, string][]
-  {
-    return [
-      ...this.if_selected("tech"),
-      ...get_enabled(this.flavour).map(opt => ["flavour", opt]),
-      ...this.if_selected("kind"),
-      ...this.if_selected("state"),
-    ] as [string, string][];
-  }
-
-  private if_selected(prop: string): [string, string][]
-  {
-    /* @ts-ignore */
-    let enabled: string[]           = !all(this[prop]) ? get_enabled(this[prop]) : [];
-    let out:     [string, string][] = enabled.map(opt => [prop, opt]);
-
-    return out;
-  }
-
   filter_by = $state({
     "on github": false,
     "has site": false,
   });
+  
+  [prop: string]: States | any;
 
-  get toggles(): Record<string, States>
+
+  constructor()
   {
-    return {
-      tech: this.tech,
+    super();
+
+    this.previews = [
+      ...this.#if_selected("tech"),
+      ...get_enabled(this.flavour).map(opt => ["flavour", opt] as [string, string]),
+      ...this.#if_selected("kind"),
+      ...this.#if_selected("state"),
+    ];
+
+    this.toggles = {
+      tech:    this.tech,
       flavour: this.flavour,
-      kind: this.kind,
-      state: this.state,
+      kind:    this.kind,
+      state:   this.state,
     };
+
+    this.groups.push("date", "tech", "flavour", "kind", "state");
   }
 
-  override get groups(): string[]
+  #if_selected(prop: string): [string, string][]
   {
-    return ["default", "date", "tech", "flavour", "kind", "state"];
+    /* @ts-ignore */
+    let enabled = !all(this[prop]) ? get_enabled(this[prop]) : [];
+    let out = enabled.map(opt => [prop, opt] as [string, string]);
+
+    return out;
   }
 
 
@@ -118,49 +114,16 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
     return out;
   }
 
-  #sort(projects: ProjectData[]): ProjectData[]
+  protected override sort_default(projects: ProjectData[]): ProjectData[]
   {
-    switch (this.sort_by) {
-      case "date": return super.sort_date(projects);
-      case "name": return super.sort_name(projects);
-
-      default:
-        return super.sort(projects, {
-          /* @ts-ignore */
-          scorer: (proj => Math.max(
-            partial_ratio(this.query, proj.name),
-            proj.desc ? partial_ratio(this.query, proj.desc) : 0,
-            proj.tech ? partial_ratio(this.query, proj.tech.join(" ")) : 0,
-            proj.tags ? partial_ratio(this.query, proj.tags.join(" ")) : 0,
-          )).bind(this),
-        });
-    }
-  }
-
-  #group_and_sort(projects: ProjectData[]): [string, ProjectData[]][]
-  {
-    let grouper;
-
-    switch (this.group_by) {
-      case "date":
-        /* @ts-ignore */
-        grouper = proj => {
-          let value = datepoint_to_prec(proj.date);
-          return Array.isArray(value) ? Math.min(...value.map(Math.floor)) : Math.floor(value);
-        }
-        break;
-
-      default:
-        /* @ts-ignore */
-        grouper = proj => {
-          let value = proj[this.group_by];
-          return Array.isArray(value) ? value[0] : value;
-        };
-    }
-
-    return super.group(projects, {
-      grouper: grouper.bind(this),
-      entity_sorter: this.#sort.bind(this),
+    return super.sort(projects, {
+      /* @ts-ignore */
+      scorer: (proj => Math.max(
+        partial_ratio(this.query, proj.name),
+        proj.desc ? partial_ratio(this.query, proj.desc) : 0,
+        proj.tech ? partial_ratio(this.query, proj.tech.join(" ")) : 0,
+        proj.tags ? partial_ratio(this.query, proj.tags.join(" ")) : 0,
+      )).bind(this),
     });
   }
 }

@@ -2,7 +2,6 @@
 
 import { status } from "#scripts/state";
 import { shuffle, a } from "#scripts/utils";
-import type { FilterResults } from "#scripts/search-filter.svelte.ts";
 
 import Cards         from "#parts/core/cards.svelte";
 import Main          from "#parts/core/main.svelte";
@@ -52,7 +51,7 @@ let channels_filtered = $derived(filters.apply(channels_data));
 ]} />
 
 <Main>
-  <SearchFilters bind:filters result_count={filters.count_results(channels_filtered)} />
+  <SearchFilters bind:filters result_count={ChannelSearchFilter.count_results(channels_filtered)} />
 
   <Block>
     <p> These are the YouTube channels I enjoy watching ;) </p>

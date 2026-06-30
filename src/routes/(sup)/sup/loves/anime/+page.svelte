@@ -1,7 +1,5 @@
 <script lang="ts">
 
-import type { FilterResults } from "#scripts/search-filter.svelte.ts";
-
 import Cards         from "#parts/core/cards.svelte";
 import Main          from "#parts/core/main.svelte";
 import Breadcrumbs   from "#parts/ui/breadcrumbs.svelte";
@@ -16,7 +14,7 @@ import { AnimeSearchFilter } from "./filter.anime.svelte.ts";
 // svelte-ignore non_reactive_update
 let filters = new AnimeSearchFilter();
 
-let animes_filtered: FilterResults<AnimeData> = $derived(filters.apply(animes_data));
+let animes_filtered = $derived(filters.apply(animes_data));
 
 </script>
 
@@ -42,7 +40,7 @@ let animes_filtered: FilterResults<AnimeData> = $derived(filters.apply(animes_da
 ]} />
 
 <Main>
-  <SearchFilters bind:filters result_count={filters.count_results(animes_filtered)} />
+  <SearchFilters bind:filters result_count={AnimeSearchFilter.count_results(animes_filtered)} />
 
   {#if animes_filtered.is_grouped}
     {#each animes_filtered.data as [collection, animes]}

@@ -1,7 +1,5 @@
 <script lang="ts">
 
-import type { FilterResults } from "#scripts/search-filter.svelte.ts";
-
 import Cards         from "#parts/core/cards.svelte";
 import Main          from "#parts/core/main.svelte";
 import Breadcrumbs   from "#parts/ui/breadcrumbs.svelte";
@@ -42,7 +40,7 @@ let series_filtered = $derived(filters.apply(series_data));
 ]} />
 
 <Main>
-  <SearchFilters bind:filters result_count={filters.count_results(series_filtered)} />
+  <SearchFilters bind:filters result_count={SeriesSearchFilter.count_results(series_filtered)} />
 
   {#if series_filtered.is_grouped}
     {#each series_filtered.data as [collection, series]}

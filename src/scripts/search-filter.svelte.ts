@@ -1,7 +1,7 @@
 import {
   shardify, datepoint_to_prec,
   shuffle,
-  all, any, sum,
+  all, any, sum, map_grouped,
 } from "#scripts/utils";
 
 import type {
@@ -12,6 +12,7 @@ import type {
 
 type SortBy = "default" | "date" | "name" | string;
 type Sorter<Entity> = (entities: Entity[]) => Entity[];
+type Grouper<Entity, Key extends PropertyKey> = (entity: Entity) => Key;
 
 
 /**
@@ -93,8 +94,8 @@ export class SearchFilter<Entity extends Searchable>
 
   filter_by:     States = $state({});
 
-  sort_by:       SortBy  = $state("default");
-  reverse_sort:  boolean = $state(false);
+  sort_by:      SortBy  = $state("default");
+  reverse_sort: boolean = $state(false);
 
   show_all: boolean = $state(false);
 
@@ -131,17 +132,14 @@ export class SearchFilter<Entity extends Searchable>
 
 
   /**
-   * Are the search filters (effectively) untouched by the user? (i.e. Should the default initial filters be applied?)
-   */
-  get is_clear(): boolean {
-    return this.query === "" && this.dirtiness === 0;
-  }
-
-
-  /**
    * Lookup dictionary for sorting algorithms to apply depending on `.sort-by`.
    */
   protected sorters_specific: Record<string, Sorter<Entity>>;
+
+  /**
+   * Lookup dictionary for groupers to apply depending on `.group-by`.
+   */
+  protected groupers_specific: Record<string, Grouper<Entity, any>> = {};
 
 
   constructor()
@@ -151,25 +149,14 @@ export class SearchFilter<Entity extends Searchable>
       "name":   source => source.toSorted((l, r) => l.name.localeCompare(r.name)),
       "random": source => shuffle(source),
     };
-
   }
 
 
-  flat_results(results: Entity[]): FlatResults<Entity> {
-    return { is_grouped: false, data: results };
-  }
-
-  grouped_results(results: Grouped<Entity>): GroupedResults<Entity> {
-    return { is_grouped: true, data: results };
-  }
-
-  count_results(results: FilterResults<Entity>): int
-  {
-    if (results.is_grouped) {
-      return sum(results.data.map(([group, entities]) => entities.length));
-    } else {
-      return results.data.length;
-    }
+  /**
+   * Are the search filters (effectively) untouched by the user? (i.e. Should the default initial filters be applied?)
+   */
+  get is_clear(): boolean {
+    return this.query === "" && this.dirtiness === 0;
   }
 
 
@@ -179,20 +166,22 @@ export class SearchFilter<Entity extends Searchable>
   apply(data: Groups<Entity>): FilterResults<Entity>
   {
     if (this.is_clear) {
-      return this.grouped_results(this.filter_mandatory(data));
+      return SearchFilter.GroupedResults(
+        map_grouped(data, source => source.filter(each => !this.exclude_default(each)))
+      );
     }
 
     let entities = Object.values(data).flat();
-    let filtered = this.filter(entities);
+    let filtered = this.filter(entities, this.exclude_default.bind(this));
 
     if (this.group_by !== "default") {
-      return this.grouped_results(this.sort_grouped(filtered));
+      return SearchFilter.GroupedResults(this.sort_grouped(filtered));
     }
     else if (this.sort_by !== "default" || this.query) {
-      return this.flat_results(this.sort_ungrouped(filtered));
+      return SearchFilter.FlatResults(this.sort_ungrouped(filtered));
     }
     else {
-      return this.flat_results(filtered);
+      return SearchFilter.FlatResults(filtered);
     }
   }
 
@@ -200,15 +189,13 @@ export class SearchFilter<Entity extends Searchable>
   // == FILTER == //
 
   /**
-   * (out-of-place) Apply a base set of filters to collections of entities.
+   * Returns `true` if `entity` should be filtered out by default.
+   * 
+   * Deriving classes may wish to provide their own set of base filters.
    */
-  // TODO private
-  filter_mandatory(source: Groups<Entity>): Grouped<Entity>
+  protected exclude_default(entity: Entity): boolean
   {
-    return Object.entries(source).map(([group, entities]) => [
-      group,
-      entities.filter(each => this.show_all || each.is_shown !== false)
-    ]);
+    return entity.is_shown === false && !this.show_all;
   }
 
   /**
@@ -231,19 +218,19 @@ export class SearchFilter<Entity extends Searchable>
 
         let hit = false;
 
-        for (let [toggle, state] of Object.entries(states)) {
-          if (state) {
-            if (Array.isArray(each[prop])) {
-              let matches = each[prop].filter(p => p === toggle).length;
-              if (matches > 0) {
-                hit = true;
-                each._score += matches ** 2;
-              }
-            }
-            else if (each[prop] === toggle) {
+        for (let [toggle, enabled] of Object.entries(states)) {
+          if (!enabled) continue;
+
+          if (Array.isArray(each[prop])) {
+            let matches = each[prop].filter(p => p === toggle).length;
+            if (matches > 0) {
               hit = true;
-              each._score++;
+              each._score += matches ** 2;
             }
+          }
+          else if (each[prop] === toggle) {
+            hit = true;
+            each._score++;
           }
         }
 
@@ -313,7 +300,7 @@ export class SearchFilter<Entity extends Searchable>
   sort_grouped(source: Entity[]): Grouped<Entity>
   {
     return this.group(source, {
-      grouper: this.grouper.bind(this),
+      grouper: this.group_default.bind(this),
       entity_sorter: this.sort_ungrouped.bind(this),
     })
   }
@@ -321,40 +308,11 @@ export class SearchFilter<Entity extends Searchable>
   /**
    * The default sorter to apply when `.sort-by` is `"default"`.
    * 
-   * This method should be overridden by child classes.
+   * This method can be overridden by child classes.
    */
   protected sort_default(source: Entity[]): Entity[]
   {
     return source;
-  }
-
-  /**
-   * This method should be overridden by child classes.
-   */
-  protected grouper(entity: Entity): string
-  {
-    let value = entity[this.group_by];
-    return Array.isArray(value) ? value[0] : value;
-  }
-  
-
-  // FIXME remove
-  protected sort_date(source: Entity[]): Entity[]
-  {
-    return this.sort(source, {
-      scorer: each => {
-        if (Array.isArray(each.date)) {
-          return datepoint_to_prec(each.date);
-        }
-        return datepoint_to_prec(each.date) as number;
-      }
-    })
-  }
-
-  // FIXME remove
-  protected sort_name(source: Entity[]): Entity[]
-  {
-    return source.toSorted((prot, deut) => prot.name.localeCompare(deut.name));
   }
 
 
@@ -373,7 +331,7 @@ export class SearchFilter<Entity extends Searchable>
   group<Key extends PropertyKey>(
     source: Entity[],
     options: {
-      grouper: (entity: Entity) => Key,
+      grouper: Grouper<Entity, Key>,
       entity_sorter?: Sorter<Entity>,
       group_sorter?: Sorter<[Key, Entity[]]>,
     },
@@ -390,15 +348,11 @@ export class SearchFilter<Entity extends Searchable>
     
     if (entity_sorter) {
       out = out.map(
-        // FIXME elim iife
-        ([group, entities]) => [
-          group,
-          (() => {
-            let sorted = entity_sorter(entities);
-            if (this.reverse_sort) sorted.reverse();
-            return sorted;
-          })()
-        ]
+        ([group, entities]) => {
+          let sorted = entity_sorter(entities);
+          if (this.reverse_sort) sorted.reverse();
+          return [group, sorted];
+        }
       );
     }
     
@@ -406,6 +360,15 @@ export class SearchFilter<Entity extends Searchable>
     if (this.reverse_group) out.reverse();
 
     return out;
+  }
+
+  /**
+   * This method can be overridden by child classes.
+   */
+  protected group_default(entity: Entity): string
+  {
+    let value = entity[this.group_by];
+    return Array.isArray(value) ? value[0] : value;
   }
 
   default_group_sort<Key extends PropertyKey>(
@@ -451,6 +414,7 @@ export class SearchFilter<Entity extends Searchable>
 
 
   // == STATIC == //
+  // TODO private some?
 
   /**
    * Construct a state object with the members of an enum `states`, initialising each state to `init_state` (`true` by default).
@@ -474,5 +438,22 @@ export class SearchFilter<Entity extends Searchable>
         .map(s => [s.shard, init_state ?? true])
       )
     };
+  }
+
+  static FlatResults<Entity>(results: Entity[]): FlatResults<Entity> {
+    return { is_grouped: false, data: results };
+  }
+
+  static GroupedResults<Entity>(results: Grouped<Entity>): GroupedResults<Entity> {
+    return { is_grouped: true, data: results };
+  }
+
+  static count_results<Entity>(results: FilterResults<Entity>): int
+  {
+    if (results.is_grouped) {
+      return sum(results.data.map(([group, entities]) => entities.length));
+    } else {
+      return results.data.length;
+    }
   }
 }

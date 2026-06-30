@@ -61,6 +61,7 @@ export const lattice: Record<string, DomainData> = prep(
   },
 });
 
+
 function prep(data: Record<string, DomainData>): Record<string, DomainData>
 {
   for (let domain of Object.values(data)) {

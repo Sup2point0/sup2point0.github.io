@@ -89,6 +89,14 @@ export const frequerys: Question[] = [
     )
   },
   {
+    q: `how was this site built?`,
+    a: [
+      `without AI, is how :P`,
+
+      `a lot of love, time and dreams.`,
+    ],
+  },
+  {
     q: `what’s up with this website?`,
     a: new FrozenWeightedList(
       [1, `Hmm, who knows?`],

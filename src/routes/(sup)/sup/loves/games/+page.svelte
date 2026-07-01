@@ -19,10 +19,8 @@ let filters = new GameSearchFilter();
 let games_filtered = $derived(filters.apply(games_data));
 
 
-let invert: boolean;
-
 onMount(() => {
-  invert = Math.random() > 0.5;
+  filters.extra["expand all"] = (Math.random() > 0.5);
 });
 
 </script>
@@ -37,7 +35,7 @@ onMount(() => {
 {#snippet cards(games: GameData[])}
   <Cards>
     {#each games as game (game.shard)}
-      <GameBlock {game} {invert} />
+      <GameBlock {game} expanded={filters.extra["expand all"]} />
     {/each}
   </Cards>
 {/snippet}

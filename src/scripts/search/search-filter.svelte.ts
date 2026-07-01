@@ -11,6 +11,7 @@ import type {
 } from "#scripts/types";
 
 import type { Searchable } from "./searchable";
+import type { SearchResults, FlatResults, GroupedResults } from "./results";
 
 
 type SortBy = "default" | "date" | "name" | string;
@@ -18,31 +19,7 @@ type Sorter<Entity> = (entities: Entity[]) => Entity[];
 type Grouper<Entity, Key extends PropertyKey> = (entity: Entity) => Key;
 
 
-/**
- * Results returned from a search filter, which may be grouped or ungrouped (a flat collection).
- * 
- * This functions as a tagged union, discriminated by `.is_grouped` (`true` for `Grouped<Entity>`).
- */
-export type SearchResults<Entity>
-  = FlatResults<Entity>
-  | GroupedResults<Entity>
-;
 
-/**
- * An ungrouped list of search results.
- */
-export interface FlatResults<Entity> {
-  is_grouped: false;
-  data: Entity[];
-}
-
-/**
- * A grouped collection of search results.
- */
-export interface GroupedResults<Entity> {
-  is_grouped: true;
-  data: Grouped<Entity>;
-}
 
 
 /**
@@ -65,7 +42,10 @@ export class SearchFilter<Entity extends Searchable>
   sort_by:      SortBy  = $state("default");
   reverse_sort: boolean = $state(false);
 
-  show_all: boolean = $state(false);
+  extra: States = $state({
+    "show all":   false,
+    "expand all": false,
+  });
 
   /**
    * Which search filters should show their current state beneath the search bar, as an immediate visual reminder to the user (even when they don't have the filters opened).
@@ -133,12 +113,12 @@ export class SearchFilter<Entity extends Searchable>
     /* If the filters are untouched, return the data as-is. */
     if (this.is_clear) {
       if (Array.isArray(data)) {
-        return SearchFilter.FlatResults(
+        return flat_results(
           data.filter(each => !this.exclude_default(each))
         );
       }
       else {
-        return SearchFilter.GroupedResults(
+        return grouped_results(
           map_grouped(data, source => source.filter(each => !this.exclude_default(each)))
         );
       }
@@ -148,13 +128,13 @@ export class SearchFilter<Entity extends Searchable>
     let filtered = this.filter(entities, this.exclude_default.bind(this));
 
     if (this.group_by !== "default" && this.group_by !== "none") {
-      return SearchFilter.GroupedResults(this.sort_grouped(filtered));
+      return grouped_results(this.sort_grouped(filtered));
     }
     else if (this.sort_by !== "default" || this.query) {
-      return SearchFilter.FlatResults(this.sort_ungrouped(filtered));
+      return flat_results(this.sort_ungrouped(filtered));
     }
     else {
-      return SearchFilter.FlatResults(filtered);
+      return flat_results(filtered);
     }
   }
 
@@ -168,7 +148,7 @@ export class SearchFilter<Entity extends Searchable>
    */
   protected exclude_default(entity: Entity): boolean
   {
-    return entity.is_shown === false && !this.show_all;
+    return entity.is_shown === false && !this.extra["show all"];
   }
 
   /**
@@ -423,14 +403,6 @@ export class SearchFilter<Entity extends Searchable>
     };
   }
 
-  static FlatResults<Entity>(results: Entity[]): FlatResults<Entity> {
-    return { is_grouped: false, data: results };
-  }
-
-  static GroupedResults<Entity>(results: Grouped<Entity>): GroupedResults<Entity> {
-    return { is_grouped: true, data: results };
-  }
-
   static count_results<Entity>(results: SearchResults<Entity>): int
   {
     if (results.is_grouped) {
@@ -439,4 +411,19 @@ export class SearchFilter<Entity extends Searchable>
       return results.data.length;
     }
   }
+}
+
+
+/**
+ * Construct a list of ungrouped results.
+ */
+function flat_results<Entity>(results: Entity[]): FlatResults<Entity> {
+  return { is_grouped: false, data: results };
+}
+
+/**
+ * Construct a collection of grouped results.
+ */
+function grouped_results<Entity>(results: Grouped<Entity>): GroupedResults<Entity> {
+  return { is_grouped: true, data: results };
 }

@@ -116,12 +116,14 @@ let open = $state(false);
         </tr>
 
         <tr> <th> EXTRA </th>
-          <td>
-            <ClickySelect text="SHOW ALL"
-              active={filters.show_all}
-              onclick={() => { filters.show_all = !filters.show_all; }}
-            />
-          </td>
+          <td> <div class="toggles">
+            {#each Object.entries(filters.extra) as [option, active]}
+              <ClickySelect text={option.toUpperCase()}
+                {active}
+                onclick={() => { filters.extra[option] = !active; }}
+              />
+            {/each}
+          </div> </td>
         </tr>
       </tbody></table>
     </div>

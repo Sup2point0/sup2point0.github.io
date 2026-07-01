@@ -1,5 +1,5 @@
 import { prep_groups } from "#scripts/search-filter.svelte";
-import { a, h } from "#scripts/utils";
+import { a, h, i } from "#scripts/utils";
 import { Genre, Vibe } from "#scripts/types";
 import type { ArtistData, Groups, shard } from "#scripts/types";
 
@@ -39,7 +39,9 @@ const data: Groups<ArtistData> =
       },
       discovered: `StarlingEDM in YouTube Music reccs`,
       desc: [
-        ``,
+        `She’s got a bit of a strange singing style, but it’s unique, and many of her tracks slap, so what more can I say.`,
+        
+        `Also it’s cool that she can sing in both English and Japanese (from what I can tell).`,
       ],
     },
     {
@@ -84,6 +86,15 @@ const data: Groups<ArtistData> =
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCLPwaevGf-8oKXSE4syPAT",
       },
       discovered: `${h("かめりあ")} chapter in Phigros`,
+      desc: [
+        `When people ask for my favourite artist, I feel like I can’t ${i("not")} pick Camellia. He’s just made so. much. gawddamn. insane. MUSIC. There’s too much, too many tracks that I love to bits, for me to not pin him as my favourite.`,
+
+        `The guy’s mad. He somehow manages to do any genre imaginable, and nail it every time. wdym you can just create symphonic speedcore like that. wdym you’re just gonna chuck in jazzy electro swing. wdym you can sing opera.`,
+
+        `He’s certainly extremely rhythm game coded, but overall, his music is still unbelievably rich and diverse. I really love his full flavour stuff, there’s no one that does it like him. Makes it tough sometimes to move to other artists as he just puts them to shame.`,
+
+        `But actually, while I do vibe so hard with his hardcore tracks, I still insist that his most beautiful stuff are his melodic pieces, like ${a("Autofluorescence", "https://youtube.com/watch?v=Hja5QKXFre8&list=PLYWIouv-DSkCLPwaevGf-8oKXSE4syPAT")} and ${a("put’ l’da", "https://youtube.com/watch?v=2Q-ow8-BipA&list=PLYWIouv-DSkCLPwaevGf-8oKXSE4syPAT")}. He’s exceptional at melodies and articulation (this guy’s just cracked at everything I swear), regardless of context.`,
+      ],
     },
     {
       shard:  "vexento",
@@ -99,6 +110,11 @@ const data: Groups<ArtistData> =
         youtube: "https://youtube.com/watch?v=h_YYmNzydy8&list=PLYWIouv-DSkCJFwPiWrxfO4BqSKtU8UbM",
       },
       discovered: `some random Scratch project`,
+      desc: [
+        `Vexento rivals Camellia. I’m serious. They make such different kinds of music, but on a skill level, Vexento’s mixing, instrumentation, atmosphere and soul are top-notch. You could call it simple, but making something that simple sound so good is remarkable. And just like Camellia, Vexento’s made soooo many tracks that I really love, and he’s got a huge discography.`,
+
+        `It’s such feel-good music, and I can just listen to it for a whole day. Right from the soul.`,
+      ],
     },
     {
       shard:  "pikasonic",
@@ -143,7 +159,11 @@ const data: Groups<ArtistData> =
       },
       discovered: `${h("Ride on Time")} on Firefly Music in YouTube reccs`,
       desc: [
-        `I first heard ${h("Ride on Time")} by them on Firefly Music in summer 2025, but only tried listening to more of their discography in spring 2026.`,
+        `I listen to a lot of what l call ‘feel-good’ music – I say this in contrast to music that might be much more technical, ambitious or ‘rich’. At the end of the day, I don’t really care how ‘impressive’ it is; if it makes me feel good, then it’s good music!`,
+
+        `And in that regard, MOKKAI makes such good feel-good music. It’s just a vibe. I was a liiittle dismayed to find out their voice/lyrics aren’t theirs, but it’s no biggie, sampling is just a part of music.`,
+
+        `I first heard ${h("Ride on Time")} by them on Firefly Music in summer 2025, but only tried listening to more of their discography in spring 2026. I originally didn’t think was especially well-produced when I first got it in my reccs, but I think it wound up stuck in my head. So after a while, I decided to check out the rest of MOKKAI’s discography, and I was pleasantly surprised!`,
       ],
     },
     {
@@ -203,6 +223,11 @@ const data: Groups<ArtistData> =
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7",
       },
       discovered: `${h("WATER")} in Phigros`,
+      desc: [
+        `Not really a fan of Vocaloid, but A-39 makes it good. Not entirely sure how.`,
+
+        `Mixes are always crunchy, colour basses are popping, speedbasses are absolutely obliterating. Super enjoyable all-round.`,
+      ],
     },
     {
       shard:  "steradlye",
@@ -214,6 +239,11 @@ const data: Groups<ArtistData> =
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkANhMFRwLXr2yGKpFDvXJhO",
       },
       discovered: `YouTube Music reccs`,
+      desc: [
+        `Thick. Is the only word to describe it. In your face, in your ears. It’s satisfying. Peak electronic music.`,
+
+        `Steradlye’s one of those artists whose music I’ll leave on autoplay in the background. Which is not a bad thing, it’s just an indication that their music is consistent in tone and vibe, so it’s great for casual listening.`,
+      ],
     },
     {
       shard:  "myukke",
@@ -276,6 +306,9 @@ const data: Groups<ArtistData> =
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkB2wYNdQ7vwkvGyJz1xw6KL",
       },
       discovered: `${h("Sentient")} in YouTube reccs`,
+      desc: [
+        `I think we can all use some piano music in our lives. On a sombre evening, or peaceful afternoon, Gavin Luke calms the soul. Perfect for programming, working, reading, anything where the time will bleed away. Sure, there may be more ‘technical’ piano music out there, but Gavin Luke’s makes me feel, and that’s all I need.`,
+      ],
     },
   ],
   "mood": [
@@ -949,6 +982,11 @@ const data: Groups<ArtistData> =
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkBvAA5lNPvGwnqvKbvPiohq",
       },
       discovered: `iXPLODE`,
+      desc: [
+        `The first musical artist I ever ‘got into’, who’ll always hold a special place in my heart. The first ever track I ever listened to was his – ${a("Sky High", "https://youtube.com/watch?v=92f3RRkakO8")}.`,
+
+        `Nowadays listening with producer ears, I do think his drums are far too weak. But otherwise, I still love his music. It takes me back.`
+      ],
     },
     {
       shard:  "alan-walker",

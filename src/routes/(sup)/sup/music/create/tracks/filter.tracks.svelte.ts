@@ -1,7 +1,7 @@
 import { partial_ratio } from "fuzzball";
 
-import { SearchFilter, type FilterResults } from "#scripts/search-filter.svelte.ts";
-import { shuffle, datepoint_to_prec } from "#scripts/utils";
+import { SearchFilter } from "#scripts/search-filter.svelte.ts";
+import { datepoint_to_prec, DATE_PREC_MAJOR } from "#scripts/utils";
 import type { TrackData } from "#scripts/types/music/create";
 
 
@@ -11,90 +11,62 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
     "is preview": false,
   });
 
-  override sort_by = $state("random");
-
-  override get groups() {
-    return ["default", "album", "year", "genre"];
-  }
-
-  override get sorts() {
-    return ["random", "name", "year", "album"];
-  }
+  override sort_by = $state("default");
 
 
-  apply(tracks: TrackData[]): FilterResults<TrackData>
+  constructor()
   {
-    let cands: FilterResults<TrackData> = super.filter(tracks,
-      track => (
-        (this.filter_by["is preview"] === true)
-        ? track.is_preview !== true
-        : track.is_preview === true
-      )
+    super();
+
+    this.groups.push("album", "date", "genre");
+    this.sorts = ["default", "random", "name", "date", "album"];
+
+    this.sorters_specific["album"] = (
+      tracks => tracks.sort((prot, deut) => prot.album.name.localeCompare(deut.album.name))
     );
 
-    if (this.group_by !== "default") {
-      return this.#group_and_sort(cands);
-    } else {
-      return this.#sort(cands);
-    }
+    this.groupers_specific = {
+      "album": track => track.album.name,
+
+      "date": track => {
+          let value = datepoint_to_prec(track.date);
+
+          return (Array.isArray(value) ?
+              Math.max(...value.map(d => Math.floor(d / DATE_PREC_MAJOR)))
+            : Math.floor(value / DATE_PREC_MAJOR)
+          );
+        },
+
+      "genre": track => track.genres?.[Math.floor(Math.random() * track.genres.length)],
+    };
   }
 
-  #sort(tracks: TrackData[]): TrackData[]
-  {
-    switch (this.sort_by) {
-      case "name": return super.sort_name(tracks);
-      case "year": return super.sort_date(tracks);
-      case "album": return tracks.sort((prot, deut) => prot.album.name.localeCompare(deut.album.name));
-    }
 
-    if (this.query === "") {
-      return shuffle(tracks);
-    }
+  protected override exclude_default(track: TrackData): boolean
+  {
+    return (
+      this.filter_by["is preview"] === true ?
+        track.is_preview !== true
+      : track.is_preview === true
+    );
+  }
+
+  protected override sort_default(tracks: TrackData[]): TrackData[]
+  {
+    if (!this.query) return tracks;
 
     return super.sort(tracks, {
       scorer: track => (
-        /* NOTE: Prioritise tracks whose name starts with the same letter as the query */
-        (track.name.at(0)?.toLowerCase() === this.query.at(0)?.toLowerCase() ? 100 : 0)
-        + Math.max(
+        /* @ts-ignore */
+        100 * (track.name.at(0)?.toLowerCase() === this.query[0].toLowerCase())
+        +
+        Math.max(
           partial_ratio(this.query, track.shard ?? ""),
           partial_ratio(this.query, track.name),
           partial_ratio(this.query, track.album.name),
           partial_ratio(this.query, track.genres?.join(" ") ?? ""),
         )
       )
-    });
-  }
-
-  #group_and_sort(tracks: TrackData[]): [string, TrackData[]][]
-  {
-    let grouper: (track: TrackData) => any;
-
-    switch (this.group_by) {
-      case "album":
-        grouper = track => track.album.name;
-        break;
-      
-      case "year":
-        grouper = track => {
-          let value = datepoint_to_prec(track.date);
-          return Array.isArray(value) ? Math.max(...value.map(d => Math.floor(d / 10000))) : Math.floor(value / 10000);
-        }
-        break;
-
-      case "genre":
-        grouper = track => track.genres?.[Math.floor(Math.random() * track.genres.length)];
-
-      default:
-        /* @ts-ignore */
-        grouper = track => {
-          let value = track[this.group_by];
-          return Array.isArray(value) ? value[0] : value;
-        };
-    }
-
-    return super.group(tracks, {
-      grouper: grouper.bind(this),
-      entity_sorter: this.#sort.bind(this),
     });
   }
 }

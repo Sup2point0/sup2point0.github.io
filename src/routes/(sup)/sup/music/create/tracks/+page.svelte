@@ -1,7 +1,7 @@
 <script lang="ts">
 
 import { status } from "#scripts/state";
-import type { FilterResults } from "#scripts/search-filter.svelte.ts";
+import { shuffle } from "#scripts/utils";
 import type { TrackData } from "#scripts/types/music/create";
 
 import { tracks_list } from "../create";
@@ -18,7 +18,7 @@ import TrackCard     from "#parts/music/card.track.create.svelte";
 // svelte-ignore non_reactive_update
 let filters = new TrackSearchFilter();
 
-let displayed_tracks: FilterResults<TrackData> = $derived(filters.apply(tracks_list));
+let tracks_filtered = $derived(filters.apply(tracks_list));
 
 </script>
 
@@ -29,6 +29,21 @@ let displayed_tracks: FilterResults<TrackData> = $derived(filters.apply(tracks_l
 </svelte:head>
 
 
+{#snippet cards(tracks: TrackData[], wants_shuffle: boolean)}
+  {@const _tracks =
+    wants_shuffle ?
+      (status.client ? shuffle(tracks) : [])
+    : tracks
+  }
+
+  <Cards>
+    {#each _tracks as track (track.shard)}
+      <TrackCard {track} />
+    {/each}
+  </Cards>
+{/snippet}
+
+
 <Breadcrumbs levels={[
   { text: "music", intern: "sup/music" },
   { text: "create", intern: "sup/music/create" },
@@ -36,31 +51,20 @@ let displayed_tracks: FilterResults<TrackData> = $derived(filters.apply(tracks_l
 ]} />
 
 <Main>
-  <SearchFilters bind:filters result_count={displayed_tracks.length} />
+  <SearchFilters bind:filters result_count={TrackSearchFilter.count_results(tracks_filtered)} />
 
-  {#if filters.group_by !== "default"}
-    {@const displayed = displayed_tracks as [string, TrackData[]][]}
-
-    {#each displayed as [collection, tracks]}
-      <section>
-        <Header> {collection?.toUpperCase()} </Header>
-
-        <Cards>
-          {#each tracks as track (track.shard)}
-            <TrackCard {track} />
-          {/each}
-        </Cards>
-      </section>
+  {#if tracks_filtered.is_grouped}
+    {#each tracks_filtered.data as [collection, tracks]}
+      {#if tracks.length > 0}
+        <section>
+          <Header> {collection?.toUpperCase()} </Header>
+          {@render cards(tracks, false)}
+        </section>
+      {/if}
     {/each}
 
   {:else}
-    {@const displayed = status.client ? (displayed_tracks as TrackData[]) : []}
-
-    <Cards>
-      {#each displayed as track (track.shard)}
-        <TrackCard {track} />
-      {/each}
-    </Cards>
+    {@render cards(tracks_filtered.data, filters.is_clear)}
 
   {/if}
 </Main>

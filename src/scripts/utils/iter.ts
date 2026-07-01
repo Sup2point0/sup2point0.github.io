@@ -51,6 +51,25 @@ export function get_enabled(
   );
 }
 
+/**
+ * (out-of-place) Apply `mapper` to each value in `obj`.
+ */
+export function map_values<
+  K extends string | number | symbol,
+  V,
+  T,
+>(
+  obj: Record<K,V>,
+  mapper: (each: V) => T,
+): Record<K,T>
+{
+  return Object.fromEntries(
+    Object.entries(obj).map(
+      ([key, value]) => [key, mapper(value as V)]
+    )
+  ) as Record<K,T>;
+}
+
 export function map_grouped<Type>(
   groups: Groups<Type>,
   mapper: (collection: Type[]) => Type[],

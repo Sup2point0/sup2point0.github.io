@@ -119,7 +119,7 @@ export class SearchFilter<Entity extends Searchable>
   /**
    * Groups by which the user can group search results, such as date or love.
    */
-  groups: string[] = ["default"];
+  groups: string[] = ["default", "none"];
 
   /**
    * Properties by which the user can sort search results, such as date or name.
@@ -174,7 +174,7 @@ export class SearchFilter<Entity extends Searchable>
     let entities = Object.values(data).flat();
     let filtered = this.filter(entities, this.exclude_default.bind(this));
 
-    if (this.group_by !== "default") {
+    if (this.group_by !== "default" && this.group_by !== "none") {
       return SearchFilter.GroupedResults(this.sort_grouped(filtered));
     }
     else if (this.sort_by !== "default" || this.query) {
@@ -254,6 +254,8 @@ export class SearchFilter<Entity extends Searchable>
 
   /**
    * (out-of-place) Sort a list of entities.
+   * 
+   * Optionally, either a comparer or scorer can be supplied. 
    */
   protected sort(
     source: Entity[],
@@ -272,6 +274,7 @@ export class SearchFilter<Entity extends Searchable>
     else if (scorer) {
       for (let each of out) {
         each._score = scorer(each);
+        console.log(each, `._score =`, each._score);
       }
       out.sort((prot, deut) => (deut._score ?? 0) - (prot._score ?? 0));
     }

@@ -173,7 +173,7 @@ export const Lang: LangsData = prep(
     desc:
       `After upgrading to SCSS from CSS, I pretty much can’t imagine going back. Developing with SCSS is such a joy.`,
     lore:
-      `I was actually considering LESS since it sounded cooler than SASS, but after taking a look at SCSS (and discovering the alternate ${i("SCSS")} name, which is much more awesome), I decided to stick with it and I haven’t looked back since.`,
+      `I was actually considering LESS since it sounded cooler than SASS, but after taking a look at SASS (and discovering the alternate ${i("SCSS")} name, which is much more awesome), I decided to stick with it and I haven’t looked back since.`,
   },
   SQLITE: {
     name:     "SQLite",

@@ -5,8 +5,6 @@ import { Franchise, Flag, type FilmData } from "./films";
 
 export class FilmSearchFilter extends MediaSearchFilter<FilmData>
 {
-  override shuffle_by_default = true;
-
   franchise = $state(MediaSearchFilter.init_states(Franchise));
 
   override filter_by = $state({

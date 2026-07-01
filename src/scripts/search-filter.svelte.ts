@@ -1,3 +1,5 @@
+import { partial_ratio } from "fuzzball";
+
 import {
   shardify, datepoint_to_prec,
   shuffle,
@@ -100,11 +102,6 @@ export class SearchFilter<Entity extends Searchable>
   show_all: boolean = $state(false);
 
   /**
-   * If the user has not interacted with any filters, should entities in each collection be shuffled by default?
-   */
-  shuffle_by_default: boolean = false;
-
-  /**
    * Which search filters should show their current state beneath the search bar, as an immediate visual reminder to the user (even when they don't have the filters opened).
    */
   previews: [string, string][] = [];
@@ -145,9 +142,9 @@ export class SearchFilter<Entity extends Searchable>
   constructor()
   {
     this.sorters_specific = {
+      "random": source => shuffle(source),
       "date":   source => this.sort(source, { scorer: each => datepoint_to_prec(each.date) }),
       "name":   source => source.toSorted((l, r) => l.name.localeCompare(r.name)),
-      "random": source => shuffle(source),
     };
   }
 
@@ -161,17 +158,27 @@ export class SearchFilter<Entity extends Searchable>
 
 
   /**
-   * Apply the search filters to the provided `date` to produce search results, which may be grouped or ungrouped.
+   * Apply the search filters to the provided `data` to produce search results.
+   * 
+   * Both the input and output may be grouped or ungrouped.
    */
-  apply(data: Groups<Entity>): FilterResults<Entity>
+  apply(data: Entity[] | Groups<Entity>): FilterResults<Entity>
   {
+    /* If the filters are untouched, return the data as-is. */
     if (this.is_clear) {
-      return SearchFilter.GroupedResults(
-        map_grouped(data, source => source.filter(each => !this.exclude_default(each)))
-      );
+      if (Array.isArray(data)) {
+        return SearchFilter.FlatResults(
+          data.filter(each => !this.exclude_default(each))
+        );
+      }
+      else {
+        return SearchFilter.GroupedResults(
+          map_grouped(data, source => source.filter(each => !this.exclude_default(each)))
+        );
+      }
     }
 
-    let entities = Object.values(data).flat();
+    let entities = Array.isArray(data) ? data : Object.values(data).flat();
     let filtered = this.filter(entities, this.exclude_default.bind(this));
 
     if (this.group_by !== "default" && this.group_by !== "none") {
@@ -255,7 +262,7 @@ export class SearchFilter<Entity extends Searchable>
   /**
    * (out-of-place) Sort a list of entities.
    * 
-   * Optionally, either a comparer or scorer can be supplied. 
+   * Either a comparer or scorer should be supplied. If neither is present, no sorting is performed.
    */
   protected sort(
     source: Entity[],
@@ -274,7 +281,6 @@ export class SearchFilter<Entity extends Searchable>
     else if (scorer) {
       for (let each of out) {
         each._score = scorer(each);
-        console.log(each, `._score =`, each._score);
       }
       out.sort((prot, deut) => (deut._score ?? 0) - (prot._score ?? 0));
     }
@@ -302,19 +308,27 @@ export class SearchFilter<Entity extends Searchable>
    */
   sort_grouped(source: Entity[]): Grouped<Entity>
   {
+    let grouper = this.groupers_specific[this.group_by] ?? this.group_default;
+
     return this.group(source, {
-      grouper: this.group_default.bind(this),
+      grouper: grouper.bind(this),
       entity_sorter: this.sort_ungrouped.bind(this),
     })
   }
 
   /**
-   * The default sorter to apply when `.sort-by` is `"default"`.
+   * The default sorter to apply when `.sort-by` is `"default"`, usually a sort by relevance.
    * 
-   * This method can be overridden by child classes.
+   * This method can be overridden by child classes, which may wish to `switch`-`case` on their own additions to `.sort_by`.
    */
   protected sort_default(source: Entity[]): Entity[]
   {
+    if (this.query) {
+      return this.sort(source, {
+        scorer: each => partial_ratio(this.query, each.name ?? each.shard ?? "")
+      });
+    }
+    
     return source;
   }
 

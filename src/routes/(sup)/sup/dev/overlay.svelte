@@ -2,15 +2,17 @@
 
 <script lang="ts">
 
+import type { FlatResults } from "#scripts/search-filter.svelte.ts";
 import { display_date } from "#scripts/utils";
+
 import { Fluency, type DevEntity } from "#scripts/types/dev";
+import { projects_data, type ProjectData } from "#sup/projects/projects";
+import { ProjectSearchFilter } from "#sup/projects/filter.projects.svelte.ts";
 
 import SearchFilters from "#parts/ui/search-filters.svelte";
 import ProjectBlock  from "#parts/dev/block.project.svelte";
 
-import { projects_list, type ProjectData } from "#sup/projects/projects";
-import { ProjectSearchFilter } from "#sup/projects/filter.projects.svelte.ts";
-
+import { untrack } from "svelte";
 import { fade, scale, slide } from "svelte/transition";
 import { expoOut } from "svelte/easing";
 
@@ -24,16 +26,27 @@ let { entity = $bindable() }: Props = $props();
 
 // svelte-ignore non_reactive_update
 let filters = new ProjectSearchFilter();
+filters.group_by = "none";
+filters.dirtiness++;
 
-let displayed_projects = $derived(
-  entity
-    ? filters.apply(
-      projects_list.filter(
-        proj => proj.tech.some(shard => (shard === entity!.shard))
-      )
-    ) as ProjectData[]
-    : []
+let projects_filtered = $derived(
+  entity ?
+    filters.apply(projects_data) as FlatResults<ProjectData>
+  : { is_grouped: false, data: [] }
 );
+
+$effect(() => {
+  entity;
+
+  untrack(() => {
+    for (let each in filters.tech) {
+      filters.tech[each] = false;
+    }
+    if (entity?.shard) {
+      filters.tech[entity.shard] = true;
+    }
+  });
+});
 
 </script>
 
@@ -126,23 +139,25 @@ let displayed_projects = $derived(
 </div>
 <!-- /sec -->
 
+<!-- sec -->
 <div class="side right">
   {#if entity.has_projects !== false}
     <h2> PROJECTS </h2>
 
     <SearchFilters bind:filters
       allow_expand={false}
-      result_count={displayed_projects.length}
+      result_count={ProjectSearchFilter.count_results(projects_filtered)}
     />
 
     <div class="blocks">
-      {#each displayed_projects as project}
+      {#each projects_filtered.data as project}
         <ProjectBlock {project} />
       {/each}
     </div>
   {/if}
 </div>
-    
+<!-- /sec -->
+
     </div>
   </div>
 {/if}

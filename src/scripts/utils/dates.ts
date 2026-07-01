@@ -1,8 +1,8 @@
 import type { Dates } from "#scripts/types";
 
 
-const SCALE_MAJOR = 10000;
-const SCALE_MINOR = 100;
+export const DATE_PREC_MAJOR = 10000;
+export const DATE_PREC_MINOR = 100;
 
 
 export function datepoint_to_prec(date: Dates | undefined): number
@@ -11,7 +11,7 @@ export function datepoint_to_prec(date: Dates | undefined): number
     return -1;
   }
 
-  if (typeof date === "number") return SCALE_MAJOR * date;
+  if (typeof date === "number") return DATE_PREC_MAJOR * date;
 
   if (Array.isArray(date)) {
     return Math.min(...date.map(datepoint_to_prec));
@@ -31,7 +31,7 @@ export function datepoint_to_prec(date: Dates | undefined): number
       switch (year) {
         case "retired":   return -3;
         case "childhood": return 0;
-        case "present":   return SCALE_MAJOR * 3000;
+        case "present":   return DATE_PREC_MAJOR * 3000;
       }
 
       break;
@@ -70,8 +70,8 @@ export function datepoint_to_prec(date: Dates | undefined): number
   }
 
   return (
-      SCALE_MAJOR * Number(year)
-    + SCALE_MINOR * coarse
+      DATE_PREC_MAJOR * Number(year)
+    + DATE_PREC_MINOR * coarse
     + Number(day)
   );
 }

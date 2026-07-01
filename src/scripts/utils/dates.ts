@@ -8,7 +8,7 @@ const SCALE_MINOR = 100;
 export function datepoint_to_prec(date: Dates | undefined): number
 {
   if (date === undefined) {
-    return -1;
+    return -2;
   }
 
   if (typeof date === "number") return SCALE_MAJOR * date;
@@ -18,7 +18,7 @@ export function datepoint_to_prec(date: Dates | undefined): number
   }
 
   if (typeof date !== "string") return 0;
-  let parts = date.split(" ");
+  let parts = date.toLowerCase().split(" ");
 
   let day:  string = "0";
   let spec: string = "";
@@ -28,11 +28,10 @@ export function datepoint_to_prec(date: Dates | undefined): number
     case 1:
       [year] = parts;
 
-      if (year === "childhood") {
-        return 0;
-      }
-      if (year === "present") {
-        return 3000;
+      switch (year) {
+        case "retired":   return -1;
+        case "childhood": return 0;
+        case "present":   return SCALE_MAJOR * 3000;
       }
 
       break;

@@ -9,7 +9,7 @@ import SearchInput from "#parts/ui/search-input.svelte";
 import SearchToggle from "#parts/ui/search-toggle.svelte";
 import ClickySelect from "#parts/ui/clicky.select.svelte";
 
-import { SearchFilter } from "#scripts/search-filter.svelte";
+import { SearchFilter } from "#scripts/search";
 
 import { slide } from "svelte/transition";
 import { expoInOut } from "svelte/easing";

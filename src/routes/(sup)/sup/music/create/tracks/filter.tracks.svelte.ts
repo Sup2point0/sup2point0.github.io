@@ -1,6 +1,6 @@
 import { partial_ratio } from "fuzzball";
 
-import { SearchFilter } from "#scripts/search-filter.svelte.ts";
+import { SearchFilter } from "#scripts/search";
 import { datepoint_to_prec, DATE_PREC_MAJOR } from "#scripts/utils";
 import type { TrackData } from "#scripts/types/music/create";
 

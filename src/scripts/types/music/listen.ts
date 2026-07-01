@@ -1,5 +1,5 @@
 import type { GenreKind, Genre, Vibe } from "#scripts/types/music";
-import type { Searchable } from "#scripts/search-filter.svelte";
+import type { Searchable } from "#scripts/search";
 import type { shard, filepath, url, Datepoint, Dates, Description } from "#scripts/types";
 
 

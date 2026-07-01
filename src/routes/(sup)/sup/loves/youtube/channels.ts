@@ -1,4 +1,4 @@
-import { prep_groups, type Searchable } from "#scripts/search-filter.svelte";
+import { prep_groups, type Searchable } from "#scripts/search";
 import type { Love, Dates, Groups } from "#scripts/types";
 
 

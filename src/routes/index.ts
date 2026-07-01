@@ -1,4 +1,4 @@
-import type { Searchable } from "#scripts/search-filter.svelte";
+import type { Searchable } from "#scripts/search";
 import type { filepath } from "#scripts/types";
 
 

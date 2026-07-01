@@ -6,7 +6,7 @@ A single toggle in search filters for enabling/disabling a particular search tag
 <script lang="ts">
 
 import { all, any, shardify } from "#scripts/utils";
-import type { SearchFilter } from "#scripts/search-filter.svelte.ts";
+import type { SearchFilter } from "#scripts/search";
 
 
 interface Props {

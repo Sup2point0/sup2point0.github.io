@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 
-import { SearchFilter } from "#scripts/search-filter.svelte.ts";
-import type { Searchable, FlatResults, GroupedResults } from "#scripts/search-filter.svelte.ts";
+import { SearchFilter } from "#scripts/search";
+import type { Searchable, FlatResults, GroupedResults } from "#scripts/search";
 import type { Groups } from "#scripts/types";
 
 

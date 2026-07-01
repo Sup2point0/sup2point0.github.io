@@ -1,4 +1,4 @@
-import { prep_groups, type Searchable } from "#scripts/search-filter.svelte.ts";
+import { prep_groups, type Searchable } from "#scripts/search";
 import { a, i } from "#scripts/utils";
 import { Lang } from "#sup/dev/dev.langs";
 import { Tech } from "#sup/dev/dev.techs";

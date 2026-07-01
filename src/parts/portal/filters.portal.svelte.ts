@@ -1,7 +1,7 @@
 import { ratio, partial_ratio } from "fuzzball";
 
 import { tunes } from "#scripts/state";
-import { SearchFilter, type Searchable } from "#scripts/search-filter.svelte";
+import { SearchFilter, type Searchable } from "#scripts/search";
 import { shuffle } from "#scripts/utils";
 import type { TrackData } from "#scripts/types/music/create";
 import type { int, filepath } from "#scripts/types";

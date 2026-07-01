@@ -1,4 +1,4 @@
-import { prep_groups } from "#scripts/search-filter.svelte";
+import { prep_groups } from "#scripts/search";
 import { a, h, i } from "#scripts/utils";
 import { Genre, Vibe } from "#scripts/types";
 import type { ArtistData, Groups, shard } from "#scripts/types";

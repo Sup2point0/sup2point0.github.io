@@ -1,6 +1,6 @@
 import { partial_ratio } from "fuzzball";
 
-import { SearchFilter } from "#scripts/search-filter.svelte";
+import { SearchFilter } from "#scripts/search";
 import { any, all, get_enabled } from "#scripts/utils";
 import type { States } from "#scripts/types";
 

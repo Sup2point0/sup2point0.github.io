@@ -1,4 +1,4 @@
-import { prep_groups } from "#scripts/search-filter.svelte.ts";
+import { prep_groups } from "#scripts/search";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 

@@ -1,4 +1,4 @@
-import { prep_groups, type Searchable } from "#scripts/search-filter.svelte.ts";
+import { prep_groups, type Searchable } from "#scripts/search";
 import { a, h, i } from "#scripts/utils";
 import type { Datepoint, Groups } from "#scripts/types";
 

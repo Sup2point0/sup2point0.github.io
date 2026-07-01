@@ -14,7 +14,7 @@ test("visit all pages and scroll", async ({ page }) =>
 });
 
 test("visit `/dev`", async ({ page }) =>
-{
+{  
   let status = await page.goto("/sup/dev");
   expect(status?.ok(), `Failed to access \`/sup/dev\``).toBe(true);
 });

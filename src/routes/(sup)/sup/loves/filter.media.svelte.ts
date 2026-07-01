@@ -1,6 +1,6 @@
 import { partial_ratio } from "fuzzball";
 
-import { SearchFilter } from "#scripts/search-filter.svelte";
+import { SearchFilter } from "#scripts/search";
 import { shuffle } from "#scripts/utils";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
 

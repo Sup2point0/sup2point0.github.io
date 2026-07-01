@@ -1,4 +1,4 @@
-import { prep_groups } from "#scripts/search-filter.svelte.ts";
+import { prep_groups } from "#scripts/search";
 import { GenreKind, type GenreData } from "#scripts/types/music";
 import type { Groups } from "#scripts/types";
 

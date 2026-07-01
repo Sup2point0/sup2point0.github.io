@@ -1,9 +1,8 @@
 import { partial_ratio } from "fuzzball";
 
 import {
-  shardify, datepoint_to_prec,
-  shuffle,
-  all, any, sum, map_grouped,
+  datepoint_to_prec,
+  shuffle, all, any, sum, map_grouped,
 } from "#scripts/utils";
 
 import type {
@@ -11,51 +10,12 @@ import type {
   Groups, Grouped, States,
 } from "#scripts/types";
 
+import type { Searchable } from "./searchable";
+
 
 type SortBy = "default" | "date" | "name" | string;
 type Sorter<Entity> = (entities: Entity[]) => Entity[];
 type Grouper<Entity, Key extends PropertyKey> = (entity: Entity) => Key;
-
-
-/**
- * An entity that forms part of a searchable collection.
- */
-export interface Searchable
-{
-  /** Permanent unique identifier for the entity, used as keys, link anchors, etc. */
-  shard?: shard;
-
-  /** Which 'collection' this entity belongs to. */
-  collection?: string;
-
-  /** Should this entity be shown? */
-  is_shown?: boolean;
-  
-  /** A cached score for how relevant this entity is for a given search query. */
-  _score?: number;
-
-  [prop: string]: any;
-}
-
-
-export function prep_groups<Entity extends Searchable>(
-  data: Groups<Entity>,
-  process?: (entity: Entity) => void,
-): Groups<Entity>
-{
-  for (let [collection, entities] of Object.entries(data))
-  {
-    for (let entity of entities)
-    {
-      entity.shard ??= shardify(entity.name);
-      entity.collection = collection;
-      entity._score = 0;
-      process?.(entity);
-    }
-  }
-
-  return data;
-}
 
 
 /**
@@ -68,11 +28,17 @@ export type SearchResults<Entity>
   | GroupedResults<Entity>
 ;
 
+/**
+ * An ungrouped list of search results.
+ */
 export interface FlatResults<Entity> {
   is_grouped: false;
   data: Entity[];
 }
 
+/**
+ * A grouped collection of search results.
+ */
 export interface GroupedResults<Entity> {
   is_grouped: true;
   data: Grouped<Entity>;

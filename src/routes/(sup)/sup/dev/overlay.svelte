@@ -2,7 +2,7 @@
 
 <script lang="ts">
 
-import type { FlatResults } from "#scripts/search-filter.svelte.ts";
+import type { FlatResults } from "#scripts/search";
 import { display_date } from "#scripts/utils";
 
 import { Fluency, type DevEntity } from "#scripts/types/dev";

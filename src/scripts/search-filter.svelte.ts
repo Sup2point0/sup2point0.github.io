@@ -63,7 +63,7 @@ export function prep_groups<Entity extends Searchable>(
  * 
  * This functions as a tagged union, discriminated by `.is_grouped` (`true` for `Grouped<Entity>`).
  */
-export type FilterResults<Entity>
+export type SearchResults<Entity>
   = FlatResults<Entity>
   | GroupedResults<Entity>
 ;
@@ -162,7 +162,7 @@ export class SearchFilter<Entity extends Searchable>
    * 
    * Both the input and output may be grouped or ungrouped.
    */
-  apply(data: Entity[] | Groups<Entity>): FilterResults<Entity>
+  apply(data: Entity[] | Groups<Entity>): SearchResults<Entity>
   {
     /* If the filters are untouched, return the data as-is. */
     if (this.is_clear) {
@@ -465,7 +465,7 @@ export class SearchFilter<Entity extends Searchable>
     return { is_grouped: true, data: results };
   }
 
-  static count_results<Entity>(results: FilterResults<Entity>): int
+  static count_results<Entity>(results: SearchResults<Entity>): int
   {
     if (results.is_grouped) {
       return sum(results.data.map(([group, entities]) => entities.length));

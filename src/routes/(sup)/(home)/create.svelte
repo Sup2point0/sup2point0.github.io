@@ -16,7 +16,7 @@ import { fade } from "svelte/transition";
   <Adventure tagless={true} routes={[
     [20, `stuff I create`],
     [20, `my stuff`],
-    [20, `stuff to check out`],
+    [10, `stuff to check out`],
   ]} />
 </h2>
 

@@ -10,6 +10,7 @@ import ProfileHeader     from "./header.svelte";
 import ProfileBio        from "./bio.svelte";
 import ProfileDirections from "./directions.svelte";
 
+import ProfileUpdates       from "./updates.svelte"
 import ProfileCards         from "./create.svelte";
 import ProfileLoves         from "./loves.svelte";
 import ProfileShowerthought from "./showerthought.svelte";
@@ -47,6 +48,7 @@ import ProfileShowerthought from "./showerthought.svelte";
     </search>
   </section>
 
+  <section><ProfileUpdates /></section>
   <section><ProfileCards /></section>
   <section><ProfileLoves /></section>
 </Main>

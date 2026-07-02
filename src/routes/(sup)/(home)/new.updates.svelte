@@ -60,11 +60,6 @@ const updates = [
 
 <style lang="scss">
 
-h2 {
-  @include font-tech;
-  font-weight: normal;
-  font-size: 200%;
-  text-transform: uppercase;
-}
+
 
 </style>

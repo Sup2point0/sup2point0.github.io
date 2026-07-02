@@ -10,7 +10,8 @@ import ProfileHeader     from "./header.svelte";
 import ProfileBio        from "./bio.svelte";
 import ProfileDirections from "./directions.svelte";
 
-import ProfileUpdates       from "./updates.svelte"
+import ProfileUpdates       from "./new.updates.svelte"
+import ProfileTracks        from "./new.tracks.svelte"
 import ProfileCards         from "./create.svelte";
 import ProfileLoves         from "./loves.svelte";
 import ProfileShowerthought from "./showerthought.svelte";
@@ -48,7 +49,11 @@ import ProfileShowerthought from "./showerthought.svelte";
     </search>
   </section>
 
+  <!-- dynamic -->
   <section><ProfileUpdates /></section>
+  <section><ProfileTracks /></section>
+
+  <!-- static -->
   <section><ProfileCards /></section>
   <section><ProfileLoves /></section>
 </Main>
@@ -57,6 +62,13 @@ import ProfileShowerthought from "./showerthought.svelte";
 
 
 <style lang="scss">
+
+:global(main h2) {
+  @include font-tech;
+  font-weight: normal;
+  font-size: 200%;
+  text-transform: uppercase;
+}
 
 section {
   width: 100%;

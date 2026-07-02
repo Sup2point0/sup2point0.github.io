@@ -5,7 +5,10 @@ What's new.
 
 <script lang="ts">
 
-import Block from "#parts/ui/block.svelte";
+import { a } from "#scripts/utils";
+
+import Cards     from "#parts/core/cards.svelte";
+import FactCard  from "#src/parts/ui/card.info.svelte";
 import Adventure from "#parts/special/adventure.svelte";
 
 import { fade } from "svelte/transition";
@@ -13,9 +16,22 @@ import { fade } from "svelte/transition";
 
 const updates = [
   {
-    title: `Preferences are now saved locally (finally!)`,
+    title: `Preferences are saved locally!`,
     link: `https://sup2point0.github.io/lattix`,
     domain: "lattix",
+    desc: `(finally!) took me long enough lol`
+  },
+  {
+    title: `Music player supports drag to seek!`,
+    link: `https://sup2point0.github.io`,
+    domain: `sup2point0.github.io`,
+    desc: `Head to ${a("music/create", "/sup/music/create", true)}, play any track of mine, and drag the playhead to move around playback`,
+  },
+  {
+    title: `You can search the site!`,
+    link: `https://sup2point0.github.io/skyscraping`,
+    domain: `skyscraping`,
+    desc: `Go to any page, and hit the search icon in the upper-right to take you to the search page`
   },
 ];
 
@@ -30,21 +46,16 @@ const updates = [
   ]} />
 </h2>
 
-<div class="cards">
+<Cards>
   {#each updates as update}
-    <Block kind="ui expanded">
-      <div class="upper">
-        <h3> {@html update.title} </h3>
-
-        <a href={update.link} target="_blank"> {update.domain} </a>
-      </div>
-
-      {#each update.desc ?? [] as block}
-        <p> {@html block} </p>
-      {/each}
-    </Block>
+    <FactCard
+      text={update.title}
+      capt={a(update.domain, update.link)}
+      capt_pos="right"
+      desc={update.desc}
+    />
   {/each}
-</div>
+</Cards>
 
 
 <style lang="scss">
@@ -54,30 +65,6 @@ h2 {
   font-weight: normal;
   font-size: 200%;
   text-transform: uppercase;
-}
-
-.cards {
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: 1.5rem;
-
-  .upper {
-    padding: 0.25rem 0;
-    margin-bottom: 0.5rem;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    @include font-fun;
-    font-size: 150%;
-    border-bottom: 1px solid rgb(white, 10%);
-
-    h3 {
-      font-size: 100%;
-      font-weight: normal;
-    }
-  }
 }
 
 </style>

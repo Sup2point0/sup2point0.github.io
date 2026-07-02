@@ -1,4 +1,4 @@
-<!-- @component FactCard
+<!-- @component InfoCard
 
 A card which reveals more text when clicked.
 -->
@@ -12,10 +12,12 @@ import { expoOut } from "svelte/easing";
 
 interface Props {
   text: string;
+  capt?: string;
+    capt_pos?: "below" | "right";
   desc?: Description;
 }
 
-let { text, desc }: Props = $props();
+let { text, capt, capt_pos = "below", desc }: Props = $props();
 
 
 let open = $state(false);
@@ -23,16 +25,22 @@ let open = $state(false);
 </script>
 
 
-<button class="card fact"
+<button class="card-info"
   class:live={desc !== undefined}
   class:open
   transition:scale={{ duration: 600, easing: expoOut }}
   onclick={() => { open = !open; }}
 >
-  <p> {@html text} </p>
+  <div class="upper {capt_pos}">
+    <p class="text"> {@html text} </p>
+
+    {#if capt}
+      <p class="capt"> {@html capt} </p>
+    {/if}
+  </div>
 
   {#if desc && open}
-    <div class="desc" transition:slide={{ duration: 400, easing: expoOut }}>
+    <div class="lower" transition:slide={{ duration: 400, easing: expoOut }}>
       {#if Array.isArray(desc)}
         {#each desc as block}
           <p> {@html block} </p>
@@ -47,7 +55,7 @@ let open = $state(false);
 
 <style lang="scss">
 
-button {
+.card-info {
   max-width: 30vw;
   padding: 1em 1.5em;
   position: relative;
@@ -56,24 +64,24 @@ button {
   border: none;
   @include shear-card($interactive: true, $glow: true);
   transition: #{trans()};
-}
 
-button.live {
-  &:hover, &:focus-visible, &:active {
-    outline: none;
+  &.open {
+    padding: 1em 2em;
+
+    &::before {
+      transform: skew(calc($shear-factor * 2 / 3));
+    }
+
+    &:hover, &:active, &:focus-visible {
+      .desc p {
+        color: rgb(white, 70%);
+      }
+    }
   }
-}
 
-button.open {
-  padding: 1em 2em;
-
-  &::before {
-    transform: skew(calc($shear-factor * 2 / 3));
-  }
-
-  &:hover, &:active, &:focus-visible {
-    .desc p {
-      color: rgb(white, 70%);
+  &.live {
+    &:hover, &:focus-visible, &:active {
+      outline: none;
     }
   }
 }
@@ -85,11 +93,20 @@ p {
   text-align: left;
 }
 
-button p {
-  color: white;
+.upper {
+  &.right {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    column-gap: 1rem;
+  }
+
+  p.text {
+    color: white;
+  }
 }
 
-.desc {
+.lower {
   padding-top: 0.5em;
 
   p {
@@ -100,10 +117,10 @@ button p {
   }
 }
 
-:global(button.card.fact p a) {
+:global(.card-info p a) {
   @include link;
 }
-:global(button.card.fact .highlight) {
+:global(.card-info .highlight) {
   color: $col-acc;
 }
 

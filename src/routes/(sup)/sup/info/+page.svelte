@@ -2,15 +2,15 @@
 
 import { shuffle } from "#scripts/utils";
 
+import { facts_pinned, facts, type Fact } from "./facts";
+import { frequerys } from "./faq";
+
 import Clicky       from "#parts/ui/clicky.svelte";
-import FactCard     from "#parts/ui/card.fact.svelte";
+import InfoCard     from "#parts/ui/card.info.svelte";
 import Block        from "#parts/ui/block.svelte";
 import Header       from "#parts/ui/header.svelte";
 import PurplePortal from "#parts/special/purple-portal.svelte";
 import Adventure    from "#parts/special/adventure.svelte";
-
-import { facts_pinned, facts, type Fact } from "./facts";
-import { frequerys } from "./faq";
 
 import { untrack } from "svelte";
 
@@ -83,7 +83,7 @@ $effect(() => {
 
   <div class="fact-cards">
     {#each facts_display as quirk (quirk.idx)}
-      <FactCard {...quirk} />
+      <InfoCard {...quirk} />
     {/each}
   </div>
 

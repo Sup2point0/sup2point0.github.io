@@ -47,7 +47,7 @@ const title_routes = new FrozenWeightedList(
     />
     <LinkCard
       link="https://sup2point0.github.io/Assort/yugioh"
-      text="<em>Yu-Gi-Oh!</em>"
+      text="Yu-Gi-Oh!"
       capt="The lawyers’ card game"
     />
     <LinkCard

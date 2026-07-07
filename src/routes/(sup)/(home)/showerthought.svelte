@@ -9,13 +9,31 @@ import { fade } from "svelte/transition";
 
 
 let showerthought: string = $state("");
+let recently_seen: string[] = [];
+
+onMount(new_showerthought);
 
 function new_showerthought()
 {
-  showerthought = github_io.sample_value() ?? "";
-}
+  let candidate = github_io.sample_value();
 
-onMount(new_showerthought);
+  for (
+    let i = 0;
+    !candidate || recently_seen.includes(candidate) || i < 10;
+    i++
+  ) {
+    candidate = github_io.sample_value();
+  }
+
+  if (candidate) {
+    if (recently_seen.length > 7) {
+      recently_seen.shift();
+    }
+    recently_seen.push(candidate);
+    
+    showerthought = candidate;
+  }
+}
 
 </script>
 
@@ -35,6 +53,7 @@ onMount(new_showerthought);
 
 p {
   @include font-fun;
+  font-size: 120%;
   color: $col-deut;
   text-shadow:
     0 1px 2px black,

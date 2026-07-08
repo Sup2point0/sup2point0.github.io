@@ -17,11 +17,8 @@ function new_showerthought()
 {
   let candidate = github_io.sample_value();
 
-  for (
-    let i = 0;
-    !candidate || recently_seen.includes(candidate) || i < 10;
-    i++
-  ) {
+  for (let i = 0; i < 10; i++) {
+    if (candidate && !recently_seen.includes(candidate)) break;
     candidate = github_io.sample_value();
   }
 

@@ -35,17 +35,19 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
   
   [prop: string]: States | any;
 
-
-  constructor()
-  {
-    super();
-
-    this.previews = [
+  override get previews() {
+    return [
       ...this.#if_selected("tech"),
       ...get_enabled(this.flavour).map(opt => ["flavour", opt] as [string, string]),
       ...this.#if_selected("kind"),
       ...this.#if_selected("state"),
     ];
+  }
+
+
+  constructor()
+  {
+    super();
 
     this.toggles = {
       tech:    this.tech,

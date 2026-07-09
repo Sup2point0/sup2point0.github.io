@@ -47,11 +47,6 @@ export class SearchFilter<Entity extends Searchable>
   });
 
   /**
-   * Which search filters should show their current state beneath the search bar, as an immediate visual reminder to the user (even when they don't have the filters opened).
-   */
-  previews: [string, string][] = [];
-
-  /**
    * Which search filters can have individual states toggled, and their corresponding state object.
    * 
    * For instance, a media search filter might return `{ genres: <States> }`, allowing the user to enable/disable individual genres in the search results.
@@ -70,6 +65,13 @@ export class SearchFilter<Entity extends Searchable>
 
   [group_by: GroupBy]: any;
 
+
+  /**
+   * Which search filters should show their current state beneath the search bar, as an immediate visual reminder to the user (even when they don't have the filters opened).
+   */
+  get previews(): [string, string][] {
+    return [];
+  }
 
   /**
    * Lookup dictionary for sorting algorithms to apply depending on `.sort-by`.

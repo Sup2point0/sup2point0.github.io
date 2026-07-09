@@ -60,7 +60,7 @@ function toggle(option: string, current_state: boolean)
   class:enabled
   onclick={() => toggle(option, enabled)}
 >
-  {option?.toUpperCase()}
+  {option?.toUpperCase() ?? "<ERROR>"}
 </button>
 
 

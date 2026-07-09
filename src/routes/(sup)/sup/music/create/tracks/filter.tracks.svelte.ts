@@ -18,7 +18,7 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
   {
     super();
 
-    this.groups.push("album", "date", "genre");
+    this.groups.push("album", "year", "genre");
     this.sorts = ["default", "random", "name", "date", "album"];
     delete this.extra["expand all"];
 
@@ -29,14 +29,14 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
     this.groupers_specific = {
       "album": track => track.album.name,
 
-      "date": track => {
-          let value = datepoint_to_prec(track.date);
+      "year": track => {
+        let value = datepoint_to_prec(track.date);
 
-          return (Array.isArray(value) ?
-              Math.max(...value.map(d => Math.floor(d / DATE_PREC_MAJOR)))
-            : Math.floor(value / DATE_PREC_MAJOR)
-          );
-        },
+        return (Array.isArray(value) ?
+            Math.max(...value.map(d => Math.floor(d / DATE_PREC_MAJOR)))
+          : Math.floor(value / DATE_PREC_MAJOR)
+        );
+      },
 
       "genre": track => track.genres?.[Math.floor(Math.random() * track.genres.length)],
     };

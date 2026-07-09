@@ -16,10 +16,9 @@ import type { SearchResults, FlatResults, GroupedResults } from "./results";
 
 type SortBy = "default" | "date" | "name" | string;
 type Sorter<Entity> = (entities: Entity[]) => Entity[];
+
+type GroupBy = "default" | "none" | string;
 type Grouper<Entity, Key extends PropertyKey> = (entity: Entity) => Key;
-
-
-
 
 
 /**
@@ -34,7 +33,7 @@ export class SearchFilter<Entity extends Searchable>
   dirtiness: number = $state(0);
   query:     string = $state("");
 
-  group_by:      string  = $state("default");
+  group_by:      GroupBy = $state("default");
   reverse_group: boolean = $state(false);
 
   filter_by:     States = $state({});
@@ -69,9 +68,7 @@ export class SearchFilter<Entity extends Searchable>
    */
   sorts: string[] = ["default", "date", "name"];
 
-  /* NOTE: This may mask type checking */
-  // FIXME why do we need this?
-  [prop: string]: any;
+  [group_by: GroupBy]: any;
 
 
   /**
@@ -338,9 +335,12 @@ export class SearchFilter<Entity extends Searchable>
     groups: [Key, Entity[]][],
   ): [Key, Entity[]][]
   {
-    if (this.group_by === "date" && (this.sort_by === "date" || this.sort_by === "default")) {
+    if (
+      (this.group_by === "date" || this.group_by === "year")
+      && (this.sort_by === "date" || this.sort_by === "default")
+    ) {
       return groups.toSorted(
-        ([g1, e1], [g2, e2]) => (g2 as number) - (g1 as number)
+        ([g1, e1], [g2, e2]) => (g1 as number) - (g2 as number)
       );
     }
 
@@ -376,6 +376,18 @@ export class SearchFilter<Entity extends Searchable>
   }
 
 
+  // == EXTRA == //
+
+  count_results(results: SearchResults<Entity>): int
+  {
+    if (results.is_grouped) {
+      return sum(results.data.map(([group, entities]) => entities.length));
+    } else {
+      return results.data.length;
+    }
+  }
+
+
   // == STATIC == //
   // TODO private some?
 
@@ -401,15 +413,6 @@ export class SearchFilter<Entity extends Searchable>
         .map(s => [s.shard, init_state ?? true])
       )
     };
-  }
-
-  static count_results<Entity>(results: SearchResults<Entity>): int
-  {
-    if (results.is_grouped) {
-      return sum(results.data.map(([group, entities]) => entities.length));
-    } else {
-      return results.data.length;
-    }
   }
 }
 

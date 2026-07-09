@@ -62,7 +62,7 @@ let films_filtered = $derived(filters.apply(films_data));
     ]} />
   </Block>
 
-  <SearchFilters bind:filters result_count={FilmSearchFilter.count_results(films_filtered)} />
+  <SearchFilters bind:filters result_count={filters.count_results(films_filtered)} />
 
   {#if films_filtered.is_grouped}
     {#each films_filtered.data as [collection, films]}

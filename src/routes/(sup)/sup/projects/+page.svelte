@@ -1,10 +1,7 @@
 <script lang="ts">
 
-import Cards  from "#parts/core/cards.svelte";
-import Main   from "#parts/core/main.svelte";
-import Block  from "#parts/ui/block.svelte";
-import Header from "#parts/ui/header.svelte";
-import SearchFilters from "#parts/ui/search-filters.svelte";
+import { Cards, Main } from "#parts/core";
+import { Block, Header, SearchFilters } from "#parts/ui";
 import ProjectBlock  from "#parts/dev/block.project.svelte";
 
 import { projects_data, type ProjectData } from "./projects";
@@ -39,7 +36,7 @@ let projects_filtered = $derived(filters.apply(projects_data));
     <p> Here are the projects I’ve worked on over the years! ^v^ </p>
   </Block>
 
-  <SearchFilters bind:filters result_count={ProjectSearchFilter.count_results(projects_filtered)} />
+  <SearchFilters bind:filters result_count={filters.count_results(projects_filtered)} />
 
   {#if projects_filtered.is_grouped}
     {#each projects_filtered.data as [collection, projects]}

@@ -51,7 +51,7 @@ let channels_filtered = $derived(filters.apply(channels_data));
 ]} />
 
 <Main>
-  <SearchFilters bind:filters result_count={ChannelSearchFilter.count_results(channels_filtered)} />
+  <SearchFilters bind:filters result_count={filters.count_results(channels_filtered)} />
 
   <Block>
     <p> These are the YouTube channels I enjoy watching ;) </p>

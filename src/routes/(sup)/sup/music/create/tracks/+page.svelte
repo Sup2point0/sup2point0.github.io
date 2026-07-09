@@ -51,7 +51,7 @@ let tracks_filtered = $derived(filters.apply(tracks_list));
 ]} />
 
 <Main>
-  <SearchFilters bind:filters result_count={TrackSearchFilter.count_results(tracks_filtered)} />
+  <SearchFilters bind:filters result_count={filters.count_results(tracks_filtered)} />
 
   {#if tracks_filtered.is_grouped}
     {#each tracks_filtered.data as [collection, tracks]}

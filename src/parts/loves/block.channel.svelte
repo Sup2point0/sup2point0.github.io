@@ -1,4 +1,4 @@
-<!-- @component GameBlock -->
+<!-- @component ChannelBlock -->
 
 <script lang="ts">
 

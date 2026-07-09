@@ -117,8 +117,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
   protected override sort_default(projects: ProjectData[]): ProjectData[]
   {
     return super.sort(projects, {
-      /* @ts-ignore */
-      scorer: (proj => Math.max(
+      scorer: ((proj: ProjectData) => Math.max(
         partial_ratio(this.query, proj.name),
         proj.desc ? partial_ratio(this.query, proj.desc) : 0,
         proj.tech ? partial_ratio(this.query, proj.tech.join(" ")) : 0,

@@ -40,7 +40,7 @@ let animes_filtered = $derived(filters.apply(animes_data));
 ]} />
 
 <Main>
-  <SearchFilters bind:filters result_count={AnimeSearchFilter.count_results(animes_filtered)} />
+  <SearchFilters bind:filters result_count={filters.count_results(animes_filtered)} />
 
   {#if animes_filtered.is_grouped}
     {#each animes_filtered.data as [collection, animes]}

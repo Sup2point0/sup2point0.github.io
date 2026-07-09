@@ -40,7 +40,7 @@ let books_filtered = $derived(filters.apply(book_series_data));
 ]} />
 
 <Main>
-  <SearchFilters bind:filters result_count={BookSeriesSearchFilter.count_results(books_filtered)} />
+  <SearchFilters bind:filters result_count={filters.count_results(books_filtered)} />
 
   {#if books_filtered.is_grouped}
     {#each books_filtered.data as [collection, books]}

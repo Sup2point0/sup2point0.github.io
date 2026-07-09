@@ -146,7 +146,7 @@ $effect(() => {
 
     <SearchFilters bind:filters
       allow_expand={false}
-      result_count={ProjectSearchFilter.count_results(projects_filtered)}
+      result_count={filters.count_results(projects_filtered)}
     />
 
     <div class="blocks">

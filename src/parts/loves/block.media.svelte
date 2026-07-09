@@ -125,10 +125,6 @@ $effect(() => {
   &:hover, &:focus-visible {
     cursor: pointer;
     opacity: 1 !important;
-
-    .extra p {
-      color: $col-text;
-    }
   }
 
   &.open {

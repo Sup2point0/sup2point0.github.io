@@ -391,12 +391,11 @@ export class SearchFilter<Entity extends Searchable>
 
 
   // == STATIC == //
-  // TODO private some?
 
   /**
    * Construct a state object with the members of an enum `states`, initialising each state to `init_state` (`true` by default).
    * */
-  static init_states(states: object, init_state?: boolean): States
+  protected static init_states(states: object, init_state?: boolean): States
   {
     return {
       ...Object.fromEntries(
@@ -406,7 +405,7 @@ export class SearchFilter<Entity extends Searchable>
     };
   }
 
-  static init_shard_states(states: Record<shard, Searchable>, init_state?: boolean): States
+  protected static init_shard_states(states: Record<shard, Searchable>, init_state?: boolean): States
   {
     return {
       ...Object.fromEntries(

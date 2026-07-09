@@ -53,11 +53,7 @@ $effect(() => {
     <h3> {game.name} </h3>
 
     {#if game.love}
-      <p class="love">
-        {#each { length: game.love } as _}
-          ❤️‍🔥
-        {/each}
-      </p>
+      <p class="love"> {#each { length: game.love } as _} ❤️‍🔥 {/each} </p>
     {/if}
   </div>
 

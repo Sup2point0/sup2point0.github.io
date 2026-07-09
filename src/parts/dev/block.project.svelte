@@ -3,8 +3,10 @@
 <script lang="ts">
 
 import { anim } from "#scripts/anim.svelte.ts";
-import { shardify, display_date } from "#scripts/utils";
+import { display_date } from "#scripts/utils";
 import type { ProjectData } from "#sup/projects/projects";
+
+import { expoInOut } from "svelte/easing";
 
 
 interface Props {
@@ -21,7 +23,7 @@ let { project }: Props = $props();
   id={project.shard}
   {@attach anim}
 >
-  <div class="content">
+  <div class="block-content">
 
 {#if project.icon}
   <img class="project-icon"
@@ -94,6 +96,8 @@ let { project }: Props = $props();
     </div>
   </div>
 
+  <div class="sep"></div>
+
   <div class="body">
     {#if Array.isArray(project.desc)}
       {#each project.desc as block}
@@ -141,7 +145,7 @@ let { project }: Props = $props();
   }
 }
 
-.content {
+.block-content {
   display: flex;
   flex-flow: row nowrap;
   justify-content: start;
@@ -275,9 +279,16 @@ img.project-icon {
   }
 }
 
-.body {
-  padding: 0.75rem 0 0.75rem;
 
+.sep {
+  width: 69%;
+  height: 1px;
+  margin: 0.25rem 0 1rem;
+  background: rgb(white, 10%);
+}
+
+
+.body {
   p {
     @include font-ui;
     color: $col-text;
@@ -286,7 +297,7 @@ img.project-icon {
 }
 
 .lower {
-  padding-top: 0.1rem;
+  padding-top: 0.75rem;
 
   ul.tags {
     display: flex;

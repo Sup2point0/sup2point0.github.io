@@ -10,7 +10,7 @@ const data: Groups<ArtistData> =
     {
       shard:  "juggernaut",
       name:   "Juggernaut.",
-      date:   "2026 May",
+      date:   "May 2026",
       icon:   "juggernaut.jpg",
       genres: [Genre.RHYTHM, Genre.HITECH],
       track: {
@@ -27,7 +27,7 @@ const data: Groups<ArtistData> =
     {
       shard:  "moudelica",
       name:   "Moudelica",
-      date:   "2026 May",
+      date:   "May 2026",
       icon:   "moudelica.jpg",
       genres: [Genre.ELECTRONIC, Genre.JPOP],
       vibes:  [Vibe.EMOTIONAL],
@@ -704,7 +704,7 @@ const data: Groups<ArtistData> =
     },
     {
       shard:  "lime",
-      name:   "Lime",
+      name:   "Lime / Kankitsu",
       date:   2024,
       icon:   "lime.jpg",
       genres: [Genre.ELECTRONIC, Genre.RHYTHM],

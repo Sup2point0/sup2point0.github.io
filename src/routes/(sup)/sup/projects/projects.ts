@@ -102,7 +102,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Tech.UNITY, Lang.CSHARP,
       ],
-      state: State.DEVELOPING,
+      state: State.INDETERMINATE,
       links: {
         github: "https://github.com/Sup2point0/Avidity-unity",
       },
@@ -137,7 +137,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.RUBY, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
       ],
-      state: [State.MAINTAINING, State.DEVELOPING],
+      state: State.MAINTAINING,
       links: {
         github: "https://github.com/Sup2point0/stranger-quarkdown",
         site: "https://sup2point0.github.io/stranger-quarkdown/docs"
@@ -157,7 +157,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.SVELTE, Lang.TYPESCRIPT,
       ],
-      state: State.INDETERMINATE,
+      state: State.DEVELOPING,
       links: {
         github: "https://github.com/Sup2point0/lattix",
         site: "https://sup2point0.github.io/lattix",
@@ -221,6 +221,25 @@ const data: Groups<ProjectData> = prep_groups(
         `An adventurer’s archive of techniques and tricks for solving Skyscrapers puzzles`,
     },
     {
+      shard: "squippy",
+      name:  "Squippy",
+      love:  null,
+      date:  ["March 2026", "present"],
+      icon:  undefined,
+      flavour: Flavour.DEV,
+      kind: [Kind.APPLICATION, Kind.WEBSITE],
+      tech_data: [
+        Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
+      ],
+      state: State.INDETERMINATE,
+      links: {
+        github: "https://github.com/Sup2point0/squippy",
+        site: "https://sup2point0.github.io/squippy"
+      },
+      desc:
+        `A clean, no-nonsense SRT subtitles editor`,
+    },
+    {
       name:  "pyco:bytes",
       love:  null,
       date:  [2024, 2025],
@@ -257,25 +276,6 @@ const data: Groups<ProjectData> = prep_groups(
       },
       desc:
         `Connect 6 and other hexagonal games, hosted locally`,
-    },
-    {
-      shard: "squippy",
-      name:  "Squippy",
-      love:  null,
-      date:  ["March 2026", "present"],
-      icon:  undefined,
-      flavour: Flavour.DEV,
-      kind: [Kind.APPLICATION, Kind.WEBSITE],
-      tech_data: [
-        Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
-      ],
-      state: State.DEVELOPING,
-      links: {
-        github: "https://github.com/Sup2point0/squippy",
-        site: "https://sup2point0.github.io/squippy"
-      },
-      desc:
-        `A clean, no-nonsense SRT subtitles editor`,
     },
     {
       shard: "supcore",

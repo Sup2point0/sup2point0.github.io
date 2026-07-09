@@ -42,7 +42,7 @@ let open = $state(false);
 
   {#if open}
     <div class="filters"
-      transition:slide={{ duration: 1000, easing: expoInOut }}
+      transition:slide={{ duration: 750, easing: expoInOut }}
     >
       <table><tbody>
         {#each Object.entries(filters.toggles ?? []) as [category, options]}
@@ -129,7 +129,7 @@ let open = $state(false);
     </div>
   
   {:else}
-    <div class="filters" transition:slide={{ duration: 1000, easing: expoInOut }}>
+    <div class="filters" transition:slide={{ duration: 750, easing: expoInOut }}>
       <div class="toggles">
         {#if filters.previews.length > 0}
           <span>

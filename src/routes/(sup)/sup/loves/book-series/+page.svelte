@@ -28,7 +28,7 @@ let books_filtered = $derived(filters.apply(book_series_data));
 {#snippet cards(books: BookSeriesData[])}
   <Cards>
     {#each books as book (book.shard)}
-      <MediaBlock kind="books" media={book} />
+      <MediaBlock kind="books" media={book} expanded={filters.extra["expand all"]} />
     {/each}
   </Cards>
 {/snippet}

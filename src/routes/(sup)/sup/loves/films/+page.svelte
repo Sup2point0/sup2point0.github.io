@@ -38,7 +38,7 @@ let films_filtered = $derived(filters.apply(films_data));
 
   <Cards>
     {#each _films as film (film.shard)}
-      <MediaBlock kind="films" media={film} />
+      <MediaBlock kind="films" media={film} expanded={filters.extra["expand all"]} />
     {/each}
   </Cards>
 {/snippet}

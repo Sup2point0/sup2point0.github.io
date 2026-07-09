@@ -20,6 +20,7 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
 
     this.groups.push("album", "date", "genre");
     this.sorts = ["default", "random", "name", "date", "album"];
+    delete this.extra["expand all"];
 
     this.sorters_specific["album"] = (
       tracks => tracks.sort((prot, deut) => prot.album.name.localeCompare(deut.album.name))

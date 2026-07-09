@@ -28,7 +28,7 @@ let series_filtered = $derived(filters.apply(series_data));
 {#snippet cards(series: SeriesData[])}
   <Cards>
     {#each series as each (each.shard)}
-      <MediaBlock kind="series" media={each} />
+      <MediaBlock kind="series" media={each} expanded={filters.extra["expand all"]} />
     {/each}
   </Cards>
 {/snippet}

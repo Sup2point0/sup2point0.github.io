@@ -9,27 +9,28 @@ import { anim } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 import type { ArtistData } from "#scripts/types";
 
-import { onMount } from "svelte";
+import { untrack } from "svelte";
 import { slide } from "svelte/transition";
 import { expoInOut } from "svelte/easing";
 
 
 interface Props {
   artist: ArtistData;
-  invert?: boolean;
+  expanded: boolean;
 }
 
-let { artist, invert = false }: Props = $props();
+let { artist, expanded }: Props = $props();
 
 
 let open = $state(false);
 
-onMount(() => {
-  requestAnimationFrame(() => {
-    if (invert) {
-      open = !open;
-    }
-  })
+/* Clicking on one block can locally toggle, but global override should affect all blocks */
+$effect(() => {
+  expanded;
+
+  untrack(() => {
+    open = expanded;
+  });
 });
 
 </script>

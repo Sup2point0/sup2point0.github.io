@@ -655,6 +655,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           audio:  "let-you-down.m4a",
           cover:  "let-you-down.jpg",
           vibes:  ["chill", "jokes"],
+          is_shown: false,
         },
         {
           shard:  "canon-in-d-remix",
@@ -663,6 +664,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           audio:  "canon-in-d-remix.m4a",
           cover:  "placeholder.png",
           genres: ["orchestral", "electronic"],
+          is_shown: false,
         },
         {
           shard:  "rush",
@@ -672,6 +674,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           cover:  "placeholder.png",
           genres: ["bass"],
           vibes:  ["experimental"],
+          is_shown: false,
         },
         {
           feat:   true,
@@ -698,7 +701,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           feat:   true,
           shard:  "wingless-butterfly",
           name:   "The Wingless Fire-Wielding Butterfly Who Waged War Upon the Forest",
-          date:   "2023 WINTER",
+          date:   "winter 2023",
           audio:  "wingless-butterfly.mp3",
           cover:  "placeholder.png",
           genres: ["piano"],

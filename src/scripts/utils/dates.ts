@@ -5,7 +5,12 @@ export const DATE_PREC_MAJOR = 10000;
 export const DATE_PREC_MINOR = 100;
 
 
-export function datepoint_to_prec(date: Dates | undefined): number
+/**
+ * Convert a `Dates` value of any precision to a score used for sorting.
+ * 
+ * `resolve` describes how to resolve a date range: if `start`, the earlier date is taken, if `end`, the later date is taken.
+ */
+export function date_to_prec(date: Dates | undefined, resolve?: "start" | "end"): number
 {
   if (date === undefined) {
     return -1;
@@ -14,7 +19,8 @@ export function datepoint_to_prec(date: Dates | undefined): number
   if (typeof date === "number") return DATE_PREC_MAJOR * date;
 
   if (Array.isArray(date)) {
-    return Math.min(...date.map(datepoint_to_prec));
+    let resolver = (resolve === "end") ? Math.max : Math.min;
+    return resolver(...date.map(d => date_to_prec(d, resolve)));
   }
 
   if (typeof date !== "string") return 0;
@@ -45,7 +51,6 @@ export function datepoint_to_prec(date: Dates | undefined): number
   let coarse: number = 0;
 
   switch (spec.toLowerCase()) {
-    // FIXME "early/late 20xx" does not follow "20xx <month>" pattern
     case "late":      coarse = 90; break;
     case "winter":    coarse = 85; break;
     case "december":  coarse = 80; break;

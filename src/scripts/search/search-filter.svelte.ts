@@ -1,7 +1,7 @@
 import { partial_ratio } from "fuzzball";
 
 import {
-  datepoint_to_prec,
+  date_to_prec,
   shuffle, all, any, sum, map_grouped,
 } from "#scripts/utils";
 
@@ -88,7 +88,7 @@ export class SearchFilter<Entity extends Searchable>
   {
     this.sorters_specific = {
       "random": source => shuffle(source),
-      "date":   source => this.sort(source, { scorer: each => datepoint_to_prec(each.date) }),
+      "date":   source => this.sort(source, { scorer: each => date_to_prec(each.date) }),
       "name":   source => source.toSorted((l, r) => l.name.localeCompare(r.name)),
     };
   }

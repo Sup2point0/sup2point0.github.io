@@ -1,7 +1,7 @@
 import { partial_ratio } from "fuzzball";
 
 import { SearchFilter } from "#scripts/search";
-import { datepoint_to_prec, DATE_PREC_MAJOR } from "#scripts/utils";
+import { date_to_prec, DATE_PREC_MAJOR } from "#scripts/utils";
 import type { TrackData } from "#scripts/types/music/create";
 
 
@@ -10,8 +10,6 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
   override filter_by = $state({
     "is preview": false,
   });
-
-  override sort_by = $state("default");
 
 
   constructor()
@@ -22,6 +20,9 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
     this.sorts = ["default", "random", "name", "date", "album"];
     delete this.extra["expand all"];
 
+    this.sorters_specific["date"] = (
+      tracks => this.sort(tracks, { scorer: track => date_to_prec(track.date, "end") })
+    );
     this.sorters_specific["album"] = (
       tracks => tracks.sort((prot, deut) => prot.album.name.localeCompare(deut.album.name))
     );
@@ -30,11 +31,11 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
       "album": track => track.album.name,
 
       "year": track => {
-        let value = datepoint_to_prec(track.date);
+        let value = date_to_prec(track.date);
 
-        return (Array.isArray(value) ?
-            Math.max(...value.map(d => Math.floor(d / DATE_PREC_MAJOR)))
-          : Math.floor(value / DATE_PREC_MAJOR)
+        return Math.floor(
+          (Array.isArray(value) ? Math.max(...value) : value)
+          / DATE_PREC_MAJOR
         );
       },
 

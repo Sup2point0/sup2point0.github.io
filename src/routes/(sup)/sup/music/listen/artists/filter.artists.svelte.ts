@@ -1,7 +1,7 @@
 import { partial_ratio } from "fuzzball";
 
 import { SearchFilter } from "#scripts/search";
-import { datepoint_to_prec, DATE_PREC_MAJOR } from "#scripts/utils";
+import { date_to_prec, DATE_PREC_MAJOR } from "#scripts/utils";
 import { Genre, Vibe, type ArtistData } from "#scripts/types/music";
 
 
@@ -24,7 +24,7 @@ export class ArtistSearchFilter extends SearchFilter<ArtistData>
 
     this.groupers_specific = {
       "year": artist => {
-        let value = datepoint_to_prec(artist.date);
+        let value = date_to_prec(artist.date);
 
         return (Array.isArray(value) ?
             Math.max(...value.map(d => Math.floor(d / DATE_PREC_MAJOR)))

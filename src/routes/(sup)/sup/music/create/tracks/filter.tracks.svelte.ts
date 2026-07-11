@@ -30,14 +30,7 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
     this.groupers_specific = {
       "album": track => track.album.name,
 
-      "year": track => {
-        let value = date_to_prec(track.date);
-
-        return Math.floor(
-          (Array.isArray(value) ? Math.max(...value) : value)
-          / DATE_PREC_MAJOR
-        );
-      },
+      "year": track => Math.floor(date_to_prec(track.date, "end") / DATE_PREC_MAJOR),
 
       "genre": track => track.genres?.[Math.floor(Math.random() * track.genres.length)],
     };
@@ -46,11 +39,15 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
 
   protected override exclude_default(track: TrackData): boolean
   {
-    return (
-      this.filter_by["is preview"] === true ?
-        track.is_preview !== true
-      : track.is_preview === true
-    );
+    let exclude = super.exclude_default(track);
+
+    if (this.filter_by["is preview"]) {
+      exclude ||= (track.is_preview !== true);
+    } else {
+      exclude ||= (track.is_preview === true);
+    }
+    
+    return exclude;
   }
 
   protected override sort_default(tracks: TrackData[]): TrackData[]

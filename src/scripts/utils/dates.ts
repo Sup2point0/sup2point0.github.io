@@ -12,10 +12,9 @@ export const DATE_PREC_MINOR = 100;
  */
 export function date_to_prec(date: Dates | undefined, resolve?: "start" | "end"): number
 {
-  if (date === undefined) {
-    return -1;
-  }
+  if (date == null) return -1;
 
+  // NOTE: `number` means a year
   if (typeof date === "number") return DATE_PREC_MAJOR * date;
 
   if (Array.isArray(date)) {
@@ -24,6 +23,7 @@ export function date_to_prec(date: Dates | undefined, resolve?: "start" | "end")
   }
 
   if (typeof date !== "string") return 0;
+
   let parts = date.toLowerCase().split(" ");
 
   let day:  string = "0";

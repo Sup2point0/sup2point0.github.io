@@ -342,7 +342,7 @@ export class SearchFilter<Entity extends Searchable>
       && (this.sort_by === "date" || this.sort_by === "default")
     ) {
       return groups.toSorted(
-        ([g1, e1], [g2, e2]) => (g1 as number) - (g2 as number)
+        ([g1, e1], [g2, e2]) => (g2 as number) - (g1 as number)
       );
     }
 

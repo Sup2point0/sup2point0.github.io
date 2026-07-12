@@ -211,8 +211,8 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           date:   ["24 March 2025", "present"],
           audio:  undefined,
           cover:  "cortex.mem-brain.png",
-          genres: ["rhythm", "wackcore"],
-          vibes:  [],
+          genres: ["rhythm", "bass"],
+          vibes:  ["epic"],
         },
         {
           shard:  "syntax-error",
@@ -398,11 +398,10 @@ export const albums_data: Groups<AlbumData> = assign_albums({
         `More soundtracks created for my rhythm game ${i("Algorhythm")}!`,
       tracks: [
         {
-          is_preview: true,
           shard:  "away",
           name:   "Away",
-          date:   ["22 October 2023", "present"],
-          audio:  undefined,
+          date:   ["22 October 2023", "summer 2026"],
+          audio:  "away-v1.m4a",
           cover:  "roots.away.png",
           genres: ["wackcore"],
           vibes:  [],

@@ -24,7 +24,7 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
       tracks => this.sort(tracks, { scorer: track => date_to_prec(track.date, "end") })
     );
     this.sorters_specific["album"] = (
-      tracks => tracks.sort((prot, deut) => prot.album.name.localeCompare(deut.album.name))
+      tracks => tracks.toSorted((prot, deut) => prot.album.name.localeCompare(deut.album.name))
     );
 
     this.groupers_specific = {

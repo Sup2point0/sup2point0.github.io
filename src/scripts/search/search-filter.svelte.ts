@@ -346,7 +346,7 @@ export class SearchFilter<Entity extends Searchable>
       );
     }
 
-    if (this.dirtiness > 1) {
+    if (this.dirtiness > 0) {
       return groups.toSorted(
         ([group, media]) => {
           if (this.query) {

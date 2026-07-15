@@ -23,14 +23,7 @@ export class ArtistSearchFilter extends SearchFilter<ArtistData>
     this.groups.push("year", "genre", "discovered")
 
     this.groupers_specific = {
-      "year": artist => {
-        let value = date_to_prec(artist.date);
-
-        return (Array.isArray(value) ?
-            Math.max(...value.map(d => Math.floor(d / DATE_PREC_MAJOR)))
-          : Math.floor(value / DATE_PREC_MAJOR)
-        );
-      },
+      "year": artist => Math.floor(date_to_prec(artist.date) / DATE_PREC_MAJOR),
 
       "genre": artist => artist.genres?.[Math.floor(Math.random() * artist.genres.length)],
 

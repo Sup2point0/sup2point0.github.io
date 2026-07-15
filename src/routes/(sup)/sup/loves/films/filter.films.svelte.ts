@@ -20,13 +20,19 @@ export class FilmSearchFilter extends MediaSearchFilter<FilmData>
   }
   
 
-  override filter(films: FilmData[]): FilmData[]
+  override filter(
+    films: FilmData[],
+    exclude_if?: (film: FilmData) => boolean,
+  ): FilmData[]
   {
     return super.filter(films,
       film => {
+        if (exclude_if?.(film)) return true;
+
         for (let [flag, state] of Object.entries(this.filter_by)) {
           if (state && !film.flags?.includes(flag as Flag)) return true;
         }
+        
         return false;
       }
     );

@@ -37,8 +37,7 @@ export class MediaSearchFilter<Media extends MediaData> extends SearchFilter<Med
         )).bind(this),
       })
     }
-    else {
-      return shuffle(media);
-    }
+    
+    return media;
   }
 }

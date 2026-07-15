@@ -330,7 +330,7 @@ export class SearchFilter<Entity extends Searchable>
   protected group_default(entity: Entity): string
   {
     let value = entity[this.group_by];
-    return Array.isArray(value) ? value[0] : value;
+    return Array.isArray(value) ? value[0] : value ?? "other";
   }
 
   default_group_sort<Key extends PropertyKey>(

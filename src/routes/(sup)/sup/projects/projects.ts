@@ -9,7 +9,7 @@ import type { shard, Groups, Datepoint } from "#scripts/types";
 export interface ProjectData extends Searchable
 {
   name: string;
-  love?: 3 | 2 | 1 | 0;
+  love?: 3 | 2 | 1 | 0;  // FIXME null?
   date?: Datepoint | Datepoint[];
 
   icon?: string;
@@ -112,7 +112,7 @@ const data: Groups<ProjectData> = prep_groups(
     {
       shard: "weighted-list",
       name:  "weighted-list",
-      love:  2,
+      love:  1,
       date:  ["May 2022", "present"],
       icon:  undefined,
       flavour: Flavour.DEV,
@@ -129,7 +129,7 @@ const data: Groups<ProjectData> = prep_groups(
     },
     {
       name:  "Stranger Quarkdown",
-      love:  1,
+      love:  null,
       date:  ["July 2024", "present"],
       icon:  "squarkdown.png",
       flavour: Flavour.DEV,
@@ -137,7 +137,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.RUBY, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
       ],
-      state: State.MAINTAINING,
+      state: State.DEVELOPING,
       links: {
         github: "https://github.com/Sup2point0/stranger-quarkdown",
         site: "https://sup2point0.github.io/stranger-quarkdown/docs"
@@ -184,9 +184,27 @@ const data: Groups<ProjectData> = prep_groups(
   ],
   "Websites": [
     {
+      shard: "awxynth",
+      name:  "Awxynth",
+      love:  2,
+      date:  ["summer 2026", "present"],
+      flavour: Flavour.DEV,
+      kind:    [Kind.WEBSITE, Kind.APPLICATION],
+      tech_data: [
+        Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/awxynth",
+        site: "https://sup2point0.github.io/axynth",
+      },
+      desc:
+        `A mathematical synthesiser in your browser`,
+    },
+    {
       shard: "lucidity",
       name:  "Lucidity",
-      love:  1,
+      love:  0,
       date:  ["September 2025", "present"],
       flavour: Flavour.DEV,
       kind:    Kind.WEBSITE,
@@ -270,7 +288,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.RUST, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
       ],
-      state: State.DEVELOPING,
+      state: State.HIATUS,
       links: {
         github: "https://github.com/Sup2point0/hexadris",
       },

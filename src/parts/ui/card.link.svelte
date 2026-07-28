@@ -39,6 +39,7 @@ let {
 }: Props = $props();
 
 
+// svelte-ignore state_referenced_locally
 const picts_shuffled = sample(picts ?? [], { replace: false }).slice(0, 5);
 
 let displayed_text: string | undefined = $state();

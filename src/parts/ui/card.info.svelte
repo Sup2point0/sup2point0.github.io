@@ -15,12 +15,14 @@ interface Props {
   capt?: string;
     capt_pos?: "below" | "right";
   desc?: Description;
+  open?: any;
 }
 
-let { text, capt, capt_pos = "below", desc }: Props = $props();
+let { text, capt, capt_pos = "below", desc, open }: Props = $props();
 
 
-let open = $state(false);
+// svelte-ignore state_referenced_locally
+let is_open = $state(open ? true : false);
 
 </script>
 

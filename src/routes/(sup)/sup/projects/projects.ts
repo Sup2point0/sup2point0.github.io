@@ -137,7 +137,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.RUBY, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
       ],
-      state: State.DEVELOPING,
+      state: [State.DEVELOPING, State.MAINTAINING],
       links: {
         github: "https://github.com/Sup2point0/stranger-quarkdown",
         site: "https://sup2point0.github.io/stranger-quarkdown/docs"
@@ -191,7 +191,8 @@ const data: Groups<ProjectData> = prep_groups(
       flavour: Flavour.DEV,
       kind:    [Kind.WEBSITE, Kind.APPLICATION],
       tech_data: [
-        Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
+        Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.HTML,
+        Tech.DESMOS,
       ],
       state: State.DEVELOPING,
       links: {
@@ -199,7 +200,7 @@ const data: Groups<ProjectData> = prep_groups(
         site: "https://sup2point0.github.io/axynth",
       },
       desc:
-        `A mathematical synthesiser in your browser`,
+        `The mathematical synthesiser in your browser. If you can graph it, you can hear it!`,
     },
     {
       shard: "lucidity",
@@ -249,7 +250,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
       ],
-      state: State.INDETERMINATE,
+      state: State.HIATUS,
       links: {
         github: "https://github.com/Sup2point0/squippy",
         site: "https://sup2point0.github.io/squippy"
@@ -306,7 +307,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.RUST,
       ],
-      state: State.DEVELOPING,
+      state: State.HIATUS,
       links: {
         github: "https://github.com/Sup2point0/supcore",
       },
@@ -324,7 +325,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.HASKELL,
       ],
-      state: State.DEVELOPING,
+      state: State.HIATUS,
       links: {
         github: "https://github.com/Sup2point0/hlox",
       },
@@ -360,7 +361,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.RUST,
       ],
-      state: State.INDETERMINATE,
+      state: State.HIATUS,
       links: {
         github: "https://github.com/Sup2point0/ascendant",
       },
@@ -397,7 +398,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.RUST,
       ],
-      state: State.INDETERMINATE,
+      state: State.HIATUS,
       links: {
         github: "https://github.com/Sup2point0/duelingbook-extractor",
       },
@@ -414,7 +415,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.RUST,
       ],
-      state: State.INDETERMINATE,
+      state: State.ARCHIVED,
       links: {
         github: "https://github.com/Sup2point0/fractually-awesome",
       },
@@ -462,7 +463,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.HASKELL,
       ],
-      state: State.INDETERMINATE,
+      state: State.ARCHIVED,
       links: {
         github: "https://github.com/Sup2point0/brainflop",
       },
@@ -558,7 +559,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.CSHARP,
       ],
-      state: State.INDETERMINATE,
+      state: State.ARCHIVED,
       links: {
         github: "https://github.com/Sup2point0/Nocturne",
       },

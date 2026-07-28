@@ -25,9 +25,9 @@ import { fade } from "svelte/transition";
 </h2>
 
 <Cards>
+  <TrackCard track={tracks_list.find(t => t.shard === "protos")!} />
+  <TrackCard track={tracks_list.find(t => t.shard === "ephemerald")!} />
   <TrackCard track={tracks_list.find(t => t.shard === "skies-above")!} />
-  <TrackCard track={tracks_list.find(t => t.shard === "nightfall")!} />
-  <TrackCard track={tracks_list.find(t => t.shard === "a-journey-across-time")!} />
 </Cards>
 
 

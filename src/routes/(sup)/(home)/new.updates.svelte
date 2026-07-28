@@ -16,6 +16,12 @@ import { fade } from "svelte/transition";
 
 const updates = [
   {
+    title: `Making a mathematical synthesiser!`,
+    link: `https://sup2point0.github.io/awxynth`,
+    domain: "awxynth",
+    desc: `It uses Desmos (!)`
+  },
+  {
     title: `Preferences are saved locally!`,
     link: `https://sup2point0.github.io/lattix`,
     domain: "lattix",
@@ -25,13 +31,7 @@ const updates = [
     title: `Music player supports drag to seek!`,
     link: `https://sup2point0.github.io`,
     domain: `sup2point0.github.io`,
-    desc: `Head to ${a("music/create", "/sup/music/create", true)}, play any track of mine, and drag the playhead to move around playback`,
-  },
-  {
-    title: `You can search the site!`,
-    link: `https://sup2point0.github.io/skyscraping`,
-    domain: `skyscraping`,
-    desc: `Go to any page, and hit the search icon in the upper-right to take you to the search page`
+    desc: `Head to ${a("music/create", "/sup/music/create", true)}, play any track of mine, and drag the playhead to move around playback`
   },
 ];
 

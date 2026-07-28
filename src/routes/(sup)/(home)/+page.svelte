@@ -12,6 +12,8 @@ import ProfileDirections from "./directions.svelte";
 
 import ProfileUpdates       from "./new.updates.svelte"
 import ProfileTracks        from "./new.tracks.svelte"
+import ProfileYouTube       from "./new.youtube.svelte"
+
 import ProfileCards         from "./create.svelte";
 import ProfileLoves         from "./loves.svelte";
 import ProfileShowerthought from "./showerthought.svelte";
@@ -52,6 +54,7 @@ import ProfileShowerthought from "./showerthought.svelte";
   <!-- dynamic -->
   <section><ProfileUpdates /></section>
   <section><ProfileTracks /></section>
+  <section><ProfileYouTube /></section>
 
   <!-- static -->
   <section><ProfileCards /></section>

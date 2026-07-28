@@ -1,4 +1,4 @@
-<!-- @component ProfileTracks
+<!-- @component `ProfileTracks`
 
 Latest released soundtracks!
 -->

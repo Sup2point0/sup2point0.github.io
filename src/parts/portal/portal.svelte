@@ -367,6 +367,7 @@ button.result {
       font-size: 150%;
       font-weight: normal;
       color: transparent;
+      text-shadow: 0 1px 3px rgb(black, 50%);
       transition: color #{trans-exp()};
       
       .portal-content.live            & { color: $col-text; }

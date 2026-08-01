@@ -138,7 +138,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
       })
       .map(site => ({
         title:  site.name,
-        capt:   `https://sup2point0.github.io/${site.intern}`,
+        capt:   `sup2point0.github.io/${site.intern}`,
         desc:   site.desc,
         colour: site.colour,
         action: () => { window.open(`https://sup2point0.github.io/${site.intern}`, "_blank"); },

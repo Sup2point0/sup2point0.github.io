@@ -5,6 +5,11 @@ export const sites_data = [
     colour: "#8da4ff",
   },
   {
+    name:   "Awxynth",
+    intern: "awxynth",
+    colour: "#40f190",
+  },
+  {
     name:   "Buccaneer Game",
     intern: "buccaneer-game",
     colour: "#f3e1d3",

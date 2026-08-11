@@ -6,7 +6,8 @@ on:
   push:
     paths:
       - '**.yml'
-      - 'new.updates.svelte'
+      - 'package-lock.json'
+      - '**/new.*.svelte'
   
   schedule:
     - cron: '20 4 * * 6'

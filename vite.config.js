@@ -13,5 +13,5 @@ export default defineConfig({
   plugins: [sveltekit()],
   test: {
     dir: "tests/unit/"
-  }
+  },
 });

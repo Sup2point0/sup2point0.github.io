@@ -17,17 +17,15 @@ export async function load()
   let chunks = xml.split("<entry>", 4);
 
   console.log(`received ${chunks.length} chunks!`);
+  console.log(chunks);
 
-  let videos: VideoData[] = [];
+  let videos: string[] = [];
 
   for (let chunk of chunks) {
     let id = chunk.match(/(?<=<yt:videoId>).*?(?=<\/yt:videoId>)/)?.[0];
     if (id == undefined) continue;
 
-    let href = chunk.match(/https:\/\/www\.youtube\.com\/watch\?v=.+?(?=")/)?.[0];
-    if (href == undefined) continue;
-
-    videos.push({ id, href });
+    videos.push(id);
   }
 
   return { videos };

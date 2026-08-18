@@ -15,6 +15,11 @@ export const sites_data = [
     colour: "#f3e1d3",
   },
   {
+    name:   "Desmost",
+    intern: "desmost",
+    colour: "#0088cc",
+  },
+  {
     name:   "Integrity",
     intern: "integrity",
     colour: "oklch(61.3% 0.106 237.7)",

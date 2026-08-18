@@ -84,7 +84,7 @@ const data: Groups<ProjectData> = prep_groups(
         Lang.RUBY, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
         Lang.KATEX, Lang.JSON, Lang.MARKDOWN, Tech.DESMOS,
       ],
-      state: [State.DEVELOPING, State.MAINTAINING],
+      state: [State.MAINTAINING],
       links: {
         github: "https://github.com/Sup2point0/integrity",
         site: "https://sup2point0.github.io/integrity",
@@ -231,7 +231,7 @@ const data: Groups<ProjectData> = prep_groups(
       tech_data: [
         Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.KATEX, Lang.MARKDOWN,
       ],
-      state: State.DEVELOPING,
+      state: State.HIATUS,
       links: {
         github: "https://github.com/Sup2point0/skyscraping",
         site: "https://sup2point0.github.io/skyscraping"
@@ -278,6 +278,24 @@ const data: Groups<ProjectData> = prep_groups(
     },
   ],
   "Current": [
+    {
+      shard: "desmost",
+      name:  "Desmost",
+      love:  null,
+      date:  ["August 2026", "present"],
+      icon:  undefined,
+      flavour: Flavour.DEV,
+      kind: [Kind.LANGUAGE],
+      tech_data: [
+        Lang.TYPESCRIPT, Lang.SVELTE,
+      ],
+      state: State.DEVELOPING,
+      links: {
+        github: "https://github.com/Sup2point0/desmost",
+      },
+      desc:
+        `A tiny DSL for compiling LaTeX to Desmos`,
+    },
     {
       shard: "hexadris",
       name:  "Hexadris",

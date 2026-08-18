@@ -17,11 +17,11 @@ export async function load()
   let chunks = xml.split("<entry>", 4);
 
   console.log(`received ${chunks.length} chunks!`);
-  console.log(chunks);
 
   let videos: string[] = [];
 
   for (let chunk of chunks) {
+    console.log(chunk);
     let id = chunk.match(/(?<=<yt:videoId>).*?(?=<\/yt:videoId>)/)?.[0];
     if (id == undefined) continue;
 

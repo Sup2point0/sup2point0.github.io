@@ -20,8 +20,8 @@ export async function load()
 
   let videos: string[] = [];
 
-  for (let chunk of chunks) {
-    console.log(chunk);
+  for (let [i, chunk] of chunks.entries()) {
+    console.log(`chunk #${i} =`, chunk);
     let id = chunk.match(/(?<=<yt:videoId>).*?(?=<\/yt:videoId>)/)?.[0];
     if (id == undefined) continue;
 

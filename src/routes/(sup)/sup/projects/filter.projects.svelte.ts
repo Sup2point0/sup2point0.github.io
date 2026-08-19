@@ -69,52 +69,18 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
   }
 
 
-  // TODO refactor to use common `.filter()`
-  #filter(projects: ProjectData[]): ProjectData[]
+  override filter(
+    source: ProjectData[],
+    exclude_if?: (project: ProjectData) => boolean,
+  ): ProjectData[]
   {
-    let out = projects.filter(
-      proj => {
-        proj._score = 0;
-        let filtered = false;
-
-        if (this.filter_by["on github"] && !proj.links?.github) return false;
-        if (this.filter_by["has site"] && !proj.links?.site) return false;        
-
-        for (let [prop, states] of Object.entries(this.toggles)) {
-          if (all(states) || !any(states)) continue;
-
-          let hit = false;
-
-          for (let [toggle, state] of Object.entries(states)) {
-            if (state) {
-              if (Array.isArray(proj[prop])) {
-                let matches = proj[prop].filter(p => p === toggle).length;
-                if (matches > 0) {
-                  hit = true;
-                  proj._score += matches ** 2;
-                }
-              }
-              else if (proj[prop] === toggle) {
-                hit = true;
-                proj._score++;
-              }
-            }
-          }
-
-          if (!hit) return false;
-          filtered = true;
-        }
-
-        return (proj._score > 0 || !filtered);
-      }
-    );
-
-    if (out.length === 0 && this.query) {
-      out = projects;
-    }
-
-    return out;
+    return super.filter(source, proj => (
+        exclude_if?.(proj)
+      || this.filter_by["on github"] && !proj.links?.github
+      || this.filter_by["has site"] && !proj.links?.site
+    ));
   }
+  
 
   protected override sort_default(projects: ProjectData[]): ProjectData[]
   {

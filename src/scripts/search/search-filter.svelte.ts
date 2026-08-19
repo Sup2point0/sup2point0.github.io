@@ -36,6 +36,7 @@ export class SearchFilter<Entity extends Searchable>
   group_by:      GroupBy = $state("default");
   reverse_group: boolean = $state(false);
 
+  /** Domain-specific filters to apply. Child classes need to implement their own filtering functionality for each filter (by overriding `.filter()`). */
   filter_by:     States = $state({});
 
   sort_by:      SortBy  = $state("default");

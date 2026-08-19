@@ -63,7 +63,7 @@ const data: Groups<ProjectData> = prep_groups(
       flavour: [Flavour.PERSONAL, Flavour.DEV],
       kind:    [Kind.WIKI, Kind.WEBSITE],
       tech_data: [
-        Lang.MARKDOWN, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.HTML, Lang.JSON,
+        Lang.MARKDOWN, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.HTML,
       ],
       state: State.ETERNAL,
       links: {
@@ -81,8 +81,9 @@ const data: Groups<ProjectData> = prep_groups(
       flavour: [Flavour.DEV, Flavour.ACADEMIC],
       kind:    Kind.WEBSITE,
       tech_data: [
-        Lang.RUBY, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
+        Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
         Lang.KATEX, Lang.JSON, Lang.MARKDOWN, Tech.DESMOS,
+        Lang.RUBY,
       ],
       state: [State.MAINTAINING],
       links: {
@@ -91,23 +92,6 @@ const data: Groups<ProjectData> = prep_groups(
       },
       desc:
         `All my hand-crafted maths questions, game development in Desmos, and more!`,
-    },
-    {
-      name:  "Avidity (Unity)",
-      love:  null,
-      icon:  undefined,
-      date:  ["summer 2025", "present"],
-      flavour: Flavour.DEV,
-      kind:    Kind.APPLICATION,
-      tech_data: [
-        Tech.UNITY, Lang.CSHARP,
-      ],
-      state: State.INDETERMINATE,
-      links: {
-        github: "https://github.com/Sup2point0/Avidity-unity",
-      },
-      desc:
-        `A music player for personal use!`,
     },
     {
       shard: "weighted-list",
@@ -125,7 +109,7 @@ const data: Groups<ProjectData> = prep_groups(
         github: "https://github.com/Sup2point0/weighted-list",
       },
       desc:
-        `A specialised list for weighted randomisation, implemented in every language as I know. I now use it as an exercise when learning new ones!`,
+        `Data structures for weighted randomisation, implemented in every language as I know. I now use it as an exercise when learning new ones!`,
     },
     {
       name:  "Stranger Quarkdown",
@@ -144,7 +128,7 @@ const data: Groups<ProjectData> = prep_groups(
       },
       tags: ["squark", "squarkdown"],
       desc:
-        `An automated content deployment framework for SvelteKit`,
+        `Preprocessing automation for SvelteKit projects`,
     },
     {
       shard: "lattix",
@@ -287,7 +271,7 @@ const data: Groups<ProjectData> = prep_groups(
       flavour: Flavour.DEV,
       kind: [Kind.LANGUAGE],
       tech_data: [
-        Lang.TYPESCRIPT, Lang.SVELTE,
+        Lang.TYPESCRIPT, Lang.SVELTE, Tech.DESMOS, Lang.RUBY,
       ],
       state: State.DEVELOPING,
       links: {
@@ -406,6 +390,23 @@ const data: Groups<ProjectData> = prep_groups(
   ],
   "Miscellaneous": [
     {
+      name:  "Avidity (Unity)",
+      love:  null,
+      icon:  undefined,
+      date:  ["summer 2025", "present"],
+      flavour: Flavour.DEV,
+      kind:    Kind.APPLICATION,
+      tech_data: [
+        Tech.UNITY, Lang.CSHARP,
+      ],
+      state: State.INDETERMINATE,
+      links: {
+        github: "https://github.com/Sup2point0/Avidity-unity",
+      },
+      desc:
+        `A music player for personal use!`,
+    },
+    {
       shard: "dbxt",
       name:  "duelingbook-extractor",
       love:  0,
@@ -454,7 +455,7 @@ const data: Groups<ProjectData> = prep_groups(
         github: "https://github.com/Sup2point0/shardify",
       },
       desc:
-        `Lightweight Rust-powered CLI to convert arbitrary strings to normalised kebab-case identifiers`,
+        `Lightweight CLI to convert arbitrary strings to normalised kebab-case identifiers`,
     },
     {
       shard: "archividian",
@@ -503,22 +504,6 @@ const data: Groups<ProjectData> = prep_groups(
       },
       desc:
         `Sorting algorithms implemented in languages I’m learning`,
-    },
-    {
-      shard: "hastkell",
-      name:  "hASTkell",
-      date:  ["fall 2025", "present"],
-      flavour: Flavour.DEV,
-      kind:    Kind.FRAMEWORK,
-      tech_data: [
-        Lang.HASKELL,
-      ],
-      state: State.ARCHIVED,
-      links: {
-        github: "https://github.com/Sup2point0/hASTkell",
-      },
-      desc:
-        `Building abstract syntax trees for parsing and computing mathematical expressions`,
     },
     {
       shard: "adrenaline",
@@ -652,6 +637,22 @@ const data: Groups<ProjectData> = prep_groups(
     },
   ],
   "Archives": [
+    {
+      shard: "hastkell",
+      name:  "hASTkell",
+      date:  "fall 2025",
+      flavour: Flavour.DEV,
+      kind:    Kind.FRAMEWORK,
+      tech_data: [
+        Lang.HASKELL,
+      ],
+      state: State.ARCHIVED,
+      links: {
+        github: "https://github.com/Sup2point0/hASTkell",
+      },
+      desc:
+        `Building abstract syntax trees for parsing and computing mathematical expressions`,
+    },
     {
       name:  "Avidity (Svelte)",
       icon:  undefined,

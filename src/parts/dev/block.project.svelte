@@ -339,6 +339,7 @@ img.project-icon {
       &.svelte::before     { background: color.change(#ff6000, $alpha: 0.8); }
       &.javascript::before { background: color.change(#ffa900, $alpha: 0.69); }
       &.typescript::before { background: color.change(#ffa900, $alpha: 0.69); }
+      &.markdown::before   { background: color.change(#2070c1, $alpha: 0.69); }
       &.desmos::before     { background: color.change(#009317, $alpha: 0.69); }
     }
   }

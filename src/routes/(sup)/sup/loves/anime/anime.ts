@@ -1,6 +1,6 @@
 import { prep_groups } from "#scripts/search";
 import { i } from "#scripts/utils";
-import { Genre, type MediaData } from "#scripts/types/media";
+import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
 
@@ -70,13 +70,14 @@ const data: Groups<AnimeData> =
 		{
 			name:   "Domestic na Kanojo",
 			date:   "summer 2026",
-			cover:  "dome-kano.jpg",
-			genres: ["??" as Genre],
+			cover:  "dome-kano.webp",
+			genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE, Genre.COMING_OF_AGE],
+			themes: [Theme.TRAGEDY],
 			is_shown: false,
 		},
 		{
 			name:   "Kanojo, Okarishimasu",
-			date:   [2020, 2023],
+			date:   "fall 2024",
 			cover:  "kano-kari.webp",
 			genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE],
 			desc: [
@@ -88,6 +89,13 @@ const data: Groups<AnimeData> =
 			name:   "Yosuga no Sora",
 			date:   2010,
 			cover:  "yosuga-no-sora.jpg",
+			genres: [Genre.ROMANCE],
+			is_shown: false,
+		},
+		{
+			name:   "My Stepmom’s Daughter Is My Ex",
+			date:   "summer 2026",
+			cover:  "ex.jpg",
 			genres: ["??" as Genre],
 			is_shown: false,
 		},

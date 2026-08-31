@@ -7,6 +7,7 @@ export enum Genre {
 	ADVENTURE     = "adventure",
 	CARTOON       = "cartoon",
 	COMEDY        = "comedy",
+	COMING_OF_AGE = "coming of age",
 	DRAMA         = "drama",
 	DYSTOPIAN     = "dystopian",
 	EPIC          = "epic",

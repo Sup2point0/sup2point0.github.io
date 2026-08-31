@@ -5,14 +5,14 @@ import { type BookSeriesData } from "./book-series";
 
 export class BookSeriesSearchFilter extends MediaSearchFilter<BookSeriesData>
 {
-  constructor()
-  {
-    super();
+	constructor()
+	{
+		super();
 
-    this.sorts.push("books count");
+		this.sorts.push("books count");
 
-    this.sorters_specific["books count"] = series => super.sort(series, {
-      scorer: s => s.books,
-    });
-  }
+		this.sorters_specific["books count"] = series => super.sort(series, {
+			scorer: s => s.books,
+		});
+	}
 }

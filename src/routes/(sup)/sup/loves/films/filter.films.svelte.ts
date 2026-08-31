@@ -5,36 +5,36 @@ import { Franchise, Flag, type FilmData } from "./films";
 
 export class FilmSearchFilter extends MediaSearchFilter<FilmData>
 {
-  franchise = $state(MediaSearchFilter.init_states(Franchise));
+	franchise = $state(MediaSearchFilter.init_states(Franchise));
 
-  override filter_by = $state({
-    ...MediaSearchFilter.init_states(Flag, false)
-  });
+	override filter_by = $state({
+		...MediaSearchFilter.init_states(Flag, false)
+	});
 
 
-  constructor()
-  {
-    super();
+	constructor()
+	{
+		super();
 
-    this.toggles["franchise"] = this.franchise;
-  }
-  
+		this.toggles["franchise"] = this.franchise;
+	}
+	
 
-  override filter(
-    films: FilmData[],
-    exclude_if?: (film: FilmData) => boolean,
-  ): FilmData[]
-  {
-    return super.filter(films,
-      film => {
-        if (exclude_if?.(film)) return true;
+	override filter(
+		films: FilmData[],
+		exclude_if?: (film: FilmData) => boolean,
+	): FilmData[]
+	{
+		return super.filter(films,
+			film => {
+				if (exclude_if?.(film)) return true;
 
-        for (let [flag, state] of Object.entries(this.filter_by)) {
-          if (state && !film.flags?.includes(flag as Flag)) return true;
-        }
-        
-        return false;
-      }
-    );
-  }
+				for (let [flag, state] of Object.entries(this.filter_by)) {
+					if (state && !film.flags?.includes(flag as Flag)) return true;
+				}
+				
+				return false;
+			}
+		);
+	}
 }

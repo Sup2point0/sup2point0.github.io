@@ -1,38 +1,38 @@
 export interface VideoData
 {
-  id:   string;
-  href: string;
+	id:   string;
+	href: string;
 }
 
 
 export async function load()
 {
-  try {
-    console.log("fetching YouTube videos...");
+	try {
+		console.log("fetching YouTube videos...");
 
-    let response = await fetch("https://www.youtube.com/feeds/videos.xml?channel_id=UCymDd4idgL1slmKjA3L0NHQ");
+		let response = await fetch("https://www.youtube.com/feeds/videos.xml?channel_id=UCymDd4idgL1slmKjA3L0NHQ");
 
-    console.log("received response!")
+		console.log("received response!")
 
-    let xml = await response.text();
-    let chunks = xml.split("<entry>", 4);
+		let xml = await response.text();
+		let chunks = xml.split("<entry>", 4);
 
-    console.log(`received ${chunks.length} chunks!`);
+		console.log(`received ${chunks.length} chunks!`);
 
-    let videos: string[] = [];
+		let videos: string[] = [];
 
-    for (let [i, chunk] of chunks.entries()) {
-      console.log(`chunk #${i} =`, chunk);
-      let id = chunk.match(/(?<=<yt:videoId>).*?(?=<\/yt:videoId>)/)?.[0];
-      if (id == undefined) continue;
+		for (let [i, chunk] of chunks.entries()) {
+			console.log(`chunk #${i} =`, chunk);
+			let id = chunk.match(/(?<=<yt:videoId>).*?(?=<\/yt:videoId>)/)?.[0];
+			if (id == undefined) continue;
 
-      videos.push(id);
-    }
+			videos.push(id);
+		}
 
-    return { videos };
-  }
-  catch {
-    console.error(`no response received!`);
-    return {};
-  }
+		return { videos };
+	}
+	catch {
+		console.error(`no response received!`);
+		return {};
+	}
 }

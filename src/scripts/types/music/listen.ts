@@ -5,57 +5,57 @@ import type { shard, filepath, url, Datepoint, Dates, Description } from "#scrip
 
 export interface TrackData extends Searchable
 {
-  shard:   shard;
-  name:    string;
-  artists: shard[];
+	shard:   shard;
+	name:    string;
+	artists: shard[];
 
-  date?:  Dates;
-  cover?: filepath;
+	date?:  Dates;
+	cover?: filepath;
 
-  genres?: Genre[];
-  vibes?:  Vibe[];
-  
-  links?: {
-    [platform: string]: url;
-  };
+	genres?: Genre[];
+	vibes?:  Vibe[];
+	
+	links?: {
+		[platform: string]: url;
+	};
 
-  discovered?: string;
-  desc?:       Description;
+	discovered?: string;
+	desc?:       Description;
 }
 
 
 export interface ArtistData {
-  shard: shard;
-  name:  string;
+	shard: shard;
+	name:  string;
 
-  date?: Datepoint;
-  icon:  string;
-  
-  genres?: Genre[];
-  vibes?:  Vibe[];
-  track?:  ExternalTrackData | ExternalTrackData[];
+	date?: Datepoint;
+	icon:  string;
+	
+	genres?: Genre[];
+	vibes?:  Vibe[];
+	track?:  ExternalTrackData | ExternalTrackData[];
 
-  links?: {
-    [platform: string]: url;
-  };
+	links?: {
+		[platform: string]: url;
+	};
 
-  discovered?: string;
-  desc?:       string[];
+	discovered?: string;
+	desc?:       string[];
 }
 
 interface ExternalTrackData {
-  name:  string;
-  link?: url;
+	name:  string;
+	link?: url;
 }
 
 
 export interface GenreData extends Searchable {
-  fav?: boolean;
-  
-  name:  string;
-  kind?: GenreKind;
-  
-  artists?: string[];
-  tracks?:  string | string[];
-  desc?:    Description[];
+	fav?: boolean;
+	
+	name:  string;
+	kind?: GenreKind;
+	
+	artists?: string[];
+	tracks?:  string | string[];
+	desc?:    Description[];
 }

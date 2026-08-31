@@ -5,13 +5,13 @@ import { defineConfig } from "vite";
 
 
 if (process.argv.includes("--open")) {
-  process.env.BROWSER = "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe";
+	process.env.BROWSER = "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe";
 }
 
 
 export default defineConfig({
-  plugins: [sveltekit()],
-  test: {
-    dir: "tests/unit/"
-  },
+	plugins: [sveltekit()],
+	test: {
+		dir: "tests/unit/"
+	},
 });

@@ -20,7 +20,7 @@ let animes_filtered = $derived(filters.apply(animes_data));
 
 
 <svelte:head>
-  <title> Series × Loves × Sup#2.0 </title>
+  <title> Anime × Loves × Sup#2.0 </title>
   <meta name="description" content="All the anime series and films I have watched, am currently watching, or would like to watch!" />
 </svelte:head>
 

@@ -20,7 +20,7 @@ let books_filtered = $derived(filters.apply(book_series_data));
 
 
 <svelte:head>
-  <title> Series × Loves × Sup#2.0 </title>
+  <title> Book Series × Loves × Sup#2.0 </title>
   <meta name="description" content="All the book series I have read and loved!" />
 </svelte:head>
 

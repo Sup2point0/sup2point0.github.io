@@ -51,7 +51,7 @@ import Adventure   from "#parts/special/adventure.svelte";
     <LinkCard
       link="/sup/loves/games"
       text="Games"
-      capt="rhythm games, tower defence"
+      capt="rhythm games, tower defence, exploration"
       picts={[
         "icons/games/bloons-td6.png",
         "icons/games/diep-io.webp",
@@ -107,8 +107,8 @@ import Adventure   from "#parts/special/adventure.svelte";
     />
     
     <LinkCard
-      link="/sup/loves"
-      text="Manga / Webtoon"
+      link="/sup/loves/webtoons"
+      text="Webtoon"
       capt="Coming soon!"
     />
 

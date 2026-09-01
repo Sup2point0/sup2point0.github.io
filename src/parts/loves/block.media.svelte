@@ -15,7 +15,7 @@ import { expoInOut } from "svelte/easing";
 
 
 interface Props {
-  kind: "films" | "series" | "anime" | "books";
+  kind: "films" | "series" | "anime" | "books" | "webtoons";
   media: MediaData;
   expanded: boolean;
 }

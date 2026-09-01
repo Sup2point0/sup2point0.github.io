@@ -41,9 +41,7 @@ let open = $state(false);
   </div>
 
   {#if open}
-    <div class="filters"
-      transition:slide={{ duration: 750, easing: expoInOut }}
-    >
+    <div class="filters" transition:slide={{ duration: 750, easing: expoInOut }}>
       <table><tbody>
         {#each Object.entries(filters.toggles ?? []) as [category, options]}
           <tr> <th> {category?.toUpperCase()} </th>
@@ -127,32 +125,28 @@ let open = $state(false);
         </tr>
       </tbody></table>
     </div>
-  
-  {:else}
-    <div class="filters" transition:slide={{ duration: 750, easing: expoInOut }}>
-      <div class="toggles">
-        {#if filters.previews.length > 0}
-          <span>
-            {#if result_count}
-              <span>{result_count} RESULT{result_count > 1 ? "S" : ""}</span>&ensp;FROM
-            {:else}
-              SHOWING
-            {/if}
-          </span>
-
-          {#each filters.previews as [category, option]}
-            <SearchToggle {filters} {category} {option} />
-          {/each}
-        
-        {:else if result_count}
-          <span>
-            SHOWING <span>{result_count} RESULT{result_count > 1 ? "S" : ""}</span>
-          </span>
-        {/if}
-      </div>
-    </div>
-  
   {/if}
+  
+  <div class="preview toggles">
+    {#if filters.previews.length > 0}
+      <span>
+        {#if result_count}
+          <span>{result_count} RESULT{result_count > 1 ? "S" : ""}</span>&ensp;FROM
+        {:else}
+          SHOWING
+        {/if}
+      </span>
+
+      {#each filters.previews as [category, option]}
+        <SearchToggle {filters} {category} {option} />
+      {/each}
+    
+    {:else if result_count}
+      <span>
+        SHOWING <span>{result_count} RESULT{result_count > 1 ? "S" : ""}</span>
+      </span>
+    {/if}
+  </div>
 </search>
 
 
@@ -165,6 +159,7 @@ search {
 }
 
 .row {
+  padding-bottom: 1rem;
   display: flex;
   flex-flow: row nowrap;
   gap: 0.5rem;
@@ -207,8 +202,6 @@ search {
 }
 
 .filters {
-  padding-top: 2rem;
-  
   table {
     max-width: min(80vw, 60rem);
 
@@ -226,12 +219,7 @@ search {
   }
 }
 
-.toggles {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  gap: 0.25rem;
-
+.preview {
   span {
     @include font-tech;
     font-weight: normal;
@@ -246,6 +234,14 @@ search {
       color: $col-text;
     }
   }
+}
+
+
+.toggles {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 </style>

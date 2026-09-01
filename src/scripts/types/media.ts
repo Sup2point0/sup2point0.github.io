@@ -17,22 +17,26 @@ export enum Genre {
 	MYSTERY       = "mystery",
 	ROMANCE       = "romance",
 	SCI_FI        = "sci-fi",
+	SEXUAL        = "sexual",
 	SLICE_OF_LIFE = "slice of life",
 	SPACE_OPERA   = "space opera",
 	SUPERHERO     = "superhero",
 }
 
 export enum Theme {
-	COMING_OF_AGE = "coming of age",
-	ESPORTS       = "esports",
-	FAMILY        = "family",
-	GRIT          = "grit",
-	MAGIC         = "magic",
-	MYTHOLOGY     = "mythology",
-	OCCULT        = "occult",
-	SOCIETY       = "society",
-	SPACE         = "space",
-	TRAGEDY       = "tragedy",
+	APOCALYPSE        = "apocalypse",
+	COMING_OF_AGE     = "coming of age",
+	ENEMIES_TO_LOVERS = "enemies to lovers",
+	ESPORTS           = "esports",
+	FAMILY            = "family",
+	FORBIDDEN_LOVE    = "forbidden love",
+	GRIT              = "grit",
+	MAGIC             = "magic",
+	MYTHOLOGY         = "mythology",
+	OCCULT            = "occult",
+	SOCIETY           = "society",
+	SPACE             = "space",
+	TRAGEDY           = "tragedy",
 }
 
 

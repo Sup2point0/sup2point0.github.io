@@ -18,36 +18,36 @@ const data: Groups<AnimeData> =
     },
     {
       name:   "【推しの子】",
-      date:   [2023, 2024],
+      date:   [2023, "present"],
       cover:  "oshi-no-ko.webp",
-      genres: [Genre.DRAMA, Genre.MYSTERY, Genre.ROMANCE],
+      genres: [Genre.DRAMA, Genre.MYSTERY, Genre.ROMANCE, Genre.SLICE_OF_LIFE],
       desc: [
-        `${i("Oshi no Ko")} (seasons 1–2)`,
+        `${i("Oshi no Ko")} (seasons 1–3)`,
       ],
     },
   ],
   "Yu-Gi-Oh": [
     {
       name:   "Yu-Gi-Oh! ARC-V",
-      date:   [2014, 2017],
+      date:   [2014, 2017],  // FIXME
       cover:  "ygo-arc-v.jpg",
       genres: [Genre.ADVENTURE],
     },
     {
       name:   "Yu-Gi-Oh! VRAINS",
-      date:   [2017, 2019],
+      date:   [2017, 2019],  // FIXME
       cover:  "ygo-vrains.jpg",
       genres: [Genre.ADVENTURE],
     },
     {
       name:   "Yu-Gi-Oh! Battle City",
-      date:   [2001, 2002],
+      date:   "childhood",
       cover:  "ygo-battle-city.webp",
       genres: [Genre.ADVENTURE],
     },
     {
       name:   "Yu-Gi-Oh! ZEXAL",
-      date:   [2011, 2014],
+      date:   [2011, 2014],  // FIXME
       cover:  "ygo-zexal.webp",
       genres: [Genre.ADVENTURE],
     },
@@ -55,13 +55,13 @@ const data: Groups<AnimeData> =
   "Pokémon": [
     {
       name:   "Pokémon: XY",
-      date:   [2014, 2015],
+      date:   "childhood",
       cover:  "pokemon-xy.jpg",
       genres: [Genre.ADVENTURE, Genre.SLICE_OF_LIFE, Genre.FANTASY],
     },
     {
       name:   "Pokémon: XYZ",
-      date:   [2015, 2016],
+      date:   "childhood",
       cover:  "pokemon-xyz.jpg",
       genres: [Genre.ADVENTURE, Genre.SLICE_OF_LIFE, Genre.FANTASY],
     },
@@ -72,14 +72,14 @@ const data: Groups<AnimeData> =
       date:   "summer 2026",
       cover:  "dome-kano.webp",
       genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE, Genre.COMING_OF_AGE],
-      themes: [Theme.TRAGEDY],
+      themes: [Theme.TRAGEDY, Theme.FORBIDDEN_LOVE],
       is_shown: false,
     },
     {
       name:   "Kanojo, Okarishimasu",
       date:   "fall 2024",
       cover:  "kano-kari.webp",
-      genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE],
+      genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE, Genre.COMEDY],
       desc: [
         `${i("Rent-a-Girlfriend")} (seasons 1–3)`,
       ],
@@ -87,16 +87,18 @@ const data: Groups<AnimeData> =
     },
     {
       name:   "Yosuga no Sora",
-      date:   2010,
+      date:   "spring 2024",
       cover:  "yosuga-no-sora.jpg",
       genres: [Genre.ROMANCE],
+      themes: [Theme.FORBIDDEN_LOVE],
       is_shown: false,
     },
     {
       name:   "My Stepmom’s Daughter Is My Ex",
       date:   "summer 2026",
       cover:  "ex.jpg",
-      genres: ["??" as Genre],
+      genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE],
+      themes: [Theme.FORBIDDEN_LOVE, Theme.ENEMIES_TO_LOVERS],
       is_shown: false,
     },
   ],

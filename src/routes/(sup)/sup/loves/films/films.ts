@@ -113,6 +113,7 @@ const data: Groups<FilmData> =
       date:   2020,
       cover:  "love-and-monsters.jpg",
       genres: [Genre.ADVENTURE],
+      themes: [Theme.APOCALYPSE],
     },
     {
       name:   "Ready Player One",

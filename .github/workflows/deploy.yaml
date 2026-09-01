@@ -5,7 +5,7 @@ on:
 
   push:
     paths:
-      - '**.yml'
+      - '.github/workflows/deploy.yaml'
       - 'package-lock.json'
       - '**/new.*.svelte'
   
@@ -17,33 +17,33 @@ jobs:
     runs-on: ubuntu-latest
         
     steps:
-      - name: 'git / checkout'
+      - name: 'Checkout'
         uses: actions/checkout@v7
         with:
           submodules: true
           token: ${{ secrets.SUPPETY_PAT }}
 
-      - name: 'svelte / npm audit'
+      - name: '› npm audit'
         run: |
           npm audit --audit-level=moderate
 
-      - name: 'node / setup'
+      - name: 'Setup Node'
         uses: actions/setup-node@v6
         with:
           node-version: latest
           cache: 'npm'
 
-      - name: 'svelte / npm ci'
+      - name: '› npm ci'
         run: |
           npm ci
 
-      - name: 'svelte / npm run build'
+      - name: '› npm run build'
         env:
           BASE_PATH: '/${{ github.event.repository.name }}/site'
         run: |
           npm run build
 
-      - name: 'github / upload artifacts'
+      - name: 'Upload Pages Artifact'
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'build/'
@@ -61,6 +61,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: 'github / deploy'
+      - name: 'Deploy Pages'
         id: deployment
         uses: actions/deploy-pages@v5

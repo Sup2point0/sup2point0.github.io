@@ -25,6 +25,14 @@ const data: Groups<AnimeData> =
         `${i("Oshi no Ko")} (seasons 1–3)`,
       ],
     },
+    {
+      name:   "Domestic na Kanojo",
+      date:   "summer 2026",
+      cover:  "dome-kano.webp",
+      genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE, Genre.COMING_OF_AGE],
+      themes: [Theme.TRAGEDY, Theme.FORBIDDEN_LOVE],
+      is_shown: false,
+    },
   ],
   "Yu-Gi-Oh": [
     {
@@ -66,15 +74,16 @@ const data: Groups<AnimeData> =
       genres: [Genre.ADVENTURE, Genre.SLICE_OF_LIFE, Genre.FANTASY],
     },
   ],
-  "Guilty Pleasures": [
+  "Fun": [
     {
-      name:   "Domestic na Kanojo",
-      date:   "summer 2026",
-      cover:  "dome-kano.webp",
-      genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE, Genre.COMING_OF_AGE],
-      themes: [Theme.TRAGEDY, Theme.FORBIDDEN_LOVE],
-      is_shown: false,
-    },
+      name:   "Shikimori’s Not Just a Cutie",
+      date:   "2026 September",
+      cover:  "shikimori.jpg",
+      genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE],
+      themes: [Theme.WHOLESOME],
+    }
+  ],
+  "Guilty Pleasures": [
     {
       name:   "Kanojo, Okarishimasu",
       date:   "fall 2024",

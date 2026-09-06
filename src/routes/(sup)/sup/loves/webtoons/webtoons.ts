@@ -12,21 +12,21 @@ const data: Groups<WebtoonData> =
     {
       name:   "You’re No Good",
       date:   2020,
-      cover:  undefined,
+      cover:  "youre-no-good.jpg",
       genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE],
       themes: [Theme.COMING_OF_AGE],
     },
     {
       name:   "Our Secret Alliance",
       date:   undefined,
-      cover:  undefined,
+      cover:  "our-secret-alliance.jpg",
       genres: [Genre.ROMANCE],
       themes: [Theme.ENEMIES_TO_LOVERS],
     },
     {
       name:   "Nice To Meet You",
       date:   undefined,
-      cover:  undefined,
+      cover:  "nice-to-meet-you.jpg",
       genres: [Genre.ROMANCE],
     },
   ],
@@ -34,13 +34,13 @@ const data: Groups<WebtoonData> =
     {
       name:   "Maybe Meant To Be",
       date:   undefined,
-      cover:  undefined,
+      cover:  "maybe-meant-to-be.webp",
       genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE],
     },
     {
       name:   "Swimming Lessons For A Mermaid",
       date:   undefined,
-      cover:  undefined,
+      cover:  "swimming-lessons-mermaid.jpg",
       genres: [],
     },
   ],
@@ -52,16 +52,10 @@ const data: Groups<WebtoonData> =
       genres: [Genre.ROMANCE, Genre.SEXUAL],
       is_shown: false,
     },
-    {
-      name:   "Collapse and Unwind",
-      date:   2020,
-      cover:  undefined,
-      genres: [Genre.SEXUAL, Genre.ROMANCE],
-      is_shown: false,
-    },
   ],
 };
 
+// Collapse and Rewind
 // Springtime for Blossom
 // Annoying Alice
 

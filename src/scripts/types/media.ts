@@ -37,6 +37,7 @@ export enum Theme {
 	SOCIETY           = "society",
 	SPACE             = "space",
 	TRAGEDY           = "tragedy",
+	WHOLESOME         = "wholesome",
 }
 
 

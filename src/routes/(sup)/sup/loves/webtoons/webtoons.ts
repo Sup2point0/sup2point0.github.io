@@ -23,14 +23,14 @@ const data: Groups<WebtoonData> =
       genres: [Genre.ROMANCE],
       themes: [Theme.ENEMIES_TO_LOVERS],
     },
+  ],
+  "Enjoyable": [
     {
       name:   "Nice To Meet You",
       date:   undefined,
       cover:  "nice-to-meet-you.jpg",
       genres: [Genre.ROMANCE],
     },
-  ],
-  "Enjoyable": [
     {
       name:   "Maybe Meant To Be",
       date:   undefined,

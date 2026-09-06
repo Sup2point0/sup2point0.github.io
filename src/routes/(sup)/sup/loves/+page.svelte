@@ -109,7 +109,13 @@ import Adventure   from "#parts/special/adventure.svelte";
     <LinkCard
       link="/sup/loves/webtoons"
       text="Webtoon"
-      capt="Coming soon!"
+      capt="coloured manga is the best!"
+      picts={[
+        "covers/webtoons/youre-no-good.jpg",
+        "covers/webtoons/our-secret-alliance.jpg",
+        "covers/webtoons/nice-to-meet-you.jpg",
+        "covers/webtoons/maybe-meant-to-be.jpg",
+      ]}
     />
 
     <LinkCard

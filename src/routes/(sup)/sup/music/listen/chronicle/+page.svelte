@@ -52,9 +52,9 @@ onMount(() => {
   </Block>
 
   <div class="chronicle">
-    {#each chronicle_data as { era, date, desc, tracks }}
+    {#each chronicle_data as { era, date, col, desc, tracks }}
       <section>
-        <div class="bar"></div>
+        <div class="bar" style:background={col}></div>
 
         <div class="pane">
           <header>
@@ -105,7 +105,6 @@ onMount(() => {
   max-height: 85vh;
   position: sticky;
   top: 5rem;
-  background: white;
   border-radius: 0.05rem;
 }
 

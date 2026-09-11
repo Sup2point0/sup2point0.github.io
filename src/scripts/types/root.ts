@@ -9,6 +9,9 @@ export type filepath = string;
 /** A fully-qualified, usually external URL. */
 export type url = string;
 
+/** A CSS colour string, such as a hex code or `oklch()` call. */
+export type colour = string;
+
 
 /** A non-specific point in time. */
 export type Datepoint = number | string | "childhood" | "present";

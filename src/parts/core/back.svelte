@@ -75,6 +75,7 @@ img#back {
     parallax-filter cubic-bezier(0.95, 0.05, 0.795, 0.035)  // ease-in-exp
   ;
   animation-timeline: --parallax;
+  animation-duration: auto;
 }
 
 @keyframes parallax-transform {

@@ -61,6 +61,7 @@ export enum Genre {
 
 export enum Vibe {
 	CHILLOUT  = "chillout",
+	CREEPY    = "creepy",
 	DISCO     = "disco",
 	EMOTIONAL = "emotional",
 	HAPPY     = "happy",

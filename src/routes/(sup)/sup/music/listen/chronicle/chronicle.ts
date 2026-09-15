@@ -277,7 +277,11 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.TRANSCENDENTAL, Genre.GUITAR],
         discovered: `YouTube Music reccs`,
         desc: [
-          ``,
+          `Can’t not click on a cover, title and artist name like that. Was delightfully surprised by some insane musical genius. YouTube Music really doesn’t disappoint. Altho Polyphia looks to be pretty big so I guess it was inevitable anyway.`,
+
+          `Lotta incredible stuff about Playing God, but obviously the rhythms take the cake. They’re sooo delicious, it’s mad. I’m not a guitarist, but I am a very mediocre drummer, and those beats go hard.`,
+
+          `Production-wise, it’s always impressive to make highly *rich* music *also* highly enjoyable and digestible for the casual ear, and this one tickles both sides for me. Somehow even as complex as they feel, the melodies still manage to stay in my head!`,
         ],
       },
       {
@@ -447,7 +451,11 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.JCORE, Genre.NEUROFUNK],
         discovered: `YouTube Music reccs`,
         desc: [
-          ``,
+          `idky the cover is sorta gooner bait but ok`,
+
+          `I personally loved the framing, which is what made me click on it (colours are nice too). Also “Such” is such an interesting name (hah).`,
+
+          `Anyway, about the music itself – well damn, that neurofunk came out of nowhere!! And it’s dry neurofunk, my favourite! Mixing her rather feminine voice with neurofunk is for sure an interesting combo, but it damn works. PSYQUI with the juicy sound design as well.`,
         ],
       },
       {
@@ -555,7 +563,9 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [],
         discovered: `Phigros custom chart`,
         desc: [
-          ``,
+          `Agh this track is JUST SO COOL. idek what you would call this wider genre, but it’s like ‘techy epic walk showdown boss music’, like a mix of dubstep, hi-tech, drum & bass, complextro, filled with reverbed pulses, arps, super synthy and technical. And the name makes it *n* times better, where 1 < n.`,
+
+          `I’d like it even more if the sound design on some of the basses were a little cleaner.`,
         ],
       },
       {
@@ -654,7 +664,17 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.TRANSCENDENTAL,Genre.CAMELLIACORE, Genre.HARDCORE],
         discovered: `Phigros`,
         desc: [
-          ``,
+          `+ERABY+E holds an extremely special place in my heart, as the track that made me fall in love with かめりあ. It’s quite incredible, really.`,
+
+          `When I first listened to this track (or rather, watched EK play the chart in Phigros), I really didn’t think much. I even disliked it a little, cuz all I could think was “bruh, generic boss chart music”.`,
+
+          `Someway or another, I ended up searching it up to listen a fair few times. I’m not entirely sure why. I mostly heard noise – it’s really strange to think back, cuz ofc now I *hear* everything, but I’m trying to remember what it must’ve been like to hear it without really listening.`,
+
+          `The moment that jumped out was the break, where it just plays straight semiquavers with a fat *kong* snare. I was like “ooh yeah, that’s boppy”. And from there, I started listening to it more.`,
+
+          `The details are fuzzy, which is a shame. But eventually, I naturally started to pick out the melodies and motifs and details, and I came to love the track more and more. And now, when asked which かめりあ track is my favourite, I have to say this one. In fact, when other people ask what music I listen to, I usually show them this track.`,
+
+          `I could really write too much about what I love so much about this track, so I won’t do that here cuz this is getting too long. But yeah, it’s a special one, and it really marked a turning point in my music taste.`,
         ],
       },
       {
@@ -871,10 +891,17 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["tokyo-machine"],
         date:    undefined,
         cover:   "slash.jpg",
-        genres:  [],
+        genres:  [Genre.ELECTRONIC],
+        vibes:   [Vibe.CREEPY],
         discovered: `NCS release`,
         desc: [
-          ``,
+          `I cannot believe I came across this gem. iirc, I clicked into it from my YouTube subscriptions, back when I was subscribed to NCS, and maybe even on my iPad 2. (Yeah, I think this was on my iPad 2.) Total chance, because I really don’t click into NCS uploads that much. Maybe it was the unique cover and the black circle.`,
+
+          `Boy am I grateful, cuz HOLY CRAP this track *slaps*. It *slaps*, that’s the only word. I wanna bop my head so hard it feels like it’s gonna come off. My whole body shakes – no no, this isb’t an exaggeration. The stank face stretches all my facial muscles.`,
+
+          `The sound design, rhythms, development, structure, it’s all so unbelievably crisp and delicious. The sidechain on the intro, the off-beat clanking, the sidechain on the drops, the clave rhythm on the buildups, pwogh, it’s just so good. And it captures the Halloween vibe exceptionally well.`,
+
+          `And it’s funny, listening to it now, this is SUCH a rhythm game track. But back then I didn’t even know about rhythm games. So in a way, this was a frontier track breaking me in to rhythm game music.`,
         ],
       },
       {
@@ -945,7 +972,9 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.ELECTRONIC, Genre.HARDCORE],
         discovered: `NCS discography`,
         desc: [
-          ``,
+          `Sometimes when listening to the NCS-style tracks I used to listen to, I realise (with my now producer ears) how lacklustre a lot of the tracks are (which is not to say they’re bad, they just have interesting choices in sound design and mixing).`,
+
+          `This track is an exception. It holds up so well. The sound design is fantastic. But the real killer is the momentum, idk how Electro-Light did it, it’s just perfect. It never fails to get me hyped up. I didn’t actually ‘notice’ it? that much back then, but now it’s grown to become one of my favourites. And I think it represents the type of NCS-style music I listened to very well.`,
         ],
       },
       {

@@ -8,6 +8,23 @@ const data: Groups<ArtistData> =
 {
   "newly discovered": [
     {
+      shard:  "symmetori",
+      name:   "新目鳥 / symmetori",
+      date:   "summer 2026",
+      icon:   "symmetori.jpg",
+      genres: [Genre.RHYTHM, Genre.PIANO],
+      track: {
+        name: "selenelion", link: "https://youtube.com/watch?v=aW_BPAh3wc8&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd"
+      },
+      links: {
+        youtube: "https://youtube.com/channel/UC9kVsW-rlTxMs_aAlz1l1uA",
+      },
+      discovered: `${h("selenelion")} in YouTube reccs`,
+      desc: [
+        ``,
+      ],
+    },
+    {
       shard:  "juggernaut",
       name:   "Juggernaut.",
       date:   "May 2026",
@@ -17,7 +34,7 @@ const data: Groups<ArtistData> =
         name: "NO x", link: "https://youtube.com/watch?v=bMU3CMBtKqM&list=PLYWIouv-DSkB49VusnUD96zKkkRsMwEmT"
       },
       links: {
-        youtube: "https://www.youtube.com/playlist?list=PLYWIouv-DSkB49VusnUD96zKkkRsMwEmT",
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkB49VusnUD96zKkkRsMwEmT",
       },
       discovered: `${h("NO x")} in Phigros`,
       desc: [
@@ -42,20 +59,6 @@ const data: Groups<ArtistData> =
         `She’s got a bit of a strange singing style, but it’s unique, and many of her tracks slap, so what more can I say.`,
         
         `Also it’s cool that she can sing in both English and Japanese (from what I can tell).`,
-      ],
-    },
-    {
-      shard:  "cansol",
-      name:   "Cansol",
-      date:   "late 2025",
-      icon:   "cansol.jpg",
-      genres: [Genre.ELECTRONIC, Genre.PIANO, Genre.RHYTHM],
-      track: {
-        name: "Flutter Echo", link: "https://youtube.com/watch?v=lOf0yZFlAaw"
-      },
-      discovered: `Phigros`,
-      desc: [
-        ``,
       ],
     },
     {
@@ -144,6 +147,26 @@ const data: Groups<ArtistData> =
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAlt2TuUBsjZgKF17agTDx4",
       },
       discovered: `${h("What If")} on Firefly Music in YouTube Music reccs`,
+    },
+    {
+      shard:  "elektronomia",
+      name:   "Elektronomia",
+      date:   2016,
+      icon:   "elektronomia.webp",
+      genres: [Genre.EDM, Genre.HOUSE],
+      track: [
+        { name: "United", link: "https://youtube.com/watch?v=EgXcda1SzxU" },
+        { name: "Ibiza", link: "https://youtube.com/watch?v=ru4Ttt22cuQ" },
+      ],
+      links: {
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkBvAA5lNPvGwnqvKbvPiohq",
+      },
+      discovered: `iXPLODE`,
+      desc: [
+        `The first musical artist I ever ‘got into’, who’ll always hold a special place in my heart. The first ever track I ever listened to was his – ${a("Sky High", "https://youtube.com/watch?v=92f3RRkakO8")}.`,
+
+        `Nowadays listening with producer ears, I do think his drums are far too weak. But otherwise, I still love his music. It takes me back.`
+      ],
     },
   ],
   "regulars": [
@@ -312,6 +335,20 @@ const data: Groups<ArtistData> =
     },
   ],
   "mood": [
+    {
+      shard:  "cansol",
+      name:   "Cansol",
+      date:   "late 2025",
+      icon:   "cansol.jpg",
+      genres: [Genre.ELECTRONIC, Genre.PIANO, Genre.RHYTHM],
+      track: {
+        name: "Flutter Echo", link: "https://youtube.com/watch?v=lOf0yZFlAaw"
+      },
+      discovered: `Phigros`,
+      desc: [
+        ``,
+      ],
+    },
     {
       shard:  "exyl",
       name:   "Exyl",
@@ -969,26 +1006,6 @@ const data: Groups<ArtistData> =
   ],
   classics: [
     {
-      shard:  "elektronomia",
-      name:   "Elektronomia",
-      date:   2016,
-      icon:   "elektronomia.webp",
-      genres: [Genre.EDM, Genre.HOUSE],
-      track: [
-        { name: "United", link: "https://youtube.com/watch?v=EgXcda1SzxU" },
-        { name: "Ibiza", link: "https://youtube.com/watch?v=ru4Ttt22cuQ" },
-      ],
-      links: {
-        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkBvAA5lNPvGwnqvKbvPiohq",
-      },
-      discovered: `iXPLODE`,
-      desc: [
-        `The first musical artist I ever ‘got into’, who’ll always hold a special place in my heart. The first ever track I ever listened to was his – ${a("Sky High", "https://youtube.com/watch?v=92f3RRkakO8")}.`,
-
-        `Nowadays listening with producer ears, I do think his drums are far too weak. But otherwise, I still love his music. It takes me back.`
-      ],
-    },
-    {
       shard:  "alan-walker",
       name:   "Alan Walker",
       date:   2018,
@@ -1056,6 +1073,17 @@ const data: Groups<ArtistData> =
         name: "Lonely World", link: undefined
       },
       discovered: `Alan Walker`,
+    },
+    {
+      shard:  "ezza-wan",
+      name:   "Ezza Wan",
+      date:   2019,
+      icon:   "ezza-wan.jpg",
+      genres: [Genre.EDM],
+      track: {
+        name: "Reverie", link: undefined
+      },
+      discovered: `Sonder Nation on YouTube`,
     },
   ],
   pop: [

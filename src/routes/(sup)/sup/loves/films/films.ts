@@ -114,6 +114,9 @@ const data: Groups<FilmData> =
       cover:  "love-and-monsters.jpg",
       genres: [Genre.ADVENTURE],
       themes: [Theme.APOCALYPSE],
+      desc: [
+        `This is a really cute film. I love films like this that don’t try to do too much, they just tell a small, focused story with meaningful characters and a simple plot. It’s not groundbreaking by any means, but it’s enjoyable. The reactions felt real, the action was great, the humour was my kind of humour. My favourite part was honestly just seeing Joel handle different sorts of beasts. Hmm, sounds like I’m quite into slice-of-life...`,
+      ],
     },
     {
       name:   "Ready Player One",
@@ -121,6 +124,15 @@ const data: Groups<FilmData> =
       cover:  "ready-player-one.jpg",
       genres: [Genre.ACTION, Genre.ADVENTURE, Genre.DYSTOPIAN],
       flags:  [Flag.BOOK],
+      desc: [
+        `I was quite young when this came out, and I loved it **to bits**. Everything about it was so cool to me. *Parzival* is a sick name, his and Art3mis’s avatars are fire, weapons like the Holy Hand Grenade are the stuff of dreams, his car is sick, his flying nut kick was insane, the idea of finding easter eggs in a game makes me wanna jump up and down. It was like my dream film.`,
+
+        `Rewatching it even now, older, less innocent, more pessimistic about the state of the world... yeah I love this film, and I can’t even tell if it’s because I still love it, have the nostalgia embedded in me, or both. The story is very beautiful to me. And the film itself is so much fun, the characters are distinctive, the graphics are epic.`,
+
+        `I love Wade’s commentary so much because it feels like he carries that same childlike wonder that I hold. He conveys exactly that feeling of *“holy crap this is awesome do you see how cool this is”*.`,
+
+        `Funny thing, when I watched it originally I thought Wade looked pretty lame. Younger me was harsh on looks eh 💀`,
+      ],
     },
     {
       name:   "Rogue One: A Star Wars Story",
@@ -130,6 +142,17 @@ const data: Groups<FilmData> =
       themes: [Theme.GRIT],
       franchise: Franchise.STAR_WARS,
       flags:  [Flag.SERIES],
+      desc: [
+        `I could never really decide on my favourite Star Wars film, but at some point I subconsciously settled unanimously on Rogue One.`,
+
+        `What do I like about this one? It’s a feeling, but to try put it into words ...this one’s gritty. It feels real, messy, charged. The characters are flawed, conflicted, and finding their path. I love the decrease in power without lightsabers – it makes everything feel much more intense, intimate, grounded (*The Mandalorian* shares this trait). It makes you *feel* the oppressiveness of the Empire and the desperation for survival.`,
+
+        `I like how it places *weight* in the Star Wars story by showing the loss and sacrifice that goes into rebellion. I say this semi-tongue-in-cheek, but the best media is often the one where everyone dies at the end. I didn’t even like Jyn that much, but I love how the characters are written and developed.`,
+
+        `I love the epic sagas and glorious lightsabre fights of Star Wars as much as the next person, but damn, when they pull back and develop a story around characters, it’s really something special.`,
+
+        `My only complaint, they shouldn’t have CGI-d Leia in at the end. (1) it looked uncanny lol, but more importantly (2) it would be much more powerful to leave her unrevealed. We know who this is. We know what this means. Respect your audience!`,
+      ],
     },
     {
       name:   "Spider-Man: Homecoming",

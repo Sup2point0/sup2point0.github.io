@@ -202,7 +202,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["有棵里里"],
         date:    "fall 2025",
         cover:   "thick-rain.jpg",
-        genres:  [],
+        genres:  [Genre.POP, Genre.CPOP],
         discovered: `Milthm`,
         desc: [
           `Listening to this with studio headphones on was ...an experience. I have no idea how they managed it. The mix is one of the best I’ve ever heard, tbh. It’s so full and warm and atmospheric.`,
@@ -477,7 +477,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["mafumafu"],
         date:    undefined,
         cover:   "i-wanna-be-a-girl.jpg",
-        genres:  [],
+        genres:  [Genre.JPOP],
         discovered: `Rhythm+ (browser rhythm game)`,
         desc: [
           `Ignoring the meaning of the song, it is an utter steal. I just can’t stop bopping.`,
@@ -560,7 +560,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["function-phantom"],
         date:    undefined,
         cover:   "algebra.jpg",
-        genres:  [],
+        genres:  [Genre.ELECTRONIC, Genre.RHYTHM, Genre.NEUROFUNK],
         discovered: `Phigros custom chart`,
         desc: [
           `Agh this track is JUST SO COOL. idek what you would call this wider genre, but it’s like ‘techy epic walk showdown boss music’, like a mix of dubstep, hi-tech, drum & bass, complextro, filled with reverbed pulses, arps, super synthy and technical. And the name makes it *n* times better, where 1 < n.`,
@@ -575,7 +575,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: [],
         date:    undefined,
         cover:   "ming-huo.jpg",
-        genres:  [],
+        genres:  [Genre.ORIENTAL, Genre.RHYTHM, Genre.ELECTRONIC],
         discovered: `Phigros`,
         desc: [
           `It’s too perfect. It just... like, ticks all the boxes.`,
@@ -588,7 +588,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["tn-shi"],
         date:    undefined,
         cover:   "synthesis.jpg",
-        genres:  [],
+        genres:  [Genre.TRANSCENDENTAL, Genre.ARCADE],
         discovered: `YouTube reccs`,
         desc: [
           ``,
@@ -600,7 +600,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: [],
         date:    undefined,
         cover:   "luminescence.jpg",
-        genres:  [],
+        genres:  [Genre.ELECTRONIC, Genre.RHYTHM],
         discovered: `Phigros`,
         desc: [
           ``,
@@ -637,7 +637,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["camellia"],
         date:    undefined,
         cover:   "spin-eternally.png",
-        genres:  [],
+        genres:  [Genre.CAMELLIACORE],
         discovered: `かめりあ discography`,
         desc: [
           ``,
@@ -683,7 +683,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["camellia"],
         date:    undefined,
         cover:   "tera-io.jpg",
-        genres:  [],
+        genres:  [Genre.COMPLEXTRO, Genre.ELECTRONIC, Genre.CAMELLIACORE],
         discovered: `Phigros`,
         desc: [
           ``,
@@ -707,7 +707,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["myukke"],
         date:    undefined,
         cover:   "no-one-yes-man.jpg",
-        genres:  [],
+        genres:  [Genre.ARCADE],
         discovered: `Phigros`,
         desc: [
           ``,
@@ -776,7 +776,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["radwimps", "Toaka"],
         date:    undefined,
         cover:   "suzume.jpg",
-        genres:  [],
+        genres:  [Genre.ANIME],
         discovered: `${h("Suzume no Tojimari")} anime`,
         desc: [
           ``,
@@ -788,7 +788,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["manbo-p"],
         date:    undefined,
         cover:   "geometric-love.jpg",
-        genres:  [],
+        genres:  [Genre.ANIME, Genre.JCORE, Genre.RHYTHM],
         discovered: `YouTube reccs`,
         desc: [
           ``,
@@ -942,7 +942,7 @@ export const chronicle_data: ChronicleData[] = [
         artists: ["vexento", "allison"],
         date:    undefined,
         cover:   "banana-breeze.jpg",
-        genres:  [],
+        genres:  [Genre.ELECTRONIC, Genre.DOWNTEMPO],
         discovered: `Vexento discography`,
         desc: [
           `Vexento is absolutely MASTERFUL at mixing. I felt this so clearly after starting music production myself. He’s unbelievably talented at creating full, heartwarming mixes, where even tho it ${i("sounds like")} there’s not that much going on, the feeling is all there. It’s incredible.`,

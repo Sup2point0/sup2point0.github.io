@@ -10,7 +10,7 @@ on:
       - '**/new.*.svelte'
   
   schedule:
-    - cron: '20 4 * * 6'
+    - cron: '20 4 * * 2,6'
 
 jobs:
   build:

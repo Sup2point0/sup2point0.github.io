@@ -2,9 +2,10 @@
 
 <script lang="ts">
 
+import { type GameData } from "#sup/loves/games";
+
 import { anim } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
-import { type GameData } from "#sup/loves/games/games";
 
 import { untrack } from "svelte";
 import { slide } from "svelte/transition";

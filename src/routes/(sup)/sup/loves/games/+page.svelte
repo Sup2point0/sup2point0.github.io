@@ -1,6 +1,6 @@
 <script lang="ts">
 
-import { games_data, type GameData } from "./games";
+import { games_data, type GameData } from ".";
 import { GameSearchFilter } from "./filter.games.svelte.ts";
 
 import { Cards, Main } from "#parts/core";

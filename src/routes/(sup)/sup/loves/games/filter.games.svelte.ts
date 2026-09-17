@@ -1,8 +1,8 @@
 import { partial_ratio } from "fuzzball";
 
-import { SearchFilter } from "#scripts/search";
+import { Genre, Platform, PlayState, type GameData } from ".";
 
-import { Genre, Platform, PlayState, type GameData } from "./games";
+import { SearchFilter } from "#scripts/search";
 
 
 export class GameSearchFilter extends SearchFilter<GameData>

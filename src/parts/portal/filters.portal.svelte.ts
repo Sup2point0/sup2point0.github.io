@@ -3,7 +3,7 @@ import { ratio, partial_ratio } from "fuzzball";
 import { tunes } from "#scripts/state";
 import { SearchFilter, type Searchable } from "#scripts/search";
 import { shuffle } from "#scripts/utils";
-import type { TrackData } from "#scripts/types/music/create";
+import type { MyTrackData } from "#scripts/types/music";
 import type { int, filepath } from "#scripts/types";
 
 import { Shortcut, type ShortcutData } from "./shortcuts";
@@ -170,7 +170,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
 				title: track.name,
 				capt:  track.album.name,
 				icon:  `/covers/music/create/${track.cover}`,
-				action: () => tunes.play_track(track as TrackData),
+				action: () => tunes.play_track(track as MyTrackData),
 			}))
 		)
 	}

@@ -1,11 +1,11 @@
-import type { TrackData } from "#scripts/types/music/create";
+import type { MyTrackData } from "#scripts/types/music";
 import type { int } from "#scripts/types";
 
 
 export class TuneState
 {
 	audio:   HTMLAudioElement | null = $state(null);
-	track:   TrackData        | null = $state(null);
+	track:   MyTrackData        | null = $state(null);
 
 	playing:   boolean       = $state(false);
 	duration:  number | null = $state(null);
@@ -17,7 +17,7 @@ export class TuneState
 	/**
 	 * Play the given track.
 	 */
-	play_track(track: TrackData)
+	play_track(track: MyTrackData)
 	{
 		if (!track.audio) {
 			window.alert("no audio file for this track =(");

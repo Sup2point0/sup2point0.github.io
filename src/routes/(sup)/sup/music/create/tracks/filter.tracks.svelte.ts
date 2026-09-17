@@ -2,10 +2,10 @@ import { partial_ratio } from "fuzzball";
 
 import { SearchFilter } from "#scripts/search";
 import { date_to_prec, DATE_PREC_MAJOR } from "#scripts/utils";
-import type { TrackData } from "#scripts/types/music/create";
+import type { MyTrackData } from "#scripts/types/music";
 
 
-export class TrackSearchFilter extends SearchFilter<TrackData>
+export class TrackSearchFilter extends SearchFilter<MyTrackData>
 {
 	override filter_by = $state({
 		"is preview": false,
@@ -37,7 +37,7 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
 	}
 
 
-	protected override exclude_default(track: TrackData): boolean
+	protected override exclude_default(track: MyTrackData): boolean
 	{
 		let exclude = super.exclude_default(track);
 
@@ -50,7 +50,7 @@ export class TrackSearchFilter extends SearchFilter<TrackData>
 		return exclude;
 	}
 
-	protected override sort_default(tracks: TrackData[]): TrackData[]
+	protected override sort_default(tracks: MyTrackData[]): MyTrackData[]
 	{
 		if (!this.query) return tracks;
 

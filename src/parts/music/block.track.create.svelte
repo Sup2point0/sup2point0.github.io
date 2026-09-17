@@ -7,10 +7,10 @@ A wide block card for viewing and playing a soundtrack I created.
 
 import { tunes } from "#scripts/state";
 import { display_date } from "#scripts/utils";
-import type { TrackData } from "#scripts/types/music/create";
+import type { MyTrackData } from "#scripts/types/music";
 
 interface Props {
-  track: TrackData;
+  track: MyTrackData;
 }
 
 let { track }: Props = $props();

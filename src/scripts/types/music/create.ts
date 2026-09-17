@@ -2,7 +2,7 @@ import type { Searchable } from "#scripts/search";
 import type { shard, Dates, Datepoint } from "#scripts/types";
 
 
-export interface TrackData extends Searchable {
+export interface MyTrackData extends Searchable {
 	feat?:       boolean;
 	is_preview?: boolean;
 
@@ -32,7 +32,7 @@ export interface AlbumData {
 	daw?:   Daw | Daw[];
 
 	desc?:  string | string[];
-	tracks: TrackData[];
+	tracks: MyTrackData[];
 }
 
 

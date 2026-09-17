@@ -2,7 +2,7 @@
 
 import { status } from "#scripts/state";
 import { shuffle } from "#scripts/utils";
-import type { TrackData } from "#scripts/types/music/create";
+import type { MyTrackData } from "#scripts/types/music";
 
 import { tracks_list } from "../create";
 import { TrackSearchFilter } from "./filter.tracks.svelte.ts";
@@ -26,7 +26,7 @@ let tracks_filtered = $derived(filters.apply(tracks_list));
 </svelte:head>
 
 
-{#snippet cards(tracks: TrackData[], wants_shuffle: boolean)}
+{#snippet cards(tracks: MyTrackData[], wants_shuffle: boolean)}
   {@const _tracks =
     wants_shuffle ?
       (status.client ? shuffle(tracks) : [])

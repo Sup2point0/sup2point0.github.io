@@ -1,6 +1,6 @@
 import { i } from "#scripts/utils";
 import { Daw } from "#scripts/types/music/create";
-import type { AlbumData, TrackData } from "#scripts/types/music/create";
+import type { MyTrackData, AlbumData } from "#scripts/types/music";
 import type { Groups } from "#scripts/types";
 
 
@@ -680,7 +680,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
           shard:  "base-memories",
           name:   "Base Memories",
           date:   "2019",
-          audio:  undefined,  // FIXME
+          audio:  undefined,
           cover:  "placeholder.png",
           genres: ["bass"],
           vibes:  ["muted", "experimental"],
@@ -731,7 +731,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
 
 export const albums_list: AlbumData[] = Object.values(albums_data).flat();
 
-export const tracks_list: TrackData[] = Object.values(albums_data).flatMap(
+export const tracks_list: MyTrackData[] = Object.values(albums_data).flatMap(
   collection => collection.flatMap(
     album => album.tracks
   )

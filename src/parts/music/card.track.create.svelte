@@ -6,13 +6,13 @@ A small square card for a soundtrack with its cover and name.
 <script lang="ts">
 
 import { tunes } from "#scripts/state";
-import type { TrackData } from "#scripts/types/music/create";
+import type { MyTrackData } from "#scripts/types/music";
 
 import { goto } from "$app/navigation";
 
 
 interface Props {
-  track: TrackData;
+  track: MyTrackData;
 }
 
 let { track }: Props = $props();

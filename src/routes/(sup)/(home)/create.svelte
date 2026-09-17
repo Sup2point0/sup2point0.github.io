@@ -1,4 +1,4 @@
-<!-- @component ProfileCards -->
+<!-- @component `<ProfileCards>` -->
 
 <script lang="ts">
 

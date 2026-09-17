@@ -1,4 +1,4 @@
-<!-- @component ClickySelect
+<!-- @component `<ClickySelect>`
 
 A button that selects a single option from a list of available options when clicked.
 -->

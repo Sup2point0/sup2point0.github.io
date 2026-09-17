@@ -1,4 +1,4 @@
-<!-- @component ProfileDirections -->
+<!-- @component `<ProfileDirections>` -->
 
 <script lang="ts">
 

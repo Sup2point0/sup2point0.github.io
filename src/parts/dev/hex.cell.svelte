@@ -1,4 +1,4 @@
-<!-- @component HexCell -->
+<!-- @component `<HexCell>` -->
 
 <script lang="ts">
 

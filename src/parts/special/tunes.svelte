@@ -1,4 +1,4 @@
-<!-- @component Tunes
+<!-- @component `<Tunes>`
 
 The site-wide music player!
 -->

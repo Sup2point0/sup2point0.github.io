@@ -1,4 +1,4 @@
-<!-- @component GenreBlock -->
+<!-- @component `<GenreBlock>` -->
 
 <script lang="ts">
 

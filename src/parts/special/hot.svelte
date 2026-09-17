@@ -1,4 +1,4 @@
-<!-- @component Hot -->
+<!-- @component `<Hot>` -->
 
 <script lang="ts">
 

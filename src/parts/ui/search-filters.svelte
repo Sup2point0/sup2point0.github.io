@@ -1,4 +1,4 @@
-<!-- @component SearchFilters
+<!-- @component `<SearchFilters>`
 
 A search bar input and dropdown filters for searching content.
 -->

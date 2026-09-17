@@ -1,4 +1,4 @@
-<!-- @component Clicky
+<!-- @component `<Clicky>`
 
 A button.
 -->

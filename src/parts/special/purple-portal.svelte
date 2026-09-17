@@ -1,4 +1,4 @@
-<!-- @component PurplePortal
+<!-- @component `<PurplePortal>`
 
 The iconic purple portal profile picture icon, complete with animations and special effects.
 -->

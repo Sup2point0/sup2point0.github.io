@@ -1,4 +1,4 @@
-<!-- @component TrackBlock
+<!-- @component `<TrackBlock>`
 
 A wide block card for displaying info about a track I listen to.
 -->

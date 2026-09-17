@@ -1,4 +1,4 @@
-<!-- @component Adventure
+<!-- @component `<Adventure>`
  
 A randomised adventure route.
 -->

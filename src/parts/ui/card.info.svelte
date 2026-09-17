@@ -1,4 +1,4 @@
-<!-- @component InfoCard
+<!-- @component `<InfoCard>`
 
 A card which reveals more text when clicked.
 -->

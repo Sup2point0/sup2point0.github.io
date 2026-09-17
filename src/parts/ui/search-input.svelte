@@ -1,4 +1,4 @@
-<!-- @component SearchInput
+<!-- @component `<SearchInput>`
 
 A search input bar.
 -->

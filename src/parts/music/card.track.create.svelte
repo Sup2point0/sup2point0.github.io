@@ -1,4 +1,4 @@
-<!-- @component TrackCard
+<!-- @component `<TrackCard>`
 
 A small square card for a soundtrack with its cover and name.
 -->

@@ -1,4 +1,4 @@
-<!-- @component HexContent
+<!-- @component `<HexContent>`
 
 -->
 

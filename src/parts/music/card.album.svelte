@@ -1,4 +1,4 @@
-<!-- @component AlbumCard
+<!-- @component `<AlbumCard>`
 
 A card for an album with its cover, name and other info.
 -->

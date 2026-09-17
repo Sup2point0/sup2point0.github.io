@@ -1,4 +1,4 @@
-<!-- @component Block
+<!-- @component `<Block>`
 
 A generic block containing any content. Animates in when the content to display is provided.
 -->

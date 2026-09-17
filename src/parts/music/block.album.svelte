@@ -1,4 +1,4 @@
-<!-- @component AlbumBlock -->
+<!-- @component `<AlbumBlock>` -->
 
 <script lang="ts">
 

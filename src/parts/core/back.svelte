@@ -1,4 +1,4 @@
-<!-- @component Back
+<!-- @component `<Back>`
  
 The parallax background picture.
 -->

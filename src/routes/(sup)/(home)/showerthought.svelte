@@ -1,4 +1,4 @@
-<!-- @component ProfileShowerthought -->
+<!-- @component `<ProfileShowerthought>` -->
 
 <script lang="ts">
   

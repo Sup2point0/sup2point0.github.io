@@ -1,4 +1,4 @@
-<!-- @component ChannelBlock -->
+<!-- @component `<ChannelBlock>` -->
 
 <script lang="ts">
 

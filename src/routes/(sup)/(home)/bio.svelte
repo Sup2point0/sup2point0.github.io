@@ -1,4 +1,4 @@
-<!-- @component ProfileBio -->
+<!-- @component `<ProfileBio>` -->
 
 <script lang="ts">
 

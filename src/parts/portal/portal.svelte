@@ -1,4 +1,4 @@
-<!-- @component Portal
+<!-- @component `<Portal>`
 
 An overlay for quick navigation and commands execution.
 -->

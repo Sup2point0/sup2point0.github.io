@@ -1,4 +1,4 @@
-<!-- @component ProfileUpdates
+<!-- @component `<ProfileUpdates>`
 
 What's new.
 -->

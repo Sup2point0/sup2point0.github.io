@@ -1,4 +1,4 @@
-<!-- @component SearchToggle
+<!-- @component `<SearchToggle>`
  
 A single toggle in search filters for enabling/disabling a particular search tag.
 -->

@@ -1,4 +1,4 @@
-<!-- @component Breadcrumbs
+<!-- @component `<Breadcrumbs>`
 
 Shows the current navigation path.
 -->

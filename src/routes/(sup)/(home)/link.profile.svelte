@@ -1,4 +1,4 @@
-<!-- @component ProfileLink
+<!-- @component `<ProfileLink>`
 
 -->
 

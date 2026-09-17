@@ -1,4 +1,4 @@
-<!-- @component Cards
+<!-- @component `<Cards>`
 
 A flex container for cards.
 // FIXME should this be in this folder??

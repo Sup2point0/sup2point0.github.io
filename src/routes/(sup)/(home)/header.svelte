@@ -1,4 +1,4 @@
-<!-- @component ProfileHeader -->
+<!-- @component `<ProfileHeader>` -->
 
 <script>
 

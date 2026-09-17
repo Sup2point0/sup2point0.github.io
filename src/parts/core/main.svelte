@@ -1,4 +1,4 @@
-<!-- @component Main
+<!-- @component `<Main>`
 
 A width-restricting container.
 -->

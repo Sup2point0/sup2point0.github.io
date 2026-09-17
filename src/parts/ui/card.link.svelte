@@ -1,4 +1,4 @@
-<!-- @component LinkCard
+<!-- @component `<LinkCard>`
 
 A card that links to another page.
 -->

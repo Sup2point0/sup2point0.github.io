@@ -1,6 +1,6 @@
 import { FrozenWeightedList } from "@sup2.0/weighted-list";
 
-import type { PortalSearchFilter } from "#parts/special/portal/filters.portal.svelte.ts";
+import { PortalSearchFilter } from "#parts/special/portal/filters.portal.svelte.ts";
 
 
 interface PortalState

@@ -4,7 +4,7 @@ import { status } from "#scripts/state";
 import { shuffle } from "#scripts/utils";
 import type { MyTrackData } from "#scripts/types/music";
 
-import { tracks_list } from "../create";
+import { tracks_list } from "..";
 import { TrackSearchFilter } from "./filter.tracks.svelte.ts";
 
 import { Cards, Main } from "#parts/core";

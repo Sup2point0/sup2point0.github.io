@@ -4,7 +4,7 @@ import { Main } from "#parts/core";
 import { Breadcrumbs } from "#parts/ui";
 import AlbumCard from "#parts/music/card.album.svelte";
 
-import { albums_data } from "../create";
+import { albums_data } from "..";
 
 </script>
 

@@ -5,7 +5,7 @@ Latest released soundtracks!
 
 <script lang="ts">
 
-import { tracks_list } from "#sup/music/create/create";
+import { tracks_list } from "#sup/music/create";
 
 import { Cards } from "#parts/core";
 import Adventure  from "#parts/special/adventure.svelte";

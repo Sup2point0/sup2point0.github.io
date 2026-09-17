@@ -25,6 +25,7 @@ export const routes_data = {
 			series:        { _title: "Shows / Series" },
 			anime:         { _title: "Anime" },
 			"book-series": { _title: "Book Series" },
+			webtoons:      { _title: "Webtoons" },
 			youtube:       { _title: "YouTube" },
 		},
 

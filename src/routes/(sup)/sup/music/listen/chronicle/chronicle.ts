@@ -281,7 +281,7 @@ export const chronicle_data: ChronicleData[] = [
 
           `Lotta incredible stuff about Playing God, but obviously the rhythms take the cake. They’re sooo delicious, it’s mad. I’m not a guitarist, but I am a very mediocre drummer, and those beats go hard.`,
 
-          `Production-wise, it’s always impressive to make highly *rich* music *also* highly enjoyable and digestible for the casual ear, and this one tickles both sides for me. Somehow even as complex as they feel, the melodies still manage to stay in my head!`,
+          `Production-wise, it’s always impressive to make highly ${i("rich")} music ${i("also")} highly enjoyable and digestible for the casual ear, and this one tickles both sides for me. Somehow even as complex as they feel, the melodies still manage to stay in my head!`,
         ],
       },
       {
@@ -563,7 +563,7 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.ELECTRONIC, Genre.RHYTHM, Genre.NEUROFUNK],
         discovered: `Phigros custom chart`,
         desc: [
-          `Agh this track is JUST SO COOL. idek what you would call this wider genre, but it’s like ‘techy epic walk showdown boss music’, like a mix of dubstep, hi-tech, drum & bass, complextro, filled with reverbed pulses, arps, super synthy and technical. And the name makes it *n* times better, where 1 < n.`,
+          `Agh this track is JUST SO COOL. idek what you would call this wider genre, but it’s like ‘techy epic walk showdown boss music’, like a mix of dubstep, hi-tech, drum & bass, complextro, filled with reverbed pulses, arps, super synthy and technical. And the name makes it ${i("n")} times better, where 1 < ${i("n")}.`,
 
           `I’d like it even more if the sound design on some of the basses were a little cleaner.`,
         ],
@@ -668,9 +668,9 @@ export const chronicle_data: ChronicleData[] = [
 
           `When I first listened to this track (or rather, watched EK play the chart in Phigros), I really didn’t think much. I even disliked it a little, cuz all I could think was “bruh, generic boss chart music”.`,
 
-          `Someway or another, I ended up searching it up to listen a fair few times. I’m not entirely sure why. I mostly heard noise – it’s really strange to think back, cuz ofc now I *hear* everything, but I’m trying to remember what it must’ve been like to hear it without really listening.`,
+          `Someway or another, I ended up searching it up to listen a fair few times. I’m not entirely sure why. I mostly heard noise – it’s really strange to think back, cuz ofc now I ${i("hear")} everything, but I’m trying to remember what it must’ve been like to hear it without really listening.`,
 
-          `The moment that jumped out was the break, where it just plays straight semiquavers with a fat *kong* snare. I was like “ooh yeah, that’s boppy”. And from there, I started listening to it more.`,
+          `The moment that jumped out was the break, where it just plays straight semiquavers with a fat ${i("kong")} snare. I was like “ooh yeah, that’s boppy”. And from there, I started listening to it more.`,
 
           `The details are fuzzy, which is a shame. But eventually, I naturally started to pick out the melodies and motifs and details, and I came to love the track more and more. And now, when asked which かめりあ track is my favourite, I have to say this one. In fact, when other people ask what music I listen to, I usually show them this track.`,
 
@@ -897,7 +897,7 @@ export const chronicle_data: ChronicleData[] = [
         desc: [
           `I cannot believe I came across this gem. iirc, I clicked into it from my YouTube subscriptions, back when I was subscribed to NCS, and maybe even on my iPad 2. (Yeah, I think this was on my iPad 2.) Total chance, because I really don’t click into NCS uploads that much. Maybe it was the unique cover and the black circle.`,
 
-          `Boy am I grateful, cuz HOLY CRAP this track *slaps*. It *slaps*, that’s the only word. I wanna bop my head so hard it feels like it’s gonna come off. My whole body shakes – no no, this isb’t an exaggeration. The stank face stretches all my facial muscles.`,
+          `Boy am I grateful, cuz HOLY CRAP this track ${i("slaps")}. It ${i("slaps")}, that’s the only word. I wanna bop my head so hard it feels like it’s gonna come off. My whole body shakes – no no, this isb’t an exaggeration. The stank face stretches all my facial muscles.`,
 
           `The sound design, rhythms, development, structure, it’s all so unbelievably crisp and delicious. The sidechain on the intro, the off-beat clanking, the sidechain on the drops, the clave rhythm on the buildups, pwogh, it’s just so good. And it captures the Halloween vibe exceptionally well.`,
 

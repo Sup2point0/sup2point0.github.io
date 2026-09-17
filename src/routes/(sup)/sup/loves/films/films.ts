@@ -1,5 +1,5 @@
 import { prep_groups } from "#scripts/search";
-import { i } from "#scripts/utils";
+import { i, b } from "#scripts/utils";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
@@ -125,11 +125,11 @@ const data: Groups<FilmData> =
       genres: [Genre.ACTION, Genre.ADVENTURE, Genre.DYSTOPIAN],
       flags:  [Flag.BOOK],
       desc: [
-        `I was quite young when this came out, and I loved it **to bits**. Everything about it was so cool to me. *Parzival* is a sick name, his and Art3mis’s avatars are fire, weapons like the Holy Hand Grenade are the stuff of dreams, his car is sick, his flying nut kick was insane, the idea of finding easter eggs in a game makes me wanna jump up and down. It was like my dream film.`,
+        `I was quite young when this came out, and I loved it ${b("to bits")}. Everything about it was so cool to me. ${i("Parzival")} is a sick name, his and Art3mis’s avatars are fire, weapons like the Holy Hand Grenade are the stuff of dreams, his car is sick, his flying nut kick was insane, the idea of finding easter eggs in a game makes me wanna jump up and down. It was like my dream film.`,
 
         `Rewatching it even now, older, less innocent, more pessimistic about the state of the world... yeah I love this film, and I can’t even tell if it’s because I still love it, have the nostalgia embedded in me, or both. The story is very beautiful to me. And the film itself is so much fun, the characters are distinctive, the graphics are epic.`,
 
-        `I love Wade’s commentary so much because it feels like he carries that same childlike wonder that I hold. He conveys exactly that feeling of *“holy crap this is awesome do you see how cool this is”*.`,
+        `I love Wade’s commentary so much because it feels like he carries that same childlike wonder that I hold. He conveys exactly that feeling of ${i("“holy crap this is awesome do you see how cool this is”")}.`,
 
         `Funny thing, when I watched it originally I thought Wade looked pretty lame. Younger me was harsh on looks eh 💀`,
       ],
@@ -145,9 +145,9 @@ const data: Groups<FilmData> =
       desc: [
         `I could never really decide on my favourite Star Wars film, but at some point I subconsciously settled unanimously on Rogue One.`,
 
-        `What do I like about this one? It’s a feeling, but to try put it into words ...this one’s gritty. It feels real, messy, charged. The characters are flawed, conflicted, and finding their path. I love the decrease in power without lightsabers – it makes everything feel much more intense, intimate, grounded (*The Mandalorian* shares this trait). It makes you *feel* the oppressiveness of the Empire and the desperation for survival.`,
+        `What do I like about this one? It’s a feeling, but to try put it into words ...this one’s gritty. It feels real, messy, charged. The characters are flawed, conflicted, and finding their path. I love the decrease in power without lightsabers – it makes everything feel much more intense, intimate, grounded (*The Mandalorian* shares this trait). It makes you ${i("feel")} the oppressiveness of the Empire and the desperation for survival.`,
 
-        `I like how it places *weight* in the Star Wars story by showing the loss and sacrifice that goes into rebellion. I say this semi-tongue-in-cheek, but the best media is often the one where everyone dies at the end. I didn’t even like Jyn that much, but I love how the characters are written and developed.`,
+        `I like how it places ${i("weight")} in the Star Wars story by showing the loss and sacrifice that goes into rebellion. I say this semi-tongue-in-cheek, but the best media is often the one where everyone dies at the end. I didn’t even like Jyn that much, but I love how the characters are written and developed.`,
 
         `I love the epic sagas and glorious lightsabre fights of Star Wars as much as the next person, but damn, when they pull back and develop a story around characters, it’s really something special.`,
 

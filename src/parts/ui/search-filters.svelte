@@ -5,9 +5,7 @@ A search bar input and dropdown filters for searching content.
 
 <script lang="ts">
 
-import SearchInput from "#parts/ui/search-input.svelte";
-import SearchToggle from "#parts/ui/search-toggle.svelte";
-import ClickySelect from "#parts/ui/clicky.select.svelte";
+import { ClickySelect, SearchInput, SearchToggle } from "#parts/ui";
 
 import { SearchFilter } from "#scripts/search";
 

@@ -1,15 +1,15 @@
 <script lang="ts">
 
+import { series_data, type SeriesData } from "./index.ts";
+import { MediaSearchFilter } from "../filter.media.svelte.ts";
+
 import { Cards, Main } from "#parts/core";
 import { Breadcrumbs, Header, SearchFilters } from "#parts/ui";
 import { MediaBlock } from "#parts/loves";
 
-import { series_data, type SeriesData } from "./series";
-import { SeriesSearchFilter } from "./filter.series.svelte.ts";
-
 
 // svelte-ignore non_reactive_update
-let filters = new SeriesSearchFilter();
+let filters = new MediaSearchFilter();
 
 let series_filtered = $derived(filters.apply(series_data));
 

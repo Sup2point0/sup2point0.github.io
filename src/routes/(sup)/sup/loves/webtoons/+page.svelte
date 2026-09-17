@@ -1,11 +1,11 @@
 <script lang="ts">
 
+import { webtoons_data, type WebtoonData } from ".";
+import { MediaSearchFilter } from "../filter.media.svelte.ts";
+
 import { Cards, Main } from "#parts/core";
 import { Breadcrumbs, Header, SearchFilters } from "#parts/ui";
 import { MediaBlock } from "#parts/loves";
-
-import { webtoons_data, type WebtoonData } from "./webtoons";
-import { MediaSearchFilter } from "../filter.media.svelte.ts";
 
 
 // svelte-ignore non_reactive_update

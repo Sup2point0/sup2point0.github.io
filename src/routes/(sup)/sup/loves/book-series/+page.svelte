@@ -1,11 +1,11 @@
 <script lang="ts">
 
+import { book_series_data, type BookSeriesData } from ".";
+import { BookSeriesSearchFilter } from "./filter.book-series.svelte.ts";
+
 import { Cards, Main } from "#parts/core";
 import { Breadcrumbs, Header, SearchFilters } from "#parts/ui";
 import { MediaBlock } from "#parts/loves";
-
-import { book_series_data, type BookSeriesData } from "./book-series";
-import { BookSeriesSearchFilter } from "./filter.book-series.svelte.ts";
 
 
 // svelte-ignore non_reactive_update

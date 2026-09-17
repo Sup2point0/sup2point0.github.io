@@ -1,11 +1,8 @@
 <script lang="ts">
 
-import Cards         from "#parts/core/cards.svelte";
-import Main          from "#parts/core/main.svelte";
-import Breadcrumbs   from "#parts/ui/breadcrumbs.svelte";
-import Header        from "#parts/ui/header.svelte";
-import SearchFilters from "#parts/ui/search-filters.svelte";
-import MediaBlock    from "#parts/loves/block.media.svelte";
+import { Cards, Main } from "#parts/core";
+import { Block, Breadcrumbs, Header, SearchFilters } from "#src/parts/ui";
+import MediaBlock from "#parts/loves/block.media.svelte";
 
 import { animes_data, type AnimeData } from "./anime";
 import { AnimeSearchFilter } from "./filter.anime.svelte.ts";
@@ -40,6 +37,10 @@ let animes_filtered = $derived(filters.apply(animes_data));
 ]} />
 
 <Main>
+  <Block kind="ui expanded">
+    <p> I always watch anime with English subtitles and original audio, never dubbed. For one dubs always sound goofy and over-the-top to me. But also the sub just sounds inherently cooler, cuz it’s Japanese 😎 (The exception is Pokémon, where I grew up on the sub so it’s normalised for me – plus it’s already goofy so it works pretty well =) </p>
+  </Block>
+
   <SearchFilters bind:filters result_count={filters.count_results(animes_filtered)} />
 
   {#if animes_filtered.is_grouped}

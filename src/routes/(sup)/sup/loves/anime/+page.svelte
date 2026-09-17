@@ -1,11 +1,11 @@
 <script lang="ts">
 
+import { animes_data, type AnimeData } from ".";
+import { AnimeSearchFilter } from "./filter.anime.svelte.ts";
+
 import { Cards, Main } from "#parts/core";
 import { Block, Breadcrumbs, Header, SearchFilters } from "#parts/ui";
 import { MediaBlock } from "#parts/loves";
-
-import { animes_data, type AnimeData } from "./anime";
-import { AnimeSearchFilter } from "./filter.anime.svelte.ts";
 
 
 // svelte-ignore non_reactive_update

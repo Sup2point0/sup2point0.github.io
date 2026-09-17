@@ -1,6 +1,6 @@
 <script lang="ts">
 
-import { series_data, type SeriesData } from "./index.ts";
+import { series_data, type SeriesData } from ".";
 import { MediaSearchFilter } from "../filter.media.svelte.ts";
 
 import { Cards, Main } from "#parts/core";

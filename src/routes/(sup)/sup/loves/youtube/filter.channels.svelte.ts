@@ -1,8 +1,8 @@
+import { channels_list, type YouTubeChannelData } from ".";
+
 import { partial_ratio } from "fuzzball";
 
 import { SearchFilter } from "#scripts/search";
-
-import { channels_list, type YouTubeChannelData } from "./channels";
 
 
 export class ChannelSearchFilter extends SearchFilter<YouTubeChannelData>

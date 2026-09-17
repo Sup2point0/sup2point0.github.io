@@ -4,7 +4,7 @@
 
 import { anim } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
-import { type YouTubeChannelData } from "#sup/loves/youtube/channels";
+import { type YouTubeChannelData } from "#sup/loves/youtube";
 
 
 interface Props {

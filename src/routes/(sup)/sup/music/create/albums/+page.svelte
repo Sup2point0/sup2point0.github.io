@@ -1,7 +1,7 @@
 <script lang="ts">
 
-import Main from "#parts/core/main.svelte";
-import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
+import { Main } from "#parts/core";
+import { Breadcrumbs } from "#parts/ui";
 import AlbumCard from "#parts/music/card.album.svelte";
 
 import { albums_data } from "../create";

@@ -3,12 +3,9 @@
 import { games_data, type GameData } from "./games";
 import { GameSearchFilter } from "./filter.games.svelte.ts";
 
-import Cards         from "#parts/core/cards.svelte";
-import Main          from "#parts/core/main.svelte";
-import Breadcrumbs   from "#parts/ui/breadcrumbs.svelte";
-import Header        from "#parts/ui/header.svelte";
-import SearchFilters from "#parts/ui/search-filters.svelte";
-import GameBlock     from "#parts/loves/block.game.svelte";
+import { Cards, Main } from "#parts/core";
+import { Breadcrumbs, Header, SearchFilters } from "#parts/ui";
+import { GameBlock } from "#parts/loves";
 
 import { onMount } from "svelte";
 

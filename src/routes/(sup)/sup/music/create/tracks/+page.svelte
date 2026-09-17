@@ -7,12 +7,9 @@ import type { TrackData } from "#scripts/types/music/create";
 import { tracks_list } from "../create";
 import { TrackSearchFilter } from "./filter.tracks.svelte.ts";
 
-import Cards         from "#parts/core/cards.svelte";
-import Main          from "#parts/core/main.svelte";
-import Breadcrumbs   from "#parts/ui/breadcrumbs.svelte";
-import Header        from "#parts/ui/header.svelte";
-import SearchFilters from "#parts/ui/search-filters.svelte";
-import TrackCard     from "#parts/music/card.track.create.svelte";
+import { Cards, Main } from "#parts/core";
+import { Breadcrumbs, Header, SearchFilters } from "#parts/ui";
+import TrackCard from "#parts/music/card.track.create.svelte";
 
 
 // svelte-ignore non_reactive_update

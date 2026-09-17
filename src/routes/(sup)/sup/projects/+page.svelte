@@ -2,7 +2,7 @@
 
 import { Cards, Main } from "#parts/core";
 import { Block, Header, SearchFilters } from "#parts/ui";
-import ProjectBlock  from "#parts/dev/block.project.svelte";
+import { ProjectBlock } from "#parts/dev";
 
 import { projects_data, type ProjectData } from "./projects";
 import { ProjectSearchFilter } from "./filter.projects.svelte.ts";

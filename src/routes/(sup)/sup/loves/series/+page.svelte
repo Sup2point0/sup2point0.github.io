@@ -1,11 +1,8 @@
 <script lang="ts">
 
-import Cards         from "#parts/core/cards.svelte";
-import Main          from "#parts/core/main.svelte";
-import Breadcrumbs   from "#parts/ui/breadcrumbs.svelte";
-import Header        from "#parts/ui/header.svelte";
-import SearchFilters from "#parts/ui/search-filters.svelte";
-import MediaBlock    from "#parts/loves/block.media.svelte";
+import { Cards, Main } from "#parts/core";
+import { Breadcrumbs, Header, SearchFilters } from "#parts/ui";
+import { MediaBlock } from "#parts/loves";
 
 import { series_data, type SeriesData } from "./series";
 import { SeriesSearchFilter } from "./filter.series.svelte.ts";

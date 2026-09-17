@@ -2,11 +2,10 @@
 
 import { display_date, i } from "#scripts/utils";
 
-import Main        from "#parts/core/main.svelte";
-import Block       from "#parts/ui/block.svelte"
-import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
-import TrackBlock  from "#parts/music/block.track.listen.svelte";
-import Adventure   from "#parts/special/adventure.svelte";
+import { Main } from "#parts/core";
+import { Block, Breadcrumbs } from "#parts/ui";
+import Adventure from "#parts/special/adventure.svelte";
+import TrackBlock from "#parts/music/block.track.listen.svelte";
 
 import { chronicle_data } from "./chronicle";
 

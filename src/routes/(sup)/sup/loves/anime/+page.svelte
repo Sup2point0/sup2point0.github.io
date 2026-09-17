@@ -1,8 +1,8 @@
 <script lang="ts">
 
 import { Cards, Main } from "#parts/core";
-import { Block, Breadcrumbs, Header, SearchFilters } from "#src/parts/ui";
-import MediaBlock from "#parts/loves/block.media.svelte";
+import { Block, Breadcrumbs, Header, SearchFilters } from "#parts/ui";
+import { MediaBlock } from "#parts/loves";
 
 import { animes_data, type AnimeData } from "./anime";
 import { AnimeSearchFilter } from "./filter.anime.svelte.ts";

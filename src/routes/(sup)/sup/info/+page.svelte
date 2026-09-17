@@ -5,10 +5,7 @@ import { shuffle } from "#scripts/utils";
 import { facts_pinned, facts, type Fact } from "./facts";
 import { frequerys } from "./faq";
 
-import Clicky       from "#parts/ui/clicky.svelte";
-import InfoCard     from "#parts/ui/card.info.svelte";
-import Block        from "#parts/ui/block.svelte";
-import Header       from "#parts/ui/header.svelte";
+import { Block, Clicky, Header, InfoCard } from "#parts/ui";
 import PurplePortal from "#parts/special/purple-portal.svelte";
 import Adventure    from "#parts/special/adventure.svelte";
 

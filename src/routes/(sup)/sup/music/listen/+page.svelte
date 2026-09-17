@@ -1,11 +1,8 @@
 <script lang="ts">
 
-import Cards       from "#parts/core/cards.svelte";
-import Main        from "#parts/core/main.svelte";
-import Block       from "#parts/ui/block.svelte";
-import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
-import LinkCard    from "#parts/ui/card.link.svelte";
-import Adventure   from "#parts/special/adventure.svelte";
+import { Cards, Main } from "#parts/core";
+import { Block, Breadcrumbs, LinkCard } from "#parts/ui";
+import Adventure from "#parts/special/adventure.svelte";
 
 </script>
 

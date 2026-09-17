@@ -3,14 +3,10 @@
 import { status } from "#scripts/state";
 import { shuffle, a } from "#scripts/utils";
 
-import Cards         from "#parts/core/cards.svelte";
-import Main          from "#parts/core/main.svelte";
-import Block         from "#parts/ui/block.svelte";
-import Breadcrumbs   from "#parts/ui/breadcrumbs.svelte";
-import Header        from "#parts/ui/header.svelte";
-import SearchFilters from "#parts/ui/search-filters.svelte";
-import ChannelBlock  from "#parts/loves/block.channel.svelte";
-import Adventure     from "#parts/special/adventure.svelte";
+import { Cards, Main } from "#parts/core";
+import { Block, Breadcrumbs, Header, SearchFilters } from "#parts/ui";
+import { ChannelBlock } from "#parts/loves";
+import Adventure from "#parts/special/adventure.svelte";
 
 import { channels_data, type YouTubeChannelData } from "./channels";
 import { ChannelSearchFilter } from "./filter.channels.svelte.ts";

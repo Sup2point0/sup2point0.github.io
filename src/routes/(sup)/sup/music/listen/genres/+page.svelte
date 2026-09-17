@@ -3,12 +3,10 @@
 import { shuffle } from "#scripts/utils";
 import type { GenreData } from "#scripts/types";
 
-import Main        from "#parts/core/main.svelte";
-import Cards       from "#parts/core/cards.svelte";
-import Block       from "#parts/ui/block.svelte";
-import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
-import GenreBlock  from "#parts/music/block.genre.svelte";
-import Adventure   from "#parts/special/adventure.svelte";
+import { Cards, Main } from "#parts/core";
+import { Block, Breadcrumbs } from "#parts/ui";
+import Adventure from "#parts/special/adventure.svelte";
+import GenreBlock from "#parts/music/block.genre.svelte";
 
 import { genres_data } from "./genres";
 

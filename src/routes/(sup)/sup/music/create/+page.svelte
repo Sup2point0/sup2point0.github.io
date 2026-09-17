@@ -1,8 +1,7 @@
 <script lang="ts">
 
-import Cards from "#parts/core/cards.svelte";
-import Breadcrumbs from "#parts/ui/breadcrumbs.svelte";
-import LinkCard from "#parts/ui/card.link.svelte";
+import { Cards } from "#parts/core";
+import { Breadcrumbs, LinkCard } from "#parts/ui";
 
 </script>
 

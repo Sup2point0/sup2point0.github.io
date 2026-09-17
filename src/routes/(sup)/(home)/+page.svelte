@@ -2,9 +2,7 @@
 
 import { portal } from "#scripts/state";
 
-import Footer from "#parts/core/footer.svelte";
-import Main   from "#parts/core/main.svelte";
-import Nav    from "#parts/core/nav.svelte";
+import { Footer, Main, Nav } from "#parts/core";
 
 import ProfileHeader     from "./header.svelte";
 import ProfileBio        from "./bio.svelte";

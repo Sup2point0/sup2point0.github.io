@@ -30,7 +30,7 @@ export const frequerys: Question[] = [
 	{
 		q: `what does “frequery” mean?`,
 		a: [
-			`${i("frequery")} := “frequent query” == “frequently asked questions” === FAQs.`,
+			`${i`frequery`} := “frequent query” == “frequently asked questions” === FAQs.`,
 		]
 	},
 	{
@@ -85,7 +85,7 @@ export const frequerys: Question[] = [
 		a: new FrozenWeightedList(
 			[20, `Hell yeah. Whether you want to analyse ${a("Camellia’s ridiculous full flavour soundtracks", "https://youtube.com/playlist?list=PLaN19gIKi5Zp2sK5jeaHgJ823ANa4NcB4")}, want to ${a("challenge me with a delicious integral", "https://sup2point0.github.io/integrity/questions/integrals")}, or just want to ${a("ruminate over the heartbreaking character arcs of Arcane", "/sup/loves/series")}, ${a("feel free to hit me up on Disc", "https://discord.com/users/752972078579449888")} ^v^`],
 
-			[7, `No no, I’m asking ${i("you")} that. Wanna be friends? 🥺 ${a("Just add me on Disc", "https://discord.com/users/752972078579449888")} :D`],
+			[7, `No no, I’m asking ${i`you`} that. Wanna be friends? 🥺 ${a("Just add me on Disc", "https://discord.com/users/752972078579449888")} :D`],
 		)
 	},
 	{

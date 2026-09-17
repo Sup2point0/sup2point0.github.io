@@ -178,7 +178,7 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.KPOP],
         discovered: `friend`,
         desc: [
-          `Not generally a fan of this sorta music, but I can’t not enjoy it, because ${i("gawddamn")} is it rich. The rhythms, harmonies and progressions are actually so spot-on.`,
+          `Not generally a fan of this sorta music, but I can’t not enjoy it, because ${i`gawddamn`} is it rich. The rhythms, harmonies and progressions are actually so spot-on.`,
         ],
       },
       {
@@ -251,7 +251,7 @@ export const chronicle_data: ChronicleData[] = [
 
           `Yes, it’s ironic, and I love it. It’s so addictive, I just can’t get enough.`,
 
-          `All of the music in K-pop Demon Hunters is top-notch. You could call the tracks a little cliché, sure, but. They hit that cliché ${i("perfectly")}. They capture exactly the vibe they’re going for, and the production quality is top-notch. I just can’t not appreciate it. Doing the same stuff as everyone else isn’t a problem if you do it ${i("insanely well")}, innit.`,
+          `All of the music in K-pop Demon Hunters is top-notch. You could call the tracks a little cliché, sure, but. They hit that cliché ${i`perfectly`}. They capture exactly the vibe they’re going for, and the production quality is top-notch. I just can’t not appreciate it. Doing the same stuff as everyone else isn’t a problem if you do it ${i`insanely well`}, innit.`,
         ],
       },
       {
@@ -263,7 +263,7 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.ARTCORE, Genre.RHYTHM],
         discovered: `Arcaea`,
         desc: [
-          `For me this is peak artcore. Peak Arcaea music, in fact. I would call this the ${i("sound")} of Arcaea.`,
+          `For me this is peak artcore. Peak Arcaea music, in fact. I would call this the ${i`sound`} of Arcaea.`,
 
           `I can’t even place my finger on what makes it so special. Maybe it’s the reverb, maybe it’s how the slightly scratchy textures meld with the softer warmer ones, maybe it’s the pitch bends on the melody. It’s really quite magical. Such an iconic track.`,
         ],
@@ -281,7 +281,7 @@ export const chronicle_data: ChronicleData[] = [
 
           `Lotta incredible stuff about Playing God, but obviously the rhythms take the cake. They’re sooo delicious, it’s mad. I’m not a guitarist, but I am a very mediocre drummer, and those beats go hard.`,
 
-          `Production-wise, it’s always impressive to make highly ${i("rich")} music ${i("also")} highly enjoyable and digestible for the casual ear, and this one tickles both sides for me. Somehow even as complex as they feel, the melodies still manage to stay in my head!`,
+          `Production-wise, it’s always impressive to make highly ${i`rich`} music ${i`also`} highly enjoyable and digestible for the casual ear, and this one tickles both sides for me. Somehow even as complex as they feel, the melodies still manage to stay in my head!`,
         ],
       },
       {
@@ -342,7 +342,7 @@ export const chronicle_data: ChronicleData[] = [
         desc: [
           `I’m writing these thoughts out of order so I’m naturally running out of words (or rather, starting to repeat myself lmao)`,
 
-          `Anyway, this might be one of the most amazing melodies I’ve ever heard. It might also be the first ‘happy’ track I’ve listened to where I actually feel ${i("fully")} happy. I say this because, for instance with ${a("Ibiza", "#ibiza", true)}, it’s a happy melody but I still hear sadness in it. But not for this track. It’s pure happiness, it’s sooo feel good. So that is really special for me.`,
+          `Anyway, this might be one of the most amazing melodies I’ve ever heard. It might also be the first ‘happy’ track I’ve listened to where I actually feel ${i`fully`} happy. I say this because, for instance with ${a("Ibiza", "#ibiza", true)}, it’s a happy melody but I still hear sadness in it. But not for this track. It’s pure happiness, it’s sooo feel good. So that is really special for me.`,
 
           `(only the ending has a touch of sadness, but it’s more like a “the end of the happiest day of my life” type ending.)`,
         ],
@@ -357,7 +357,7 @@ export const chronicle_data: ChronicleData[] = [
         vibes:   [Vibe.EMOTIONAL],
         discovered: `Arcane`,
         desc: [
-          `There’s many aspects of music that I’m susceptible to, but as a producer, one I’ve become increasingly sensitive to is ${i("progression")} – how a track grows, develops and shifts.`,
+          `There’s many aspects of music that I’m susceptible to, but as a producer, one I’ve become increasingly sensitive to is ${i`progression`} – how a track grows, develops and shifts.`,
 
           `And whooh, this track. Chills. From the pensive opening piano, to the raw, pained vocals of Sting, to the first chord release. I’m not joking, chills every. single. time. I’m listening to the track as I write this and I got chills without even paying full attention.`,
 
@@ -413,9 +413,9 @@ export const chronicle_data: ChronicleData[] = [
         vibes:   [Vibe.CHILLOUT],
         discovered: `Arcaea`,
         desc: [
-          `Here’s how I’d put this – I knew I liked this genre, but I ${i("didn’t know it existed")}. And the only person who makes it like this is puru. (maybe also Frums, but only that specific section of XNOR)`,
+          `Here’s how I’d put this – I knew I liked this genre, but I ${i`didn’t know it existed`}. And the only person who makes it like this is puru. (maybe also Frums, but only that specific section of XNOR)`,
 
-          `It’s so special. The drums and rhythms are fairly fast, and the textures aren’t all soft. But the track just ${i("is soft")}. It’s so inexplicable. It occupies such an unparalleled space that is just ${i("puru")}.`,
+          `It’s so special. The drums and rhythms are fairly fast, and the textures aren’t all soft. But the track just ${i`is soft`}. It’s so inexplicable. It occupies such an unparalleled space that is just ${i`puru`}.`,
         ],
       },
     ],
@@ -563,7 +563,7 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.ELECTRONIC, Genre.RHYTHM, Genre.NEUROFUNK],
         discovered: `Phigros custom chart`,
         desc: [
-          `Agh this track is JUST SO COOL. idek what you would call this wider genre, but it’s like ‘techy epic walk showdown boss music’, like a mix of dubstep, hi-tech, drum & bass, complextro, filled with reverbed pulses, arps, super synthy and technical. And the name makes it ${i("n")} times better, where 1 < ${i("n")}.`,
+          `Agh this track is JUST SO COOL. idek what you would call this wider genre, but it’s like ‘techy epic walk showdown boss music’, like a mix of dubstep, hi-tech, drum & bass, complextro, filled with reverbed pulses, arps, super synthy and technical. And the name makes it ${i`n`} times better, where 1 < ${i`n`}.`,
 
           `I’d like it even more if the sound design on some of the basses were a little cleaner.`,
         ],
@@ -668,9 +668,9 @@ export const chronicle_data: ChronicleData[] = [
 
           `When I first listened to this track (or rather, watched EK play the chart in Phigros), I really didn’t think much. I even disliked it a little, cuz all I could think was “bruh, generic boss chart music”.`,
 
-          `Someway or another, I ended up searching it up to listen a fair few times. I’m not entirely sure why. I mostly heard noise – it’s really strange to think back, cuz ofc now I ${i("hear")} everything, but I’m trying to remember what it must’ve been like to hear it without really listening.`,
+          `Someway or another, I ended up searching it up to listen a fair few times. I’m not entirely sure why. I mostly heard noise – it’s really strange to think back, cuz ofc now I ${i`hear`} everything, but I’m trying to remember what it must’ve been like to hear it without really listening.`,
 
-          `The moment that jumped out was the break, where it just plays straight semiquavers with a fat ${i("kong")} snare. I was like “ooh yeah, that’s boppy”. And from there, I started listening to it more.`,
+          `The moment that jumped out was the break, where it just plays straight semiquavers with a fat ${i`kong`} snare. I was like “ooh yeah, that’s boppy”. And from there, I started listening to it more.`,
 
           `The details are fuzzy, which is a shame. But eventually, I naturally started to pick out the melodies and motifs and details, and I came to love the track more and more. And now, when asked which かめりあ track is my favourite, I have to say this one. In fact, when other people ask what music I listen to, I usually show them this track.`,
 
@@ -726,7 +726,7 @@ export const chronicle_data: ChronicleData[] = [
 
           `And damn, what a melody(s). Didn’t even realise it was a hardcore track (I guess that’s how you tell you’ve been electronic-indoctrinated, eh? :P)`,
 
-          `Favourite part is the post-1st drop breakdown, it’s so... ${i("evil")} is how I’d describe it. Maybe there’s a bit of mental association with the sick Phigros chart, lmao, but sick.`,
+          `Favourite part is the post-1st drop breakdown, it’s so... ${i`evil`} is how I’d describe it. Maybe there’s a bit of mental association with the sick Phigros chart, lmao, but sick.`,
 
           `Oh right, and then that leads into an amazing atmospheric melodic drop. Such a polished track, and the extended version is actually great as well!`,
         ],
@@ -763,7 +763,7 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.SOUNDTRACK, Genre.ELECTRONIC, Genre.ROCK],
         discovered: `childhood`,
         desc: [
-          `If you haven’t listened to the song before, ${i("listen to it")}. I’m serious.`,
+          `If you haven’t listened to the song before, ${i`listen to it`}. I’m serious.`,
 
           `The opening, genuinely. One of the most masterful things I’ve ever heard. (By ‘masterful’ I mean in the context of what it aims to achieve, which is to build a mysterious, curious atmosphere.) The rhythmic piano, the vocal fade-ins, the drum hits, the atmospheric piano notes, it’s just. “AHH”, y’know?`,
 
@@ -836,7 +836,7 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.ORCHESTRAL],
         discovered: ``,
         desc: [
-          `It is pretty awe-inspiring how rarely Johannes Bornlöf misses, and the proportion of his discography that I ${i("really like")} is pretty astounding. Beat かめりあ, tbh.`,
+          `It is pretty awe-inspiring how rarely Johannes Bornlöf misses, and the proportion of his discography that I ${i`really like`} is pretty astounding. Beat かめりあ, tbh.`,
 
           `But of all his incredible tracks, for some reason this one just hits different. It’s the melody. ${h("Only the Brave")} has a similarly timeless melody, but this one really, really struck me fsr. It’s... beautiful, really. The sense of longing, nostalgia, triumph, all captured in one.`,
 
@@ -897,7 +897,7 @@ export const chronicle_data: ChronicleData[] = [
         desc: [
           `I cannot believe I came across this gem. iirc, I clicked into it from my YouTube subscriptions, back when I was subscribed to NCS, and maybe even on my iPad 2. (Yeah, I think this was on my iPad 2.) Total chance, because I really don’t click into NCS uploads that much. Maybe it was the unique cover and the black circle.`,
 
-          `Boy am I grateful, cuz HOLY CRAP this track ${i("slaps")}. It ${i("slaps")}, that’s the only word. I wanna bop my head so hard it feels like it’s gonna come off. My whole body shakes – no no, this isb’t an exaggeration. The stank face stretches all my facial muscles.`,
+          `Boy am I grateful, cuz HOLY CRAP this track ${i`slaps`}. It ${i`slaps`}, that’s the only word. I wanna bop my head so hard it feels like it’s gonna come off. My whole body shakes – no no, this isb’t an exaggeration. The stank face stretches all my facial muscles.`,
 
           `The sound design, rhythms, development, structure, it’s all so unbelievably crisp and delicious. The sidechain on the intro, the off-beat clanking, the sidechain on the drops, the clave rhythm on the buildups, pwogh, it’s just so good. And it captures the Halloween vibe exceptionally well.`,
 
@@ -915,7 +915,7 @@ export const chronicle_data: ChronicleData[] = [
         desc: [
           `Alright, call me crazy, but I’ve always heard sadness in this track. Ofc, rhythm-wise and feeling-wise, it’s clearly a beach track, but to me the melody has a hint of “nostalgia for days long gone” sadness in it.`,
 
-          `I’ve found myself associating this track with the ${h(i("Ventura saga"))} (book series), particularly ${i("The Truth of Different Skies")}. It’s like a memory of life of Earth. idk man, I suck at describing this stuff TvT`,
+          `I’ve found myself associating this track with the ${h(i`Ventura saga`)} (book series), particularly ${i`The Truth of Different Skies`}. It’s like a memory of life of Earth. idk man, I suck at describing this stuff TvT`,
 
           `Either way, definitely some of Elektronomia’s finest work. It’s one of my favourite drops, but I especially love the bridge. The counter-melody is so cool.`,
         ],
@@ -945,7 +945,7 @@ export const chronicle_data: ChronicleData[] = [
         genres:  [Genre.ELECTRONIC, Genre.DOWNTEMPO],
         discovered: `Vexento discography`,
         desc: [
-          `Vexento is absolutely MASTERFUL at mixing. I felt this so clearly after starting music production myself. He’s unbelievably talented at creating full, heartwarming mixes, where even tho it ${i("sounds like")} there’s not that much going on, the feeling is all there. It’s incredible.`,
+          `Vexento is absolutely MASTERFUL at mixing. I felt this so clearly after starting music production myself. He’s unbelievably talented at creating full, heartwarming mixes, where even tho it ${i`sounds like`} there’s not that much going on, the feeling is all there. It’s incredible.`,
 
           `And like Johannes Bornlöf, I’m gonna have to pick this track as my favourite of his. It’s just so perfect.`,
         ],
@@ -1014,7 +1014,7 @@ export const chronicle_data: ChronicleData[] = [
         discovered: `Vexento discography`,
         desc: [
           `Well, it’s just home, isn’t it?`,
-          `Vexento is so unbelievably talented at crafting beautiful timeless ${i("feelings")}.`,
+          `Vexento is so unbelievably talented at crafting beautiful timeless ${i`feelings`}.`,
         ],
       },
       {

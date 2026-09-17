@@ -13,14 +13,14 @@ export interface Fact
 export const facts_pinned: Fact[] = [
 	{
 		idx: 0,
-		text: `My favourite colour is <span style="color: #ff0090">${i("electric pink")}</span>.`,
+		text: `My favourite colour is <span style="color: #ff0090">${i`electric pink`}</span>.`,
 		desc: `This is just my own name for the colour. It’s part of the ${a("supcode Nova", "https://github.com/Sup2point0/supcode/tree/sup/resources/Nova")} colour palette.`,
 	},
 ];
 
 export const facts: Fact[] = [
 	{
-		text: `My favourite book genre is ${i("dystopian fantasy future fiction")}.`,
+		text: `My favourite book genre is ${i`dystopian fantasy future fiction`}.`,
 		desc: `For specific series, head over to ${a("loves/book-series", "loves/book-series", true)} ;)`,
 	},
 	{
@@ -48,16 +48,16 @@ export const facts: Fact[] = [
 		desc: `Yeup, piano and drums. Literally the perfect combo for music production, innit B)`,
 	},
 	{
-		text: `I’ve created ${h("1000+")} custom ${a(i("Yu-Gi-Oh!"), "https://yugipedia.com/wiki/Yugipedia")} cards.`,
+		text: `I’ve created ${h("1000+")} custom ${a(i`Yu-Gi-Oh!`, "https://yugipedia.com/wiki/Yugipedia")} cards.`,
 		desc: `By the latest census. Probably more if you’re reading this. Also doesn’t include planned cards that haven’t been formally created yet :P`,
 	},
 	{
-		text: `I’m writing a novel of lore for my custom ${i("Yu-Gi-Oh")} cards.`,
-		desc: `It’s called ${i("The Stranded Saga")}. You can check it out in ${a(i("Assort"), "https://sup2point0.github.io/Assort/yugioh/lore/stranded-saga/the-stranded-saga")}, altho it’s far from finished (and probably never will).`,
+		text: `I’m writing a novel of lore for my custom ${i`Yu-Gi-Oh`} cards.`,
+		desc: `It’s called ${i`The Stranded Saga`}. You can check it out in ${a(i`Assort`, "https://sup2point0.github.io/Assort/yugioh/lore/stranded-saga/the-stranded-saga")}, altho it’s far from finished (and probably never will).`,
 	},
 	{
 		text: `I’ve created ${h("300+")} integrals.`,
-		desc: `As in, written my own integration questions. Yeah, I’m down so bad for maths. You can see them on ${a(i("Integrity"), "https://sup2point0.github.io/integrity/questions/integrals")}.`,
+		desc: `As in, written my own integration questions. Yeah, I’m down so bad for maths. You can see them on ${a(i`Integrity`, "https://sup2point0.github.io/integrity/questions/integrals")}.`,
 	},
 	
 	{
@@ -82,7 +82,7 @@ export const facts: Fact[] = [
 	},
 	{
 		text: `I write poetry.`,
-		desc: `Despite despising it for most of my childhood, I realised I unironically enjoy writing it. You can check out my works in ${a(i("Assort"), "https://sup2point0.github.io/Assort/poetry")} :D`,
+		desc: `Despite despising it for most of my childhood, I realised I unironically enjoy writing it. You can check out my works in ${a(i`Assort`, "https://sup2point0.github.io/Assort/poetry")} :D`,
 	},
 	{
 		text: `I like novels, manga, webtoons, anime, animations and film.`,
@@ -90,7 +90,7 @@ export const facts: Fact[] = [
 	},
 	{
 		text: `I love fonts.`,
-		desc: `Or more accurately, ${i("typefaces")}, or more broadly, typography. Yum, yum, yum.`,
+		desc: `Or more accurately, ${i`typefaces`}, or more broadly, typography. Yum, yum, yum.`,
 	},
 	{
 		text: `I love understanding the etymology of words.`,
@@ -98,7 +98,7 @@ export const facts: Fact[] = [
 	},
 	{
 		text: `I collect cool words.`,
-		desc: `${i("pseudopseudohypoparathyroidism")} is always a hilarious one. ${i("floccinaucinihilipilification")} is fun to type. ${i("methylenedioxymethamphetamine")} is a fire chemical substance (ignoring the fact it’s a class A drug). You can see my full list in ${a(i("Assort"))}.`,
+		desc: `${i`pseudopseudohypoparathyroidism`} is always a hilarious one. ${i`floccinaucinihilipilification`} is fun to type. ${i`methylenedioxymethamphetamine`} is a fire chemical substance (ignoring the fact it’s a class A drug). You can see my full list in ${a(i`Assort`)}.`,
 	},
 	{
 		text: `I play ${a("Phigros", "https://youtube.com/playlist?list=PLYWIouv-DSkCklDueGcBea6epdSR1aHEx")} with 1 hand.`,
@@ -110,11 +110,11 @@ export const facts: Fact[] = [
 	},
 	{
 		text: `I love ${a("Desmos", "https://www.desmos.com/calculator")}.`,
-		desc: `Desmos is the world’s greatest calculator. You can code in Desmos. You can make games in Desmos. (I’m serious.) You can find out more on ${a(i("Integrity"), "https://sup2point0.github.io/integrity/desmos/gamedev")}.`,
+		desc: `Desmos is the world’s greatest calculator. You can code in Desmos. You can make games in Desmos. (I’m serious.) You can find out more on ${a(i`Integrity`, "https://sup2point0.github.io/integrity/desmos/gamedev")}.`,
 	},
 	{
-		text: `I solve ${i("skyscrapers")} puzzles.`,
-		desc: `They’re a variety of puzzle that’s similar to Sudoku. I have a website, ${a(i("Skyscraping"), "https://sup2point0.github.io/skyscraping")}, where I write guides on solving skyscrapers!`,
+		text: `I solve ${i`skyscrapers`} puzzles.`,
+		desc: `They’re a variety of puzzle that’s similar to Sudoku. I have a website, ${a(i`Skyscraping`, "https://sup2point0.github.io/skyscraping")}, where I write guides on solving skyscrapers!`,
 	},
 	{
 		text: `I used to be so into ${a("Scratch", "https://scratch.mit.edu/users/Sup2point0")}.`,
@@ -122,7 +122,7 @@ export const facts: Fact[] = [
 	},
 	{
 		text: `I’m a ${a("Bo Burnham", "https://wikipedia.org/wiki/Bo_Burnham")} fan.`,
-		desc: `Randomly got ${a(i("Welcome to the Internet"), "https://youtube.com/watch?v=k1BneeJTDcU")} in my YouTube recommended in spring 2021, and I fell down the rabbit hole from there.`,
+		desc: `Randomly got ${a(i`Welcome to the Internet`, "https://youtube.com/watch?v=k1BneeJTDcU")} in my YouTube recommended in spring 2021, and I fell down the rabbit hole from there.`,
 	},
 	{
 		text: `I love romance.`,
@@ -147,7 +147,7 @@ export const facts: Fact[] = [
 	},
 	{
 		text: `I came up with the final integral for my school’s Integration Bee final in a dream.`,
-		desc: `The integral’s ${a(`on ${i("Integrity")}`)}, "https://sup2point0.github.io/integrity/question/integrals?shard=s24cu-dx1")}`,
+		desc: `The integral’s ${a(`on ${i`Integrity`}`)}, "https://sup2point0.github.io/integrity/question/integrals?shard=s24cu-dx1")}`,
 	},
 	{
 		text: `I made a shooter game in Desmos.`,
@@ -155,7 +155,7 @@ export const facts: Fact[] = [
 	},
 	{
 		text: `I’ve written a research paper on the origins of my username (${h("Sup#2.0")}).`,
-		desc: `I’ll have you know it’s fully cited and currently sitting at around 3000 words. No, it’s not published, and yes, it is a very serious project. You can read it in ${a(i("Assort"), "https://github.com/Sup2point0/Assort/blob/origin/~writing/origins.md")}.`,
+		desc: `I’ll have you know it’s fully cited and currently sitting at around 3000 words. No, it’s not published, and yes, it is a very serious project. You can read it in ${a(i`Assort`, "https://github.com/Sup2point0/Assort/blob/origin/~writing/origins.md")}.`,
 	},
 	{
 		text: `I used to have a YouTube channel with ${h("127,000")} views.`,
@@ -186,7 +186,7 @@ export const facts: Fact[] = [
 	},
 	{
 		text: `I visited and toured ${h("8")} colleges at ${a("Cambridge University open day", "https://undergraduate.study.cam.ac.uk/events/cambridge-open-days")}.`,
-		desc: `Churchill, Fitzwilliam, Robinson, Claire, Lucy Cavendish, Queens, Downing (in that order). Plus a Computer Science department introduction presentation. I still don’t know how I did it. My legs were ${i("dead")}.`,
+		desc: `Churchill, Fitzwilliam, Robinson, Claire, Lucy Cavendish, Queens, Downing (in that order). Plus a Computer Science department introduction presentation. I still don’t know how I did it. My legs were ${i`dead`}.`,
 	},
 	{
 		text: `I think the most beautiful part of a human are eyes.`,

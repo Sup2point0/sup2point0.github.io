@@ -615,7 +615,7 @@ const data: Groups<ProjectData> = prep_groups(
         github: "https://github.com/Sup2point0/Victory"
       },
       desc:
-        `A custom card game for me and my sister to play, inspired by ${i("Yu-Gi-Oh!")}`,
+        `A custom card game for me and my sister to play, inspired by ${i`Yu-Gi-Oh!`}`,
     },
     {
       shard: "buccaneer-game",
@@ -714,7 +714,7 @@ const data: Groups<ProjectData> = prep_groups(
         github: "https://github.com/Sup2point0/Quarkdown"
       },
       desc:
-        `An automated content deployment framework for exporting Markdown files in repositories to GitHub Pages. The predecessor to ${i("Squarkdown")}.`,
+        `An automated content deployment framework for exporting Markdown files in repositories to GitHub Pages. The predecessor to ${i`Squarkdown`}.`,
     },
     {
       name:  "Ignis",
@@ -732,7 +732,7 @@ const data: Groups<ProjectData> = prep_groups(
         github: "https://github.com/Sup2point0/ignis",
       },
       desc:
-        `A series of projects relating to ${i("Yu-Gi-Oh")}`,  // TODO
+        `A series of projects relating to ${i`Yu-Gi-Oh`}`,  // TODO
     },
     {
       name:  "PENGUIN",

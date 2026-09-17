@@ -81,7 +81,7 @@ const data: Groups<GameData> =
       platforms: [Platform.DESKTOP],
       state:  PlayState.ACTIVE,
       desc: [
-        `The title of this game is the sort which I hear and think “I’ve heard this before”, even tho I probably haven’t. And it’s the kind where I ${i("know")} I want to play it just by hearing it. I made sure to skip parts of ${h("The Cursed Judge")}’s videos about it to avoid spoilers!`,
+        `The title of this game is the sort which I hear and think “I’ve heard this before”, even tho I probably haven’t. And it’s the kind where I ${i`know`} I want to play it just by hearing it. I made sure to skip parts of ${h("The Cursed Judge")}’s videos about it to avoid spoilers!`,
 
         `I’m currently still exploring, and falling ever more in love with this game. Flying in space is quite addictive, what can I say.`,
 
@@ -185,7 +185,7 @@ const data: Groups<GameData> =
 
         `And from a graphical standpoint, it’s not even close. They’re not ‘impressive’ per se, they’re just so fun, on-theme and flawless. tbh, I love the game more than it feels like I should. In my prime, I was watching all of ISAB’s videos, coming up with fictional monkeys, and ofc doing ${a("the Monkeyopolis Times", "/sup/projects#monkeyopolis-times", true)}.`,
 
-        `Unfortunately I have nowhere near enough time to play Bloons actively now, but every once in a while I’ll fire it up, and it’s like... ${i("ahh, home sweet home")}.`,
+        `Unfortunately I have nowhere near enough time to play Bloons actively now, but every once in a while I’ll fire it up, and it’s like... ${i`ahh, home sweet home`}.`,
       ],
     },
     {
@@ -241,7 +241,7 @@ const data: Groups<GameData> =
 
         `It’s free. The animations are BEAUTIFUL. It captures the essence of anime duels in a way I never thought possible.`,
 
-        `The first time I saw Master Duel, I was blown away by the graphics, and every time I come back to it I just marvel at how incredible it looks. The ${i("impact")} of a boss monster landing on the field, complete with a unique animation, aw man, it’s so cool, it makes you so giddy.`,
+        `The first time I saw Master Duel, I was blown away by the graphics, and every time I come back to it I just marvel at how incredible it looks. The ${i`impact`} of a boss monster landing on the field, complete with a unique animation, aw man, it’s so cool, it makes you so giddy.`,
       ],
     },
     {
@@ -332,7 +332,7 @@ const data: Groups<GameData> =
       platforms: [Platform.ARCADE],
       state:  PlayState.OPPORTUNISTIC,
       desc: [
-        `You most likely don’t know this one, but it’s probably the most common arcade rhythm in China (in my experience), even above maimai. There’s 2 distinct versions of it, the original 2D one, and the newer 3D version (${i("EVO")}). I can’t play the 2D one, but I love the 3D one!`,
+        `You most likely don’t know this one, but it’s probably the most common arcade rhythm in China (in my experience), even above maimai. There’s 2 distinct versions of it, the original 2D one, and the newer 3D version (${i`EVO`}). I can’t play the 2D one, but I love the 3D one!`,
 
         `Altho individually its note kinds aren’t unique, it’s got loads of them, so altogether is the full package. ${a("Paradigm: Reboot", "#paradigm-reboot")} on steroids. Playing on high scroll speed is exhilarating.`,
 
@@ -443,7 +443,7 @@ const data: Groups<GameData> =
       platforms: [Platform.DESKTOP],
       state:  PlayState.RETIRED,
       desc: [
-        `${i("osu!")} was actually one of the first rhythm games I played. When I was introduced to Phigros, another friend was playing osu! on his gaming laptop and we all took turns.`,
+        `${i`osu!`} was actually one of the first rhythm games I played. When I was introduced to Phigros, another friend was playing osu! on his gaming laptop and we all took turns.`,
 
         `I just don’t think I’m cut out for osu!, lmao. My mouse aim is not that great, and I never managed to get spamming with 2 keys down. Also, it sucks to play rhythm games where you can die, the stress is too high.`,
 
@@ -468,7 +468,7 @@ const data: Groups<GameData> =
 
         `I have to also credit Asphalt 9 for kicking off my passion for graphic design and typography. The game font, ${a("Rajdhani", "https://fonts.google.com/specimen/Rajdhani")}, was the first font I ever installed myself, and Asphalt 9’s UI design will stay with me forever.`,
 
-        `I ${i("also")} have to credit Asphalt 9 for igniting my passion for nomenclature. I seriously, ${i("seriously")} loved analysing the car names, and coming up with my own fictional ones (${h("Vengeance Seventure Adrenaline")} my beloved).`,
+        `I ${i`also`} have to credit Asphalt 9 for igniting my passion for nomenclature. I seriously, ${i`seriously`} loved analysing the car names, and coming up with my own fictional ones (${h("Vengeance Seventure Adrenaline")} my beloved).`,
       ],
     },
     {
@@ -548,9 +548,9 @@ const data: Groups<GameData> =
       platforms: [Platform.MOBILE],
       state:  PlayState.RETIRED,
       desc: [
-        `I miss this game, dude. I’m not sure if I was into Spider-Man ${i("before")} this game or ${i("because")} of this game, but either way – I love Spider-Man, and it’s not even close. He’s so cool, and I can’t imagine liking any other superhero more.`,
+        `I miss this game, dude. I’m not sure if I was into Spider-Man ${i`before`} this game or ${i`because`} of this game, but either way – I love Spider-Man, and it’s not even close. He’s so cool, and I can’t imagine liking any other superhero more.`,
 
-        `But back to the game. How can a runner be so fun? I think Gameloft totally nailed the haptics on this one. Oh boy, everything felt so ${i("tactile")}. The impacts, effects, particles, it was so lively. The web-slinging comic book fights, cutscenes, opening packs, the artworks, it was the full package. This is a runner done right.`,
+        `But back to the game. How can a runner be so fun? I think Gameloft totally nailed the haptics on this one. Oh boy, everything felt so ${i`tactile`}. The impacts, effects, particles, it was so lively. The web-slinging comic book fights, cutscenes, opening packs, the artworks, it was the full package. This is a runner done right.`,
 
         `And HOLY I never knew there were this many Spider-people. It’s actually kinda ridiculous lmao, these comic writers must’ve been really bored.`,
 

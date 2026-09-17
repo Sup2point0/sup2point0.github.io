@@ -90,7 +90,7 @@ const data: Groups<ArtistData> =
       },
       discovered: `${h("かめりあ")} chapter in Phigros`,
       desc: [
-        `When people ask for my favourite artist, I feel like I can’t ${i("not")} pick Camellia. He’s just made so. much. gawddamn. insane. MUSIC. There’s too much, too many tracks that I love to bits, for me to not pin him as my favourite.`,
+        `When people ask for my favourite artist, I feel like I can’t ${i`not`} pick Camellia. He’s just made so. much. gawddamn. insane. MUSIC. There’s too much, too many tracks that I love to bits, for me to not pin him as my favourite.`,
 
         `The guy’s mad. He somehow manages to do any genre imaginable, and nail it every time. wdym you can just create symphonic speedcore like that. wdym you’re just gonna chuck in jazzy electro swing. wdym you can sing opera.`,
 

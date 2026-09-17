@@ -328,7 +328,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
       cover:  "vision.another-dawn.png",
       daw:    Daw.GarageBand,
       desc:
-        `New soundtracks created for the revival of my rhythm game ${i("Algorhythm")}`,
+        `New soundtracks created for the revival of my rhythm game ${i`Algorhythm`}`,
       tracks: [
         {
           feat:   true,
@@ -395,7 +395,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
       cover:  "roots.rush-reloaded.png",
       daw:    Daw.GarageBand,
       desc:
-        `More soundtracks created for my rhythm game ${i("Algorhythm")}!`,
+        `More soundtracks created for my rhythm game ${i`Algorhythm`}!`,
       tracks: [
         {
           shard:  "away",
@@ -463,7 +463,7 @@ export const albums_data: Groups<AlbumData> = assign_albums({
       cover:  "origins.night.png",
       daw:    Daw.GarageBand,
       desc:
-        `Soundtracks created for my rhythm game ${i("Algorhythm")}!`,
+        `Soundtracks created for my rhythm game ${i`Algorhythm`}!`,
       tracks: [
         {
           shard:  "dawn",

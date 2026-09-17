@@ -28,7 +28,7 @@ const data: Groups<SeriesData> =
       genres: [Genre.DYSTOPIAN, Genre.FANTASY],
       themes: [Theme.TRAGEDY],
       desc: [
-        `${i("Arcane")} was so good that it made me genuinely consider playing League.`,
+        `${i`Arcane`} was so good that it made me genuinely consider playing League.`,
 
         `*shudder* I know. No thanks. Granted, I’d also been similarly lured in while using League art for my custom ${h`Yu-Gi-Oh`} cards.`,
 

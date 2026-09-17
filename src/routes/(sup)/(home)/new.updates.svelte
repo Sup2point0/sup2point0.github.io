@@ -7,8 +7,8 @@ What's new.
 
 import { a } from "#scripts/utils";
 
-import Cards     from "#parts/core/cards.svelte";
-import FactCard  from "#src/parts/ui/card.info.svelte";
+import { Cards } from "#parts/core";
+import { InfoCard as FactCard } from "#parts/ui";
 import Adventure from "#parts/special/adventure.svelte";
 
 import { fade } from "svelte/transition";

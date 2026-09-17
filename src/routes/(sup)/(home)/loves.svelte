@@ -2,9 +2,8 @@
 
 import { FrozenWeightedList } from "@sup2.0/weighted-list";
   
-import Cards    from "#parts/core/cards.svelte";
-import Clicky   from "#parts/ui/clicky.svelte";
-import LinkCard from "#parts/ui/card.link.svelte";
+import { Cards } from "#parts/core";
+import { Clicky, LinkCard } from "#parts/ui";
 
 import { onMount } from "svelte";
 import { fade } from "svelte/transition";

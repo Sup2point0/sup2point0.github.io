@@ -2,9 +2,8 @@
 
 <script lang="ts">
 
-import Cards     from "#parts/core/cards.svelte";
-import Clicky    from "#parts/ui/clicky.svelte";
-import LinkCard  from "#parts/ui/card.link.svelte";
+import { Cards } from "#parts/core";
+import { Clicky, LinkCard } from "#parts/ui";
 import Adventure from "#parts/special/adventure.svelte";
 
 import { fade } from "svelte/transition";

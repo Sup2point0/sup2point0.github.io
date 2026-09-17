@@ -5,8 +5,8 @@ import { any, all, get_enabled } from "#scripts/utils";
 import type { States } from "#scripts/types";
 
 import type { ProjectData } from "./projects";
-import { Lang } from "#sup/dev/dev.langs";
-import { Tech } from "#sup/dev/dev.techs";
+import { Lang } from "#sup/dev/langs";
+import { Tech } from "#sup/dev/techs";
 import { Flavour, Kind, State } from "#scripts/types/dev";
 
 

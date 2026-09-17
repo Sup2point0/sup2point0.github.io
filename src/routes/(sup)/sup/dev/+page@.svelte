@@ -7,9 +7,8 @@ import type { DevEntity } from "#scripts/types/dev";
 
 import { lattice } from "./dev.cells";
 
-import Nav          from "#parts/core/nav.svelte";
-import HexCell      from "#parts/dev/hex.cell.svelte";
-import HexContent   from "#parts/dev/hex.content.svelte";
+import { Nav } from "#parts/core";
+import { HexCell, HexContent } from "#parts/dev";
 import Overlay from "./overlay.svelte";
 
 import { onMount, type SvelteComponent } from "svelte";

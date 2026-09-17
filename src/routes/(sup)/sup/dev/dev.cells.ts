@@ -1,5 +1,5 @@
-import { Lang } from "./dev.langs";
-import { Tech } from "./dev.techs";
+import { Lang } from "./langs";
+import { Tech } from "./techs";
 
 import type { DevEntity } from "#scripts/types/dev";
 

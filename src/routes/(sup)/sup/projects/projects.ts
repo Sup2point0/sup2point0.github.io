@@ -1,7 +1,7 @@
 import { prep_groups, type Searchable } from "#scripts/search";
 import { a, i } from "#scripts/utils";
-import { Lang } from "#sup/dev/dev.langs";
-import { Tech } from "#sup/dev/dev.techs";
+import { Lang } from "#sup/dev/langs";
+import { Tech } from "#sup/dev/techs";
 import { Flavour, Kind, State, type DevEntity } from "#scripts/types/dev";
 import type { shard, Groups, Datepoint } from "#scripts/types";
 

@@ -1,10 +1,13 @@
 import { prep_groups } from "#scripts/search";
-import { i } from "#scripts/utils";
+import { a, i, h } from "#scripts/utils";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
 
-export interface AnimeData extends MediaData {}
+export interface AnimeData extends MediaData
+{
+  order?: string[]
+}
 
 
 const data: Groups<AnimeData> =

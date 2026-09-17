@@ -101,5 +101,5 @@ const link_chains: Record<filepath, filepath[]> = Object.fromEntries(
 
 function qualify(path: filepath): filepath
 {
-	return path.startsWith("/sup/") ? path : `/sup/${path}`;
+	return path.startsWith`/sup/` ? path : `/sup/${path}`;
 }

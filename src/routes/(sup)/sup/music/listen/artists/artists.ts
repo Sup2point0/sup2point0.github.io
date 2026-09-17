@@ -19,7 +19,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/channel/UC9kVsW-rlTxMs_aAlz1l1uA",
       },
-      discovered: `${h("selenelion")} in YouTube reccs`,
+      discovered: `${h`selenelion`} in YouTube reccs`,
       desc: [
         ``,
       ],
@@ -36,7 +36,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkB49VusnUD96zKkkRsMwEmT",
       },
-      discovered: `${h("NO x")} in Phigros`,
+      discovered: `${h`NO x`} in Phigros`,
       desc: [
         ``,
       ],
@@ -88,7 +88,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCLPwaevGf-8oKXSE4syPAT",
       },
-      discovered: `${h("かめりあ")} chapter in Phigros`,
+      discovered: `${h`かめりあ`} chapter in Phigros`,
       desc: [
         `When people ask for my favourite artist, I feel like I can’t ${i`not`} pick Camellia. He’s just made so. much. gawddamn. insane. MUSIC. There’s too much, too many tracks that I love to bits, for me to not pin him as my favourite.`,
 
@@ -131,7 +131,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkDro0y_y55ojMZ6u3m6RKzJ",
       },
-      discovered: `${h("New Start")} in YouTube reccs`,
+      discovered: `${h`New Start`} in YouTube reccs`,
     },
     {
       shard:  "stessie",
@@ -146,7 +146,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAlt2TuUBsjZgKF17agTDx4",
       },
-      discovered: `${h("What If")} on Firefly Music in YouTube Music reccs`,
+      discovered: `${h`What If`} on Firefly Music in YouTube Music reccs`,
     },
     {
       shard:  "elektronomia",
@@ -180,13 +180,13 @@ const data: Groups<ArtistData> =
       track: {
         name: "Something To Say", link: "https://youtube.com/watch?v=D7T_3lztqNc&list=PLYWIouv-DSkAUmAACIsfh4d8WYSk8e1yJ"
       },
-      discovered: `${h("Ride on Time")} on Firefly Music in YouTube reccs`,
+      discovered: `${h`Ride on Time`} on Firefly Music in YouTube reccs`,
       desc: [
         `I listen to a lot of what l call ‘feel-good’ music – I say this in contrast to music that might be much more technical, ambitious or ‘rich’. At the end of the day, I don’t really care how ‘impressive’ it is; if it makes me feel good, then it’s good music!`,
 
         `And in that regard, MOKKAI makes such good feel-good music. It’s just a vibe. I was a liiittle dismayed to find out their voice/lyrics aren’t theirs, but it’s no biggie, sampling is just a part of music.`,
 
-        `I first heard ${h("Ride on Time")} by them on Firefly Music in summer 2025, but only tried listening to more of their discography in spring 2026. I originally didn’t think was especially well-produced when I first got it in my reccs, but I think it wound up stuck in my head. So after a while, I decided to check out the rest of MOKKAI’s discography, and I was pleasantly surprised!`,
+        `I first heard ${h`Ride on Time`} by them on Firefly Music in summer 2025, but only tried listening to more of their discography in spring 2026. I originally didn’t think was especially well-produced when I first got it in my reccs, but I think it wound up stuck in my head. So after a while, I decided to check out the rest of MOKKAI’s discography, and I was pleasantly surprised!`,
       ],
     },
     {
@@ -210,7 +210,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Checkmate", link: "https://youtube.com/watch?v=yHjj9fWTZdY&list=PLYWIouv-DSkAyddNPBMP81AMJQlfDrQRj"
       },
-      discovered: `${h("Checkmate")} in Dance Cube EVO`,
+      discovered: `${h`Checkmate`} in Dance Cube EVO`,
     },
     {
       shard:  "puru",
@@ -225,7 +225,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkBt4zknZoQPwgiYLB4xHSRf",
       },
-      discovered: `${h("Grimheart")} in Arcaea`,
+      discovered: `${h`Grimheart`} in Arcaea`,
       desc: [
         `puru’s melodies absolutely melt me. I don’t know how they come up with them, but they’re unbelievably beautiful.`,
 
@@ -245,7 +245,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7",
       },
-      discovered: `${h("WATER")} in Phigros`,
+      discovered: `${h`WATER`} in Phigros`,
       desc: [
         `Not really a fan of Vocaloid, but A-39 makes it good. Not entirely sure how.`,
 
@@ -280,7 +280,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkCObYw5-q2fTs8VxVq7PF7m",
       },
-      discovered: `${h("NO ONE YES MAN")} in Phigros`,
+      discovered: `${h`NO ONE YES MAN`} in Phigros`,
     },
     {
       shard:  "chiru-san",
@@ -328,7 +328,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkB2wYNdQ7vwkvGyJz1xw6KL",
       },
-      discovered: `${h("Sentient")} in YouTube reccs`,
+      discovered: `${h`Sentient`} in YouTube reccs`,
       desc: [
         `I think we can all use some piano music in our lives. On a sombre evening, or peaceful afternoon, Gavin Luke calms the soul. Perfect for programming, working, reading, anything where the time will bleed away. Sure, there may be more ‘technical’ piano music out there, but Gavin Luke’s makes me feel, and that’s all I need.`,
       ],
@@ -358,7 +358,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "SAVE THIS WRLD", link: undefined
       },
-      discovered: `${h("SAVE THIS WRLD")} in YouTube Music reccs`,
+      discovered: `${h`SAVE THIS WRLD`} in YouTube Music reccs`,
     },
     {
       shard:  "nhato",
@@ -369,7 +369,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Radiance", link: "https://youtube.com/watch?v=7o1S3o_VNII"
       },
-      discovered: `${h("Radiance")} in Phigros`,
+      discovered: `${h`Radiance`} in Phigros`,
     },
     {
       shard:  "unfinish",
@@ -383,7 +383,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAGD_WKtKGd5eFyoR6xATgj",
       },
-      discovered: `${h("Turbo Luck Second")} in YouTube reccs`,
+      discovered: `${h`Turbo Luck Second`} in YouTube reccs`,
     },
     {
       shard:  "silentroom",
@@ -409,7 +409,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Lost Requiem", link: "https://youtube.com/watch?v=QdiqIo963PE"
       },
-      discovered: `${h("Lost Requiem")} in YouTube Music reccs`,
+      discovered: `${h`Lost Requiem`} in YouTube Music reccs`,
     },
     {
       shard:  "hinkik",
@@ -420,7 +420,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Realms", link: "https://youtube.com/watch?v=Ui9GnVC-jfw"
       },
-      discovered: `${h("Realms")} in Phigros`,
+      discovered: `${h`Realms`} in Phigros`,
     },
     {
       shard:  "tea-12",
@@ -449,7 +449,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkARK0RHQXJnm2-webMrXzQ4",
       },
-      discovered: `${h("Synthesis.")} in YouTube reccs`,
+      discovered: `${h`Synthesis.`} in YouTube reccs`,
     },
     {
       shard:  "kanro",
@@ -460,7 +460,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Amethyst", link: "https://youtube.com/watch?v=-__-oI8xWJk"
       },
-      discovered: `${h("Amethyst")} in YouTube reccs`,
+      discovered: `${h`Amethyst`} in YouTube reccs`,
     },
     {
       shard:  "hookington",
@@ -471,7 +471,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Final Showdown", link: "https://youtube.com/watch?v=UBGTDveF84o"
       },
-      discovered: `${h("Final Showdown")} with ${a("Chiru-san", "#chiru-san", true)}`,
+      discovered: `${h`Final Showdown`} with ${a("Chiru-san", "#chiru-san", true)}`,
     },
     {
       shard:  "m-ue",
@@ -532,7 +532,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkBlchcQSJ6oqzovuufxHqgo",
       },
-      discovered: `${h("Innocent")} in YouTube Music reccs`,
+      discovered: `${h`Innocent`} in YouTube Music reccs`,
     },
     {
       shard:  "polyphia",
@@ -543,7 +543,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Playing God", link: "https://youtube.com/watch?v=Z5NoQg8LdDk"
       },
-      discovered: `${h("Playing God")} in YouTube Music reccs`,
+      discovered: `${h`Playing God`} in YouTube Music reccs`,
     },
     {
       shard:  "yoasobi",
@@ -557,7 +557,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkDz2EZqORKQX6ToEnZrVCaf",
       },
-      discovered: `${h("Oshi no Ko")} anime OP`,
+      discovered: `${h`Oshi no Ko`} anime OP`,
     },
     {
       shard:  "street",
@@ -568,7 +568,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Sakura Fubiki", link: "https://youtube.com/watch?v=0keUnlH_0IY&list=PLYWIouv-DSkARFlBS9jQ-7sFT8UecZbfR"
       },
-      discovered: `${h("Sakura Fubiki")} in Arcaea`,
+      discovered: `${h`Sakura Fubiki`} in Arcaea`,
     },
     {
       shard:  "xomu",
@@ -622,7 +622,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCC0pprSmxOqXkVTigfkUQ-",
       },
-      discovered: `${h("Beatboxing Pros Are Insane")} in YouTube reccs`,
+      discovered: `${h`Beatboxing Pros Are Insane`} in YouTube reccs`,
     },
     {
       shard:  "kaji",
@@ -684,7 +684,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Freefalling", link: "https://youtube.com/watch?v=mcb5iievIgY&list=PLYWIouv-DSkAbl202yYcTYEC6w1QWTJbj"
       },
-      discovered: `${h("100K views = free FLP")} in YouTube reccs`,
+      discovered: `${h`100K views = free FLP`} in YouTube reccs`,
     },
     {
       shard:  "falcon-dives",
@@ -707,7 +707,7 @@ const data: Groups<ArtistData> =
       date:   2025,
       icon:   "rhyx.jpg",
       genres: [Genre.HITECH],
-      discovered: `${h("How to Make Hi-Tech Ninja")} in YouTube reccs`,
+      discovered: `${h`How to Make Hi-Tech Ninja`} in YouTube reccs`,
     },
     {
       shard:  "s9ryne",
@@ -795,7 +795,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Distorted Fate", link: undefined
       },
-      discovered: `${h("Distorted Fate")} in Phigros`,
+      discovered: `${h`Distorted Fate`} in Phigros`,
     },
     {
       shard:  "jiang-mi-tiao",
@@ -829,7 +829,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "nana", link: "https://youtube.com/watch?v=iXH6zdvhN80"
       },
-      discovered: `${h("nana")} in YouTube reccs`,
+      discovered: `${h`nana`} in YouTube reccs`,
     },
     {
       shard:  "psyqui",
@@ -840,7 +840,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Mend Your Ways", link: undefined
       },
-      discovered: `${h("Such – Mend Your Ways")} in YouTube Music reccs`,
+      discovered: `${h`Such – Mend Your Ways`} in YouTube Music reccs`,
     },
     {
       shard:  "tanger",
@@ -1166,7 +1166,7 @@ const data: Groups<ArtistData> =
       date:   2025,
       icon:   "firefly-music.jpg",
       genres: [Genre.ELECTRONIC],
-      discovered: `${h("PIKASONIC - New Start")} in YouTube reccs`,
+      discovered: `${h`PIKASONIC - New Start`} in YouTube reccs`,
     },
     {
       shard:  "ncs",
@@ -1270,7 +1270,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Beyond the Way", link: undefined
       },
-      discovered: `${h("Beyond the Way")} in YouTube reccs`,
+      discovered: `${h`Beyond the Way`} in YouTube reccs`,
     },
     {
       shard:  "deco-27",
@@ -1281,7 +1281,7 @@ const data: Groups<ArtistData> =
       track: {
         name: "Rabbit Hole", link: undefined
       },
-      discovered: `${h("Rabbit Hole")} in YouTube reccs`,
+      discovered: `${h`Rabbit Hole`} in YouTube reccs`,
     },
     {
       shard:  "lupus-nocte",

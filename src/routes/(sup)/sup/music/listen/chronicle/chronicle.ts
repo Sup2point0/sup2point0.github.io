@@ -510,7 +510,7 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "idol.png",
         genres:  [Genre.JPOP, Genre.ANIME],
-        discovered: `${h("Oshi no Ko")} anime`,
+        discovered: `${h`Oshi no Ko`} anime`,
         desc: [
           ``,
         ],
@@ -777,7 +777,7 @@ export const chronicle_data: ChronicleData[] = [
         date:    undefined,
         cover:   "suzume.jpg",
         genres:  [Genre.ANIME],
-        discovered: `${h("Suzume no Tojimari")} anime`,
+        discovered: `${h`Suzume no Tojimari`} anime`,
         desc: [
           ``,
         ],
@@ -801,7 +801,7 @@ export const chronicle_data: ChronicleData[] = [
         date:    "childhood",
         cover:   "susume.jpg",
         genres:  [Genre.SOUNDTRACK, Genre.ROCK],
-        discovered: `${h("Ultraman Zero: The Revenge of Belial")} (film)`,
+        discovered: `${h`Ultraman Zero: The Revenge of Belial`} (film)`,
         desc: [
           `Such a theme. The way everything comes together is really nice, and the energy is so complete. Ultraman Zero is just pure unfiltered epicness, so it just fits him perfectly.`,
         ],
@@ -838,7 +838,7 @@ export const chronicle_data: ChronicleData[] = [
         desc: [
           `It is pretty awe-inspiring how rarely Johannes Bornlöf misses, and the proportion of his discography that I ${i`really like`} is pretty astounding. Beat かめりあ, tbh.`,
 
-          `But of all his incredible tracks, for some reason this one just hits different. It’s the melody. ${h("Only the Brave")} has a similarly timeless melody, but this one really, really struck me fsr. It’s... beautiful, really. The sense of longing, nostalgia, triumph, all captured in one.`,
+          `But of all his incredible tracks, for some reason this one just hits different. It’s the melody. ${h`Only the Brave`} has a similarly timeless melody, but this one really, really struck me fsr. It’s... beautiful, really. The sense of longing, nostalgia, triumph, all captured in one.`,
 
           `I don’t really like picking favourites, but somehow I was able to pick this out as my favourite Johannes Bornlöf track. It’s genuinely incredible how much his music has been able to move me.`,
         ],
@@ -863,9 +863,9 @@ export const chronicle_data: ChronicleData[] = [
     date: [2016, 2021],
     col:  "#40e0ff",
     desc: [
-      `My musical journey began with electronic, specifically NCS-era EDM (${h("NoCopyrightSounds")} / electronic dance music). My favourite YouTuber at the time, ${h("iXPLODE")}, who made .io games videos, used this music in his videos.`,
+      `My musical journey began with electronic, specifically NCS-era EDM (${h`NoCopyrightSounds`} / electronic dance music). My favourite YouTuber at the time, ${h`iXPLODE`}, who made .io games videos, used this music in his videos.`,
       
-      `${h("Elektronomia")} was the first artist I followed, and the first artist I called my “favourite”.`,
+      `${h`Elektronomia`} was the first artist I followed, and the first artist I called my “favourite”.`,
     ],
     tracks: [
       {

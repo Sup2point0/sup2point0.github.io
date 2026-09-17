@@ -24,11 +24,11 @@ export const facts: Fact[] = [
 		desc: `For specific series, head over to ${a("loves/book-series", "loves/book-series", true)} ;)`,
 	},
 	{
-		text: `My record typing speed is ${h("190 WPM")}.`,
-		desc: `10-second burst tho, so not realistic at all lmao. I tend to float at more around ${h("130")}, and when I’m actually typing content it’s more like ${h("80~120")} WPM. Also, typing lowercase words != typing sentences != typing code.`,
+		text: `My record typing speed is ${h`190 WPM`}.`,
+		desc: `10-second burst tho, so not realistic at all lmao. I tend to float at more around ${h`130`}, and when I’m actually typing content it’s more like ${h`80~120`} WPM. Also, typing lowercase words != typing sentences != typing code.`,
 	},
 	{
-		text: `I can type one-handed at ${h("~90 WPM")}.`,
+		text: `I can type one-handed at ${h`~90 WPM`}.`,
 		desc: `On iPad. I often need to hold my iPad with my left hand, and then type with my right, so I started typing one-handed. It’s very fun. Feels like playing Phigros :P`
 	},
 	{
@@ -48,7 +48,7 @@ export const facts: Fact[] = [
 		desc: `Yeup, piano and drums. Literally the perfect combo for music production, innit B)`,
 	},
 	{
-		text: `I’ve created ${h("1000+")} custom ${a(i`Yu-Gi-Oh!`, "https://yugipedia.com/wiki/Yugipedia")} cards.`,
+		text: `I’ve created ${h`1000+`} custom ${a(i`Yu-Gi-Oh!`, "https://yugipedia.com/wiki/Yugipedia")} cards.`,
 		desc: `By the latest census. Probably more if you’re reading this. Also doesn’t include planned cards that haven’t been formally created yet :P`,
 	},
 	{
@@ -56,7 +56,7 @@ export const facts: Fact[] = [
 		desc: `It’s called ${i`The Stranded Saga`}. You can check it out in ${a(i`Assort`, "https://sup2point0.github.io/Assort/yugioh/lore/stranded-saga/the-stranded-saga")}, altho it’s far from finished (and probably never will).`,
 	},
 	{
-		text: `I’ve created ${h("300+")} integrals.`,
+		text: `I’ve created ${h`300+`} integrals.`,
 		desc: `As in, written my own integration questions. Yeah, I’m down so bad for maths. You can see them on ${a(i`Integrity`, "https://sup2point0.github.io/integrity/questions/integrals")}.`,
 	},
 	
@@ -154,15 +154,15 @@ export const facts: Fact[] = [
 		desc: `It’s a remake of the mobile game ${a("Ball Blast")}. You can check out a preview ${a("on YouTube", "https://youtube.com/watch?v=KX0i13fPqLo")}.`,
 	},
 	{
-		text: `I’ve written a research paper on the origins of my username (${h("Sup#2.0")}).`,
+		text: `I’ve written a research paper on the origins of my username (${h`Sup#2.0`}).`,
 		desc: `I’ll have you know it’s fully cited and currently sitting at around 3000 words. No, it’s not published, and yes, it is a very serious project. You can read it in ${a(i`Assort`, "https://github.com/Sup2point0/Assort/blob/origin/~writing/origins.md")}.`,
 	},
 	{
-		text: `I used to have a YouTube channel with ${h("127,000")} views.`,
+		text: `I used to have a YouTube channel with ${h`127,000`} views.`,
 		desc: `A little over 200 subscribers, hehe. Unfortunately, the account got terminated for copyright violations(?). Welp, what can you do. Anyway, ${a("check this out", "https://youtube.com/@VengeanceVanguard")} ;)`,
 	},
 	{
-		text: `My record for solving the ${a("3x3x3 Rubik’s Cube", "https://wikipedia.org/wiki/Rubik%27s_Cube")} is ${h("18.34")} seconds.`,
+		text: `My record for solving the ${a("3x3x3 Rubik’s Cube", "https://wikipedia.org/wiki/Rubik%27s_Cube")} is ${h`18.34`} seconds.`,
 		desc: `Timed by my friend on the school playground when I was 11. Can’t do it that quick anymore, ofc 0.o`,
 	},
 	{
@@ -185,7 +185,7 @@ export const facts: Fact[] = [
 		desc: `The exact dates are lost to me now, but I think I started around autumn 2019, and I must’ve finished a good while before the end of 2020. I’ll say it took me a couple months in total to finish the 160 episodes or whatever.`,
 	},
 	{
-		text: `I visited and toured ${h("8")} colleges at ${a("Cambridge University open day", "https://undergraduate.study.cam.ac.uk/events/cambridge-open-days")}.`,
+		text: `I visited and toured ${h`8`} colleges at ${a("Cambridge University open day", "https://undergraduate.study.cam.ac.uk/events/cambridge-open-days")}.`,
 		desc: `Churchill, Fitzwilliam, Robinson, Claire, Lucy Cavendish, Queens, Downing (in that order). Plus a Computer Science department introduction presentation. I still don’t know how I did it. My legs were ${i`dead`}.`,
 	},
 	{

@@ -23,7 +23,7 @@ export const Shortcut =
 	Warp: {
 		key:   "w",
 		title: "Warp",
-		desc:  `Visit a ${h("https://sup2point0.github.io")} site`,
+		desc:  `Visit a ${h`https://sup2point0.github.io`} site`,
 	},
 	Music: {
 		key:   "m",

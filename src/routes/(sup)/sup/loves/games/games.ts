@@ -81,7 +81,7 @@ const data: Groups<GameData> =
       platforms: [Platform.DESKTOP],
       state:  PlayState.ACTIVE,
       desc: [
-        `The title of this game is the sort which I hear and think “I’ve heard this before”, even tho I probably haven’t. And it’s the kind where I ${i`know`} I want to play it just by hearing it. I made sure to skip parts of ${h("The Cursed Judge")}’s videos about it to avoid spoilers!`,
+        `The title of this game is the sort which I hear and think “I’ve heard this before”, even tho I probably haven’t. And it’s the kind where I ${i`know`} I want to play it just by hearing it. I made sure to skip parts of ${h`The Cursed Judge`}’s videos about it to avoid spoilers!`,
 
         `I’m currently still exploring, and falling ever more in love with this game. Flying in space is quite addictive, what can I say.`,
 
@@ -254,7 +254,7 @@ const data: Groups<GameData> =
       genres: [Genre.PUZZLE],
       platforms: [Platform.DESKTOP],
       desc: [
-        `Ever since learning of this game from ${h("The Cursed Judge")}’s video essays, it’s been top of my wishlist. Finally, finally got it during the Steam Christmas sale (almost missed it!). Wanted to play it there and then, but decided to save it for when I had time so I could play it properly alone.`,
+        `Ever since learning of this game from ${h`The Cursed Judge`}’s video essays, it’s been top of my wishlist. Finally, finally got it during the Steam Christmas sale (almost missed it!). Wanted to play it there and then, but decided to save it for when I had time so I could play it properly alone.`,
 
         `A couple days later, I played my first 2 hours of Manifold Garden in a dark room, alone, headphones on, no distractions. And. Oh my. Truly one of the most special experiences I’ve ever had.`,
 
@@ -468,7 +468,7 @@ const data: Groups<GameData> =
 
         `I have to also credit Asphalt 9 for kicking off my passion for graphic design and typography. The game font, ${a("Rajdhani", "https://fonts.google.com/specimen/Rajdhani")}, was the first font I ever installed myself, and Asphalt 9’s UI design will stay with me forever.`,
 
-        `I ${i`also`} have to credit Asphalt 9 for igniting my passion for nomenclature. I seriously, ${i`seriously`} loved analysing the car names, and coming up with my own fictional ones (${h("Vengeance Seventure Adrenaline")} my beloved).`,
+        `I ${i`also`} have to credit Asphalt 9 for igniting my passion for nomenclature. I seriously, ${i`seriously`} loved analysing the car names, and coming up with my own fictional ones (${h`Vengeance Seventure Adrenaline`} my beloved).`,
       ],
     },
     {

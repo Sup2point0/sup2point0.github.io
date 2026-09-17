@@ -2,7 +2,8 @@ import type { Searchable } from "#scripts/search";
 import type { Datepoint } from "#scripts/types";
 
 
-export interface DevEntity extends Searchable {  
+export interface DevEntity extends Searchable
+{  
 	date:      Datepoint;
 	versions?: string[];
 
@@ -21,17 +22,13 @@ export interface DevEntity extends Searchable {
 	has_projects?: boolean;
 }
 
-
 export interface LangData extends DevEntity {
 	name: string;
-
 	icon: string;
 }
 
-
 export interface TechData extends DevEntity {
 	name: string;
-
 	icon: string;
 }
 

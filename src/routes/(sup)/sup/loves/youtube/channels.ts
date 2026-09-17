@@ -314,7 +314,7 @@ const data: Groups<YouTubeChannelData> =
 		{
 			shard:  "philomatics",
 			name:   "Philomatics",
-			love:   undefined,
+			love:   null,
 			date:   undefined,
 			icon:   "philomatics.jpg",
 			topics: ["software"],
@@ -325,7 +325,7 @@ const data: Groups<YouTubeChannelData> =
 		{
 			shard:  "simon-dev",
 			name:   "SimonDev",
-			love:   undefined,
+			love:   null,
 			date:   undefined,
 			icon:   "simon-dev.jpg",
 			topics: ["software"],

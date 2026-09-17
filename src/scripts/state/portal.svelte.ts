@@ -72,5 +72,5 @@ const PLACEHOLDERS = new FrozenWeightedList(
 	[20, `explore the site!`],
 	[20, `quicknav to any page!`],
 	[20, `type / to use a shortcut!`],
-	[1, `never gonna give you up~`],
+	[1,  `never gonna give you up~`],
 );

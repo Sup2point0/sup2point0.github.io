@@ -1,14 +1,14 @@
 <script lang="ts">
 
+import { genres_data } from ".";
+
 import { shuffle } from "#scripts/utils";
 import type { GenreData } from "#scripts/types";
 
 import { Cards, Main } from "#parts/core";
 import { Block, Breadcrumbs } from "#parts/ui";
-import Adventure from "#parts/special/adventure.svelte";
+import { Adventure } from "#parts/special";
 import GenreBlock from "#parts/music/block.genre.svelte";
-
-import { genres_data } from "./genres";
 
 import { onMount } from "svelte";
 import { fade } from "svelte/transition";

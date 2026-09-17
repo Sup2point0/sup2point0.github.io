@@ -8,7 +8,7 @@ Latest released soundtracks!
 import { tracks_list } from "#sup/music/create";
 
 import { Cards } from "#parts/core";
-import Adventure  from "#parts/special/adventure.svelte";
+import { Adventure } from "#parts/special";
 import TrackCard from "#parts/music/card.track.create.svelte";
 
 import { fade } from "svelte/transition";

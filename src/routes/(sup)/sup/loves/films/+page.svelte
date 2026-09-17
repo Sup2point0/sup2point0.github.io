@@ -6,7 +6,7 @@ import { shuffle } from "#scripts/utils";
 import { Cards, Main } from "#parts/core";
 import { Block, Breadcrumbs, Header, SearchFilters } from "#parts/ui";
 import { MediaBlock } from "#parts/loves";
-import Adventure     from "#parts/special/adventure.svelte";
+import { Adventure } from "#parts/special";
 
 import { films_data, type FilmData } from "./films";
 import { FilmSearchFilter } from "./filter.films.svelte.ts";

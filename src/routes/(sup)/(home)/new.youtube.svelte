@@ -6,7 +6,7 @@ Latest released YouTube videos!
 <script lang="ts">
 
 import { Cards } from "#parts/core";
-import Adventure from "#parts/special/adventure.svelte";
+import { Adventure } from "#parts/special";
 
 import { fade } from "svelte/transition";
 import { page } from "$app/state";

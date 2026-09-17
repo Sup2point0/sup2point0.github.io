@@ -6,7 +6,7 @@ import { shuffle, a } from "#scripts/utils";
 import { Cards, Main } from "#parts/core";
 import { Block, Breadcrumbs, Header, SearchFilters } from "#parts/ui";
 import { ChannelBlock } from "#parts/loves";
-import Adventure from "#parts/special/adventure.svelte";
+import { Adventure } from "#parts/special";
 
 import { channels_data, type YouTubeChannelData } from "./channels";
 import { ChannelSearchFilter } from "./filter.channels.svelte.ts";

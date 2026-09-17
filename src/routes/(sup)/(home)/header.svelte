@@ -4,7 +4,7 @@
 
 import ProfileLinks from "./links.svelte";
 
-import Adventure from "#parts/special/adventure.svelte";
+import { Adventure } from "#parts/special";
 
 import { slide } from "svelte/transition";
 import { expoInOut } from "svelte/easing";

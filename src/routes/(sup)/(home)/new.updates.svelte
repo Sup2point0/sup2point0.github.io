@@ -9,7 +9,7 @@ import { a } from "#scripts/utils";
 
 import { Cards } from "#parts/core";
 import { InfoCard as FactCard } from "#parts/ui";
-import Adventure from "#parts/special/adventure.svelte";
+import { Adventure } from "#parts/special";
 
 import { fade } from "svelte/transition";
 

@@ -2,7 +2,7 @@
 
 import { Cards, Main } from "#parts/core";
 import { Block, Breadcrumbs, LinkCard } from "#parts/ui";
-import Adventure from "#parts/special/adventure.svelte";
+import { Adventure } from "#parts/special";
 
 </script>
 

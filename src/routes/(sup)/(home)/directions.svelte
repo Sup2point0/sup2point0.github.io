@@ -5,7 +5,7 @@
 import { a, h } from "#scripts/utils";
 
 import { Block } from "#parts/ui";
-import Adventure from "#parts/special/adventure.svelte";
+import { Adventure } from "#parts/special";
 
 </script>
 

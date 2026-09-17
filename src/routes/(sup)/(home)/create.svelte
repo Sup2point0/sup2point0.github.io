@@ -4,7 +4,7 @@
 
 import { Cards } from "#parts/core";
 import { Clicky, LinkCard } from "#parts/ui";
-import Adventure from "#parts/special/adventure.svelte";
+import { Adventure } from "#parts/special";
 
 import { fade } from "svelte/transition";
 

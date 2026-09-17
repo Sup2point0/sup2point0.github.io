@@ -7,7 +7,7 @@ import { frequerys } from "./faq";
 
 import { Block, Clicky, Header, InfoCard } from "#parts/ui";
 import PurplePortal from "#parts/special/purple-portal.svelte";
-import Adventure    from "#parts/special/adventure.svelte";
+import { Adventure } from "#parts/special";
 
 import { untrack } from "svelte";
 

@@ -1,13 +1,13 @@
 <script lang="ts">
 
+import { chronicle_data } from ".";
+
 import { display_date, i } from "#scripts/utils";
 
 import { Main } from "#parts/core";
 import { Block, Breadcrumbs } from "#parts/ui";
-import Adventure from "#parts/special/adventure.svelte";
+import { Adventure } from "#parts/special";
 import TrackBlock from "#parts/music/block.track.listen.svelte";
-
-import { chronicle_data } from "./chronicle";
 
 import { onMount } from "svelte";
 

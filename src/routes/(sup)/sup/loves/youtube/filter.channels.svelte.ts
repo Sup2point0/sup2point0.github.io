@@ -26,7 +26,7 @@ export class ChannelSearchFilter extends SearchFilter<YouTubeChannelData>
 
 		this.groups.push("love", "date", "topics");
 
-		this.sorts.push`random`;
+		this.sorts.push("random");
 	}
 
 

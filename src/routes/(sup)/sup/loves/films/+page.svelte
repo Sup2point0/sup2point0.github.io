@@ -1,5 +1,8 @@
 <script lang="ts">
 
+import { films_data, type FilmData } from ".";
+import { FilmSearchFilter } from "./filter.films.svelte.ts";
+
 import { status } from "#scripts/state";
 import { shuffle } from "#scripts/utils";
 
@@ -8,8 +11,6 @@ import { Block, Breadcrumbs, Header, SearchFilters } from "#parts/ui";
 import { MediaBlock } from "#parts/loves";
 import { Adventure } from "#parts/special";
 
-import { films_data, type FilmData } from "./films";
-import { FilmSearchFilter } from "./filter.films.svelte.ts";
 
 // svelte-ignore non_reactive_update
 let filters = new FilmSearchFilter();

@@ -1,6 +1,6 @@
 import { MediaSearchFilter } from "../filter.media.svelte";
 
-import { Franchise, Flag, type FilmData } from "./films";
+import { Franchise, Flag, type FilmData } from ".";
 
 
 export class FilmSearchFilter extends MediaSearchFilter<FilmData>

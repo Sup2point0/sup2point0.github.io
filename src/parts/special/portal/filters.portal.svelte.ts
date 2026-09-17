@@ -10,7 +10,7 @@ import { Shortcut, type ShortcutData } from "./shortcuts";
 import { routes_list } from "#routes";
 import { tracks_list } from "#sup/music/create";
 import { sites_data } from "#routes/sites";
-import { projects_list } from "#sup/projects/projects";
+import { projects_list } from "#src/routes/(sup)/sup/projects";
 import { socials_list } from "#routes/(sup)/(home)/socials";
 
 import { page } from "$app/state";

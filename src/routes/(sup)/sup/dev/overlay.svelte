@@ -2,12 +2,12 @@
 
 <script lang="ts">
 
+import { Fluency, type DevEntity } from "#scripts/types/dev";
+import { projects_data, type ProjectData } from "#sup/projects";
+import { ProjectSearchFilter } from "#sup/projects/filter.projects.svelte.ts";
+
 import type { FlatResults } from "#scripts/search";
 import { display_date } from "#scripts/utils";
-
-import { Fluency, type DevEntity } from "#scripts/types/dev";
-import { projects_data, type ProjectData } from "#sup/projects/projects";
-import { ProjectSearchFilter } from "#sup/projects/filter.projects.svelte.ts";
 
 import { SearchFilters } from "#parts/ui";
 import { ProjectBlock }  from "#parts/dev";

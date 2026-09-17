@@ -1,11 +1,11 @@
 <script lang="ts">
 
+import { projects_data, type ProjectData } from ".";
+import { ProjectSearchFilter } from "./filter.projects.svelte.ts";
+
 import { Cards, Main } from "#parts/core";
 import { Block, Header, SearchFilters } from "#parts/ui";
 import { ProjectBlock } from "#parts/dev";
-
-import { projects_data, type ProjectData } from "./projects";
-import { ProjectSearchFilter } from "./filter.projects.svelte.ts";
 
 
 // svelte-ignore non_reactive_update

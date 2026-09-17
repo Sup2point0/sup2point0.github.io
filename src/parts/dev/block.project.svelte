@@ -4,9 +4,7 @@
 
 import { anim } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
-import type { ProjectData } from "#sup/projects/projects";
-
-import { expoInOut } from "svelte/easing";
+import type { ProjectData } from "#sup/projects";
 
 
 interface Props {

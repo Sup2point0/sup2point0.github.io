@@ -4,7 +4,7 @@ import { SearchFilter } from "#scripts/search";
 import { any, all, get_enabled } from "#scripts/utils";
 import type { States } from "#scripts/types";
 
-import type { ProjectData } from "./projects";
+import type { ProjectData } from ".";
 import { Lang } from "#sup/dev/langs";
 import { Tech } from "#sup/dev/techs";
 import { Flavour, Kind, State } from "#scripts/types/dev";

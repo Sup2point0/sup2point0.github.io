@@ -9,8 +9,8 @@ import { Fluency, type DevEntity } from "#scripts/types/dev";
 import { projects_data, type ProjectData } from "#sup/projects/projects";
 import { ProjectSearchFilter } from "#sup/projects/filter.projects.svelte.ts";
 
-import SearchFilters from "#parts/ui/search-filters.svelte";
-import ProjectBlock  from "#parts/dev/block.project.svelte";
+import { SearchFilters } from "#parts/ui";
+import { ProjectBlock }  from "#parts/dev";
 
 import { untrack } from "svelte";
 import { fade, scale, slide } from "svelte/transition";

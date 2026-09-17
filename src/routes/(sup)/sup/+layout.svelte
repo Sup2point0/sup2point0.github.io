@@ -1,7 +1,6 @@
 <script>
 
-import Nav from "#parts/core/nav.svelte";
-import Footer from "#parts/core/footer.svelte";
+import { Footer, Nav } from "#parts/core";
 
 let { children } = $props();
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 
-import { NavLink } from "#parts/core";
+import NavLink from "./nav.link.svelte";
 
 
 interface Props {

@@ -1,4 +1,5 @@
 import { prep_groups } from "#scripts/search";
+import { i, h } from "#scripts/utils";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
@@ -26,6 +27,21 @@ const data: Groups<SeriesData> =
       cover:  "arcane-s1.jpg",
       genres: [Genre.DYSTOPIAN, Genre.FANTASY],
       themes: [Theme.TRAGEDY],
+      desc: [
+        `${i("Arcane")} was so good that it made me genuinely consider playing League.`,
+
+        `*shudder* I know. No thanks. Granted, I’d also been similarly lured in while using League art for my custom ${h`Yu-Gi-Oh`} cards.`,
+
+        `I don’t think I need to praise Arcane too much. The animation is obviously heavenly. I really like the painted Fortiche style, it’s incredibly unique and fresh.`,
+
+        `Personally, what I enjoyed most was the sheer depth of worldbuilding and lore – it feels lived in and nuanced, and the story paints it in a way that makes it feel like we’ve barely brushed the surface. We’re seeing but a tiny window into this brilliant universe. Which, yeah, leaves me a little unsatisfied at times, but I think it makes for an enrapturing story. Everything feels open and uncertain.`,
+
+        `I also love myself a love story, and I love enemies-to-friends, and I love enemies-to-lovers even more. Fun fact, I didn’t even clock that Vi and Caitlyn were like that until I finished season 1 and went on reddit 💀💀💀 ...not my sharpest moment.`,
+
+        `I like that there are few ‘pure evil’ characters in Arcane. Everyone has beliefs, goals and principles, and has the agency to act on them. They are flawed, and emotional, and we watch them struggle to navigate the world and have what they know challenged. Vi feels this more than anyone, what with having to pick between Caitlyn and the greater good vs home and family. Arcane understands nuance; things are rarely black-and-white. I like that it doesn’t really make any comment on whether a character is ‘good’ or ‘bad’, but lets us draw our own inferences and conclusions.`,
+
+        `I put season 1 because imho season 2 was significantly messier, and kinda lost me. Pretty much the whole time I was thinking “I’m not sure where this is going” and wondering how some previous plot points would be resolved, which is, well, not exactly what you wanna be thinking while watching a series. I’ll agree with the people saying it should’ve been split in two to make 3 seasons in total.`,
+      ],
     },
     {
       name:   "The Mandalorian: Season 1",

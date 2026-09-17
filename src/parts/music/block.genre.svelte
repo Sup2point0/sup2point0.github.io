@@ -3,10 +3,9 @@
 <script lang="ts">
 
 import { anim } from "#scripts/anim.svelte.ts";
-import { shardify } from "#scripts/utils";
 import type { GenreData } from "#scripts/types";
 
-import { artists_names } from "#sup/music/listen/artists/artists";
+import { artists_names } from "#sup/music/listen/artists";
 
 
 interface Props {

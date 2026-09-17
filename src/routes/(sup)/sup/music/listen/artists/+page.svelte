@@ -1,6 +1,6 @@
 <script lang="ts">
 
-import { artists_data } from "./artists";
+import { artists_data } from ".";
 import { ArtistSearchFilter } from "./filter.artists.svelte.ts";
 import type { ArtistData } from "#scripts/types";
 

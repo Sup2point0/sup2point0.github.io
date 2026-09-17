@@ -9,7 +9,7 @@ import { anim } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 import type { TrackData } from "#scripts/types/music/listen";
 
-import { artists_names } from "#routes/(sup)/sup/music/listen/artists/artists";
+import { artists_names } from "#sup/music/listen/artists";
 
 import { onMount } from "svelte";
 import { slide } from "svelte/transition";

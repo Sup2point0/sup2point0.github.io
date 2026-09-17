@@ -49,7 +49,7 @@ const data: Groups<WebtoonData> =
       name:   "Close As Neighbours",
       date:   undefined,
       cover:  undefined,
-      genres: [Genre.ROMANCE, Genre.SEXUAL],
+      genres: [Genre.ROMANCE, Genre.EROTICA],
       is_shown: false,
     },
   ],

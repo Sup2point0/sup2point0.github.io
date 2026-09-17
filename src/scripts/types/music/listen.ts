@@ -1,6 +1,6 @@
 import type { GenreKind, Genre, Vibe } from "#scripts/types/music";
 import type { Searchable } from "#scripts/search";
-import type { shard, filepath, url, Datepoint, Dates, Description } from "#scripts/types";
+import type { shard, filepath, url, Datepoint, Dates, Description, Arrayable } from "#scripts/types";
 
 
 export interface TrackData extends Searchable
@@ -33,7 +33,7 @@ export interface ArtistData {
 	
 	genres?: Genre[];
 	vibes?:  Vibe[];
-	track?:  ExternalTrackData | ExternalTrackData[];
+	track?:  Arrayable<ExternalTrackData>;
 
 	links?: {
 		[platform: string]: url;
@@ -56,6 +56,6 @@ export interface GenreData extends Searchable {
 	kind?: GenreKind;
 	
 	artists?: string[];
-	tracks?:  string | string[];
+	tracks?:  Arrayable<string>;
 	desc?:    Description[];
 }

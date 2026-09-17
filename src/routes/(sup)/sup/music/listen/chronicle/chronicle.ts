@@ -1,6 +1,6 @@
 import { Genre, Vibe, type TrackData } from "#scripts/types/music";
 import { a, h, i } from "#scripts/utils";
-import type { Dates, colour } from "#scripts/types";
+import type { colour, Dates, ProperDescription } from "#scripts/types";
 
 
 interface ChronicleData
@@ -8,7 +8,7 @@ interface ChronicleData
   era:    string;
   date:   Dates;
   col:    colour,
-  desc:   string[];
+  desc:   ProperDescription;
   tracks: TrackData[];
 }
 

@@ -1,6 +1,6 @@
 export type int = number;
 
-/** A unique identifier for any entity. */
+/** A unique stable identifier for any entity. */
 export type shard = string;
 
 /** A filepath for an asset. */
@@ -20,7 +20,7 @@ export type Datepoint = number | string | "childhood" | "present";
 export type Dates = Datepoint | [Datepoint, Datepoint];
 
 /** A single-line or multi-line description. */
-export type Description = string | string[];
+export type Description = Arrayable<string>;
 
 /** A multi-line description. */
 export type ProperDescription = string[];
@@ -31,6 +31,9 @@ export type Style = string | Record<string, any>;
 /** A measure of how much I love something. */
 export type Love = 3 | 2 | 1 | null;
 
+
+/** Either a single item, or an array of items. */
+export type Arrayable<Type> = Type | Type[];
 
 /** An object whose keys group arrays of items. */
 export type Groups<Type> = Record<string, Type[]>;

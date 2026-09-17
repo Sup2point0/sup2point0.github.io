@@ -40,7 +40,7 @@ onMount(() => {
     <Adventure multi={2} routes={[
       [1, `Or, well, they’re not exactly “favourites” per se. More so just tracks that I notably really liked, and which are sorta a ‘landmark’ along my evolution of music taste.`],
 
-      [1, `Very important to remember that this is a – honestly, ${i("quite extremely condensed")} – list with the aim of showing someone how my music taste has evolved. So I’ve had to pick and choose, and cull a lot of ‘similar’ tracks. That’s why you won’t see that many tracks in each era, and why the styles will shift so quick.`],
+      [1, `Very important to remember that this is a – honestly, ${i`quite extremely condensed`} – list with the aim of showing someone how my music taste has evolved. So I’ve had to pick and choose, and cull a lot of ‘similar’ tracks. That’s why you won’t see that many tracks in each era, and why the styles will shift so quick.`],
 
       [1, `While I’ve split these into discrete “eras” for some semblance of order, in reality you’ll notice there’s a lot of overlap – evolution of music taste is very nonlinear! Btw, the dates don’t mean I don’t listen to these tracks anymore, they just indicate when I first came across them ;)`],
 

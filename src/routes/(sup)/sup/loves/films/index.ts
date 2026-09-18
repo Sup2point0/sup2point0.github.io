@@ -49,6 +49,15 @@ const data: Groups<FilmData> =
       genres: [Genre.SUPERHERO, Genre.FANTASY, Genre.ACTION],
       franchise: Franchise.MARVEL,
       flags:  [],
+      desc: [
+        `So far, Doctor Strange is my second favourite superhero in the MCU. Cool name aside, cool cape aside, it’s the magic. Sorcery. Spells. Programs. Multiversal energy channelli– orange is a cool colour.`,
+
+        `Yeah, I think that’s literally all there is to it. Their magic is awesome. Oh wait, there’s the reality-bending aspects too. It’s fun, wack, and it feels like the possibilities are endless.`,
+
+        `Strange has your nice origin story of going through loss and being humbled. Watching him struggle to fight but somehow fumble a victory is incredibly funny. He’s a funny guy. A sort of innocent sarcasm at times. I also just can’t help but love the “was weak but now comes back with magical powers and crazy upgrades” arc, it’s cliche but so iconic. Can’t help giggling.`,
+
+        `Kaecilius also needs an honourable mention. Great antagonist. Just a fanatic firm in his beliefs. Mads Mikkelsen acted fantastically.`,
+      ],
     },
     {
       name:   "Dune: Part One",
@@ -176,6 +185,21 @@ const data: Groups<FilmData> =
       cover:  "wild-robot.jpg",
       genres: [Genre.ADVENTURE],
       flags:  [Flag.ANIMATED],
+      desc: [
+        `I will protest this til the day I die: kids’ films are not merely kids’ films. There is something to be found in even the most ridiculous of kids’ media ...or at least, the media made for kids in my day. Not modern YouTube or any of that garbage.`,
+
+        `Anyway, idk if ${i`The Wild Robot`} is advertised as a kids’ film, but I think a lot of people would assume that based off the cover.`,
+
+        `It’s incredible. It’s phenomenal. It’s... wild.`,
+
+        `I don’t really have standards in films, but I left this one thinking “...wow, that was a really, really good film.” Well let’s see. Beautiful animation: check, and then some; it’s much more textured and ragged than conventional animation. Still cartoonish, but very real, rich and earthy. Good music: check, and then some; ${i`memorable`} music. The main theme carries hope, triumph, and memories all in one. Plot: check, and then some. We get interesting, fleshed-out characters, and then ${i`also`} serious character development on top of that. Oh also, humour: check; tension: check; timeskips: check; oh so much humour.`,
+
+        `I’m talking too much. It’s brilliant. Why do I like it? I guess it’s a really beautiful story, told in a compelling way, realised with love into a work of art.`,
+
+        `I like ${i`all`} the characters, ${i`all`} of them. ALL OF THEM. That’s so rare. !. And it’s not (mainly) about personal preference; I like the antagonist because she’s written well. Toxically positive, hard-wired, creepy, it’s spot-on.`,
+
+        `The Wild Robot made me remember films can be amazing. If you have never seen it, I would highly recommend.`,
+      ],
     },
     {
       shard:  "ne-zha",

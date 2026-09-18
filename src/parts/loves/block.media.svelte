@@ -17,29 +17,44 @@ import { expoInOut } from "svelte/easing";
 interface Props {
   kind: MediaKind
   media: MediaData
+  expanded: boolean
+  active_media?: MediaData | null
 }
 
-let { kind, media, expanded }: Props = $props();
+let { kind, media, expanded, active_media: open_media = $bindable() }: Props = $props();
 
 
-let open = $state(false);
+let is_open = $state(false);
 
 /* Clicking on one block can locally toggle, but global override should affect all blocks */
 $effect(() => {
   expanded;
 
   untrack(() => {
-    open = expanded;
-  });
-});
+    is_open = expanded;
+  })
+})
+
+
+function open()
+{
+  if (
+    Array.isArray(media.desc)
+    && ((media.desc?.length ?? 0) >= 4)
+  ) {
+    open_media = media;
+  } else {
+    is_open = !is_open;
+  }
+}
 
 </script>
 
 
 <button class="block-media {kind}"
-  class:open
+  class:is_open
   id={media.shard}
-  onclick={() => { open = !open; }}
+  onclick={open}
   {@attach anim}
 >
   <div class="content">
@@ -63,7 +78,7 @@ $effect(() => {
 
   <div class="sep"></div>
 
-  {#if open}
+  {#if is_open}
     <div class="lower desc" transition:slide={{ duration: 800, easing: expoInOut }}>
       {#each media.desc ?? [] as block}
         <p> {@html block} </p>

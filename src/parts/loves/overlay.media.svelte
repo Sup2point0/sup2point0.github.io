@@ -3,10 +3,8 @@
 <script lang="ts">
 
 import { display_date } from "#scripts/utils";
-import { pick_random } from "#scripts/utils";
 import type { MediaData, MediaKind } from "#scripts/types/media";
 
-import { untrack } from "svelte";
 import { fade, scale, slide } from "svelte/transition";
 import { expoOut } from "svelte/easing";
 
@@ -17,11 +15,6 @@ interface Props {
 }
 
 let { kind, media = $bindable() }: Props = $props();
-
-
-let font = pick_random([
-  "fun", "dev",
-]);
 
 </script>
 
@@ -38,7 +31,7 @@ let font = pick_random([
 {#if media}
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <!-- svelte-ignore a11y_click_events_have_key_events -->
-<div class="overlay-media {font}"
+<div class="overlay-media {kind}"
   onclick={() => media = null}
   transition:fade={{ duration: 200 }}
 >
@@ -50,10 +43,9 @@ let font = pick_random([
     <div class="side left"
       transition:slide={{ axis: "y", duration: 700, easing: expoOut }}
     >
-      <header>
-        <img alt={media.name} src="/covers/{kind}/{media.cover}" />
-        <h1> {media.name?.toUpperCase() ?? "???"} </h1>
-      </header>
+      <img alt={media.name} src="/covers/{kind}/{media.cover}" />
+      
+      <h1> {media.name?.toUpperCase() ?? "???"} </h1>
 
       <div class="content">
         <table><tbody>
@@ -94,6 +86,7 @@ let font = pick_random([
 .overlay-media {
   width: 100vw;
   height: 100vh;
+  padding-top: 3rem;
   position: fixed;
   z-index: 10;
   display: flex;
@@ -107,11 +100,12 @@ let font = pick_random([
 .content-layout {
   width: 85vw;
   height: 80vh;
+  max-width: 100rem;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: start;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 
@@ -126,42 +120,35 @@ let font = pick_random([
 
 
 .left {
-  min-width: max-content;
   max-width: 40%;
   padding: 0 2rem;
   gap: 1rem;
 
-  header {
-    position: sticky;
-    top: 0;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    gap: 2rem;
+  img {
+    max-width: 20rem;
+    max-height: 50vh;
+  }
 
-    img {
-      height: 5rem;
-    }
+  h1 {
+    @include font-dev;
+    font-weight: 200;
+    text-align: center;
+    text-wrap: wrap;
+    text-align: left;
 
-    h1 {
-      width: max-content;
-      padding: 0.5rem 3rem 0.4rem 2rem;
-      @include font-dev;
-      font-weight: 200;
-      text-align: center;
-      @include shear-card;
-      animation-delay: 0.1s;
-      
-      &::before {
-        background: $col-card-overlay;
-        border-left: 4px solid $col-prot;
-      }
+    &::after {
+      content: '';
+      width: 4em;
+      height: 1px;
+      display: block;
+      margin-top: 0.4em;
+
+      .films & { background: $col-prot; }
     }
   }
 }
 
 .content {
-  padding: 0 1rem;
   overflow-y: auto;
   display: flex;
   flex-flow: column nowrap;
@@ -180,40 +167,24 @@ let font = pick_random([
     td {
       padding-left: 1em;
     }
-
-    .fluency {
-      .tier-1 { color: $col-acc; }
-      .tier-2 { color: $col-trit; }
-      .tier-3 { color: $col-quat; }
-      .tier-4 { color: $col-deut; }
-    }
   }
 }
 
 
 .right {
+  padding: 0 2rem;
+  overflow-y: auto;
+
   section {
     margin-bottom: 1rem;
-    padding: 1em 1.5em;
+    padding: 1em 2em;
+    @include font-ui;
+    font-weight: 300;
+    line-height: 150%;
     @include shear-card;
 
-    .fun & {
-      @include font-fun;
-      font-size: 150%;
-    }
-
-    .dev & {
-      @include font-dev;
-    }
-
     &::before {
-      background: $col-card-overlay;
-    }
-
-    h3 {
-      color: $col-quat;
-      font-weight: 300;
-      font-size: 90%;
+      background: $col-card;
     }
   }
 }

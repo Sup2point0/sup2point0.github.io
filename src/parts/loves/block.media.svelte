@@ -225,17 +225,17 @@ img {
 
 .lower.desc p {
   padding-left: 0.2em;
-    margin-bottom: 0.5em;
-    @include font-ui;
-    font-size: 75%;
-    font-weight: 300;
-    color: $col-text-deut;
-    text-align: left;
-    transition: #{trans()};
+  margin-bottom: 0.5em;
+  @include font-ui;
+  font-size: 75%;
+  font-weight: 300;
+  color: $col-text-deut;
+  text-align: left;
+  transition: #{trans()};
 
-    .block-media:where(:hover, :focus-visible) & {
-      color: $col-text;
-    }
+  .block-media:where(:hover, :focus-visible) & {
+    color: $col-text;
+  }
 }
 
 .lower {

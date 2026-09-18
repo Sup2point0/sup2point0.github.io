@@ -79,7 +79,7 @@ const data: Groups<GameData> =
       icon:   "outer-wilds.jpg",
       genres: [Genre.EXPLORATION],
       platforms: [Platform.DESKTOP],
-      state:  PlayState.ACTIVE,
+      state:  PlayState.FINISHED,
       desc: [
         `The title of this game is the sort which I hear and think “I’ve heard this before”, even tho I probably haven’t. And it’s the kind where I ${i`know`} I want to play it just by hearing it. I made sure to skip parts of ${h`The Cursed Judge`}’s videos about it to avoid spoilers!`,
 
@@ -116,6 +116,17 @@ const data: Groups<GameData> =
       genres: [Genre.RHYTHM],
       platforms: [Platform.ARCADE],
       state:  PlayState.ACTIVE,
+      desc: [
+        `Like many rhythm games, I think I discovered ${i`CHUNITHM`} through its ${a("Phigros", "#phigros", true)} collaboration. I must’ve watched at least one video of what it looked like, cuz I had the impression it was pretty cool. I then tried to find a cabinet while I was in China, and... wait, where are all the cabinets?`,
+
+        `In every city I visited, I looked for an arcade at every mall I went to, and I scoured the arcade for CHUNITHM cabinets. Always maimai. But no CHUNITHM. Playing hard to get, I see how it is. With my rapidly irrelevant art of Google-fu, I found a site listing all the malls in China with CHUNITHM. Turns out there were quite a few, I had just gotten ${i`really`} unlucky in Shanghai.`,
+
+        `Anyway, I finally got to play it – in the biggest underground rhythm game arcade I’ve ever seen, no less! (${h`风云再起`}) – and it was decidedly awesome. I love the gimmick of using 3D space. It’s a perfectly unique mechanic that makes for super fun gameplay and charting possibilities.`,
+
+        `I’m not even that great at CHUNITHM, but it just feels so damn fun to play. I like playing with flourish, slicing my Air-Crush notes, spinning my Air-Action notes. I feel so active and pumped. It’s a great workout!`,
+
+        `Fun fact, I prefer playing CHUNITHM sat down (most people I’ve seen stand). It’s vastly superior. Standing just doesn’t put my arms at the right height; it’s like playing piano. Ofc, standing is more fun, the angle’s just awkward.`,
+      ],
     },
     {
       shard:  "arcaea",
@@ -125,7 +136,7 @@ const data: Groups<GameData> =
       icon:   "arcaea.webp",
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
-      state:  PlayState.ACTIVE,
+      state:  PlayState.INTERMITTENT,
     },
     {
       shard:  "milthm",
@@ -135,7 +146,7 @@ const data: Groups<GameData> =
       icon:   "milthm.png",
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE, Platform.DESKTOP],
-      state:  PlayState.ACTIVE,
+      state:  PlayState.INTERMITTENT,
       desc: [
         `I like my rhythm games like programming languages – if it doesn’t teach you anything new (or less seriously, doesn’t do anything differently), it’s not worth learning (playing).`,
 
@@ -147,6 +158,7 @@ const data: Groups<GameData> =
   ],
   "wishlist": [
     {
+      state:  PlayState.WISHLIST,
       shard:  "hollow-knight",
       name:   "Hollow Knight",
       love:   null,
@@ -154,9 +166,9 @@ const data: Groups<GameData> =
       icon:   "hollow-knight.webp",
       genres: [Genre.METROIDVANIA],
       platforms: [Platform.DESKTOP],
-      state:  PlayState.WISHLIST,
     },
     {
+      state:  PlayState.WISHLIST,
       shard:  "hades",
       name:   "Hades",
       love:   1,
@@ -165,11 +177,11 @@ const data: Groups<GameData> =
         _style: "no-crop",
       genres: [Genre.ROGUE],
       platforms: [Platform.CONSOLE],
-      state:  PlayState.WISHLIST,
     },
   ],
   "bloons": [
     {
+      state:  PlayState.OPPORTUNISTIC,
       shard:  "bloons-td6",
       name:   "Bloons TD 6",
       love:   3,
@@ -177,7 +189,6 @@ const data: Groups<GameData> =
       icon:   "bloons-td6.png",
       genres: [Genre.TOWER_DEFENCE, Genre.CLASSICS],
       platforms: [Platform.DESKTOP],
-      state:  PlayState.OPPORTUNISTIC,
       desc: [
         `If you held me at gunpoint and asked for my favourite game, I’d probably say Bloons TD 6.`,
 
@@ -189,6 +200,7 @@ const data: Groups<GameData> =
       ],
     },
     {
+      state:  PlayState.INTERMITTENT,
       shard:  "bloons-pop",
       name:   "Bloons Pop!",
       love:   2,
@@ -196,7 +208,6 @@ const data: Groups<GameData> =
       icon:   "bloons-pop.png",
       genres: [Genre.PUZZLE],
       platforms: [Platform.MOBILE],
-      state:  PlayState.INTERMITTENT,
       desc: [
         `Bloons Pop! is a really simple game that doesn’t do too much, and I love it for that. It’s just some cute, casual fun to unwind, exactly what you want out of a mobile game. I end up playing this a lot while standing in a crowded tube carriage with nowhere to sit.`,
 
@@ -206,6 +217,7 @@ const data: Groups<GameData> =
       ],
     },
     {
+      state:  PlayState.RETIRED,
       shard:  "bloons-supermonkey-2",
       name:   "Bloons Supermonkey 2",
       love:   3,
@@ -213,9 +225,9 @@ const data: Groups<GameData> =
       icon:   "bloons-supermonkey-2.png",
       genres: [Genre.SHMUP],
       platforms: [Platform.MOBILE],
-      state:  PlayState.RETIRED,
     },
     {
+      state:  PlayState.RETIRED,
       shard:  "bloons-td5",
       name:   "Bloons TD 5",
       love:   1,
@@ -223,7 +235,6 @@ const data: Groups<GameData> =
       icon:   "bloons-td5.png",
       genres: [Genre.TOWER_DEFENCE, Genre.CLASSICS],
       platforms: [Platform.MOBILE],
-      state:  PlayState.RETIRED,
     },
   ],
   "miscellaneous": [
@@ -270,6 +281,15 @@ const data: Groups<GameData> =
       icon:   "firewatch.avif",
       genres: [],
       platforms: [Platform.DESKTOP],
+      desc: [
+        `A nice little game. I was drawn in by the artwork, especially in the website. Those hues are gorgeous.`,
+
+        `Little shorter and shallower than expected, but fun nonetheless! Even a little scary in places; don’t underestimate how unsettling being alone in the dark in a game while also alone in the dark irl can be; immersion is a powerful thing.`,
+
+        `I think I enjoy just ${i`existing`} in games, and Firewatch felt just like that. I would’ve been okay with a little more chilling, just chatting with some small menial tasks, enjoying the scenery, exploring the landscape, getting used to my tools. Navigating was pretty fun, relying only on a good old-fashioned map was great.`,
+
+        `My favourite part was honestly the start, the narrative with Julia was really... really something. The game did a fantastic job with the music, got me right in the feels.`,
+      ],
     },
     {
       state:  PlayState.RETIRED,
@@ -347,7 +367,16 @@ const data: Groups<GameData> =
       icon:   "vivid-stasis.jpg",
       genres: [Genre.RHYTHM],
       platforms: [Platform.DESKTOP],
-      state:  PlayState.INTERMITTENT,
+      state:  PlayState.INFREQUENT,
+      desc: [
+        `I’m not good enough at desktop rhythm games, lmao. I find this really hard.`,
+
+        `It’s very, very... idk the word, but the 2-lane wide notes perfectly illustrate the power of psychology. Them being hittable in 2 lanes does not make things easier; it’s the exact opposite! The presence of choice is a burden, and we have to dedicate extra brainpower to ${i`interpreting`} the pattern a particular way. It’s genius, is what I suppose I’m trying to say.`,
+
+        `The story is whatever, it’s cute but I guess RPG or this type of following-characters-conversing isn’t really my thing. The ARG bit was sick tho.`,
+
+        `Also yo, the game’s got keyboard navigation! Developers rejoice, all hail keyboard navigation!`,
+      ],
     },
     {
       shard:  "melatonin",

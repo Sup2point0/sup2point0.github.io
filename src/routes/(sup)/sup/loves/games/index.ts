@@ -72,6 +72,7 @@ const data: Groups<GameData> =
 {
   "active": [
     {
+      state:  PlayState.FINISHED,
       shard:  "outer-wilds",
       name:   "Outer Wilds",
       love:   null,
@@ -79,7 +80,6 @@ const data: Groups<GameData> =
       icon:   "outer-wilds.jpg",
       genres: [Genre.EXPLORATION],
       platforms: [Platform.DESKTOP],
-      state:  PlayState.FINISHED,
       desc: [
         `The title of this game is the sort which I hear and think “I’ve heard this before”, even tho I probably haven’t. And it’s the kind where I ${i`know`} I want to play it just by hearing it. I made sure to skip parts of ${h`The Cursed Judge`}’s videos about it to avoid spoilers!`,
 
@@ -93,6 +93,7 @@ const data: Groups<GameData> =
       ],
     },
     {
+      state:  PlayState.ACTIVE,
       shard:  "phigros",
       name:   "Phigros",
       love:   3,
@@ -100,7 +101,6 @@ const data: Groups<GameData> =
       icon:   "phigros.webp",
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
-      state:  PlayState.ACTIVE,
       desc: [
         `Phigros was my first rhythm game. I was on camp and saw someone in my group playing it, so I asked them if I could try. Quickly fell in love, and the obsession blossomed as ever. Possibly one of the most transformative discoveries in my life.`,
 
@@ -108,6 +108,7 @@ const data: Groups<GameData> =
       ],
     },
     {
+      state:  PlayState.ACTIVE,
       shard:  "chunithm",
       name:   "CHUNITHM",
       love:   1,
@@ -115,7 +116,6 @@ const data: Groups<GameData> =
       icon:   "chunithm.png",
       genres: [Genre.RHYTHM],
       platforms: [Platform.ARCADE],
-      state:  PlayState.ACTIVE,
       desc: [
         `Like many rhythm games, I think I discovered ${i`CHUNITHM`} through its ${a("Phigros", "#phigros", true)} collaboration. I must’ve watched at least one video of what it looked like, cuz I had the impression it was pretty cool. I then tried to find a cabinet while I was in China, and... wait, where are all the cabinets?`,
 
@@ -129,16 +129,7 @@ const data: Groups<GameData> =
       ],
     },
     {
-      shard:  "arcaea",
-      name:   "Arcaea",
-      love:   1,
-      date:   ["summer 2024", "present"],
-      icon:   "arcaea.webp",
-      genres: [Genre.RHYTHM],
-      platforms: [Platform.MOBILE],
       state:  PlayState.INTERMITTENT,
-    },
-    {
       shard:  "milthm",
       name:   "Milthm",
       love:   2,
@@ -146,7 +137,6 @@ const data: Groups<GameData> =
       icon:   "milthm.png",
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE, Platform.DESKTOP],
-      state:  PlayState.INTERMITTENT,
       desc: [
         `I like my rhythm games like programming languages – if it doesn’t teach you anything new (or less seriously, doesn’t do anything differently), it’s not worth learning (playing).`,
 
@@ -333,7 +323,17 @@ const data: Groups<GameData> =
   
   "all the rhythm games": [
     {
-      state:  PlayState.ACTIVE,
+      state:  PlayState.INTERMITTENT,
+      shard:  "arcaea",
+      name:   "Arcaea",
+      love:   1,
+      date:   ["summer 2024", "present"],
+      icon:   "arcaea.webp",
+      genres: [Genre.RHYTHM],
+      platforms: [Platform.MOBILE],
+    },
+    {
+      state:  PlayState.INTERMITTENT,
       shard:  "paradigm-reboot",
       name:   "Paradigm: Reboot",
       love:   null,
@@ -343,6 +343,7 @@ const data: Groups<GameData> =
       platforms: [Platform.MOBILE],
     },
     {
+      state:  PlayState.OPPORTUNISTIC,
       shard:  "dance-cube-evo",
       name:   "DanceCube EVO",
       love:   null,
@@ -350,7 +351,6 @@ const data: Groups<GameData> =
       icon:   "dance-cube-evo.webp",
       genres: [Genre.RHYTHM],
       platforms: [Platform.ARCADE],
-      state:  PlayState.OPPORTUNISTIC,
       desc: [
         `You most likely don’t know this one, but it’s probably the most common arcade rhythm in China (in my experience), even above maimai. There’s 2 distinct versions of it, the original 2D one, and the newer 3D version (${i`EVO`}). I can’t play the 2D one, but I love the 3D one!`,
 
@@ -360,6 +360,7 @@ const data: Groups<GameData> =
       ],
     },
     {
+      state:  PlayState.INFREQUENT,
       shard:  "vivid-stasis",
       name:   "vivid/stasis",
       love:   null,
@@ -367,7 +368,6 @@ const data: Groups<GameData> =
       icon:   "vivid-stasis.jpg",
       genres: [Genre.RHYTHM],
       platforms: [Platform.DESKTOP],
-      state:  PlayState.INFREQUENT,
       desc: [
         `I’m not good enough at desktop rhythm games, lmao. I find this really hard.`,
 
@@ -379,6 +379,7 @@ const data: Groups<GameData> =
       ],
     },
     {
+      state:  PlayState.INTERMITTENT,
       shard:  "melatonin",
       name:   "Melatonin",
       love:   null,
@@ -386,9 +387,9 @@ const data: Groups<GameData> =
       icon:   "melatonin.jpg",
       genres: [Genre.RHYTHM],
       platforms: [Platform.DESKTOP],
-      state:  PlayState.INTERMITTENT,
     },
     {
+      state:  PlayState.INFREQUENT,
       shard:  "rizline",
       name:   "Rizline",
       love:   null,
@@ -396,9 +397,9 @@ const data: Groups<GameData> =
       icon:   "rizline.webp",
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
-      state:  PlayState.INFREQUENT,
     },
     {
+      state:  PlayState.INTERMITTENT,
       shard:  "shinobi-slash",
       name:   "シノビスラッシュ",
       love:   null,
@@ -406,9 +407,9 @@ const data: Groups<GameData> =
       icon:   "shinobi-slash.webp",
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
-      state:  PlayState.INTERMITTENT,
     },
     {
+      state:  PlayState.INFREQUENT,
       shard:  "ryceam",
       name:   "RYCEAM",
       love:   null,
@@ -416,9 +417,9 @@ const data: Groups<GameData> =
       icon:   "ryceam.webp",
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
-      state:  PlayState.INFREQUENT,
     },
     {
+      state:  PlayState.RETIRED,
       shard:  "deemo-2",
       name:   "DEEMO II",
       love:   null,
@@ -426,9 +427,9 @@ const data: Groups<GameData> =
       icon:   "deemo-2.png",
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
-      state:  PlayState.RETIRED,
     },
     {
+      state:  PlayState.RETIRED,
       shard:  "rhythm-plus",
       name:   "Rhythm+",
       love:   null,
@@ -437,12 +438,12 @@ const data: Groups<GameData> =
         _style: "no-crop",
       genres: [Genre.RHYTHM],
       platforms: [Platform.MOBILE],
-      state:  PlayState.RETIRED,
       desc: [
         `Desperate times call for desperate measures. Sometimes, your only option is a browser rhythm game, and while Rhythm+ wasn’t perfect, it was satisfactory. Allowing colour customisation for everything was very based, you don’t see that much.`,
       ],
     },
     {
+      state:  PlayState.RETIRED,
       shard:  "maimai",
       name:   "maimai",
       love:   null,
@@ -450,9 +451,9 @@ const data: Groups<GameData> =
       icon:   "maimai.jpg",
       genres: [Genre.RHYTHM],
       platforms: [Platform.ARCADE],
-      state:  PlayState.RETIRED,
     },
     {
+      state:  PlayState.OPPORTUNISTIC,
       shard:  "beat-saber",
       name:   "Beat Saber",
       love:   null,
@@ -460,9 +461,9 @@ const data: Groups<GameData> =
       icon:   "beat-saber.jpg",
       genres: [Genre.RHYTHM],
       platforms: [Platform.VR],
-      state:  PlayState.OPPORTUNISTIC,
     },
     {
+      state:  PlayState.RETIRED,
       shard:  "osu",
       name:   "osu!",
       love:   null,
@@ -470,7 +471,6 @@ const data: Groups<GameData> =
       icon:   "osu.png",
       genres: [Genre.RHYTHM, Genre.CLASSICS],
       platforms: [Platform.DESKTOP],
-      state:  PlayState.RETIRED,
       desc: [
         `${i`osu!`} was actually one of the first rhythm games I played. When I was introduced to Phigros, another friend was playing osu! on his gaming laptop and we all took turns.`,
 

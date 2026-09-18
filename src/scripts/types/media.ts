@@ -55,3 +55,12 @@ export interface MediaData extends Searchable
 
 	desc?: ProperDescription
 }
+
+
+export type MediaKind =
+	| "films"
+	| "series"
+	| "anime"
+	| "books"
+	| "webtoons"
+;

@@ -7,7 +7,7 @@ A block displaying info for a media, series, anime, show, etc.
 
 import { anim } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
-import type { MediaData } from "#scripts/types/media";
+import type { MediaData, MediaKind } from "#scripts/types/media";
 
 import { untrack } from "svelte";
 import { slide } from "svelte/transition";
@@ -15,9 +15,8 @@ import { expoInOut } from "svelte/easing";
 
 
 interface Props {
-  kind: "films" | "series" | "anime" | "books" | "webtoons";
-  media: MediaData;
-  expanded: boolean;
+  kind: MediaKind
+  media: MediaData
 }
 
 let { kind, media, expanded }: Props = $props();

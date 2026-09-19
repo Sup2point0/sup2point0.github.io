@@ -82,7 +82,7 @@ export function date_to_prec(date: Dates | undefined, resolve?: "start" | "end")
 }
 
 
-export function display_date(date: Dates): string
+export function display_date(date: Dates | undefined): string
 {
 	if (Array.isArray(date)) {
 		if (date.length > 1) {

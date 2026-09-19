@@ -9,7 +9,7 @@ interface ChronicleData
   date:   Dates
   col:    colour
   desc:   ProperDescription
-  tracks: Array<TrackData & { lang?: "cn" | "jp" }>
+  tracks: TrackData[]
 }
 
 

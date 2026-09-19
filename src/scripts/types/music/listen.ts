@@ -7,6 +7,8 @@ export interface TrackData extends Searchable
 {
 	shard:   shard
 
+	lang?: "cn" | "jp"
+
 	artists: shard[]
 
 	date?:  Dates

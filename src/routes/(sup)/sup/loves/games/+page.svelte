@@ -5,7 +5,7 @@ import { GameSearchFilter } from "./filter.games.svelte.ts";
 
 import { Cards, Main } from "#parts/core";
 import { Breadcrumbs, Header, SearchFilters } from "#parts/ui";
-import { GameBlock } from "#parts/loves";
+import { GameBlock, MediaOverlay } from "#parts/loves";
 
 import { onMount } from "svelte";
 
@@ -14,6 +14,8 @@ import { onMount } from "svelte";
 let filters = new GameSearchFilter();
 
 let games_filtered = $derived(filters.apply(games_data));
+
+let active_game: GameData | null = $state(null);
 
 
 onMount(() => {
@@ -32,7 +34,7 @@ onMount(() => {
 {#snippet cards(games: GameData[])}
   <Cards>
     {#each games as game (game.shard)}
-      <GameBlock {game} expanded={filters.extra["expand all"]} />
+      <GameBlock {game} expanded={filters.extra["expand all"]} bind:active_game />
     {/each}
   </Cards>
 {/snippet}
@@ -42,6 +44,8 @@ onMount(() => {
   { text: "loves", intern: "sup/loves" },
   { text: "games" },
 ]} />
+
+<MediaOverlay kind="games" media={active_game} />
 
 <Main>
   <SearchFilters bind:filters result_count={filters.count_results(games_filtered)} />

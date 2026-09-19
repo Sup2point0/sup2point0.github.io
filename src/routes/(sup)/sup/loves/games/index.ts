@@ -1,6 +1,6 @@
 import { prep_groups, type Searchable } from "#scripts/search";
 import { a, h, i } from "#scripts/utils";
-import type { Datepoint, Groups } from "#scripts/types";
+import type { Love, Dates, ProperDescription, Groups } from "#scripts/types";
 
 
 export enum Genre {
@@ -40,8 +40,8 @@ export enum PlayState {
 export interface GameData extends Searchable
 {
   name:  string;
-  love:  3 | 2 | 1 | null;
-  date?: Datepoint | Datepoint[];
+  love:  Love;
+  date?: Dates;
 
   icon?: string;
     _style?: "no-crop",
@@ -50,7 +50,7 @@ export interface GameData extends Searchable
   platforms: Platform[];
   
   state: PlayState;
-  desc?: string[];
+  desc?: ProperDescription;
 }
 
 

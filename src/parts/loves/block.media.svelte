@@ -21,7 +21,7 @@ interface Props {
   active_media?: MediaData | null
 }
 
-let { kind, media, expanded, active_media: open_media = $bindable() }: Props = $props();
+let { kind, media, expanded, active_media = $bindable() }: Props = $props();
 
 
 let is_open = $state(false);
@@ -38,11 +38,8 @@ $effect(() => {
 
 function open()
 {
-  if (
-    Array.isArray(media.desc)
-    && ((media.desc?.length ?? 0) >= 4)
-  ) {
-    open_media = media;
+  if (Array.isArray(media.desc) && media.desc.length >= 4) {
+    active_media = media;
   } else {
     is_open = !is_open;
   }

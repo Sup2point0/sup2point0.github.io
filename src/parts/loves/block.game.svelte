@@ -13,31 +13,41 @@ import { expoInOut } from "svelte/easing";
 
 
 interface Props {
-  game: GameData;
-  expanded: boolean;
+  game: GameData
+  expanded: boolean
+  active_game?: GameData | null
 }
 
-let { game, expanded }: Props = $props();
+let { game, expanded, active_game = $bindable() }: Props = $props();
 
 
-let open = $state(false);
+let is_open = $state(false);
 
 /* Clicking on one block can locally toggle, but global override should affect all blocks */
 $effect(() => {
   expanded;
 
   untrack(() => {
-    open = expanded;
+    is_open = expanded;
   });
 });
+
+function open()
+{
+  if (Array.isArray(game.desc) && game.desc.length >= 4) {
+    active_game = game;
+  } else {
+    is_open = !is_open;
+  }
+}
 
 </script>
 
 
 <button class="block-game {game.state} {game._style}"
-  class:open
+  class:is_open
   id={game.shard}
-  onclick={() => { open = !open; }}
+  onclick={open}
   {@attach anim}
 >
   <div class="content">
@@ -60,7 +70,7 @@ $effect(() => {
 
   <div class="sep"></div>
 
-  {#if open}
+  {#if is_open}
     <div class="lower desc" transition:slide={{ duration: 800, easing: expoInOut }}>
       {#each game.desc as block}
         <p> {@html block} </p>
@@ -104,7 +114,7 @@ $effect(() => {
 
 .block-game {
   flex-grow: 1;
-  max-width: 32rem;
+  max-width: calc(32rem + 5vw);
   padding: 1rem 1.5rem;
   font-size: unset;
   background: none;

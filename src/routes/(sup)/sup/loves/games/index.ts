@@ -517,7 +517,7 @@ const data: Groups<GameData> =
       shard:  "air-attack-2",
       name:   "AirAttack 2",
       love:   1,
-      date:   ["summer 2020"],
+      date:   "summer 2020",
       icon:   "air-attack-2.webp",
       genres: [Genre.SHMUP],
       platforms: [Platform.MOBILE],

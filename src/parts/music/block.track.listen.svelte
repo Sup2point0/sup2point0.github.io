@@ -195,7 +195,7 @@ img {
       }
 
       &[lang="cn"] { @include font-cn; }
-      &[lang="ja"] { @include font-jp; }
+      &[lang="jp"] { @include font-jp; }
     }
 
     p.date {

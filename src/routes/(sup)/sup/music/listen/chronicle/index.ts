@@ -9,7 +9,7 @@ interface ChronicleData
   date:   Dates;
   col:    colour,
   desc:   ProperDescription;
-  tracks: TrackData[];
+  tracks: Array<TrackData & { lang?: "cn" | "jp" }>;
 }
 
 
@@ -90,7 +90,7 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "heiki-sou-desho",
         name:    "平気そうでしょ",
-          lang:  "ja",
+          lang:  "jp",
         artists: ["moudelica"],
         date:    "2026 May",
         cover:   "heiki-sou-desho.jpg",
@@ -461,7 +461,7 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "bug",
         name:    "バグ / 25時、ナイトコードで。",
-          lang:  "ja",
+          lang:  "jp",
         artists: [],
         date:    undefined,
         cover:   "bug.jpg",
@@ -490,7 +490,7 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "tabun",
         name:    "たぶん",
-          lang:  "ja",
+          lang:  "jp",
         artists: ["yoasobi"],
         date:    undefined,
         cover:   "tabun.png",
@@ -505,7 +505,7 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "idol",
         name:    "「アイドル」",
-          lang:  "ja",
+          lang:  "jp",
         artists: ["yoasobi"],
         date:    undefined,
         cover:   "idol.png",
@@ -621,7 +621,7 @@ export const chronicle_data: ChronicleData[] = [
       {
         shard:   "waving-wings",
         name:    "飄える翼追い掛けて ～終飛～",
-          lang:  "ja",
+          lang:  "jp",
         artists: ["camellia"],
         date:    undefined,
         cover:   "ashed-wings.jpg",

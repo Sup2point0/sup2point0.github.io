@@ -19,12 +19,15 @@ import { goto } from "$app/navigation";
 
 export interface PortalSearchResult
 {
-	title:    string;
-	capt:     string;
-	desc?:    string;
+	title:    string
+	capt:     string
+	desc?:    string
 	icon?:    filepath
-	action:   () => any;
-	colour?:  string;
+
+	/** A callback to execute when the result is clicked. If this returns a truthy value, the portal overlay closes. */
+	action:   () => unknown
+	
+	colour?:  string
 }
 
 

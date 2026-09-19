@@ -158,17 +158,18 @@ export class SearchFilter<Entity extends Searchable>
 		source: Entity[],
 		exclude_if?: (entity: Entity) => boolean,
 	): Entity[]
-	{ 
+	{
+		/* Skip checking toggles where the user hasn't made any choice */
+		let toggles_to_apply = Object.entries(this.toggles)
+			.filter(([_prop, states]) => any(states) && !all(states));
+
 		let out = source.filter(each => {
 			each._score = 0;
 			let filtered = false;
 
 			if (exclude_if?.(each)) return false;
 
-			for (let [prop, states] of Object.entries(this.toggles)) {
-				/* If the user hasn't made any choice, don't activate any filters. */
-				if (all(states) || !any(states)) continue;
-
+			for (let [prop, states] of toggles_to_apply) {
 				let hit = false;
 
 				for (let [toggle, enabled] of Object.entries(states)) {
@@ -411,7 +412,7 @@ export class SearchFilter<Entity extends Searchable>
 		return {
 			...Object.fromEntries(
 				Object.values(states)
-				.filter(s => s._show !== false)
+				.filter(s => s.is_shown !== false)
 				.map(s => [s.shard, init_state ?? true])
 			)
 		};

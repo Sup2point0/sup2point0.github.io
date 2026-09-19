@@ -6,9 +6,12 @@ A flex container for cards.
 
 <script lang="ts">
 
+import type { Snippet } from "svelte";
+
+
 interface Props {
   force_grid?: boolean;
-  children: any;
+  children: Snippet;
 }
 
 let { force_grid = false, children }: Props = $props();

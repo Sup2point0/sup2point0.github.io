@@ -5,9 +5,12 @@ A width-restricting container.
 
 <script lang="ts">
 
+import type { Snippet } from "svelte";
+
+
 interface Props {
   gap?: string;
-  children?: any;
+  children?: Snippet;
 }
 
 let { gap = "4rem", children }: Props = $props();

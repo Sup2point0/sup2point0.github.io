@@ -5,13 +5,14 @@ A button.
 
 <script lang="ts">
 
-import { base } from "$app/paths";
+import type { Snippet } from "svelte";
+
 
 interface Props {
   text?: string;
   link?: string;
   action?: () => void;
-  children?: any;
+  children?: Snippet;
 }
 
 let { text, link: href, action: onclick, children }: Props = $props();

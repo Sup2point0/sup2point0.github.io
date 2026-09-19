@@ -5,10 +5,13 @@ An `<h2>`-level header.
 
 <script lang="ts">
 
+import type { Snippet } from "svelte";
+
+
 interface Props {
   text?: string;
   margin?: boolean;
-  children?: any;
+  children?: Snippet;
 }
 
 let { text, margin = true, children }: Props = $props();

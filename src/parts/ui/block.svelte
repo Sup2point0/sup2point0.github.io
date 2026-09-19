@@ -5,7 +5,7 @@ A generic block containing any content. Animates in when the content to display 
 
 <script lang="ts">
   
-import { onMount } from "svelte";
+import { onMount, type Snippet } from "svelte";
 import { slide } from "svelte/transition";
 import { expoInOut } from "svelte/easing";
 
@@ -15,7 +15,7 @@ interface Props {
   width?: string;
   delay?: number;
   style?: string;
-  children?: any;
+  children?: Snippet;
 }
 
 let {

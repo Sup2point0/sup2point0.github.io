@@ -13,7 +13,7 @@ import { anim } from "#scripts/anim.svelte.ts";
 
 import { Hot } from "#parts/special";
 
-import { onMount } from "svelte";
+import { onMount, type Snippet } from "svelte";
 import { slide } from "svelte/transition";
 import { expoInOut } from "svelte/easing";
 
@@ -25,7 +25,7 @@ interface Props {
   picts?: string[];
     fixed?: boolean;
     aspect?: "tall" | "square";
-  children?: any;
+  children?: Snippet;
 }
 
 let {

@@ -16,13 +16,18 @@ interface Props {
 
 let { kind, media = $bindable() }: Props = $props();
 
+
+function close() {
+  media = null;
+}
+
 </script>
 
 
 <svelte:document
   onkeydown={e => {
     if (e.key === "Escape") {
-      media = null;
+      close();
       e.preventDefault();
     }
   }}
@@ -32,7 +37,7 @@ let { kind, media = $bindable() }: Props = $props();
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <div class="overlay-media {kind}"
-  onclick={() => media = null}
+  onclick={close}
   transition:fade={{ duration: 200 }}
 >
   <div class="content-layout"
@@ -43,9 +48,15 @@ let { kind, media = $bindable() }: Props = $props();
     <div class="side left"
       transition:slide={{ axis: "y", duration: 700, easing: expoOut }}
     >
-      <img alt={media.name} src="/covers/{kind}/{media.cover}" />
-      
-      <h1> {media.name?.toUpperCase() ?? "???"} </h1>
+      <header>
+        <img alt={media.name} src="/covers/{kind}/{media.cover}" />
+        
+        <h1> {media.name?.toUpperCase() ?? "???"} </h1>
+        
+        {#if media.translation}
+          <h2> {media.translation.toUpperCase()} </h2>
+        {/if}
+      </header>
 
       <div class="content">
         <table><tbody>
@@ -53,6 +64,18 @@ let { kind, media = $bindable() }: Props = $props();
             <th> WATCHED IN </th>
             <td> {display_date(media.date)} </td>
           </tr>
+
+          {#if media.order}
+            <tr>
+              <th> ORDER </th>
+              <td>
+                {#each media.order as chunk, i}
+                  <p> {chunk.toUpperCase()} </p>
+                  <span class="separator"> › </span>
+                {/each}
+              </td>
+            </tr>
+          {/if}
 
           {#if media.love}
             <tr>
@@ -105,8 +128,7 @@ let { kind, media = $bindable() }: Props = $props();
   flex-flow: row nowrap;
   justify-content: center;
   align-items: start;
-  gap: 1rem;
-}
+} 
 
 
 .side {
@@ -120,31 +142,45 @@ let { kind, media = $bindable() }: Props = $props();
 
 
 .left {
-  max-width: 40%;
-  padding: 0 2rem;
+  min-width: max-content;
+  max-width: 50%;
   gap: 1rem;
+}
 
+header {
   img {
     max-width: 20rem;
     max-height: 50vh;
+    box-shadow: 0 4px 16px black;
   }
 
   h1 {
+    max-width: 30vw;
+    margin-top: 1rem;
     @include font-dev;
-    font-weight: 200;
+    font-weight: 500;
     text-align: center;
     text-wrap: wrap;
     text-align: left;
+  }
 
-    &::after {
-      content: '';
-      width: 4em;
-      height: 1px;
-      display: block;
-      margin-top: 0.4em;
+  h2 {
+    @include font-dev;
+    color: $col-text-deut;
+    font-size: 100%;
+    font-weight: 100;
+  }
+  
+  &::after {
+    content: '';
+    width: 8rem;
+    height: 1px;
+    display: block;
+    margin-top: 1rem;
+    background: $col-prot;
 
-      .films & { background: $col-prot; }
-    }
+    .films & { background: $col-prot; }
+    .anime & { background: $col-prot; }
   }
 }
 
@@ -160,12 +196,24 @@ let { kind, media = $bindable() }: Props = $props();
     text-align: left;
 
     th {
+      padding-bottom: 0.5rem;
       color: $col-text-deut;
       font-weight: 300;
     }
 
     td {
       padding-left: 1em;
+      display: flex;
+      flex-flow: row wrap;
+      gap: 0.5rem;
+      
+      span.separator {
+        color: $col-text-deut;
+
+        &:last-child {
+          display: none;
+        }
+      }
     }
   }
 }
@@ -185,6 +233,7 @@ let { kind, media = $bindable() }: Props = $props();
 
     &::before {
       background: $col-card;
+      backdrop-filter: none;
     }
   }
 }

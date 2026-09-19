@@ -3,7 +3,7 @@
 A search bar input and dropdown filters for searching content.
 -->
 
-<script lang="ts">
+<script lang="ts" generics="T extends Searchable">
 
 import { ClickySelect, SearchInput, SearchToggle } from "#parts/ui";
 
@@ -14,7 +14,7 @@ import { expoInOut } from "svelte/easing";
 
 
 interface Props {
-  filters: SearchFilter<Searchable>;
+  filters: SearchFilter<T>;
   allow_expand?: boolean;
   result_count?: number;
 }

@@ -1,17 +1,16 @@
 import { prep_groups, type Searchable } from "#scripts/search";
-import type { Love, Dates, Groups } from "#scripts/types";
+import type { Love, Dates, ProperDescription, Groups } from "#scripts/types";
 
 
 export interface YouTubeChannelData extends Searchable
 {
-	love:  Love;
-	date?: Dates;
+	love:  Love
+	date?: Dates
+	icon?: string
+	
+	topics: string[]
 
-	icon?: string;
-
-	topics: string[];
-
-	desc?: string[];
+	desc?: ProperDescription
 }
 
 

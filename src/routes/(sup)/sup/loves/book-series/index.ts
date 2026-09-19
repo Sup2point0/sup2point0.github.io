@@ -1,15 +1,15 @@
 import { prep_groups } from "#scripts/search";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
-import type { Groups } from "#scripts/types";
+import type { int, Arrayable, Groups } from "#scripts/types";
 
 
 export interface BookSeriesData extends MediaData
 {
-  books: number;
+  books: number
   fields: {
-    author: string | string[];
-    books?: number;
-    favourite?:   string;
+    author: Arrayable<string>
+    books?: int
+    favourite?: string
   },
 }
 

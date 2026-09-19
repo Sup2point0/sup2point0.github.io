@@ -1,60 +1,60 @@
-import type { GenreKind, Genre, Vibe } from "#scripts/types/music";
-import type { Searchable } from "#scripts/search";
-import type { shard, filepath, url, Datepoint, Dates, Description, Arrayable } from "#scripts/types";
+import type { GenreKind, Genre, Vibe } from "#scripts/types/music"
+import type { Searchable } from "#scripts/search"
+import type { shard, filepath, url, Datepoint, Dates, Description, ProperDescription, Arrayable } from "#scripts/types"
 
 
 export interface TrackData extends Searchable
 {
-	shard:   shard;
-	artists: shard[];
+	shard:   shard
 
-	date?:  Dates;
-	cover?: filepath;
+	artists: shard[]
 
-	genres?: Genre[];
-	vibes?:  Vibe[];
+	date?:  Dates
+	cover?: filepath
+
+	genres?: Genre[]
+	vibes?:  Vibe[]
 	
 	links?: {
-		[platform: string]: url;
-	};
+		[platform: string]: url
+	}
 
-	discovered?: string;
-	desc?:       Description;
+	discovered?: string
+	desc?:       Description
 }
 
 
 export interface ArtistData extends Searchable
 {
-	shard: shard;
+	shard: shard
 
-	date?: Datepoint;
-	icon:  string;
+	date?: Datepoint
+	icon:  filepath
 	
-	genres?: Genre[];
-	vibes?:  Vibe[];
-	track?:  Arrayable<ExternalTrackData>;
+	genres?: Genre[]
+	vibes?:  Vibe[]
+	track?:  Arrayable<ExternalTrackData>
 
 	links?: {
-		[platform: string]: url;
-	};
+		[platform: string]: url
+	}
 
-	discovered?: string;
-	desc?:       string[];
+	discovered?: string
+	desc?:       ProperDescription
 }
 
 interface ExternalTrackData {
-	name:  string;
-	link?: url;
+	name:  string
+	link?: url
 }
 
 
 export interface GenreData extends Searchable
 {
-	fav?: boolean;
+	fav?: boolean
+	kind?: GenreKind
 	
-	kind?: GenreKind;
-	
-	artists?: string[];
-	tracks?:  Arrayable<string>;
-	desc?:    Description[];
+	artists?: shard[]
+	tracks?:  Arrayable<string>
+	desc?:    Description[]
 }

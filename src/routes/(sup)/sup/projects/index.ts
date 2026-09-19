@@ -21,7 +21,7 @@ export interface ProjectData extends Searchable
 
   links?: {
     [link: string]: url
-  };
+  }
   tags?: string[]
   desc: string
 }
@@ -788,7 +788,6 @@ const data: Groups<ProjectData> = prep_groups<StaticProjectData>(
   ],
 },
   entity => {
-    // @ts-expect-error: type transmutation, nothing to see here!
     entity.tech = entity.tech_data!.map(tech => tech.shard!);
   }
 ) as unknown as Groups<ProjectData>;

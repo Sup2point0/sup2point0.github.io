@@ -1,12 +1,12 @@
 import type { Searchable } from "#scripts/search";
-import type { filepath } from "#scripts/types";
+import type { filepath, url } from "#scripts/types";
 
 
 export interface RouteData extends Searchable
 {
-	link:  filepath;
-	dirs:  string[];
-	title: string[];
+	link:  filepath
+	dirs:  url[]
+	title: string[]
 }
 
 
@@ -69,6 +69,7 @@ export const routes_list: RouteData[] = (() =>
 			let dirs = parents.concat([dir.toUpperCase()]);
 			let title = children._title;
 
+			// @ts-expect-error: `RouteData` is the only `Searchable` to exclude `.name`
 			out.push({ link, dirs, title });
 			go(link, dirs, children);
 		}

@@ -1,36 +1,40 @@
-import type { Searchable } from "#scripts/search";
-import type { shard, Dates, Datepoint } from "#scripts/types";
+import type { Searchable } from "#scripts/search"
+import type { shard, Dates, Description, Arrayable } from "#scripts/types"
 
 
-export interface MyTrackData extends Searchable {
-	feat?:       boolean;
-	is_preview?: boolean;
+/** Data for a track I created. */
+export interface MyTrackData extends Searchable
+{
+	feat?:       boolean
+	is_preview?: boolean
 
-	shard: shard;
-	date?: Dates;
+	shard: shard
+	date?: Dates
 	
-	audio?: string;
-	cover?: string;
-	album:  AlbumData;
+	audio?: string
+	cover?: string
+	album:  AlbumData
 
-	genres?: string[];
-	vibes?:  string[];
+	genres?: string[]  // TODO use enum?
+	vibes?:  string[]  // TODO use enum?
 
-	desc?: string;
+	desc?: Description
 }
 
 
-export interface AlbumData extends Searchable {
-	is_preview?: boolean;
+/** Data for an album of my tracks. */
+export interface AlbumData extends Searchable
+{
+	is_preview?: boolean
 	
-	shard: shard;
-	date?: Datepoint | Datepoint[];
+	shard: shard
+	date?: Dates
 
-	cover?: string;
-	daw?:   Daw | Daw[];
+	cover?: string
+	daw?:   Arrayable<Daw>
 
-	desc?:  string | string[];
-	tracks: MyTrackData[];
+	desc?:  Description
+	tracks: MyTrackData[]
 }
 
 

@@ -5,11 +5,11 @@ import type { colour, Dates, ProperDescription } from "#scripts/types";
 
 interface ChronicleData
 {
-  era:    string;
-  date:   Dates;
-  col:    colour,
-  desc:   ProperDescription;
-  tracks: Array<TrackData & { lang?: "cn" | "jp" }>;
+  era:    string
+  date:   Dates
+  col:    colour
+  desc:   ProperDescription
+  tracks: Array<TrackData & { lang?: "cn" | "jp" }>
 }
 
 

@@ -57,12 +57,12 @@ export class SearchFilter<Entity extends Searchable>
 	/**
 	 * Groups by which the user can group search results, such as date or love.
 	 */
-	groups: string[] = ["default", "none"];
+	groups: GroupBy[] = ["default", "none"];
 
 	/**
 	 * Properties by which the user can sort search results, such as date or name.
 	 */
-	sorts: string[] = ["default", "date", "name"];
+	sorts: SortBy[] = ["default", "date", "name"];
 
 	[group_by: GroupBy]: any;
 

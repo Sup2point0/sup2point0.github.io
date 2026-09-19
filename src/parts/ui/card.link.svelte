@@ -9,9 +9,9 @@ import { FrozenWeightedList, type LikeWeightedItem } from "@sup2.0/weighted-list
 import sample from "@stdlib/random-sample";
 
 import { nav } from "#scripts/stores";
-import { anim } from "#scripts/anim.svelte";
+import { anim } from "#scripts/anim.svelte.ts";
 
-import Hot from "#parts/special/hot.svelte";
+import { Hot } from "#parts/special";
 
 import { onMount } from "svelte";
 import { slide } from "svelte/transition";

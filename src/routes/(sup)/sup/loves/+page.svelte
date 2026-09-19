@@ -144,12 +144,6 @@ import { Adventure } from "#parts/special";
     
     <LinkCard
       link="/sup/loves"
-      text="Mathematics"
-      capt="Coming soon!"
-    />
-    
-    <LinkCard
-      link="/sup/loves"
       text="Miscellaneous"
       capt="Coming soon!"
     />

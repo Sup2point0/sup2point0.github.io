@@ -227,7 +227,7 @@ $effect(() => {
       font-weight: 200;
       text-align: center;
       @include shear-card;
-      animation-delay: 0.1s;
+      animation-delay: 0.1s;  // TODO
       
       &::before {
         background: $col-card-overlay;
@@ -298,6 +298,7 @@ $effect(() => {
 }
 
 
+// TODO use
 @keyframes slide-in {
   from {
     transform: translateX(-4rem);

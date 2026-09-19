@@ -48,7 +48,7 @@
   backdrop-filter: blur(12px);
 }
 
-@mixin shear-card($interactive: false, $glow: false, $light: false) {
+@mixin shear-card($interactive: false, $glow: false, $light: false, $mobile: false) {
   position: relative;
   
   &::before {
@@ -91,6 +91,22 @@
       &:active::before {
         background: $col-card-click;
         @include glow(true);
+      }
+    }
+
+    @if $mobile {
+      @media (max-width: $width-shrink) {
+        & {
+          &::before {
+            transform: skew(0, calc($shear-factor * 1 / 3));
+          }
+        }
+
+        &:hover, &:focus-visible, &:active {
+          &::before {
+            transform: skew(0, calc($shear-factor * 1 / 6));
+          }
+        }
       }
     }
   }

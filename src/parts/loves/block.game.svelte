@@ -45,7 +45,7 @@ function open()
 
 
 <button class="block-game {game.state} {game._style}"
-  class:is_open
+  class:open={is_open}
   id={game.shard}
   onclick={open}
   {@attach anim}
@@ -121,7 +121,7 @@ function open()
   border: none;
   outline: none;
   transition: #{trans()};
-  @include shear-card($interactive: true, $glow: true);
+  @include shear-card($interactive: true, $glow: true, $mobile: true);
   @include anim-block;
 
   &:hover, &:focus-visible {
@@ -144,6 +144,10 @@ function open()
   &.retired.intersected {
     opacity: 0.5;
   }
+  
+  @media (max-width: $width-shrink) {
+    max-width: max-content;
+  }
 }
 
 .content {
@@ -164,6 +168,10 @@ function open()
 
   .block-game.open & {
     padding: 0 1rem;
+
+    @media (max-width: $width-shrink) {
+      flex-flow: column nowrap;
+    }
   }
 }
 
@@ -196,7 +204,7 @@ function open()
 .upper {
   width: 100%;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-between;
   gap: 0.5rem;
 
@@ -251,7 +259,7 @@ function open()
     margin-bottom: 0.5em;
     display: flex;
     flex-flow: row wrap;
-    gap: 0.5rem;
+    column-gap: 0.5rem;
     font-size: 75%;
     @include separator;
 

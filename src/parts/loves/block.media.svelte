@@ -138,7 +138,7 @@ function open()
     opacity: 1 !important;
   }
 
-  &.open {
+  &.is-open {
     max-width: 40rem;
   }
 

@@ -4,8 +4,12 @@ import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
 
+/**
+ * Data for an anime/manga series.
+ */
 export interface AnimeData extends MediaData
 {
+  /** What order did I consume the animanga in? */
   order?: string[]
 }
 
@@ -32,6 +36,7 @@ const data: Groups<AnimeData> =
     },
     {
       name:   "【推しの子】",
+        translation: "Oshi no Ko",
       date:   [2023, "present"],
       cover:  "oshi-no-ko.webp",
       genres: [Genre.DRAMA, Genre.MYSTERY, Genre.ROMANCE, Genre.SLICE_OF_LIFE],
@@ -46,6 +51,7 @@ const data: Groups<AnimeData> =
     },
     {
       name:   "Domestic na Kanojo",
+        translation: "Domestic Girlfriend",
       date:   "summer 2026",
       cover:  "dome-kano.webp",
       genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE, Genre.COMING_OF_AGE, Genre.EROTICA],
@@ -139,6 +145,7 @@ const data: Groups<AnimeData> =
   "Guilty Pleasures": [
     {
       name:   "Kanojo, Okarishimasu",
+        translation: "Rent-a-Girlfriend",
       date:   "fall 2024",
       cover:  "kano-kari.webp",
       genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE, Genre.COMEDY],

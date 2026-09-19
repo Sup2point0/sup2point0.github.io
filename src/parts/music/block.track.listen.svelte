@@ -13,7 +13,7 @@ import { artists_names } from "#sup/music/listen/artists";
 
 import { onMount } from "svelte";
 import { slide } from "svelte/transition";
-import { expoInOut } from "svelte/easing";
+
 
 interface Props {
   track: TrackData;

@@ -8,11 +8,10 @@ A randomised adventure route.
 import { FrozenWeightedList, type LikeWeightedItem } from "@sup2.0/weighted-list";
 
 import { expoSlide } from "#scripts/anim.svelte.ts";
-import type { Description } from "#scripts/types";
+import type { Description, Arrayable } from "#scripts/types";
 
 import { onMount } from "svelte";
 import { slide } from "svelte/transition";
-import { expoInOut } from "svelte/easing";
 
 
 interface Props {
@@ -44,7 +43,7 @@ onMount(() => {
 </script>
 
 
-{#snippet p(text)}
+{#snippet p(text: string)}
   {#if tagless}
     {@html text}
   {:else}
@@ -52,7 +51,7 @@ onMount(() => {
   {/if}
 {/snippet}
 
-{#snippet parts(blocks)}
+{#snippet parts(blocks: Arrayable<string>)}
   {#if Array.isArray(blocks)}
     {#each blocks as block}
       {@render p(block)}

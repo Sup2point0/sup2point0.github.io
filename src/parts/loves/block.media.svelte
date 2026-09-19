@@ -11,7 +11,6 @@ import type { MediaData, MediaKind } from "#scripts/types/media";
 
 import { untrack } from "svelte";
 import { slide } from "svelte/transition";
-import { expoInOut } from "svelte/easing";
 
 
 interface Props {

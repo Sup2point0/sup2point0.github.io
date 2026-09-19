@@ -9,7 +9,6 @@ import { display_date } from "#scripts/utils";
 
 import { untrack } from "svelte";
 import { slide } from "svelte/transition";
-import { expoInOut } from "svelte/easing";
 
 
 interface Props {

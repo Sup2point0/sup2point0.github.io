@@ -11,7 +11,6 @@ import type { ArtistData } from "#scripts/types";
 
 import { untrack } from "svelte";
 import { slide } from "svelte/transition";
-import { expoInOut } from "svelte/easing";
 
 
 interface Props {

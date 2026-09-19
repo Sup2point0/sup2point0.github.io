@@ -2,6 +2,8 @@
 
 import { artists_data } from ".";
 import { ArtistSearchFilter } from "./filter.artists.svelte.ts";
+
+import { shuffle } from "#src/scripts/utils/pick.ts";
 import type { ArtistData } from "#scripts/types";
 
 import { Cards, Main } from "#parts/core";
@@ -25,7 +27,7 @@ let artists_filtered = $derived(filters.apply(artists_data));
 
 {#snippet cards(artists: ArtistData[])}
   <Cards>
-    {#each artists as artist (artist.shard)}
+    {#each shuffle(artists) as artist (artist.shard)}
       <ArtistBlock {artist} expanded={filters.extra["expand all"]} />
     {/each}
   </Cards>

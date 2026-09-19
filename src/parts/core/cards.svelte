@@ -40,7 +40,7 @@ let { force_grid = false, children }: Props = $props();
   .cards, .cards.grid {
     display: flex;
     flex-flow: column nowrap;
-    align-items: stretch;
+    align-items: center;
   }
 }
 

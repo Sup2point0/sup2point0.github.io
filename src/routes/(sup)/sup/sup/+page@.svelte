@@ -27,7 +27,9 @@ function spawn()
   let i = portals.length - 1;
 
   let observer = new IntersectionObserver(([entry]) => {
-    if (entry.intersectionRatio == 0) spin(entry.target);
+    if (entry.intersectionRatio == 0) {
+      spin(entry.target);
+    }
   });
 
   requestAnimationFrame(() => {

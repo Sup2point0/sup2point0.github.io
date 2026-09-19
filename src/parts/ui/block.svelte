@@ -48,7 +48,7 @@ onMount(() => {
     <div class="content"
       transition:slide={{ duration: 1000, delay: delay + 100, easing: expoInOut }}
     >
-      {@render children()}
+      {@render children?.()}
     </div>
   {/if}
 </div>

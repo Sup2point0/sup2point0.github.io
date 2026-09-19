@@ -21,6 +21,7 @@ let { album }: Props = $props();
     <div class="capt">
       <p class="date"> {display_date(album.date)} </p>
 
+      <!-- TODO handle array -->
       {#if album.daw}
         <div class="separator"> × </div>
         <p class="daw"> MADE IN {album.daw.toUpperCase()} </p>

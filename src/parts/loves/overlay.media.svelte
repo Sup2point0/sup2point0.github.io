@@ -4,6 +4,7 @@
 
 import { display_date } from "#scripts/utils";
 import type { MediaData, MediaKind } from "#scripts/types/media";
+import type { int } from "#scripts/types";
 
 import { fade, scale, slide } from "svelte/transition";
 import { expoOut } from "svelte/easing";
@@ -54,7 +55,7 @@ function close() {
         <h1> {media.name?.toUpperCase() ?? "???"} </h1>
         
         {#if media.translation}
-          <h2> {media.translation.toUpperCase()} </h2>
+          <h2> {(media.translation as string).toUpperCase()} </h2>
         {/if}
       </header>
 
@@ -69,7 +70,7 @@ function close() {
             <tr>
               <th> ORDER </th>
               <td>
-                {#each media.order as chunk, i}
+                {#each (media.order as string[]) as chunk}
                   <p> {chunk.toUpperCase()} </p>
                   <span class="separator"> › </span>
                 {/each}
@@ -80,7 +81,7 @@ function close() {
           {#if media.love}
             <tr>
               <th> LOVE </th>
-              <td> {#each { length: media.love } as _} ❤️‍🔥 {/each} </td>
+              <td> {#each { length: media.love as int } as _} ❤️‍🔥 {/each} </td>
             </tr>
           {/if}
         </tbody></table>

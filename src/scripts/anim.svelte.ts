@@ -8,7 +8,7 @@ export const expoSlide = { duration: 800, easing: expoInOut };
 export function anim(node: HTMLElement)
 {
 	if (!node) {
-		console.warn("failed to attach animation handler!");
+		console.warn(`failed to attach animation handler!`);
 		return;
 	};
 

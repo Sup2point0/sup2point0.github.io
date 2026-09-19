@@ -45,6 +45,7 @@ onMount(() => {
   { text: "games" },
 ]} />
 
+<!-- FIXME -->
 <MediaOverlay kind="games" media={active_game} />
 
 <Main>

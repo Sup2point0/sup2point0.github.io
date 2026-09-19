@@ -51,6 +51,7 @@ export function get_enabled(
 	);
 }
 
+// TODO use
 /**
  * (out-of-place) Apply `mapper` to each value in `obj`.
  */

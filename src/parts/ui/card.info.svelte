@@ -15,23 +15,23 @@ interface Props {
   capt?: string;
     capt_pos?: "below" | "right";
   desc?: Description;
-  open?: any;
+  opens?: any;
 }
 
-let { text, capt, capt_pos = "below", desc, open }: Props = $props();
+let { text, capt, capt_pos = "below", desc, opens }: Props = $props();
 
 
 // svelte-ignore state_referenced_locally
-let is_open = $state(open ? true : false);
+let is_open = $state(opens ? true : false);
 
 </script>
 
 
 <button class="card-info"
   class:live={desc !== undefined}
-  class:open
+  class:open={is_open}
   transition:scale={{ duration: 600, easing: expoOut }}
-  onclick={() => { open = !open; }}
+  onclick={() => { is_open = !is_open; }}
 >
   <div class="upper {capt_pos}">
     <p class="text"> {@html text} </p>
@@ -41,7 +41,7 @@ let is_open = $state(open ? true : false);
     {/if}
   </div>
 
-  {#if desc && open}
+  {#if desc && is_open}
     <div class="lower" transition:slide={{ duration: 400, easing: expoOut }}>
       {#if Array.isArray(desc)}
         {#each desc as block}

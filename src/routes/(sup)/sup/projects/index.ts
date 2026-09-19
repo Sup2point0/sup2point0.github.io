@@ -176,7 +176,7 @@ const data: Groups<ProjectData> = prep_groups(
       kind:    [Kind.WEBSITE, Kind.APPLICATION],
       tech_data: [
         Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.HTML,
-        Tech.DESMOS,
+        Tech.DESMOS, Lang.KATEX,
       ],
       state: State.DEVELOPING,
       links: {

@@ -32,6 +32,7 @@ export const Lang: LangsData = prep(
 			`Cool little language, just didn’t have any reasons to continue learning it.`,
 		lore:
 			`Picked this up for Flutter, but then didn’t really feel like building a desktop application with Material UI. The <code>..</code> cascade operator was REALLY cool tho, absolutely loved that.`,
+		is_shown: false,
 	},
 	ELIXIR: {
 		name:     "Elixir",
@@ -41,7 +42,7 @@ export const Lang: LangsData = prep(
 		icon:     "elixir.png",
 		desc:
 			`idk, just sounds like a cool language to learn some day`,
-		has_projects: false,
+		is_shown: false,
 	},
 	HASKELL: {
 		name:     "Haskell",
@@ -82,7 +83,7 @@ export const Lang: LangsData = prep(
 		love:     null,
 		fluency:  Fluency.LEARN,
 		icon:     "julia.png",
-		has_projects: false,
+		is_shown: false,
 	},
 	KATEX: {
 		name:     "KaTeX",
@@ -98,6 +99,7 @@ export const Lang: LangsData = prep(
 		love:     null,
 		fluency:  Fluency.TIER_1,
 		icon:     "kotlin.png",
+		is_shown: false,
 	},
 	LATEX: {
 		name:     "LaTeX",
@@ -146,7 +148,7 @@ export const Lang: LangsData = prep(
 		],
 		lore:
 			`I can’t remember why I learned RegEx, or even how I heard of it, but it has come in clutch time and time again.`,
-		has_projects: false,
+		is_shown: false,
 	},
 	RUBY: {
 		name:     "Ruby",
@@ -187,7 +189,7 @@ export const Lang: LangsData = prep(
 		date:     2021,
 		love:     null,
 		icon:     undefined,
-		has_projects: false,
+		is_shown: false,
 	},
 	SVELTE: {
 		name:     "Svelte/Kit",
@@ -208,7 +210,7 @@ export const Lang: LangsData = prep(
 		fluency:  Fluency.LEARN,
 		icon:     "swift.png",
 			_style: "round",
-		has_projects: false,
+		is_shown: false,
 	},
 	TYPESCRIPT: {
 		name:     "TypeScript",

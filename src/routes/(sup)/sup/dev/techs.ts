@@ -13,7 +13,7 @@ export const Tech: TechsData = prep(
 		love:     1,
 		fluency:  Fluency.TIER_2,
 		icon:     "github-actions.png",
-		has_projects: false,
+		is_shown: false,
 	},
 	CODESPACES: {
 		name:     "Codespaces",
@@ -21,7 +21,7 @@ export const Tech: TechsData = prep(
 		love:     null,
 		fluency:  Fluency.TIER_2,
 		icon:     "codespaces.png",
-		has_projects: false,
+		is_shown: false,
 	},
 	DESMOS: {
 		name:     "Desmos",
@@ -37,7 +37,7 @@ export const Tech: TechsData = prep(
 		love:     2,
 		fluency:  Fluency.TIER_3,
 		icon:     "git.svg",
-		has_projects: false,
+		is_shown: false,
 	},
 	GITHUB: {
 		name:     "GitHub",
@@ -46,7 +46,7 @@ export const Tech: TechsData = prep(
 		fluency:  Fluency.TIER_3,
 		icon:     "github.svg",
 		describe: `pure pleasure`,
-		has_projects: false,
+		is_shown: false,
 	},
 	NEXTCORD: {
 		name:     "Nextcord",
@@ -61,7 +61,7 @@ export const Tech: TechsData = prep(
 		love:     2,
 		fluency:  Fluency.TIER_2,
 		icon:     "nushell.png",
-		has_projects: false,
+		is_shown: false,
 	},
 	OPENGL: {
 		name:     "OpenGL",
@@ -73,15 +73,7 @@ export const Tech: TechsData = prep(
 		love:     3,
 		fluency:  Fluency.TIER_4,
 		icon:     "powerpoint.svg",
-		has_projects: false,
-	},
-	REPLIT: {
-		name:     "replit",
-		date:     2021,
-		love:     null,
-		fluency:  Fluency.TIER_2,
-		icon:     undefined,
-		has_projects: false,
+		is_shown: false,
 	},
 	UNITY: {
 		name:     "Unity",
@@ -98,7 +90,7 @@ export const Tech: TechsData = prep(
 		fluency:  Fluency.TIER_3,
 		icon:     "vscode.svg",
 		describe: `delightfully freeing and extensible`,
-		has_projects: false,
+		is_shown: false,
 	},
 });
 

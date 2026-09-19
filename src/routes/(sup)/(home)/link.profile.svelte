@@ -4,12 +4,15 @@
 
 <script lang="ts">
 
+import type { url } from "#scripts/types";
+
+
 interface Props {
-  title: string;
-  capt: string;
-  icon: string;
-  link: string;
-  frac: number;
+  title: string
+  capt: string
+  icon: url
+  link: url
+  frac: number
 }
 
 let { title, capt, icon, link, frac }: Props = $props();

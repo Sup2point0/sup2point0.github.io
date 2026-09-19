@@ -3,186 +3,186 @@
 
 
 @mixin mobile {
-  @media (max-width: $width-shrink) {
-    @content;
-  }
+	@media (max-width: $width-shrink) {
+		@content;
+	}
 }
 
 
 @mixin link($lesser: false)
 {
-  display: inline-block;
-  position: relative;
-  color: $col-prot;
-  text-decoration: none;
+	display: inline-block;
+	position: relative;
+	color: $col-prot;
+	text-decoration: none;
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0.1em;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: $col-deut;
-    transform: scaleX(0);
-    transition: transform 0.16s ease-out;
-  }
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: 0.1em;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background: $col-deut;
+		transform: scaleX(0);
+		transition: transform 0.16s ease-out;
+	}
 
-  &:hover, &:focus-visible {
-    cursor: pointer;
-    color: $col-deut;
+	&:hover, &:focus-visible {
+		cursor: pointer;
+		color: $col-deut;
 
-    &:after {
-      transform: scaleX(100%);
-      transform-origin: middle;
-      @if $lesser { transform: scaleX(69%); }
-    }
-  }
+		&:after {
+			transform: scaleX(100%);
+			transform-origin: middle;
+			@if $lesser { transform: scaleX(69%); }
+		}
+	}
 
-  &:active {
-    color: $col-trit;
+	&:active {
+		color: $col-trit;
 
-    &::after {
-      background: $col-trit;
-    }
-  }
+		&::after {
+			background: $col-trit;
+		}
+	}
 }
 
 @mixin card($blur: true, $light: false)
 {
-  @if $light {
-    background: $col-card-light;
-  } @else {
-    background: $col-card;
-  }
-  @if $blur {
-    backdrop-filter: blur(12px);
-  }
+	@if $light {
+		background: $col-card-light;
+	} @else {
+		background: $col-card;
+	}
+	@if $blur {
+		backdrop-filter: blur(12px);
+	}
 }
 
 @mixin shear-card(
-  $blur: true,
-  $interactive: false,
-  $glow: false,
-  $light: false,
-  $mobile: false,
+	$blur: true,
+	$interactive: false,
+	$glow: false,
+	$light: false,
+	$mobile: false,
 )
 {
-  position: relative;
-  
-  &::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    @include card($blur, $light);
-    transform: skew($shear-factor);
-    transition: #{trans()};
-    @content;
-  }
+	position: relative;
+	
+	&::before {
+		content: '';
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		@include card($blur, $light);
+		transform: skew($shear-factor);
+		transition: #{trans()};
+		@content;
+	}
 
-  @if $interactive {
-    &::before {
-      transition: #{trans()};
-    }
-    
-    &:hover, &:focus-visible, &:active {
-      cursor: pointer;
-      
-      &::before {
-        background: $col-card-hover;
-        @if $light {
-          background: $col-card-light-hover;
-        }
+	@if $interactive {
+		&::before {
+			transition: #{trans()};
+		}
+		
+		&:hover, &:focus-visible, &:active {
+			cursor: pointer;
+			
+			&::before {
+				background: $col-card-hover;
+				@if $light {
+					background: $col-card-light-hover;
+				}
 
-        @if $glow {
-          border-radius: 0.6em;
-          transform: skew(calc($shear-factor * 2 / 3));
-          @include glow();
-        }
-      }
-    }
+				@if $glow {
+					border-radius: 0.6em;
+					transform: skew(calc($shear-factor * 2 / 3));
+					@include glow();
+				}
+			}
+		}
 
-    @if $glow {
-      &:active::before {
-        background: $col-card-click;
-        @include glow(true);
-      }
-    }
+		@if $glow {
+			&:active::before {
+				background: $col-card-click;
+				@include glow(true);
+			}
+		}
 
-    @if $mobile {
-      @include mobile {
-        &::before {
-          transform: skew(0, calc($shear-factor * 1 / 3));
-        }
+		@if $mobile {
+			@include mobile {
+				&::before {
+					transform: skew(0, calc($shear-factor * 1 / 3));
+				}
 
-        &:hover, &:focus-visible, &:active {
-          &::before {
-            transform: skew(0, calc($shear-factor * 1 / 6));
-          }
-        }
-      }
-    }
-  }
+				&:hover, &:focus-visible, &:active {
+					&::before {
+						transform: skew(0, calc($shear-factor * 1 / 6));
+					}
+				}
+			}
+		}
+	}
 }
 
 @mixin anim-block
 {
-  &::before {
-    transition:
-      #{trans()},
-      transform 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s),
-      opacity 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
-  }
-  
-  &:not(.intersected)::before {
-    transform: skew($shear-factor) scale(90%);
-    opacity: 0;
-  }
+	&::before {
+		transition:
+			#{trans()},
+			transform 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s),
+			opacity 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
+	}
+	
+	&:not(.intersected)::before {
+		transform: skew($shear-factor) scale(90%);
+		opacity: 0;
+	}
 
-  &.intersected::before {
-    opacity: 1;
-  }
+	&.intersected::before {
+		opacity: 1;
+	}
 }
 
 
 @mixin glow($active: false)
 {
-  outline: none;
+	outline: none;
 
-  @if $active {
-    box-shadow: 0 0 12px $col-trit;
-  } @else {
-    box-shadow: 0 0 12px $col-prot;
-  }
+	@if $active {
+		box-shadow: 0 0 12px $col-trit;
+	} @else {
+		box-shadow: 0 0 12px $col-prot;
+	}
 }
 
 
 @mixin separator
 {
-  span.separator {
-    padding-bottom: 0.1em;
-    @include font-fun;
-    color: $col-text-deut;
-    font-size: 125%;
+	span.separator {
+		padding-bottom: 0.1em;
+		@include font-fun;
+		color: $col-text-deut;
+		font-size: 125%;
 
-    &:last-child {
-      display: none;
-    }
-  }
+		&:last-child {
+			display: none;
+		}
+	}
 }
 
 
 @function trans()
 {
-  @return 'all 0.12s ease-out';
+	@return 'all 0.12s ease-out';
 }
 
 @function trans-exp()
 {
-  @return '1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s)';
+	@return '1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s)';
 }

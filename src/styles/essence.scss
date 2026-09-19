@@ -4,56 +4,56 @@
 
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 :root {
-  @include font-ui;
-  font-size: 110%;
-  color: white;
+	@include font-ui;
+	font-size: 110%;
+	color: white;
 }
 
 @media (max-width: 30rem) {
-  :root {
-    font-size: 100%;
-  }
+	:root {
+		font-size: 100%;
+	}
 }
 
 
 html {
-  background-color: black;
-  overflow-x: hidden;
-  overflow-y: auto;
-  scroll-timeline-name: --parallax;
-  scroll-timeline-axis: y;
-  scrollbar-color: $col-prot black;
-  scrollbar-width: thin;
+	background-color: black;
+	overflow-x: hidden;
+	overflow-y: auto;
+	scroll-timeline-name: --parallax;
+	scroll-timeline-axis: y;
+	scrollbar-color: $col-prot black;
+	scrollbar-width: thin;
 }
 
 
 a.link {
-  @include link;
+	@include link;
 }
 
 code {
-  font-family: 'Fira Mono', 'Roboto Mono', 'Consolas', monospace;
+	font-family: 'Fira Mono', 'Roboto Mono', 'Consolas', monospace;
 }
 
 .highlight {
-  color: $col-acc;
+	color: $col-acc;
 }
 
 
 ::selection {
-  color: white !important;
-  background: $col-prot !important;
+	color: white !important;
+	background: $col-prot !important;
 }
 
 
 .centre {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
 }

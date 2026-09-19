@@ -15,17 +15,14 @@ export function shuffle<Item>(source: Item[]): Item[]
 }
 
 
-interface Collection<Item>
-{
-	length: number;
-	at(idx: number): Item | undefined;
-}
-
 // FIXME this isn't quite THAT uniform... =/
 
 /** Deterministically pick a random item from `source`, based on the current date, with uniform probability of picking each item. */
 export async function pick_daily<Item>(
-	source: Collection<Item>
+	source: {
+		length: number;
+		at(idx: number): Item | undefined;
+	}
 ): Promise<Item | undefined>
 {
 	let t = new Date();

@@ -90,17 +90,18 @@ button {
     color: $col-quat;
     opacity: 1;
 
-    &.tech       { color: #40e0ff; }
-    // &.supcode    { color: white; }
+    &.tech       { color: $col-text; }
+    &.unity      { color: #40f190; }
     &.python     { color: #0064f1; }
-    &.c-         { color: #ff0090; }
+    &.csharp     { color: #ff0090; }
     &.ruby       { color: #ff1000; }
     &.haskell    { color: #9090f1; }
     &.rust       { color: #f160f1; }
-    &.svelte-kit { color: #ff7020; }
+    &.svelte     { color: #ff7020; }
     &.javascript { color: #ffc720; }
-    &.javascript-typescript { color: #ffc720; }
-    &.unity      { color: #40f190; }
+    &.typescript { color: #ffc720; }
+    &.markdown   { color: #2070c1; }
+    &.desmos     { color: #009317; }
 
     &.developing,
     &.active        { color: #40f190; }

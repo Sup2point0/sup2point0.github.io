@@ -215,6 +215,10 @@ search {
       white-space: nowrap;
     }
   }
+
+  @media (max-width: $width-shrink) {
+    padding-bottom: 1rem;
+  }
 }
 
 .preview {

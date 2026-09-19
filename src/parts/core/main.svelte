@@ -32,11 +32,9 @@ main {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-}
 
-@media (max-width: $width-shrink) {
-  main {
-    padding: 0 2rem;
+  @media (max-width: $width-shrink) {
+    padding: 0 1rem;
   }
 }
 

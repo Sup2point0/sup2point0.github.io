@@ -144,10 +144,6 @@ function open()
   &.retired.intersected {
     opacity: 0.5;
   }
-  
-  @media (max-width: $width-shrink) {
-    max-width: max-content;
-  }
 }
 
 .content {
@@ -170,6 +166,7 @@ function open()
     padding: 0 1rem;
 
     @media (max-width: $width-shrink) {
+      padding: 0;
       flex-flow: column nowrap;
     }
   }
@@ -187,6 +184,10 @@ function open()
 
     .block-game.active & {
       box-shadow: 0 0 32px color.change($col-trit, $alpha: 0.5);
+    }
+
+    @media (max-width: $width-shrink) {
+      transform: translateY(0.25rem);
     }
   }
 }

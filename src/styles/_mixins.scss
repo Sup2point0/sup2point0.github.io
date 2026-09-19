@@ -102,7 +102,7 @@
     }
 
     @if $mobile {
-      @media (max-width: $width-shrink) {
+      @include mobile {
         & {
           &::before {
             transform: skew(0, calc($shear-factor * 1 / 3));

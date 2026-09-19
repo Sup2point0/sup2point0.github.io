@@ -162,7 +162,7 @@ p {
     transition: #{trans()}, filter 0.25s ease-out;
   }
 
-  @media (max-width: $width-shrink) {
+  @include mobile {
     .img-container:nth-child(5) {
       display: none;
     }

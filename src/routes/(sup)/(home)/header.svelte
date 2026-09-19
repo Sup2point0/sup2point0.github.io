@@ -127,7 +127,7 @@ p:hover {
 }
 
 
-@media (max-width: $width-shrink) {
+@include mobile {
   img#purple-portal {
     max-width: 100vw;
   }

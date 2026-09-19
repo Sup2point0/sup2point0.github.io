@@ -152,7 +152,7 @@ onMount(() => {
 }
 
 
-@media (max-width: $width-shrink) {
+@include mobile {
   .chronicle section {
     flex-flow: column nowrap;
 

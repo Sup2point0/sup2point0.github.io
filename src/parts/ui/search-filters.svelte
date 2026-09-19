@@ -216,7 +216,7 @@ search {
     }
   }
 
-  @media (max-width: $width-shrink) {
+  @include mobile {
     padding-bottom: 1rem;
   }
 }

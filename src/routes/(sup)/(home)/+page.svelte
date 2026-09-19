@@ -135,7 +135,7 @@ search {
 }
 
 
-@media (max-width: $width-shrink) {
+@include mobile {
   section.upper {
     flex-flow: column nowrap;
   }

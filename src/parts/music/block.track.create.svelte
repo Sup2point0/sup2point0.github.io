@@ -247,7 +247,7 @@ let { track }: Props = $props();
 }
 
 
-@media (max-width: $width-shrink) {
+@include mobile {
   .block-track {
     min-width: 0;
     max-width: 90vw;

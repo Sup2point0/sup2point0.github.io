@@ -165,7 +165,7 @@ function open()
   .block-game.open & {
     padding: 0 1rem;
 
-    @media (max-width: $width-shrink) {
+    @include mobile {
       padding: 0;
       flex-flow: column nowrap;
     }
@@ -186,7 +186,7 @@ function open()
       box-shadow: 0 0 32px color.change($col-trit, $alpha: 0.5);
     }
 
-    @media (max-width: $width-shrink) {
+    @include mobile {
       transform: translateY(0.25rem);
     }
   }

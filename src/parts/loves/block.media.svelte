@@ -145,7 +145,7 @@ function open()
   &.open {
     max-width: 40rem;
 
-    @media (max-width: $width-shrink) {
+    @include mobile {
       padding: 1rem;
     }
   }
@@ -172,7 +172,7 @@ function open()
     opacity: 1;
   }
 
-  @media (max-width: $width-shrink) {
+  @include mobile {
     .block-media.open & {
       flex-flow: column nowrap;
     }
@@ -189,7 +189,7 @@ img {
     transform: translateY(0.25rem) scale(103%);
   }
 
-  @media (max-width: $width-shrink) {
+  @include mobile {
     transform: translateY(0.25rem);
   }
 }

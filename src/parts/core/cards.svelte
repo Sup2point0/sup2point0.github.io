@@ -36,7 +36,7 @@ let { force_grid = false, children }: Props = $props();
   }
 }
 
-@media (max-width: $width-shrink) {
+@include mobile {
   .cards, .cards.grid {
     display: flex;
     flex-flow: column nowrap;

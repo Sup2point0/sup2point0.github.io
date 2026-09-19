@@ -33,7 +33,7 @@ main {
   flex-flow: column nowrap;
   align-items: center;
 
-  @media (max-width: $width-shrink) {
+  @include mobile {
     padding: 0 1rem;
   }
 }

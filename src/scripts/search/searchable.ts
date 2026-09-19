@@ -6,17 +6,20 @@ import type { shard } from "#scripts/types";
  */
 export interface Searchable
 {
-	/** Permanent unique identifier for the entity, used as keys, link anchors, etc. */
-	shard?: shard;
+	/** The unique stable identifier for the entity, used as keys, link anchors, etc. */
+	shard?: shard
+
+	/** The displayed name of the entity. */
+	name: string
 
 	/** Which 'collection' this entity belongs to. */
-	collection?: string;
+	collection?: string
 
 	/** Should this entity be shown? */
-	is_shown?: boolean;
+	is_shown?: boolean
 	
 	/** A cached score for how relevant this entity is for a given search query. */
-	_score?: number;
+	_score?: number
 
 	[prop: string]: any;
 	// [prop: string]: unknown;

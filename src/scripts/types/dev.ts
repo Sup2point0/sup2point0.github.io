@@ -1,34 +1,32 @@
 import type { Searchable } from "#scripts/search";
-import type { Datepoint } from "#scripts/types";
+import type { Datepoint, Description, Love } from "#scripts/types";
 
 
 export interface DevEntity extends Searchable
-{  
-	date:      Datepoint;
-	versions?: string[];
+{
+	_style?: "round"
 
-	love:     3 | 2 | 1 | null;
-	fluency?: Fluency;
+	date:      Datepoint
+	versions?: Description
 
-	colour?:  string;
-	related?: string[];
+	love:     Love
+	fluency?: Fluency
 
-	details?:  string | string[];
-	describe?: string;
-	capt?:     string;
-	desc?:     string | string[];
-	lore?:     string | string[];
+	colour?:  string
+	related?: string[]
 
-	has_projects?: boolean;
+	details?:  Description
+	describe?: string
+	capt?:     string
+	desc?:     Description
+	lore?:     Description
 }
 
 export interface LangData extends DevEntity {
-	name: string;
 	icon: string;
 }
 
 export interface TechData extends DevEntity {
-	name: string;
 	icon: string;
 }
 

@@ -4,7 +4,6 @@ import type { Love, Dates, Groups } from "#scripts/types";
 
 export interface YouTubeChannelData extends Searchable
 {
-	name:  string;
 	love:  Love;
 	date?: Dates;
 

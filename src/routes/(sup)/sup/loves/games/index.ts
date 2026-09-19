@@ -39,7 +39,6 @@ export enum PlayState {
 
 export interface GameData extends Searchable
 {
-  name:  string;
   love:  Love;
   date?: Dates;
 

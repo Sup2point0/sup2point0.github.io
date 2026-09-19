@@ -7,7 +7,6 @@ export interface MyTrackData extends Searchable {
 	is_preview?: boolean;
 
 	shard: shard;
-	name:  string;
 	date?: Dates;
 	
 	audio?: string;
@@ -21,11 +20,10 @@ export interface MyTrackData extends Searchable {
 }
 
 
-export interface AlbumData {
+export interface AlbumData extends Searchable {
 	is_preview?: boolean;
 	
 	shard: shard;
-	name:  string;
 	date?: Datepoint | Datepoint[];
 
 	cover?: string;

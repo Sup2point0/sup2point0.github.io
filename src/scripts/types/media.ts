@@ -43,7 +43,6 @@ export enum Theme {
 
 export interface MediaData extends Searchable
 {
-	name:  string
 	date?: Dates
 
 	genres?: Genre[]

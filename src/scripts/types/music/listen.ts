@@ -6,7 +6,6 @@ import type { shard, filepath, url, Datepoint, Dates, Description, Arrayable } f
 export interface TrackData extends Searchable
 {
 	shard:   shard;
-	name:    string;
 	artists: shard[];
 
 	date?:  Dates;
@@ -24,9 +23,9 @@ export interface TrackData extends Searchable
 }
 
 
-export interface ArtistData {
+export interface ArtistData extends Searchable
+{
 	shard: shard;
-	name:  string;
 
 	date?: Datepoint;
 	icon:  string;
@@ -49,10 +48,10 @@ interface ExternalTrackData {
 }
 
 
-export interface GenreData extends Searchable {
+export interface GenreData extends Searchable
+{
 	fav?: boolean;
 	
-	name:  string;
 	kind?: GenreKind;
 	
 	artists?: string[];

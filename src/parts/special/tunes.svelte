@@ -8,6 +8,7 @@ The site-wide music player!
 import { tunes } from "#scripts/state";
 import { display_timestamp } from "#scripts/utils";
 
+import { onMount } from "svelte";
 import { expoOut } from "svelte/easing";
 import { scale } from "svelte/transition";
 
@@ -21,6 +22,20 @@ let drag = $state({
   timestamp_init: 0,
   was_playing: false,
 });
+
+
+onMount(() => {
+  if ("mediaSession" in navigator) {
+	navigator.mediaSession.setActionHandler("play", () => tunes.toggle_pause());
+	navigator.mediaSession.setActionHandler("pause", () => tunes.toggle_pause());
+	navigator.mediaSession.setActionHandler("previoustrack", () => {
+		if (tunes.audio) tunes.audio.currentTime = 0;
+	});
+	navigator.mediaSession.setActionHandler("seekto", details => {
+		if (tunes.audio && details.seekTime !== undefined) tunes.audio.currentTime = details.seekTime;
+	});
+}
+})
 
 
 // when the user clicks on the playback slider, start tracking their drag movement

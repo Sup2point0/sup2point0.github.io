@@ -29,7 +29,7 @@ export class TuneState
 		this.playing = true;
 
 		requestAnimationFrame(async () => {
-			await tunes.audio?.play();
+			await this.audio?.play();
 			this.start_syncing_timestamp();
 
 			if (!("mediaSession" in window.navigator)) return;
@@ -84,14 +84,14 @@ export class TuneState
 			this.timestamp = this.duration - 0.01;
 		}
 		
-		tunes.sync_playhead();
+		this.sync_playhead();
 	}
 	
 	stop_playing()
 	{
-		tunes.audio?.pause();
-		tunes.track = null;
-		tunes.playing = false;
+		this.audio?.pause();
+		this.track = null;
+		this.playing = false;
 		this.stop_syncing_timestamp();
 	}
 
@@ -137,15 +137,3 @@ export class TuneState
 }
 
 export const tunes = new TuneState();
-
-
-if ("mediaSession" in navigator) {
-	navigator.mediaSession.setActionHandler("play", () => tunes.toggle_pause());
-	navigator.mediaSession.setActionHandler("pause", () => tunes.toggle_pause());
-	navigator.mediaSession.setActionHandler("previoustrack", () => {
-		if (tunes.audio) tunes.audio.currentTime = 0;
-	});
-	navigator.mediaSession.setActionHandler("seekto", details => {
-		if (tunes.audio && details.seekTime !== undefined) tunes.audio.currentTime = details.seekTime;
-	});
-}

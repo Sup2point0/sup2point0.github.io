@@ -2,9 +2,7 @@ import { albums_list } from "#sup/music/create";
 import type { AlbumData } from "#scripts/types";
 
 
-export function load({ params }): AlbumData
+export function load({ params: { album } }): AlbumData
 {
-	let album = albums_list.find(album => album.shard === params.album);
-
-	return album!;
+	return albums_list.find(each => each.shard === album)!;
 }

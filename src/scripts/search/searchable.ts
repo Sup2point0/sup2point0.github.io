@@ -19,4 +19,5 @@ export interface Searchable
 	_score?: number;
 
 	[prop: string]: any;
+	// [prop: string]: unknown;
 }

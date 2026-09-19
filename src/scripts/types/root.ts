@@ -1,16 +1,16 @@
 export type int = number;
 
 /** A unique stable identifier for any entity. */
-export type shard = string;
+export type shard = string & { readonly __brand?: unique symbol };
 
 /** A filepath for an asset. */
-export type filepath = string;
+export type filepath = string & { readonly __brand?: unique symbol };
 
 /** A fully-qualified, usually external URL. */
-export type url = string;
+export type url = string & { readonly __brand?: unique symbol };
 
 /** A CSS colour string, such as a hex code or `oklch()` call. */
-export type colour = string;
+export type colour = string & { readonly __brand?: unique symbol };
 
 
 /** A non-specific point in time. */

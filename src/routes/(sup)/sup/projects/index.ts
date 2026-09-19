@@ -16,25 +16,27 @@ export interface ProjectData extends Searchable
 
   flavour: Arrayable<Flavour>
   kind: Arrayable<Kind>
+  tech_data: DevEntity[]
   tech: shard[]
-  state: Arrayable<State>
+  state: Arrayable<State>  // TODO maybe reorder?
 
   links?: {
     [link: string]: url
   }
   tags?: string[]
+  
   desc: string
 }
 
-interface StaticProjectData extends Omit<ProjectData, "tech">, Searchable
-{
-  tech_data: DevEntity[]
+interface StaticProjectData extends Omit<ProjectData, "tech">, Searchable {
+  tech?: never
 }
 
 
 // @ts-expect-error: unused
 const template: StaticProjectData = [
     {
+      state: State.DEVELOPING,
       shard: "",
       name:  "",
       love:  null,
@@ -45,7 +47,6 @@ const template: StaticProjectData = [
       tech_data: [
         Lang.SVELTE,
       ],
-      state: State.DEVELOPING,
       links: {
         github: "https://github.com/Sup2point0/...",
       },
@@ -88,7 +89,7 @@ const data: Groups<ProjectData> = prep_groups<StaticProjectData>(
         Lang.KATEX, Lang.JSON, Lang.MARKDOWN, Tech.DESMOS,
         Lang.RUBY,
       ],
-      state: [State.MAINTAINING],
+      state: State.MAINTAINING,
       links: {
         github: "https://github.com/Sup2point0/integrity",
         site: "https://sup2point0.github.io/integrity",
@@ -788,7 +789,8 @@ const data: Groups<ProjectData> = prep_groups<StaticProjectData>(
   ],
 },
   entity => {
-    entity.tech = entity.tech_data!.map(tech => tech.shard!);
+    // @ts-expect-error: type transmutation
+    entity.tech = entity.tech_data.map(tech => tech.shard!);
   }
 ) as unknown as Groups<ProjectData>;
 

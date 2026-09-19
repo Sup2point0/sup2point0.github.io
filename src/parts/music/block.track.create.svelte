@@ -226,7 +226,7 @@ let { track }: Props = $props();
       @include font-fun;
       font-size: 125%;
       color: $col-text;
-      @include shear-card();
+      @include shear-card($blur: false);
       transition: #{trans()};
 
       &:hover {

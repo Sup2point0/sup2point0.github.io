@@ -293,7 +293,7 @@ img {
       @include font-fun;
       font-size: 120%;
       color: $col-text;
-      @include shear-card();
+      @include shear-card($blur: false);
       transition: #{trans()};
 
       &:hover {

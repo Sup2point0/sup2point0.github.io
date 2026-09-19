@@ -310,7 +310,7 @@ img.project-icon {
       font-size: 110%;
       color: $col-text;
       text-shadow: 0 0.5px 1.5px black;
-      @include shear-card();
+      @include shear-card($blur: false);
       transition: #{trans()};
 
       &:hover {

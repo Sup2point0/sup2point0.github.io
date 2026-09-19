@@ -182,7 +182,7 @@ let { channel }: Props = $props();
       @include font-fun;
       font-size: 150%;
       color: $col-text;
-      @include shear-card() {
+      @include shear-card($blur: false) {
         background: color.change($col-trit, $alpha: 0.69);
       }
       transition: #{trans()};

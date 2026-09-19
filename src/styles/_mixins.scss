@@ -48,17 +48,25 @@
   }
 }
 
-@mixin card($light: false)
+@mixin card($blur: true, $light: false)
 {
   @if $light {
     background: $col-card-light;
   } @else {
     background: $col-card;
   }
-  backdrop-filter: blur(12px);
+  @if $blur {
+    backdrop-filter: blur(12px);
+  }
 }
 
-@mixin shear-card($interactive: false, $glow: false, $light: false, $mobile: false)
+@mixin shear-card(
+  $blur: true,
+  $interactive: false,
+  $glow: false,
+  $light: false,
+  $mobile: false,
+)
 {
   position: relative;
   
@@ -71,7 +79,7 @@
     top: 0;
     left: 0;
     z-index: -1;
-    @include card($light);
+    @include card($blur, $light);
     transform: skew($shear-factor);
     transition: #{trans()};
     @content;
@@ -108,10 +116,8 @@
 
     @if $mobile {
       @include mobile {
-        & {
-          &::before {
-            transform: skew(0, calc($shear-factor * 1 / 3));
-          }
+        &::before {
+          transform: skew(0, calc($shear-factor * 1 / 3));
         }
 
         &:hover, &:focus-visible, &:active {

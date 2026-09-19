@@ -38,7 +38,11 @@ $effect(() => {
 
 function open()
 {
-  if (Array.isArray(media.desc) && media.desc.length >= 4) {
+  if (
+    Array.isArray(media.desc)
+    && media.desc.length >= 4
+    && window.innerWidth > 640
+  ) {
     active_media = media;
   } else {
     is_open = !is_open;
@@ -49,7 +53,7 @@ function open()
 
 
 <button class="block-media {kind}"
-  class:is_open
+  class:open={is_open}
   id={media.shard}
   onclick={open}
   {@attach anim}
@@ -130,7 +134,7 @@ function open()
   border: none;
   outline: none;
   transition: #{trans()};
-  @include shear-card($interactive: true, $glow: true);
+  @include shear-card($interactive: true, $glow: true, $mobile: true);
   @include anim-block;
 
   &:hover, &:focus-visible {
@@ -138,8 +142,12 @@ function open()
     opacity: 1 !important;
   }
 
-  &.is-open {
+  &.open {
     max-width: 40rem;
+
+    @media (max-width: $width-shrink) {
+      padding: 1rem;
+    }
   }
 
   &.wishlist::before {
@@ -163,6 +171,12 @@ function open()
     transform: none;
     opacity: 1;
   }
+
+  @media (max-width: $width-shrink) {
+    .block-media.open & {
+      flex-flow: column nowrap;
+    }
+  }
 }
 
 
@@ -172,7 +186,11 @@ img {
   transition: #{trans()};
 
   .block-media:where(:hover, :focus-visible) & {
-    transform: scale(103%);
+    transform: translateY(0.25rem) scale(103%);
+  }
+
+  @media (max-width: $width-shrink) {
+    transform: translateY(0.25rem);
   }
 }
 
@@ -232,6 +250,10 @@ img {
 
   .block-media:where(:hover, :focus-visible) & {
     color: $col-text;
+  }
+
+  @include mobile {
+    font-size: 100%;
   }
 }
 

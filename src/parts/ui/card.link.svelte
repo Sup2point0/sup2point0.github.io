@@ -161,6 +161,12 @@ p {
     filter: blur(4px);
     transition: #{trans()}, filter 0.25s ease-out;
   }
+
+  @media (max-width: $width-shrink) {
+    .img-container:nth-child(5) {
+      display: none;
+    }
+  }
 }
 
 .picts.tall {

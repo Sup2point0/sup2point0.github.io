@@ -42,26 +42,6 @@ const data: Groups<ArtistData> =
       ],
     },
     {
-      shard:  "moudelica",
-      name:   "Moudelica",
-      date:   "May 2026",
-      icon:   "moudelica.jpg",
-      genres: [Genre.ELECTRONIC, Genre.JPOP],
-      vibes:  [Vibe.EMOTIONAL],
-      track: {
-        name: "平気そうでしょ", link: "https://youtube.com/watch?v=lNty-CWvQqU&list=PLYWIouv-DSkA-chALakUN7Wr1jdevXQxu"
-      },
-      links: {
-        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkA-chALakUN7Wr1jdevXQxu",
-      },
-      discovered: `StarlingEDM in YouTube Music reccs`,
-      desc: [
-        `She’s got a bit of a strange singing style, but it’s unique, and many of her tracks slap, so what more can I say.`,
-        
-        `Also it’s cool that she can sing in both English and Japanese (from what I can tell).`,
-      ],
-    },
-    {
       shard:  "nabbe",
       name:   "Nabbe",
       date:   "early 2026",
@@ -171,6 +151,26 @@ const data: Groups<ArtistData> =
   ],
   "regulars": [
     {
+      shard:  "moudelica",
+      name:   "Moudelica",
+      date:   "May 2026",
+      icon:   "moudelica.jpg",
+      genres: [Genre.ELECTRONIC, Genre.JPOP],
+      vibes:  [Vibe.EMOTIONAL],
+      track: {
+        name: "平気そうでしょ", link: "https://youtube.com/watch?v=lNty-CWvQqU&list=PLYWIouv-DSkA-chALakUN7Wr1jdevXQxu"
+      },
+      links: {
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkA-chALakUN7Wr1jdevXQxu",
+      },
+      discovered: `StarlingEDM in YouTube Music reccs`,
+      desc: [
+        `She’s got a bit of a strange singing style, but it’s unique, and many of her tracks slap, so what more can I say.`,
+        
+        `Also it’s cool that she can sing in both English and Japanese (from what I can tell).`,
+      ],
+    },
+    {
       shard:  "mokkai",
       name:   "MOKKAI",
       date:   "summer 2025",
@@ -230,26 +230,6 @@ const data: Groups<ArtistData> =
         `puru’s melodies absolutely melt me. I don’t know how they come up with them, but they’re unbelievably beautiful.`,
 
         `Best part is, they combine that with the punchiest percussion, smooth synths and soul-bopping rhythms. Music with both movement and emotion, it’s an unstoppable combo.`,
-      ],
-    },
-    {
-      shard:  "a-39",
-      name:   "A-39",
-      date:   "summer 2023",
-      icon:   "a-39.jpg",
-      genres: [Genre.COLOUR_BASS, Genre.HARDCORE, Genre.VOCALOID],
-      track: [
-        { name: "聖夜讃歌", link: "https://youtube.com/watch?v=ZWWIxzsAz_c&list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7" },
-        { name: "WATER", link: "https://youtube.com/watch?v=h69jvhd8z4w&list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7" },
-      ],
-      links: {
-        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7",
-      },
-      discovered: `${h`WATER`} in Phigros`,
-      desc: [
-        `Not really a fan of Vocaloid, but A-39 makes it good. Not entirely sure how.`,
-
-        `Mixes are always crunchy, colour basses are popping, speedbasses are absolutely obliterating. Super enjoyable all-round.`,
       ],
     },
     {
@@ -335,6 +315,37 @@ const data: Groups<ArtistData> =
     },
   ],
   "mood": [
+    {
+      shard:  "virtual-riot",
+      name:   "Virtual Riot",
+      date:   2024,
+      icon:   "virtual-riot.jpg",
+      genres: [Genre.ELECTRONIC, Genre.COMPLEXTRO, Genre.DUBSTEP],
+      track: {
+        name: "I heard you like polyrhythms", link: "https://youtube.com/watch?v=SthcxWPXG_E"
+      },
+      discovered: `YouTube reccs`,
+    },
+    {
+      shard:  "a-39",
+      name:   "A-39",
+      date:   "summer 2023",
+      icon:   "a-39.jpg",
+      genres: [Genre.COLOUR_BASS, Genre.HARDCORE, Genre.VOCALOID],
+      track: [
+        { name: "聖夜讃歌", link: "https://youtube.com/watch?v=ZWWIxzsAz_c&list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7" },
+        { name: "WATER", link: "https://youtube.com/watch?v=h69jvhd8z4w&list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7" },
+      ],
+      links: {
+        youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCuZN61RvduHWr5h1s4CRB7",
+      },
+      discovered: `${h`WATER`} in Phigros`,
+      desc: [
+        `Not really a fan of Vocaloid, but A-39 makes it good. Not entirely sure how.`,
+
+        `Mixes are always crunchy, colour basses are popping, speedbasses are absolutely obliterating. Super enjoyable all-round.`,
+      ],
+    },
     {
       shard:  "cansol",
       name:   "Cansol",
@@ -808,17 +819,6 @@ const data: Groups<ArtistData> =
         { name: "Shadow", link: "https://youtube.com/watch?v=11un4aCwCrs" },
       ],
       discovered: `Phigros`,
-    },
-    {
-      shard:  "virtual-riot",
-      name:   "Virtual Riot",
-      date:   2024,
-      icon:   "virtual-riot.jpg",
-      genres: [Genre.ELECTRONIC, Genre.COMPLEXTRO, Genre.DUBSTEP],
-      track: {
-        name: "I heard you like polyrhythms", link: "https://youtube.com/watch?v=SthcxWPXG_E"
-      },
-      discovered: `YouTube reccs`,
     },
     {
       shard:  "heiakim",

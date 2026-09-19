@@ -21,6 +21,5 @@ export interface Searchable
 	/** A cached score for how relevant this entity is for a given search query. */
 	_score?: number
 
-	[prop: string]: any;
-	// [prop: string]: unknown;
+	[prop: string]: unknown;
 }

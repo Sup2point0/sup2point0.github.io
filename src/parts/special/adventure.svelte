@@ -7,6 +7,7 @@ A randomised adventure route.
 
 import { FrozenWeightedList, type LikeWeightedItem } from "@sup2.0/weighted-list";
 
+import { expoSlide } from "#scripts/anim.svelte.ts";
 import type { Description } from "#scripts/types";
 
 import { onMount } from "svelte";
@@ -63,14 +64,14 @@ onMount(() => {
 
 
 {#if displayed_routes}
-  <span transition:slide={{ duration: 800, easing: expoInOut }}>
+  <span transition:slide={expoSlide}>
     {#each displayed_routes as route}
       {@render parts(route)}
     {/each}
   </span>
 
 {:else if displayed_route}
-  <span transition:slide={{ duration: 800, easing: expoInOut }}>
+  <span transition:slide={expoSlide}>
     {@render parts(displayed_route)}
   </span>
 

@@ -5,7 +5,7 @@ A block display info for a musical artist.
 
 <script lang="ts">
 
-import { anim } from "#scripts/anim.svelte.ts";
+import { anim, expoSlide } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 import type { ArtistData } from "#scripts/types";
 
@@ -86,14 +86,14 @@ $effect(() => {
   <div class="sep"></div>
 
   {#if open}
-    <div class="lower desc" transition:slide={{ duration: 800, easing: expoInOut }}>
+    <div class="lower desc" transition:slide={expoSlide}>
       {#each artist.desc ?? [] as block}
         <p> {@html block} </p>
       {/each}
     </div>
 
   {:else}
-    <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
+    <div class="lower" transition:slide={expoSlide}>
       <div class="inner">
         <p class="discovered">
           {@html artist.discovered}

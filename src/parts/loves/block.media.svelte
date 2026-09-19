@@ -5,7 +5,7 @@ A block displaying info for a media, series, anime, show, etc.
 
 <script lang="ts">
 
-import { anim } from "#scripts/anim.svelte.ts";
+import { anim, expoSlide } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 import type { MediaData, MediaKind } from "#scripts/types/media";
 
@@ -80,14 +80,14 @@ function open()
   <div class="sep"></div>
 
   {#if is_open}
-    <div class="lower desc" transition:slide={{ duration: 800, easing: expoInOut }}>
+    <div class="lower desc" transition:slide={expoSlide}>
       {#each media.desc ?? [] as block}
         <p> {@html block} </p>
       {/each}
     </div>
 
   {:else}
-    <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
+    <div class="lower" transition:slide={expoSlide}>
       {#if media.fields}
         <table class="fields"><tbody>
           {#each Object.entries(media.fields) as [key, value]}

@@ -1,7 +1,9 @@
 import { expoInOut } from "svelte/easing";
 
 
+/** Shared site-wide easing expo-in-out easing curve. */
 export const expoSlide = { duration: 800, easing: expoInOut };
+
 
 export function anim(node: HTMLElement)
 {

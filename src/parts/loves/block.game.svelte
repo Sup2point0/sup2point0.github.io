@@ -4,7 +4,7 @@
 
 import { type GameData } from "#sup/loves/games";
 
-import { anim } from "#scripts/anim.svelte.ts";
+import { anim, expoSlide } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 
 import { untrack } from "svelte";
@@ -71,14 +71,14 @@ function open()
   <div class="sep"></div>
 
   {#if is_open}
-    <div class="lower desc" transition:slide={{ duration: 800, easing: expoInOut }}>
+    <div class="lower desc" transition:slide={expoSlide}>
       {#each game.desc as block}
         <p> {@html block} </p>
       {/each}
     </div>
 
   {:else}
-    <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
+    <div class="lower" transition:slide={expoSlide}>
       <div class="inner">
         {#if game.date}
           <p class="date">

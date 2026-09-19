@@ -5,7 +5,7 @@ A wide block card for displaying info about a track I listen to.
 
 <script lang="ts">
 
-import { anim } from "#scripts/anim.svelte.ts";
+import { anim, expoSlide } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 import type { TrackData } from "#scripts/types/music/listen";
 
@@ -78,14 +78,14 @@ onMount(() => {
   <div class="sep"></div>
 
   {#if open}
-    <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
+    <div class="lower" transition:slide={expoSlide}>
       {#each track.desc as block}
         <p> {@html block} </p>
       {/each}
     </div>
 
   {:else}
-    <div class="lower" transition:slide={{ duration: 800, easing: expoInOut }}>
+    <div class="lower" transition:slide={expoSlide}>
       {#if track.discovered}
         <p class="discovered">
           {@html track.discovered}

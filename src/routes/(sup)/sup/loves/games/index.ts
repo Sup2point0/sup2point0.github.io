@@ -72,27 +72,6 @@ const data: Groups<GameData> =
 {
   "active": [
     {
-      state:  PlayState.FINISHED,
-      shard:  "outer-wilds",
-      name:   "Outer Wilds",
-      love:   null,
-      date:   ["February 2026", "present"],
-      icon:   "outer-wilds.jpg",
-      genres: [Genre.EXPLORATION],
-      platforms: [Platform.DESKTOP],
-      desc: [
-        `The title of this game is the sort which I hear and think “I’ve heard this before”, even tho I probably haven’t. And it’s the kind where I ${i`know`} I want to play it just by hearing it. I made sure to skip parts of ${h`The Cursed Judge`}’s videos about it to avoid spoilers!`,
-
-        `I’m currently still exploring, and falling ever more in love with this game. Flying in space is quite addictive, what can I say.`,
-
-        `I remember when I first finished exploring the village on Timber Hearth, finally found the launch codes, and then saw the spaceship. The raw, tentative excitement, thinking “there’s no way...” and the dumb grin I couldn’t hold back, “am I actually gonna fly a spaceship 0.o” and the feeling of taking off and floating into space.`,
-
-        `Unfortunately I didn’t realise quite how much my poor laptop struggles with graphics (turns out Manifold Garden and Bloons are much lighter than I thought!) so I’ve had to turn every graphic setting to ...the lowest possible. And it still runs at like 20 FPS ;-;`,
-
-        `Ah well, it’s still enough to feel the beauty of the game and world.`,
-      ],
-    },
-    {
       state:  PlayState.ACTIVE,
       shard:  "phigros",
       name:   "Phigros",
@@ -169,65 +148,28 @@ const data: Groups<GameData> =
       platforms: [Platform.CONSOLE],
     },
   ],
-  "bloons": [
+  "miscellaneous": [
     {
-      state:  PlayState.OPPORTUNISTIC,
-      shard:  "bloons-td6",
-      name:   "Bloons TD 6",
-      love:   3,
-      date:   ["2020", "present"],
-      icon:   "bloons-td6.png",
-      genres: [Genre.TOWER_DEFENCE, Genre.CLASSICS],
+      state:  PlayState.FINISHED,
+      shard:  "outer-wilds",
+      name:   "Outer Wilds",
+      love:   null,
+      date:   ["February 2026", "present"],
+      icon:   "outer-wilds.jpg",
+      genres: [Genre.EXPLORATION],
       platforms: [Platform.DESKTOP],
       desc: [
-        `If you held me at gunpoint and asked for my favourite game, I’d probably say Bloons TD 6.`,
+        `The title of this game is the sort which I hear and think “I’ve heard this before”, even tho I probably haven’t. And it’s the kind where I ${i`know`} I want to play it just by hearing it. I made sure to skip parts of ${h`The Cursed Judge`}’s videos about it to avoid spoilers!`,
 
-        `I just have to. It’s too perfect. It fulfils so many of my ...I’m not sure what the word is, not exactly “wishes”, but just stuff that I enjoy about a game. I really love complex intertwining systems that take time to familiarise with, where tiny details and optimisations matter, but where there’s also room for creativity and experimentation.`,
+        `I’m currently still exploring, and falling ever more in love with this game. Flying in space is quite addictive, what can I say.`,
 
-        `And from a graphical standpoint, it’s not even close. They’re not ‘impressive’ per se, they’re just so fun, on-theme and flawless. tbh, I love the game more than it feels like I should. In my prime, I was watching all of ISAB’s videos, coming up with fictional monkeys, and ofc doing ${a("the Monkeyopolis Times", "/sup/projects#monkeyopolis-times", true)}.`,
+        `I remember when I first finished exploring the village on Timber Hearth, finally found the launch codes, and then saw the spaceship. The raw, tentative excitement, thinking “there’s no way...” and the dumb grin I couldn’t hold back, “am I actually gonna fly a spaceship 0.o” and the feeling of taking off and floating into space.`,
 
-        `Unfortunately I have nowhere near enough time to play Bloons actively now, but every once in a while I’ll fire it up, and it’s like... ${i`ahh, home sweet home`}.`,
+        `Unfortunately I didn’t realise quite how much my poor laptop struggles with graphics (turns out Manifold Garden and Bloons are much lighter than I thought!) so I’ve had to turn every graphic setting to ...the lowest possible. And it still runs at like 20 FPS ;-;`,
+
+        `Ah well, it’s still enough to feel the beauty of the game and world.`,
       ],
     },
-    {
-      state:  PlayState.INTERMITTENT,
-      shard:  "bloons-pop",
-      name:   "Bloons Pop!",
-      love:   2,
-      date:   ["2021", "present"],
-      icon:   "bloons-pop.png",
-      genres: [Genre.PUZZLE],
-      platforms: [Platform.MOBILE],
-      desc: [
-        `Bloons Pop! is a really simple game that doesn’t do too much, and I love it for that. It’s just some cute, casual fun to unwind, exactly what you want out of a mobile game. I end up playing this a lot while standing in a crowded tube carriage with nowhere to sit.`,
-
-        `Bloons Pop’s graphics are SO cute. And it’s consistently good as well, everything harmonises so well. The bubbly buttons are perfect. I think the selection of monkeys and heroes is really good; after thinking through myself who else I’d add, I honestly couldn’t think of any. It feels like they picked the perfect roster such that they keep the core Bloons identity, while keeping everyone unique with their own strengths and weaknesses. Props NK!`,
-
-        `My only complaint is that the autogenerated levels are kinda stupidly difficult. I’ve been softlocked at like level 250 or so with an Extreme level that gives me 5 shots to destroy 3 screens worth of bloons. Regrow walls, at that. It’s not happening. It’s obvious they intend for me to use powerups, but I don’t wanna, and even then I’m just gonna run into the same situation again 6 levels later. So nowadays I just play puzzles and events. They’re way more fun because the RNG is frozen so you get the same level when you restart, and there’s no lives to lose ^v^`,
-      ],
-    },
-    {
-      state:  PlayState.RETIRED,
-      shard:  "bloons-supermonkey-2",
-      name:   "Bloons Supermonkey 2",
-      love:   3,
-      date:   ["childhood", "2021"],
-      icon:   "bloons-supermonkey-2.png",
-      genres: [Genre.SHMUP],
-      platforms: [Platform.MOBILE],
-    },
-    {
-      state:  PlayState.RETIRED,
-      shard:  "bloons-td5",
-      name:   "Bloons TD 5",
-      love:   1,
-      date:   ["childhood"],
-      icon:   "bloons-td5.png",
-      genres: [Genre.TOWER_DEFENCE, Genre.CLASSICS],
-      platforms: [Platform.MOBILE],
-    },
-  ],
-  "miscellaneous": [
     {
       state:  PlayState.INTERMITTENT,
       shard:  "master-duel",
@@ -478,6 +420,64 @@ const data: Groups<GameData> =
 
         `That being said, I like watching osu!, it never fails to blow my mind. And they get sweet commissioned competition tracks.`,
       ],
+    },
+  ],
+  "bloons": [
+    {
+      state:  PlayState.OPPORTUNISTIC,
+      shard:  "bloons-td6",
+      name:   "Bloons TD 6",
+      love:   3,
+      date:   ["2020", "present"],
+      icon:   "bloons-td6.png",
+      genres: [Genre.TOWER_DEFENCE, Genre.CLASSICS],
+      platforms: [Platform.DESKTOP],
+      desc: [
+        `If you held me at gunpoint and asked for my favourite game, I’d probably say Bloons TD 6.`,
+
+        `I just have to. It’s too perfect. It fulfils so many of my ...I’m not sure what the word is, not exactly “wishes”, but just stuff that I enjoy about a game. I really love complex intertwining systems that take time to familiarise with, where tiny details and optimisations matter, but where there’s also room for creativity and experimentation.`,
+
+        `And from a graphical standpoint, it’s not even close. They’re not ‘impressive’ per se, they’re just so fun, on-theme and flawless. tbh, I love the game more than it feels like I should. In my prime, I was watching all of ISAB’s videos, coming up with fictional monkeys, and ofc doing ${a("the Monkeyopolis Times", "/sup/projects#monkeyopolis-times", true)}.`,
+
+        `Unfortunately I have nowhere near enough time to play Bloons actively now, but every once in a while I’ll fire it up, and it’s like... ${i`ahh, home sweet home`}.`,
+      ],
+    },
+    {
+      state:  PlayState.INTERMITTENT,
+      shard:  "bloons-pop",
+      name:   "Bloons Pop!",
+      love:   2,
+      date:   ["2021", "present"],
+      icon:   "bloons-pop.png",
+      genres: [Genre.PUZZLE],
+      platforms: [Platform.MOBILE],
+      desc: [
+        `Bloons Pop! is a really simple game that doesn’t do too much, and I love it for that. It’s just some cute, casual fun to unwind, exactly what you want out of a mobile game. I end up playing this a lot while standing in a crowded tube carriage with nowhere to sit.`,
+
+        `Bloons Pop’s graphics are SO cute. And it’s consistently good as well, everything harmonises so well. The bubbly buttons are perfect. I think the selection of monkeys and heroes is really good; after thinking through myself who else I’d add, I honestly couldn’t think of any. It feels like they picked the perfect roster such that they keep the core Bloons identity, while keeping everyone unique with their own strengths and weaknesses. Props NK!`,
+
+        `My only complaint is that the autogenerated levels are kinda stupidly difficult. I’ve been softlocked at like level 250 or so with an Extreme level that gives me 5 shots to destroy 3 screens worth of bloons. Regrow walls, at that. It’s not happening. It’s obvious they intend for me to use powerups, but I don’t wanna, and even then I’m just gonna run into the same situation again 6 levels later. So nowadays I just play puzzles and events. They’re way more fun because the RNG is frozen so you get the same level when you restart, and there’s no lives to lose ^v^`,
+      ],
+    },
+    {
+      state:  PlayState.RETIRED,
+      shard:  "bloons-supermonkey-2",
+      name:   "Bloons Supermonkey 2",
+      love:   3,
+      date:   ["childhood", "2021"],
+      icon:   "bloons-supermonkey-2.png",
+      genres: [Genre.SHMUP],
+      platforms: [Platform.MOBILE],
+    },
+    {
+      state:  PlayState.RETIRED,
+      shard:  "bloons-td5",
+      name:   "Bloons TD 5",
+      love:   1,
+      date:   ["childhood"],
+      icon:   "bloons-td5.png",
+      genres: [Genre.TOWER_DEFENCE, Genre.CLASSICS],
+      platforms: [Platform.MOBILE],
     },
   ],
   "franchises": [

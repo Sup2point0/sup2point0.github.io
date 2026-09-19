@@ -3,38 +3,41 @@ import { a, i } from "#scripts/utils";
 import { Lang } from "#sup/dev/langs";
 import { Tech } from "#sup/dev/techs";
 import { Flavour, Kind, State, type DevEntity } from "#scripts/types/dev";
-import type { shard, Groups, Datepoint } from "#scripts/types";
+import type { shard, url, Dates, Love, Arrayable, Groups } from "#scripts/types";
 
 
 export interface ProjectData extends Searchable
 {
-  name: string;
-  love: 3 | 2 | 1 | null;
-  date?: Datepoint | Datepoint[];
+  love?: Love  // FIXME make required
+  date?: Dates
 
-  icon?: string;
-    _round?: boolean;
+  icon?: string
+    _style?: "round"
 
-  flavour: Flavour | Flavour[];
-  kind: Kind | Kind[];
-  tech: shard[];
-  tech_data: DevEntity[];
-  state: State | State[];
+  flavour: Arrayable<Flavour>
+  kind: Arrayable<Kind>
+  tech: shard[]
+  state: Arrayable<State>
 
   links?: {
-    [link: string]: string;
+    [link: string]: url
   };
-  tags?: string[];
-  desc: string;
+  tags?: string[]
+  desc: string
+}
+
+interface StaticProjectData extends Omit<ProjectData, "tech">, Searchable
+{
+  tech_data: DevEntity[]
 }
 
 
 // @ts-expect-error: unused
-const template: ProjectData = [
+const template: StaticProjectData = [
     {
       shard: "",
       name:  "",
-      love:  0,
+      love:  null,
       date:  undefined,
       icon:  undefined,
       flavour: Flavour.DEV,
@@ -52,7 +55,7 @@ const template: ProjectData = [
 ];
 
 
-const data: Groups<ProjectData> = prep_groups(
+const data: Groups<ProjectData> = prep_groups<StaticProjectData>(
 {
   "Favourites": [
     {
@@ -189,7 +192,7 @@ const data: Groups<ProjectData> = prep_groups(
     {
       shard: "lucidity",
       name:  "Lucidity",
-      love:  0,
+      love:  null,
       date:  ["September 2025", "present"],
       flavour: Flavour.DEV,
       kind:    Kind.WEBSITE,
@@ -320,7 +323,7 @@ const data: Groups<ProjectData> = prep_groups(
     {
       shard: "hlox",
       name:  "Hlox",
-      love:  0,
+      love:  null,
       date:  ["January 2026", "present"],
       icon:  undefined,
       flavour: Flavour.DEV,
@@ -338,7 +341,7 @@ const data: Groups<ProjectData> = prep_groups(
     {
       shard: "natbitset",
       name:  "natbitset",
-      love:  0,
+      love:  null,
       date:  ["January 2026", "present"],
       icon:  undefined,
       flavour: Flavour.DEV,
@@ -356,7 +359,7 @@ const data: Groups<ProjectData> = prep_groups(
     {
       shard: "ascendant",
       name:  "ascendant",
-      love:  0,
+      love:  null,
       date:  ["January 2026", "present"],
       icon:  undefined,
       flavour: Flavour.DEV,
@@ -410,7 +413,7 @@ const data: Groups<ProjectData> = prep_groups(
     {
       shard: "dbxt",
       name:  "duelingbook-extractor",
-      love:  0,
+      love:  null,
       date:  ["December 2025", "present"],
       icon:  undefined,
       flavour: Flavour.DEV,
@@ -540,7 +543,7 @@ const data: Groups<ProjectData> = prep_groups(
     {
       name:  "Vividity",
       date:  "July 2024",
-      love:  0,
+      love:  null,
       flavour: Flavour.DEV,
       kind:    Kind.TOOL,
       tech_data: [
@@ -718,7 +721,7 @@ const data: Groups<ProjectData> = prep_groups(
     },
     {
       name:  "Ignis",
-      love:  0,
+      love:  null,
       date:  2024,
       icon:  "ai.jpg",
         _style: "round",
@@ -783,11 +786,12 @@ const data: Groups<ProjectData> = prep_groups(
         `A fan-made Bloons TD 6 newspaper`,
     },
   ],
-} as Groups<Partial<ProjectData>>,
+},
   entity => {
+    // @ts-expect-error: type transmutation, nothing to see here!
     entity.tech = entity.tech_data!.map(tech => tech.shard!);
   }
-) as Groups<ProjectData>;
+) as unknown as Groups<ProjectData>;
 
 export const projects_data: Groups<ProjectData> = data;
 export const projects_list: ProjectData[] = Object.values(data).flat();

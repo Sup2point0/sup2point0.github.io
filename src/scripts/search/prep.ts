@@ -9,7 +9,7 @@ import type { Searchable } from "./searchable";
  */
 export function prep_groups<Entity extends Searchable>(
 	data: Groups<Entity>,
-	process?: (entity: Entity) => void,
+	transform?: (entity: Entity) => void,
 ): Groups<Entity>
 {
 	for (let [collection, entities] of Object.entries(data))
@@ -19,7 +19,7 @@ export function prep_groups<Entity extends Searchable>(
 			entity.shard ??= shardify(entity.name);
 			entity.collection = collection;
 			entity._score = 0;
-			process?.(entity);
+			transform?.(entity);
 		}
 	}
 

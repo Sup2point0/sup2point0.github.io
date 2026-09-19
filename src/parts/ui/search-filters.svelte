@@ -7,14 +7,14 @@ A search bar input and dropdown filters for searching content.
 
 import { ClickySelect, SearchInput, SearchToggle } from "#parts/ui";
 
-import { SearchFilter } from "#scripts/search";
+import { SearchFilter, type Searchable } from "#scripts/search";
 
 import { slide } from "svelte/transition";
 import { expoInOut } from "svelte/easing";
 
 
 interface Props {
-  filters: SearchFilter<any>;
+  filters: SearchFilter<Searchable>;
   allow_expand?: boolean;
   result_count?: number;
 }

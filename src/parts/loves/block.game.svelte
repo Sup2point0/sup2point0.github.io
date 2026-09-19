@@ -291,12 +291,10 @@ function open()
       @include font-fun;
       font-size: 120%;
       color: $col-text;
-      @include shear-card();
-      transition: #{trans()};
-
-      &::before {
+      @include shear-card() {
         background: color.change($col-trit, $alpha: 0.69);
       }
+      transition: #{trans()};
 
       &:hover {
         cursor: auto;

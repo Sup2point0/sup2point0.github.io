@@ -210,9 +210,7 @@ $effect(() => {
 
     padding: 0.5em 1em 0.3em calc(2em - $border-width);
     white-space: nowrap;
-    @include shear-card($interactive: true);
-
-    &::before {
+    @include shear-card($interactive: true) {
       background: rgb(white, 4%);
       border-left: $border-width solid $col-prot;
       opacity: 0;

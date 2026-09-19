@@ -229,9 +229,7 @@ header {
     @include font-ui;
     font-weight: 300;
     line-height: 150%;
-    @include shear-card;
-
-    &::before {
+    @include shear-card {
       background: $col-card;
       backdrop-filter: none;
     }

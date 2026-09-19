@@ -9,7 +9,8 @@
 }
 
 
-@mixin link($lesser: false) {
+@mixin link($lesser: false)
+{
   display: inline-block;
   position: relative;
   color: $col-prot;
@@ -47,15 +48,18 @@
   }
 }
 
-@mixin card($light: false) {
-  background: $col-card;
+@mixin card($light: false)
+{
   @if $light {
     background: $col-card-light;
+  } @else {
+    background: $col-card;
   }
   backdrop-filter: blur(12px);
 }
 
-@mixin shear-card($interactive: false, $glow: false, $light: false, $mobile: false) {
+@mixin shear-card($interactive: false, $glow: false, $light: false, $mobile: false)
+{
   position: relative;
   
   &::before {
@@ -70,6 +74,7 @@
     @include card($light);
     transform: skew($shear-factor);
     transition: #{trans()};
+    @content;
   }
 
   @if $interactive {
@@ -119,7 +124,8 @@
   }
 }
 
-@mixin anim-block {
+@mixin anim-block
+{
   &::before {
     transition:
       #{trans()},
@@ -138,7 +144,8 @@
 }
 
 
-@mixin glow($active: false) {
+@mixin glow($active: false)
+{
   outline: none;
 
   @if $active {
@@ -149,7 +156,8 @@
 }
 
 
-@mixin separator {
+@mixin separator
+{
   span.separator {
     padding-bottom: 0.1em;
     @include font-fun;

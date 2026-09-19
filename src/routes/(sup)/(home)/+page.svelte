@@ -115,14 +115,12 @@ search {
     @include font-fun;
     font-size: 1.25rem;
     color: $col-text;
-    @include shear-card($light: true);
+    @include shear-card($light: true) {
+      background: $col-card-light;
+    }
     background: none;
     border: none;
     outline: none;
-
-    &::before {
-      background: $col-card-light;
-    }
 
     &:hover {
       cursor: pointer;

@@ -151,15 +151,13 @@ audio {
   justify-content: stretch;
   align-items: center;
   gap: 1rem;
-  @include shear-card();
+  @include shear-card() {
+    background: $col-card-light;
+  }
   position: fixed;
   z-index: 200;
   bottom: 1rem;
   right: 2vw;
-
-  &::before {
-    background: $col-card-light;
-  }
 }
 
 

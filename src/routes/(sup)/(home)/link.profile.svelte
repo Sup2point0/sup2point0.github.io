@@ -88,15 +88,13 @@ a.info {
   gap: 1rem;
   text-decoration: none;
 
-  @include shear-card($interactive: true);
-  transform: translateX(-1rem);
-  transition: #{trans()};
-
-  &::before {
+  @include shear-card($interactive: true) {
     position: absolute;
     background: rgb(white, 8%);
     opacity: 0;
   }
+  transform: translateX(-1rem);
+  transition: #{trans()};
 
   .content {
     opacity: 0;

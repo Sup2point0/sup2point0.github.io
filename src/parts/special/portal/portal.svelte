@@ -228,14 +228,12 @@ function handle_hotkeys(e: KeyboardEvent)
 
 .input-container {
   width: min(36rem, 80vw);
-  @include shear-card();
-  transition: #{trans()};
-
-  &::before {
+  @include shear-card() {
     background: rgb(white, 25%);
     opacity: 0;
     transition: opacity #{trans-exp()};
   }
+  transition: #{trans()};
 
   &:hover, &:has(input:focus) {
     width: min(37rem, 85vw);
@@ -314,14 +312,12 @@ button.result {
   background: none;
   border: none;
   outline: none;
-  @include shear-card($interactive: true);
-  transition: #{trans()};
-
-  &::before {
+  @include shear-card($interactive: true) {
     background: rgb(white, 25%);
     opacity: 0;
     transition: opacity #{trans-exp()}, background 0.12s ease-out;
   }
+  transition: #{trans()};
 
   .portal-content.live &::before {
     opacity: 1;

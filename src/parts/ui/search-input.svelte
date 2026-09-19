@@ -41,12 +41,10 @@ let { query = $bindable(), input = $bindable(null) }: Props = $props();
 
 .input-container {
   width: min(32rem, 69vw);
-  @include shear-card();
-  transition: #{trans()};
-
-  &::before {
+  @include shear-card() {
     background: $col-card-light;
   }
+  transition: #{trans()};
 
   &:hover, &:has(input:focus) {
     width: min(33rem, 75vw);

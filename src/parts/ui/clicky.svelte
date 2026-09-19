@@ -57,9 +57,7 @@ let { text, link: href, action: onclick, children }: Props = $props();
   text-decoration: none;
   background: none;
   border: none;
-  @include shear-card($interactive: true);
-
-  &::before {
+  @include shear-card($interactive: true) {
     border-left: $border-width solid $col-prot;
   }
 }

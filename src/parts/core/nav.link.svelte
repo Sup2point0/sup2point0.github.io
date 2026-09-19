@@ -51,14 +51,12 @@ a.nav-link {
   text-decoration: none;
 
   @include link($lesser: true);
-  @include shear-card($interactive: true);
-
-  transition: #{trans()};
-
-  &::before {
+  @include shear-card($interactive: true) {
     background: transparent;
     backdrop-filter: none;
   }
+
+  transition: #{trans()};
 
   &::after {
     bottom: -1px;

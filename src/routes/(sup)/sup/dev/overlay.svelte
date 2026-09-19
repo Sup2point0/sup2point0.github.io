@@ -226,13 +226,11 @@ $effect(() => {
       @include font-dev;
       font-weight: 200;
       text-align: center;
-      @include shear-card;
-      animation-delay: 0.1s;  // TODO
-      
-      &::before {
+      @include shear-card {
         background: $col-card-overlay;
         border-left: 4px solid $col-prot;
       }
+      animation-delay: 0.1s;  // TODO
     }
   }
 }
@@ -269,9 +267,7 @@ $effect(() => {
   section {
     padding: 1em 1.5em;
     @include font-dev;
-    @include shear-card;
-
-    &::before {
+    @include shear-card {
       background: $col-card-overlay;
     }
 

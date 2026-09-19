@@ -164,17 +164,15 @@ search {
 
   button.expand {
     width: 2.5rem;
-    @include shear-card();
     @include font-fun;
     color: $col-text;
     font-size: 1.5rem;
+    @include shear-card() {
+      background: rgb(white, 25%);
+    }
     background: none;
     border: none;
     outline: none;
-
-    &::before {
-      background: rgb(white, 25%);
-    }
 
     div {
       transform: rotate(90deg) translateY(-3px);

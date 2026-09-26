@@ -5,7 +5,6 @@ import type { int, Arrayable, Groups } from "#scripts/types";
 
 export interface BooksData extends MediaData
 {
-  books: number
   fields: {
     author: Arrayable<string>
     books?: int
@@ -15,18 +14,19 @@ export interface BooksData extends MediaData
 
 
 const _template = [
-{
-  name:   "",
-  date:   [],
-  cover:  undefined,
-  genres: [],
-  themes: [],
-  fields: {
-    author:    "",
-    books:     0,
-    favourite: undefined,
-  },
-},
+    {
+      name:   "",
+      date:   [],
+      books:  0,
+      cover:  undefined,
+      genres: [],
+      themes: [],
+      fields: {
+        author:    "",
+        books:     0,
+        favourite: undefined,
+      },
+    },
 ];
 
 
@@ -35,82 +35,98 @@ const data: Groups<BooksData> =
   "All-Time Favourites": [
     {
       name:   "Legend",
-      date:   [2011, 2019],
-      books:  4,
+      date:   "childhood",
       cover:  "legend.jpg",
       genres: [Genre.DYSTOPIAN, Genre.ROMANCE],
       themes: [Theme.SOCIETY],
       fields: {
         author:    "Marie Lu",
+        books:     4,
         favourite: "Legend",
       },
-    }, {
+    },
+    {
       name:   "Power of Five",
-      date:   [2005, 2012],
-      books:  5,
+      date:   "childhood",
       cover:  "oblivion.jpg",
       genres: [Genre.FANTASY, Genre.DYSTOPIAN],
       themes: [Theme.OCCULT],
       fields: {
         author:    "Anthony Horowitz",
+        books:     5,
         favourite: "Oblivion",
       },
-    }, {
-      name:   "The Heroes of Olympus",
-      date:   [2010, 2014],
-      books:  5,
-      cover:  "mark-of-athena.jpg",
-      genres: [Genre.FANTASY, Genre.ADVENTURE],
-      themes: [Theme.MYTHOLOGY],
-      fields: {
-        author:    "Rick Riordan",
-        favourite: "The Mark of Athena",
-      },
-    }, {
+    },
+    {
       name:   "Harry Potter",
-      date:   [1997, 2007],
-      books:  7,
+      date:   "eternal",
       cover:  "half-blood-prince.jpg",
       genres: [Genre.FANTASY, Genre.SLICE_OF_LIFE, Genre.DRAMA],
       themes: [Theme.MAGIC, Theme.COMING_OF_AGE],
       fields: {
         author:    "J.K. Rowling",
+        books:     7,
         favourite: "The Half-Blood Prince",
+      },
+    },
+    {
+      name:   "Alchemised",
+      date:   "2026 September",
+      cover:  "alchemised.jpg",
+      genres: [Genre.DYSTOPIAN, Genre.FANTASY, Genre.ROMANCE],
+      themes: [Theme.ENEMIES_TO_LOVERS, Theme.MAGIC],
+      fields: {
+        author:    "SenLinYu",
+        books:     1,
       },
     },
   ],
   "Soul-Enrapturing": [
     {
+      name:   "The Heroes of Olympus",
+      date:   "childhood",
+      cover:  "mark-of-athena.jpg",
+      genres: [Genre.FANTASY, Genre.ADVENTURE],
+      themes: [Theme.MYTHOLOGY],
+      fields: {
+        author:    "Rick Riordan",
+        books:     5,
+        favourite: "The Mark of Athena",
+      },
+    },
+    {
       name:   "Red Queen",
-      date:   [2015, 2018],
-      books:  4,
+      date:   2021,
       cover:  "red-queen.jpg",
       genres: [Genre.FANTASY, Genre.ROMANCE, Genre.DYSTOPIAN],
       themes: [Theme.MAGIC, Theme.SOCIETY],
       fields: {
         author:    "Victoria Aveyard",
+        books:     4,
         favourite: "Red Queen",
       },
-    }, {
+    },
+    {
       name:   "The Maze Runner",
-      date:   [2009, 2016],
-      books:  5,
+      date:   "childhood",
       cover:  "fever-code.jpg",
-      genres: [],
-      themes: [],
+      genres: [Genre.DYSTOPIAN, Genre.ROMANCE],
+      themes: [Theme.APOCALYPSE],
       fields: {
         author:    "James Dashner",
+        books:     5,
         favourite: "The Fever Code",
       },
-    }, {
+    },
+    {
       name:   "The Hunger Games",
-      date:   [2008, 2020],
-      books:  4,
+      date:   "childhood",
       cover:  "hunger-games.jpg",
-      genres: [],
-      themes: [],
+      genres: [Genre.DYSTOPIAN],
+      themes: [Theme.SOCIETY],
       fields: {
         author:    "Suzanne Collins",
+        books:     4,
         favourite: undefined,
       },
     },
@@ -118,24 +134,25 @@ const data: Groups<BooksData> =
   "Beautiful": [
     {
       name:   "Secret Breakers",
-      date:   [2012, 2014],
-      books:  6,
+      date:   "childhood",
       cover:  "secret-breakers.jpg",
       genres: [Genre.MYSTERY],
       themes: [],
       fields: {
-      author:    "H.L. Dennis",
+        author:    "H.L. Dennis",
+        books:     6,
         favourite: undefined,
       },
-    }, {
+    },
+    {
       name:   "Captain Underpants",
-      date:   [1997, 2015],
-      books:  12,
+      date:   "childhood",
       cover:  "turbo-toilet-2000.jpg",
-      genres: [],
+      genres: [Genre.ACTION],
       themes: [],
       fields: {
         author:    "Dav Pilkey",
+        books:     12,
         favourite: undefined,
       },
     },
@@ -143,13 +160,13 @@ const data: Groups<BooksData> =
   "Plenty Enjoyable": [
     {
       name:   "Alex Rider",
-      date:   [2000, 2023],
-      books:  13,
+      date:   "childhood",
       cover:  "scorpia-rising.jpg",
-      genres: [],
+      genres: [Genre.ACTION, Genre.COMING_OF_AGE],
       themes: [],
       fields: {
         author:    "Anthony Horowitz",
+        books:     13,
         favourite: "Scorpia Rising",
       },
     }
@@ -157,13 +174,13 @@ const data: Groups<BooksData> =
   "Guilty Pleasures": [
     {
       name:   "Shatter Me",
-      date:   [2011, 2020],
-      books:  6,
+      date:   2023,
       cover:  "shatter-me.webp",
-      genres: [Genre.FANTASY, Genre.ROMANCE, Genre.DYSTOPIAN],
+      genres: [Genre.DYSTOPIAN, Genre.FANTASY, Genre.ROMANCE, Genre.EROTICA],
       themes: [Theme.MAGIC, Theme.SOCIETY],
       fields: {
         author:    "Tahereh Mafi",
+        books:     6,
         favourite: undefined,
       },
       is_shown: false,

@@ -185,7 +185,7 @@ img {
   transition: #{trans()};
 
   .block-media:where(:hover, :focus-visible) & {
-    transform: translateY(0.25rem) scale(103%);
+    transform: scale(103%);
   }
 
   @include mobile {

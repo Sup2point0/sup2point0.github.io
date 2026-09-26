@@ -1,22 +1,19 @@
 /** Italicise `text` with `<em>`. */
 export function i(text: string | TemplateStringsArray): string
 {
-	let raw = Array.isArray(text) ? text.join(" ") : text;
-	return `<em>${raw}</em>`;
+	return `<em>${text}</em>`;
 }
 
 /** Bold `text` with `<strong>`. */
 export function b(text: string | TemplateStringsArray): string
 {
-	let raw = Array.isArray(text) ? text.join(" ") : text;
-	return `<strong>${raw}</strong>`;
+	return `<strong>${text}</strong>`;
 }
 
 /** Highlight `text` with `<span class="highlight">`. */
 export function h(text: string | TemplateStringsArray): string
 {
-	let raw = Array.isArray(text) ? text.join(" ") : text;
-	return `<span class="highlight">${raw}</span>`;
+	return `<span class="highlight">${text}</span>`;
 }
 
 /** Add a hyperlink to `text`. */

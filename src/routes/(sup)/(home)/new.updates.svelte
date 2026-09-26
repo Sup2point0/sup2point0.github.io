@@ -16,22 +16,22 @@ import { fade } from "svelte/transition";
 
 const updates = [
   {
+    title: `Rewriting in Rust...`,
+    link: "https://github.com/Sup2point0/stranger-quarkdown/tree/rust-rewrite",
+    project: "Squarkdown",
+    desc: `I’m sorry, little one.`,
+  },
+  {
+    title: `Better mobile support!`,
+    link: "https://sup2point0.github.io",
+    project: "sup2point0.github.io",
+    desc: `The site has always looked a little cursed on mobile, but now it should be less so.`,
+  },
+  {
     title: `Making a LaTeX to Desmos compiler!`,
     link: "https://github.com/Sup2point0/desmost",
     project: "desmost",
     desc: `Write LaTeX in code blocks alongside your Markdown, then compile it to a Desmos graphing calculator embed!`,
-  },
-  {
-    title: `Now installable as a Windows app!`,
-    link: "https://sup2point0.github.io/lattix",
-    project: "lattix",
-    desc: `Tauri is a breeze`
-  },
-  {
-    title: `Making a mathematical synthesiser!`,
-    link: "https://sup2point0.github.io/awxynth",
-    project: "awxynth",
-    desc: `It uses Desmos (!)`
   },
 ];
 

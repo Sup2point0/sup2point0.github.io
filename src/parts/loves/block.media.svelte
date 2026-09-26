@@ -70,8 +70,9 @@ function open()
     <h3> {media.name} </h3>
 
     {#if media.date}
-      <p class="date">
-        {display_date(media.date)}
+      {@const date = display_date(media.date)}
+      <p class="date" class:long={date.length > 4}>
+        {date}
       </p>
     {/if}
   </div>
@@ -209,7 +210,7 @@ img {
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: end;
-  gap: 0.5rem;
+  column-gap: 1rem;
 
   h3 {
     @include font-ui;
@@ -223,8 +224,12 @@ img {
     min-width: max-content;
     padding-bottom: 0.25em;
     @include font-tech;
-    font-size: 125%;
+    font-size: 120%;
     color: $col-text-deut;
+
+    &.long {
+      font-size: 100%;
+    }
   }
 }
 

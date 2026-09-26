@@ -20,13 +20,13 @@ export const routes_data = {
 		loves: {
 			_title: "Loves",
 
-			games:         { _title: "Games" },
-			films:         { _title: "Films" },
-			series:        { _title: "Shows / Series" },
-			anime:         { _title: "Anime" },
-			"book-series": { _title: "Book Series" },
-			webtoons:      { _title: "Webtoons" },
-			youtube:       { _title: "YouTube" },
+			games:    { _title: "Games" },
+			films:    { _title: "Films" },
+			series:   { _title: "Shows / Series" },
+			anime:    { _title: "Anime" },
+			books:    { _title: "Books" },
+			webtoons: { _title: "Webtoons" },
+			youtube:  { _title: "YouTube" },
 		},
 
 		music: { _title: "Music",

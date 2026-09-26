@@ -172,5 +172,5 @@ const data: Groups<BookSeriesData> =
 };
 
 prep_groups(data);
-export const book_series_data: Groups<BookSeriesData> = data;
-export const book_series_list: BookSeriesData[] = Object.values(data).flat();
+export const books_data: Groups<BookSeriesData> = data;
+export const books_list: BookSeriesData[] = Object.values(data).flat();

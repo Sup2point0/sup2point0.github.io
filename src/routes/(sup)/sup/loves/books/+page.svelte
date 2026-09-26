@@ -1,7 +1,7 @@
 <script lang="ts">
 
-import { book_series_data, type BookSeriesData } from ".";
-import { BookSeriesSearchFilter } from "./filter.book-series.svelte.ts";
+import { books_data, type BookSeriesData } from "./index.ts";
+import { BookSearchFilter } from "./filter.books.svelte.ts";
 
 import { Cards, Main } from "#parts/core";
 import { Breadcrumbs, Header, SearchFilters } from "#parts/ui";
@@ -9,16 +9,16 @@ import { MediaBlock } from "#parts/loves";
 
 
 // svelte-ignore non_reactive_update
-let filters = new BookSeriesSearchFilter();
+let filters = new BookSearchFilter();
 
-let books_filtered = $derived(filters.apply(book_series_data));
+let books_filtered = $derived(filters.apply(books_data));
 
 </script>
 
 
 <svelte:head>
-  <title> Book Series × Loves × Sup#2.0 </title>
-  <meta name="description" content="All the book series I have read and loved!" />
+  <title> Books × Loves × Sup#2.0 </title>
+  <meta name="description" content="All the books and book series I have read and loved!" />
 </svelte:head>
 
 
@@ -33,7 +33,7 @@ let books_filtered = $derived(filters.apply(book_series_data));
 
 <Breadcrumbs levels={[
   { text: "loves", intern: "sup/loves" },
-  { text: "book series" },
+  { text: "books" },
 ]} />
 
 <Main>

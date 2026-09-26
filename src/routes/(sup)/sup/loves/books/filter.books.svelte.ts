@@ -3,7 +3,7 @@ import { MediaSearchFilter } from "../filter.media.svelte";
 import { type BookSeriesData } from ".";
 
 
-export class BookSeriesSearchFilter extends MediaSearchFilter<BookSeriesData>
+export class BookSearchFilter extends MediaSearchFilter<BookSeriesData>
 {
 	constructor()
 	{

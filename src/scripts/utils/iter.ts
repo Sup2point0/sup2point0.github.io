@@ -1,27 +1,25 @@
 import type { Groups, Grouped, States } from "#scripts/types";
 
 
-export function any<Type>(
-	iterable: Type[] | Record<any, boolean>,
+export function any(
+	iterable: unknown[] | Record<any, boolean>,
 ): boolean
 {
 	if (Array.isArray(iterable)) {
-		return iterable.some(s => s);
-	}
-	else {
-		return Object.values(iterable).some(s => s);
+		return iterable.some(Boolean);
+	} else {
+		return Object.values(iterable).some(Boolean);
 	}
 }
 
-export function all<Type>(
-	iterable: Type[] | Record<any, boolean>,
+export function all(
+	iterable: unknown[] | Record<any, boolean>,
 ): boolean
 {
 	if (Array.isArray(iterable)) {
-		return iterable.every(s => s);
-	}
-	else {
-		return Object.values(iterable).every(s => s);
+		return iterable.every(Boolean);
+	} else {
+		return Object.values(iterable).every(Boolean);
 	}
 }
 

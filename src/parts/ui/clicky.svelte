@@ -44,8 +44,6 @@ let { text, link: href, action: onclick, children }: Props = $props();
 
 <style lang="scss">
 
-@use 'sass:color';
-
 .clicky {
   $border-width: 4px;
   

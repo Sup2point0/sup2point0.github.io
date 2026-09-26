@@ -13,7 +13,16 @@ export type url      = string & { readonly __brand?: unique symbol };
 export type colour   = string & { readonly __brand?: unique symbol };
 
 
-/** A non-specific point in time. */
+/**
+ * A point in time of varying specificity.
+ * 
+ * Can be:
+ * 
+ * - A numerical year
+ * - A date like `"2020 April 1"` or `"2020 September"`
+ * - A season like `"2001 summer"`
+ * - A special value like `"childhood"` and `"present"`
+ */
 export type Datepoint = number | string | "childhood" | "present";
 
 /** A single date, or 2 endpoints of a date range. */

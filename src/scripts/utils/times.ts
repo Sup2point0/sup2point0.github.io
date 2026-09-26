@@ -1,7 +1,7 @@
 import type { int } from "#scripts/types";
 
 
-export function display_timestamp(seconds: int | null | undefined)
+export function display_timestamp(seconds: int | null | undefined): string
 {
 	if (seconds == undefined) {
 		return `--:--`;

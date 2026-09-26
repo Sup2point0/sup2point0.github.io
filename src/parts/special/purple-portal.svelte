@@ -3,11 +3,6 @@
 The iconic purple portal profile picture icon, complete with animations and special effects.
 -->
 
-<script lang="ts">
-
-</script>
-
-
 <div class="container">
   <img alt="purple portal" src="/purple-portal.png" />
 </div>

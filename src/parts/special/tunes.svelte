@@ -149,9 +149,6 @@ async function onmouseup()
 
 <style lang="scss">
 
-@use 'sass:color';
-
-
 audio {
   display: none;
 }

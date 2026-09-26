@@ -285,7 +285,6 @@ input::placeholder {
 
 
 .results {
-  list-style: none;
   min-width: min(30rem, 90vw);
   max-width: 36rem;
   max-height: 50vh;

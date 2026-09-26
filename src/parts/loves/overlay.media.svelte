@@ -160,9 +160,8 @@ header {
     margin-top: 1rem;
     @include font-dev;
     font-weight: 500;
-    text-align: center;
-    text-wrap: wrap;
     text-align: left;
+    text-wrap: wrap;
   }
 
   h2 {

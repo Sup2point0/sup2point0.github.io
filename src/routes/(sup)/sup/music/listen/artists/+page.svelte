@@ -3,7 +3,8 @@
 import { artists_data } from ".";
 import { ArtistSearchFilter } from "./filter.artists.svelte.ts";
 
-import { shuffle } from "#src/scripts/utils/pick.ts";
+import { status } from "#scripts/state";
+import { shuffle } from "#scripts/utils";
 import type { ArtistData } from "#scripts/types";
 
 import { Cards, Main } from "#parts/core";
@@ -25,9 +26,15 @@ let artists_filtered = $derived(filters.apply(artists_data));
 </svelte:head>
 
 
-{#snippet cards(artists: ArtistData[])}
+{#snippet cards(artists: ArtistData[], wants_shuffle: boolean)}
+  {@const _artists =
+		wants_shuffle
+		? (status.client ? shuffle(artists) : [])
+		: artists
+	}
+
   <Cards>
-    {#each shuffle(artists) as artist (artist.shard)}
+    {#each _artists as artist (artist.shard)}
       <ArtistBlock {artist} expanded={filters.extra["expand all"]} />
     {/each}
   </Cards>
@@ -48,13 +55,13 @@ let artists_filtered = $derived(filters.apply(artists_data));
       {#if artists.length > 0}
         <section>
           <Header> {collection.toUpperCase()} </Header>
-          {@render cards(artists)}
+          {@render cards(artists, filters.is_clear)}
         </section>
       {/if}
     {/each}
 
   {:else}
-    {@render cards(artists_filtered.data)}
+    {@render cards(artists_filtered.data, false)}
 
   {/if}
 </Main>

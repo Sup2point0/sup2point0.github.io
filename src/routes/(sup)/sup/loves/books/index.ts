@@ -17,7 +17,6 @@ const _template = [
     {
       name:   "",
       date:   [],
-      books:  0,
       cover:  undefined,
       genres: [],
       themes: [],
@@ -107,6 +106,32 @@ const data: Groups<BooksData> =
       },
     },
     {
+      name:   "Skulduggery Pleasant",
+      date:   [2017, 2022],
+      cover:  "dying-of-the-light.jpg",
+      genres: [Genre.FANTASY, Genre.ACTION, Genre.COMING_OF_AGE],
+      themes: [Theme.MAGIC, Theme.COMING_OF_AGE],
+      fields: {
+        author:    "Derek Landy",
+        books:     15,
+        favourite: "Dying of the Light",
+      },
+    },
+    {
+      name:   "Ventura Saga",
+      date:   2020,
+      cover:  "truth-different-skies.jpg",
+      genres: [Genre.ROMANCE, Genre.DYSTOPIAN, Genre.COMING_OF_AGE],
+      themes: [Theme.SPACE, Theme.SOCIETY],
+      fields: {
+        author:    "Kate Ling",
+        books:     3,
+        favourite: "The Truth of Different Skies",
+      },
+    },
+  ],
+  "Enjoyable": [
+    {
       name:   "The Maze Runner",
       date:   "childhood",
       cover:  "fever-code.jpg",
@@ -130,8 +155,6 @@ const data: Groups<BooksData> =
         favourite: undefined,
       },
     },
-  ],
-  "Beautiful": [
     {
       name:   "Secret Breakers",
       date:   "childhood",
@@ -156,8 +179,6 @@ const data: Groups<BooksData> =
         favourite: undefined,
       },
     },
-  ],
-  "Plenty Enjoyable": [
     {
       name:   "Alex Rider",
       date:   "childhood",

@@ -116,8 +116,8 @@ import { Adventure } from "#parts/special";
     />
 
     <LinkCard
-      link="/sup/loves/book-series"
-      text="Book Series"
+      link="/sup/loves/books"
+      text="Books"
       capt="losing my soul in fictional worlds"
       picts={[
         "covers/books/legend.jpg",

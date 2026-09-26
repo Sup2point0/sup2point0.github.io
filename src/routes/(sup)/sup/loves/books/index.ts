@@ -3,7 +3,7 @@ import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { int, Arrayable, Groups } from "#scripts/types";
 
 
-export interface BookSeriesData extends MediaData
+export interface BooksData extends MediaData
 {
   books: number
   fields: {
@@ -30,7 +30,7 @@ const _template = [
 ];
 
 
-const data: Groups<BookSeriesData> =
+const data: Groups<BooksData> =
 {
   "All-Time Favourites": [
     {
@@ -172,5 +172,5 @@ const data: Groups<BookSeriesData> =
 };
 
 prep_groups(data);
-export const books_data: Groups<BookSeriesData> = data;
-export const books_list: BookSeriesData[] = Object.values(data).flat();
+export const books_data: Groups<BooksData> = data;
+export const books_list: BooksData[] = Object.values(data).flat();

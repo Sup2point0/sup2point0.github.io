@@ -21,7 +21,7 @@ export const facts_pinned: Fact[] = [
 export const facts: Fact[] = [
 	{
 		text: `My favourite book genre is ${i`dystopian fantasy future fiction`}.`,
-		desc: `For specific series, head over to ${a("loves/book-series", "loves/book-series", true)} ;)`,
+		desc: `For specific series, head over to ${a("loves/books", "loves/books", true)} ;)`,
 	},
 	{
 		text: `My record typing speed is ${h`190 WPM`}.`,

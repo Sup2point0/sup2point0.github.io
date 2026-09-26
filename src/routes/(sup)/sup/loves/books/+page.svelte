@@ -1,6 +1,6 @@
 <script lang="ts">
 
-import { books_data, type BookSeriesData } from "./index.ts";
+import { books_data, type BooksData } from "./index.ts";
 import { BookSearchFilter } from "./filter.books.svelte.ts";
 
 import { Cards, Main } from "#parts/core";
@@ -22,7 +22,7 @@ let books_filtered = $derived(filters.apply(books_data));
 </svelte:head>
 
 
-{#snippet cards(books: BookSeriesData[])}
+{#snippet cards(books: BooksData[])}
   <Cards>
     {#each books as book (book.shard)}
       <MediaBlock kind="books" media={book} expanded={filters.extra["expand all"]} />

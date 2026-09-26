@@ -1,9 +1,9 @@
 import { MediaSearchFilter } from "../filter.media.svelte";
 
-import { type BookSeriesData } from ".";
+import { type BooksData } from ".";
 
 
-export class BookSearchFilter extends MediaSearchFilter<BookSeriesData>
+export class BookSearchFilter extends MediaSearchFilter<BooksData>
 {
 	constructor()
 	{

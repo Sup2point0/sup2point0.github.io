@@ -101,19 +101,10 @@ onMount(() => {
   flex-flow: column wrap;
   justify-content: end;
 
-  @include shear-card;
+  @include shear-card($interactive: true, $glow: true);
   @include anim-block;
   color: $col-text;
   text-decoration: none;
-
-  &:hover, &:active, &:focus-visible {
-    &::before {
-      background: $col-card-hover;
-      border-radius: 0.6em;
-      transform: skew(calc($shear-factor * 2 / 3));
-      @include glow();
-    }
-  }
 }
 
 .content {

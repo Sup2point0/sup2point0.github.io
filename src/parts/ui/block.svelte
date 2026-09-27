@@ -95,9 +95,13 @@ onMount(() => {
     bottom: 0;
     left: 50%;
     border-bottom: 1px solid $col-deut;
-    transform: translateX(-50%) skew(0, calc($shear-factor * 1 / 3)) scaleX(0);
+    transform: translateX(-50%) scaleX(0);
     transition: transform 1s cubic-bezier(1, 0, 0, 1);  // ease-in-out exp
     transition-delay: calc(var(--delay, 0) + 500ms);
+
+    @include mobile {
+      transform: translateX(-50%) skew(0, calc($shear-factor * 1 / 3)) scaleX(0);
+    }
   }
 
   &.live::after {
@@ -109,7 +113,7 @@ onMount(() => {
   }
 
   :global(p) {
-    margin-bottom: 0.5em;
+    padding: 0.25em 0;
     line-height: 125%;
   }
 

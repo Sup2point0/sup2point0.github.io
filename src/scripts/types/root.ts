@@ -3,7 +3,7 @@ export type int = number;
 /** A unique stable identifier for any entity. */
 export type shard    = string & { readonly __brand?: unique symbol };
 
-/** A filepath for an asset. */
+/** A (relative) filepath for an asset. */
 export type filepath = string & { readonly __brand?: unique symbol };
 
 /** A fully-qualified, usually external URL. */

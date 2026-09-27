@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-import { routes_list } from "#src/routes";
+import { routes_list } from "#routes";
 
 
 test("visit all pages and scroll", async ({ page }) =>

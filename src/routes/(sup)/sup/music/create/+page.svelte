@@ -12,10 +12,7 @@ import { Breadcrumbs, LinkCard } from "#parts/ui";
 </svelte:head>
 
 
-<Breadcrumbs levels={[
-  { text: "music", intern: "sup/music" },
-  { text: "create" },
-]} />
+<Breadcrumbs />
 
 <Cards>
   <LinkCard

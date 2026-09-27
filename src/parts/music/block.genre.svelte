@@ -62,9 +62,6 @@ let { genre }: Props = $props();
 
 <style lang="scss">
 
-@use 'sass:color';
-
-
 .block-genre {
   flex-grow: 1;
   max-width: 32rem;

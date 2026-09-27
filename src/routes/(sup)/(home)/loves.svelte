@@ -68,15 +68,3 @@ const title_routes = new FrozenWeightedList(
 
   <Clicky text="VIEW MORE" link="/sup/loves" />
 {/if}
-
-
-<style lang="scss">
-
-h2 {
-  @include font-tech;
-  font-weight: normal;
-  font-size: 200%;
-  text-transform: uppercase;
-}
-
-</style>

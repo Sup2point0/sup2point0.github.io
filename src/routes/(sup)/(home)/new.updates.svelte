@@ -57,10 +57,3 @@ const updates = [
     />
   {/each}
 </Cards>
-
-
-<style lang="scss">
-
-
-
-</style>

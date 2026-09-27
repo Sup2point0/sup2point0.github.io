@@ -73,15 +73,3 @@ import { fade } from "svelte/transition";
 </Cards>
 
 <Clicky text="VIEW MORE" link="/sup/projects" />
-
-
-<style lang="scss">
-
-h2 {
-  @include font-tech;
-  font-weight: normal;
-  font-size: 200%;
-  text-transform: uppercase;
-}
-
-</style>

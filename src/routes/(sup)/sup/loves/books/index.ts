@@ -190,7 +190,30 @@ const data: Groups<BooksData> =
         books:     13,
         favourite: "Scorpia Rising",
       },
-    }
+    },
+    {
+      name:   "Roald Dahl books",
+      date:   "childhood",
+      cover:  "going-solo.jpg",
+      genres: [],
+      themes: [],
+      fields: {
+        author:    "Roald Dahl",
+        favourite: "Going Solo",
+      },
+    },
+    {
+      name:   "The Famous Five",
+      date:   "childhood",
+      cover:  "famous-five.jpg",
+      genres: [Genre.ADVENTURE, Genre.SLICE_OF_LIFE],
+      themes: [],
+      fields: {
+        author:    "Enid Blython",
+        books:     21,
+        favourite: undefined,
+      },
+    },
   ],
   "Guilty Pleasures": [
     {

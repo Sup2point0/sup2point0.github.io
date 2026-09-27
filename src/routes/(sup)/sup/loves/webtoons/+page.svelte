@@ -31,10 +31,7 @@ let webtoons_filtered = $derived(filters.apply(webtoons_data));
 {/snippet}
 
 
-<Breadcrumbs levels={[
-  { text: "loves", intern: "sup/loves" },
-  { text: "webtoon" },
-]} />
+<Breadcrumbs />
 
 <Main>
   <SearchFilters bind:filters result_count={filters.count_results(webtoons_filtered)} />

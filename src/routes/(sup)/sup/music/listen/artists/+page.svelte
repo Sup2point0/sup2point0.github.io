@@ -41,11 +41,7 @@ let artists_filtered = $derived(filters.apply(artists_data));
 {/snippet}
 
 
-<Breadcrumbs levels={[
-  { text: "music", intern: "sup/music" },
-  { text: "listen", intern: "sup/music/listen" },
-  { text: "artists" },
-]} />
+<Breadcrumbs />
 
 <Main>
   <SearchFilters bind:filters result_count={filters.count_results(artists_filtered)} />

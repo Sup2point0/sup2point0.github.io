@@ -33,11 +33,7 @@ onMount(() => {
 </svelte:head>
 
 
-<Breadcrumbs levels={[
-  { text: "music", intern: "sup/music" },
-  { text: "listen", intern: "sup/music/listen" },
-  { text: "genres" },
-]} />
+<Breadcrumbs />
 
 <Main>
   <Block>

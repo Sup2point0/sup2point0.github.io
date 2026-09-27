@@ -5,25 +5,65 @@ Shows the current navigation path.
 
 <script lang="ts">
 
+import { routes_data } from "#routes";
+import type { filepath, url } from "#scripts/types";
+
+import { page } from "$app/state";
+
+
 interface Props {
-  levels: {
-    text: string;
-    intern?: string;
-  }[];
+  levels?: filepath[];
 }
 
-let { levels }: Props = $props();
+let { levels: forced_levels }: Props = $props();
+
+
+let frags = $derived(
+  forced_levels ?? page.url.pathname.split("/").slice(2)
+);
+
+let levels: Array<{
+  title: string
+  href: url
+}>
+= $derived.by(() => {
+  let traversed_page = routes_data.sup;
+
+  let out = [];
+  let href = "/sup";
+
+  for (let frag of frags) {
+    // @ts-expect-error: uncheckable
+    traversed_page = traversed_page[frag];
+
+    href += "/";
+    href += frag;
+
+    out.push({
+      title:
+        (
+          // @ts-expect-error: uncheckable
+          traversed_page._s ?? traversed_page._t
+        ).toUpperCase(),
+      
+      /* NOTE: Need a copy to detach from future mutations */
+      href: `${href}`,
+    });
+  }
+
+  return out;
+});
 
 </script>
 
 
 <nav class="breadcrumbs">
-  {#each levels.entries() as [i, { text, intern }]}
-    {#if i === levels.length -1}
-      <div class="text current"> {text.toUpperCase()} </div>
+  {#each levels as { title, href }, i}
+    {#if i === levels.length - 1}
+      <div class="text current"> {title} </div>
     
     {:else}
-      <a class="text" href="/{intern}">{text.toUpperCase()}</a>
+      <a class="text" {href}>{title}</a>
       <div class="separator">×</div>
     
     {/if}

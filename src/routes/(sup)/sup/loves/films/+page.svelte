@@ -47,10 +47,7 @@ let active_film: FilmData | null = $state(null);
 {/snippet}
 
 
-<Breadcrumbs levels={[
-	{ text: "loves", intern: "sup/loves" },
-	{ text: "films" },
-]} />
+<Breadcrumbs />
 
 <MediaOverlay kind="films" media={active_film} />
 

@@ -37,10 +37,7 @@ let active_anime: AnimeData | null = $state(null);
 {/snippet}
 
 
-<Breadcrumbs levels={[
-	{ text: "loves", intern: "sup/loves" },
-	{ text: "anime" },
-]} />
+<Breadcrumbs />
 
 <MediaOverlay kind="anime" media={active_anime} />
 

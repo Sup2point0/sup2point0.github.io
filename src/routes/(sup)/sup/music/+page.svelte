@@ -13,9 +13,7 @@ import { Adventure } from "#parts/special";
 </svelte:head>
 
 
-<Breadcrumbs levels={[
-  { text: "music" },
-]} />
+<Breadcrumbs />
 
 <Main>
   <Block>

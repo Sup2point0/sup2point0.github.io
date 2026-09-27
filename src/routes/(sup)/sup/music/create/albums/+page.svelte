@@ -15,11 +15,7 @@ import { albums_data } from "..";
 </svelte:head>
 
 
-<Breadcrumbs levels={[
-  { text: "music", intern: "sup/music" },
-  { text: "create", intern: "sup/music/create" },
-  { text: "albums" },
-]} />
+<Breadcrumbs />
 
 <Main>
   <section>

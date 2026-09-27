@@ -13,9 +13,7 @@ import { Adventure } from "#parts/special";
 </svelte:head>
 
 
-<Breadcrumbs levels={[
-  { text: "loves" },
-]} />
+<Breadcrumbs />
 
 <Main>
   <Block>
@@ -111,7 +109,7 @@ import { Adventure } from "#parts/special";
         "covers/webtoons/youre-no-good.jpg",
         "covers/webtoons/our-secret-alliance.jpg",
         "covers/webtoons/nice-to-meet-you.jpg",
-        "covers/webtoons/maybe-meant-to-be.jpg",
+        "covers/webtoons/maybe-meant-to-be.webp",
       ]}
     />
 

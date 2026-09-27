@@ -12,43 +12,43 @@ export interface RouteData extends Searchable
 
 export const routes_data = {
   sup: {
-    _title: "sup",
+    _t: "sup",
 
-    info:     { _title: "Info" },
-    projects: { _title: "Projects" },
+    info:     { _t: "Info" },
+    projects: { _t: "Projects" },
 
     loves: {
-      _title: "Loves",
+      _t: "Loves",
 
-      games:    { _title: "Games" },
-      films:    { _title: "Films" },
-      series:   { _title: "Shows / Series" },
-      anime:    { _title: "Anime" },
-      books:    { _title: "Books" },
-      webtoons: { _title: "Webtoons" },
-      youtube:  { _title: "YouTube" },
+      games:    { _t: "Games" },
+      films:    { _t: "Films" },
+      series:   { _t: "Shows / Series", _s: "Series" },
+      anime:    { _t: "Anime" },
+      books:    { _t: "Books" },
+      webtoons: { _t: "Webtoons" },
+      youtube:  { _t: "YouTube" },
     },
 
-    music: { _title: "Music",
-      listen: { _title: "Music I Listen To",
-        chronicle: { _title: "Music? It’s Complicated" },
-        artists:   { _title: "Artists I Listen To" },
-        genres:    { _title: "Genres I Listen To" },
+    music: { _t: "Music",
+      listen: { _t: "Music I Listen To", _s: "Listen",
+        chronicle: { _t: "Music? It’s Complicated", _s: "Chronicle" },
+        artists:   { _t: "Artists I Listen To", _s: "Artists" },
+        genres:    { _t: "Genres I Listen To", _s: "Genres" },
       },
-      create: { _title: "Music I Create",
-        tracks: { _title: "My Tracks" },
-        albums: { _title: "My Albums",
-          singles: { _title: "Singles" },
-          "algo-origins": { _title: "Algorhythm Origins" },
-          "algo-roots":   { _title: "Algorhythm Roots" },
-          "algo-vision":  { _title: "Algorhythm Vision" },
-          elysion:        { _title: "ELYSION" },
-          cortex:         { _title: "Cortex" },
-          integral:       { _title: "Integral" },
-          stranded:       { _title: "Stranded" },
-          archives: { _title: "Archives",
-            garageband: { _title: "GarageBand" },
-            musescore:  { _title: "MuseScore" },
+      create: { _t: "Music I Create", _s: "Create",
+        tracks: { _t: "My Tracks", _s: "Tracks" },
+        albums: { _t: "My Albums", _s: "Albums",
+          singles: { _t: "Singles" },
+          "algo-origins": { _t: "Algorhythm Origins" },
+          "algo-roots":   { _t: "Algorhythm Roots" },
+          "algo-vision":  { _t: "Algorhythm Vision" },
+          elysion:        { _t: "ELYSION" },
+          cortex:         { _t: "Cortex" },
+          integral:       { _t: "Integral" },
+          stranded:       { _t: "Stranded" },
+          archives: { _t: "Archives",
+            garageband: { _t: "GarageBand" },
+            musescore:  { _t: "MuseScore" },
           }
         }
       },
@@ -63,11 +63,11 @@ export const routes_list: RouteData[] = (() =>
   function go(route: filepath, parents: string[], source: object)
   {
     for (let [dir, children] of Object.entries(source)) {
-      if (dir === "_title") continue;
+      if (dir === "_t" || dir === "_s") continue;
 
       let link = `${route}/${dir}`;
       let dirs = parents.concat([dir.toUpperCase()]);
-      let title = children._title;
+      let title = children._t;
 
       // @ts-expect-error: `RouteData` is the only `Searchable` to exclude `.name`
       out.push({ link, dirs, title });

@@ -41,10 +41,7 @@ let channels_filtered = $derived(filters.apply(channels_data));
 {/snippet}
 
 
-<Breadcrumbs levels={[
-  { text: "loves", intern: "sup/loves" },
-  { text: "YouTube channels" },
-]} />
+<Breadcrumbs />
 
 <Main>
   <SearchFilters bind:filters result_count={filters.count_results(channels_filtered)} />

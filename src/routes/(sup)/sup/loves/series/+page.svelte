@@ -31,10 +31,7 @@ let series_filtered = $derived(filters.apply(series_data));
 {/snippet}
 
 
-<Breadcrumbs levels={[
-  { text: "loves", intern: "sup/loves" },
-  { text: "series" },
-]} />
+<Breadcrumbs />
 
 <Main>
   <SearchFilters bind:filters result_count={filters.count_results(series_filtered)} />

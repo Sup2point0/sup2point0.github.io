@@ -40,10 +40,7 @@ onMount(() => {
 {/snippet}
 
 
-<Breadcrumbs levels={[
-  { text: "loves", intern: "sup/loves" },
-  { text: "games" },
-]} />
+<Breadcrumbs />
 
 <!-- FIXME -->
 <MediaOverlay kind="games" media={active_game} />

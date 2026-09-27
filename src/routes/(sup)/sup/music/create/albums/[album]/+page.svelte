@@ -20,12 +20,7 @@ let album: AlbumData = $derived(page.data as AlbumData);
 </svelte:head>
 
 
-<Breadcrumbs levels={[
-  { text: "music", intern: "sup/music" },
-  { text: "create", intern: "sup/music/create" },
-  { text: "albums", intern: "sup/music/create/albums" },
-  { text: album.name }
-]} />
+<Breadcrumbs />
 
 <Main gap="2rem">
   <AlbumBlock {album} />

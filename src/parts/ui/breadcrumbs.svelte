@@ -6,21 +6,12 @@ Shows the current navigation path.
 <script lang="ts">
 
 import { routes_data } from "#routes";
-import type { filepath, url } from "#scripts/types";
+import type { url } from "#scripts/types";
 
 import { page } from "$app/state";
 
 
-interface Props {
-  levels?: filepath[];
-}
-
-let { levels: forced_levels }: Props = $props();
-
-
-let frags = $derived(
-  forced_levels ?? page.url.pathname.split("/").slice(2)
-);
+let frags = $derived(page.url.pathname.split("/").slice(2));
 
 let levels: Array<{
   title: string

@@ -100,7 +100,7 @@ onMount(() => {
     transition-delay: calc(var(--delay, 0) + 500ms);
 
     @include mobile {
-      transform: translateX(-50%) skew(0, calc($shear-factor * 1 / 3)) scaleX(0);
+      transform: translateX(-50%) skew-mobile() scaleX(0);
     }
   }
 
@@ -108,7 +108,7 @@ onMount(() => {
     transform: translateX(-50%);
 
     @include mobile {
-      transform: translateX(-50%) skew(0, calc($shear-factor * 1 / 3));
+      transform: translateX(-50%) skew-mobile();
     }
   }
 

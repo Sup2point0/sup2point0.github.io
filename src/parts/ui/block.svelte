@@ -42,7 +42,7 @@ onMount(() => {
 
 <div class="block {kind}"
   class:live={is_live}
-  style:width
+  style:--width={width}
   style:--delay="{delay}ms"
   {style}
 >
@@ -59,6 +59,7 @@ onMount(() => {
 <style lang="scss">
 
 .block {
+  width: var(--width);
   height: max-content;
 
   @include font-fun;
@@ -82,6 +83,7 @@ onMount(() => {
     padding: 1em 4em;
 
     @include mobile {
+      width: 100%;
       padding: 1em;
     }
   }

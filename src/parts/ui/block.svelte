@@ -1,6 +1,6 @@
 <!-- @component `<Block>`
 
-A generic block containing any content. Animates in when the content to display is provided.
+A generic block containing any content. Waits a small duration (for dynamic content to be provided) before animating in.
 -->
 
 <script lang="ts">
@@ -27,24 +27,26 @@ let {
 }: Props = $props();
 
 
-let live = $state(false);
+let is_live = $state(false);
 
 onMount(() => {
-  setTimeout(() => {
-    live = true;
+  let timeout = setTimeout(() => {
+    is_live = true;
   }, 50);
-});
+
+  return () => clearTimeout(timeout);
+})
 
 </script>
 
 
 <div class="block {kind}"
-  class:live
+  class:live={is_live}
   style:width
   style:--delay="{delay}ms"
   {style}
 >
-  {#if live}
+  {#if is_live}
     <div class="content"
       transition:slide={{ duration: 1000, delay: delay + 100, easing: expoInOut }}
     >
@@ -58,12 +60,11 @@ onMount(() => {
 
 .block {
   height: max-content;
-  position: relative;
 
   @include font-fun;
   color: $col-text;
   line-height: 150%;
-  @include shear-card;
+  @include shear-card($mobile: true);
 
   &.ui {
     padding: 1em 2em;
@@ -79,6 +80,10 @@ onMount(() => {
 
   &.expanded {
     padding: 1em 4em;
+
+    @include mobile {
+      padding: 1em;
+    }
   }
 
   &::after {
@@ -88,17 +93,21 @@ onMount(() => {
     bottom: 0;
     left: 50%;
     border-bottom: 1px solid $col-deut;
-    transform: translateX(-50%) scaleX(0);
+    transform: translateX(-50%) skew(0, calc($shear-factor * 1 / 3)) scaleX(0);
     transition: transform 1s cubic-bezier(1, 0, 0, 1);  // ease-in-out exp
     transition-delay: calc(var(--delay, 0) + 500ms);
   }
 
   &.live::after {
     transform: translateX(-50%);
+
+    @include mobile {
+      transform: translateX(-50%) skew(0, calc($shear-factor * 1 / 3));
+    }
   }
 
   :global(p) {
-    padding: 0.25em 0;
+    margin-bottom: 0.5em;
     line-height: 125%;
   }
 

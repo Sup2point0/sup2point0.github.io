@@ -16,7 +16,7 @@ let { channel }: Props = $props();
 </script>
 
 
-<button class="block-channel {channel._style}"
+<button class="block-channel"
   id={channel.shard}
   {@attach anim}
 >
@@ -102,7 +102,8 @@ let { channel }: Props = $props();
   opacity: 0;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
 
-  .block-channel.intersected & {
+  /* NOTE: Need `:global` to avoid CSS being purged!! */
+  :global(.block-channel.intersected) & {
     transform: none;
     opacity: 1;
   }

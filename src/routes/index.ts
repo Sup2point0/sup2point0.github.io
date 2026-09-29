@@ -21,6 +21,7 @@ export const routes_data = {
       _t: "Loves",
 
       games:    { _t: "Games" },
+      puzzles:  { _t: "Puzzles" },
       films:    { _t: "Films" },
       series:   { _t: "Shows / Series", _s: "Series" },
       anime:    { _t: "Anime" },

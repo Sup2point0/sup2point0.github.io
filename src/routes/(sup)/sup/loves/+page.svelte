@@ -1,5 +1,7 @@
 <script lang="ts">
 
+import { i } from "#scripts/utils";
+
 import { Cards, Main } from "#parts/core";
 import { Block, Breadcrumbs, LinkCard } from "#parts/ui";
 import { Adventure } from "#parts/special";
@@ -17,7 +19,15 @@ import { Adventure } from "#parts/special";
 
 <Main>
   <Block>
-    <p> Sometimes, I feel like I have too many interests. </p>
+    <p>  </p>
+
+    <Adventure routes={[
+      [1, `Sometimes, I feel like I have too many interests.`],
+
+      [1, `If I had to say what huamnity’s purpose is, there are 2 strongest candidates for me. (1) Discover the secrets of the universe; and (2) create and enjoy art.`],
+
+      [1, `Here you’ll find some of the media I’m into. I’m sure you can find something we have in common! :0`],
+    ]} />
 
     <Adventure routes={[
       [1, `I’ll be gradually adding more stuff here, for now it’s just the content I consume ^v^`],
@@ -32,21 +42,27 @@ import { Adventure } from "#parts/special";
     <LinkCard
       link="/sup/music"
       text="Music"
-      capt="so much it has its own tab ;)"
+      capt={[
+        [1, `so much it has its own tab ;)`],
+        [1, `my life and soul`],
+      ]}
       picts={[
         "icons/artists/camellia.png",
         "icons/artists/pikasonic.jpg",
         "icons/artists/silentroom.jpg",
+        "icons/artists/stessie.jpg",
         "icons/artists/vexento.jpg",
-        "icons/artists/wing.jpg",
       ]}
       aspect="square"
     />
 
     <LinkCard
-      link="/sup/loves/games"
+      link="loves/games"
       text="Games"
-      capt="rhythm games, tower defence, exploration"
+      capt={[
+        [1, `rhythm games, tower defence, exploration`],
+        [1, `even if no time, I’ll ${i`make`} time for them`],
+      ]}
       picts={[
         "icons/games/bloons-td6.png",
         "icons/games/diep-io.webp",
@@ -59,13 +75,13 @@ import { Adventure } from "#parts/special";
     />
     
     <LinkCard
-      link="/sup/loves"
+      link="loves/puzzles"
       text="Puzzles"
       capt="Coming soon!"
     />
 
     <LinkCard
-      link="/sup/loves/films"
+      link="loves/films"
       text="Films"
       capt="sci-fi, dystopian, romance"
       picts={[
@@ -78,7 +94,7 @@ import { Adventure } from "#parts/special";
     />
 
     <LinkCard
-      link="/sup/loves/series"
+      link="loves/series"
       text="Shows / Series"
       capt="heart-wrenching soul-wrecking sagas"
       picts={[
@@ -90,9 +106,12 @@ import { Adventure } from "#parts/special";
     />
 
     <LinkCard
-      link="/sup/loves/anime"
+      link="loves/anime"
       text="Anime"
-      capt="wish I could watch more"
+      capt={[
+        [2, `wish I could watch more`],
+        [1, `a dangerous indulgence`],
+      ]}
       picts={[
         "covers/anime/oshi-no-ko.webp",
         "covers/anime/pokemon-xyz.jpg",
@@ -102,7 +121,7 @@ import { Adventure } from "#parts/special";
     />
     
     <LinkCard
-      link="/sup/loves/webtoons"
+      link="loves/webtoons"
       text="Webtoon"
       capt="coloured manga is the best!"
       picts={[
@@ -114,10 +133,11 @@ import { Adventure } from "#parts/special";
     />
 
     <LinkCard
-      link="/sup/loves/books"
+      link="loves/books"
       text="Books"
       capt="losing my soul in fictional worlds"
       picts={[
+        "covers/books/alchemised.jpg",
         "covers/books/legend.jpg",
         "covers/books/oblivion.jpg",
         "covers/books/half-blood-prince.jpg",
@@ -126,7 +146,7 @@ import { Adventure } from "#parts/special";
     />
     
     <LinkCard
-      link="/sup/loves/youtube"
+      link="loves/youtube"
       text="YouTube"
       capt="best of the internet"
       picts={[

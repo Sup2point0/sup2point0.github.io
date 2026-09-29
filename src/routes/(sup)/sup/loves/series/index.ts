@@ -4,7 +4,12 @@ import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { Groups } from "#scripts/types";
 
 
-export interface SeriesData extends MediaData {}
+export interface SeriesData extends MediaData
+{
+  fields?: {
+    favourite?: string
+  }
+}
 
 
 const data: Groups<SeriesData> =
@@ -13,20 +18,22 @@ const data: Groups<SeriesData> =
     {
       shard:  "the-kings-avatar",
       name:   "« 全职高手 »",
-      date:   2019,
+        translation: "The King’s Avatar",
+      date:   "summer 2019",
       cover:  "the-kings-avatar.png",
       genres: [Genre.DRAMA, Genre.COMEDY, Genre.SLICE_OF_LIFE],
       themes: [Theme.ESPORTS],
-      desc: [
-        `The King’s Avatar (live action)`,
-      ],
+      desc: [],
     },
     {
-      name:   "Arcane: Season 1",
-      date:   2021,
+      name:   "Arcane",
+      date:   "spring 2025",
       cover:  "arcane-s1.jpg",
       genres: [Genre.DYSTOPIAN, Genre.FANTASY],
       themes: [Theme.TRAGEDY],
+      fields: {
+        favourite: "Season 1",
+      },
       desc: [
         `${i`Arcane`} was so good that it made me genuinely consider playing League.`,
 
@@ -44,32 +51,32 @@ const data: Groups<SeriesData> =
       ],
     },
     {
-      name:   "The Mandalorian: Season 1",
-      date:   2019,
+      name:   "The Mandalorian",
+      date:   2024,
       cover:  "the-mandalorian.jpg",
-      desc: [
-        `Star Wars`,
-      ],
+      fields: {
+        favourite: "Season 1",
+      },
     },
     {
-      name:   "Andor: Season 1",
-      date:   2022,
+      name:   "Andor",
+      date:   2025,
       cover:  "andor-s1.webp",
-      desc: [
-        `Star Wars`,
-      ],
-    }
+      genres: [Genre.SPACE_OPERA],
+      themes: [Theme.GRIT],
+      fields: {
+        favourite: "Season 1",
+      },
+    },
   ],
   "children’s shows I unironically love": [
     {
       shard:  "boonie-bears",
       name:   "« 熊出没 »",
+        translation: "Boonie Bears",
       date:   "eternal",
       cover:  "boonie-bears.jpg",
       genres: [Genre.CARTOON, Genre.COMEDY],
-      desc: [
-        `Boonie Bears`,
-      ],
     },
     {
       shard:  "ben-and-holly",
@@ -91,7 +98,7 @@ const data: Groups<SeriesData> =
       name:   "Peppa Pig",
       date:   "eternal",
       cover:  "peppa-pig.jpg",
-    }
+    },
   ],
   "Peak Cinema": [
     {
@@ -137,23 +144,19 @@ const data: Groups<SeriesData> =
     {
       shard:  "go-go-squid",
       name:   "« 亲爱的、热爱的 »",
+        translation: "Go Go Squid",
       date:   "summer 2019",
       cover:  "go-go-squid.jpg",
       genres: [Genre.ROMANCE, Genre.DRAMA, Genre.SLICE_OF_LIFE],
-      desc: [
-        `Go Go Squid`,
-      ],
     },
     {
       shard:  "a-little-reunion",
       name:   "« 小欢喜 »",
+        translation: "A Little Reunion",
       date:   "summer 2019",
       cover:  "xiao-huan-xi.jpeg",
       genres: [Genre.DRAMA, Genre.SLICE_OF_LIFE],
       themes: [Theme.COMING_OF_AGE, "高考 (gaokao)" as Theme],
-      desc: [
-        `A Little Reunion`,
-      ],
     },
   ],
 };

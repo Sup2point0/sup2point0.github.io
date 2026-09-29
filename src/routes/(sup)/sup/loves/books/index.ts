@@ -9,7 +9,7 @@ export interface BooksData extends MediaData
     author: Arrayable<string>
     books?: int
     favourite?: string
-  },
+  }
 }
 
 

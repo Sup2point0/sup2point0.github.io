@@ -5,13 +5,15 @@ import { MediaSearchFilter } from "../filter.media.svelte.ts";
 
 import { Cards, Main } from "#parts/core";
 import { Breadcrumbs, Header, SearchFilters } from "#parts/ui";
-import { MediaBlock } from "#parts/loves";
+import { MediaBlock, MediaOverlay } from "#parts/loves";
 
 
 // svelte-ignore non_reactive_update
 let filters = new MediaSearchFilter();
 
 let series_filtered = $derived(filters.apply(series_data));
+
+let active_series: SeriesData | null = $state(null);
 
 </script>
 
@@ -25,13 +27,19 @@ let series_filtered = $derived(filters.apply(series_data));
 {#snippet cards(series: SeriesData[])}
   <Cards>
     {#each series as each (each.shard)}
-      <MediaBlock kind="series" media={each} expanded={filters.extra["expand all"]} />
+      <MediaBlock
+        kind="series" media={each}
+        expanded={filters.extra["expand all"]}
+        bind:active_media={active_series}
+      />
     {/each}
   </Cards>
 {/snippet}
 
 
 <Breadcrumbs />
+
+<MediaOverlay kind="series" media={active_series} />
 
 <Main>
   <SearchFilters bind:filters result_count={filters.count_results(series_filtered)} />

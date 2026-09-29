@@ -84,6 +84,13 @@ function close() {
               <td> {#each { length: media.love as int } as _} ❤️‍🔥 {/each} </td>
             </tr>
           {/if}
+
+          {#each Object.entries(media.fields ?? {}) as [key, value]}
+            <tr>
+              <th> {key.toUpperCase()} </th>
+              <td> {value} </td>
+            </tr>
+          {/each}
         </tbody></table>
       </div>
     </div>

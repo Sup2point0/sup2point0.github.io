@@ -24,8 +24,12 @@ import { page } from "$app/state";
   </h2>
 
   <Cards>
-    {#each page.data.videos as id}
-      <iframe width="356" height="200" src="https://www.youtube.com/embed/{id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    {#each page.data.videos as { title, href, thumb }}
+      <a {title} {href} target="_blank">
+        <img class="thumbnail" alt={title} src={thumb} />
+
+        <img class="youtube" alt="" src="/icons/socials/youtube-full.svg" />
+      </a>
     {/each}
   </Cards>
 {/if}
@@ -33,6 +37,29 @@ import { page } from "$app/state";
 
 <style lang="scss">
 
+a {
+  width: 20rem;
+  aspect-ratio: 16 / 9;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  transform: skew($shear-factor);
+}
 
+img.thumbnail {
+  width: 22.5rem;
+  position: relative;
+  top: -50px;
+  transform: translateX(-1.25rem) skew(-$shear-factor);
+}
+
+img.youtube {
+  width: 2rem;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  transform: skew(-$shear-factor);
+}
 
 </style>

@@ -1,7 +1,11 @@
+import type { url } from "#scripts/types";
+
+
 export interface VideoData
 {
-	id:   string;
-	href: string;
+	title: string
+	href:  string
+	thumb: url
 }
 
 
@@ -19,14 +23,23 @@ export async function load()
 
 		console.log(`received ${chunks.length} chunks!`);
 
-		let videos: string[] = [];
+		let videos: VideoData[] = [];
 
 		for (let [i, chunk] of chunks.entries()) {
 			console.log(`chunk #${i} =`, chunk);
-			let id = chunk.match(/(?<=<yt:videoId>).*?(?=<\/yt:videoId>)/)?.[0];
-			if (id == undefined) continue;
+			let title = chunk.match(/(?:<title>)(.*?)(?:<\/title>)/)?.[1];
+			let href = chunk.match(/(?:<link rel="alternate" href=")(.*?)(?:")/)?.[1];
+			let thumb = chunk.match(/(?:<media:thumbnail url=")(.*?)(?:")/)?.[1];
 
-			videos.push(id);
+			let video_data = { title, href, thumb };
+
+			if (title == undefined || href == undefined || thumb == undefined) {
+				console.error(`failed to resolve chunk: ${video_data}`);
+				continue;
+			}
+
+			// @ts-expect-error: non-undefined from check
+			videos.push(video_data);
 		}
 
 		return { videos };

@@ -1,7 +1,7 @@
 import { prep_groups } from "#scripts/search";
 import { i, b } from "#scripts/utils";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
-import type { Groups } from "#scripts/types";
+import type { int, Groups } from "#scripts/types";
 
 
 export enum Franchise {
@@ -27,9 +27,24 @@ export enum Flag {
 
 export interface FilmData extends MediaData
 {
-  franchise?: Franchise;
-  flags?: Flag[];
+  flags?: Flag[]
+  franchise?: Franchise,
+  fields?: {
+    rewatches?: int | string
+  }
 }
+
+
+const _template = [
+    {
+      name:  "",
+      date:  undefined,
+      cover: ".jpg",
+      genres: [],
+      flags:  [],
+      desc: [],
+    },
+];
 
 
 const data: Groups<FilmData> =
@@ -41,6 +56,8 @@ const data: Groups<FilmData> =
       cover:  "alita-battle-angel.jpg",
       genres: [Genre.ACTION, Genre.DYSTOPIAN],
       flags:  [Flag.MANGA],
+      fields: {
+      },
     },
     {
       name:   "Doctor Strange",
@@ -48,7 +65,9 @@ const data: Groups<FilmData> =
       cover:  "doctor-strange.jpg",
       genres: [Genre.SUPERHERO, Genre.FANTASY, Genre.ACTION],
       franchise: Franchise.MARVEL,
-      flags:  [],
+      fields: {
+        rewatches: 3,
+      },
       desc: [
         `So far, Doctor Strange is my second favourite superhero in the MCU. Cool name aside, cool cape aside, it’s the magic. Sorcery. Spells. Programs. Multiversal energy channelli– orange is a cool colour.`,
 
@@ -65,7 +84,9 @@ const data: Groups<FilmData> =
       cover:  "dune-part-1.jpg",
       genres: [Genre.SPACE_OPERA, Genre.EPIC],
       franchise: Franchise.DUNE,
-      flags:  [],
+      fields: {
+        rewatches: 2,
+      },
       desc: [
         `y’know, I first watched this on my crappy iPhone 5s screen. Absolute blasphemy, I know. It was all I could do at the time.`,
 
@@ -83,8 +104,11 @@ const data: Groups<FilmData> =
       date:   2024,
       cover:  "dune-part-2.jpg",
       genres: [Genre.SPACE_OPERA, Genre.EPIC],
-      franchise: Franchise.DUNE,
       flags:  [Flag.SEQUEL],
+      franchise: Franchise.DUNE,
+      fields: {
+        rewatches: 2,
+      },
       desc: [
         `After my experience with Dune I, when Dune II was announced it was the first time in a long time that I found myself properly hyped for a film. Still calmly, patiently hyped, y’know, but it was one of the few films I actively went “I’m seeing this when it releases. In IMAX, no negotiations.”`,
 
@@ -100,8 +124,11 @@ const data: Groups<FilmData> =
       date:   2016,
       cover:  "fantastic-beasts.jpg",
       genres: [Genre.FANTASY],
-      franchise: Franchise.HARRY_POTTER,
       flags:  [Flag.FIRST, Flag.SERIES],
+      franchise: Franchise.HARRY_POTTER,
+      fields: {
+        rewatches: 2,
+      },
     },
     {
       name:   "How To Train Your Dragon: The Hidden World",
@@ -109,6 +136,9 @@ const data: Groups<FilmData> =
       cover:  "hidden-world.jpg",
       genres: [Genre.FANTASY],
       flags:  [Flag.ANIMATED, Flag.SEQUEL, Flag.SERIES],
+      fields: {
+        rewatches: 2,
+      },
     },
     {
       name:   "Interstellar",
@@ -128,11 +158,21 @@ const data: Groups<FilmData> =
       ],
     },
     {
+      name:  "Mega Monster Battle: Ultra Galaxy Legend",
+      date:  "eternal",
+      cover: "mega-monster-battle.jpg",
+      genres: [Genre.SHONEN, Genre.EPIC],
+      desc: [],
+    },
+    {
       name:   "Ready Player One",
       date:   2018,
       cover:  "ready-player-one.jpg",
       genres: [Genre.ACTION, Genre.ADVENTURE, Genre.DYSTOPIAN],
       flags:  [Flag.BOOK],
+      fields: {
+        rewatches: 2,
+      },
       desc: [
         `I was quite young when this came out, and I loved it ${b("to bits")}. Everything about it was so cool to me. ${i`Parzival`} is a sick name, his and Art3mis’s avatars are fire, weapons like the Holy Hand Grenade are the stuff of dreams, his car is sick, his flying nut kick was insane, the idea of finding easter eggs in a game makes me wanna jump up and down. It was like my dream film.`,
 
@@ -149,8 +189,11 @@ const data: Groups<FilmData> =
       cover:  "rogue-one.jpg",
       genres: [Genre.SPACE_OPERA],
       themes: [Theme.GRIT],
-      franchise: Franchise.STAR_WARS,
       flags:  [Flag.SERIES],
+      franchise: Franchise.STAR_WARS,
+      fields: {
+        rewatches: 2,
+      },
       desc: [
         `I could never really decide on my favourite Star Wars film, but at some point I subconsciously settled unanimously on Rogue One.`,
 
@@ -168,16 +211,22 @@ const data: Groups<FilmData> =
       date:   2017,
       cover:  "spider-man-homecoming.jpg",
       genres: [Genre.SUPERHERO, Genre.ACTION],
-      franchise: Franchise.MARVEL,
       flags:  [Flag.FIRST, Flag.SERIES],
+      franchise: Franchise.MARVEL,
+      fields: {
+        rewatches: "3+",
+      },
     },
     {
       name:   "Spider-Man: Into the Spider-Verse",
       date:   2018,
       cover:  "into-the-spider-verse.jpg",
       genres: [Genre.SUPERHERO, Genre.ACTION],
-      franchise: Franchise.MARVEL,
       flags:  [Flag.ANIMATED, Flag.FIRST, Flag.SERIES],
+      franchise: Franchise.MARVEL,
+      fields: {
+        rewatches: 3,
+      },
     },
     {
       name:   "The Wild Robot",
@@ -185,6 +234,9 @@ const data: Groups<FilmData> =
       cover:  "wild-robot.jpg",
       genres: [Genre.ADVENTURE],
       flags:  [Flag.ANIMATED],
+      fields: {
+        rewatches: 2,
+      },
       desc: [
         `I will protest this til the day I die: kids’ films are not merely kids’ films. There is something to be found in even the most ridiculous of kids’ media ...or at least, the media made for kids in my day. Not modern YouTube or any of that garbage.`,
 
@@ -209,6 +261,9 @@ const data: Groups<FilmData> =
       genres: [Genre.ADVENTURE, Genre.COMEDY],
       themes: [Theme.MYTHOLOGY],
       flags:  [Flag.ANIMATED, Flag.CHINESE, Flag.FIRST, Flag.SERIES],
+      fields: {
+        rewatches: "3+",
+      },
     },
   ],
   "Peak Cinema": [
@@ -217,55 +272,77 @@ const data: Groups<FilmData> =
       date:   2019,
       cover:  "endgame.webp",
       genres: [Genre.SUPERHERO, Genre.ACTION, Genre.COMEDY],
-      franchise: Franchise.MARVEL,
       flags:  [Flag.LONG, Flag.SEQUEL, Flag.SERIES],
+      franchise: Franchise.MARVEL,
+      fields: {
+        rewatches: "3+",
+      },
     },
     {
       name:   "Avengers: Infinity War",
       date:   2018,
       cover:  "infinity-war.jpg",
       genres: [Genre.SUPERHERO, Genre.ACTION, Genre.COMEDY],
-      franchise: Franchise.MARVEL,
       flags:  [Flag.SERIES],
+      franchise: Franchise.MARVEL,
+      fields: {
+        rewatches: "4+",
+      },
     },
     {
       name:   "Big Hero 6",
       date:   2014,
       cover:  "big-hero-6.jpeg",
       flags:  [Flag.ANIMATED],
+      fields: {
+        rewatches: "2+",
+      },
     },
     {
       name:   "How To Train Your Dragon",
       date:   2010,
       cover:  "how-to-train-your-dragon.jpg",
       flags:  [Flag.ANIMATED, Flag.FIRST, Flag.SERIES],
+      fields: {
+        rewatches: "2+",
+      },
     },
     {
       name:   "Spider-Man: Across the Spider-Verse",
       date:   2023,
       cover:  "across-the-spider-verse.jpg",
-      franchise: Franchise.MARVEL,
       flags:  [Flag.ANIMATED, Flag.SEQUEL, Flag.SERIES],
+      franchise: Franchise.MARVEL,
+      fields: {
+      },
     },
     {
       name:   "Spider-Man: Far From Home",
       date:   2019,
       cover:  "far-from-home.jpg",
       genres: [Genre.SUPERHERO, Genre.ACTION, Genre.SLICE_OF_LIFE],
-      franchise: Franchise.MARVEL,
       flags:  [Flag.SEQUEL, Flag.SERIES],
+      franchise: Franchise.MARVEL,
+      fields: {
+        rewatches: "3+",
+      },
     },
     {
       name:   "The Hunger Games",
       date:   2012,
       cover:  "the-hunger-games.webp",
       flags:  [Flag.BOOK, Flag.FIRST, Flag.SERIES],
+      fields: {
+      },
     },
     {
       name:   "The Matrix",
       date:   1999,
       cover:  "the-matrix.jpg",
       flags:  [Flag.FIRST, Flag.SERIES],
+      fields: {
+        rewatches: 2,
+      },
     },
     {
       name:   "The Maze Runner",
@@ -273,6 +350,8 @@ const data: Groups<FilmData> =
       cover:  "maze-runner.jpg",
       genres: [Genre.DYSTOPIAN, Genre.ACTION, Genre.ROMANCE],
       flags:  [Flag.BOOK, Flag.FIRST, Flag.SERIES],
+      fields: {
+      },
     },
     {
       shard:  "wandering-earth-ii",
@@ -281,6 +360,9 @@ const data: Groups<FilmData> =
       cover:  "wandering-earth-ii.jpg",
       genres: [Genre.SCI_FI, Genre.DYSTOPIAN, Genre.ACTION],
       flags:  [Flag.CHINESE, Flag.SEQUEL, Flag.SERIES],
+      fields: {
+        rewatches: 2,
+      },
     },
     {
       shard:  "dead-to-rights",
@@ -290,6 +372,9 @@ const data: Groups<FilmData> =
       genres: [Genre.HISTORY],
       themes: [Theme.GRIT],
       flags:  [Flag.CHINESE],
+      fields: {
+        rewatches: 2,
+      },
     },
     {
       shard:  "ne-zha-2",
@@ -299,6 +384,8 @@ const data: Groups<FilmData> =
       genres: [Genre.ADVENTURE, Genre.COMEDY],
       themes: [Theme.MYTHOLOGY],
       flags:  [Flag.ANIMATED, Flag.CHINESE, Flag.SEQUEL, Flag.SERIES],
+      fields: {
+      },
     },
     {
       shard:  "successor",
@@ -308,6 +395,8 @@ const data: Groups<FilmData> =
       genres: [Genre.COMEDY],
       themes: [Theme.FAMILY],
       flags:  [Flag.CHINESE],
+      fields: {
+      },
       desc:   [
         `Successor`,
       ],
@@ -332,21 +421,29 @@ const data: Groups<FilmData> =
       name:   "Guardians of the Galaxy Vol. 2",
       date:   2017,
       cover:  "guardians-of-the-galaxy-2.jpg",
-      franchise: Franchise.MARVEL,
       flags:  [Flag.SEQUEL, Flag.SERIES],
+      franchise: Franchise.MARVEL,
+      fields: {
+      },
     },
     {
       name:   "Kingsman: The Secret Service",
       date:   2014,
       cover:  "kingsman.jpg",
       genres: [Genre.ACTION, Genre.COMEDY],
+      fields: {
+        rewatches: 2,
+      },
     },
     {
       name:   "Maleficent",
-      date:   2014,
+      date:   "childhood",
       cover:  "maleficent.jpg",
       genres: [Genre.FANTASY, Genre.FAIRYTALE],
-      themes: [Theme.TRAGEDY]
+      themes: [Theme.TRAGEDY],
+      fields: {
+        rewatches: 2,
+      },
     },
     {
       name:   "Onward",
@@ -355,6 +452,8 @@ const data: Groups<FilmData> =
       genres: [Genre.FANTASY, Genre.ADVENTURE, Genre.COMEDY],
       themes: [Theme.COMING_OF_AGE],
       flags:  [Flag.ANIMATED],
+      fields: {
+      },
     },
     {
       name:   "Shang-Chi and the Legend of the Ten Rings",
@@ -362,14 +461,19 @@ const data: Groups<FilmData> =
       cover:  "shang-chi.jpg",
       genres: [Genre.SUPERHERO],
       franchise: Franchise.MARVEL,
+      fields: {
+      },
     },
     {
       name:   "Thor: Ragnarok",
       date:   2017,
       cover:  "thor-ragnarok.jpg",
       genres: [Genre.SUPERHERO],
-      franchise: Franchise.MARVEL,
       flags:  [Flag.SERIES],
+      franchise: Franchise.MARVEL,
+      fields: {
+        rewatches: 2,
+      },
     },
     {
       name:   "Uncharted",
@@ -382,24 +486,34 @@ const data: Groups<FilmData> =
       date:   2018,
       cover:  "venom.jpg",
       genres: [Genre.SUPERHERO],
-      franchise: Franchise.MARVEL,
       flags:  [Flag.FIRST, Flag.SERIES],
+      franchise: Franchise.MARVEL,
+      fields: {
+        rewatches: 2,
+      },
     },
     {
       shard:  "wandering-earth",
       name:   "流浪地球",
+        translation: "The Wandering Earth",
       date:   2019,
       cover:  "wandering-earth.jpg",
       genres: [Genre.SCI_FI, Genre.ADVENTURE, Genre.DYSTOPIAN],
       themes: [Theme.FAMILY, Theme.COMING_OF_AGE],
       flags:  [Flag.CHINESE, Flag.FIRST, Flag.SERIES],
+      fields: {
+        rewatches: 2,
+      },
     },
     {
       shard:  "shadows-edge",
       name:   "追风捉影",
       date:   2025,
       cover:  "shadows-edge.png",
+      genres: [Genre.ACTION, Genre.FIGHT],
       flags:  [Flag.CHINESE],
+      fields: {
+      },
     },
   ],
   "Timeless": [
@@ -409,18 +523,27 @@ const data: Groups<FilmData> =
       cover:  undefined,
       genres: [Genre.SCI_FI, Genre.EPIC, Genre.ACTION],
       flags:  [Flag.FIRST, Flag.SERIES],
+      fields: {
+        rewatches: "3+",
+      },
     },
     {
       name:   "Back to the Future",
       date:   1985,
       cover:  undefined,
       flags:  [Flag.FIRST, Flag.SERIES],
+      fields: {
+        rewatches: "3+",
+      },
     },
     {
       name:   "Frozen",
       date:   2013,
       cover:  undefined,
       flags:  [Flag.ANIMATED, Flag.FIRST, Flag.SERIES],
+      fields: {
+        rewatches: "2+",
+      },
     },
     {
       name:   "The Boss Baby",
@@ -456,6 +579,9 @@ const data: Groups<FilmData> =
       date:   2008,
       cover:  undefined,
       flags:  [Flag.ANIMATED],
+      fields: {
+        rewatches: "3+",
+      },
     },
   ],
   "Guilty Pleasures": [
@@ -464,6 +590,9 @@ const data: Groups<FilmData> =
       date:   2015,
       cover:  undefined,
       flags:  [Flag.ANIMATED],
+      fields: {
+        rewatches: "3+",
+      },
       is_shown: false,
     },
   ],

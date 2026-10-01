@@ -14,10 +14,12 @@ export enum Genre {
 	EROTICA       = "erotica",
 	FANTASY       = "fantasy",
 	FAIRYTALE     = "fairytale",
+	FIGHT         = "fight",
 	HISTORY       = "history",
 	MYSTERY       = "mystery",
 	ROMANCE       = "romance",
 	SCI_FI        = "sci-fi",
+	SHONEN        = "shonen",
 	SLICE_OF_LIFE = "slice of life",
 	SPACE_OPERA   = "space opera",
 	SUPERHERO     = "superhero",
@@ -30,6 +32,7 @@ export enum Theme {
 	ESPORTS           = "esports",
 	FAMILY            = "family",
 	FORBIDDEN_LOVE    = "forbidden love",
+	FRIENDSHIP        = "friendship",
 	GRIT              = "grit",
 	MAGIC             = "magic",
 	MYTHOLOGY         = "mythology",
@@ -43,6 +46,7 @@ export enum Theme {
 
 export interface MediaData extends Searchable
 {
+	translation?: string
 	date?: Dates
 
 	genres?: Genre[]

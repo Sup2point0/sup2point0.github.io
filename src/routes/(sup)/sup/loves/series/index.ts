@@ -1,13 +1,15 @@
 import { prep_groups } from "#scripts/search";
 import { i, h } from "#scripts/utils";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
-import type { Groups } from "#scripts/types";
+import type { int, Groups } from "#scripts/types";
 
 
 export interface SeriesData extends MediaData
 {
   fields?: {
     favourite?: string
+    episodes?:  int
+    rewatches?: int | string
   }
 }
 
@@ -16,6 +18,19 @@ const data: Groups<SeriesData> =
 {
   "All-Time Favourites": [
     {
+      shard:  "ultraman-mebius",
+      name:   "Ultraman Mebius",
+      date:   "eternal",
+      cover:  "ultraman-mebius.jpg",
+      genres: [Genre.SHONEN],
+      themes: [Theme.FRIENDSHIP],
+      fields: {
+        episodes:  40,
+        rewatches: "5+",
+      },
+      desc: [],
+    },
+    {
       shard:  "the-kings-avatar",
       name:   "« 全职高手 »",
         translation: "The King’s Avatar",
@@ -23,6 +38,10 @@ const data: Groups<SeriesData> =
       cover:  "the-kings-avatar.png",
       genres: [Genre.DRAMA, Genre.COMEDY, Genre.SLICE_OF_LIFE],
       themes: [Theme.ESPORTS],
+      fields: {
+        episodes:  40,
+        rewatches: "3+",
+      },
       desc: [],
     },
     {
@@ -33,6 +52,7 @@ const data: Groups<SeriesData> =
       themes: [Theme.TRAGEDY],
       fields: {
         favourite: "Season 1",
+        episodes:  18,
       },
       desc: [
         `${i`Arcane`} was so good that it made me genuinely consider playing League.`,
@@ -56,6 +76,7 @@ const data: Groups<SeriesData> =
       cover:  "the-mandalorian.jpg",
       fields: {
         favourite: "Season 1",
+        episodes:  24,
       },
     },
     {
@@ -66,7 +87,61 @@ const data: Groups<SeriesData> =
       themes: [Theme.GRIT],
       fields: {
         favourite: "Season 1",
+        episodes:  12,
       },
+    },
+  ],
+  "Ultraman": [
+    {
+      shard:  "ultraman-orb",
+      name:   "Ultraman Orb",
+      date:   2020,
+      cover:  "ultraman-orb.jpg",
+      genres: [Genre.SHONEN],
+      themes: [],
+      fields: {
+        episodes:  25,
+        rewatches: 2,
+      },
+      desc: [],
+    },
+    {
+      shard:  "ultraman-geed",
+      name:   "Ultraman Geed",
+      date:   2021,
+      cover:  "ultraman-geed.jpg",
+      genres: [Genre.SHONEN],
+      themes: [],
+      fields: {
+        episodes:  25,
+        rewatches: 2,
+      },
+      desc: [],
+    },
+    {
+      shard:  "ultraman-z",
+      name:   "Ultraman Z",
+      date:   2020,
+      cover:  "ultraman-z.jpg",
+      genres: [Genre.SHONEN],
+      themes: [],
+      fields: {
+        episodes:  25,
+      },
+      desc: [],
+    },
+    {
+      shard:  "ultraman-ginga",
+      name:   "Ultraman Ginga",
+      date:   "childhood",
+      cover:  "ultraman-ginga.webp",
+      genres: [Genre.SHONEN],
+      themes: [],
+      fields: {
+        episodes:  11,
+        rewatches: "3+",
+      },
+      desc: [],
     },
   ],
   "children’s shows I unironically love": [
@@ -118,14 +193,23 @@ const data: Groups<SeriesData> =
     {
       name:   "Equestria Girls – Rainbow Rocks",
       date:   2014,
+      fields: {
+        rewatches: "4+",
+      },
     },
     {
       name:   "Equestria Girls – Legend of Everfree",
       date:   2016,
+      fields: {
+        rewatches: "4+",
+      },
     },
     {
       name:   "Equestria Girls – Friendship Games",
       date:   2015,
+      fields: {
+        rewatches: "4+",
+      },
     },
     {
       name:   "Friendship is Magic – Season 1",
@@ -148,8 +232,12 @@ const data: Groups<SeriesData> =
       date:   "summer 2019",
       cover:  "go-go-squid.jpg",
       genres: [Genre.ROMANCE, Genre.DRAMA, Genre.SLICE_OF_LIFE],
+      fields: {
+        episodes: 41,
+      },
     },
     {
+      // FIXME season 2?
       shard:  "a-little-reunion",
       name:   "« 小欢喜 »",
         translation: "A Little Reunion",

@@ -44,6 +44,18 @@ a {
   position: relative;
   overflow: hidden;
   transform: skew($shear-factor);
+  transition: #{trans()};
+
+  &:hover, &:focus-visible {
+    transform: skew($shear-factor) scale(102%);
+    filter: saturate(120%);
+    @include glow();
+  }
+
+  &:active {
+    filter: saturate(120%) brightness(70%);
+    transition: none;
+  }
 }
 
 img.thumbnail {

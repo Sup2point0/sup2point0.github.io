@@ -118,6 +118,18 @@ const data: Groups<BooksData> =
       },
     },
     {
+      name:   "Lorien Legacies",
+      date:   "childhood",
+      cover:  "lorien-legacies.jpg",
+      genres: [Genre.FANTASY, Genre.ACTION],
+      themes: [Theme.MAGIC, Theme.ALIENS],
+      fields: {
+        author:    "Pittacus Lore",
+        books:     7,
+        favourite: undefined,
+      },
+    },
+    {
       name:   "Ventura Saga",
       date:   2020,
       cover:  "truth-different-skies.jpg",

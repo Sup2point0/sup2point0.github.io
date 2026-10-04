@@ -26,6 +26,7 @@ export enum Genre {
 }
 
 export enum Theme {
+	ALIENS            = "aliens",
 	APOCALYPSE        = "apocalypse",
 	COMING_OF_AGE     = "coming of age",
 	ENEMIES_TO_LOVERS = "enemies to lovers",

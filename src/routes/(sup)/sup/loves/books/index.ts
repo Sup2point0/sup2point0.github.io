@@ -1,4 +1,5 @@
 import { prep_groups } from "#scripts/search";
+import { i } from "#scripts/utils";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
 import type { int, Arrayable, Groups } from "#scripts/types";
 
@@ -78,6 +79,23 @@ const data: Groups<BooksData> =
         author:    "SenLinYu",
         books:     1,
       },
+      desc: [
+        `Hooh boy, it has been a ${i`real`} long time since I last read a book. Proper, soul-enrapturing fiction. I’ve missed this, I really have.`,
+
+        `It’d been years since I’d been to the book section of a store (because I hadn’t gone to stores), but I’m always uncontrollably drawn to them. This book caught my eye because, well, let’s see: 1-word title, beautiful cover, strong theme, and then I pulled it out, and ${i`holy mackerel`}, the sheer size. This is the thickest modern fiction book I’ve ever seen or read. It was on sale, too. Instant purchase, no regrets.`,
+
+        `I didn’t read it after purchasing, though, mostly due to lack of time. It sat on my shelf untouched for half a year, which I felt pretty bad for. But once I did finally decide to start reading, I fell right into my old ways. Immersed right in. The world just fades away. I’ve gotten better with self-restraint over the years, so I rationed myself fairly carefully while reading this. Well worth it, gawddamn. I still finished it so quickly tho, took maybe 10 days? It did not feel as thick as it was, at all.`,
+
+        `It’ll take some more reflection and re-reads for me to formulate mature thoughts on the story and arc itself, but for the first read: damn, I loved this. It’s dystopian fantasy fiction romance, how could I not TvT.`,
+
+        `It’s a shame tho, as I’ve gotten older I can actually feel myself becoming less receptive to worldbuilding, there’s a tiny twinge of cringe when I see words like “necrothrall” and “phylactery” introduced. Maybe I’ve encountered too much worldbuilding where this stuff no longer enthralls me, idk. But it wore off quickly as the story progressed; I think reading more will actually alleviate that issue.`,
+
+        `I absolutely love the structure of the story, it is incredible. Playing Outer Wilds really set me up for this. Because what the author’s done, is shown us where we are ${i`in media res`}, but not explained how we get there. Classic. Then we flashback – which, yes, felt a little jarring at first. But wait. This isn’t right. It’s different to what we expected – because ${i`Helena is an unreliable narrator`}. So there’s this jarring disconnect between the present, the past, and what we thought was the past. And now, all I’m thinking is, “How the hell do we get to there from here?”`,
+
+        `Then, as the story progresses and we find out more details, it all starts to fall into place. It’s the delicious uncertainty, where you increasingly feel like you know what’s going to happen, there’s this sense of dread, but you can’t place your finger on quite exactly what – it’s like solving a puzzle, and it completely draws me in. The ends slowly joining together. The realisation that a sacrifice is going to be made. Expertly, expertly crafted.`,
+
+        `So yeah, for that, this book has won my heart. It was so unbelievably difficult to discipline myself and not read on into tomorrow, especially at the end of part 2. I will definitely need to re-read, and eck out in part 1 how the Kaine we know is under the Kaine we meet.`,
+      ],
     },
   ],
   "Soul-Enrapturing": [

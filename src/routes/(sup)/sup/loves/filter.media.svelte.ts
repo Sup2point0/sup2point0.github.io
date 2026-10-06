@@ -1,7 +1,6 @@
 import { partial_ratio } from "fuzzball";
 
 import { SearchFilter } from "#scripts/search";
-import { shuffle } from "#scripts/utils";
 import { Genre, Theme, type MediaData } from "#scripts/types/media";
 
 
@@ -28,13 +27,12 @@ export class MediaSearchFilter<Media extends MediaData> extends SearchFilter<Med
 	{
 		if (this.query) {
 			return super.sort(media, {
-				/* @ts-ignore */
 				scorer: (each => Math.max(
 					partial_ratio(this.query, each.name),
 					each.collection ? partial_ratio(this.query, each.collection) : 0,
 					each.genres ? partial_ratio(this.query, each.genres.join(" ")) : 0,
 					each.themes ? partial_ratio(this.query, each.themes.join(" ")) : 0,
-				)).bind(this),
+				)),
 			})
 		}
 		

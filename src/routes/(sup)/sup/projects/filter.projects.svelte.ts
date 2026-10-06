@@ -90,7 +90,7 @@ export class ProjectSearchFilter extends SearchFilter<ProjectData>
 				proj.desc ? partial_ratio(this.query, proj.desc) : 0,
 				proj.tech ? partial_ratio(this.query, proj.tech.join(" ")) : 0,
 				proj.tags ? partial_ratio(this.query, proj.tags.join(" ")) : 0,
-			)).bind(this),
+			)),
 		});
 	}
 }

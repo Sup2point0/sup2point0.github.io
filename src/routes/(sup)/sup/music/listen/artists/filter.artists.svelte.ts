@@ -49,7 +49,7 @@ export class ArtistSearchFilter extends SearchFilter<ArtistData>
 				partial_ratio(this.query, artist.name),
 				artist.desc ? partial_ratio(this.query, artist.desc.join(" ")) : 0,
 				artist.genres ? partial_ratio(this.query, artist.genres.join(" ")) : 0,
-			)).bind(this),
+			)),
 		});
 	}
 }

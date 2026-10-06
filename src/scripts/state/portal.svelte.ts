@@ -3,41 +3,36 @@ import { FrozenWeightedList } from "@sup2.0/weighted-list";
 import { PortalSearchFilter } from "#parts/special/portal/filters.portal.svelte.ts";
 
 
-interface PortalState
+const PLACEHOLDERS = new FrozenWeightedList(
+	[20, `explore the site!`],
+	[20, `quicknav to any page!`],
+	[20, `type / to use a shortcut!`],
+	[1,  `never gonna give you up~`],
+);
+
+
+export class PortalState
 {
 	/** Is the portal overlay open? */
-	open: boolean;
+	open = $state(false);
 
 	/** Is the portal overlay ready? */
-	live: boolean;
+	live = $state(false);
 
 	/** Search filters. */
-	filters: PortalSearchFilter;
+	filters: PortalSearchFilter = new PortalSearchFilter();
 
 	/** The input bar of the this. */
-	input: HTMLInputElement | null;
+	input: HTMLInputElement | null = null
 
 	/** Placeholder text of the input bar. */
-	placeholder: string;
+	placeholder = ""
 
 	/** Previously focused element to re-focus when portal is closed. */
-	previously_focused: HTMLElement | null;
+	previously_focused: HTMLElement | null = null
 
 	/** Return an event callback that activates or deactivates the this. */
-	set_state: (state: boolean) => ((e: Event) => void)
-}
-
-
-export const portal: PortalState = $state(
-{
-	open:        false,
-	live:        false,
-	filters:     new PortalSearchFilter(),
-	input:       null,
-	placeholder: "",
-	previously_focused: null,
-
-	set_state(state: boolean)
+	set_state(state: boolean): ((e: Event) => void)
 	{
 		return e => {
 			e.preventDefault();
@@ -65,12 +60,6 @@ export const portal: PortalState = $state(
 			});
 		}
 	}
-});
+}
 
-
-const PLACEHOLDERS = new FrozenWeightedList(
-	[20, `explore the site!`],
-	[20, `quicknav to any page!`],
-	[20, `type / to use a shortcut!`],
-	[1,  `never gonna give you up~`],
-);
+export const portal = new PortalState();

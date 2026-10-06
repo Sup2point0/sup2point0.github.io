@@ -9,12 +9,11 @@ import type { Snippet } from "svelte";
 
 
 interface Props {
-  text?: string;
   margin?: boolean;
   children?: Snippet;
 }
 
-let { text, margin = true, children }: Props = $props();
+let { margin = true, children }: Props = $props();
 
 </script>
 
@@ -23,7 +22,7 @@ let { text, margin = true, children }: Props = $props();
   {#if children}
     {@render children()}
   {:else}
-    {@html text ?? "–––"}
+    –––
   {/if}
 </h2>
 

@@ -87,7 +87,7 @@ async function onmouseup()
 
 <svelte:window {onmousemove} {onmouseup} />
 
-<audio src={tunes.track && `/audio/${tunes.track?.audio ?? "unknown.mp3"}`}
+<audio src={tunes.track && `/audio/${tunes.track.audio ?? "unknown.mp3"}`}
   bind:this={tunes.audio}
   onplay={() => tunes.sync_duration()}
   onended={() => tunes.stop_playing()}
@@ -98,50 +98,48 @@ async function onmouseup()
 {#if tunes.track}
   <div class="popup" transition:scale={{ start: 0.8, duration: 600, easing: expoOut }}>
 
-<div class="left">
-  {#if tunes.track}
-    <button class="pause"
-      class:paused={!tunes.playing}
-      onclick={async () => await tunes.toggle_pause()}
-    >
-      {#if tunes.playing}
-        ⏸
-      {:else}
-        ▶
-      {/if}
-    </button>
-  {/if}
-</div>
-
-<div class="right">
-  <div class="upper">
-    <h3> {tunes.track.name} </h3>
-    <p> {tunes.track.album?.name ?? ""} </p>
-  </div>
-
-  <button class="close" onclick={() => tunes.stop_playing()}>
-    ×
-  </button>
-
-  <div class="playback">
-    <p class="start">
-      {display_timestamp(tunes.timestamp)}
-    </p>
-
-    <div class="bar" class:long={(tunes.duration ?? 0) >= 5 * 60}
-      role="slider"
-      aria-valuenow={tunes.timestamp}
-      tabindex={0}
-      bind:this={slider}
-      {onmousedown}
-      style:--frac={Math.min(1, (tunes.timestamp ?? 0) / (tunes.duration ?? 1))}>
+    <div class="left">
+      <button class="pause"
+        class:paused={!tunes.playing}
+        onclick={async () => await tunes.toggle_pause()}
+      >
+        {#if tunes.playing}
+          ⏸
+        {:else}
+          ▶
+        {/if}
+      </button>
     </div>
 
-    {#key tunes.track.shard}
-      <p class="end"> {display_timestamp(tunes.duration)} </p>
-    {/key}
-  </div>
-</div>
+    <div class="right">
+      <div class="upper">
+        <h3> {tunes.track.name} </h3>
+        <p> {tunes.track.album?.name ?? ""} </p>
+      </div>
+
+      <button class="close" onclick={() => tunes.stop_playing()}>
+        ×
+      </button>
+
+      <div class="playback">
+        <p class="start">
+          {display_timestamp(tunes.timestamp)}
+        </p>
+
+        <div class="bar" class:long={(tunes.duration ?? 0) >= 5 * 60}
+          role="slider"
+          aria-valuenow={tunes.timestamp}
+          tabindex={0}
+          bind:this={slider}
+          {onmousedown}
+          style:--frac={Math.min(1, (tunes.timestamp ?? 0) / (tunes.duration ?? 1))}>
+        </div>
+
+        {#key tunes.track.shard}
+          <p class="end"> {display_timestamp(tunes.duration)} </p>
+        {/key}
+      </div>
+    </div>
 
   </div>
 {/if}

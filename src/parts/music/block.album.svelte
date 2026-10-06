@@ -73,7 +73,7 @@ let { album }: Props = $props();
     @include font-tech;
     font-size: 100%;
     color: $col-text-deut;
-    transition: #{trans()};
+    transition: $trans;
 
     &:hover {
       color: $col-text;

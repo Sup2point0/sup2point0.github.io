@@ -244,7 +244,7 @@ button.close {
   background: none;
   border: none;
   outline: none;
-  transition: #{trans()};
+  transition: $trans;
 
   &:hover, &:focus-visible {
     cursor: pointer;

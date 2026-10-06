@@ -38,7 +38,7 @@ nav {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  transition: #{trans()};
+  transition: $trans;
 
   &.back {
     background: rgb(white, 4%);

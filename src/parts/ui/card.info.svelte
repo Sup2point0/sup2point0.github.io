@@ -65,7 +65,7 @@ let is_open = $state(opens ? true : false);
   background: none;
   border: none;
   @include shear-card($interactive: true, $glow: true);
-  transition: #{trans()};
+  transition: $trans;
 
   &.open {
     padding: 1em 2em;
@@ -115,7 +115,7 @@ p {
     font-size: 80%;
     font-weight: 300;
     color: $col-text-deut;
-    transition: #{trans()};
+    transition: $trans;
   }
 }
 

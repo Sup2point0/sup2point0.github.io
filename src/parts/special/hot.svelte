@@ -43,7 +43,7 @@ onMount(() => {
   font-size: 60%;
   font-weight: 700;
   color: $col-quat;
-  transition: #{trans()};
+  transition: $trans;
 }
 
 </style>

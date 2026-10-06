@@ -81,15 +81,11 @@
 		z-index: -1;
 		@include card($blur, $light);
 		transform: skew($shear-factor);
-		transition: #{trans()};
+		transition: $trans;
 		@content;
 	}
 
 	@if $interactive {
-		&::before {
-			transition: #{trans()};
-		}
-		
 		&:hover, &:focus-visible, &:active {
 			cursor: pointer;
 			
@@ -136,7 +132,7 @@
 {
 	&::before {
 		transition:
-			#{trans()},
+			$trans,
 			transform 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s),
 			opacity 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);  // ease-out-exp
 	}
@@ -181,16 +177,4 @@
 
 @function skew-mobile() {
 	@return skew(0, calc($shear-factor * 1 / 3));
-}
-
-/// The default transition easing used across the site.
-@function trans()
-{
-	@return 'all 0.12s ease-out';
-}
-
-/// The sharper exponential transition easing.
-@function trans-exp()
-{
-	@return '1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s)';
 }

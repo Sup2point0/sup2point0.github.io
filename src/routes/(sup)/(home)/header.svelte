@@ -111,7 +111,7 @@ p {
 	text-align: center;
 
 	span {
-		transition: #{trans()};
+		transition: $trans;
 	}
 	span.shown {
 		transition-delay: 0.1s;

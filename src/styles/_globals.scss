@@ -3,6 +3,16 @@ $width-shrink: 640px;
 $width-expand: 1441px;
 $shear-factor: -12deg;
 
+
+// == TRANSITIONS == //
+
+/// The default transition easing used across the site.
+$trans: all 0.12s ease-out;
+
+/// The sharper exponential transition easing.
+$trans-exp: 1s cubic-bezier(0.19, 1, 0.22, 1) var(--delay, 0s);
+
+
 // == COLOURS == //
 $col-prot: #ff0090;
 $col-deut: #40f190;

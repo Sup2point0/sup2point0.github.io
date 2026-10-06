@@ -59,7 +59,7 @@ let { puzzle }: Props = $props();
 	padding: 1rem 1.5rem;
 	background: none;
 	border: none;
-	transition: #{trans()};
+	transition: $trans;
 	@include shear-card($interactive: true);
 	@include anim-block;
 
@@ -136,7 +136,7 @@ let { puzzle }: Props = $props();
 		@include font-tech;
 		font-size: 100%;
 		color: $col-text-deut;
-		transition: #{trans()};
+		transition: $trans;
 	}
 }
 

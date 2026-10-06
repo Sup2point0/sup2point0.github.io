@@ -213,7 +213,7 @@ img.project-icon {
     img.ext-link {
       max-height: 100%;
       aspect-ratio: 1;
-      transition: #{trans()};
+      transition: $trans;
 
       &:hover {
         transform: scale(110%);
@@ -311,7 +311,7 @@ img.project-icon {
       color: $col-text;
       text-shadow: 0 0.5px 1.5px black;
       @include shear-card($blur: false);
-      transition: #{trans()};
+      transition: $trans;
 
       &:hover {
         cursor: auto;

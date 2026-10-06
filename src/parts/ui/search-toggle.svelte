@@ -76,7 +76,7 @@ button {
   outline: none;
   @include shear-card();
   opacity: 0.8;
-  transition: #{trans()};
+  transition: $trans;
 
   &.enabled, &:hover, &:focus-visible, &:active {
     &::before {

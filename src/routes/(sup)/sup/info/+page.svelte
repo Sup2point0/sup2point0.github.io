@@ -150,7 +150,7 @@ section.profile {
       transform: scale(150%) translateY(0.1em);
       transform-origin: left;
 
-      span { transition: #{trans()}; }
+      span { transition: $trans; }
       span:hover { color: $col-deut; }
       span.sep { color: $col-text-deut; }
     }

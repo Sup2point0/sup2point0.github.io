@@ -129,7 +129,7 @@ let { genre }: Props = $props();
   a {
     padding-bottom: 0.1em;
     @include link($lesser: true);
-    transition: #{trans()};
+    transition: $trans;
   }
 
   @include separator;

@@ -44,7 +44,7 @@ let { query = $bindable(), input = $bindable(null) }: Props = $props();
   @include shear-card() {
     background: $col-card-light;
   }
-  transition: #{trans()};
+  transition: $trans;
 
   &:hover, &:has(input:focus) {
     width: min(33rem, 75vw);

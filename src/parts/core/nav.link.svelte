@@ -56,7 +56,7 @@ a.nav-link {
     backdrop-filter: none;
   }
 
-  transition: #{trans()};
+  transition: $trans;
 
   &::after {
     bottom: -1px;
@@ -85,7 +85,7 @@ a.nav-link {
   font-size: 60%;
   font-weight: 700;
   color: $col-quat;
-  transition: #{trans()};
+  transition: $trans;
 
   .nav-link:where(:hover, :focus-visible) & {
     color: transparent;

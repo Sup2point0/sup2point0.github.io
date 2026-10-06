@@ -44,7 +44,7 @@ a {
   position: relative;
   overflow: hidden;
   transform: skew($shear-factor);
-  transition: #{trans()};
+  transition: $trans;
 
   &:hover, &:focus-visible {
     transform: skew($shear-factor) scale(102%);

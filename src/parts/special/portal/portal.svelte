@@ -219,7 +219,7 @@ function handle_hotkeys(e: KeyboardEvent)
 
   --delay: 0.1s;
   transform: translateX(-50%) translateY(-50%) scale(85%);
-  transition: all #{trans-exp()};
+  transition: all $trans-exp;
   
   &.live {
     transform: translateX(-50%) translateY(-50%);
@@ -232,9 +232,9 @@ function handle_hotkeys(e: KeyboardEvent)
   @include shear-card() {
     background: rgb(white, 25%);
     opacity: 0;
-    transition: opacity #{trans-exp()};
+    transition: opacity $trans-exp;
   }
-  transition: #{trans()};
+  transition: $trans;
 
   &:hover, &:has(input:focus) {
     width: min(37rem, 85vw);
@@ -265,7 +265,7 @@ input {
   border: none;
   outline: none;
   opacity: 0;
-  transition: all #{trans-exp()};
+  transition: all $trans-exp;
 
   &::-webkit-search-cancel-button,
   &::-webkit-search-decoration {
@@ -296,7 +296,7 @@ input::placeholder {
   flex-flow: column nowrap;
   align-items: stretch;
   gap: 0.5rem;
-  transition: #{trans()};
+  transition: $trans;
 }
 
 button.result {
@@ -315,9 +315,9 @@ button.result {
   @include shear-card($interactive: true) {
     background: rgb(white, 25%);
     opacity: 0;
-    transition: opacity #{trans-exp()}, background 0.12s ease-out;
+    transition: opacity $trans-exp, background 0.12s ease-out;
   }
-  transition: #{trans()};
+  transition: $trans;
 
   .portal-content.live &::before {
     opacity: 1;
@@ -364,7 +364,7 @@ button.result {
       font-weight: normal;
       color: transparent;
       text-shadow: 0 1px 3px rgb(black, 50%);
-      transition: color #{trans-exp()};
+      transition: color $trans-exp;
       
       .portal-content.live            & { color: $col-text; }
       .portal-content.live .shortcuts & { color: $col-deut; }
@@ -378,7 +378,7 @@ button.result {
       margin-top: -0.25em;
       color: transparent;
       line-height: 100%;
-      transition: color #{trans-exp()};
+      transition: color $trans-exp;
       
       .portal-content.live & {
         color: $col-text;
@@ -393,7 +393,7 @@ button.result {
     p {
       color: transparent;
       line-height: 100%;
-      transition: color #{trans-exp()};
+      transition: color $trans-exp;
       
       .portal-content.live & {
         color: $col-text-deut;

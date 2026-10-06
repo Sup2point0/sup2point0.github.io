@@ -97,7 +97,7 @@ a.info {
     opacity: 0;
   }
   transform: translateX(-1rem);
-  transition: #{trans()};
+  transition: $trans;
 
   .content {
     opacity: 0;
@@ -128,7 +128,7 @@ a.info {
     @include font-ui;
     font-size: 75%;
     color: $col-text-deut;
-    transition: #{trans()};
+    transition: $trans;
   }
 }
 

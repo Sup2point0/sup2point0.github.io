@@ -54,7 +54,7 @@ a.card.album {
   text-decoration: none;
 
   @include shear-card($interactive: true, $glow: true);
-  transition: #{trans()};
+  transition: $trans;
 
   &:hover, &:focus-visible {
     &::before {
@@ -98,7 +98,7 @@ a.card.album.preview {
     font-size: 200%;
     color: $col-text;
     transform: translateX(1.2em) translateY(-0.25em);
-    transition: #{trans()};
+    transition: $trans;
   }
 
   .img-container {
@@ -119,7 +119,7 @@ a.card.album.preview {
       color: white;
       background: linear-gradient(to bottom in oklch, transparent, rgb(black, 90%) 90%);
       opacity: 0;
-      transition: #{trans()}, opacity 0.25s ease-out;
+      transition: $trans, opacity 0.25s ease-out;
     }
   }
 }

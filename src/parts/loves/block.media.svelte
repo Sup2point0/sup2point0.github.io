@@ -123,7 +123,7 @@ function open()
   background: none;
   border: none;
   outline: none;
-  transition: #{trans()};
+  transition: $trans;
   @include shear-card($interactive: true, $glow: true, $mobile: true);
   @include anim-block;
 
@@ -173,7 +173,7 @@ function open()
 img {
   max-width: 100%;
   box-shadow: 0 8px 16px rgb(black, 40%);
-  transition: #{trans()};
+  transition: $trans;
 
   .block-media:where(:hover, :focus-visible) & {
     transform: scale(103%);
@@ -240,7 +240,7 @@ img {
   font-weight: 300;
   color: $col-text-deut;
   text-align: left;
-  transition: #{trans()};
+  transition: $trans;
 
   .block-media:where(:hover, :focus-visible) & {
     color: $col-text;
@@ -289,7 +289,7 @@ img {
       font-size: 120%;
       color: $col-text;
       @include shear-card($blur: false);
-      transition: #{trans()};
+      transition: $trans;
 
       &:hover {
         cursor: auto;

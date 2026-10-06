@@ -141,7 +141,7 @@ p {
   .img-container {
     overflow: hidden;
     transform: skew($shear-factor);
-    transition: #{trans()};
+    transition: $trans;
 
     .card:where(:hover, :focus-visible, :active) & {
       transform: skew(calc($shear-factor * 2 / 3));
@@ -150,7 +150,7 @@ p {
 
   img {
     filter: blur(4px);
-    transition: #{trans()}, filter 0.25s ease-out;
+    transition: $trans, filter 0.25s ease-out;
   }
 
   @include mobile {

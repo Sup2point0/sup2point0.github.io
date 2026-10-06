@@ -137,7 +137,7 @@ let open = $derived(expanded);
   background: none;
   border: none;
   outline: none;
-  transition: #{trans()};
+  transition: $trans;
   @include shear-card($interactive: true, $glow: true);
   @include anim-block;
 
@@ -172,7 +172,7 @@ let open = $derived(expanded);
   img {
     border-radius: 50%;
     box-shadow: 0 8px 16px rgb(black, 40%);
-    transition: #{trans()};
+    transition: $trans;
 
     .block-artist:hover & {
       box-shadow: 0 0 42px rgb(white, 20%);
@@ -204,7 +204,7 @@ let open = $derived(expanded);
       background: rgb(white, 4%);
       border-left: $border-width solid $col-prot;
       opacity: 0;
-      transition: #{trans()}, opacity 0.2s ease-out;
+      transition: $trans, opacity 0.2s ease-out;
     }
 
     a {
@@ -224,7 +224,7 @@ let open = $derived(expanded);
     .favourite {
       &::before {
         opacity: 1;
-        transition: #{trans()}, opacity 0.5s ease-out;
+        transition: $trans, opacity 0.5s ease-out;
       }
 
       a {
@@ -319,7 +319,7 @@ let open = $derived(expanded);
     font-weight: 300;
     color: $col-text-deut;
     text-align: left;
-    transition: #{trans()};
+    transition: $trans;
   }
 }
 
@@ -345,7 +345,7 @@ let open = $derived(expanded);
       aspect-ratio: 1;
       border-radius: 50%;
       opacity: 0;
-      transition: #{trans()}, opacity 0.3s;
+      transition: $trans, opacity 0.3s;
 
       &:hover {
         box-shadow: 0 0 16px black;
@@ -384,7 +384,7 @@ let open = $derived(expanded);
       font-size: 120%;
       color: $col-text;
       @include shear-card($blur: false);
-      transition: #{trans()};
+      transition: $trans;
 
       &:hover {
         cursor: auto;

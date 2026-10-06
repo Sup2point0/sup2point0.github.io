@@ -90,7 +90,7 @@ a {
     background: transparent;
     backdrop-filter: none;
   }
-  transition: #{trans()};
+  transition: $trans;
 
   &::after {
     bottom: -1px;

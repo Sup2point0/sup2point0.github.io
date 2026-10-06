@@ -77,7 +77,7 @@ let { channel }: Props = $props();
   padding: 1rem 1.5rem;
   background: none;
   border: none;
-  transition: #{trans()};
+  transition: $trans;
   @include shear-card($interactive: true);
   @include anim-block;
 
@@ -166,7 +166,7 @@ let { channel }: Props = $props();
     @include font-tech;
     font-size: 100%;
     color: $col-text-deut;
-    transition: #{trans()};
+    transition: $trans;
   }
 }
 
@@ -186,7 +186,7 @@ let { channel }: Props = $props();
       @include shear-card($blur: false) {
         background: color.change($col-trit, $alpha: 0.69);
       }
-      transition: #{trans()};
+      transition: $trans;
 
       &:hover {
         cursor: auto;

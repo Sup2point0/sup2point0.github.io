@@ -123,7 +123,7 @@ onMount(() => {
   background: none;
   border: none;
   outline: none;
-  transition: #{trans()};
+  transition: $trans;
   @include shear-card($interactive: true, $glow: true);
   @include anim-block;
 
@@ -238,7 +238,7 @@ img {
     font-weight: 300;
     color: $col-text-deut;
     text-align: left;
-    transition: #{trans()};
+    transition: $trans;
 
     .block-track-listen:where(:hover, :focus-visible) & {
       color: $col-text;
@@ -266,7 +266,7 @@ img {
       font-size: 125%;
       color: $col-text;
       @include shear-card($blur: false);
-      transition: #{trans()};
+      transition: $trans;
 
       &:hover {
         padding: 0 0.8em;

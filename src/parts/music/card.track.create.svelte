@@ -52,7 +52,7 @@ let { track }: Props = $props();
   outline: none;
 
   @include shear-card($interactive: true, $glow: true);
-  transition: #{trans()};
+  transition: $trans;
 
   &:hover, &:focus-visible {
     &::before {
@@ -99,7 +99,7 @@ let { track }: Props = $props();
     color: white;
     background: linear-gradient(to bottom in oklch, transparent, rgb(black, 90%) 90%);
     opacity: 0;
-    transition: #{trans()}, opacity 0.25s ease-out;
+    transition: $trans, opacity 0.25s ease-out;
   }
 }
 

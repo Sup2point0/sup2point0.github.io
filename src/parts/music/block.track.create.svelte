@@ -209,7 +209,7 @@ let { track }: Props = $props();
       margin: 0;
       @include font-tech;
       color: $col-text-deut;
-      transition: #{trans()};
+      transition: $trans;
     }
   }
 
@@ -227,7 +227,7 @@ let { track }: Props = $props();
       font-size: 125%;
       color: $col-text;
       @include shear-card($blur: false);
-      transition: #{trans()};
+      transition: $trans;
 
       &:hover {
         padding: 0 0.8em;

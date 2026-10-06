@@ -175,14 +175,17 @@ export class SearchFilter<Entity extends Searchable>
 				for (let [toggle, enabled] of Object.entries(states)) {
 					if (!enabled) continue;
 
-					if (Array.isArray(each[prop])) {
-						let matches = each[prop].filter(p => p === toggle).length;
+					// @ts-expect-error: don't want to add an explicit index signature
+					let field = each[prop];
+
+					if (Array.isArray(field)) {
+						let matches = field.filter(p => p === toggle).length;
 						if (matches > 0) {
 							hit = true;
 							each._score += matches ** 2;
 						}
 					}
-					else if (each[prop] === toggle) {
+					else if (field === toggle) {
 						hit = true;
 						each._score++;
 					}
@@ -331,6 +334,7 @@ export class SearchFilter<Entity extends Searchable>
 	 */
 	protected group_default(entity: Entity): string
 	{
+		// @ts-expect-error: don't want to add explicit index signature
 		let value = entity[this.group_by];
 		return Array.isArray(value) ? value[0] : value ?? "other";
 	}

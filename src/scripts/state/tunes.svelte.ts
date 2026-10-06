@@ -5,7 +5,7 @@ import type { int } from "#scripts/types";
 export class TuneState
 {
 	audio:   HTMLAudioElement | null = $state(null);
-	track:   MyTrackData        | null = $state(null);
+	track:   MyTrackData      | null = $state(null);
 
 	playing:   boolean       = $state(false);
 	duration:  number | null = $state(null);

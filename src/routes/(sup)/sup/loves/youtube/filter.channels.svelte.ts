@@ -7,13 +7,9 @@ import { SearchFilter } from "#scripts/search";
 
 export class ChannelSearchFilter extends SearchFilter<YouTubeChannelData>
 {
-	topics = $state(
-		Object.fromEntries(
-			channels_list
-				.flatMap(channel => channel.topics)
-				.map(topic => [topic, true])
-		)
-	);
+	topics = $state(SearchFilter.init_states(
+		channels_list.flatMap(channel => channel.topics)
+	));
 
 
 	constructor()
@@ -34,9 +30,9 @@ export class ChannelSearchFilter extends SearchFilter<YouTubeChannelData>
 	{
 		if (this.query) {
 			return super.sort(channels, {
-				scorer: game => Math.max(
-					partial_ratio(this.query, game.name),
-					partial_ratio(this.query, game.topics.join(" ")),
+				scorer: channel => Math.max(
+					partial_ratio(this.query, channel.name),
+					partial_ratio(this.query, channel.topics.join(" ")),
 				)
 			});
 		}

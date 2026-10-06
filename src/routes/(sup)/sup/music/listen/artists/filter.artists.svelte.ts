@@ -1,8 +1,20 @@
 import { partial_ratio } from "fuzzball";
 
 import { SearchFilter } from "#scripts/search";
-import { date_to_prec, DATE_PREC_MAJOR } from "#scripts/utils";
+import { pick_random, date_to_prec, DATE_PREC_MAJOR } from "#scripts/utils";
 import { Genre, Vibe, type ArtistData } from "#scripts/types/music";
+
+
+const DISCOVERED = [
+	"childhood",
+	"StarlingEDM",
+	"NCS",
+	"YouTube Music",
+	"YouTube",
+	"CHUNITHM",
+	"Arcaea",
+	"Phigros",
+];
 
 
 export class ArtistSearchFilter extends SearchFilter<ArtistData>
@@ -22,22 +34,16 @@ export class ArtistSearchFilter extends SearchFilter<ArtistData>
 
 		this.groups.push("year", "genre", "discovered")
 
-		this.groupers_specific = {
-			"year": artist => Math.floor(date_to_prec(artist.date) / DATE_PREC_MAJOR),
+		this.groupers_specific =
+		{
+			"year": artist =>
+				Math.floor(date_to_prec(artist.date) / DATE_PREC_MAJOR),
 
-			"genre": artist => artist.genres?.[Math.floor(Math.random() * artist.genres.length)],
+			"genre": artist =>
+				pick_random(artist.genres ?? [undefined]),
 
-			"discovered": artist => (
-					artist.discovered?.includes("childhood")     ? "childhood"
-				: artist.discovered?.includes("StarlingEDM")   ? "StarlingEDM"
-				: artist.discovered?.includes("NCS")           ? "NCS"
-				: artist.discovered?.includes("YouTube Music") ? "YouTube Music"
-				: artist.discovered?.includes("YouTube")       ? "YouTube"
-				: artist.discovered?.includes("CHUNITHM")      ? "CHUNITHM"
-				: artist.discovered?.includes("Arcaea")        ? "Arcaea"
-				: artist.discovered?.includes("Phigros")       ? "Phigros"
-				: "other"
-			),
+			"discovered": artist =>
+				DISCOVERED.find(source => artist.discovered?.includes(source)) ?? "other",
 		}
 	}
 

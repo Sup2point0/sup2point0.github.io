@@ -1,7 +1,7 @@
 import { partial_ratio } from "fuzzball";
 
 import { SearchFilter } from "#scripts/search";
-import { date_to_prec, DATE_PREC_MAJOR } from "#scripts/utils";
+import { pick_random, date_to_prec, DATE_PREC_MAJOR } from "#scripts/utils";
 import type { MyTrackData } from "#scripts/types/music";
 
 
@@ -27,12 +27,16 @@ export class TrackSearchFilter extends SearchFilter<MyTrackData>
 			tracks => tracks.toSorted((prot, deut) => prot.album.name.localeCompare(deut.album.name))
 		);
 
-		this.groupers_specific = {
-			"album": track => track.album.name,
+		this.groupers_specific =
+		{
+			"album": track =>
+				track.album.name,
 
-			"year": track => Math.floor(date_to_prec(track.date, "end") / DATE_PREC_MAJOR),
+			"year": track =>
+				Math.floor(date_to_prec(track.date, "end") / DATE_PREC_MAJOR),
 
-			"genre": track => track.genres?.[Math.floor(Math.random() * track.genres.length)],
+			"genre": track =>
+				pick_random(track.genres ?? [undefined]),
 		};
 	}
 

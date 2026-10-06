@@ -403,23 +403,19 @@ export class SearchFilter<Entity extends Searchable>
 	 * */
 	protected static init_states(states: object, init_state?: boolean): States
 	{
-		return {
-			...Object.fromEntries(
-				Object.values(states)
-				.map(s => [s, init_state ?? true])
-			)
-		};
+		return Object.fromEntries(
+			Object.values(states)
+			.map(s => [s, init_state ?? true])
+		);
 	}
 
 	protected static init_shard_states(states: Record<shard, Searchable>, init_state?: boolean): States
 	{
-		return {
-			...Object.fromEntries(
-				Object.values(states)
-				.filter(s => s.is_shown !== false)
-				.map(s => [s.shard, init_state ?? true])
-			)
-		};
+		return Object.fromEntries(
+			Object.values(states)
+			.filter(s => s.is_shown !== false)
+			.map(s => [s.shard, init_state ?? true])
+		);
 	}
 }
 

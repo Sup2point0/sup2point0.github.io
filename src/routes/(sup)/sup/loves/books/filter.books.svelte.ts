@@ -12,7 +12,7 @@ export class BookSearchFilter extends MediaSearchFilter<BooksData>
 		this.sorts.push("books count");
 
 		this.sorters_specific["books count"] = series => super.sort(series, {
-			scorer: s => s.books,
+			scorer: s => s.fields.books ?? 0,
 		});
 	}
 }

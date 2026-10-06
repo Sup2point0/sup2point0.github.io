@@ -5,11 +5,11 @@ A block displaying info for a media, series, anime, show, etc.
 
 <script lang="ts">
 
-import { anim, expoSlide } from "#scripts/anim.svelte.ts";
-import { display_date } from "#scripts/utils";
 import type { MediaData, MediaKind } from "#scripts/types/media";
 
-import { untrack } from "svelte";
+import { anim, expoSlide } from "#scripts/anim.svelte.ts";
+import { display_date } from "#scripts/utils";
+
 import { slide } from "svelte/transition";
 
 
@@ -23,17 +23,7 @@ interface Props {
 let { kind, media, expanded, active_media = $bindable() }: Props = $props();
 
 
-let is_open = $state(false);
-
-/* Clicking on one block can locally toggle, but global override should affect all blocks */
-$effect(() => {
-  expanded;
-
-  untrack(() => {
-    is_open = expanded;
-  })
-})
-
+let is_open = $derived(expanded);
 
 function open()
 {

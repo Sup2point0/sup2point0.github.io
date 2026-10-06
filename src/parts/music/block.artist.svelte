@@ -5,11 +5,11 @@ A block display info for a musical artist.
 
 <script lang="ts">
 
-import { anim, expoSlide } from "#scripts/anim.svelte.ts";
-import { display_date } from "#scripts/utils";
 import type { ArtistData } from "#scripts/types";
 
-import { untrack } from "svelte";
+import { anim, expoSlide } from "#scripts/anim.svelte.ts";
+import { display_date } from "#scripts/utils";
+
 import { slide } from "svelte/transition";
 
 
@@ -21,16 +21,7 @@ interface Props {
 let { artist, expanded }: Props = $props();
 
 
-let open = $state(false);
-
-/* Clicking on one block can locally toggle, but global override should affect all blocks */
-$effect(() => {
-  expanded;
-
-  untrack(() => {
-    open = expanded;
-  });
-});
+let open = $derived(expanded);
 
 </script>
 

@@ -7,7 +7,6 @@ import { type GameData } from "#sup/loves/games";
 import { anim, expoSlide } from "#scripts/anim.svelte.ts";
 import { display_date } from "#scripts/utils";
 
-import { untrack } from "svelte";
 import { slide } from "svelte/transition";
 
 
@@ -20,16 +19,7 @@ interface Props {
 let { game, expanded, active_game = $bindable() }: Props = $props();
 
 
-let is_open = $state(false);
-
-/* Clicking on one block can locally toggle, but global override should affect all blocks */
-$effect(() => {
-  expanded;
-
-  untrack(() => {
-    is_open = expanded;
-  });
-});
+let is_open = $derived(expanded);
 
 function open()
 {

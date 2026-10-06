@@ -40,7 +40,7 @@ let books_filtered = $derived(filters.apply(books_data));
     {#each books_filtered.data as [collection, books]}
       {#if books.length > 0}
         <section>
-          <Header text={collection?.toUpperCase()} />
+          <Header> {collection?.toUpperCase()} </Header>
           {@render cards(books)}
         </section>
       {/if}

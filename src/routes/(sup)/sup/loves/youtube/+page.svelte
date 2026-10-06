@@ -58,7 +58,7 @@ let channels_filtered = $derived(filters.apply(channels_data));
     {#each channels_filtered.data as [collection, channels]}
       {#if channels.length > 0}
         <section>
-          <Header text={collection?.toUpperCase()} />
+          <Header> {collection?.toUpperCase()} </Header>
           {@render cards(channels, filters.is_clear)}
         </section>
       {/if}

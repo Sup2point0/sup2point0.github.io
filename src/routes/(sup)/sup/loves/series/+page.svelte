@@ -48,7 +48,7 @@ let active_series: SeriesData | null = $state(null);
     {#each series_filtered.data as [collection, series]}
       {#if series.length > 0}
         <section>
-          <Header text={collection?.toUpperCase()} />
+          <Header> {collection?.toUpperCase()} </Header>
           {@render cards(series)}
         </section>
       {/if}

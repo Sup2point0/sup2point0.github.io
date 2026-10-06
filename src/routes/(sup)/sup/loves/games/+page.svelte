@@ -52,7 +52,7 @@ onMount(() => {
     {#each games_filtered.data as [collection, games]}
       {#if games.length > 0}
         <section>
-          <Header text={collection?.toUpperCase()} />
+          <Header> {collection?.toUpperCase()} </Header>
           {@render cards(games)}
         </section>
       {/if}

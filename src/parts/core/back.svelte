@@ -25,7 +25,10 @@ function pick_backdrop()
 }
 
 
-onMount(pick_backdrop);
+onMount(() => {
+  pick_backdrop();
+  return () => clearTimeout(timeout);
+});
 
 onNavigate(nav => {
   let from = nav.from?.url.pathname.split("/", 4);

@@ -23,14 +23,14 @@ jobs:
           submodules: true
           token: ${{ secrets.SUPPETY_PAT }}
 
-      - name: '› npm audit'
-        run: |
-          npm audit --audit-level=moderate
-
       - name: 'Setup Node'
         uses: actions/setup-node@v6
         with:
           cache: 'npm'
+
+      - name: '› npm audit'
+        run: |
+          npm audit --audit-level=moderate
 
       - name: '› npm ci'
         run: |

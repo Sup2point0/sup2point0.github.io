@@ -175,8 +175,7 @@ export class SearchFilter<Entity extends Searchable>
 				for (let [toggle, enabled] of Object.entries(states)) {
 					if (!enabled) continue;
 
-					// @ts-expect-error: don't want to add an explicit index signature
-					let field = each[prop];
+					let field = each[prop as keyof Entity];
 
 					if (Array.isArray(field)) {
 						let matches = field.filter(p => p === toggle).length;

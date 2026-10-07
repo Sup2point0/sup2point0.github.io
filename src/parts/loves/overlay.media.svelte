@@ -55,7 +55,7 @@ function close() {
         <h1> {media.name?.toUpperCase() ?? "???"} </h1>
         
         {#if media.translation}
-          <h2> {(media.translation as string).toUpperCase()} </h2>
+          <h2> {(media.translation).toUpperCase()} </h2>
         {/if}
       </header>
 

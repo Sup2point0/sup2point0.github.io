@@ -22,7 +22,7 @@ let channels_filtered = $derived(filters.apply(channels_data));
 
 <svelte:head>
   <title> YouTube × Loves × Sup#2.0 </title>
-  <meta name="description" content="All the book series I have read and loved!" />
+  <meta name="description" content="All the YouTube channels I watch or did watch!" />
 </svelte:head>
 
 

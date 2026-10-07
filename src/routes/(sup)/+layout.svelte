@@ -23,7 +23,10 @@ onMount(() => {
 });
 
 onNavigate(navigation => {
-	if (!document.startViewTransition) return;
+	if (document.startViewTransition == undefined) {
+    save_visited(page.url.pathname);
+    return;
+  }
 
 	return new Promise(resolve => {
 		document.startViewTransition(async () => {

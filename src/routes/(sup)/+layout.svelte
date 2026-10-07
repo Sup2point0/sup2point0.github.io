@@ -3,7 +3,7 @@
 import "#styles/essence.scss";
 
 import { nav, save_visited } from "#scripts/stores";
-import { client_live } from "#scripts/state";
+import { status } from "#scripts/state";
 
 import { Back } from "#parts/core";
 import { Portal, Tunes } from "#parts/special";
@@ -16,8 +16,8 @@ import { onNavigate } from "$app/navigation";
 let { children } = $props();
 
 
-onMount(client_live);
 onMount(() => {
+  status.client = true;
   $nav.visits++;
   save_visited(page.url.pathname);
 });

@@ -60,8 +60,10 @@ export class TrackSearchFilter extends SearchFilter<MyTrackData>
 
 		return super.sort(tracks, {
 			scorer: track => (
-				/* @ts-ignore */
-				100 * (track.name.at(0)?.toLowerCase() === this.query[0].toLowerCase())
+				(
+					track.name.at(0)?.toLowerCase() === this.query[0].toLowerCase()
+					? 100 : 0
+				)
 				+
 				Math.max(
 					partial_ratio(this.query, track.shard ?? ""),

@@ -97,7 +97,7 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
 			super.sort(shortcuts, {
 				scorer: shortcut => Math.max(
 					ratio(this.query, shortcut.title),
-					100 * ~~(this.query.at(1)?.toLowerCase() === shortcut.key),
+					(this.query.at(1)?.toLowerCase() === shortcut.key) ? 100 : 0,
 				),
 			})
 			.map(shortcut => ({
@@ -114,8 +114,8 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
 		return (
 			super.sort(routes_list, {
 				scorer: route => (
-					this.query === ""
-					? partial_ratio(page.url.pathname, route.link)
+					this.query === "" ?
+					  partial_ratio(page.url.pathname, route.link)
 					: Math.max(
 						partial_ratio(this.query, route.link),
 						partial_ratio(this.query, route.title),
@@ -160,7 +160,10 @@ export class PortalSearchFilter extends SearchFilter<Searchable>
 			super.sort(tracks, {
 				scorer: track => (
 					/* NOTE: Prioritise tracks whose name starts with the same letter as the query */
-					(track.name.at(0).toLowerCase() === this.query.at(3)?.toLowerCase() ? 100 : 0)
+					(
+						track.name.at(0).toLowerCase() === this.query.at(3)?.toLowerCase()
+						? 100 : 0
+					)
 					+ Math.max(
 						partial_ratio(this.query, track.shard ?? ""),
 						partial_ratio(this.query, track.name),

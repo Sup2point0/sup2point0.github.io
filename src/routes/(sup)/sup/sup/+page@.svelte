@@ -6,16 +6,26 @@ import { onMount } from "svelte";
 
 
 let root: HTMLElement;
-
+let observer: IntersectionObserver;
 let portals: Array<HTMLElement | null> = $state([]);
 
 
 onMount(() => {
+  observer = new IntersectionObserver(entries => {
+    for (let entry of entries) {
+      if (entry.intersectionRatio == 0) {
+        spin(entry.target);
+      }
+    }
+  });
+
   if (root === undefined) return;
   root.scrollLeft = (root.scrollWidth - root.clientWidth) / 2;
   root.scrollTop = (root.scrollHeight - root.clientHeight) / 2;
 
   spawn();
+
+  return () => observer.disconnect();
 });
 
 
@@ -25,12 +35,6 @@ function spawn()
 
   portals.push(null);
   let i = portals.length - 1;
-
-  let observer = new IntersectionObserver(([entry]) => {
-    if (entry.intersectionRatio == 0) {
-      spin(entry.target);
-    }
-  });
 
   requestAnimationFrame(() => {
     let portal = portals[i]!;
@@ -71,7 +75,7 @@ function spin(target: HTMLElement)
 
 <div class="root" bind:this={root}>
   <div class="content">
-    <img id="back" alt="" src="/back/soul.necropolis.jpg" />
+    <img id="back" alt="" src="/back/cortex.violet.jpg" />
 
     {#each portals as _, i}
       <div class="img-container" bind:this={portals[i]}>

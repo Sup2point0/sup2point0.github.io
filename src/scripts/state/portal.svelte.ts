@@ -22,7 +22,7 @@ export class PortalState
 	/** Search filters. */
 	filters: PortalSearchFilter = new PortalSearchFilter();
 
-	/** The input bar of the this. */
+	/** The input bar of the portal. */
 	input: HTMLInputElement | null = null
 
 	/** Placeholder text of the input bar. */
@@ -31,7 +31,7 @@ export class PortalState
 	/** Previously focused element to re-focus when portal is closed. */
 	previously_focused: HTMLElement | null = null
 
-	/** Return an event callback that activates or deactivates the this. */
+	/** Return an event callback that activates or deactivates the portal. */
 	set_state(state: boolean): ((e: Event) => void)
 	{
 		return e => {
@@ -51,8 +51,10 @@ export class PortalState
 				this.live = state;
 
 				if (this.open) {
-					/* @ts-ignore */
-					this.previously_focused = document.activeElement;
+					let elem = document.activeElement;
+					if (elem instanceof HTMLElement) {
+						this.previously_focused = elem;
+					}
 					this.input?.focus();
 				} else {
 					this.previously_focused?.focus();

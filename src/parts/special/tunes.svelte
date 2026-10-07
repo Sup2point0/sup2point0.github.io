@@ -25,16 +25,16 @@ let drag = $state({
 
 
 onMount(() => {
-  if ("mediaSession" in navigator) {
-	navigator.mediaSession.setActionHandler("play", () => tunes.toggle_pause());
-	navigator.mediaSession.setActionHandler("pause", () => tunes.toggle_pause());
-	navigator.mediaSession.setActionHandler("previoustrack", () => {
-		if (tunes.audio) tunes.audio.currentTime = 0;
-	});
-	navigator.mediaSession.setActionHandler("seekto", details => {
-		if (tunes.audio && details.seekTime !== undefined) tunes.audio.currentTime = details.seekTime;
-	});
-}
+  if (!("mediaSession" in navigator)) return;
+
+  navigator.mediaSession.setActionHandler("play", () => tunes.toggle_pause());
+  navigator.mediaSession.setActionHandler("pause", () => tunes.toggle_pause());
+  navigator.mediaSession.setActionHandler("previoustrack", () => {
+    if (tunes.audio) tunes.audio.currentTime = 0;
+  });
+  navigator.mediaSession.setActionHandler("seekto", details => {
+    if (tunes.audio && details.seekTime !== undefined) tunes.audio.currentTime = details.seekTime;
+  });
 })
 
 

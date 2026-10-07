@@ -1,4 +1,4 @@
-<!-- @component `Header`
+<!-- @component `<Header>`
  
 An `<h2>`-level header.
 -->

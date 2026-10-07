@@ -1,4 +1,4 @@
-import { MediaSearchFilter } from "../filter.media.svelte";
+import { MediaSearchFilter } from "../filter.media.svelte.ts";
 
 import { type AnimeData } from ".";
 

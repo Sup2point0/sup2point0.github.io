@@ -25,7 +25,6 @@ import { Adventure } from "#parts/special";
   </Block>
 
   <Cards>
-    <!-- <LinkCard link="/sup/music/listen/tracks" text="tracks I listen to" /> -->
     <LinkCard
       link="/sup/music/listen/chronicle"
       text="music? it’s complicated"

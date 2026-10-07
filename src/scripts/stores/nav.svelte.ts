@@ -8,9 +8,12 @@ import { routes_list } from "#routes";
 import { SvelteSet } from "svelte/reactivity";
 
 
-const links_init = [
-	...routes_list.filter(route => route.link.includes("/loves/")).map(route => route.link)
-].map(qualify);
+const links_init =
+	routes_list
+	.filter(route => route.link.includes("/loves/"))
+	.map(route => route.link)
+	.map(qualify)
+;
 
 
 interface NavData

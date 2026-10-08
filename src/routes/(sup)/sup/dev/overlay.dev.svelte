@@ -1,4 +1,4 @@
-<!-- @component `<Overlay>` -->
+<!-- @component `<DevOverlay>` -->
 
 <script lang="ts">
 

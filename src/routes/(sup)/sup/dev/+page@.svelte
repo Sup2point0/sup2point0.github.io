@@ -9,7 +9,7 @@ import { lattice } from "./dev.cells";
 
 import { Nav } from "#parts/core";
 import { HexCell, HexContent } from "#parts/dev";
-import Overlay from "./overlay.svelte";
+import DevOverlay from "./overlay.dev.svelte";
 
 import { onMount, type SvelteComponent } from "svelte";
 import { onNavigate } from "$app/navigation";
@@ -147,7 +147,7 @@ function get_random_hex_cords(): [number, number][]
 
   <div class="overlay-layout" class:expand={selected_entity !== null}>
     <Nav margin="0" />
-    <Overlay bind:entity={selected_entity} />
+    <DevOverlay bind:entity={selected_entity} />
   </div>
 </div>
 

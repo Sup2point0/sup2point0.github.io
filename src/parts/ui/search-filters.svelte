@@ -47,6 +47,19 @@ let open = $state(false);
               {#each Object.keys(options ?? {}) as option}
                 <SearchToggle {filters} {category} {option} />
               {/each}
+
+              <div style:margin-left="auto">
+                <ClickySelect
+                  text="ALL"
+                  active={false}
+                  disabled={Object.values(options).every(Boolean)}
+                  onclick={() => {
+                    for (let key of Object.keys(options)) {
+                      options[key] = true;
+                    }
+                  }}
+                />
+              </div>
             </div> </td>
           </tr>
         {/each}

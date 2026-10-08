@@ -1,8 +1,10 @@
 <script>
 
 import { portal } from "#scripts/state";
+import { i } from "#scripts/utils";
 
 import { Footer, Main, Nav } from "#parts/core";
+import { Block } from "#parts/ui";
 
 import ProfileHeader     from "./header.svelte";
 import ProfileBio        from "./bio.svelte";
@@ -57,6 +59,12 @@ import ProfileShowerthought from "./showerthought.svelte";
   <!-- static -->
   <section><ProfileCards /></section>
   <section><ProfileLoves /></section>
+
+  <Block kind="fun">
+    <p style:text-align="center">
+      {@html `If you want to find out more about me, you might actually be looking for ${i`Assort`}, my personal wiki ;)`}
+    </p>
+  </Block>
 </Main>
 
 <Footer />

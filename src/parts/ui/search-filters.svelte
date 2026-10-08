@@ -83,6 +83,21 @@ let open = $state(false);
                 }}
               />
             {/each}
+
+            <div style:margin-left="auto">
+              <ClickySelect
+                text="REVERSE"
+                active={filters.reverse_group}
+                onclick={() => {
+                  filters.reverse_group = !filters.reverse_group;
+                  if (filters.reverse_group) {
+                    filters.dirtiness++;
+                  } else {
+                    filters.dirtiness--;
+                  }
+                }}
+              />
+            </div>
           </div> </td>
         </tr>
 
@@ -98,8 +113,7 @@ let open = $state(false);
                       filters.sort_by = "default";
                       filters.dirtiness--;
                     }
-                  }
-                  else {
+                  } else {
                     if (filters.sort_by === "default") {
                       filters.dirtiness++;
                     }
@@ -108,6 +122,21 @@ let open = $state(false);
                 }}
               />
             {/each}
+
+            <div style:margin-left="auto">
+              <ClickySelect
+                text="REVERSE"
+                active={filters.reverse_sort}
+                onclick={() => {
+                  filters.reverse_sort = !filters.reverse_sort;
+                  if (filters.reverse_sort) {
+                    filters.dirtiness++;
+                  } else {
+                    filters.dirtiness--;
+                  }
+                }}
+              />
+            </div>
           </div> </td>
         </tr>
 

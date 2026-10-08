@@ -245,11 +245,7 @@ export class SearchFilter<Entity extends Searchable>
 	sort_ungrouped(source: Entity[]): Entity[]
 	{
 		let sorter = this.sorters_specific[this.sort_by]?.bind(this);
-		let sorted = sorter ? sorter(source) : this.sort_default(source);
-
-		if (this.reverse_sort) sorted.reverse();
-
-		return sorted;
+		return sorter ? sorter(source) : this.sort_default(source);
 	}
 
 	/**
@@ -269,6 +265,8 @@ export class SearchFilter<Entity extends Searchable>
 	 * The default sorter to apply when `.sort-by` is `"default"`, usually a sort by relevance.
 	 * 
 	 * This method can be overridden by child classes, which may wish to `switch`-`case` on their own additions to `.sort_by`.
+	 * 
+	 * This method should not apply `.reverse_sort`.
 	 */
 	protected sort_default(source: Entity[]): Entity[]
 	{

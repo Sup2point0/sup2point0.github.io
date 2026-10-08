@@ -14,10 +14,10 @@ import type { Searchable } from "./searchable";
 import type { SearchResults, FlatResults, GroupedResults } from "./results";
 
 
-type SortBy = "default" | "date" | "name" | string;
+type SortBy = "default" | "random" | "date" | "name" | string & { readonly __brand: unique symbol };
 type Sorter<Entity> = (entities: Entity[]) => Entity[];
 
-type GroupBy = "default" | "none" | string;
+type GroupBy = "default" | "none" | string & { readonly __brand: unique symbol };
 type Grouper<Entity, Key extends PropertyKey> = (entity: Entity) => Key;
 
 
@@ -66,8 +66,6 @@ export class SearchFilter<Entity extends Searchable>
 	 * Properties by which the user can sort search results, such as date or name.
 	 */
 	sorts: SortBy[] = ["default", "random", "date", "name"];
-
-	[group_by: GroupBy]: any;
 
 
 	/**
@@ -376,7 +374,9 @@ export class SearchFilter<Entity extends Searchable>
 		if (toggles.includes(this.group_by)) {
 			return groups.toSorted(
 				([g1, e1], [g2, e2]) => {
+					// @ts-expect-error: uncheckable
 					let prot = Object.keys(this[this.group_by]).indexOf(g1 as string);
+					// @ts-expect-error: uncheckable
 					let deut = Object.keys(this[this.group_by]).indexOf(g2 as string);
 
 					if (prot === -1 && deut !== -1) return 1;

@@ -15,7 +15,7 @@ interface Props {
   capt?: string;
     capt_pos?: "below" | "right";
   desc?: Description;
-  opens?: any;
+  opens?: true;
 }
 
 let { text, capt, capt_pos = "below", desc, opens }: Props = $props();

@@ -22,11 +22,14 @@ type Grouper<Entity, Key extends PropertyKey> = (entity: Entity) => Key;
 
 
 /**
- * Base class for a search filter, with support for grouping, filtering and sorting.
+ * Base class for a search filter, with support for filtering, sorting and grouping.
  * 
  * To use the filter, call `.apply()` and provide the data to filter.
  * 
- * The most important methods for deriving classes to override are `.sort_default()` and `.grouper()`, which `.apply()` will call.
+ * Child classes will likely want to:
+ * 
+ * - Add to `.sorts` and `.groups` relevant to their particular `Entity`
+ * - Override `.sort_default()` and `.grouper()`, which `.apply()` calls
  */
 export class SearchFilter<Entity extends Searchable>
 {
@@ -55,14 +58,14 @@ export class SearchFilter<Entity extends Searchable>
 	toggles: Record<string, States> = {};
 
 	/**
-	 * Groups by which the user can group search results, such as date or love.
+	 * Groups by which the user can group search results, such as genre or love.
 	 */
 	groups: GroupBy[] = ["default", "none"];
 
 	/**
 	 * Properties by which the user can sort search results, such as date or name.
 	 */
-	sorts: SortBy[] = ["default", "date", "name"];
+	sorts: SortBy[] = ["default", "random", "date", "name"];
 
 	[group_by: GroupBy]: any;
 
@@ -344,6 +347,12 @@ export class SearchFilter<Entity extends Searchable>
 			(this.group_by === "date" || this.group_by === "year")
 			&& (this.sort_by === "date" || this.sort_by === "default")
 		) {
+			return groups.toSorted(
+				([g1, e1], [g2, e2]) => (g2 as number) - (g1 as number)
+			);
+		}
+
+		if (this.group_by === "love") {
 			return groups.toSorted(
 				([g1, e1], [g2, e2]) => (g2 as number) - (g1 as number)
 			);

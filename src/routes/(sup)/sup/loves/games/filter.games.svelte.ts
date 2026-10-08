@@ -23,8 +23,6 @@ export class GameSearchFilter extends SearchFilter<GameData>
 		};
 
 		this.groups.push("love", "date", "genres", "platforms", "state");
-
-		this.sorts.push("random");
 	}
 
 

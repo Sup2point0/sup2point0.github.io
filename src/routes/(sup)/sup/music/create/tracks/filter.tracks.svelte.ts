@@ -17,7 +17,7 @@ export class TrackSearchFilter extends SearchFilter<MyTrackData>
 		super();
 
 		this.groups.push("album", "year", "genre");
-		this.sorts = ["default", "random", "name", "date", "album"];
+		this.sorts.push("album");
 		delete this.extra["expand all"];
 
 		this.sorters_specific["date"] = (

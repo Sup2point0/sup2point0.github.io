@@ -114,7 +114,7 @@ onMount(() => {
 
   :global(p) {
     padding: 0.25em 0;
-    line-height: 125%;
+    line-height: 1.5;
   }
 
   :global(a) {

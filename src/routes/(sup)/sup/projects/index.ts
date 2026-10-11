@@ -123,7 +123,8 @@ const data: Groups<ProjectData> = prep_groups<StaticProjectData>(
       flavour: Flavour.DEV,
       kind:    Kind.FRAMEWORK,
       tech_data: [
-        Lang.RUBY, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
+        Lang.RUST, Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS,
+        Lang.RUBY,
       ],
       state: [State.DEVELOPING, State.MAINTAINING],
       links: {
@@ -132,7 +133,7 @@ const data: Groups<ProjectData> = prep_groups<StaticProjectData>(
       },
       tags: ["squark", "squarkdown"],
       desc:
-        `Preprocessing automation for SvelteKit projects`,
+        `Markdown preprocessing for SvelteKit projects`,
     },
     {
       shard: "lattix",

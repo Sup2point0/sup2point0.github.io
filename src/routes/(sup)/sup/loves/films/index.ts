@@ -519,8 +519,8 @@ const data: Groups<FilmData> =
   "Timeless": [
     {
       name:   "Avatar",
-      date:   2009,
-      cover:  undefined,
+      date:   "childhood",
+      cover:  "avatar.webp",
       genres: [Genre.SCI_FI, Genre.EPIC, Genre.ACTION],
       flags:  [Flag.FIRST, Flag.SERIES],
       fields: {
@@ -529,8 +529,8 @@ const data: Groups<FilmData> =
     },
     {
       name:   "Back to the Future",
-      date:   1985,
-      cover:  undefined,
+      date:   "childhood",
+      cover:  "back-to-the-future.jpg",
       flags:  [Flag.FIRST, Flag.SERIES],
       fields: {
         rewatches: "3+",
@@ -538,8 +538,8 @@ const data: Groups<FilmData> =
     },
     {
       name:   "Frozen",
-      date:   2013,
-      cover:  undefined,
+      date:   "childhood",
+      cover:  "frozen.jpg",
       flags:  [Flag.ANIMATED, Flag.FIRST, Flag.SERIES],
       fields: {
         rewatches: "2+",
@@ -547,37 +547,52 @@ const data: Groups<FilmData> =
     },
     {
       name:   "The Boss Baby",
-      date:   2017,
-      cover:  undefined,
+      date:   "childhood",
+      cover:  "boss-baby.jpg",
       flags:  [Flag.ANIMATED, Flag.FIRST],
+      fields: {
+        rewatches: "2+",
+      },
     },
     {
       name:   "The LEGO Movie",
-      date:   2014,
-      cover:  undefined,
+      date:   "childhood",
+      cover:  "the-lego-movie.jpg",
       flags:  [Flag.ANIMATED],
+      fields: {
+        rewatches: "2+",
+      },
     },
     {
       name:   "Life of Pi",
-      date:   2012,
-      cover:  undefined,
+      date:   "childhood",
+      cover:  "life-of-pi.jpg",
       genres: [Genre.ADVENTURE, Genre.DRAMA],
+      fields: {
+        rewatches: "2+",
+      },
     },
     {
       name:   "The Truman Show",
-      date:   1998,
-      cover:  undefined,
+      date:   2021,
+      cover:  "the-truman-show.jpg",
+      fields: {
+        rewatches: "2+",
+      },
     },
     {
       name:   "Up",
-      date:   2009,
-      cover:  undefined,
+      date:   "childhood",
+      cover:  "up.webp",
       flags:  [Flag.ANIMATED],
+      fields: {
+        rewatches: "2+",
+      },
     },
     {
       name:   "WALL-E",
-      date:   2008,
-      cover:  undefined,
+      date:   "childhood",
+      cover:  "wall-e.jpg",
       flags:  [Flag.ANIMATED],
       fields: {
         rewatches: "3+",

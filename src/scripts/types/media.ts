@@ -53,7 +53,7 @@ export interface MediaData extends Searchable
 	genres?: Genre[]
 	themes?: Theme[]
 
-	cover?: filepath
+	cover: filepath
 
 	fields?: {}
 

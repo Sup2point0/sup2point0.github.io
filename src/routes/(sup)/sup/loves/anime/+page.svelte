@@ -6,6 +6,7 @@ import { AnimeSearchFilter } from "./filter.anime.svelte.ts";
 import { Cards, Main } from "#parts/core";
 import { Block, Breadcrumbs, Header, SearchFilters } from "#parts/ui";
 import { MediaBlock, MediaOverlay } from "#parts/loves";
+import { Adventure } from "#parts/special";
 
 
 // svelte-ignore non_reactive_update
@@ -43,7 +44,17 @@ let active_anime: AnimeData | null = $state(null);
 
 <Main>
 	<Block kind="ui expanded">
-		<p> I always watch anime with English subtitles and original audio, never dubbed. For one dubs always sound goofy and over-the-top to me. But also the sub just sounds inherently cooler, cuz it’s Japanese 😎 (The exception is Pokémon, where I grew up on the sub so it’s normalised for me – plus it’s already goofy so it works pretty well =) </p>
+		<Adventure routes={[
+			[1, `I really like anime. Even tho I haven’t seen all that many – altho I’m slowly building up a larger collection! Even if it’s mostly slightly degenerate romance comedy...`],
+
+			[1, `I really like anime, but I don’t know all that much ‘about it’. As in, if you name some random series, the odds I’ll have heard of it are low. I just watch what randomly catches my eye :P`],
+		]} />
+
+		<Adventure routes={[
+			[1, `I always watch anime with English subtitles and original audio, never dubbed. For one dubs always sound goofy and over-the-top to me. But also the sub just sounds inherently cooler, cuz it’s Japanese 😎 (The exception is Pokémon, where I grew up on the sub so it’s normalised for me – plus it’s already goofy so it works pretty well =)`],
+
+			[1, `I think I have found a particular taste – chill, funny slice-of-life is probably my favourite genre. The goofy and over-the-top vibe of anime is perfect for it. It’s just, y’know, nice and entertaining media that makes me smile for when I don’t want to be thinking too much.`],
+		]} />
 	</Block>
 
 	<SearchFilters bind:filters result_count={filters.count_results(animes_filtered)} />

@@ -10,6 +10,7 @@ export enum Genre {
 	COMING_OF_AGE = "coming of age",
 	DRAMA         = "drama",
 	DYSTOPIAN     = "dystopian",
+	ECCHI         = "ecchi",
 	EPIC          = "epic",
 	EROTICA       = "erotica",
 	FANTASY       = "fantasy",

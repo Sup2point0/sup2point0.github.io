@@ -140,7 +140,24 @@ const data: Groups<AnimeData> =
       cover:  "shikimori.jpg",
       genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE],
       themes: [Theme.WHOLESOME],
-    }
+    },
+    {
+      name:   "Girlfriend, Girlfriend",
+      date:   "fall 2026",
+      cover:  "girlfriend-girlfriend.jpg",
+      genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE, Genre.ECCHI, Genre.DRAMA],
+      themes: [Theme.FORBIDDEN_LOVE],
+      order:  ["anime S1, S2"],
+      is_shown: false,
+    },
+    {
+      name:   "My Stepmom’s Daughter Is My Ex",
+      date:   "summer 2026",
+      cover:  "ex.jpg",
+      genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE],
+      themes: [Theme.FORBIDDEN_LOVE, Theme.ENEMIES_TO_LOVERS],
+      is_shown: false,
+    },
   ],
   "Guilty Pleasures": [
     {
@@ -169,14 +186,6 @@ const data: Groups<AnimeData> =
       cover:  "yosuga-no-sora.jpg",
       genres: [Genre.ROMANCE, Genre.EROTICA],
       themes: [Theme.FORBIDDEN_LOVE],
-      is_shown: false,
-    },
-    {
-      name:   "My Stepmom’s Daughter Is My Ex",
-      date:   "summer 2026",
-      cover:  "ex.jpg",
-      genres: [Genre.ROMANCE, Genre.SLICE_OF_LIFE],
-      themes: [Theme.FORBIDDEN_LOVE, Theme.ENEMIES_TO_LOVERS],
       is_shown: false,
     },
   ],

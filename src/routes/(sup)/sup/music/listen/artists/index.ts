@@ -8,6 +8,36 @@ const data: Groups<ArtistData> =
 {
   "newly discovered": [
     {
+      shard:  "envacity",
+      name:   "Envacity",
+      date:   "fall 2026",
+      icon:   "envacity.jpg",
+      genres: [Genre.ELECTRONIC, Genre.LOFI],
+      vibes:  [Vibe.END_TIMES, Vibe.CHILLOUT],
+      track: {
+        name: "Tell Me", link: "https://youtube.com/watch?v=sNPiB3UP48o&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd"
+      },
+      discovered: `${h`Tell Me`} in YouTube Music reccs`,
+      desc: [
+        ``,
+      ],
+    },
+    {
+      shard:  "svrge",
+      name:   "SVRGE",
+      date:   "fall 2026",
+      icon:   "svrge.jpg",
+      genres: [Genre.ELECTRONIC, Genre.BASS],
+      vibes:  [Vibe.END_TIMES],
+      links: {
+        youtube: "https://youtube.com/playlist?list=PLJeUpVG_En9A",
+      },
+      discovered: `${h`TURN IT UP`} in YouTube Music reccs`,
+      desc: [
+        ``,
+      ],
+    },
+    {
       shard:  "symmetori",
       name:   "新目鳥 / symmetori",
       date:   "summer 2026",
@@ -40,17 +70,6 @@ const data: Groups<ArtistData> =
       desc: [
         ``,
       ],
-    },
-    {
-      shard:  "nabbe",
-      name:   "Nabbe",
-      date:   "early 2026",
-      icon:   "nabbe.jpg",
-      genres: [Genre.ELECTRONIC],
-      track: {
-        name: "Resonance", link: undefined
-      },
-      discovered: `YouTube Music reccs`,
     },
   ],
   "absolute favourites": [
@@ -100,20 +119,6 @@ const data: Groups<ArtistData> =
       ],
     },
     {
-      shard:  "pikasonic",
-      name:   "PIKASONIC",
-      date:   2024,
-      icon:   "pikasonic.jpg",
-      genres: [Genre.ELECTRONIC, Genre.FUTURE_BASS, Genre.JCORE],
-      track: {
-        name: "New Start", link: "https://youtube.com/watch?v=_P_2hh8CE_s&list=PLYWIouv-DSkDro0y_y55ojMZ6u3m6RKzJ"
-      },
-      links: {
-        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkDro0y_y55ojMZ6u3m6RKzJ",
-      },
-      discovered: `${h`New Start`} in YouTube reccs`,
-    },
-    {
       shard:  "stessie",
       name:   "Stessie",
       date:   "spring 2025",
@@ -127,6 +132,26 @@ const data: Groups<ArtistData> =
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkAlt2TuUBsjZgKF17agTDx4",
       },
       discovered: `${h`What If`} on Firefly Music in YouTube Music reccs`,
+    },
+    {
+      shard:  "puru",
+      name:   "puru",
+      date:   "summer 2024",
+      icon:   "puru.jpg",
+      genres: [Genre.RHYTHM, Genre.TRAP],
+      vibes:  [Vibe.CHILLOUT],
+      track: {
+        name: "Filament", link: "https://youtube.com/watch?v=UcvkBkcLEGM&list=PLYWIouv-DSkBt4zknZoQPwgiYLB4xHSRf"
+      },
+      links: {
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkBt4zknZoQPwgiYLB4xHSRf",
+      },
+      discovered: `${h`Grimheart`} in Arcaea`,
+      desc: [
+        `puru’s melodies absolutely melt me. I don’t know how they come up with them, but they’re unbelievably beautiful.`,
+
+        `Best part is, they combine that with the punchiest percussion, smooth synths and soul-bopping rhythms. Music with both movement and emotion, it’s an unstoppable combo.`,
+      ],
     },
     {
       shard:  "elektronomia",
@@ -150,6 +175,20 @@ const data: Groups<ArtistData> =
     },
   ],
   "regulars": [
+    {
+      shard:  "pikasonic",
+      name:   "PIKASONIC",
+      date:   2024,
+      icon:   "pikasonic.jpg",
+      genres: [Genre.ELECTRONIC, Genre.FUTURE_BASS, Genre.JCORE],
+      track: {
+        name: "New Start", link: "https://youtube.com/watch?v=_P_2hh8CE_s&list=PLYWIouv-DSkDro0y_y55ojMZ6u3m6RKzJ"
+      },
+      links: {
+        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkDro0y_y55ojMZ6u3m6RKzJ",
+      },
+      discovered: `${h`New Start`} in YouTube reccs`,
+    },
     {
       shard:  "moudelica",
       name:   "Moudelica",
@@ -213,31 +252,12 @@ const data: Groups<ArtistData> =
       discovered: `${h`Checkmate`} in Dance Cube EVO`,
     },
     {
-      shard:  "puru",
-      name:   "puru",
-      date:   "summer 2024",
-      icon:   "puru.jpg",
-      genres: [Genre.RHYTHM, Genre.TRAP],
-      vibes:  [Vibe.CHILLOUT],
-      track: {
-        name: "Filament", link: "https://youtube.com/watch?v=UcvkBkcLEGM&list=PLYWIouv-DSkBt4zknZoQPwgiYLB4xHSRf"
-      },
-      links: {
-        youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkBt4zknZoQPwgiYLB4xHSRf",
-      },
-      discovered: `${h`Grimheart`} in Arcaea`,
-      desc: [
-        `puru’s melodies absolutely melt me. I don’t know how they come up with them, but they’re unbelievably beautiful.`,
-
-        `Best part is, they combine that with the punchiest percussion, smooth synths and soul-bopping rhythms. Music with both movement and emotion, it’s an unstoppable combo.`,
-      ],
-    },
-    {
       shard:  "steradlye",
       name:   "Steradlye",
       date:   "late 2025",
       icon:   "steradlye.jpg",
       genres: [Genre.ELECTRONIC, Genre.DUBSTEP, Genre.FUTURE_BASS],
+      vibes:  [Vibe.END_TIMES],
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkANhMFRwLXr2yGKpFDvXJhO",
       },
@@ -315,6 +335,17 @@ const data: Groups<ArtistData> =
     },
   ],
   "mood": [
+    {
+      shard:  "nabbe",
+      name:   "Nabbe",
+      date:   "early 2026",
+      icon:   "nabbe.jpg",
+      genres: [Genre.ELECTRONIC],
+      track: {
+        name: "Resonance", link: undefined
+      },
+      discovered: `YouTube Music reccs`,
+    },
     {
       shard:  "virtual-riot",
       name:   "Virtual Riot",
@@ -468,6 +499,7 @@ const data: Groups<ArtistData> =
       date:   "fall 2025",
       icon:   "kanro.jpg",
       genres: [Genre.ELECTRONIC, Genre.DUBSTEP],
+      vibes:  [Vibe.END_TIMES],
       track: {
         name: "Amethyst", link: "https://youtube.com/watch?v=-__-oI8xWJk"
       },
@@ -582,15 +614,6 @@ const data: Groups<ArtistData> =
       discovered: `${h`Sakura Fubiki`} in Arcaea`,
     },
     {
-      shard:  "xomu",
-      name:   "Xomu",
-      date:   2025,
-      icon:   "xomu.jpg",
-      genres: [Genre.ELECTRONIC, Genre.HOUSE, Genre.COMPLEXTRO],
-      track: undefined,
-      discovered: `Hinkik`,
-    },
-    {
       shard:  "ak-q",
       name:   "ak+q",
       date:   "summer 2025",
@@ -687,6 +710,17 @@ const data: Groups<ArtistData> =
   ],
   "love them, but don’t listen much": [
     {
+      shard:  "hoshimachi-suisei",
+      name:   "Hoshimachi Suisei",
+      date:   2025,
+      icon:   "bibbidiba.jpg",
+      genres: [Genre.JCORE],
+      track: {
+        name: "BIBBIDIBA", link: "https://youtube.com/watch?v=8ZP5eqm4JqM&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd",
+      },
+      discovered: `YouTube Music reccs`,
+    },
+    {
       shard:  "paper-skies",
       name:   "Paper Skies",
       date:   2024,
@@ -740,39 +774,6 @@ const data: Groups<ArtistData> =
       discovered: `CHUNITHM`,
     },
     {
-      shard:  "laur",
-      name:   "Laur",
-      date:   2024,
-      icon:   "laur.webp",
-      genres: [Genre.ARTCORE],
-      track: {
-        name: "PRAGMATISM -RESURRECTION-", link: "https://youtube.com/watch?v=W0nauM-k3eU"
-      },
-      discovered: `Phigros / Arcaea`,
-    },
-    {
-      shard:  "lime",
-      name:   "Lime / Kankitsu",
-      date:   2024,
-      icon:   "lime.jpg",
-      genres: [Genre.ELECTRONIC, Genre.RHYTHM],
-      track: {
-        name: "Final Step!", link: "https://youtube.com/watch?v=v3JExHpJ09s&list=RDv3JExHpJ09s"
-      },
-      discovered: `Phigros`,
-    },
-    {
-      shard:  "se-u-ra",
-      name:   "Se-U-Ra",
-      date:   2024,
-      icon:   "se-u-ra.jpg",
-      genres: [Genre.ARTCORE, Genre.RHYTHM],
-      track: {
-        name: "Ark Six", link: "https://youtube.com/watch?v=BY4hMJPIbrI&list=PLYWIouv-DSkC4py2XtzGLX5AwEaGr1Q64"
-      },
-      discovered: `Phigros`,
-    },
-    {
       shard:  "arcerion",
       name:   "Arcerion",
       date:   2024,
@@ -796,17 +797,6 @@ const data: Groups<ArtistData> =
         name: "TO DUST THOU SHALT RETURN", link: undefined
       },
       discovered: `YouTube reccs`,
-    },
-    {
-      shard:  "sakuzyo",
-      name:   "Sakuzyo",
-      date:   2023,
-      icon:   "sakuzyo.jpg",
-      genres: [Genre.ELECTRONIC],
-      track: {
-        name: "Distorted Fate", link: undefined
-      },
-      discovered: `${h`Distorted Fate`} in Phigros`,
     },
     {
       shard:  "jiang-mi-tiao",
@@ -843,6 +833,50 @@ const data: Groups<ArtistData> =
       discovered: `${h`Such – Mend Your Ways`} in YouTube Music reccs`,
     },
     {
+      shard:  "feurrm-films",
+      name:   "feuerrmFilms",
+      date:   2018,
+      icon:   "feuerrm.jpg",
+      genres: [Genre.ELECTRONIC],
+      track: {
+        name: "Special Events", link: undefined
+      },
+      discovered: `YouTube`,
+    },
+  ],
+  "miscellaneous": [
+    {
+      shard:  "laur",
+      name:   "Laur",
+      date:   2024,
+      icon:   "laur.webp",
+      genres: [Genre.ARTCORE],
+      track: {
+        name: "PRAGMATISM -RESURRECTION-", link: "https://youtube.com/watch?v=W0nauM-k3eU"
+      },
+      discovered: `Phigros / Arcaea`,
+    },
+    {
+      shard:  "xomu",
+      name:   "Xomu",
+      date:   2025,
+      icon:   "xomu.jpg",
+      genres: [Genre.ELECTRONIC, Genre.HOUSE, Genre.COMPLEXTRO],
+      track: undefined,
+      discovered: `Hinkik`,
+    },
+    {
+      shard:  "sakuzyo",
+      name:   "Sakuzyo",
+      date:   2023,
+      icon:   "sakuzyo.jpg",
+      genres: [Genre.ELECTRONIC],
+      track: {
+        name: "Distorted Fate", link: undefined
+      },
+      discovered: `${h`Distorted Fate`} in Phigros`,
+    },
+    {
       shard:  "tanger",
       name:   "Tanger",
       date:   2024,
@@ -854,15 +888,26 @@ const data: Groups<ArtistData> =
       discovered: `YouTube interview`,
     },
     {
-      shard:  "feurrm-films",
-      name:   "feuerrmFilms",
-      date:   2018,
-      icon:   "feuerrm.jpg",
-      genres: [Genre.ELECTRONIC],
+      shard:  "se-u-ra",
+      name:   "Se-U-Ra",
+      date:   2024,
+      icon:   "se-u-ra.jpg",
+      genres: [Genre.ARTCORE, Genre.RHYTHM],
       track: {
-        name: "Special Events", link: undefined
+        name: "Ark Six", link: "https://youtube.com/watch?v=BY4hMJPIbrI&list=PLYWIouv-DSkC4py2XtzGLX5AwEaGr1Q64"
       },
-      discovered: `YouTube`,
+      discovered: `Phigros`,
+    },
+    {
+      shard:  "lime",
+      name:   "Lime / Kankitsu",
+      date:   2024,
+      icon:   "lime.jpg",
+      genres: [Genre.ELECTRONIC, Genre.RHYTHM],
+      track: {
+        name: "Final Step!", link: "https://youtube.com/watch?v=v3JExHpJ09s&list=RDv3JExHpJ09s"
+      },
+      discovered: `Phigros`,
     },
   ],
   "franchise soundtracks": [
@@ -993,7 +1038,7 @@ const data: Groups<ArtistData> =
       shard:  "kpop-demon-hunters",
       name:   "K-pop Demon Hunters",
       date:   "summer 2025",
-      icon:   undefined,
+      icon:   "huntrix.webp",
       genres: [Genre.KPOP, Genre.POP],
       track: {
         name: "Your Idol", link: "https://youtube.com/watch?v=mq2dq_KeV0M&list=PLYWIouv-DSkBSpUMpO2npkjWITrqSj5ev",
@@ -1001,7 +1046,7 @@ const data: Groups<ArtistData> =
       links: {
         youtube: "https://youtube.com/playlist?list=PLYWIouv-DSkBSpUMpO2npkjWITrqSj5ev",
       },
-      discovered: `childhood`,
+      discovered: ``,
     },
   ],
   classics: [
@@ -1147,17 +1192,6 @@ const data: Groups<ArtistData> =
       },
       discovered: `sister`,
     },
-    {
-      shard:  "katseye",
-      name:   "KATSEYE",
-      date:   2025,
-      icon:   undefined,
-      genres: [Genre.KPOP],
-      track: {
-        name: "Debut", link: "https://youtube.com/watch?v=bYg6aMDQ_TA&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd"
-      },
-      discovered: `sister`,
-    },
   ],
   labels: [
     {
@@ -1224,17 +1258,6 @@ const data: Groups<ArtistData> =
         name: "I wanna be a girl", link: "https://youtube.com/watch?v=ucbx9we6EHk&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd",
       },
       discovered: `Rhythm+ (browser rhythm game)`,
-    },
-    {
-      shard:  "hoshimachi-suisei",
-      name:   "Hoshimachi Suisei",
-      date:   2025,
-      icon:   "bibbidiba.jpg",
-      genres: [Genre.JCORE],
-      track: {
-        name: "BIBBIDIBA", link: "https://youtube.com/watch?v=8ZP5eqm4JqM&list=PLYWIouv-DSkA_6f6V_ZChkIKn7_Foqxnd",
-      },
-      discovered: `YouTube Music reccs`,
     },
     {
       shard:  "wave-meow",

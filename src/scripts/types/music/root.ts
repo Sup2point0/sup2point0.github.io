@@ -64,6 +64,7 @@ export enum Vibe {
 	CREEPY    = "creepy",
 	DISCO     = "disco",
 	EMOTIONAL = "emotional",
+	END_TIMES = "end times",
 	HAPPY     = "happy",
 	HEROIC    = "heroic",
 	MUTED     = "muted",

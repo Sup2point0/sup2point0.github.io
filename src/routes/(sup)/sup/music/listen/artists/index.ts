@@ -78,7 +78,7 @@ const data: Groups<ArtistData> =
       name:   "Camellia / かめりあ",
       date:   "late 2023",
       icon:   "camellia.png",
-      genres: [Genre.CAMELLIACORE, Genre.FULL_FLAVOUR, Genre.STEP200, Genre.TRANSCENDENTAL, Genre.RHYTHM,
+      genres: [Genre.CAMELLIACORE, Genre.FULL_FLAVOUR, Genre.STEP200, Genre.TRANSCENDENTAL, Genre.SPEEDCORE, Genre.RHYTHM,
       ],
       track: [
         { name: "Dance With Silence", link: "https://youtube.com/watch?v=ounWMVmQs0w&list=PLYWIouv-DSkCLPwaevGf-8oKXSE4syPAT" },
@@ -498,7 +498,7 @@ const data: Groups<ArtistData> =
       name:   "Kanro",
       date:   "fall 2025",
       icon:   "kanro.jpg",
-      genres: [Genre.ELECTRONIC, Genre.DUBSTEP],
+      genres: [Genre.ELECTRONIC, Genre.DUBSTEP, Genre.BASS],
       vibes:  [Vibe.END_TIMES],
       track: {
         name: "Amethyst", link: "https://youtube.com/watch?v=-__-oI8xWJk"
@@ -649,7 +649,7 @@ const data: Groups<ArtistData> =
       name:   "WING",
       date:   "spring 2025",
       icon:   "wing.jpg",
-      genres: [Genre.BEATBOX],
+      genres: [Genre.BEATBOX, Genre.ELECTRONIC],
       track: {
         name: "Dopamine (DnB remix)", link: "https://youtube.com/watch?v=GBuKYAN0RbM&list=PLYWIouv-DSkCC0pprSmxOqXkVTigfkUQ-"
       },
@@ -657,6 +657,17 @@ const data: Groups<ArtistData> =
         youtube: "https:/youtube.com/playlist?list=PLYWIouv-DSkCC0pprSmxOqXkVTigfkUQ-",
       },
       discovered: `${h`Beatboxing Pros Are Insane`} in YouTube reccs`,
+    },
+    {
+      shard:  "den",
+      name:   "DEN",
+      date:   "spring 2025",
+      icon:   "den.jpg",
+      genres: [Genre.BEATBOX, Genre.POP],
+      track: {
+        name: "One in a Million", link: undefined
+      },
+      discovered: `Grand Beatbox Battle 2025 wildcard`,
     },
     {
       shard:  "kaji",
@@ -674,29 +685,26 @@ const data: Groups<ArtistData> =
       name:   "Improver",
       date:   "spring 2025",
       icon:   "improver.jpg",
-      genres: [Genre.BEATBOX, Genre.DRUM_N_BASS],
+      genres: [Genre.BEATBOX, Genre.ELECTRONIC, Genre.DRUM_N_BASS],
       track: {
         name: "Feel the Future", link: "https://youtube.com/watch?v=tVZw7vQGR30&list=PLYWIouv-DSkCC0pprSmxOqXkVTigfkUQ-"
       },
       discovered: `Grand Beatbox Battle 2023 quarter-final vs WING`,
     },
     {
-      shard:  "den",
-      name:   "DEN",
-      date:   "spring 2025",
-      icon:   "den.jpg",
-      genres: [Genre.BEATBOX],
-      track: {
-        name: "One in a Million", link: undefined
-      },
-      discovered: `Grand Beatbox Battle 2025 wildcard`,
+      shard:  "kba",
+      name:   "KBA",
+      date:   "summer 2026",
+      icon:   "kba.jpg",
+      genres: [Genre.BEATBOX, Genre.DRUM_N_BASS],
+      discovered: `${h`GBB 2025`} judge panel`,
     },
     {
       shard:  "h-has",
       name:   "H-has",
       date:   "summer 2025",
       icon:   "h-has.webp",
-      genres: [Genre.BEATBOX],
+      genres: [Genre.BEATBOX, Genre.MUSIC],
       discovered: `Grand Beatbox Battle 2025 wildcard`,
     },
     {
@@ -704,7 +712,7 @@ const data: Groups<ArtistData> =
       name:   "Beatpella House",
       date:   "spring 2025",
       icon:   "beatpella-house.jpg",
-      genres: [Genre.BEATBOX],
+      genres: [Genre.BEATBOX, Genre.POP],
       discovered: `WING`,
     },
   ],
@@ -947,7 +955,7 @@ const data: Groups<ArtistData> =
       name:   "Master Duel",
       date:   2022,
       icon:   "master-duel.jpg",
-      genres: [Genre.CINEMATIC, Genre.ORCHESTRAL],
+      genres: [Genre.CINEMATIC, Genre.ORCHESTRAL, Genre.BOSS_MUSIC],
       discovered: String.raw`¯\_(ツ)_/¯`,
     },
     {
@@ -967,7 +975,7 @@ const data: Groups<ArtistData> =
       name:   "AirAttack",
       date:   2020,
       icon:   "air-attack.jpg",
-      genres: [Genre.CINEMATIC],
+      genres: [Genre.CINEMATIC, Genre.BOSS_MUSIC],
       vibes:  [Vibe.HEROIC, Vibe.WAR],
       track: [
         { name: "Dark Sands", link: undefined },
@@ -1137,7 +1145,7 @@ const data: Groups<ArtistData> =
       name:   "Avril Lavigne",
       date:   2017,
       icon:   "avril-lavigne.jpg",
-      genres: [Genre.ROCK, Genre.POP],
+      genres: [Genre.ROCK, Genre.POP, Genre.PUNK],
       track: {
         name: "When You’re Gone", link: "https://youtube.com/watch?v=0G3_kG5FFfQ&list=PLYWIouv-DSkDo8xDD039YebXy0ONQyPOA"
       },

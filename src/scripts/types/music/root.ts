@@ -35,7 +35,7 @@ export enum Genre {
 	HITECH             = "hi-tech",
 	HOUSE              = "house",
 	JCORE              = "j-core",
-	JPOP               = "k-pop",
+	JPOP               = "j-pop",
 	KAWAII             = "kawaii",
 	KAWAII_FUTURE_BASS = "kawaii future bass",
 	KPOP               = "k-pop",

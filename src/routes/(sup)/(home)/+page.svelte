@@ -1,7 +1,7 @@
 <script>
 
 import { portal } from "#scripts/state";
-import { i } from "#scripts/utils";
+import { a, i } from "#scripts/utils";
 
 import { Footer, Main, Nav } from "#parts/core";
 import { Block } from "#parts/ui";
@@ -37,7 +37,7 @@ import ProfileShowerthought from "./showerthought.svelte";
   <section class="upper">
     <div class="left">
       <ProfileHeader />
-      <Nav with-back={false} />
+      <Nav home={true} />
     </div>
 
     <div class="right">
@@ -62,7 +62,7 @@ import ProfileShowerthought from "./showerthought.svelte";
 
   <Block kind="fun">
     <p style:text-align="center">
-      {@html `If you want to find out more about me, you might actually be looking for ${i`Assort`}, my personal wiki ;)`}
+      {@html `If you want to find out more about me, you might actually be looking for ${a(i`Assort`, "https://sup2point0.github.io/Assort")}, my personal wiki ;)`}
     </p>
   </Block>
 </Main>

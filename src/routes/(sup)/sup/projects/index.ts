@@ -108,7 +108,7 @@ const data: Groups<ProjectData> = prep_groups<StaticProjectData>(
       tech_data: [
         Lang.PYTHON, Lang.CSHARP, Lang.TYPESCRIPT, Lang.HASKELL, Lang.RUST, Tech.DESMOS, // LANG.RUBY
       ],
-      state: [State.DEVELOPING, State.MAINTAINING],
+      state: [State.MAINTAINING],
       links: {
         github: "https://github.com/Sup2point0/weighted-list",
       },
@@ -146,7 +146,7 @@ const data: Groups<ProjectData> = prep_groups<StaticProjectData>(
       tech_data: [
         Lang.SVELTE, Lang.TYPESCRIPT,
       ],
-      state: State.DEVELOPING,
+      state: State.MAINTAINING,
       links: {
         github: "https://github.com/Sup2point0/lattix",
         site: "https://sup2point0.github.io/lattix",
@@ -183,7 +183,7 @@ const data: Groups<ProjectData> = prep_groups<StaticProjectData>(
         Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.HTML,
         Tech.DESMOS, Lang.KATEX,
       ],
-      state: State.DEVELOPING,
+      state: State.HIATUS,
       links: {
         github: "https://github.com/Sup2point0/awxynth",
         site: "https://sup2point0.github.io/axynth",
@@ -220,7 +220,7 @@ const data: Groups<ProjectData> = prep_groups<StaticProjectData>(
       tech_data: [
         Lang.SVELTE, Lang.TYPESCRIPT, Lang.SCSS, Lang.KATEX, Lang.MARKDOWN,
       ],
-      state: State.HIATUS,
+      state: State.DEVELOPING,
       links: {
         github: "https://github.com/Sup2point0/skyscraping",
         site: "https://sup2point0.github.io/skyscraping"
@@ -278,7 +278,7 @@ const data: Groups<ProjectData> = prep_groups<StaticProjectData>(
       tech_data: [
         Lang.TYPESCRIPT, Lang.SVELTE, Tech.DESMOS, Lang.RUBY,
       ],
-      state: State.DEVELOPING,
+      state: State.MAINTAINING,
       links: {
         github: "https://github.com/Sup2point0/desmost",
         site: "https://sup2point0.github.io/desmost",

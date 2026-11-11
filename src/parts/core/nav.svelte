@@ -4,20 +4,22 @@ import NavLink from "./nav.link.svelte";
 
 
 interface Props {
-  "with-back"?: boolean;
-  margin?: string;
+  home?: boolean
+  margin?: string
 }
 
-let { "with-back": back = true, margin = "1rem" }: Props = $props();
+let { home = false, margin = "1rem" }: Props = $props();
 
 </script>
 
 
-<nav class:back
+<nav class:home
   style:margin-bottom={margin}
 >
   <NavLink text="INFO" link="/sup/info" />
-  <NavLink text="SUP" link="https://sup2point0.github.io" />
+  {#if !home}
+    <NavLink text="SUP" link="https://sup2point0.github.io" />
+  {/if}
   <NavLink text="LOVES" link="/sup/loves" />
   <NavLink text="MUSIC" link="/sup/music" />
   <NavLink text="PROJECTS" link="/sup/projects" />
@@ -38,11 +40,13 @@ nav {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background: rgb(white, 4%);
+  backdrop-filter: blur(12px) brightness(90%);
   transition: $trans;
 
-  &.back {
-    background: rgb(white, 4%);
-    backdrop-filter: blur(12px) brightness(90%);
+  &.home {
+    background: none;
+    backdrop-filter: none;
   }
 }
 

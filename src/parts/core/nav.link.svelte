@@ -10,17 +10,18 @@ import { browser } from "$app/environment";
 
 
 interface Props {
-  text: string;
-  link: string;
-  dead?: boolean;
+  text: string
+  link: string
+  dead?: boolean
 }
 
 let { text, link, dead = false }: Props = $props();
 
 
-let active = $derived(
-  browser && page.url &&
-  window?.location.pathname.includes(link)
+let is_current = $derived(
+  browser
+  && page.url
+  && window?.location.pathname.includes(link)
 );
 
 </script>
@@ -28,7 +29,7 @@ let active = $derived(
 
 <a class="nav-link"
   href={link}
-  class:active
+  class:is_current
   class:dead
 >
   {text}

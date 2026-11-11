@@ -46,9 +46,9 @@ let { project }: Props = $props();
       {#each Object.entries(project.links ?? {}) as [platform, link]}
         <a class="project-link" target="_blank" href={link}>
           {#if platform === "github"}
-            <img class="ext-link" alt="git" title="GitHub" height="25px" src="/icons/socials/github.svg" />
+            <img class="ext-link" alt="git" title="GitHub" height="20px" src="/icons/socials/github.svg" />
           {:else if platform === "site"}
-            <img class="ext-link" alt="site" title="Site" height="30px" src="/icons/ui/open-external.svg" />
+            <img class="ext-link" alt="site" title="Site" height="24px" src="/icons/ui/open-external.svg" />
           {/if}
         </a>
       {/each}
@@ -186,6 +186,7 @@ img.project-icon {
   gap: 0.5rem;
 
   h3 {
+    margin-bottom: 0.25rem;
     @include font-ui;
     font-size: 200%;
     font-weight: normal;
@@ -295,7 +296,7 @@ img.project-icon {
 }
 
 .lower {
-  padding-top: 0.75rem;
+  padding-top: 1rem;
 
   ul.tags {
     display: flex;
